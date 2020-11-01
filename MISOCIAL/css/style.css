@@ -1080,7 +1080,7 @@ body.lock {
   background: #6a6a77;
 }
 
-.bottom-menu .drop-down__item::first-child {
+.bottom-menu .drop-down__item:first-child {
   color: #756edc;
 }
 
