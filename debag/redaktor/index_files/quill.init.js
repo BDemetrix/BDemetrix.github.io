@@ -133,7 +133,7 @@ $('#editor-plus').click(function () {
 });
 
 $(document).on('click', function(e){ 
-	if ($('.ql-tooltip').hasClass('ql-hidden')) {
+	if ($(e.target)[0] !== $('#editor-plus')[0]) {
 		$('.ql-tooltip').children('.ql-tooltip-arrow').css('left', '');
 	}
 });

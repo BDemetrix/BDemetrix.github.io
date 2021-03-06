@@ -1857,10 +1857,9 @@ var debug = (0, _logger2.default)('quill:events');
 var EVENTS = ['selectionchange', 'mousedown', 'mouseup', 'click'];
 
 EVENTS.forEach(function (eventName) {
-
   document.addEventListener(eventName, function (e) {
-    if(!e.target.closest('#editor-plus')) {
-      console.log(e.target);
+    if(e.target !== document.querySelector('#editor-plus')) {    // edited ===============
+
       for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
       }
@@ -1873,7 +1872,7 @@ EVENTS.forEach(function (eventName) {
           (_node$__quill$emitter = node.__quill.emitter).handleDOM.apply(_node$__quill$emitter, args);
         }
       });
-    }
+    } //===============================
   });
 });
 
