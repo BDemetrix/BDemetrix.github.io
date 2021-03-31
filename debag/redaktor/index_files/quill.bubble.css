@@ -880,10 +880,6 @@
   border-top: 6px solid #444;
   bottom: -6px;
 }
-.ql-bubble .ql-tooltip.ql-flip .ql-tooltip-arrow {
-  border-top: 6px solid #444;
-  bottom: -6px;
-}
 .ql-bubble .ql-tooltip.ql-editing .ql-tooltip-editor {
   display: block;
 }

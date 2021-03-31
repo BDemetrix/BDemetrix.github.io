@@ -1872,6 +1872,7 @@ EVENTS.forEach(function (eventName) {
           (_node$__quill$emitter = node.__quill.emitter).handleDOM.apply(_node$__quill$emitter, args);
         }
       });
+
     } //===============================
   });
 });
