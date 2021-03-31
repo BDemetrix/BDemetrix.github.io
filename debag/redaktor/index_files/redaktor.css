@@ -1,24 +1,24 @@
 @font-face {
 	font-family: 'PT Serif';
-	src: local('PT Serif'), local('PTSerif-Regular'), url('/themes/default/fonts/ptserif.woff2') format('woff2'), url('/themes/default/fonts/ptserif.woff') format('woff'), url('/themes/default/fonts/ptserif.ttf') format('truetype');
+	src: local('PT Serif'), local('PTSerif-Regular'), url('../themes/default/fonts/ptserif.woff2') format('woff2'), url('/themes/default/fonts/ptserif.woff') format('woff'), url('/themes/default/fonts/ptserif.ttf') format('truetype');
 	font-weight: 400;
 	font-style: normal;
 }
 @font-face {
 	font-family: 'PT Serif';
-	src: local('PT Serif Italic'), local('PTSerif-Italic'), url('/themes/default/fonts/ptserifitalic.woff2') format('woff2'), url('/themes/default/fonts/ptserifitalic.woff') format('woff'), url('/themes/default/fonts/ptserifitalic.ttf') format('truetype');
+	src: local('PT Serif Italic'), local('PTSerif-Italic'), url('../themes/default/fonts/ptserifitalic.woff2') format('woff2'), url('/themes/default/fonts/ptserifitalic.woff') format('woff'), url('/themes/default/fonts/ptserifitalic.ttf') format('truetype');
 	font-weight: 400;
 	font-style: italic;
 }
 @font-face {
 	font-family: 'PT Serif';
-	src: local('PT Serif Bold'), local('PTSerif-Bold'), url('/themes/default/fonts/ptserifbold.woff2') format('woff2'), url('/themes/default/fonts/ptserifbold.woff') format('woff'), url('/themes/default/fonts/ptserifbold.ttf') format('truetype');
+	src: local('PT Serif Bold'), local('PTSerif-Bold'), url('../themes/default/fonts/ptserifbold.woff2') format('woff2'), url('/themes/default/fonts/ptserifbold.woff') format('woff'), url('/themes/default/fonts/ptserifbold.ttf') format('truetype');
 	font-weight: 700;
 	font-style: normal;
 }
 @font-face {
 	font-family: 'PT Serif';
-	src: local('PT Serif Bold Italic'), local('PTSerif-BoldItalic'), url('/themes/default/fonts/ptserifbolditalic.woff2') format('woff2'), url('/themes/default/fonts/ptserifbolditalic.woff') format('woff'), url('/themes/default/fonts/ptserifbolditalic.ttf') format('truetype');
+	src: local('PT Serif Bold Italic'), local('PTSerif-BoldItalic'), url('../themes/default/fonts/ptserifbolditalic.woff2') format('woff2'), url('/themes/default/fonts/ptserifbolditalic.woff') format('woff'), url('/themes/default/fonts/ptserifbolditalic.ttf') format('truetype');
 	font-weight: 700;
 	font-style: italic;
 }
