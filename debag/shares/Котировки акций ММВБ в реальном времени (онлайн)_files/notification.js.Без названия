@@ -1,0 +1,53 @@
+// основано на jBox
+window.msgErrorBox = {
+
+	alert : function(title, message)
+	{
+		var options = {
+			animation: {open: 'flip', close: 'zoomIn'},
+			position: {
+				x: 16,
+				y: 16
+			},
+			color: 'red',
+			zIndex: 12000,
+			width: 250
+		};
+
+		if (title)
+		{
+			options['title'] = title;
+		} else
+		{
+			options['title'] = 'Ошибка!';
+		}
+		if (message) options['content'] = message;
+		new jBox('Notice', options);
+	}
+};
+
+window.msgNoticeBox = {
+	alert : function(title, message)
+	{
+		var options = {
+			animation: {open: 'flip', close: 'zoomIn'},
+			position: {
+				x: 16,
+				y: 16
+			},
+			color: 'green',
+			zIndex: 12000,
+			width: 250
+		};
+
+		if (title)
+		{
+			options['title'] = title;
+		} else
+		{
+			options['title'] = 'Внимание!';
+		}
+		if (message) options['content'] = message;
+		new jBox('Notice', options);
+	}
+};
