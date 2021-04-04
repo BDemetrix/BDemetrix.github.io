@@ -477,7 +477,7 @@ button.button-green:hover  {
 
 .title_block {
 	display: flex;
-	margin: 15px 130px 15px 0 !important;
+	margin: 24px 130px 15px 0 !important;
 
 	align-items: center;
 	max-width: 1256px;
