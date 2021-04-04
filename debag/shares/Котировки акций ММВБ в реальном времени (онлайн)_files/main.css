@@ -477,7 +477,7 @@ button.button-green:hover  {
 
 .title_block {
 	display: flex;
-	margin: 15px 0;
+	margin: 15px 130px 15px 0 !important;
 
 	align-items: center;
 	max-width: 1256px;
@@ -487,13 +487,15 @@ button.button-green:hover  {
 	flex: 1 1 auto;
 	height: 100%;
 	display: flex;
-	justify-content: center;
 	align-self: flex-end;
 	overflow: hidden;
-	text-overflow: ellipsis;
 	margin: 0 20px;
 }
 .title_block__link a {
+	margin: auto;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 	color: red;
 }
 .title_block.space
