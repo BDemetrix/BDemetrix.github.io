@@ -232,15 +232,16 @@ body {
 	position: absolute;
 	top: 0;
 	left: 0;
-	font-size: 25px;
 	background: #ccc;
 	width: 24px;
 	height: 24px;
 	border-radius: 13px;
 	text-align: center;
 	font-size: 21px;
+	line-height: 25px;
 	display: none;
 	cursor: pointer;
 	z-index: 100;
 	user-select: none;
+
 }
