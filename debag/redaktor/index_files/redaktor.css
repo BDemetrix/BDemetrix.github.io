@@ -230,49 +230,14 @@ body {
 }
 #editor-plus {
 	position: absolute;
-	top: 500px;
+	top: 0;
 	left: 0;
-	background: url("plus.svg") center no-repeat;
 	width: 25px;
 	height: 25px;
+	background: url("plus.svg") center / 100% no-repeat;
 	border-radius: 50%;
-	text-align: center;
-	/* font-size: 21px; */
-	/* display: none; */
+	display: none;
 	cursor: pointer;
 	z-index: 100;
 	user-select: none;
 }
-
-
-/* 
-#editor-plus span {
-	display: block;
-	top: 0;
-	left: 0;
-	width: 24px;
-	height: 24px;
-	position: absolute;
-	border-radius: 50%;
-}
-
-#editor-plus span::before,
-#editor-plus span::after {
-	content: "";
-	display: block;
-	background: #000;
-	position: absolute;
-	z-index: 3;
-	top: 50%;
-	left: 50%;
-	transform-origin: center;
-	transform: translate(-50%, -50%);
-}
-#editor-plus span::before {
-	width: 12px;
-	height: 1px;
-}
-#editor-plus span::after {
-	width: 1px;
-	height: 12px;
-} */
