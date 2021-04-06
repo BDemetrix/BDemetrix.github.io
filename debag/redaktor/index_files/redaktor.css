@@ -230,28 +230,26 @@ body {
 }
 #editor-plus {
 	position: absolute;
-	top: 0;
+	top: 500px;
 	left: 0;
-	background: #ccc;
-	width: 24px;
-	height: 24px;
+	background: url("plus.svg") center no-repeat;
+	width: 25px;
+	height: 25px;
 	border-radius: 50%;
 	text-align: center;
-	font-size: 21px;
-	display: none;
+	/* font-size: 21px; */
+	/* display: none; */
 	cursor: pointer;
 	z-index: 100;
 	user-select: none;
 }
 
 
-
+/* 
 #editor-plus span {
 	display: block;
 	top: 0;
 	left: 0;
-	/* bottom: 0;
-	right: 0; */
 	width: 24px;
 	height: 24px;
 	position: absolute;
@@ -277,4 +275,4 @@ body {
 #editor-plus span::after {
 	width: 1px;
 	height: 12px;
-}
+} */
