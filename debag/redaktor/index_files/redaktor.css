@@ -238,10 +238,9 @@ body {
 	border-radius: 13px;
 	text-align: center;
 	font-size: 21px;
-	line-height: 25px;
+	line-height: 24px;
 	display: none;
 	cursor: pointer;
 	z-index: 100;
 	user-select: none;
-
 }
