@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,regular,500,700,900&display=swap&subset=cyrillic-ext");
+
+@font-face {
+  font-family: "TrebuchetMS";
+  font-display: swap;
+  src: url("../fonts/TrebuchetMS-Bold.woff2") format("woff2"), url("../fonts/TrebuchetMS-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TrebuchetMS";
+  font-display: swap;
+  src: url("../fonts/TrebuchetMS.woff2") format("woff2"), url("../fonts/TrebuchetMS.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: "";
+  color: #000;
+  font-size: 14px;
+  margin: 0;
+}
+
+._container {
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+.box__table-wrap {
+  padding: 0 20px;
+}
+.to-info {
+  display: block;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border: 1px solid gray;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+}
+
+.to-info::before {
+  display: inline-block;
+  position: relative;
+  bottom: 2px;
+  height: 100%; 
+  content: "i";
+  font-style: italic;
+  font-size: 28px;
+  color: #000;
+  font-weight: 700;
+}
+
+h1 {
+  padding-right: 50px;
+}
+
+@media (max-width: 567.98px) {
+
+  ._container {
+    padding: 0 5px;
+  }
+  .box__table-wrap {
+    padding: 0 5px;
+  }
+
+  h1 {
+    font-size: 25px;
+    margin: 15px 0 15px;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  
+}

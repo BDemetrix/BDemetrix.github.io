@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>flexTable</title>
+  <meta charset="UTF-8">
+  <!-- <meta name="format-detection" content="telephone=no"> -->
+  
+  <link rel="stylesheet" href="css/monokai.css">
+  <link rel="stylesheet" href="css/simplebar.css">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- <link rel="shortcut icon" href="favicon.ico"> -->
+  <!-- <meta name="robots" content="noindex, nofollow"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+</head>
+<body>
+  
+  <div class="_container">
+    <h1>Адаптивная таблица FlexTable</h1>
+    <h2>Два варианта создания адапривной таблицы:</h2>
+    <ol>
+      <li><a href="flex-table/original.html" target="_blank"><h3>Стуктура таблицы перестраивается автоматически</h3></a></li>
+      <li><a href="flex-table/shell.html" target="_blank"><h3>Стуктура таблицы сверстана и плагин подключает только прокрутку</h3></a></li>
+    </ol>
+    
+    <div class="box">
+      <div class="box__title">
+        <h2>Как это работает</h2>
+      </div>
+
+      <div class="box__info">
+        <h3>HTML</h3>
+        <h4>
+          Создаем структуру (<a href="flex-table/original.html" target="_blank">первый выриант</a>):
+        </h4>
+        <div class="box__inner">
+<pre data-language="html"><code><div class="your-table _loading">
+  <table class="_hidden">
+  <!-- your table content -->
+  </table>
+</div></code></pre> 
+        </div>
+
+        <h4>
+          Для более быстрой работы скрипта можно создавать оболочку адапривной таблицы в html и заполнять ее самостоятельно (<a href="flex-table/shell.html" target="_blank">второй вариант</a>):
+        </h4>
+        <div class="box__inner">
+<pre><code data-language="html"><div class="table-wrapper  flex-table">
+  <div class="flex-table__inner _hidden">
+    <div class="flex-table__l-box">
+      <table class="flex-table__l-table">
+        <thead class="flex-table__l-thead"></thead>
+        <tbody class="flex-table__l-tbody"></tbody>
+      </table>
+    </div>
+    <div class="flex-table__r-box">
+      <div class="flex-table__r-header-wrap">
+        <div class="flex-table__r-header-inner">
+          <table class="flex-table__r-header-table">
+            <thead class="flex-table__r-table-thead"></thead>
+          </table>
+        </div>
+      </div>
+      <div class="flex-table__r-table-wrap">
+        <table class="flex-table__r-table">
+          <tbody class="flex-table__r-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</code></pre>
+        </div>
+
+        <h4>Получить оболочку адаптивной таблицы можно вызвав функцию:</h4>
+        <div class="box__inner">
+<pre data-language="javascript"><code>let shell = getFlaxTableShell();
+console.log(shell);
+</code></pre>  
+        </div>
+
+        <h4>Настройки:</h4>
+        <div class="box__inner">
+<pre data-language="html"><code> <div class="your-table" data-flextable="1,2,3,5,false">
+  <table>
+    <!-- your table content -->
+  </table>
+</div>
+<!-- 
+  data-flextable="rows, cols, col, colAfter, simpleBar"
+  rows – the number of fixed rows,
+  cols – the number of fixed cols,
+  col – the number of the column that is being rearranged,
+  colAfter - the number of the column after which the rearranged column is placed.
+  default: data-flextable="1,2,0,0,true" - optional attribute
+
+  Любую из позицый в data-flextable можно оставить пустой: data-flextable=",,3,5," 
+-->
+</code></pre>      
+        </div>
+      </div>
+      
+      <div class="box__info">
+        <h3>JavaScript</h3>
+        <h4>Для подключения можно использовать либо селектор:</h4>
+        <div class="box__inner">
+<pre data-language="javascript"><code>let yourTable = new FlexTable('.your-table');</code></pre>        
+        </div>
+
+        <h4>либо DOM объект: </h4>
+        <div class="box__inner">
+<pre data-language="javascript"><code>let yourTable = document.querySelector('.your-table');
+if (yourTable) {
+  new FlexTable(newTable);
+}</code></pre>          
+        </div>
+
+      </div>
+
+      <div class="box__info">
+        <h3>CSS</h3>
+        <h4>Класс <span class="class_name">._loading</span> добавляет прелоадер</h4>
+        <div class="box__inner">
+<pre data-language="css"><code>.flex-table._loading,
+.your-table ._loading {
+  overflow: hidden;
+}
+
+.flex-table._loading::before,
+.your-table ._loading::before {
+  display: block;
+  content: "";
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 30px;
+  right: 50%;
+    -webkit-transform: translate(50%, 0);
+      -ms-transform: translate(50%, 0);
+  transform: translate(50%, 0);
+  background: url("../images/loading.gif") center/100% no-repeat;
+}
+</code></pre>    
+
+        </div>
+
+        <h4>Класс <span class="class_name">._hidden</span> скрывает таблицу на время загрузки</h4>
+        <div class="box__inner">
+<pre data-language="css"><code>.flex-table__inner._hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.your-table table._hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+</code></pre>
+
+        </div>
+
+        <h4>Стили адаптивной таблицы задаются слежующим образом:</h4>
+        <div class="box__inner">
+<pre data-language="css"><code>.your-table .flex-table__inner {
+  ...
+}
+.your-table .flex-table__l-table {
+  ...
+}  
+.your-table .flex-table__r-table {
+  ...
+}  
+.your-table .flex-table__r-header-table {
+  ...
+}  
+...
+</code></pre>        
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  
+  <script src="js/rainbow-custom.min.js"></script>
+  <script src="js/simplebar.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>
