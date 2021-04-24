@@ -17,13 +17,24 @@
   
   <div class="_container">
     <h1>Адаптивная таблица FlexTable</h1>
-    <h2>Два варианта создания адапривной таблицы:</h2>
+    <h2>Два варианта создания адаптивной таблицы:</h2>
     <ol>
       <li><a href="flex-table/original.html" target="_blank"><h3>Стуктура таблицы перестраивается автоматически</h3></a></li>
       <li><a href="flex-table/shell.html" target="_blank"><h3>Стуктура таблицы сверстана и плагин подключает только прокрутку</h3></a></li>
     </ol>
     
     <div class="box">
+      <div class="box__title">
+        <h2>Для чего нужен плагин FlexTable</h2>
+        <p>
+          Плагин создает из обычной таблицы, которая не помещается в ширину экрана, адаптивную таблицу
+          с фиксированной шапкой и несколькими первыми столбцами.
+        </p>
+        <p>
+          Горизонтальная прокрутка основного контента и фиксация первых столбцов и заголовка позволяет удобно просматривать
+          информацию на любых экранах.
+        </p>
+      </div>
       <div class="box__title">
         <h2>Как это работает</h2>
       </div>
@@ -51,7 +62,7 @@
         </div>
 
         <h4>
-          Для более быстрой работы скрипта можно создавать оболочку адапривной таблицы в html и заполнять ее самостоятельно (<a href="flex-table/shell.html" target="_blank">второй вариант</a>):
+          Для более быстрой работы скрипта можно создавать оболочку адаптивной таблицы в html и заполнять ее самостоятельно (<a href="flex-table/shell.html" target="_blank">второй вариант</a>):
         </h4>
         <div class="box__inner">
 <pre><code data-language="html"><div class="your-table flex-table">
@@ -59,10 +70,10 @@
     <div class="flex-table__l-box">
       <table class="flex-table__l-table">
         <thead class="flex-table__l-thead"> 
-          <!-- contents of your table -->
+          <!-- header content of fixed columns -->
         </thead>
         <tbody class="flex-table__l-tbody">
-          <!-- contents of your table -->
+          <!-- body content of fixed columns -->
         </tbody>
       </table>
     </div>
@@ -71,7 +82,7 @@
         <div class="flex-table__r-header-inner">
           <table class="flex-table__r-header-table">
             <thead class="flex-table__r-table-thead">
-              <!-- contents of your table -->
+              <!-- header content of scrolling columns -->
             </thead>
           </table>
         </div>
@@ -79,7 +90,7 @@
       <div class="flex-table__r-table-wrap">
         <table class="flex-table__r-table">
           <tbody class="flex-table__r-tbody">
-            <!-- contents of your table -->
+            <!-- body content of scrolling columns -->
           </tbody>
         </table>
       </div>

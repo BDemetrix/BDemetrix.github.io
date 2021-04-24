@@ -40,6 +40,12 @@ a h3 {
 ol {
   margin-bottom: 50px;
 }
+li a {
+  text-decoration: none;
+}
+li a:hover {
+  text-decoration: underline #06aecf;
+}
 li::marker {
   font-size: 22px;
 }
@@ -67,6 +73,12 @@ footer a {
 }
 .simplebar-mask {
   border-radius: 5px;
+}
+.box__title:first-child {
+  margin-bottom: 50px;
+}
+.box__title:first-child h2{
+  margin-bottom: 15px;
 }
 .box__info {
   margin-bottom: 70px;
