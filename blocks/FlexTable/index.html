@@ -30,6 +30,15 @@
 
       <div class="box__info">
         <h3>HTML</h3>
+        <h4>Подключение плагина</h4>
+        <div class="box__inner">
+<pre data-language="html"><code><link rel="stylesheet" href="css/simplebar.css">
+<link rel="stylesheet" href="css/flex-table.css">
+...
+<script src="js/simplebar.js"></script>
+<script src="js/flex_table.js"></script></code></pre>
+        </div>
+
         <h4>
           Создаем структуру (<a href="flex-table/original.html" target="_blank">первый выриант</a>):
         </h4>
@@ -159,7 +168,41 @@ if (yourTable) {
 
         </div>
 
-        <h4>Стили адаптивной таблицы задаются слежующим образом:</h4>
+        <h4>Класс <span class="class_name">._decor</span> отвечает за появление псевдоэлементов по краям правой части таблицы с горизонтальным скролом. Это дает понять пользователю, что контент пролистывается.</h4>
+        <div class="box__inner">
+<pre data-language="css"><code>..flex-table__r-box._decor::before,
+.flex-table__r-box._decor::after {
+  opacity: 1;
+}
+
+.flex-table__r-box::before,
+.flex-table__r-box::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  z-index: 5;
+  width: 10px;
+  opacity: 0;
+}
+
+.flex-table__r-box::before {
+  left: 0;
+  background: -webkit-gradient(linear, left top, right top, from(#ccc), to(transparent));
+  background: -o-linear-gradient(left, #ccc, transparent);
+  background: linear-gradient(to right, #ccc, transparent);
+}
+
+.flex-table__r-box::after {
+  right: 0;
+  background: -webkit-gradient(linear, right top, left top, from(#ccc), to(transparent));
+  background: -o-linear-gradient(right, #ccc, transparent);
+  background: linear-gradient(to left, #ccc, transparent);
+}</code></pre>
+        
+        </div>
+
+        <h4>Стили адаптивной таблицы определяются слежующим образом:</h4>
         <div class="box__inner">
 <pre data-language="css"><code>.your-table .flex-table__inner {
   ...
