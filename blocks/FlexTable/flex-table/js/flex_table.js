@@ -273,14 +273,20 @@ class FlexTable {
   }
   defineScrollBar(){
     if (this.options.simpleBar) {
-      this.simpleBar = new SimpleBar(this.inner.rightTableWrap);
-      if (this.simpleBar) {
-        this.scroller = this.inner.rightBox.querySelector(".simplebar-content-wrapper");
-        if (this.scroller) {
-          let sBSHTrack = this.inner.rightBox.querySelector(".simplebar-track.simplebar-horizontal");
-          sBSHTrack = sBSHTrack.getBoundingClientRect().height;
-          this.inner.rightTableWrap.style.marginBottom = -sBSHTrack + 'px';
+      try {
+        this.simpleBar = new SimpleBar(this.inner.rightTableWrap);
+        if (this.simpleBar) {
+          this.scroller = this.inner.rightBox.querySelector(".simplebar-content-wrapper");
+          if (this.scroller) {
+            let sBSHTrack = this.inner.rightBox.querySelector(".simplebar-track.simplebar-horizontal");
+            sBSHTrack = sBSHTrack.getBoundingClientRect().height;
+            this.inner.rightTableWrap.style.marginBottom = -sBSHTrack + 'px';
+          }
         }
+      }
+      catch {
+        this.inner.rightTableWrap.style.overflowX = 'auto'
+        this.scroller = this.wrap;
       }
     }
     else {
