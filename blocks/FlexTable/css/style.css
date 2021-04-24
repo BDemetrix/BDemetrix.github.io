@@ -123,7 +123,10 @@ footer a {
     margin-bottom: 50px;
   }
   .box__info:last-child {
-    margin-bottom: 25px;
+    margin-bottom: 0px;
+  }
+  .box__info:last-child .box__inner:last-child{
+      margin-bottom: 0px;
   }
   .box__inner {
     margin-bottom: 25px;
