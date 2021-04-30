@@ -1,6 +1,4 @@
-
 .trades-table {
-  font-family: "TrebuchetMS";
   position: relative;
   opacity: 1;
   -webkit-transition: opacity .3s linear;
@@ -68,11 +66,37 @@
   vertical-align: top;
 }
 
-._no-webp .trades-table a.charticon{
-  background: url(../images/chart-icon-small.png) no-repeat; }
+.trades-table a.charticon {
+  background: url(../images/chart-icon-small.png) no-repeat;
+}
 
-._no-webp .trades-table a.charticon2{
-  background: url(../images/chart2-icon-small.png) no-repeat; }
+.trades-table a.charticon2 {
+  background: url(../images/chart2-icon-small.png) no-repeat;
+}
+
+.trades-table .flex-table__ad-text {
+  top: -4px;
+  height: calc(100% + 8px);
+  padding: 4px 0;
+  background: #fafafa;
+  color: #0012ff;
+  font-weight: bold;
+}
+
+.trades-table .flex-table__ad-text a {
+  display: inline-block;
+  color: #0012ff;
+  font-weight: bold;
+  line-height: 19px;
+  vertical-align: bottom;
+  width: 100%;
+  height: 100%;
+}
+
+.trades-table .flex-table__ad-text:hover {
+  background: #f2f2f2;
+  background: -moz-linear-gradient(top, #f2f2f2, #f0f0f0);
+}
 
 .trades-table .flex-table__inner {
   border: 1px solid #e0e0e0;
@@ -87,6 +111,11 @@
 .trades-table .flex-table__l-table * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+.trades-table .flex-table__l-table .flex-table__ad td {
+  border-right: 1px solid transparent;
+  padding: 4px 0;
 }
 
 .trades-table .flex-table__l-table tr td {
@@ -127,9 +156,15 @@
 
 .trades-table .flex-table__r-table {
   table-layout: fixed;
-  /* tr:first-child  td{
-			height: 38px;
-		} */
+}
+
+.trades-table .flex-table__r-table .flex-table__ad td {
+  border-left: 1px solid transparent;
+  padding: 4px 0;
+}
+
+.trades-table .flex-table__r-table .flex-table__ad td:hover {
+  background: #fafafa;
 }
 
 .trades-table .flex-table__r-table tr td {
@@ -226,6 +261,7 @@
   overflow: hidden;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  border-top: 1px solid #e0e0e0;
   border-bottom: 1px solid #e0e0e0;
   border-left: 1px solid #e0e0e0;
   background: #fafafa;
@@ -314,15 +350,6 @@
 .trades-table__add-list {
   width: 64px;
 }
-
-.trades-table a.charticon{
-  background: url('../images/chart-icon-small.png') no-repeat; 
-}
-
-.trades-table a.charticon2{
-  background: url('../images/chart2-icon-small.png') no-repeat; 
-}
-
 
 @media (min-width: 991.98px) {
   .trades-table .flex-table__l-table {

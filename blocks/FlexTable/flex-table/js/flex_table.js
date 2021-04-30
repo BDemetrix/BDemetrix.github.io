@@ -30,7 +30,7 @@ class FlexTable {
     colAfter: 0,
     simpleBar: true
   }
-}
+  }
   initOptions() {
     let optionsArr = this.wrap.dataset.flextable;
     if (optionsArr) {
@@ -204,9 +204,9 @@ class FlexTable {
     if (trs[row]) {
       for (let i = row; i < trs.length; i++) {
         let tds = trs[i].querySelectorAll('td, th');
+        let newLeftTBodyTr = document.createElement('tr');
+        let newRightTBodyTr = document.createElement('tr');
         if (tds.length > 1) {
-          let newLeftTBodyTr = document.createElement('tr');
-          let newRightTBodyTr = document.createElement('tr');
 
           for (let j = 0; j < col; j++) {
             newLeftTBodyTr.append(tds[j])
@@ -222,6 +222,20 @@ class FlexTable {
           this.inner.leftTBody.append(newLeftTBodyTr);
           this.inner.rightTBody.append(newRightTBodyTr)
         }
+        if (tds.length == 1) {
+          const marketHTML = `<td style="overflow: visible;"><div class="flex-table__ad-wrap"><div class="flex-table__ad-text">${tds[0].innerHTML}</div></div></td>`;
+          newRightTBodyTr.innerHTML = marketHTML;
+          newRightTBodyTr.className = 'flex-table__ad';
+          this.inner.rightTBody.append(newRightTBodyTr);
+
+          for (let i = 0; i < col; i++) {
+            let td = document.createElement('td');
+            td.innerHTML = '&nbsp';
+            newLeftTBodyTr.append(td);
+          }
+          newLeftTBodyTr.className = 'flex-table__ad';
+          this.inner.leftTBody.append(newLeftTBodyTr);
+        }
       }
     }
     this.sourceTable.remove();
@@ -229,6 +243,7 @@ class FlexTable {
   setupParameters() {
     let inner = this.inner;
     let wrap = this.wrap;
+    this.adTextEls = wrap.querySelectorAll('.flex-table__ad-text');
     inner.rightHeaderInner.style.width = '';
     inner.rightTableWrap.style.maxWidth = '';
     inner.rightTableWrap.style.width = '';
@@ -244,7 +259,6 @@ class FlexTable {
     let leftBoxHeight = inner.leftBox.clientHeight;
 
     this.overflowX = (leftTableWidth + rightTableWidth) > wrapW;
-
     this.overflowY = leftBoxHeight < (inner.leftTable.getBoundingClientRect().height);
 
     let rightBoxWidth;
@@ -265,28 +279,49 @@ class FlexTable {
       inner.rightTableWrap.style.maxWidth = rightBoxWidth + 'px';
       inner.rightTableWrap.style.width = rightBoxWidth + 'px';
     }
+
+    if (this.adTextEls) {
+      if (this.overflowX) {
+        this.adTextEls.forEach(adText => {
+          adText.style.width = rightBoxWidth + 'px';
+          adText.style.left = '0px';
+        });
+      }
+      else{
+        this.adTextEls.forEach(adText => {
+          adText.style.width = inner.clientWidth + 'px';
+          adText.style.left = rightBoxWidth - inner.clientWidth + 'px';
+        });
+      }
+    }
   }
   translateHeader() {
     let wrapX = this.inner.rightBox.getBoundingClientRect().left;
     let rightTableX = this.inner.rightTable.getBoundingClientRect().left;
     this.inner.rightHeaderTable.style.transform = `translate(${((rightTableX - wrapX) + "px")}, 0)`;
   }
+  translateAdTextEls() {
+    let wrapX = this.inner.rightBox.getBoundingClientRect().left;
+    let rightTableX = this.inner.rightTable.getBoundingClientRect().left;
+    let wrapR = this.inner.rightBox.getBoundingClientRect().right;
+    let rightTableR = this.inner.rightTable.getBoundingClientRect().right;
+
+    this.adTextEls.forEach(adText => {
+      if (wrapR <= rightTableR) {
+        adText.style.transform = `translate(${(-(rightTableX - wrapX) + "px")}, 0)`;
+      }
+    });
+  }
   defineScrollBar(){
     if (this.options.simpleBar) {
-      try {
-        this.simpleBar = new SimpleBar(this.inner.rightTableWrap);
-        if (this.simpleBar) {
-          this.scroller = this.inner.rightBox.querySelector(".simplebar-content-wrapper");
-          if (this.scroller) {
-            let sBSHTrack = this.inner.rightBox.querySelector(".simplebar-track.simplebar-horizontal");
-            sBSHTrack = sBSHTrack.getBoundingClientRect().height;
-            this.inner.rightTableWrap.style.marginBottom = -sBSHTrack + 'px';
-          }
+      this.simpleBar = new SimpleBar(this.inner.rightTableWrap);
+      if (this.simpleBar) {
+        this.scroller = this.inner.rightBox.querySelector(".simplebar-content-wrapper");
+        if (this.scroller) {
+          let sBSHTrack = this.inner.rightBox.querySelector(".simplebar-track.simplebar-horizontal");
+          sBSHTrack = sBSHTrack.getBoundingClientRect().height;
+          this.inner.rightTableWrap.style.marginBottom = -sBSHTrack + 'px';
         }
-      }
-      catch {
-        this.inner.rightTableWrap.style.overflowX = 'auto'
-        this.scroller = this.wrap;
       }
     }
     else {
@@ -298,6 +333,9 @@ class FlexTable {
     this.scroller = this.scroller || this.inner.rightTableWrap;
     this.translateX = this.translateHeader.bind(this);
     this.scroller.addEventListener('scroll', this.translateX);
+
+    this.translateAdText = this.translateAdTextEls.bind(this);
+    this.scroller.addEventListener('scroll', this.translateAdText);
   }
   hover() {
     let table = this.inner;
@@ -369,29 +407,6 @@ class FlexTable {
     this.wrap.classList.remove('_loading');
     this.inner.classList.remove('_hidden');
   }
-  /* addRow(rowHTML) {
-    let div = document.createElement('div');
-    let leftTr = document.createElement('tr');
-    let rightTr = document.createElement('tr');
-    div.innerHTML = rowHTML;
-    let tds = div.querySelectorAll('th, td');
-    if (tds.length > 0) {
-      for (let i = 0; i < this.options.cols; i++) {
-        leftTr.append(tds[i]);
-      }
-      if (tds[this.options.cols]) {
-        for (let i = this.options.cols; i < tds.length; i++) {
-          rightTr.append(tds[i]);
-        }
-      }
-      else {
-        let td = document.createElement('td');
-        rightTr.append(td);
-      }
-      this.inner.leftTBody.append(leftTr);
-      this.inner.rightTBody.append(rightTr);
-    }
-  } */
   run(tableWrap) {
 
     if (typeof tableWrap === 'string') {

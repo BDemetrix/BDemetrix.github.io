@@ -106,8 +106,16 @@
   background: linear-gradient(to left, #ccc, transparent);
 }
 
+.flex-table__r-box .simplebar-scrollbar.simplebar-visible:before {
+  opacity: 0;
+}
+
 .flex-table__r-box._decor::before,
 .flex-table__r-box._decor::after {
+  opacity: 1;
+}
+
+.flex-table__r-box._decor .simplebar-scrollbar.simplebar-visible:before {
   opacity: 1;
 }
 
@@ -147,4 +155,23 @@
 .flex-table__r-table-wrap .simplebar-track.simplebar-horizontal {
   position: -webkit-sticky;
   position: sticky;
+}
+
+.flex-table__ad-wrap {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  overflow: visible;
+}
+
+.flex-table__ad-text {
+  position: absolute;
+  z-index: 3;
+  height: 100%;
+  left: 0;
+  top: 0;
+  text-align: center;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
 }
