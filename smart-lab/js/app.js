@@ -254,7 +254,7 @@ clnInputBtn.addEventListener('click', () => {
   searchInput.blur();
   setTimeout(() => {
     searchInput.focus();
-  }, 200);
+  }, 210);
 }, false);
 
 
@@ -307,13 +307,20 @@ var windowFeatures = "menubar=yes,location=yes,resizable=yes,scrollbars=yes,stat
 
 $('[autocompleter]').autocomplete({
   lookup: response,
+  appendTo: '.query-search__suggestions',
+  maxHeight: 'auto',
+  autoSelectFirst: true,
   onSelect: function (suggestion) {
-    window.open(suggestion.data, "CNN_WindowName", windowFeatures);
+    window.open(suggestion.data, "WindowName", windowFeatures);
     this.value = '';
   },
-  appendTo: '.query-search__suggestions',
-  forceFixPosition: false,
-  maxHeight: 'auto',
+  beforeRender: function (container, suggestions) {
+    $.each(suggestions, function (i, v) {
+      if (('hilite' in v) && (v['hilite'])) {
+        container.find('.autocomplete-suggestion[data-index="' + i + '"]').addClass('hilite');
+      }
+    });
+  },
 });
 plugSimpleBar('.query-search__suggestions');
 
