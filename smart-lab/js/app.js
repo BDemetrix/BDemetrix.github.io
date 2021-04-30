@@ -199,7 +199,7 @@ function closeAllHeadersMenu() {
 let activeHaadersEl = document.querySelectorAll('.header ._active-el');
 activeHaadersEl.forEach( el => {
   el.addEventListener('click', ()=>{
-    if (!el.parentElement.classList.contains('_open')) {
+    if (!el.parentElement.classList.contains('_open')) { //
       closeAllHeadersMenu();
     }
     el.parentElement.classList.toggle('_open');
@@ -207,20 +207,126 @@ activeHaadersEl.forEach( el => {
 });
 
 document.documentElement.addEventListener('click', (e)=>{
-  if (!e.target.closest('._open') && !e.target.closest('._active-el')) {
-    closeAllHeadersMenu();
+  if (!e.target.closest('._open') && !e.target.closest('._active-el')) { 
+    closeAllHeadersMenu();  
   }
 });
 
 // SimpleBar
-let headerNotifyBody = document.querySelector('.header .notify__body');
-if (headerNotifyBody) {
-  try {
-    new SimpleBar(headerNotifyBody);
-  }catch {
-    headerNotifyBody.style.ovetflowY = 'auto';
+
+plugSimpleBar('.header .notify__body');
+
+function plugSimpleBar(selector) {  
+  let simpleBarEl = document.querySelector(selector);
+  if (simpleBarEl) {
+    try {
+      new SimpleBar(simpleBarEl);
+      
+    } catch {
+      simpleBarEl.style.ovetflowY = 'auto';
+    }
   }
 }
 
+// Header search ========= 
+
+let searchInput = document.querySelector('.query-search__input');
+searchInput.addEventListener('focus', () => {
+  searchInput.classList.add('_focus');
+  searchInput.parentElement.classList.add('_focus');
+  });
+searchInput.addEventListener('blur', () => {
+  const searchInputParent = searchInput.parentElement;
+  setTimeout(() => {
+    searchInput.classList.remove('_focus');
+    searchInputParent.classList.remove('_focus');
+    searchInput.value = '';
+  }, 200);
+});
+
+let searchIcon = document.querySelector('.query-search__icon');
+searchIcon.addEventListener('click', () => {
+  searchInput.focus();
+});
+
+let clnInputBtn = document.querySelector('.query-search__input-clean');
+clnInputBtn.addEventListener('click', () => {
+  searchInput.blur();
+  setTimeout(() => {
+    searchInput.focus();
+  }, 200);
+}, false);
+
+
+// jQuary ==========
+
+let response = [
+  {
+    "data": "https://smart-lab.ru/forum/%D0%90%D0%9E%20%C2%AB%D0%90%D1%82%D0%BE%D0%BC%D0%BD%D1%8B%D0%B9%20%D1%8D%D0%BD%D0%B5%D1%80%D0%B3%D0%BE%D0%BF%D1%80%D0%BE%D0%BC%D1%8B%D1%88%D0%BB%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BF%D0%BB%D0%B5%D0%BA%D1%81%C2%BB%20%28%D0%90%D1%82%D0%BE%D0%BC%D1%8D%D0%BD%D0%B5%D1%80%D0%B3%D0%BE%D0%BF%D1%80%D0%BE%D0%BC%29",
+    "value": "АО «Атомный энергопромышленный комплекс» (Атомэнергопром)",
+    "hilite": true
+  },
+  {
+    "data": "https://smart-lab.ru/bonds/Shevchenko",
+    "value": "АО Им. Т.Г. Шевченко [обл]"
+  },
+  {
+    "data": "https://smart-lab.ru/bonds/maximatelecom",
+    "value": "АО \"МаксимаТелеком\" [обл]"
+  },
+  {
+    "data": "https://smart-lab.ru/bonds/AO_Trud",
+    "value": "АО Труд [обл]"
+  },
+  {
+    "data": "https://smart-lab.ru/brokers-rating/%D0%90%D0%9E%20%D0%98%D0%9A%20%22%D0%A4%D0%BE%D0%BD%D0%B4%D0%BE%D0%B2%D1%8B%D0%B9%20%D0%9A%D0%B0%D0%BF%D0%B8%D1%82%D0%B0%D0%BB%22",
+    "value": "АО ИК \"Фондовый Капитал\" [brk]"
+  },
+  {
+    "data": "https://smart-lab.ru/bonds/I-TECO",
+    "value": "Ай-Теко [обл]"
+  },
+  {
+    "data": "https://smart-lab.ru/trading/%D0%90%D0%9E%20%22%D0%97%D0%B0%D0%B2%D0%BE%D0%B4%20%D0%9A%D0%BE%D0%BF%D0%B8%D1%80%22",
+    "value": "АО \"Завод Копир\" [trd]"
+  },
+  {
+    "data": "https://smart-lab.ru/bonds/AO-IA-VTB-2014",
+    "value": "АО ИА ВТБ 2014 [обл]"
+  },
+  {
+    "data": "https://smart-lab.ru/trading/%D0%90%20%D0%BD%D0%B5%20%D0%BF%D0%BE%D0%B4%D1%81%D0%BA%D0%B0%D0%B6%D0%B8%D1%82%D0%B5%2C%20%D0%B5%D1%81%D1%82%D1%8C%20%D0%BB%D0%B8%20%D0%B3%D0%B4%D0%B5-%D0%BD%D0%B8%D0%B1%D1%83%D0%B4%D1%8C%20%D0%B0%D1%80%D1%85%D0%B8%D0%B2%20%D0%BF%D1%80%D0%BE%D1%88%D0%B5%D0%B4%D1%88%D0%B8%D1%85%20%D1%84%D1%8C%D1%8E%D1%87%D0%B5%D1%80%D1%81%D0%BE%D0%B2%20%D0%BD%D0%B0%20%D0%9C%D0%9C%D0%92%D0%91.",
+    "value": "А не подскажите, есть ли где-нибудь архив прошедших фьючерсов на ММВБ. [trd]"
+  },
+  {
+    "data": "https://smart-lab.ru/crypto/trading%2C%20crypto%20fund%2C%20exchanges%20-%D1%87%D1%83%D0%B6%D0%BE%D0%B5%20%D0%BD%D0%B5%20%D0%BC%D0%BE%D1%91%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BD%D0%BE%D0%B5%2C%20%D0%BE%D1%82%20%D0%90.%D0%90%D0%BD%D1%82%D0%BE%D0%BD%D0%BE%D0%B2%D0%B0%2C%20%D0%90.%D0%A0%D0%B0%D0%B4%D1%87%D0%B5%D0%BD%D0%BA%D0%BE%20%D0%B8%20%D0%9C.%D0%96%D1%83%D1%85%D0%BE%D0%B2%D0%B8%D1%86%D0%BA%D0%BE%D0%B3%D0%BE",
+    "value": "trading, crypto fund, exchanges -чужое не моё, интересное, от А.Антонова, А.Радченко и М.Жуховицкого [cry]"
+  }
+];
+var windowFeatures = "menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes,target=_blank";
+
+$('[autocompleter]').autocomplete({
+  lookup: response,
+  onSelect: function (suggestion) {
+    window.open(suggestion.data, "CNN_WindowName", windowFeatures);
+    this.value = '';
+  },
+  appendTo: '.query-search__suggestions',
+  forceFixPosition: false,
+  maxHeight: 'auto',
+});
+plugSimpleBar('.query-search__suggestions');
+
+
+/* $('[autocompleter]').autocomplete({
+
+  serviceUrl: 'https://smart-lab.ru/' + ($(this).attr('autocompleter')), //'https://smart-lab.ru/forum/ajaxsearch/',
+
+  onSelect: function (suggestion) {
+    console.log(suggestion);
+    
+    //alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
+  }
+}); */
 
 // HEADER JS / end ============================================================================

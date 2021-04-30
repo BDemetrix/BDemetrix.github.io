@@ -10,7 +10,7 @@
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-	<body>
+	<body class="_style-1">
 		<div class="wrapper">
 			<header class="header">
 	<div class="header__content">
@@ -32,11 +32,41 @@
 						</ul>
 				</nav>
 		</div>
-		<div class="header__logo header__logo_color-1">
+		<div class="header__logo">
 			<a href="/" class="logo">
-				<h5 class="logo__title">SMART-LAB</h5>
-				<div class="logo__subtitle">Мы делаем деньги<span> на бирже</span></div>
+				<h5 class="logo__title">SMART<span>-</span><span> </span>LAB</h5>
+				<div class="logo__subtitle"><span class="logo__subtitle-1">Мы делаем деньги</span><span class="logo__subtitle-2"> на бирже</span></div>
 			</a>
+		</div>
+		<div class="header__search">
+			<div class="header__search-query query-search">
+				<div class="query-search__icon _active-el">
+					<svg>
+							<use xlink:href="images/symbol/sprite.svg#search"></use>
+					</svg>
+				</div>
+				<div class="query-search__body">
+					<form class="query-search__form" action="">
+						<div class="query-search__input-wrap">
+							<input class="query-search__input input" placeholder="Ищу компанию.." type="text" autocomplete="off" name="form[]"
+								autocompleter="forum/ajaxsearch/">
+								<div class="query-search__input-clean cls-btn" title="очистить"><span></span></div>
+						</div>
+						
+						<div class="query-search__suggestions">
+							<!-- isert .autocomplete-suggestions -->
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="header__search-alphabet alphabet-search">
+				<div class="alphabet-search__icon _active-el">
+					<span>A...</span>
+				</div>
+				<div class="alphabet-search__body">
+
+				</div>
+			</div>
 		</div>
 		<div class="header__message">
 			<div class="header__message-icon _active-el">
@@ -302,6 +332,7 @@
 	</div>
 </header>
 			<main class="page">
+				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 			</main>
 			<footer class="footer">
@@ -313,5 +344,7 @@
 		<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
 <script src="js/vendors.min.js"></script>
 <script src="js/app.min.js"></script>
+<!-- <script src="js/vendors.js"></script>
+<script src="js/app.js"></script> -->
 	</body>
 </html>
