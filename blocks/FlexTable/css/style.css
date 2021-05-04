@@ -41,10 +41,10 @@ ol {
   margin-bottom: 50px;
 }
 li a {
-  text-decoration: none;
+  text-decoration: underline  #333 /* #06aecf */ 1px;
 }
 li a:hover {
-  text-decoration: underline #06aecf;
+  text-decoration: none;
 }
 li::marker {
   font-size: 22px;

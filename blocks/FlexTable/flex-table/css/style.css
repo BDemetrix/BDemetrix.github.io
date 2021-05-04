@@ -58,7 +58,9 @@ body {
 h1 {
   padding-right: 50px;
 }
-
+#box-info-run {
+  margin-bottom: 20px;
+}
 @media (max-width: 567.98px) {
 
   ._container {

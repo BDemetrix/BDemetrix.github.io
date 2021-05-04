@@ -151,7 +151,6 @@ class FlexTable {
     }
   }
   rebuild()  {
-    
     const row = this.options.rows;
     const col = this.options.cols;
     let tops = [];
@@ -263,7 +262,8 @@ class FlexTable {
 
     let rightBoxWidth;
     if (this.overflowX) {
-      inner.rightBox.classList.add('_decor');
+      wrap.classList.add('_overflow');
+      inner.rightBox.classList.add('_overflow');
       rightBoxWidth = Math.floor(wrapW - leftTableWidth);
       if (rightBoxWidth < 1) {
         rightBoxWidth = 0;
@@ -274,7 +274,8 @@ class FlexTable {
     }
     else {
       rightBoxWidth = rightTableWidth;
-      inner.rightBox.classList.remove('_decor');
+      wrap.classList.remove('_overflow');
+      inner.rightBox.classList.remove('_overflow');
       inner.rightHeaderInner.style.width = rightBoxWidth + 'px';
       inner.rightTableWrap.style.maxWidth = rightBoxWidth + 'px';
       inner.rightTableWrap.style.width = rightBoxWidth + 'px';

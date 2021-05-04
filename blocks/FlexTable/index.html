@@ -35,6 +35,9 @@
           информацию на любых экранах.
         </p>
         <p>
+          <a href="flex-table/original-fixed.html" target="_blank">Также можно задавать точные значения ширины и высоты таблицы.</a>
+        </p>
+        <p>
           <a href="https://downgit.github.io/#/home?url=https://github.com/BDemetrix/BDemetrix.github.io/tree/master/blocks/FlexTable/flex-table">Скачать плагин</a>
         </p>
 
@@ -60,7 +63,7 @@
         <div class="box__inner">
 <pre data-language="html"><code><div class="your-table _loading">
   <table class="_hidden">
-  <!-- contents of your table -->
+    <!-- contents of your table -->
   </table>
 </div></code></pre> 
         </div>
@@ -191,10 +194,11 @@ if (yourTable) {
 
         </div>
 
-        <h4>Класс <span class="class_name">._decor</span> отвечает за появление псевдоэлементов по краям правой части таблицы с горизонтальным скролом. Это дает понять пользователю, что контент пролистывается.</h4>
+        <h4>Класс <span class="class_name">._overflow</span> отвечает за появление псевдоэлементов по краям правой части таблицы с горизонтальным скролом. Это дает понять пользователю, что контент пролистывается.</h4>
+        <h4>Также класс <span class="class_name">._overflow</span> присваивается самой верхней оболочке <span class="class_name">.your-table</span> </h4>
         <div class="box__inner">
-<pre data-language="css"><code>..flex-table__r-box._decor::before,
-.flex-table__r-box._decor::after {
+<pre data-language="css"><code>..flex-table__r-box._overflow::before,
+.flex-table__r-box._overflow::after {
   opacity: 1;
 }
 

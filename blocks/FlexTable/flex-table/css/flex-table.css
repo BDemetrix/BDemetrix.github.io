@@ -110,12 +110,12 @@
   opacity: 0;
 }
 
-.flex-table__r-box._decor::before,
-.flex-table__r-box._decor::after {
+.flex-table__r-box._overflow::before,
+.flex-table__r-box._overflow::after {
   opacity: 1;
 }
 
-.flex-table__r-box._decor .simplebar-scrollbar.simplebar-visible:before {
+.flex-table__r-box._overflow .simplebar-scrollbar.simplebar-visible:before {
   opacity: 1;
 }
 

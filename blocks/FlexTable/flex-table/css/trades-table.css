@@ -75,8 +75,8 @@
 }
 
 .trades-table .flex-table__ad-text {
-  top: 0px;
-  height: 100%;
+  top: -4px;
+  height: calc(100% + 8px);
   padding: 4px 0;
   background: #fafafa;
   color: #0012ff;
@@ -160,7 +160,7 @@
 
 .trades-table .flex-table__r-table .flex-table__ad td {
   border-left: 1px solid transparent;
-  padding: 0;
+  padding: 4px 0;
 }
 
 .trades-table .flex-table__r-table .flex-table__ad td:hover {
@@ -349,6 +349,28 @@
 
 .trades-table__add-list {
   width: 64px;
+}
+
+.trades-table#trades-table-fixed {
+  max-width: 500px;
+  height: 300px;
+  background: #fafafa;
+  -webkit-box-shadow: 0 1px 2px #d1d1d1;
+          box-shadow: 0 1px 2px #d1d1d1;
+}
+
+.trades-table#trades-table-fixed .flex-table__inner {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  margin-bottom: -11px;
+}
+
+.trades-table#trades-table-fixed > .simplebar-track.simplebar-vertical {
+  top: 55px;
+}
+
+.trades-table#trades-table-fixed > .simplebar-track.simplebar-horizontal {
+  display: none;
 }
 
 @media (min-width: 991.98px) {
