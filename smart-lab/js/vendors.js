@@ -1013,6 +1013,1222 @@
     $.fn.autocomplete = $.fn.devbridgeAutocomplete;
   }
 }));
+function jBoxWrapper(j) {
+  function h(t, i) {
+    return this.options = {
+      id: null,
+      width: "auto",
+      height: "auto",
+      minWidth: null,
+      minHeight: null,
+      maxWidth: null,
+      maxHeight: null,
+      responsiveWidth: !0,
+      responsiveHeight: !0,
+      responsiveMinWidth: 100,
+      responsiveMinHeight: 100,
+      attach: null,
+      trigger: "click",
+      preventDefault: !1,
+      content: null,
+      getContent: null,
+      title: null,
+      getTitle: null,
+      footer: null,
+      isolateScroll: !0,
+      ajax: {
+        url: null,
+        data: "",
+        reload: !1,
+        getURL: "data-url",
+        getData: "data-ajax",
+        setContent: !0,
+        loadingClass: !0,
+        spinner: !0,
+        spinnerDelay: 300,
+        spinnerReposition: !0
+      },
+      cancelAjaxOnClose: !0,
+      target: null,
+      position: {
+        x: "center",
+        y: "center"
+      },
+      outside: null,
+      offset: 0,
+      attributes: {
+        x: "left",
+        y: "top"
+      },
+      fixed: !1,
+      adjustPosition: !0,
+      adjustTracker: !1,
+      adjustDistance: 5,
+      reposition: !0,
+      repositionOnOpen: !0,
+      repositionOnContent: !0,
+      holdPosition: !0,
+      pointer: !1,
+      pointTo: "target",
+      fade: 180,
+      animation: null,
+      theme: "Default",
+      addClass: null,
+      overlay: !1,
+      overlayClass: null,
+      zIndex: 1e4,
+      delayOpen: 0,
+      delayClose: 0,
+      closeOnEsc: !1,
+      closeOnClick: !1,
+      closeOnMouseleave: !1,
+      closeButton: !1,
+      appendTo: j("body"),
+      createOnInit: !1,
+      blockScroll: !1,
+      blockScrollAdjust: !0,
+      draggable: !1,
+      dragOver: !0,
+      autoClose: !1,
+      delayOnHover: !1,
+      showCountdown: !1,
+      preloadAudio: !0,
+      audio: null,
+      volume: 100,
+      onInit: null,
+      onAttach: null,
+      onPosition: null,
+      onCreated: null,
+      onOpen: null,
+      onOpenComplete: null,
+      onClose: null,
+      onCloseComplete: null,
+      onDragStart: null,
+      onDragEnd: null
+    }, this._pluginOptions = {
+      Tooltip: {
+        getContent: "title",
+        trigger: "mouseenter",
+        position: {
+          x: "center",
+          y: "top"
+        },
+        outside: "y",
+        pointer: !0
+      },
+      Mouse: {
+        responsiveWidth: !1,
+        responsiveHeight: !1,
+        adjustPosition: "flip",
+        target: "mouse",
+        trigger: "mouseenter",
+        position: {
+          x: "right",
+          y: "bottom"
+        },
+        outside: "xy",
+        offset: 5
+      },
+      Modal: {
+        target: j(window),
+        fixed: !0,
+        blockScroll: !0,
+        closeOnEsc: !0,
+        closeOnClick: "overlay",
+        closeButton: !0,
+        overlay: !0,
+        animation: "zoomIn"
+      }
+    }, this.options = j.extend(!0, this.options, this._pluginOptions[t] || h._pluginOptions[t], i), "string" == j.type(t) && (this.type = t), this.isTouchDevice = function () {
+      var t = " -webkit- -moz- -o- -ms- ".split(" ");
+      if ("ontouchstart" in window || window.DocumentTouch && document instanceof DocumentTouch) return !0;
+      var i, t = ["(", t.join("touch-enabled),("), "heartz", ")"].join("");
+      return i = t, window.matchMedia(i).matches
+    }(), this.isTouchDevice && "mouseenter" === this.options.trigger && !1 === this.options.closeOnClick && (this.options.closeOnClick = "body"), this._fireEvent = function (t, i) {
+      this.options["_" + t] && this.options["_" + t].bind(this)(i), this.options[t] && this.options[t].bind(this)(i)
+    }, null === this.options.id && (this.options.id = "jBox" + h._getUniqueID()), this.id = this.options.id, ("center" == this.options.position.x && "x" == this.options.outside || "center" == this.options.position.y && "y" == this.options.outside) && (this.options.outside = null), "target" != this.options.pointTo || this.options.outside && "xy" != this.options.outside || (this.options.pointer = !1), "object" != j.type(this.options.offset) ? this.options.offset = {
+      x: this.options.offset,
+      y: this.options.offset
+    } : this.options.offset = j.extend({
+      x: 0,
+      y: 0
+    }, this.options.offset), "object" != j.type(this.options.adjustDistance) ? this.options.adjustDistance = {
+      top: this.options.adjustDistance,
+      right: this.options.adjustDistance,
+      bottom: this.options.adjustDistance,
+      left: this.options.adjustDistance
+    } : this.options.adjustDistance = j.extend({
+      top: 5,
+      left: 5,
+      right: 5,
+      bottom: 5
+    }, this.options.adjustDistance), this.outside = !(!this.options.outside || "xy" == this.options.outside) && this.options.position[this.options.outside], this.align = this.outside || ("center" != this.options.position.y && "number" != j.type(this.options.position.y) ? this.options.position.x : "center" != this.options.position.x && "number" != j.type(this.options.position.x) ? this.options.position.y : this.options.attributes.x), h.zIndexMax = Math.max(h.zIndexMax || 0, "auto" === this.options.zIndex ? 1e4 : this.options.zIndex), "auto" === this.options.zIndex && (this.adjustZIndexOnOpen = !0, this.options.zIndex = h.zIndexMax += 2, this.trueModal = this.options.overlay), this._getOpp = function (t) {
+      return {
+        left: "right",
+        right: "left",
+        top: "bottom",
+        bottom: "top",
+        x: "y",
+        y: "x"
+      }[t]
+    }, this._getXY = function (t) {
+      return {
+        left: "x",
+        right: "x",
+        top: "y",
+        bottom: "y",
+        center: "x"
+      }[t]
+    }, this._getTL = function (t) {
+      return {
+        left: "left",
+        right: "left",
+        top: "top",
+        bottom: "top",
+        center: "left",
+        x: "left",
+        y: "top"
+      }[t]
+    }, this._getInt = function (t, i) {
+      return "auto" == t ? "auto" : t && "string" == j.type(t) && "%" == t.slice(-1) ? j(window)["height" == i ? "innerHeight" : "innerWidth"]() * parseInt(t.replace("%", "")) / 100 : t
+    }, this._createSVG = function (t, i) {
+      var o = document.createElementNS("http://www.w3.org/2000/svg", t);
+      return j.each(i, function (t, i) {
+        o.setAttribute(i[0], i[1] || "")
+      }), o
+    }, this._isolateScroll = function (e) {
+      e && e.length && e.on("DOMMouseScroll.jBoxIsolateScroll mousewheel.jBoxIsolateScroll", function (t) {
+        var i = t.wheelDelta || t.originalEvent && t.originalEvent.wheelDelta || -t.detail,
+          o = 0 <= this.scrollTop + e.outerHeight() - this.scrollHeight,
+          s = this.scrollTop <= 0;
+        (i < 0 && o || 0 < i && s) && t.preventDefault()
+      })
+    }, this._setTitleWidth = function () {
+      if (!this.titleContainer || "auto" == this.content[0].style.width && !this.content[0].style.maxWidth) return null;
+      var t;
+      "none" == this.wrapper.css("display") ? (this.wrapper.css("display", "block"), t = this.content.outerWidth(), this.wrapper.css("display", "none")) : t = this.content.outerWidth(), this.titleContainer.css({
+        maxWidth: Math.max(t, parseInt(this.content[0].style.maxWidth)) || null
+      })
+    }, this._draggable = function () {
+      if (!this.options.draggable) return !1;
+      var t = "title" == this.options.draggable ? this.titleContainer : this.options.draggable instanceof j ? this.options.draggable : "string" == j.type(this.options.draggable) ? j(this.options.draggable) : this.wrapper;
+      return !(!(t && t instanceof j && t.length) || t.data("jBox-draggable")) && (t.addClass("jBox-draggable").data("jBox-draggable", !0).on("touchstart mousedown", function (t) {
+        var i, o, s, e, n, a;
+        2 == t.button || j(t.target).hasClass("jBox-noDrag") || j(t.target).parents(".jBox-noDrag").length ? "touchstart" == t.type && (j(t.target).hasClass("jBox-closeButton") || j(t.target).parents(".jBox-closeButton").length) && this.close({
+          ignoreDelay: !0
+        }) : (o = "touchstart" == t.type && t.touches && t.touches[0] ? (i = t.touches[0].pageX, t.touches[0].pageY) : (i = t.pageX, t.pageY), this.draggingStartX = i, this.draggingStartY = o, this.options.dragOver && !this.trueModal && parseInt(this.wrapper.css("zIndex"), 10) <= h.zIndexMaxDragover && (h.zIndexMaxDragover += 1, this.wrapper.css("zIndex", h.zIndexMaxDragover)), s = this.wrapper.outerHeight(), e = this.wrapper.outerWidth(), n = this.wrapper.offset().top + s - o, a = this.wrapper.offset().left + e - i, j(document).on("touchmove.jBox-draggable-" + this.id + " mousemove.jBox-draggable-" + this.id, function (t) {
+          var i, t = "touchmove" == t.type && t.touches && t.touches[0] ? (i = t.touches[0].pageX, t.touches[0].pageY) : (i = t.pageX, t.pageY);
+          this.dragging || this.draggingStartX == i || this.draggingStartY == t || (this._fireEvent("onDragStart"), this.dragging = !0), this.wrapper.offset({
+            top: t + n - s,
+            left: i + a - e
+          })
+        }.bind(this)), t.preventDefault())
+      }.bind(this)).on("touchend mouseup", function () {
+        var t;
+        j(document).off("touchmove.jBox-draggable-" + this.id + " mousemove.jBox-draggable-" + this.id), this.dragging && this._fireEvent("onDragEnd"), this.dragging = !1, "Modal" != this.type && "Confirm" != this.type || !this.options.holdPosition || (t = {
+          x: (t = j("#" + this.id).offset()).left - j(document).scrollLeft(),
+          y: t.top - j(document).scrollTop()
+        }, this.position({
+          position: t,
+          offset: {
+            x: 0,
+            y: 0
+          }
+        }))
+      }.bind(this)), this.trueModal || (h.zIndexMaxDragover = h.zIndexMaxDragover ? Math.max(h.zIndexMaxDragover, this.options.zIndex) : this.options.zIndex), this)
+    }, this._create = function () {
+      var t;
+      this.wrapper || (this.wrapper = j("<div/>", {
+        id: this.id,
+        class: "jBox-wrapper" + (this.type ? " jBox-" + this.type : "") + (this.options.theme ? " jBox-" + this.options.theme : "") + (this.options.addClass ? " " + this.options.addClass : "")
+      }).css({
+        position: this.options.fixed ? "fixed" : "absolute",
+        display: "none",
+        opacity: 0,
+        zIndex: this.options.zIndex
+      }).data("jBox", this), this.options.closeOnMouseleave && this.wrapper.on("mouseleave", function (t) {
+        !this.source || t.relatedTarget != this.source[0] && -1 === j.inArray(this.source[0], j(t.relatedTarget).parents("*")) && this.close()
+      }.bind(this)), "box" == this.options.closeOnClick && this.wrapper.on("click tap", function () {
+        this.close({
+          ignoreDelay: !0
+        })
+      }.bind(this)), this.container = j('<div class="jBox-container"/>').appendTo(this.wrapper), this.content = j('<div class="jBox-content"/>').appendTo(this.container), this.options.footer && (this.footer = j('<div class="jBox-footer"/>').append(this.options.footer).appendTo(this.container)), this.options.isolateScroll && this._isolateScroll(this.content), this.options.closeButton && ((t = this._createSVG("svg", [
+        ["viewBox", "0 0 24 24"]
+      ])).appendChild(this._createSVG("path", [
+        ["d", "M22.2,4c0,0,0.5,0.6,0,1.1l-6.8,6.8l6.9,6.9c0.5,0.5,0,1.1,0,1.1L20,22.3c0,0-0.6,0.5-1.1,0L12,15.4l-6.9,6.9c-0.5,0.5-1.1,0-1.1,0L1.7,20c0,0-0.5-0.6,0-1.1L8.6,12L1.7,5.1C1.2,4.6,1.7,4,1.7,4L4,1.7c0,0,0.6-0.5,1.1,0L12,8.5l6.8-6.8c0.5-0.5,1.1,0,1.1,0L22.2,4z"]
+      ])), this.closeButton = j('<div class="jBox-closeButton jBox-noDrag"/>').on("click tap", function (t) {
+        this.close({
+          ignoreDelay: !0
+        })
+      }.bind(this)).append(t), "box" != this.options.closeButton && (!0 !== this.options.closeButton || this.options.overlay || this.options.title || this.options.getTitle) || (this.wrapper.addClass("jBox-closeButton-box"), this.closeButton.appendTo(this.container))), this.wrapper.appendTo(this.options.appendTo), this.wrapper.find(".jBox-closeButton").length && j.each(["top", "right", "bottom", "left"], function (t, i) {
+        this.wrapper.find(".jBox-closeButton").css(i) && "auto" != this.wrapper.find(".jBox-closeButton").css(i) && (this.options.adjustDistance[i] = Math.max(this.options.adjustDistance[i], this.options.adjustDistance[i] + -1 * ((parseInt(this.wrapper.find(".jBox-closeButton").css(i)) || 0) + (parseInt(this.container.css("border-" + i + "-width")) || 0))))
+      }.bind(this)), this.options.pointer && (this.pointer = {
+        position: "target" != this.options.pointTo ? this.options.pointTo : this._getOpp(this.outside),
+        xy: "target" != this.options.pointTo ? this._getXY(this.options.pointTo) : this._getXY(this.outside),
+        align: "center",
+        offset: 0
+      }, this.pointer.element = j('<div class="jBox-pointer jBox-pointer-' + this.pointer.position + '"/>').appendTo(this.wrapper), this.pointer.dimensions = {
+        x: this.pointer.element.outerWidth(),
+        y: this.pointer.element.outerHeight()
+      }, "string" == j.type(this.options.pointer) && ((t = this.options.pointer.split(":"))[0] && (this.pointer.align = t[0]), t[1] && (this.pointer.offset = parseInt(t[1]))), this.pointer.alignAttribute = "x" == this.pointer.xy ? "bottom" == this.pointer.align ? "bottom" : "top" : "right" == this.pointer.align ? "right" : "left", this.wrapper.css("padding-" + this.pointer.position, this.pointer.dimensions[this.pointer.xy]), this.pointer.element.css(this.pointer.alignAttribute, "center" == this.pointer.align ? "50%" : 0).css("margin-" + this.pointer.alignAttribute, this.pointer.offset), this.pointer.margin = {}, this.pointer.margin["margin-" + this.pointer.alignAttribute] = this.pointer.offset, "center" == this.pointer.align && this.pointer.element.css("transform", "translate(" + ("y" == this.pointer.xy ? -.5 * this.pointer.dimensions.x + "px" : 0) + ", " + ("x" == this.pointer.xy ? -.5 * this.pointer.dimensions.y + "px" : 0) + ")"), this.pointer.element.css("x" == this.pointer.xy ? "width" : "height", parseInt(this.pointer.dimensions[this.pointer.xy]) + parseInt(this.container.css("border-" + this.pointer.alignAttribute + "-width"))), this.wrapper.addClass("jBox-pointerPosition-" + this.pointer.position)), this.setContent(this.options.content, !0), this.setTitle(this.options.title, !0), this.options.draggable && this._draggable(), this._fireEvent("onCreated"))
+    }, this.options.createOnInit && this._create(), this.options.attach && this.attach(), this._attachEvents = function () {
+      this.options.delayOnHover && j("#" + this.id).on("mouseenter", function (t) {
+        this.isHovered = !0
+      }.bind(this)), this.options.delayOnHover && j("#" + this.id).on("mouseleave", function (t) {
+        this.isHovered = !1
+      }.bind(this)), (this.options.adjustPosition || this.options.reposition) && !this.fixed && this.outside && (this.options.adjustTracker && j(window).on("scroll.jBox-" + this.id, function (t) {
+        this.position()
+      }.bind(this)), (this.options.adjustPosition || this.options.reposition) && j(window).on("resize.jBox-" + this.id, function (t) {
+        this.position()
+      }.bind(this))), "mouse" == this.options.target && j("body").on("mousemove.jBox-" + this.id, function (t) {
+        this.position({
+          mouseTarget: {
+            top: t.pageY,
+            left: t.pageX
+          }
+        })
+      }.bind(this))
+    }, this._detachEvents = function () {
+      this.options.closeOnEsc && j(document).off("keyup.jBox-" + this.id), !0 !== this.options.closeOnClick && "body" != this.options.closeOnClick || j(document).off("click.jBox-" + this.id + " tap.jBox-" + this.id), this.options.adjustTracker && j(window).off("scroll.jBox-" + this.id), (this.options.adjustPosition || this.options.reposition) && j(window).off("resize.jBox-" + this.id), "mouse" == this.options.target && j("body").off("mousemove.jBox-" + this.id)
+    }, this._showOverlay = function () {
+      this.overlay || (this.overlay = j('<div id="' + this.id + '-overlay"/>').addClass("jBox-overlay" + (this.type ? " jBox-overlay-" + this.type : "")).css({
+        display: "none",
+        opacity: 0,
+        zIndex: this.options.zIndex - 1
+      }).appendTo(this.options.appendTo), this.options.overlayClass && this.overlay.addClass(this.options.overlayClass), "overlay" != this.options.closeButton && !0 !== this.options.closeButton || this.overlay.append(this.closeButton), "overlay" == this.options.closeOnClick && this.overlay.on("click tap", function () {
+        this.close({
+          ignoreDelay: !0
+        })
+      }.bind(this)), j("#" + this.id + "-overlay .jBox-closeButton").length && (this.options.adjustDistance.top = Math.max(j("#" + this.id + "-overlay .jBox-closeButton").outerHeight(), this.options.adjustDistance.top))), !0 === this.adjustZIndexOnOpen && this.overlay.css("zIndex", parseInt(this.wrapper.css("zIndex"), 10) - 1), "block" != this.overlay.css("display") && (this.options.fade ? this.overlay.stop() && this.overlay.animate({
+        opacity: 1
+      }, {
+        queue: !1,
+        duration: this.options.fade,
+        start: function () {
+          this.overlay.css({
+            display: "block"
+          })
+        }.bind(this)
+      }) : this.overlay.css({
+        display: "block",
+        opacity: 1
+      }))
+    }, this._hideOverlay = function () {
+      this.overlay && (this.options.fade ? this.overlay.stop() && this.overlay.animate({
+        opacity: 0
+      }, {
+        queue: !1,
+        duration: this.options.fade,
+        complete: function () {
+          this.overlay.css({
+            display: "none"
+          })
+        }.bind(this)
+      }) : this.overlay.css({
+        display: "none",
+        opacity: 0
+      }))
+    }, this._exposeDimensions = function () {
+      this.wrapper.css({
+        top: -1e4,
+        left: -1e4,
+        right: "auto",
+        bottom: "auto"
+      });
+      var t = {
+        x: this.wrapper.outerWidth(),
+        y: this.wrapper.outerHeight()
+      };
+      return this.wrapper.css({
+        top: "auto",
+        left: "auto"
+      }), t
+    }, this._generateAnimationCSS = function () {
+      if ("object" != j.type(this.options.animation) && (this.options.animation = {
+        pulse: {
+          open: "pulse",
+          close: "zoomOut"
+        },
+        zoomIn: {
+          open: "zoomIn",
+          close: "zoomIn"
+        },
+        zoomOut: {
+          open: "zoomOut",
+          close: "zoomOut"
+        },
+        move: {
+          open: "move",
+          close: "move"
+        },
+        slide: {
+          open: "slide",
+          close: "slide"
+        },
+        flip: {
+          open: "flip",
+          close: "flip"
+        },
+        tada: {
+          open: "tada",
+          close: "zoomOut"
+        }
+      }[this.options.animation]), !this.options.animation) return null;
+      this.options.animation.open && (this.options.animation.open = this.options.animation.open.split(":")), this.options.animation.close && (this.options.animation.close = this.options.animation.close.split(":")), this.options.animation.openDirection = this.options.animation.open[1] || null, this.options.animation.closeDirection = this.options.animation.close[1] || null, this.options.animation.open && (this.options.animation.open = this.options.animation.open[0]), this.options.animation.close && (this.options.animation.close = this.options.animation.close[0]), this.options.animation.open && (this.options.animation.open += "Open"), this.options.animation.close && (this.options.animation.close += "Close");
+      var a = {
+        pulse: {
+          duration: 350,
+          css: [
+            ["0%", "scale(1)"],
+            ["50%", "scale(1.1)"],
+            ["100%", "scale(1)"]
+          ]
+        },
+        zoomInOpen: {
+          duration: this.options.fade || 180,
+          css: [
+            ["0%", "scale(0.9)"],
+            ["100%", "scale(1)"]
+          ]
+        },
+        zoomInClose: {
+          duration: this.options.fade || 180,
+          css: [
+            ["0%", "scale(1)"],
+            ["100%", "scale(0.9)"]
+          ]
+        },
+        zoomOutOpen: {
+          duration: this.options.fade || 180,
+          css: [
+            ["0%", "scale(1.1)"],
+            ["100%", "scale(1)"]
+          ]
+        },
+        zoomOutClose: {
+          duration: this.options.fade || 180,
+          css: [
+            ["0%", "scale(1)"],
+            ["100%", "scale(1.1)"]
+          ]
+        },
+        moveOpen: {
+          duration: this.options.fade || 180,
+          positions: {
+            top: {
+              "0%": -12
+            },
+            right: {
+              "0%": 12
+            },
+            bottom: {
+              "0%": 12
+            },
+            left: {
+              "0%": -12
+            }
+          },
+          css: [
+            ["0%", "translate%XY(%Vpx)"],
+            ["100%", "translate%XY(0px)"]
+          ]
+        },
+        moveClose: {
+          duration: this.options.fade || 180,
+          timing: "ease-in",
+          positions: {
+            top: {
+              "100%": -12
+            },
+            right: {
+              "100%": 12
+            },
+            bottom: {
+              "100%": 12
+            },
+            left: {
+              "100%": -12
+            }
+          },
+          css: [
+            ["0%", "translate%XY(0px)"],
+            ["100%", "translate%XY(%Vpx)"]
+          ]
+        },
+        slideOpen: {
+          duration: 400,
+          positions: {
+            top: {
+              "0%": -400
+            },
+            right: {
+              "0%": 400
+            },
+            bottom: {
+              "0%": 400
+            },
+            left: {
+              "0%": -400
+            }
+          },
+          css: [
+            ["0%", "translate%XY(%Vpx)"],
+            ["100%", "translate%XY(0px)"]
+          ]
+        },
+        slideClose: {
+          duration: 400,
+          timing: "ease-in",
+          positions: {
+            top: {
+              "100%": -400
+            },
+            right: {
+              "100%": 400
+            },
+            bottom: {
+              "100%": 400
+            },
+            left: {
+              "100%": -400
+            }
+          },
+          css: [
+            ["0%", "translate%XY(0px)"],
+            ["100%", "translate%XY(%Vpx)"]
+          ]
+        },
+        flipOpen: {
+          duration: 600,
+          css: [
+            ["0%", "perspective(400px) rotateX(90deg)"],
+            ["40%", "perspective(400px) rotateX(-15deg)"],
+            ["70%", "perspective(400px) rotateX(15deg)"],
+            ["100%", "perspective(400px) rotateX(0deg)"]
+          ]
+        },
+        flipClose: {
+          duration: this.options.fade || 300,
+          css: [
+            ["0%", "perspective(400px) rotateX(0deg)"],
+            ["100%", "perspective(400px) rotateX(90deg)"]
+          ]
+        },
+        tada: {
+          duration: 800,
+          css: [
+            ["0%", "scale(1)"],
+            ["10%, 20%", "scale(0.9) rotate(-3deg)"],
+            ["30%, 50%, 70%, 90%", "scale(1.1) rotate(3deg)"],
+            ["40%, 60%, 80%", "scale(1.1) rotate(-3deg)"],
+            ["100%", "scale(1) rotate(0)"]
+          ]
+        }
+      };
+      j.each(["pulse", "tada"], function (t, i) {
+        a[i + "Open"] = a[i + "Close"] = a[i]
+      });
+      var s = function (s, e) {
+        var n = "@keyframes jBox-" + this.id + "-animation-" + this.options.animation[s] + "-" + s + (e ? "-" + e : "") + " {";
+        return j.each(a[this.options.animation[s]].css, function (t, i) {
+          var o = e ? i[1].replace("%XY", this._getXY(e).toUpperCase()) : i[1];
+          a[this.options.animation[s]].positions && (o = o.replace("%V", a[this.options.animation[s]].positions[e][i[0]])), n += i[0] + " {transform:" + o + ";}"
+        }.bind(this)), n += "}", n += ".jBox-" + this.id + "-animation-" + this.options.animation[s] + "-" + s + (e ? "-" + e : "") + " {", n += "animation-duration: " + a[this.options.animation[s]].duration + "ms;", n += "animation-name: jBox-" + this.id + "-animation-" + this.options.animation[s] + "-" + s + (e ? "-" + e : "") + ";", n += a[this.options.animation[s]].timing ? "animation-timing-function: " + a[this.options.animation[s]].timing + ";" : "", n += "}"
+      }.bind(this);
+      this._animationCSS = "", j.each(["open", "close"], function (t, o) {
+        if (!this.options.animation[o] || !a[this.options.animation[o]] || "close" == o && !this.options.fade) return "";
+        a[this.options.animation[o]].positions ? j.each(["top", "right", "bottom", "left"], function (t, i) {
+          this._animationCSS += s(o, i)
+        }.bind(this)) : this._animationCSS += s(o)
+      }.bind(this))
+    }, this.options.animation && this._generateAnimationCSS(), this._blockBodyClick = function () {
+      this.blockBodyClick = !0, setTimeout(function () {
+        this.blockBodyClick = !1
+      }.bind(this), 10)
+    }, this._animate = function (t) {
+      if (t = t || (this.isOpen ? "open" : "close"), !this.options.fade && "close" == t) return null;
+      var i = this.options.animation[t + "Direction"] || ("center" != this.align ? this.align : this.options.attributes.x);
+      this.flipped && this._getXY(i) == this._getXY(this.align) && (i = this._getOpp(i));
+      var o = "jBox-" + this.id + "-animation-" + this.options.animation[t] + "-" + t + " jBox-" + this.id + "-animation-" + this.options.animation[t] + "-" + t + "-" + i;
+      this.wrapper.addClass(o);
+      i = 1e3 * parseFloat(this.wrapper.css("animation-duration"));
+      "close" == t && (i = Math.min(i, this.options.fade)), setTimeout(function () {
+        this.wrapper && this.wrapper.removeClass(o)
+      }.bind(this), i)
+    }, this._abortAnimation = function () {
+      var t = this.wrapper.attr("class").split(" ").filter(function (t) {
+        return 0 !== t.lastIndexOf("jBox-" + this.id + "-animation", 0)
+      }.bind(this));
+      this.wrapper.attr("class", t.join(" "))
+    }, (this.options.responsiveWidth || this.options.responsiveHeight) && j(window).on("resize.responsivejBox-" + this.id, function (t) {
+      this.isOpen && this.position()
+    }.bind(this)), "string" === j.type(this.options.preloadAudio) && (this.options.preloadAudio = [this.options.preloadAudio]), "string" === j.type(this.options.audio) && (this.options.audio = {
+      open: this.options.audio
+    }), "number" === j.type(this.options.volume) && (this.options.volume = {
+      open: this.options.volume,
+      close: this.options.volume
+    }), !0 === this.options.preloadAudio && this.options.audio && (this.options.preloadAudio = [], j.each(this.options.audio, function (t, i) {
+      this.options.preloadAudio.push(i + ".mp3"), this.options.preloadAudio.push(i + ".ogg")
+    }.bind(this))), this.options.preloadAudio.length && j.each(this.options.preloadAudio, function (t, i) {
+      var o = new Audio;
+      o.src = i, o.preload = "auto"
+    }), this._fireEvent("onInit"), this
+  }
+  var t, i;
+  return h.prototype.attach = function (t, s) {
+    return t = t || this.options.attach, "string" == j.type(t) && (t = j(t)), s = s || this.options.trigger, t && t.length && j.each(t, function (t, o) {
+      (o = j(o)).data("jBox-attached-" + this.id) || ("title" == this.options.getContent && null != o.attr("title") && o.data("jBox-getContent", o.attr("title")).removeAttr("title"), this.attachedElements || (this.attachedElements = []), this.attachedElements.push(o[0]), o.on(s + ".jBox-attach-" + this.id, function (t) {
+        var i;
+        this.timer && clearTimeout(this.timer), "mouseenter" == s && this.isOpen && this.source[0] == o[0] || (this.isOpen && this.source && this.source[0] != o[0] && (i = !0), this.source = o, this.options.target || (this.target = o), "click" == s && this.options.preventDefault && t.preventDefault(), this["click" != s || i ? "open" : "toggle"]())
+      }.bind(this)), "mouseenter" == this.options.trigger && o.on("mouseleave", function (t) {
+        if (!this.wrapper) return null;
+        this.options.closeOnMouseleave && (t.relatedTarget == this.wrapper[0] || j(t.relatedTarget).parents("#" + this.id).length) || this.close()
+      }.bind(this)), o.data("jBox-attached-" + this.id, s), this._fireEvent("onAttach", o))
+    }.bind(this)), this
+  }, h.prototype.detach = function (t) {
+    return (t = t || (this.attachedElements || [])) && t.length && j.each(t, function (t, i) {
+      (i = j(i)).data("jBox-attached-" + this.id) && (i.off(i.data("jBox-attached-" + this.id) + ".jBox-attach-" + this.id), i.data("jBox-attached-" + this.id, null)), this.attachedElements = j.grep(this.attachedElements, function (t) {
+        return t != i[0]
+      })
+    }.bind(this)), this
+  }, h.prototype.setTitle = function (t, i) {
+    if (null == t || null == t) return this;
+    this.wrapper || this._create();
+    var o = this.wrapper.outerHeight(),
+      s = this.wrapper.outerWidth();
+    return this.title || (this.titleContainer = j('<div class="jBox-title"/>'), this.title = j("<div/>").appendTo(this.titleContainer), "title" != this.options.closeButton && (!0 !== this.options.closeButton || this.options.overlay) || (this.wrapper.addClass("jBox-closeButton-title"), this.closeButton.appendTo(this.titleContainer)), this.titleContainer.insertBefore(this.content), this._setTitleWidth()), this.wrapper[t ? "addClass" : "removeClass"]("jBox-hasTitle"), this.title.html(t), s != this.wrapper.outerWidth() && this._setTitleWidth(), this.options.draggable && this._draggable(), i || !this.options.repositionOnContent || o == this.wrapper.outerHeight() && s == this.wrapper.outerWidth() || this.position(), this
+  }, h.prototype.setContent = function (t, i) {
+    if (null == t || null == t) return this;
+    this.wrapper || this._create();
+    var o = this.wrapper.outerHeight(),
+      s = this.wrapper.outerWidth();
+    switch (this.content.children("[data-jbox-content-appended]").appendTo("body").css({
+      display: "none"
+    }), j.type(t)) {
+      case "string":
+        this.content.html(t);
+        break;
+      case "object":
+        t && (t instanceof j || t.constructor.prototype.jquery) ? (this.content.html(""), t.attr("data-jbox-content-appended", 1).appendTo(this.content).css({
+          display: "block"
+        })) : this.content.html(JSON.stringify(t))
+    }
+    return s != this.wrapper.outerWidth() && this._setTitleWidth(), this.options.draggable && this._draggable(), i || !this.options.repositionOnContent || o == this.wrapper.outerHeight() && s == this.wrapper.outerWidth() || this.position(), this
+  }, h.prototype.setDimensions = function (t, i, o) {
+    this.wrapper || this._create(), this.content.css(t, this._getInt(i = null == i ? "auto" : i)), "width" == t && this._setTitleWidth(), this.options[t] = i, null != o && !o || this.position()
+  }, h.prototype.setWidth = function (t, i) {
+    this.setDimensions("width", t, i)
+  }, h.prototype.setHeight = function (t, i) {
+    this.setDimensions("height", t, i)
+  }, h.prototype.position = function (o) {
+    if (o = j.extend(!0, this.options, o = o || {}), this.target = o.target || this.target || j(window), this.target instanceof j || "mouse" == this.target || (this.target = j(this.target)), !this.target.length) return this;
+    this.content.css({
+      width: this._getInt(o.width, "width"),
+      height: this._getInt(o.height, "height"),
+      minWidth: this._getInt(o.minWidth, "width"),
+      minHeight: this._getInt(o.minHeight, "height"),
+      maxWidth: this._getInt(o.maxWidth, "width"),
+      maxHeight: this._getInt(o.maxHeight, "height")
+    }), this._setTitleWidth();
+    var s = this._exposeDimensions();
+    "mouse" == this.target || this.target.data("jBox-" + this.id + "-fixed") || this.target.data("jBox-" + this.id + "-fixed", this.target[0] != j(window)[0] && ("fixed" == this.target.css("position") || 0 < this.target.parents().filter(function () {
+      return "fixed" == j(this).css("position")
+    }).length) ? "fixed" : "static");
+    var t = {
+      x: j(window).outerWidth(),
+      y: j(window).outerHeight(),
+      top: o.fixed && this.target.data("jBox-" + this.id + "-fixed") ? 0 : j(window).scrollTop(),
+      left: o.fixed && this.target.data("jBox-" + this.id + "-fixed") ? 0 : j(window).scrollLeft()
+    };
+    t.bottom = t.top + t.y, t.right = t.left + t.x;
+    try {
+      var i = this.target.offset()
+    } catch (t) {
+      i = {
+        top: 0,
+        left: 0
+      }
+    }
+    "mouse" != this.target && "fixed" == this.target.data("jBox-" + this.id + "-fixed") && o.fixed && (i.top = i.top - j(window).scrollTop(), i.left = i.left - j(window).scrollLeft());
+    var e = {
+      x: "mouse" == this.target ? 12 : this.target.outerWidth(),
+      y: "mouse" == this.target ? 20 : this.target.outerHeight(),
+      top: "mouse" == this.target && o.mouseTarget ? o.mouseTarget.top : i ? i.top : 0,
+      left: "mouse" == this.target && o.mouseTarget ? o.mouseTarget.left : i ? i.left : 0
+    },
+      n = o.outside && !("center" == o.position.x && "center" == o.position.y),
+      a = {
+        x: t.x - o.adjustDistance.left - o.adjustDistance.right,
+        y: t.y - o.adjustDistance.top - o.adjustDistance.bottom,
+        left: n ? e.left - j(window).scrollLeft() - o.adjustDistance.left : 0,
+        right: n ? t.x - e.left + j(window).scrollLeft() - e.x - o.adjustDistance.right : 0,
+        top: n ? e.top - j(window).scrollTop() - this.options.adjustDistance.top : 0,
+        bottom: n ? t.y - e.top + j(window).scrollTop() - e.y - o.adjustDistance.bottom : 0
+      },
+      h = {
+        x: "x" != o.outside && "xy" != o.outside || "number" == j.type(o.position.x) ? null : o.position.x,
+        y: "y" != o.outside && "xy" != o.outside || "number" == j.type(o.position.y) ? null : o.position.y
+      },
+      r = {
+        x: !1,
+        y: !1
+      };
+    h.x && s.x > a[h.x] && a[this._getOpp(h.x)] > a[h.x] && (h.x = this._getOpp(h.x)) && (r.x = !0), h.y && s.y > a[h.y] && a[this._getOpp(h.y)] > a[h.y] && (h.y = this._getOpp(h.y)) && (r.y = !0), (o.responsiveWidth || o.responsiveHeight) && (m = function () {
+      var t;
+      o.responsiveWidth && s.x > a[h.x || "x"] && (t = a[h.x || "x"] - (this.pointer && n && "x" == o.outside ? this.pointer.dimensions.x : 0) - parseInt(this.container.css("border-left-width")) - parseInt(this.container.css("border-right-width")), this.content.css({
+        width: t > this.options.responsiveMinWidth ? t : null,
+        minWidth: t < parseInt(this.content.css("minWidth")) ? 0 : null
+      }), this._setTitleWidth()), s = this._exposeDimensions()
+    }.bind(this), o.responsiveWidth && m(), o.responsiveWidth && !r.y && h.y && s.y > a[h.y] && a[this._getOpp(h.y)] > a[h.y] && (h.y = this._getOpp(h.y)) && (r.y = !0), f = function () {
+      var t;
+      o.responsiveHeight && s.y > a[h.y || "y"] && (t = function () {
+        return this.titleContainer || this.footer ? ("none" == this.wrapper.css("display") ? (this.wrapper.css("display", "block"), t = (this.titleContainer ? this.titleContainer.outerHeight() : 0) + (this.footer ? this.footer.outerHeight() : 0), this.wrapper.css("display", "none")) : t = (this.titleContainer ? this.titleContainer.outerHeight() : 0) + (this.footer ? this.footer.outerHeight() : 0), t || 0) : 0;
+        var t
+      }.bind(this), t = a[h.y || "y"] - (this.pointer && n && "y" == o.outside ? this.pointer.dimensions.y : 0) - t() - parseInt(this.container.css("border-top-width")) - parseInt(this.container.css("border-bottom-width")), this.content.css({
+        height: t > this.options.responsiveMinHeight ? t : null
+      }), this._setTitleWidth()), s = this._exposeDimensions()
+    }.bind(this), o.responsiveHeight && f(), o.responsiveHeight && !r.x && h.x && s.x > a[h.x] && a[this._getOpp(h.x)] > a[h.x] && (h.x = this._getOpp(h.x)) && (r.x = !0), o.adjustPosition && "move" != o.adjustPosition && (r.x && m(), r.y && f()));
+    var p = {},
+      l = function (t) {
+        if ("number" != j.type(o.position[t])) {
+          var i = o.attributes[t] = "x" == t ? "left" : "top";
+          if (p[i] = e[i], "center" == o.position[t]) return p[i] += Math.ceil((e[t] - s[t]) / 2), void ("mouse" != this.target && this.target[0] && this.target[0] == j(window)[0] && (p[i] += .5 * (o.adjustDistance[i] - o.adjustDistance[this._getOpp(i)])));
+          i != o.position[t] && (p[i] += e[t] - s[t]), o.outside != t && "xy" != o.outside || (p[i] += s[t] * (i != o.position[t] ? 1 : -1))
+        } else p[o.attributes[t]] = o.position[t]
+      }.bind(this);
+    if (l("x"), l("y"), this.pointer && "target" == o.pointTo && "number" != j.type(o.position.x) && "number" != j.type(o.position.y) && (x = 0, "center" === this.pointer.align ? "center" != o.position[this._getOpp(o.outside)] && (x += s[this._getOpp(o.outside)] / 2) : "center" === o.position[this._getOpp(o.outside)] ? x += (s[this._getOpp(o.outside)] / 2 - this.pointer.dimensions[this._getOpp(o.outside)] / 2) * (this.pointer.align == this._getTL(this.pointer.align) ? 1 : -1) : x += this.pointer.align != o.position[this._getOpp(o.outside)] ? s[this._getOpp(o.outside)] * (-1 !== j.inArray(this.pointer.align, ["top", "left"]) ? 1 : -1) + this.pointer.dimensions[this._getOpp(o.outside)] / 2 * (-1 !== j.inArray(this.pointer.align, ["top", "left"]) ? -1 : 1) : this.pointer.dimensions[this._getOpp(o.outside)] / 2 * (-1 !== j.inArray(this.pointer.align, ["top", "left"]) ? 1 : -1), x *= o.position[this._getOpp(o.outside)] == this.pointer.alignAttribute ? -1 : 1, x += this.pointer.offset * (this.pointer.align == this._getOpp(this._getTL(this.pointer.align)) ? 1 : -1), p[this._getTL(this._getOpp(this.pointer.xy))] += x), p[o.attributes.x] += o.offset.x, p[o.attributes.y] += o.offset.y, this.wrapper.css(p), o.adjustPosition) {
+      this.positionAdjusted && (this.pointer && this.wrapper.css("padding", 0).css("padding-" + this._getOpp(this.outside), this.pointer.dimensions[this._getXY(this.outside)]).removeClass("jBox-pointerPosition-" + this._getOpp(this.pointer.position)).addClass("jBox-pointerPosition-" + this.pointer.position), this.pointer && this.pointer.element.attr("class", "jBox-pointer jBox-pointer-" + this._getOpp(this.outside)).css(this.pointer.margin), this.positionAdjusted = !1, this.flipped = !1);
+      var d = t.top > p.top - (o.adjustDistance.top || 0),
+        c = t.right < p.left + s.x + (o.adjustDistance.right || 0),
+        u = t.bottom < p.top + s.y + (o.adjustDistance.bottom || 0),
+        g = t.left > p.left - (o.adjustDistance.left || 0),
+        i = g ? "left" : c ? "right" : null,
+        m = d ? "top" : u ? "bottom" : null;
+      if (i || m) {
+        if (("Modal" == this.type || "Confirm" == this.type) && "number" == j.type(this.options.position.x) && "number" == j.type(this.options.position.y)) {
+          var f = 0,
+            x = 0;
+          return this.options.holdPosition && (g ? f = t.left - (p.left - (o.adjustDistance.left || 0)) : c && (f = t.right - (p.left + s.x + (o.adjustDistance.right || 0))), d ? x = t.top - (p.top - (o.adjustDistance.top || 0)) : u && (x = t.bottom - (p.top + s.y + (o.adjustDistance.bottom || 0))), this.options.position.x = Math.max(t.top, this.options.position.x + f), this.options.position.y = Math.max(t.left, this.options.position.y + x), l("x"), l("y"), this.wrapper.css(p)), this._fireEvent("onPosition"), this
+        } !0 !== o.adjustPosition && "flip" !== o.adjustPosition || (y = function (t) {
+          this.wrapper.css(this._getTL(t), p[this._getTL(t)] + (s[this._getXY(t)] + o.offset[this._getXY(t)] * ("top" == t || "left" == t ? -2 : 2) + e[this._getXY(t)]) * ("top" == t || "left" == t ? 1 : -1)), this.pointer && this.wrapper.removeClass("jBox-pointerPosition-" + this.pointer.position).addClass("jBox-pointerPosition-" + this._getOpp(this.pointer.position)).css("padding", 0).css("padding-" + t, this.pointer.dimensions[this._getXY(t)]), this.pointer && this.pointer.element.attr("class", "jBox-pointer jBox-pointer-" + t), this.positionAdjusted = !0, this.flipped = !0
+        }.bind(this), r.x && y(this.options.position.x), r.y && y(this.options.position.y));
+        var y = "x" == this._getXY(this.outside) ? m : i;
+        this.pointer && "target" == o.pointTo && "flip" != o.adjustPosition && this._getXY(y) == this._getOpp(this._getXY(this.outside)) && (m = "center" == this.pointer.align ? s[this._getXY(y)] / 2 - this.pointer.dimensions[this._getOpp(this.pointer.xy)] / 2 - parseInt(this.pointer.element.css("margin-" + this.pointer.alignAttribute)) * (y != this._getTL(y) ? -1 : 1) : y == this.pointer.alignAttribute ? parseInt(this.pointer.element.css("margin-" + this.pointer.alignAttribute)) : s[this._getXY(y)] - parseInt(this.pointer.element.css("margin-" + this.pointer.alignAttribute)) - this.pointer.dimensions[this._getXY(y)], i = y == this._getTL(y) ? t[this._getTL(y)] - p[this._getTL(y)] + o.adjustDistance[y] : -1 * (t[this._getOpp(this._getTL(y))] - p[this._getTL(y)] - o.adjustDistance[y] - s[this._getXY(y)]), y == this._getOpp(this._getTL(y)) && p[this._getTL(y)] - i < t[this._getTL(y)] + o.adjustDistance[this._getTL(y)] && (i -= t[this._getTL(y)] + o.adjustDistance[this._getTL(y)] - (p[this._getTL(y)] - i)), (i = Math.min(i, m)) <= m && 0 < i && (this.pointer.element.css("margin-" + this.pointer.alignAttribute, parseInt(this.pointer.element.css("margin-" + this.pointer.alignAttribute)) - i * (y != this.pointer.alignAttribute ? -1 : 1)), this.wrapper.css(this._getTL(y), p[this._getTL(y)] + i * (y != this._getTL(y) ? -1 : 1)), this.positionAdjusted = !0))
+      }
+    }
+    return this._fireEvent("onPosition"), this
+  }, (h.prototype.unscroll = function (t) {
+    if (this.set = function (t, i) {
+      window.unscrollStore || (window.unscrollStore = {}), window.unscrollStore[t] = i
+    }, this.get = function (t) {
+      return window.unscrollStore ? window.unscrollStore[t] : null
+    }, this.getScrollbarWidth = function () {
+      if (this.get("scrollbarWidth")) return this.get("scrollbarWidth") + "px";
+      var t = document.createElement("div");
+      t.style.width = "100px", t.style.height = "100px", t.style.overflow = "scroll", t.style.position = "absolute", t.style.top = "-10000", document.body.appendChild(t);
+      var i = t.offsetWidth - t.clientWidth;
+      return document.body.removeChild(t), this.set("scrollbarWidth", i), i + "px"
+    }, this.getElementsToAdjust = function (o) {
+      (o = "string" == typeof (o = o || []) ? [
+        [o, "padding-right"]
+      ] : o).forEach(function (t, i) {
+        "string" == typeof t && (o[i] = [t, "padding-right"])
+      });
+      for (var t = !1, i = 0; i < o.length; i++) - 1 !== o[i][0].indexOf("body") && (t = !0);
+      return !1 === t && o.push(["body", "padding-right"]), o
+    }, this.pageHasScrollbar = function () {
+      return this.getScrollbarWidth() && document.body.offsetHeight > window.innerHeight
+    }, this.pageHasScrollbar()) {
+      t = this.getElementsToAdjust(t);
+      for (var i = 0; i < t.length; i++)
+        for (var o = document.querySelectorAll(t[i][0]), s = 0; s < o.length; s++) {
+          if (o[s].getAttribute("data-unscroll")) return;
+          var e = t[i][1],
+            n = window.getComputedStyle(o[s]).getPropertyValue(e);
+          o[s].setAttribute("data-unscroll", e), o[s].style[e] = "calc(" + (n = n || "0px") + " " + ("padding-right" == e || "right" == e ? "+" : "-") + " " + this.getScrollbarWidth() + ")"
+        }
+    }
+    var a, h;
+    document.getElementById("unscroll-class-name") || (a = document.head || document.getElementsByTagName("head")[0], (h = document.createElement("style")).type = "text/css", h.setAttribute("id", "unscroll-class-name"), h.appendChild(document.createTextNode(".unscrollable { overflow: hidden !important; }")), a.appendChild(h)), document.body.classList.add("unscrollable")
+  }).reset = function () {
+    for (var t = document.querySelectorAll("[data-unscroll]"), i = 0; i < t.length; i++) {
+      var o = t[i].getAttribute("data-unscroll");
+      t[i].style[o] = null, t[i].removeAttribute("data-unscroll")
+    }
+    document.body.classList.remove("unscrollable")
+  }, h.prototype.open = function (t) {
+    if (t = t || {}, this.isDestroyed) return this;
+    if (this.wrapper || this._create(), this._styles || (this._styles = j("<style/>").append(this._animationCSS).appendTo(j("head"))), this.timer && clearTimeout(this.timer), this._blockBodyClick(), this.isDisabled) return this;
+    this.options.closeOnEsc && j(document).on("keyup.jBox-" + this.id, function (t) {
+      27 == t.keyCode && this.close({
+        ignoreDelay: !0
+      })
+    }.bind(this)), !0 !== this.options.closeOnClick && "body" !== this.options.closeOnClick || (j("body").on("click.jBox-" + this.id + " tap.jBox-" + this.id, function (t) {
+      this.blockBodyClick || "body" == this.options.closeOnClick && (t.target == this.wrapper[0] || this.wrapper.has(t.target).length) || this.close({
+        ignoreDelay: !0
+      })
+    }.bind(this)), this.isTouchDevice && j("body > *").on("click.jBox-" + this.id + " tap.jBox-" + this.id, function () {
+      return !0
+    }));
+    var i = function () {
+      !0 === this.adjustZIndexOnOpen && (h.zIndexMax = Math.max(parseInt(this.wrapper.css("zIndex"), 10), this.options.zIndex, h.zIndexMax || 0, h.zIndexMaxDragover || 0) + 2, this.wrapper.css("zIndex", h.zIndexMax), this.options.zIndex = h.zIndexMax), this.source && this.options.getTitle && this.source.attr(this.options.getTitle) && this.setTitle(this.source.attr(this.options.getTitle), !0), this.source && this.options.getContent && (this.source.data("jBox-getContent") ? this.setContent(this.source.data("jBox-getContent"), !0) : this.source.attr(this.options.getContent) ? this.setContent(this.source.attr(this.options.getContent), !0) : "html" == this.options.getContent && this.setContent(this.source.html(), !0)), this._fireEvent("onOpen"), (this.options.ajax && (this.options.ajax.url || this.source && this.source.attr(this.options.ajax.getURL)) && (!this.ajaxLoaded || this.options.ajax.reload) || t.ajax && (t.ajax.url || t.ajax.data)) && ("strict" == this.options.ajax.reload || !this.source || !this.source.data("jBox-ajax-data") || t.ajax && (t.ajax.url || t.ajax.data) ? this.ajax(t.ajax || null, !0) : this.setContent(this.source.data("jBox-ajax-data"))), this.positionedOnOpen && !this.options.repositionOnOpen || !this.position(t) || (this.positionedOnOpen = !0), this.isClosing && this._abortAnimation(), this.isOpen || (this.isOpen = !0, this.options.autoClose && (this.options.delayClose = this.options.autoClose) && this.close(), this._attachEvents(), this.options.blockScroll && (this.options.blockScrollAdjust ? h.blockScrollScopes ? h.blockScrollScopes++ : (h.blockScrollScopes = 1, this.unscroll(Array.isArray(this.options.blockScrollAdjust) || "string" == typeof this.options.blockScrollAdjust ? this.options.blockScrollAdjust : null)) : j("body").addClass("jBox-blockScroll-" + this.id)), this.options.overlay && (this._showOverlay(), this.position()), this.options.animation && !this.isClosing && this._animate("open"), this.options.audio && this.options.audio.open && this.audio(this.options.audio.open, this.options.volume.open), this.options.fade ? this.wrapper.stop().animate({
+        opacity: 1
+      }, {
+        queue: !1,
+        duration: this.options.fade,
+        start: function () {
+          this.isOpening = !0, this.wrapper.css({
+            display: "block"
+          })
+        }.bind(this),
+        complete: function () {
+          this._fireEvent("onOpenComplete")
+        }.bind(this),
+        always: function () {
+          this.isOpening = !1, setTimeout(function () {
+            this.positionOnFadeComplete && this.position() && (this.positionOnFadeComplete = !1)
+          }.bind(this), 10)
+        }.bind(this)
+      }) : (this.wrapper.css({
+        display: "block",
+        opacity: 1
+      }), this.positionOnFadeComplete && this.position() && (this.positionOnFadeComplete = !1), this._fireEvent("onOpenComplete")))
+    }.bind(this);
+    return !this.options.delayOpen || this.isOpen || this.isClosing || t.ignoreDelay ? i() : this.timer = setTimeout(i, this.options.delayOpen), this
+  }, h.prototype.close = function (t) {
+    if (t = t || {}, j("body").off("click.jBox-" + this.id + " tap.jBox-" + this.id), this.isTouchDevice && j("body > *").off("click.jBox-" + this.id + " tap.jBox-" + this.id), this.isDestroyed || this.isClosing) return this;
+    if (this.timer && clearTimeout(this.timer), this._blockBodyClick(), this.isDisabled) return this;
+    var i, o, s, e = function () {
+      var t;
+      this._fireEvent("onClose"), this.options.cancelAjaxOnClose && this.cancelAjax(), this.isOpen && (this.isOpen = !1, this._detachEvents(), this.options.blockScroll && (this.options.blockScrollAdjust ? (h.blockScrollScopes = h.blockScrollScopes ? --h.blockScrollScopes : 0) || this.unscroll.reset() : j("body").removeClass("jBox-blockScroll-" + this.id)), this.options.overlay && this._hideOverlay(), this.options.animation && !this.isOpening && this._animate("close"), this.options.audio && this.options.audio.close && this.audio(this.options.audio.close, this.options.volume.close), (t = this.isTouchDevice && "mouse" == this.options.target ? 0 : this.options.fade) ? this.wrapper.stop().animate({
+        opacity: 0
+      }, {
+        queue: !1,
+        duration: t,
+        start: function () {
+          this.isClosing = !0
+        }.bind(this),
+        complete: function () {
+          this.wrapper.css({
+            display: "none"
+          }), this._fireEvent("onCloseComplete")
+        }.bind(this),
+        always: function () {
+          this.isClosing = !1
+        }.bind(this)
+      }) : (this.wrapper.css({
+        display: "none",
+        opacity: 0
+      }), this._fireEvent("onCloseComplete")))
+    }.bind(this);
+    return t.ignoreDelay || this.isTouchDevice && "mouse" == this.options.target ? e() : (this.options.delayOnHover || this.options.showCountdown) && 10 < this.options.delayClose ? (o = (i = this).options.delayClose, s = Date.now(), this.options.showCountdown && !this.inner && (t = j('<div class="jBox-countdown" />'), this.inner = j('<div class="jBox-countdown-inner" />'), t.prepend(this.inner), j("#" + this.id).append(t)), this.countdown = function () {
+      var t = Date.now();
+      i.isHovered || (o -= t - s), s = t, 0 < o ? (i.options.showCountdown && i.inner.css("width", 100 * o / i.options.delayClose + "%"), window.requestAnimationFrame(i.countdown)) : e()
+    }, window.requestAnimationFrame(this.countdown)) : this.timer = setTimeout(e, Math.max(this.options.delayClose, 10)), this
+  }, h.prototype.toggle = function (t) {
+    return this[this.isOpen ? "close" : "open"](t), this
+  }, h.prototype.disable = function () {
+    return this.isDisabled = !0, this
+  }, h.prototype.enable = function () {
+    return this.isDisabled = !1, this
+  }, h.prototype.hide = function () {
+    return this.disable(), this.wrapper && (this.cacheWrapperDisplay = this.wrapper.css("display"), this.wrapper.css({
+      display: "none"
+    })), this.overlay && (this.cacheOverlayDisplay = this.overlay.css("display"), this.overlay.css({
+      display: "none"
+    })), this
+  }, h.prototype.show = function () {
+    return this.enable(), this.wrapper && this.cacheWrapperDisplay && (this.wrapper.css({
+      display: this.cacheWrapperDisplay
+    }), this.cacheWrapperDisplay = null), this.overlay && this.cacheOverlayDisplay && (this.overlay.css({
+      display: this.cacheOverlayDisplay
+    }), this.cacheOverlayDisplay = null), this
+  }, h.prototype.ajax = function (o, i) {
+    o = o || {}, j.each([
+      ["getData", "data"],
+      ["getURL", "url"]
+    ], function (t, i) {
+      this.options.ajax[i[0]] && !o[i[1]] && this.source && null != this.source.attr(this.options.ajax[i[0]]) && (o[i[1]] = this.source.attr(this.options.ajax[i[0]]) || "")
+    }.bind(this));
+    var t = j.extend(!0, {}, this.options.ajax);
+    this.cancelAjax();
+    var s = o.beforeSend || t.beforeSend || function () { },
+      e = o.complete || t.complete || function () { },
+      n = o.success || t.success || function () { },
+      a = o.error || t.error || function () { },
+      h = j.extend(!0, t, o);
+    return h.beforeSend = function (t) {
+      h.loadingClass && this.wrapper.addClass(!0 === h.loadingClass ? "jBox-loading" : h.loadingClass), h.spinner && (this.spinnerDelay = setTimeout(function () {
+        this.wrapper.addClass("jBox-loading-spinner"), h.spinnerReposition && (i ? this.positionOnFadeComplete = !0 : this.position()), this.spinner = j(!0 !== h.spinner ? h.spinner : '<div class="jBox-spinner"></div>').appendTo(this.container), this.titleContainer && "absolute" == this.spinner.css("position") && this.spinner.css({
+          transform: "translateY(" + .5 * this.titleContainer.outerHeight() + "px)"
+        })
+      }.bind(this), "" != this.content.html() && h.spinnerDelay || 0)), s.bind(this)(t)
+    }.bind(this), h.complete = function (t) {
+      this.spinnerDelay && clearTimeout(this.spinnerDelay), this.wrapper.removeClass("jBox-loading jBox-loading-spinner jBox-loading-spinner-delay"), this.spinner && this.spinner.length && this.spinner.remove() && h.spinnerReposition && (i ? this.positionOnFadeComplete = !0 : this.position()), this.ajaxLoaded = !0, e.bind(this)(t)
+    }.bind(this), h.success = function (t) {
+      h.setContent && this.setContent(t, !0) && (i ? this.positionOnFadeComplete = !0 : this.position()), h.setContent && this.source && this.source.data("jBox-ajax-data", t), n.bind(this)(t)
+    }.bind(this), h.error = function (t) {
+      a.bind(this)(t)
+    }.bind(this), this.ajaxRequest = j.ajax(h), this
+  }, h.prototype.cancelAjax = function () {
+    this.ajaxRequest && (this.ajaxRequest.abort(), this.ajaxLoaded = !1)
+  }, h.prototype.audio = function (t, i) {
+    if (!t) return this;
+    var o;
+    (h._audio = !h._audio ? {} : h._audio)[t] || (o = j("<audio/>"), j("<source/>", {
+      src: t + ".mp3"
+    }).appendTo(o), j("<source/>", {
+      src: t + ".ogg"
+    }).appendTo(o), h._audio[t] = o[0]), h._audio[t].volume = Math.min((null != i ? i : 100) / 100, 1);
+    try {
+      h._audio[t].pause(), h._audio[t].currentTime = 0
+    } catch (t) { }
+    return h._audio[t].play(), this
+  }, h._animationSpeeds = {
+    tada: 1e3,
+    tadaSmall: 1e3,
+    flash: 500,
+    shake: 400,
+    pulseUp: 250,
+    pulseDown: 250,
+    popIn: 250,
+    popOut: 250,
+    fadeIn: 200,
+    fadeOut: 200,
+    slideUp: 400,
+    slideRight: 400,
+    slideLeft: 400,
+    slideDown: 400
+  }, h.prototype.animate = function (t, i) {
+    i = i || {}, this.animationTimeout || (this.animationTimeout = {}), i.element || (i.element = this.wrapper), i.element.data("jBox-animating-id") || i.element.data("jBox-animating-id", h._getUniqueElementID()), i.element.data("jBox-animating") && (i.element.removeClass(i.element.data("jBox-animating")).data("jBox-animating", null), this.animationTimeout[i.element.data("jBox-animating-id")] && clearTimeout(this.animationTimeout[i.element.data("jBox-animating-id")])), i.element.addClass("jBox-animated-" + t).data("jBox-animating", "jBox-animated-" + t), this.animationTimeout[i.element.data("jBox-animating-id")] = setTimeout(function () {
+      i.element.removeClass(i.element.data("jBox-animating")).data("jBox-animating", null), i.complete && i.complete()
+    }, h._animationSpeeds[t])
+  }, h.prototype.swipeDetector = function (i, o) {
+    var s = 0,
+      e = 0,
+      n = 0,
+      a = 0,
+      h = 0;
+
+    function t(t) {
+      o.useOnlyTouch && !t.originalEvent.touches || (t.originalEvent.touches && (t = t.originalEvent.touches[0]), 0 === s && (s = 1, e = t.clientX, n = t.clientY))
+    }
+
+    function r(t) {
+      2 === s && (s = 0, Math.abs(a) > Math.abs(h) && Math.abs(a) > o.swipeThreshold ? a < 0 ? i.trigger(j.Event("swipeLeft.sd")) : i.trigger(j.Event("swipeRight.sd")) : Math.abs(h) > o.swipeThreshold && (h < 0 ? i.trigger(j.Event("swipeUp.sd")) : i.trigger(j.Event("swipeDown.sd"))))
+    }
+
+    function p(t) {
+      var i;
+      1 === s && (i = (t = t.originalEvent.touches ? t.originalEvent.touches[0] : t).clientX - e, t = t.clientY - n, (Math.abs(i) > o.swipeThreshold || Math.abs(t) > o.swipeThreshold) && (s = 2, a = i, h = t))
+    }
+    return o = j.extend({
+      swipeThreshold: 70,
+      useOnlyTouch: !1
+    }, o), i.on("mousedown touchstart", t), j("html").on("mouseup touchend", r), j("html").on("mousemove touchmove", p), i
+  }, h.prototype.destroy = function () {
+    return this.detach(), this.isOpen && this.close({
+      ignoreDelay: !0
+    }), this.wrapper && this.wrapper.remove(), this.overlay && this.overlay.remove(), this._styles && this._styles.remove(), this.isDestroyed = !0, this
+  }, h._getUniqueID = (t = 1, function () {
+    return t++
+  }), h._getUniqueElementID = (i = 1, function () {
+    return i++
+  }), h._pluginOptions = {}, h.plugin = function (t, i) {
+    h._pluginOptions[t] = i
+  }, j.fn.jBox = function (t, i) {
+    return new h(t = t || {}, j.extend(i = i || {}, {
+      attach: this
+    }))
+  }, h
+}
+
+function jBoxConfirmWrapper(jBox, jQuery) {
+  new jBox.plugin("Confirm", {
+    confirmButton: "Submit",
+    cancelButton: "Cancel",
+    confirm: null,
+    cancel: null,
+    closeOnConfirm: !0,
+    target: window,
+    fixed: !0,
+    attach: "[data-confirm]",
+    getContent: "data-confirm",
+    content: "Do you really want to do this?",
+    minWidth: 360,
+    maxWidth: 500,
+    blockScroll: !0,
+    closeOnEsc: !0,
+    closeOnClick: !1,
+    closeButton: !1,
+    overlay: !0,
+    animation: "zoomIn",
+    preventDefault: !0,
+    _onAttach: function (t) {
+      var i;
+      this.options.confirm || (i = t.attr("onclick") ? t.attr("onclick") : t.attr("href") ? t.attr("target") ? 'window.open("' + t.attr("href") + '", "' + t.attr("target") + '");' : 'window.location.href = "' + t.attr("href") + '";' : "", t.prop("onclick", null).data("jBox-Confirm-submit", i))
+    },
+    _onCreated: function () {
+      this.wrapper.addClass("jBox-Modal"), this.footer = jQuery('<div class="jBox-Confirm-footer"/>'), jQuery('<div class="jBox-Confirm-button jBox-Confirm-button-cancel"/>').html(this.options.cancelButton).on("click tap", function () {
+        this.options.cancel && this.options.cancel(this.source), this.close()
+      }.bind(this)).appendTo(this.footer), this.submitButton = jQuery('<div class="jBox-Confirm-button jBox-Confirm-button-submit"/>').html(this.options.confirmButton).appendTo(this.footer), this.footer.appendTo(this.container)
+    },
+    _onOpen: function () {
+      this.submitButton.off("click.jBox-Confirm" + this.id + " tap.jBox-Confirm" + this.id).on("click.jBox-Confirm" + this.id + " tap.jBox-Confirm" + this.id, function () {
+        this.options.confirm ? this.options.confirm(this.source) : eval(this.source.data("jBox-Confirm-submit")), this.options.closeOnConfirm && this.close()
+      }.bind(this))
+    }
+  })
+}
+
+function jBoxImageWrapper(t, a) {
+  new t.plugin("Image", {
+    src: "href",
+    gallery: "data-jbox-image",
+    imageLabel: "title",
+    imageFade: 360,
+    imageSize: "contain",
+    imageCounter: !1,
+    imageCounterSeparator: "/",
+    downloadButton: !1,
+    downloadButtonText: null,
+    downloadButtonUrl: null,
+    mobileImageAttr: null,
+    mobileImageBreakpoint: null,
+    preloadFirstImage: !1,
+    target: window,
+    attach: "[data-jbox-image]",
+    fixed: !0,
+    blockScroll: !0,
+    closeOnEsc: !0,
+    closeOnClick: "button",
+    closeButton: !0,
+    overlay: !0,
+    animation: "zoomIn",
+    preventDefault: !0,
+    width: "100%",
+    height: "100%",
+    adjustDistance: {
+      top: 40,
+      right: 0,
+      bottom: 40,
+      left: 0
+    },
+    _onInit: function () {
+      this.images = this.currentImage = {}, this.imageZIndex = 1, this.initImage = function (t) {
+        var i, o;
+        (t = a(t)).data("jBox-image-gallery") || (i = t.attr(this.options.src), this.options.mobileImageAttr && this.options.mobileImageBreakpoint && t.attr(this.options.mobileImageAttr) && a(window).width() <= this.options.mobileImageBreakpoint && (i = t.attr(this.options.mobileImageAttr)), o = t.attr(this.options.gallery) || "default", this.images[o] || (this.images[o] = []), this.images[o].push({
+          src: i,
+          label: t.attr(this.options.imageLabel) || "",
+          downloadUrl: this.options.downloadButtonUrl && t.attr(this.options.downloadButtonUrl) ? t.attr(this.options.downloadButtonUrl) : null
+        }), "title" == this.options.imageLabel && t.removeAttr("title"), t.data("jBox-image-gallery", o), t.data("jBox-image-id", this.images[o].length - 1))
+      }.bind(this), this.attachedElements && this.attachedElements.length && a.each(this.attachedElements, function (t, i) {
+        this.initImage(i)
+      }.bind(this));
+      var n = function (t, i, o, s) {
+        if (!a("#jBox-image-" + t + "-" + i).length) {
+          var e = a("<div/>", {
+            id: "jBox-image-" + t + "-" + i,
+            class: "jBox-image-container" + (o ? " jBox-image-" + t + "-current" : "")
+          }).css({
+            backgroundSize: this.options.imageSize,
+            opacity: s ? 1 : 0,
+            zIndex: o ? this.imageZIndex++ : 0
+          }).appendTo(this.content);
+          return this.swipeDetector(e).on("swipeLeft.sd swipeRight.sd", function (t) {
+            "swipeLeft" === t.type ? this.showImage("next") : "swipeRight" === t.type && this.showImage("prev")
+          }.bind(this)), a("<div/>", {
+            id: "jBox-image-label-" + t + "-" + i,
+            class: "jBox-image-label" + (o ? " active" : "")
+          }).html(this.images[t][i].label).on("click tap", function () {
+            a(this).toggleClass("expanded")
+          }).appendTo(this.imageLabelContainer), o && e.animate({
+            opacity: 1
+          }, s ? 0 : this.options.imageFade), e
+        }
+      }.bind(this);
+      this.downloadImage = function (t) {
+        var i = document.createElement("a");
+        i.href = t, i.setAttribute("download", t.substring(t.lastIndexOf("/") + 1)), document.body.appendChild(i), i.click()
+      };
+      var e = function (i, o, t, s) {
+        var e = n(i, o, t, s);
+        e.addClass("jBox-image-loading"), a('<img src="' + this.images[i][o].src + '" />').each(function () {
+          var t = new Image;
+          t.onload = function () {
+            e.removeClass("jBox-image-loading"), e.css({
+              backgroundImage: 'url("' + this.images[i][o].src + '")'
+            })
+          }.bind(this), t.onerror = function () {
+            e.removeClass("jBox-image-loading"), e.addClass("jBox-image-not-found")
+          }.bind(this), t.src = this.images[i][o].src
+        }.bind(this))
+      }.bind(this);
+      this.showImage = function (t) {
+        var i, o, s;
+        if ("open" != t) i = this.currentImage.gallery, s = (s = this.currentImage.id + (+("prev" == t) ? -1 : 1)) > this.images[i].length - 1 ? 0 : s < 0 ? this.images[i].length - 1 : s;
+        else {
+          if (this.source) i = this.source.data("jBox-image-gallery"), s = this.source.data("jBox-image-id");
+          else {
+            if (!this.attachedElements || !this.attachedElements.length) return;
+            i = a(this.attachedElements[0]).data("jBox-image-gallery"), s = a(this.attachedElements[0]).data("jBox-image-id")
+          }
+          this.images && this.images[i] && a(".jBox-image-pointer-prev, .jBox-image-pointer-next").css({
+            display: 1 < this.images[i].length ? "block" : "none"
+          })
+        }
+        a(".jBox-image-" + i + "-current").length && a(".jBox-image-" + i + "-current").removeClass("jBox-image-" + i + "-current").animate({
+          opacity: 0
+        }, "open" == t ? 0 : this.options.imageFade), this.currentImage = {
+          gallery: i,
+          id: s
+        }, a("#jBox-image-" + i + "-" + s).length ? a("#jBox-image-" + i + "-" + s).addClass("jBox-image-" + i + "-current").css({
+          zIndex: this.imageZIndex++,
+          opacity: 0
+        }).animate({
+          opacity: 1
+        }, "open" == t ? 0 : this.options.imageFade) : e(i, s, !0, "open" === t), o = i, t = s, a(".jBox-image-label.active").removeClass("active expanded"), a("#jBox-image-label-" + o + "-" + t).addClass("active"), this.imageCounter && (this.images[i] && 1 < this.images[i].length ? (this.wrapper.addClass("jBox-image-has-counter"), this.imageCounter.find(".jBox-image-counter-all").html(this.images[i].length), this.imageCounter.find(".jBox-image-counter-current").html(s + 1)) : this.wrapper.removeClass("jBox-image-has-counter")), this.images[i] && this.images[i].length - 1 && (s = (s = s + 1) > this.images[i].length - 1 ? 0 : s < 0 ? this.images[i].length - 1 : s, a("#jBox-image-" + i + "-" + s).length || e(i, s, !1, !1))
+      }, this.options.preloadFirstImage && a(window).on("load", function () {
+        this.showImage("open")
+      }.bind(this))
+    },
+    _onAttach: function (t) {
+      this.initImage && this.initImage(t)
+    },
+    _onCreated: function () {
+      this.imageLabelWrapper = a('<div class="jBox-image-label-wrapper"/>').appendTo(this.wrapper), this.imagePrevButton = a('<div class="jBox-image-pointer-prev"/>').on("click tap", function () {
+        this.showImage("prev")
+      }.bind(this)), this.imageNextButton = a('<div class="jBox-image-pointer-next"/>').on("click tap", function () {
+        this.showImage("next")
+      }.bind(this)), this.imageLabelContainer = a('<div class="jBox-image-label-container"/>'), this.imageLabelWrapper.append(this.imagePrevButton).append(this.imageLabelContainer).append(this.imageNextButton), this.options.downloadButton && (this.downloadButton = a("<div/>", {
+        class: "jBox-image-download-button-wrapper"
+      }).appendTo(this.wrapper).append(this.options.downloadButtonText ? a("<div/>", {
+        class: "jBox-image-download-button-text"
+      }).html(this.options.downloadButtonText) : null).append(a("<div/>", {
+        class: "jBox-image-download-button-icon"
+      })).on("click tap", function () {
+        var t;
+        t = this.images[this.currentImage.gallery][this.currentImage.id].downloadUrl || this.wrapper.find(".jBox-image-" + this.currentImage.gallery + "-current")[0].style.backgroundImage.slice(4, -1).replace(/["']/g, ""), this.downloadImage(t)
+      }.bind(this))), this.options.imageCounter && (this.imageCounter = a("<div/>", {
+        class: "jBox-image-counter-container"
+      }).insertAfter(this.imageLabelContainer), this.imageCounter.append(a("<span/>", {
+        class: "jBox-image-counter-current"
+      })).append(a("<span/>").html(this.options.imageCounterSeparator)).append(a("<span/>", {
+        class: "jBox-image-counter-all"
+      })))
+    },
+    _onOpen: function () {
+      a(document).on("keyup.jBox-Image-" + this.id, function (t) {
+        37 == t.keyCode && this.showImage("prev"), 39 == t.keyCode && this.showImage("next")
+      }.bind(this)), this.showImage("open")
+    },
+    _onClose: function () {
+      a(document).off("keyup.jBox-Image-" + this.id)
+    },
+    _onCloseComplete: function () {
+      this.wrapper.find(".jBox-image-container").css("opacity", 0)
+    }
+  })
+}
+
+function jBoxNoticeWrapper(t, a) {
+  new t.plugin("Notice", {
+    color: null,
+    stack: !0,
+    stackSpacing: 10,
+    autoClose: 6e3,
+    attributes: {
+      x: "right",
+      y: "top"
+    },
+    position: {
+      x: 15,
+      y: 15
+    },
+    responsivePositions: {
+      500: {
+        x: 5,
+        y: 5
+      },
+      768: {
+        x: 10,
+        y: 10
+      }
+    },
+    target: window,
+    fixed: !0,
+    animation: "zoomIn",
+    closeOnClick: "box",
+    zIndex: 12e3,
+    _onInit: function () {
+      this.defaultNoticePosition = a.extend({}, this.options.position), this._adjustNoticePositon = function () {
+        var t = a(window),
+          o = t.width();
+        t.height();
+        this.options.position = a.extend({}, this.defaultNoticePosition), a.each(this.options.responsivePositions, function (t, i) {
+          if (o <= t) return this.options.position = i, !1
+        }.bind(this)), this.options.adjustDistance = {
+          top: this.options.position.y,
+          right: this.options.position.x,
+          bottom: this.options.position.y,
+          left: this.options.position.x
+        }
+      }, this.options.content instanceof a && (this.options.content = this.options.content.clone().attr("id", "")), a(window).on("resize.responsivejBoxNotice-" + this.id, function (t) {
+        this.isOpen && this._adjustNoticePositon()
+      }.bind(this)), this.open()
+    },
+    _onCreated: function () {
+      this.wrapper.addClass("jBox-Notice-color jBox-Notice-" + (this.options.color || "gray")), this.wrapper.data("jBox-Notice-position", this.options.attributes.x + "-" + this.options.attributes.y)
+    },
+    _onOpen: function () {
+      this.options.stack || (this._adjustNoticePositon(), a.each(a(".jBox-Notice"), function (t, i) {
+        (i = a(i)).attr("id") != this.id && i.data("jBox-Notice-position") == this.options.attributes.x + "-" + this.options.attributes.y && (this.options.stack || i.data("jBox").close({
+          ignoreDelay: !0
+        }))
+      }.bind(this)))
+    },
+    _onPosition: function () {
+      var t, s = {};
+      for (t in a.each(a(".jBox-Notice"), function (t, i) {
+        var o = (i = a(i)).data("jBox-Notice-position");
+        s[o] || (s[o] = []), s[o].push(i)
+      }), s) {
+        var i = t.split("-")[1];
+        s[t].reverse();
+        var o, e = 0;
+        for (o in s[t]) {
+          var n = a(s[t][o]);
+          n.css("margin-" + i, e), e += n.outerHeight() + this.options.stackSpacing
+        }
+      }
+    },
+    _onCloseComplete: function () {
+      this.destroy(), this.options._onPosition.bind(this).call()
+    }
+  })
+} ! function (i, o) {
+  "function" == typeof define && define.amd ? define(["jquery"], function (t) {
+    return i.jBox = o(t)
+  }) : "object" == typeof module && module.exports ? module.exports = i.jBox = o(require("jquery")) : i.jBox = o(i.jQuery)
+}(this, function (t) {
+  var i = jBoxWrapper(t);
+  try {
+    void 0 !== jBoxConfirmWrapper && jBoxConfirmWrapper && jBoxConfirmWrapper(i, t)
+  } catch (t) {
+    console.error(t)
+  }
+  try {
+    void 0 !== jBoxImageWrapper && jBoxImageWrapper && jBoxImageWrapper(i, t)
+  } catch (t) {
+    console.error(t)
+  }
+  try {
+    void 0 !== jBoxNoticeWrapper && jBoxNoticeWrapper && jBoxNoticeWrapper(i, t)
+  } catch (t) {
+    console.error(t)
+  }
+  return i
+});
 /**
  * SimpleBar.js - v5.1.0
  * Scrollbars, simpler.
@@ -1023,4 +2239,3 @@
  */
 
 !function (t, e) { "object" == typeof exports && "undefined" != typeof module ? module.exports = e() : "function" == typeof define && define.amd ? define(e) : (t = t || self).SimpleBar = e() }(this, (function () { "use strict"; var t = "undefined" != typeof globalThis ? globalThis : "undefined" != typeof window ? window : "undefined" != typeof global ? global : "undefined" != typeof self ? self : {}; function e(t, e) { return t(e = { exports: {} }, e.exports), e.exports } var r, n, i, o = "object", s = function (t) { return t && t.Math == Math && t }, a = s(typeof globalThis == o && globalThis) || s(typeof window == o && window) || s(typeof self == o && self) || s(typeof t == o && t) || Function("return this")(), c = function (t) { try { return !!t() } catch (t) { return !0 } }, l = !c((function () { return 7 != Object.defineProperty({}, "a", { get: function () { return 7 } }).a })), u = {}.propertyIsEnumerable, f = Object.getOwnPropertyDescriptor, h = { f: f && !u.call({ 1: 2 }, 1) ? function (t) { var e = f(this, t); return !!e && e.enumerable } : u }, d = function (t, e) { return { enumerable: !(1 & t), configurable: !(2 & t), writable: !(4 & t), value: e } }, p = {}.toString, v = function (t) { return p.call(t).slice(8, -1) }, g = "".split, y = c((function () { return !Object("z").propertyIsEnumerable(0) })) ? function (t) { return "String" == v(t) ? g.call(t, "") : Object(t) } : Object, b = function (t) { if (null == t) throw TypeError("Can't call method on " + t); return t }, m = function (t) { return y(b(t)) }, x = function (t) { return "object" == typeof t ? null !== t : "function" == typeof t }, E = function (t, e) { if (!x(t)) return t; var r, n; if (e && "function" == typeof (r = t.toString) && !x(n = r.call(t))) return n; if ("function" == typeof (r = t.valueOf) && !x(n = r.call(t))) return n; if (!e && "function" == typeof (r = t.toString) && !x(n = r.call(t))) return n; throw TypeError("Can't convert object to primitive value") }, w = {}.hasOwnProperty, O = function (t, e) { return w.call(t, e) }, _ = a.document, S = x(_) && x(_.createElement), A = function (t) { return S ? _.createElement(t) : {} }, k = !l && !c((function () { return 7 != Object.defineProperty(A("div"), "a", { get: function () { return 7 } }).a })), L = Object.getOwnPropertyDescriptor, M = { f: l ? L : function (t, e) { if (t = m(t), e = E(e, !0), k) try { return L(t, e) } catch (t) { } if (O(t, e)) return d(!h.f.call(t, e), t[e]) } }, T = function (t) { if (!x(t)) throw TypeError(String(t) + " is not an object"); return t }, j = Object.defineProperty, R = { f: l ? j : function (t, e, r) { if (T(t), e = E(e, !0), T(r), k) try { return j(t, e, r) } catch (t) { } if ("get" in r || "set" in r) throw TypeError("Accessors not supported"); return "value" in r && (t[e] = r.value), t } }, W = l ? function (t, e, r) { return R.f(t, e, d(1, r)) } : function (t, e, r) { return t[e] = r, t }, z = function (t, e) { try { W(a, t, e) } catch (r) { a[t] = e } return e }, C = e((function (t) { var e = a["__core-js_shared__"] || z("__core-js_shared__", {}); (t.exports = function (t, r) { return e[t] || (e[t] = void 0 !== r ? r : {}) })("versions", []).push({ version: "3.2.1", mode: "global", copyright: "© 2019 Denis Pushkarev (zloirock.ru)" }) })), N = C("native-function-to-string", Function.toString), I = a.WeakMap, D = "function" == typeof I && /native code/.test(N.call(I)), P = 0, V = Math.random(), F = function (t) { return "Symbol(" + String(void 0 === t ? "" : t) + ")_" + (++P + V).toString(36) }, B = C("keys"), H = function (t) { return B[t] || (B[t] = F(t)) }, q = {}, $ = a.WeakMap; if (D) { var X = new $, Y = X.get, G = X.has, U = X.set; r = function (t, e) { return U.call(X, t, e), e }, n = function (t) { return Y.call(X, t) || {} }, i = function (t) { return G.call(X, t) } } else { var Q = H("state"); q[Q] = !0, r = function (t, e) { return W(t, Q, e), e }, n = function (t) { return O(t, Q) ? t[Q] : {} }, i = function (t) { return O(t, Q) } } var K = { set: r, get: n, has: i, enforce: function (t) { return i(t) ? n(t) : r(t, {}) }, getterFor: function (t) { return function (e) { var r; if (!x(e) || (r = n(e)).type !== t) throw TypeError("Incompatible receiver, " + t + " required"); return r } } }, J = e((function (t) { var e = K.get, r = K.enforce, n = String(N).split("toString"); C("inspectSource", (function (t) { return N.call(t) })), (t.exports = function (t, e, i, o) { var s = !!o && !!o.unsafe, c = !!o && !!o.enumerable, l = !!o && !!o.noTargetGet; "function" == typeof i && ("string" != typeof e || O(i, "name") || W(i, "name", e), r(i).source = n.join("string" == typeof e ? e : "")), t !== a ? (s ? !l && t[e] && (c = !0) : delete t[e], c ? t[e] = i : W(t, e, i)) : c ? t[e] = i : z(e, i) })(Function.prototype, "toString", (function () { return "function" == typeof this && e(this).source || N.call(this) })) })), Z = a, tt = function (t) { return "function" == typeof t ? t : void 0 }, et = function (t, e) { return arguments.length < 2 ? tt(Z[t]) || tt(a[t]) : Z[t] && Z[t][e] || a[t] && a[t][e] }, rt = Math.ceil, nt = Math.floor, it = function (t) { return isNaN(t = +t) ? 0 : (t > 0 ? nt : rt)(t) }, ot = Math.min, st = function (t) { return t > 0 ? ot(it(t), 9007199254740991) : 0 }, at = Math.max, ct = Math.min, lt = function (t) { return function (e, r, n) { var i, o = m(e), s = st(o.length), a = function (t, e) { var r = it(t); return r < 0 ? at(r + e, 0) : ct(r, e) }(n, s); if (t && r != r) { for (; s > a;)if ((i = o[a++]) != i) return !0 } else for (; s > a; a++)if ((t || a in o) && o[a] === r) return t || a || 0; return !t && -1 } }, ut = { includes: lt(!0), indexOf: lt(!1) }.indexOf, ft = function (t, e) { var r, n = m(t), i = 0, o = []; for (r in n) !O(q, r) && O(n, r) && o.push(r); for (; e.length > i;)O(n, r = e[i++]) && (~ut(o, r) || o.push(r)); return o }, ht = ["constructor", "hasOwnProperty", "isPrototypeOf", "propertyIsEnumerable", "toLocaleString", "toString", "valueOf"], dt = ht.concat("length", "prototype"), pt = { f: Object.getOwnPropertyNames || function (t) { return ft(t, dt) } }, vt = { f: Object.getOwnPropertySymbols }, gt = et("Reflect", "ownKeys") || function (t) { var e = pt.f(T(t)), r = vt.f; return r ? e.concat(r(t)) : e }, yt = function (t, e) { for (var r = gt(e), n = R.f, i = M.f, o = 0; o < r.length; o++) { var s = r[o]; O(t, s) || n(t, s, i(e, s)) } }, bt = /#|\.prototype\./, mt = function (t, e) { var r = Et[xt(t)]; return r == Ot || r != wt && ("function" == typeof e ? c(e) : !!e) }, xt = mt.normalize = function (t) { return String(t).replace(bt, ".").toLowerCase() }, Et = mt.data = {}, wt = mt.NATIVE = "N", Ot = mt.POLYFILL = "P", _t = mt, St = M.f, At = function (t, e) { var r, n, i, o, s, c = t.target, l = t.global, u = t.stat; if (r = l ? a : u ? a[c] || z(c, {}) : (a[c] || {}).prototype) for (n in e) { if (o = e[n], i = t.noTargetGet ? (s = St(r, n)) && s.value : r[n], !_t(l ? n : c + (u ? "." : "#") + n, t.forced) && void 0 !== i) { if (typeof o == typeof i) continue; yt(o, i) } (t.sham || i && i.sham) && W(o, "sham", !0), J(r, n, o, t) } }, kt = function (t) { if ("function" != typeof t) throw TypeError(String(t) + " is not a function"); return t }, Lt = function (t, e, r) { if (kt(t), void 0 === e) return t; switch (r) { case 0: return function () { return t.call(e) }; case 1: return function (r) { return t.call(e, r) }; case 2: return function (r, n) { return t.call(e, r, n) }; case 3: return function (r, n, i) { return t.call(e, r, n, i) } }return function () { return t.apply(e, arguments) } }, Mt = function (t) { return Object(b(t)) }, Tt = Array.isArray || function (t) { return "Array" == v(t) }, jt = !!Object.getOwnPropertySymbols && !c((function () { return !String(Symbol()) })), Rt = a.Symbol, Wt = C("wks"), zt = function (t) { return Wt[t] || (Wt[t] = jt && Rt[t] || (jt ? Rt : F)("Symbol." + t)) }, Ct = zt("species"), Nt = function (t, e) { var r; return Tt(t) && ("function" != typeof (r = t.constructor) || r !== Array && !Tt(r.prototype) ? x(r) && null === (r = r[Ct]) && (r = void 0) : r = void 0), new (void 0 === r ? Array : r)(0 === e ? 0 : e) }, It = [].push, Dt = function (t) { var e = 1 == t, r = 2 == t, n = 3 == t, i = 4 == t, o = 6 == t, s = 5 == t || o; return function (a, c, l, u) { for (var f, h, d = Mt(a), p = y(d), v = Lt(c, l, 3), g = st(p.length), b = 0, m = u || Nt, x = e ? m(a, g) : r ? m(a, 0) : void 0; g > b; b++)if ((s || b in p) && (h = v(f = p[b], b, d), t)) if (e) x[b] = h; else if (h) switch (t) { case 3: return !0; case 5: return f; case 6: return b; case 2: It.call(x, f) } else if (i) return !1; return o ? -1 : n || i ? i : x } }, Pt = { forEach: Dt(0), map: Dt(1), filter: Dt(2), some: Dt(3), every: Dt(4), find: Dt(5), findIndex: Dt(6) }, Vt = function (t, e) { var r = [][t]; return !r || !c((function () { r.call(null, e || function () { throw 1 }, 1) })) }, Ft = Pt.forEach, Bt = Vt("forEach") ? function (t) { return Ft(this, t, arguments.length > 1 ? arguments[1] : void 0) } : [].forEach; At({ target: "Array", proto: !0, forced: [].forEach != Bt }, { forEach: Bt }); var Ht = { CSSRuleList: 0, CSSStyleDeclaration: 0, CSSValueList: 0, ClientRectList: 0, DOMRectList: 0, DOMStringList: 0, DOMTokenList: 1, DataTransferItemList: 0, FileList: 0, HTMLAllCollection: 0, HTMLCollection: 0, HTMLFormElement: 0, HTMLSelectElement: 0, MediaList: 0, MimeTypeArray: 0, NamedNodeMap: 0, NodeList: 1, PaintRequestList: 0, Plugin: 0, PluginArray: 0, SVGLengthList: 0, SVGNumberList: 0, SVGPathSegList: 0, SVGPointList: 0, SVGStringList: 0, SVGTransformList: 0, SourceBufferList: 0, StyleSheetList: 0, TextTrackCueList: 0, TextTrackList: 0, TouchList: 0 }; for (var qt in Ht) { var $t = a[qt], Xt = $t && $t.prototype; if (Xt && Xt.forEach !== Bt) try { W(Xt, "forEach", Bt) } catch (t) { Xt.forEach = Bt } } var Yt = !("undefined" == typeof window || !window.document || !window.document.createElement), Gt = zt("species"), Ut = Pt.filter; At({ target: "Array", proto: !0, forced: !function (t) { return !c((function () { var e = []; return (e.constructor = {})[Gt] = function () { return { foo: 1 } }, 1 !== e[t](Boolean).foo })) }("filter") }, { filter: function (t) { return Ut(this, t, arguments.length > 1 ? arguments[1] : void 0) } }); var Qt = Object.keys || function (t) { return ft(t, ht) }, Kt = l ? Object.defineProperties : function (t, e) { T(t); for (var r, n = Qt(e), i = n.length, o = 0; i > o;)R.f(t, r = n[o++], e[r]); return t }, Jt = et("document", "documentElement"), Zt = H("IE_PROTO"), te = function () { }, ee = function () { var t, e = A("iframe"), r = ht.length; for (e.style.display = "none", Jt.appendChild(e), e.src = String("javascript:"), (t = e.contentWindow.document).open(), t.write("<script>document.F=Object<\/script>"), t.close(), ee = t.F; r--;)delete ee.prototype[ht[r]]; return ee() }, re = Object.create || function (t, e) { var r; return null !== t ? (te.prototype = T(t), r = new te, te.prototype = null, r[Zt] = t) : r = ee(), void 0 === e ? r : Kt(r, e) }; q[Zt] = !0; var ne = zt("unscopables"), ie = Array.prototype; null == ie[ne] && W(ie, ne, re(null)); var oe, se, ae, ce = function (t) { ie[ne][t] = !0 }, le = {}, ue = !c((function () { function t() { } return t.prototype.constructor = null, Object.getPrototypeOf(new t) !== t.prototype })), fe = H("IE_PROTO"), he = Object.prototype, de = ue ? Object.getPrototypeOf : function (t) { return t = Mt(t), O(t, fe) ? t[fe] : "function" == typeof t.constructor && t instanceof t.constructor ? t.constructor.prototype : t instanceof Object ? he : null }, pe = zt("iterator"), ve = !1;[].keys && ("next" in (ae = [].keys()) ? (se = de(de(ae))) !== Object.prototype && (oe = se) : ve = !0), null == oe && (oe = {}), O(oe, pe) || W(oe, pe, (function () { return this })); var ge = { IteratorPrototype: oe, BUGGY_SAFARI_ITERATORS: ve }, ye = R.f, be = zt("toStringTag"), me = function (t, e, r) { t && !O(t = r ? t : t.prototype, be) && ye(t, be, { configurable: !0, value: e }) }, xe = ge.IteratorPrototype, Ee = function () { return this }, we = Object.setPrototypeOf || ("__proto__" in {} ? function () { var t, e = !1, r = {}; try { (t = Object.getOwnPropertyDescriptor(Object.prototype, "__proto__").set).call(r, []), e = r instanceof Array } catch (t) { } return function (r, n) { return T(r), function (t) { if (!x(t) && null !== t) throw TypeError("Can't set " + String(t) + " as a prototype") }(n), e ? t.call(r, n) : r.__proto__ = n, r } }() : void 0), Oe = ge.IteratorPrototype, _e = ge.BUGGY_SAFARI_ITERATORS, Se = zt("iterator"), Ae = function () { return this }, ke = function (t, e, r, n, i, o, s) { !function (t, e, r) { var n = e + " Iterator"; t.prototype = re(xe, { next: d(1, r) }), me(t, n, !1), le[n] = Ee }(r, e, n); var a, c, l, u = function (t) { if (t === i && g) return g; if (!_e && t in p) return p[t]; switch (t) { case "keys": case "values": case "entries": return function () { return new r(this, t) } }return function () { return new r(this) } }, f = e + " Iterator", h = !1, p = t.prototype, v = p[Se] || p["@@iterator"] || i && p[i], g = !_e && v || u(i), y = "Array" == e && p.entries || v; if (y && (a = de(y.call(new t)), Oe !== Object.prototype && a.next && (de(a) !== Oe && (we ? we(a, Oe) : "function" != typeof a[Se] && W(a, Se, Ae)), me(a, f, !0))), "values" == i && v && "values" !== v.name && (h = !0, g = function () { return v.call(this) }), p[Se] !== g && W(p, Se, g), le[e] = g, i) if (c = { values: u("values"), keys: o ? g : u("keys"), entries: u("entries") }, s) for (l in c) !_e && !h && l in p || J(p, l, c[l]); else At({ target: e, proto: !0, forced: _e || h }, c); return c }, Le = K.set, Me = K.getterFor("Array Iterator"), Te = ke(Array, "Array", (function (t, e) { Le(this, { type: "Array Iterator", target: m(t), index: 0, kind: e }) }), (function () { var t = Me(this), e = t.target, r = t.kind, n = t.index++; return !e || n >= e.length ? (t.target = void 0, { value: void 0, done: !0 }) : "keys" == r ? { value: n, done: !1 } : "values" == r ? { value: e[n], done: !1 } : { value: [n, e[n]], done: !1 } }), "values"); le.Arguments = le.Array, ce("keys"), ce("values"), ce("entries"); var je = Object.assign, Re = !je || c((function () { var t = {}, e = {}, r = Symbol(); return t[r] = 7, "abcdefghijklmnopqrst".split("").forEach((function (t) { e[t] = t })), 7 != je({}, t)[r] || "abcdefghijklmnopqrst" != Qt(je({}, e)).join("") })) ? function (t, e) { for (var r = Mt(t), n = arguments.length, i = 1, o = vt.f, s = h.f; n > i;)for (var a, c = y(arguments[i++]), u = o ? Qt(c).concat(o(c)) : Qt(c), f = u.length, d = 0; f > d;)a = u[d++], l && !s.call(c, a) || (r[a] = c[a]); return r } : je; At({ target: "Object", stat: !0, forced: Object.assign !== Re }, { assign: Re }); var We = zt("toStringTag"), ze = "Arguments" == v(function () { return arguments }()), Ce = function (t) { var e, r, n; return void 0 === t ? "Undefined" : null === t ? "Null" : "string" == typeof (r = function (t, e) { try { return t[e] } catch (t) { } }(e = Object(t), We)) ? r : ze ? v(e) : "Object" == (n = v(e)) && "function" == typeof e.callee ? "Arguments" : n }, Ne = {}; Ne[zt("toStringTag")] = "z"; var Ie = "[object z]" !== String(Ne) ? function () { return "[object " + Ce(this) + "]" } : Ne.toString, De = Object.prototype; Ie !== De.toString && J(De, "toString", Ie, { unsafe: !0 }); var Pe = "\t\n\v\f\r                　\u2028\u2029\ufeff", Ve = "[" + Pe + "]", Fe = RegExp("^" + Ve + Ve + "*"), Be = RegExp(Ve + Ve + "*$"), He = function (t) { return function (e) { var r = String(b(e)); return 1 & t && (r = r.replace(Fe, "")), 2 & t && (r = r.replace(Be, "")), r } }, qe = { start: He(1), end: He(2), trim: He(3) }.trim, $e = a.parseInt, Xe = /^[+-]?0[Xx]/, Ye = 8 !== $e(Pe + "08") || 22 !== $e(Pe + "0x16") ? function (t, e) { var r = qe(String(t)); return $e(r, e >>> 0 || (Xe.test(r) ? 16 : 10)) } : $e; At({ global: !0, forced: parseInt != Ye }, { parseInt: Ye }); var Ge = function (t) { return function (e, r) { var n, i, o = String(b(e)), s = it(r), a = o.length; return s < 0 || s >= a ? t ? "" : void 0 : (n = o.charCodeAt(s)) < 55296 || n > 56319 || s + 1 === a || (i = o.charCodeAt(s + 1)) < 56320 || i > 57343 ? t ? o.charAt(s) : n : t ? o.slice(s, s + 2) : i - 56320 + (n - 55296 << 10) + 65536 } }, Ue = { codeAt: Ge(!1), charAt: Ge(!0) }, Qe = Ue.charAt, Ke = K.set, Je = K.getterFor("String Iterator"); ke(String, "String", (function (t) { Ke(this, { type: "String Iterator", string: String(t), index: 0 }) }), (function () { var t, e = Je(this), r = e.string, n = e.index; return n >= r.length ? { value: void 0, done: !0 } : (t = Qe(r, n), e.index += t.length, { value: t, done: !1 }) })); var Ze = function (t, e, r) { for (var n in e) J(t, n, e[n], r); return t }, tr = !c((function () { return Object.isExtensible(Object.preventExtensions({})) })), er = e((function (t) { var e = R.f, r = F("meta"), n = 0, i = Object.isExtensible || function () { return !0 }, o = function (t) { e(t, r, { value: { objectID: "O" + ++n, weakData: {} } }) }, s = t.exports = { REQUIRED: !1, fastKey: function (t, e) { if (!x(t)) return "symbol" == typeof t ? t : ("string" == typeof t ? "S" : "P") + t; if (!O(t, r)) { if (!i(t)) return "F"; if (!e) return "E"; o(t) } return t[r].objectID }, getWeakData: function (t, e) { if (!O(t, r)) { if (!i(t)) return !0; if (!e) return !1; o(t) } return t[r].weakData }, onFreeze: function (t) { return tr && s.REQUIRED && i(t) && !O(t, r) && o(t), t } }; q[r] = !0 })), rr = (er.REQUIRED, er.fastKey, er.getWeakData, er.onFreeze, zt("iterator")), nr = Array.prototype, ir = zt("iterator"), or = function (t, e, r, n) { try { return n ? e(T(r)[0], r[1]) : e(r) } catch (e) { var i = t.return; throw void 0 !== i && T(i.call(t)), e } }, sr = e((function (t) { var e = function (t, e) { this.stopped = t, this.result = e }; (t.exports = function (t, r, n, i, o) { var s, a, c, l, u, f, h, d = Lt(r, n, i ? 2 : 1); if (o) s = t; else { if ("function" != typeof (a = function (t) { if (null != t) return t[ir] || t["@@iterator"] || le[Ce(t)] }(t))) throw TypeError("Target is not iterable"); if (void 0 !== (h = a) && (le.Array === h || nr[rr] === h)) { for (c = 0, l = st(t.length); l > c; c++)if ((u = i ? d(T(f = t[c])[0], f[1]) : d(t[c])) && u instanceof e) return u; return new e(!1) } s = a.call(t) } for (; !(f = s.next()).done;)if ((u = or(s, d, f.value, i)) && u instanceof e) return u; return new e(!1) }).stop = function (t) { return new e(!0, t) } })), ar = function (t, e, r) { if (!(t instanceof e)) throw TypeError("Incorrect " + (r ? r + " " : "") + "invocation"); return t }, cr = zt("iterator"), lr = !1; try { var ur = 0, fr = { next: function () { return { done: !!ur++ } }, return: function () { lr = !0 } }; fr[cr] = function () { return this }, Array.from(fr, (function () { throw 2 })) } catch (t) { } var hr = function (t, e, r, n, i) { var o = a[t], s = o && o.prototype, l = o, u = n ? "set" : "add", f = {}, h = function (t) { var e = s[t]; J(s, t, "add" == t ? function (t) { return e.call(this, 0 === t ? 0 : t), this } : "delete" == t ? function (t) { return !(i && !x(t)) && e.call(this, 0 === t ? 0 : t) } : "get" == t ? function (t) { return i && !x(t) ? void 0 : e.call(this, 0 === t ? 0 : t) } : "has" == t ? function (t) { return !(i && !x(t)) && e.call(this, 0 === t ? 0 : t) } : function (t, r) { return e.call(this, 0 === t ? 0 : t, r), this }) }; if (_t(t, "function" != typeof o || !(i || s.forEach && !c((function () { (new o).entries().next() }))))) l = r.getConstructor(e, t, n, u), er.REQUIRED = !0; else if (_t(t, !0)) { var d = new l, p = d[u](i ? {} : -0, 1) != d, v = c((function () { d.has(1) })), g = function (t, e) { if (!e && !lr) return !1; var r = !1; try { var n = {}; n[cr] = function () { return { next: function () { return { done: r = !0 } } } }, t(n) } catch (t) { } return r }((function (t) { new o(t) })), y = !i && c((function () { for (var t = new o, e = 5; e--;)t[u](e, e); return !t.has(-0) })); g || ((l = e((function (e, r) { ar(e, l, t); var i = function (t, e, r) { var n, i; return we && "function" == typeof (n = e.constructor) && n !== r && x(i = n.prototype) && i !== r.prototype && we(t, i), t }(new o, e, l); return null != r && sr(r, i[u], i, n), i }))).prototype = s, s.constructor = l), (v || y) && (h("delete"), h("has"), n && h("get")), (y || p) && h(u), i && s.clear && delete s.clear } return f[t] = l, At({ global: !0, forced: l != o }, f), me(l, t), i || r.setStrong(l, t, n), l }, dr = er.getWeakData, pr = K.set, vr = K.getterFor, gr = Pt.find, yr = Pt.findIndex, br = 0, mr = function (t) { return t.frozen || (t.frozen = new xr) }, xr = function () { this.entries = [] }, Er = function (t, e) { return gr(t.entries, (function (t) { return t[0] === e })) }; xr.prototype = { get: function (t) { var e = Er(this, t); if (e) return e[1] }, has: function (t) { return !!Er(this, t) }, set: function (t, e) { var r = Er(this, t); r ? r[1] = e : this.entries.push([t, e]) }, delete: function (t) { var e = yr(this.entries, (function (e) { return e[0] === t })); return ~e && this.entries.splice(e, 1), !!~e } }; var wr = { getConstructor: function (t, e, r, n) { var i = t((function (t, o) { ar(t, i, e), pr(t, { type: e, id: br++, frozen: void 0 }), null != o && sr(o, t[n], t, r) })), o = vr(e), s = function (t, e, r) { var n = o(t), i = dr(T(e), !0); return !0 === i ? mr(n).set(e, r) : i[n.id] = r, t }; return Ze(i.prototype, { delete: function (t) { var e = o(this); if (!x(t)) return !1; var r = dr(t); return !0 === r ? mr(e).delete(t) : r && O(r, e.id) && delete r[e.id] }, has: function (t) { var e = o(this); if (!x(t)) return !1; var r = dr(t); return !0 === r ? mr(e).has(t) : r && O(r, e.id) } }), Ze(i.prototype, r ? { get: function (t) { var e = o(this); if (x(t)) { var r = dr(t); return !0 === r ? mr(e).get(t) : r ? r[e.id] : void 0 } }, set: function (t, e) { return s(this, t, e) } } : { add: function (t) { return s(this, t, !0) } }), i } }, Or = (e((function (t) { var e, r = K.enforce, n = !a.ActiveXObject && "ActiveXObject" in a, i = Object.isExtensible, o = function (t) { return function () { return t(this, arguments.length ? arguments[0] : void 0) } }, s = t.exports = hr("WeakMap", o, wr, !0, !0); if (D && n) { e = wr.getConstructor(o, "WeakMap", !0), er.REQUIRED = !0; var c = s.prototype, l = c.delete, u = c.has, f = c.get, h = c.set; Ze(c, { delete: function (t) { if (x(t) && !i(t)) { var n = r(this); return n.frozen || (n.frozen = new e), l.call(this, t) || n.frozen.delete(t) } return l.call(this, t) }, has: function (t) { if (x(t) && !i(t)) { var n = r(this); return n.frozen || (n.frozen = new e), u.call(this, t) || n.frozen.has(t) } return u.call(this, t) }, get: function (t) { if (x(t) && !i(t)) { var n = r(this); return n.frozen || (n.frozen = new e), u.call(this, t) ? f.call(this, t) : n.frozen.get(t) } return f.call(this, t) }, set: function (t, n) { if (x(t) && !i(t)) { var o = r(this); o.frozen || (o.frozen = new e), u.call(this, t) ? h.call(this, t, n) : o.frozen.set(t, n) } else h.call(this, t, n); return this } }) } })), zt("iterator")), _r = zt("toStringTag"), Sr = Te.values; for (var Ar in Ht) { var kr = a[Ar], Lr = kr && kr.prototype; if (Lr) { if (Lr[Or] !== Sr) try { W(Lr, Or, Sr) } catch (t) { Lr[Or] = Sr } if (Lr[_r] || W(Lr, _r, Ar), Ht[Ar]) for (var Mr in Te) if (Lr[Mr] !== Te[Mr]) try { W(Lr, Mr, Te[Mr]) } catch (t) { Lr[Mr] = Te[Mr] } } } var Tr = "Expected a function", jr = NaN, Rr = "[object Symbol]", Wr = /^\s+|\s+$/g, zr = /^[-+]0x[0-9a-f]+$/i, Cr = /^0b[01]+$/i, Nr = /^0o[0-7]+$/i, Ir = parseInt, Dr = "object" == typeof t && t && t.Object === Object && t, Pr = "object" == typeof self && self && self.Object === Object && self, Vr = Dr || Pr || Function("return this")(), Fr = Object.prototype.toString, Br = Math.max, Hr = Math.min, qr = function () { return Vr.Date.now() }; function $r(t, e, r) { var n, i, o, s, a, c, l = 0, u = !1, f = !1, h = !0; if ("function" != typeof t) throw new TypeError(Tr); function d(e) { var r = n, o = i; return n = i = void 0, l = e, s = t.apply(o, r) } function p(t) { var r = t - c; return void 0 === c || r >= e || r < 0 || f && t - l >= o } function v() { var t = qr(); if (p(t)) return g(t); a = setTimeout(v, function (t) { var r = e - (t - c); return f ? Hr(r, o - (t - l)) : r }(t)) } function g(t) { return a = void 0, h && n ? d(t) : (n = i = void 0, s) } function y() { var t = qr(), r = p(t); if (n = arguments, i = this, c = t, r) { if (void 0 === a) return function (t) { return l = t, a = setTimeout(v, e), u ? d(t) : s }(c); if (f) return a = setTimeout(v, e), d(c) } return void 0 === a && (a = setTimeout(v, e)), s } return e = Yr(e) || 0, Xr(r) && (u = !!r.leading, o = (f = "maxWait" in r) ? Br(Yr(r.maxWait) || 0, e) : o, h = "trailing" in r ? !!r.trailing : h), y.cancel = function () { void 0 !== a && clearTimeout(a), l = 0, n = c = i = a = void 0 }, y.flush = function () { return void 0 === a ? s : g(qr()) }, y } function Xr(t) { var e = typeof t; return !!t && ("object" == e || "function" == e) } function Yr(t) { if ("number" == typeof t) return t; if (function (t) { return "symbol" == typeof t || function (t) { return !!t && "object" == typeof t }(t) && Fr.call(t) == Rr }(t)) return jr; if (Xr(t)) { var e = "function" == typeof t.valueOf ? t.valueOf() : t; t = Xr(e) ? e + "" : e } if ("string" != typeof t) return 0 === t ? t : +t; t = t.replace(Wr, ""); var r = Cr.test(t); return r || Nr.test(t) ? Ir(t.slice(2), r ? 2 : 8) : zr.test(t) ? jr : +t } var Gr = function (t, e, r) { var n = !0, i = !0; if ("function" != typeof t) throw new TypeError(Tr); return Xr(r) && (n = "leading" in r ? !!r.leading : n, i = "trailing" in r ? !!r.trailing : i), $r(t, e, { leading: n, maxWait: e, trailing: i }) }, Ur = "Expected a function", Qr = NaN, Kr = "[object Symbol]", Jr = /^\s+|\s+$/g, Zr = /^[-+]0x[0-9a-f]+$/i, tn = /^0b[01]+$/i, en = /^0o[0-7]+$/i, rn = parseInt, nn = "object" == typeof t && t && t.Object === Object && t, on = "object" == typeof self && self && self.Object === Object && self, sn = nn || on || Function("return this")(), an = Object.prototype.toString, cn = Math.max, ln = Math.min, un = function () { return sn.Date.now() }; function fn(t) { var e = typeof t; return !!t && ("object" == e || "function" == e) } function hn(t) { if ("number" == typeof t) return t; if (function (t) { return "symbol" == typeof t || function (t) { return !!t && "object" == typeof t }(t) && an.call(t) == Kr }(t)) return Qr; if (fn(t)) { var e = "function" == typeof t.valueOf ? t.valueOf() : t; t = fn(e) ? e + "" : e } if ("string" != typeof t) return 0 === t ? t : +t; t = t.replace(Jr, ""); var r = tn.test(t); return r || en.test(t) ? rn(t.slice(2), r ? 2 : 8) : Zr.test(t) ? Qr : +t } var dn = function (t, e, r) { var n, i, o, s, a, c, l = 0, u = !1, f = !1, h = !0; if ("function" != typeof t) throw new TypeError(Ur); function d(e) { var r = n, o = i; return n = i = void 0, l = e, s = t.apply(o, r) } function p(t) { var r = t - c; return void 0 === c || r >= e || r < 0 || f && t - l >= o } function v() { var t = un(); if (p(t)) return g(t); a = setTimeout(v, function (t) { var r = e - (t - c); return f ? ln(r, o - (t - l)) : r }(t)) } function g(t) { return a = void 0, h && n ? d(t) : (n = i = void 0, s) } function y() { var t = un(), r = p(t); if (n = arguments, i = this, c = t, r) { if (void 0 === a) return function (t) { return l = t, a = setTimeout(v, e), u ? d(t) : s }(c); if (f) return a = setTimeout(v, e), d(c) } return void 0 === a && (a = setTimeout(v, e)), s } return e = hn(e) || 0, fn(r) && (u = !!r.leading, o = (f = "maxWait" in r) ? cn(hn(r.maxWait) || 0, e) : o, h = "trailing" in r ? !!r.trailing : h), y.cancel = function () { void 0 !== a && clearTimeout(a), l = 0, n = c = i = a = void 0 }, y.flush = function () { return void 0 === a ? s : g(un()) }, y }, pn = "Expected a function", vn = "__lodash_hash_undefined__", gn = "[object Function]", yn = "[object GeneratorFunction]", bn = /^\[object .+?Constructor\]$/, mn = "object" == typeof t && t && t.Object === Object && t, xn = "object" == typeof self && self && self.Object === Object && self, En = mn || xn || Function("return this")(); var wn = Array.prototype, On = Function.prototype, _n = Object.prototype, Sn = En["__core-js_shared__"], An = function () { var t = /[^.]+$/.exec(Sn && Sn.keys && Sn.keys.IE_PROTO || ""); return t ? "Symbol(src)_1." + t : "" }(), kn = On.toString, Ln = _n.hasOwnProperty, Mn = _n.toString, Tn = RegExp("^" + kn.call(Ln).replace(/[\\^$.*+?()[\]{}|]/g, "\\$&").replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, "$1.*?") + "$"), jn = wn.splice, Rn = Vn(En, "Map"), Wn = Vn(Object, "create"); function zn(t) { var e = -1, r = t ? t.length : 0; for (this.clear(); ++e < r;) { var n = t[e]; this.set(n[0], n[1]) } } function Cn(t) { var e = -1, r = t ? t.length : 0; for (this.clear(); ++e < r;) { var n = t[e]; this.set(n[0], n[1]) } } function Nn(t) { var e = -1, r = t ? t.length : 0; for (this.clear(); ++e < r;) { var n = t[e]; this.set(n[0], n[1]) } } function In(t, e) { for (var r, n, i = t.length; i--;)if ((r = t[i][0]) === (n = e) || r != r && n != n) return i; return -1 } function Dn(t) { return !(!Bn(t) || (e = t, An && An in e)) && (function (t) { var e = Bn(t) ? Mn.call(t) : ""; return e == gn || e == yn }(t) || function (t) { var e = !1; if (null != t && "function" != typeof t.toString) try { e = !!(t + "") } catch (t) { } return e }(t) ? Tn : bn).test(function (t) { if (null != t) { try { return kn.call(t) } catch (t) { } try { return t + "" } catch (t) { } } return "" }(t)); var e } function Pn(t, e) { var r, n, i = t.__data__; return ("string" == (n = typeof (r = e)) || "number" == n || "symbol" == n || "boolean" == n ? "__proto__" !== r : null === r) ? i["string" == typeof e ? "string" : "hash"] : i.map } function Vn(t, e) { var r = function (t, e) { return null == t ? void 0 : t[e] }(t, e); return Dn(r) ? r : void 0 } function Fn(t, e) { if ("function" != typeof t || e && "function" != typeof e) throw new TypeError(pn); var r = function () { var n = arguments, i = e ? e.apply(this, n) : n[0], o = r.cache; if (o.has(i)) return o.get(i); var s = t.apply(this, n); return r.cache = o.set(i, s), s }; return r.cache = new (Fn.Cache || Nn), r } function Bn(t) { var e = typeof t; return !!t && ("object" == e || "function" == e) } zn.prototype.clear = function () { this.__data__ = Wn ? Wn(null) : {} }, zn.prototype.delete = function (t) { return this.has(t) && delete this.__data__[t] }, zn.prototype.get = function (t) { var e = this.__data__; if (Wn) { var r = e[t]; return r === vn ? void 0 : r } return Ln.call(e, t) ? e[t] : void 0 }, zn.prototype.has = function (t) { var e = this.__data__; return Wn ? void 0 !== e[t] : Ln.call(e, t) }, zn.prototype.set = function (t, e) { return this.__data__[t] = Wn && void 0 === e ? vn : e, this }, Cn.prototype.clear = function () { this.__data__ = [] }, Cn.prototype.delete = function (t) { var e = this.__data__, r = In(e, t); return !(r < 0) && (r == e.length - 1 ? e.pop() : jn.call(e, r, 1), !0) }, Cn.prototype.get = function (t) { var e = this.__data__, r = In(e, t); return r < 0 ? void 0 : e[r][1] }, Cn.prototype.has = function (t) { return In(this.__data__, t) > -1 }, Cn.prototype.set = function (t, e) { var r = this.__data__, n = In(r, t); return n < 0 ? r.push([t, e]) : r[n][1] = e, this }, Nn.prototype.clear = function () { this.__data__ = { hash: new zn, map: new (Rn || Cn), string: new zn } }, Nn.prototype.delete = function (t) { return Pn(this, t).delete(t) }, Nn.prototype.get = function (t) { return Pn(this, t).get(t) }, Nn.prototype.has = function (t) { return Pn(this, t).has(t) }, Nn.prototype.set = function (t, e) { return Pn(this, t).set(t, e), this }, Fn.Cache = Nn; var Hn = Fn, qn = function () { if ("undefined" != typeof Map) return Map; function t(t, e) { var r = -1; return t.some((function (t, n) { return t[0] === e && (r = n, !0) })), r } return function () { function e() { this.__entries__ = [] } return Object.defineProperty(e.prototype, "size", { get: function () { return this.__entries__.length }, enumerable: !0, configurable: !0 }), e.prototype.get = function (e) { var r = t(this.__entries__, e), n = this.__entries__[r]; return n && n[1] }, e.prototype.set = function (e, r) { var n = t(this.__entries__, e); ~n ? this.__entries__[n][1] = r : this.__entries__.push([e, r]) }, e.prototype.delete = function (e) { var r = this.__entries__, n = t(r, e); ~n && r.splice(n, 1) }, e.prototype.has = function (e) { return !!~t(this.__entries__, e) }, e.prototype.clear = function () { this.__entries__.splice(0) }, e.prototype.forEach = function (t, e) { void 0 === e && (e = null); for (var r = 0, n = this.__entries__; r < n.length; r++) { var i = n[r]; t.call(e, i[1], i[0]) } }, e }() }(), $n = "undefined" != typeof window && "undefined" != typeof document && window.document === document, Xn = "undefined" != typeof global && global.Math === Math ? global : "undefined" != typeof self && self.Math === Math ? self : "undefined" != typeof window && window.Math === Math ? window : Function("return this")(), Yn = "function" == typeof requestAnimationFrame ? requestAnimationFrame.bind(Xn) : function (t) { return setTimeout((function () { return t(Date.now()) }), 1e3 / 60) }, Gn = 2; var Un = 20, Qn = ["top", "right", "bottom", "left", "width", "height", "size", "weight"], Kn = "undefined" != typeof MutationObserver, Jn = function () { function t() { this.connected_ = !1, this.mutationEventsAdded_ = !1, this.mutationsObserver_ = null, this.observers_ = [], this.onTransitionEnd_ = this.onTransitionEnd_.bind(this), this.refresh = function (t, e) { var r = !1, n = !1, i = 0; function o() { r && (r = !1, t()), n && a() } function s() { Yn(o) } function a() { var t = Date.now(); if (r) { if (t - i < Gn) return; n = !0 } else r = !0, n = !1, setTimeout(s, e); i = t } return a }(this.refresh.bind(this), Un) } return t.prototype.addObserver = function (t) { ~this.observers_.indexOf(t) || this.observers_.push(t), this.connected_ || this.connect_() }, t.prototype.removeObserver = function (t) { var e = this.observers_, r = e.indexOf(t); ~r && e.splice(r, 1), !e.length && this.connected_ && this.disconnect_() }, t.prototype.refresh = function () { this.updateObservers_() && this.refresh() }, t.prototype.updateObservers_ = function () { var t = this.observers_.filter((function (t) { return t.gatherActive(), t.hasActive() })); return t.forEach((function (t) { return t.broadcastActive() })), t.length > 0 }, t.prototype.connect_ = function () { $n && !this.connected_ && (document.addEventListener("transitionend", this.onTransitionEnd_), window.addEventListener("resize", this.refresh), Kn ? (this.mutationsObserver_ = new MutationObserver(this.refresh), this.mutationsObserver_.observe(document, { attributes: !0, childList: !0, characterData: !0, subtree: !0 })) : (document.addEventListener("DOMSubtreeModified", this.refresh), this.mutationEventsAdded_ = !0), this.connected_ = !0) }, t.prototype.disconnect_ = function () { $n && this.connected_ && (document.removeEventListener("transitionend", this.onTransitionEnd_), window.removeEventListener("resize", this.refresh), this.mutationsObserver_ && this.mutationsObserver_.disconnect(), this.mutationEventsAdded_ && document.removeEventListener("DOMSubtreeModified", this.refresh), this.mutationsObserver_ = null, this.mutationEventsAdded_ = !1, this.connected_ = !1) }, t.prototype.onTransitionEnd_ = function (t) { var e = t.propertyName, r = void 0 === e ? "" : e; Qn.some((function (t) { return !!~r.indexOf(t) })) && this.refresh() }, t.getInstance = function () { return this.instance_ || (this.instance_ = new t), this.instance_ }, t.instance_ = null, t }(), Zn = function (t, e) { for (var r = 0, n = Object.keys(e); r < n.length; r++) { var i = n[r]; Object.defineProperty(t, i, { value: e[i], enumerable: !1, writable: !1, configurable: !0 }) } return t }, ti = function (t) { return t && t.ownerDocument && t.ownerDocument.defaultView || Xn }, ei = ai(0, 0, 0, 0); function ri(t) { return parseFloat(t) || 0 } function ni(t) { for (var e = [], r = 1; r < arguments.length; r++)e[r - 1] = arguments[r]; return e.reduce((function (e, r) { return e + ri(t["border-" + r + "-width"]) }), 0) } function ii(t) { var e = t.clientWidth, r = t.clientHeight; if (!e && !r) return ei; var n = ti(t).getComputedStyle(t), i = function (t) { for (var e = {}, r = 0, n = ["top", "right", "bottom", "left"]; r < n.length; r++) { var i = n[r], o = t["padding-" + i]; e[i] = ri(o) } return e }(n), o = i.left + i.right, s = i.top + i.bottom, a = ri(n.width), c = ri(n.height); if ("border-box" === n.boxSizing && (Math.round(a + o) !== e && (a -= ni(n, "left", "right") + o), Math.round(c + s) !== r && (c -= ni(n, "top", "bottom") + s)), !function (t) { return t === ti(t).document.documentElement }(t)) { var l = Math.round(a + o) - e, u = Math.round(c + s) - r; 1 !== Math.abs(l) && (a -= l), 1 !== Math.abs(u) && (c -= u) } return ai(i.left, i.top, a, c) } var oi = "undefined" != typeof SVGGraphicsElement ? function (t) { return t instanceof ti(t).SVGGraphicsElement } : function (t) { return t instanceof ti(t).SVGElement && "function" == typeof t.getBBox }; function si(t) { return $n ? oi(t) ? function (t) { var e = t.getBBox(); return ai(0, 0, e.width, e.height) }(t) : ii(t) : ei } function ai(t, e, r, n) { return { x: t, y: e, width: r, height: n } } var ci = function () { function t(t) { this.broadcastWidth = 0, this.broadcastHeight = 0, this.contentRect_ = ai(0, 0, 0, 0), this.target = t } return t.prototype.isActive = function () { var t = si(this.target); return this.contentRect_ = t, t.width !== this.broadcastWidth || t.height !== this.broadcastHeight }, t.prototype.broadcastRect = function () { var t = this.contentRect_; return this.broadcastWidth = t.width, this.broadcastHeight = t.height, t }, t }(), li = function (t, e) { var r, n, i, o, s, a, c, l = (n = (r = e).x, i = r.y, o = r.width, s = r.height, a = "undefined" != typeof DOMRectReadOnly ? DOMRectReadOnly : Object, c = Object.create(a.prototype), Zn(c, { x: n, y: i, width: o, height: s, top: i, right: n + o, bottom: s + i, left: n }), c); Zn(this, { target: t, contentRect: l }) }, ui = function () { function t(t, e, r) { if (this.activeObservations_ = [], this.observations_ = new qn, "function" != typeof t) throw new TypeError("The callback provided as parameter 1 is not a function."); this.callback_ = t, this.controller_ = e, this.callbackCtx_ = r } return t.prototype.observe = function (t) { if (!arguments.length) throw new TypeError("1 argument required, but only 0 present."); if ("undefined" != typeof Element && Element instanceof Object) { if (!(t instanceof ti(t).Element)) throw new TypeError('parameter 1 is not of type "Element".'); var e = this.observations_; e.has(t) || (e.set(t, new ci(t)), this.controller_.addObserver(this), this.controller_.refresh()) } }, t.prototype.unobserve = function (t) { if (!arguments.length) throw new TypeError("1 argument required, but only 0 present."); if ("undefined" != typeof Element && Element instanceof Object) { if (!(t instanceof ti(t).Element)) throw new TypeError('parameter 1 is not of type "Element".'); var e = this.observations_; e.has(t) && (e.delete(t), e.size || this.controller_.removeObserver(this)) } }, t.prototype.disconnect = function () { this.clearActive(), this.observations_.clear(), this.controller_.removeObserver(this) }, t.prototype.gatherActive = function () { var t = this; this.clearActive(), this.observations_.forEach((function (e) { e.isActive() && t.activeObservations_.push(e) })) }, t.prototype.broadcastActive = function () { if (this.hasActive()) { var t = this.callbackCtx_, e = this.activeObservations_.map((function (t) { return new li(t.target, t.broadcastRect()) })); this.callback_.call(t, e, t), this.clearActive() } }, t.prototype.clearActive = function () { this.activeObservations_.splice(0) }, t.prototype.hasActive = function () { return this.activeObservations_.length > 0 }, t }(), fi = "undefined" != typeof WeakMap ? new WeakMap : new qn, hi = function t(e) { if (!(this instanceof t)) throw new TypeError("Cannot call a class as a function."); if (!arguments.length) throw new TypeError("1 argument required, but only 0 present."); var r = Jn.getInstance(), n = new ui(e, r, this); fi.set(this, n) };["observe", "unobserve", "disconnect"].forEach((function (t) { hi.prototype[t] = function () { var e; return (e = fi.get(this))[t].apply(e, arguments) } })); var di = void 0 !== Xn.ResizeObserver ? Xn.ResizeObserver : hi, pi = null, vi = null; function gi() { if (null === pi) { if ("undefined" == typeof document) return pi = 0; var t = document.body, e = document.createElement("div"); e.classList.add("simplebar-hide-scrollbar"), t.appendChild(e); var r = e.getBoundingClientRect().right; t.removeChild(e), pi = r } return pi } Yt && window.addEventListener("resize", (function () { vi !== window.devicePixelRatio && (vi = window.devicePixelRatio, pi = null) })); var yi = function (t) { return function (e, r, n, i) { kt(r); var o = Mt(e), s = y(o), a = st(o.length), c = t ? a - 1 : 0, l = t ? -1 : 1; if (n < 2) for (; ;) { if (c in s) { i = s[c], c += l; break } if (c += l, t ? c < 0 : a <= c) throw TypeError("Reduce of empty array with no initial value") } for (; t ? c >= 0 : a > c; c += l)c in s && (i = r(i, s[c], c, o)); return i } }, bi = { left: yi(!1), right: yi(!0) }.left; At({ target: "Array", proto: !0, forced: Vt("reduce") }, { reduce: function (t) { return bi(this, t, arguments.length, arguments.length > 1 ? arguments[1] : void 0) } }); var mi = R.f, xi = Function.prototype, Ei = xi.toString, wi = /^\s*function ([^ (]*)/; !l || "name" in xi || mi(xi, "name", { configurable: !0, get: function () { try { return Ei.call(this).match(wi)[1] } catch (t) { return "" } } }); var Oi, _i, Si = function () { var t = T(this), e = ""; return t.global && (e += "g"), t.ignoreCase && (e += "i"), t.multiline && (e += "m"), t.dotAll && (e += "s"), t.unicode && (e += "u"), t.sticky && (e += "y"), e }, Ai = RegExp.prototype.exec, ki = String.prototype.replace, Li = Ai, Mi = (Oi = /a/, _i = /b*/g, Ai.call(Oi, "a"), Ai.call(_i, "a"), 0 !== Oi.lastIndex || 0 !== _i.lastIndex), Ti = void 0 !== /()??/.exec("")[1]; (Mi || Ti) && (Li = function (t) { var e, r, n, i, o = this; return Ti && (r = new RegExp("^" + o.source + "$(?!\\s)", Si.call(o))), Mi && (e = o.lastIndex), n = Ai.call(o, t), Mi && n && (o.lastIndex = o.global ? n.index + n[0].length : e), Ti && n && n.length > 1 && ki.call(n[0], r, (function () { for (i = 1; i < arguments.length - 2; i++)void 0 === arguments[i] && (n[i] = void 0) })), n }); var ji = Li; At({ target: "RegExp", proto: !0, forced: /./.exec !== ji }, { exec: ji }); var Ri = zt("species"), Wi = !c((function () { var t = /./; return t.exec = function () { var t = []; return t.groups = { a: "7" }, t }, "7" !== "".replace(t, "$<a>") })), zi = !c((function () { var t = /(?:)/, e = t.exec; t.exec = function () { return e.apply(this, arguments) }; var r = "ab".split(t); return 2 !== r.length || "a" !== r[0] || "b" !== r[1] })), Ci = function (t, e, r, n) { var i = zt(t), o = !c((function () { var e = {}; return e[i] = function () { return 7 }, 7 != ""[t](e) })), s = o && !c((function () { var e = !1, r = /a/; return r.exec = function () { return e = !0, null }, "split" === t && (r.constructor = {}, r.constructor[Ri] = function () { return r }), r[i](""), !e })); if (!o || !s || "replace" === t && !Wi || "split" === t && !zi) { var a = /./[i], l = r(i, ""[t], (function (t, e, r, n, i) { return e.exec === ji ? o && !i ? { done: !0, value: a.call(e, r, n) } : { done: !0, value: t.call(r, e, n) } : { done: !1 } })), u = l[0], f = l[1]; J(String.prototype, t, u), J(RegExp.prototype, i, 2 == e ? function (t, e) { return f.call(t, this, e) } : function (t) { return f.call(t, this) }), n && W(RegExp.prototype[i], "sham", !0) } }, Ni = Ue.charAt, Ii = function (t, e, r) { return e + (r ? Ni(t, e).length : 1) }, Di = function (t, e) { var r = t.exec; if ("function" == typeof r) { var n = r.call(t, e); if ("object" != typeof n) throw TypeError("RegExp exec method returned something other than an Object or null"); return n } if ("RegExp" !== v(t)) throw TypeError("RegExp#exec called on incompatible receiver"); return ji.call(t, e) }; Ci("match", 1, (function (t, e, r) { return [function (e) { var r = b(this), n = null == e ? void 0 : e[t]; return void 0 !== n ? n.call(e, r) : new RegExp(e)[t](String(r)) }, function (t) { var n = r(e, t, this); if (n.done) return n.value; var i = T(t), o = String(this); if (!i.global) return Di(i, o); var s = i.unicode; i.lastIndex = 0; for (var a, c = [], l = 0; null !== (a = Di(i, o));) { var u = String(a[0]); c[l] = u, "" === u && (i.lastIndex = Ii(o, st(i.lastIndex), s)), l++ } return 0 === l ? null : c }] })); var Pi = Math.max, Vi = Math.min, Fi = Math.floor, Bi = /\$([$&'`]|\d\d?|<[^>]*>)/g, Hi = /\$([$&'`]|\d\d?)/g; Ci("replace", 2, (function (t, e, r) { return [function (r, n) { var i = b(this), o = null == r ? void 0 : r[t]; return void 0 !== o ? o.call(r, i, n) : e.call(String(i), r, n) }, function (t, i) { var o = r(e, t, this, i); if (o.done) return o.value; var s = T(t), a = String(this), c = "function" == typeof i; c || (i = String(i)); var l = s.global; if (l) { var u = s.unicode; s.lastIndex = 0 } for (var f = []; ;) { var h = Di(s, a); if (null === h) break; if (f.push(h), !l) break; "" === String(h[0]) && (s.lastIndex = Ii(a, st(s.lastIndex), u)) } for (var d, p = "", v = 0, g = 0; g < f.length; g++) { h = f[g]; for (var y = String(h[0]), b = Pi(Vi(it(h.index), a.length), 0), m = [], x = 1; x < h.length; x++)m.push(void 0 === (d = h[x]) ? d : String(d)); var E = h.groups; if (c) { var w = [y].concat(m, b, a); void 0 !== E && w.push(E); var O = String(i.apply(void 0, w)) } else O = n(y, a, b, m, E, i); b >= v && (p += a.slice(v, b) + O, v = b + y.length) } return p + a.slice(v) }]; function n(t, r, n, i, o, s) { var a = n + t.length, c = i.length, l = Hi; return void 0 !== o && (o = Mt(o), l = Bi), e.call(s, l, (function (e, s) { var l; switch (s.charAt(0)) { case "$": return "$"; case "&": return t; case "`": return r.slice(0, n); case "'": return r.slice(a); case "<": l = o[s.slice(1, -1)]; break; default: var u = +s; if (0 === u) return e; if (u > c) { var f = Fi(u / 10); return 0 === f ? e : f <= c ? void 0 === i[f - 1] ? s.charAt(1) : i[f - 1] + s.charAt(1) : e } l = i[u - 1] }return void 0 === l ? "" : l })) } })); var qi = function (t) { return Array.prototype.reduce.call(t, (function (t, e) { var r = e.name.match(/data-simplebar-(.+)/); if (r) { var n = r[1].replace(/\W+(.)/g, (function (t, e) { return e.toUpperCase() })); switch (e.value) { case "true": t[n] = !0; break; case "false": t[n] = !1; break; case void 0: t[n] = !0; break; default: t[n] = e.value } } return t }), {}) }; function $i(t) { return t && t.ownerDocument && t.ownerDocument.defaultView ? t.ownerDocument.defaultView : window } function Xi(t) { return t && t.ownerDocument ? t.ownerDocument : document } var Yi = function () { function t(e, r) { var n = this; this.onScroll = function () { var t = $i(n.el); n.scrollXTicking || (t.requestAnimationFrame(n.scrollX), n.scrollXTicking = !0), n.scrollYTicking || (t.requestAnimationFrame(n.scrollY), n.scrollYTicking = !0) }, this.scrollX = function () { n.axis.x.isOverflowing && (n.showScrollbar("x"), n.positionScrollbar("x")), n.scrollXTicking = !1 }, this.scrollY = function () { n.axis.y.isOverflowing && (n.showScrollbar("y"), n.positionScrollbar("y")), n.scrollYTicking = !1 }, this.onMouseEnter = function () { n.showScrollbar("x"), n.showScrollbar("y") }, this.onMouseMove = function (t) { n.mouseX = t.clientX, n.mouseY = t.clientY, (n.axis.x.isOverflowing || n.axis.x.forceVisible) && n.onMouseMoveForAxis("x"), (n.axis.y.isOverflowing || n.axis.y.forceVisible) && n.onMouseMoveForAxis("y") }, this.onMouseLeave = function () { n.onMouseMove.cancel(), (n.axis.x.isOverflowing || n.axis.x.forceVisible) && n.onMouseLeaveForAxis("x"), (n.axis.y.isOverflowing || n.axis.y.forceVisible) && n.onMouseLeaveForAxis("y"), n.mouseX = -1, n.mouseY = -1 }, this.onWindowResize = function () { n.scrollbarWidth = n.getScrollbarWidth(), n.hideNativeScrollbar() }, this.hideScrollbars = function () { n.axis.x.track.rect = n.axis.x.track.el.getBoundingClientRect(), n.axis.y.track.rect = n.axis.y.track.el.getBoundingClientRect(), n.isWithinBounds(n.axis.y.track.rect) || (n.axis.y.scrollbar.el.classList.remove(n.classNames.visible), n.axis.y.isVisible = !1), n.isWithinBounds(n.axis.x.track.rect) || (n.axis.x.scrollbar.el.classList.remove(n.classNames.visible), n.axis.x.isVisible = !1) }, this.onPointerEvent = function (t) { var e, r; n.axis.x.track.rect = n.axis.x.track.el.getBoundingClientRect(), n.axis.y.track.rect = n.axis.y.track.el.getBoundingClientRect(), (n.axis.x.isOverflowing || n.axis.x.forceVisible) && (e = n.isWithinBounds(n.axis.x.track.rect)), (n.axis.y.isOverflowing || n.axis.y.forceVisible) && (r = n.isWithinBounds(n.axis.y.track.rect)), (e || r) && (t.preventDefault(), t.stopPropagation(), "mousedown" === t.type && (e && (n.axis.x.scrollbar.rect = n.axis.x.scrollbar.el.getBoundingClientRect(), n.isWithinBounds(n.axis.x.scrollbar.rect) ? n.onDragStart(t, "x") : n.onTrackClick(t, "x")), r && (n.axis.y.scrollbar.rect = n.axis.y.scrollbar.el.getBoundingClientRect(), n.isWithinBounds(n.axis.y.scrollbar.rect) ? n.onDragStart(t, "y") : n.onTrackClick(t, "y")))) }, this.drag = function (e) { var r = n.axis[n.draggedAxis].track, i = r.rect[n.axis[n.draggedAxis].sizeAttr], o = n.axis[n.draggedAxis].scrollbar, s = n.contentWrapperEl[n.axis[n.draggedAxis].scrollSizeAttr], a = parseInt(n.elStyles[n.axis[n.draggedAxis].sizeAttr], 10); e.preventDefault(), e.stopPropagation(); var c = (("y" === n.draggedAxis ? e.pageY : e.pageX) - r.rect[n.axis[n.draggedAxis].offsetAttr] - n.axis[n.draggedAxis].dragOffset) / (i - o.size) * (s - a); "x" === n.draggedAxis && (c = n.isRtl && t.getRtlHelpers().isRtlScrollbarInverted ? c - (i + o.size) : c, c = n.isRtl && t.getRtlHelpers().isRtlScrollingInverted ? -c : c), n.contentWrapperEl[n.axis[n.draggedAxis].scrollOffsetAttr] = c }, this.onEndDrag = function (t) { var e = Xi(n.el), r = $i(n.el); t.preventDefault(), t.stopPropagation(), n.el.classList.remove(n.classNames.dragging), e.removeEventListener("mousemove", n.drag, !0), e.removeEventListener("mouseup", n.onEndDrag, !0), n.removePreventClickId = r.setTimeout((function () { e.removeEventListener("click", n.preventClick, !0), e.removeEventListener("dblclick", n.preventClick, !0), n.removePreventClickId = null })) }, this.preventClick = function (t) { t.preventDefault(), t.stopPropagation() }, this.el = e, this.minScrollbarWidth = 20, this.options = Object.assign({}, t.defaultOptions, {}, r), this.classNames = Object.assign({}, t.defaultOptions.classNames, {}, this.options.classNames), this.axis = { x: { scrollOffsetAttr: "scrollLeft", sizeAttr: "width", scrollSizeAttr: "scrollWidth", offsetSizeAttr: "offsetWidth", offsetAttr: "left", overflowAttr: "overflowX", dragOffset: 0, isOverflowing: !0, isVisible: !1, forceVisible: !1, track: {}, scrollbar: {} }, y: { scrollOffsetAttr: "scrollTop", sizeAttr: "height", scrollSizeAttr: "scrollHeight", offsetSizeAttr: "offsetHeight", offsetAttr: "top", overflowAttr: "overflowY", dragOffset: 0, isOverflowing: !0, isVisible: !1, forceVisible: !1, track: {}, scrollbar: {} } }, this.removePreventClickId = null, t.instances.has(this.el) || (this.recalculate = Gr(this.recalculate.bind(this), 64), this.onMouseMove = Gr(this.onMouseMove.bind(this), 64), this.hideScrollbars = dn(this.hideScrollbars.bind(this), this.options.timeout), this.onWindowResize = dn(this.onWindowResize.bind(this), 64, { leading: !0 }), t.getRtlHelpers = Hn(t.getRtlHelpers), this.init()) } t.getRtlHelpers = function () { var e = document.createElement("div"); e.innerHTML = '<div class="hs-dummy-scrollbar-size"><div style="height: 200%; width: 200%; margin: 10px 0;"></div></div>'; var r = e.firstElementChild; document.body.appendChild(r); var n = r.firstElementChild; r.scrollLeft = 0; var i = t.getOffset(r), o = t.getOffset(n); r.scrollLeft = 999; var s = t.getOffset(n); return { isRtlScrollingInverted: i.left !== o.left && o.left - s.left != 0, isRtlScrollbarInverted: i.left !== o.left } }, t.getOffset = function (t) { var e = t.getBoundingClientRect(), r = Xi(t), n = $i(t); return { top: e.top + (n.pageYOffset || r.documentElement.scrollTop), left: e.left + (n.pageXOffset || r.documentElement.scrollLeft) } }; var e = t.prototype; return e.init = function () { t.instances.set(this.el, this), Yt && (this.initDOM(), this.scrollbarWidth = this.getScrollbarWidth(), this.recalculate(), this.initListeners()) }, e.initDOM = function () { var t = this; Xi(this.el); if (Array.prototype.filter.call(this.el.children, (function (e) { return e.classList.contains(t.classNames.wrapper) })).length) this.wrapperEl = this.el.querySelector("." + this.classNames.wrapper), this.contentWrapperEl = this.options.scrollableNode || this.el.querySelector("." + this.classNames.contentWrapper), this.contentEl = this.options.contentNode || this.el.querySelector("." + this.classNames.contentEl), this.offsetEl = this.el.querySelector("." + this.classNames.offset), this.maskEl = this.el.querySelector("." + this.classNames.mask), this.placeholderEl = this.findChild(this.wrapperEl, "." + this.classNames.placeholder), this.heightAutoObserverWrapperEl = this.el.querySelector("." + this.classNames.heightAutoObserverWrapperEl), this.heightAutoObserverEl = this.el.querySelector("." + this.classNames.heightAutoObserverEl), this.axis.x.track.el = this.findChild(this.el, "." + this.classNames.track + "." + this.classNames.horizontal), this.axis.y.track.el = this.findChild(this.el, "." + this.classNames.track + "." + this.classNames.vertical); else { for (this.wrapperEl = document.createElement("div"), this.contentWrapperEl = document.createElement("div"), this.offsetEl = document.createElement("div"), this.maskEl = document.createElement("div"), this.contentEl = document.createElement("div"), this.placeholderEl = document.createElement("div"), this.heightAutoObserverWrapperEl = document.createElement("div"), this.heightAutoObserverEl = document.createElement("div"), this.wrapperEl.classList.add(this.classNames.wrapper), this.contentWrapperEl.classList.add(this.classNames.contentWrapper), this.offsetEl.classList.add(this.classNames.offset), this.maskEl.classList.add(this.classNames.mask), this.contentEl.classList.add(this.classNames.contentEl), this.placeholderEl.classList.add(this.classNames.placeholder), this.heightAutoObserverWrapperEl.classList.add(this.classNames.heightAutoObserverWrapperEl), this.heightAutoObserverEl.classList.add(this.classNames.heightAutoObserverEl); this.el.firstChild;)this.contentEl.appendChild(this.el.firstChild); this.contentWrapperEl.appendChild(this.contentEl), this.offsetEl.appendChild(this.contentWrapperEl), this.maskEl.appendChild(this.offsetEl), this.heightAutoObserverWrapperEl.appendChild(this.heightAutoObserverEl), this.wrapperEl.appendChild(this.heightAutoObserverWrapperEl), this.wrapperEl.appendChild(this.maskEl), this.wrapperEl.appendChild(this.placeholderEl), this.el.appendChild(this.wrapperEl) } if (!this.axis.x.track.el || !this.axis.y.track.el) { var e = document.createElement("div"), r = document.createElement("div"); e.classList.add(this.classNames.track), r.classList.add(this.classNames.scrollbar), e.appendChild(r), this.axis.x.track.el = e.cloneNode(!0), this.axis.x.track.el.classList.add(this.classNames.horizontal), this.axis.y.track.el = e.cloneNode(!0), this.axis.y.track.el.classList.add(this.classNames.vertical), this.el.appendChild(this.axis.x.track.el), this.el.appendChild(this.axis.y.track.el) } this.axis.x.scrollbar.el = this.axis.x.track.el.querySelector("." + this.classNames.scrollbar), this.axis.y.scrollbar.el = this.axis.y.track.el.querySelector("." + this.classNames.scrollbar), this.options.autoHide || (this.axis.x.scrollbar.el.classList.add(this.classNames.visible), this.axis.y.scrollbar.el.classList.add(this.classNames.visible)), this.el.setAttribute("data-simplebar", "init") }, e.initListeners = function () { var t = this, e = $i(this.el); this.options.autoHide && this.el.addEventListener("mouseenter", this.onMouseEnter), ["mousedown", "click", "dblclick"].forEach((function (e) { t.el.addEventListener(e, t.onPointerEvent, !0) })), ["touchstart", "touchend", "touchmove"].forEach((function (e) { t.el.addEventListener(e, t.onPointerEvent, { capture: !0, passive: !0 }) })), this.el.addEventListener("mousemove", this.onMouseMove), this.el.addEventListener("mouseleave", this.onMouseLeave), this.contentWrapperEl.addEventListener("scroll", this.onScroll), e.addEventListener("resize", this.onWindowResize); var r = !1, n = e.ResizeObserver || di; this.resizeObserver = new n((function () { r && t.recalculate() })), this.resizeObserver.observe(this.el), this.resizeObserver.observe(this.contentEl), e.requestAnimationFrame((function () { r = !0 })), this.mutationObserver = new e.MutationObserver(this.recalculate), this.mutationObserver.observe(this.contentEl, { childList: !0, subtree: !0, characterData: !0 }) }, e.recalculate = function () { var t = $i(this.el); this.elStyles = t.getComputedStyle(this.el), this.isRtl = "rtl" === this.elStyles.direction; var e = this.heightAutoObserverEl.offsetHeight <= 1, r = this.heightAutoObserverEl.offsetWidth <= 1, n = this.contentEl.offsetWidth, i = this.contentWrapperEl.offsetWidth, o = this.elStyles.overflowX, s = this.elStyles.overflowY; this.contentEl.style.padding = this.elStyles.paddingTop + " " + this.elStyles.paddingRight + " " + this.elStyles.paddingBottom + " " + this.elStyles.paddingLeft, this.wrapperEl.style.margin = "-" + this.elStyles.paddingTop + " -" + this.elStyles.paddingRight + " -" + this.elStyles.paddingBottom + " -" + this.elStyles.paddingLeft; var a = this.contentEl.scrollHeight, c = this.contentEl.scrollWidth; this.contentWrapperEl.style.height = e ? "auto" : "100%", this.placeholderEl.style.width = r ? n + "px" : "auto", this.placeholderEl.style.height = a + "px"; var l = this.contentWrapperEl.offsetHeight; this.axis.x.isOverflowing = c > n, this.axis.y.isOverflowing = a > l, this.axis.x.isOverflowing = "hidden" !== o && this.axis.x.isOverflowing, this.axis.y.isOverflowing = "hidden" !== s && this.axis.y.isOverflowing, this.axis.x.forceVisible = "x" === this.options.forceVisible || !0 === this.options.forceVisible, this.axis.y.forceVisible = "y" === this.options.forceVisible || !0 === this.options.forceVisible, this.hideNativeScrollbar(); var u = this.axis.x.isOverflowing ? this.scrollbarWidth : 0, f = this.axis.y.isOverflowing ? this.scrollbarWidth : 0; this.axis.x.isOverflowing = this.axis.x.isOverflowing && c > i - f, this.axis.y.isOverflowing = this.axis.y.isOverflowing && a > l - u, this.axis.x.scrollbar.size = this.getScrollbarSize("x"), this.axis.y.scrollbar.size = this.getScrollbarSize("y"), this.axis.x.scrollbar.el.style.width = this.axis.x.scrollbar.size + "px", this.axis.y.scrollbar.el.style.height = this.axis.y.scrollbar.size + "px", this.positionScrollbar("x"), this.positionScrollbar("y"), this.toggleTrackVisibility("x"), this.toggleTrackVisibility("y") }, e.getScrollbarSize = function (t) { if (void 0 === t && (t = "y"), !this.axis[t].isOverflowing) return 0; var e, r = this.contentEl[this.axis[t].scrollSizeAttr], n = this.axis[t].track.el[this.axis[t].offsetSizeAttr], i = n / r; return e = Math.max(~~(i * n), this.options.scrollbarMinSize), this.options.scrollbarMaxSize && (e = Math.min(e, this.options.scrollbarMaxSize)), e }, e.positionScrollbar = function (e) { if (void 0 === e && (e = "y"), this.axis[e].isOverflowing) { var r = this.contentWrapperEl[this.axis[e].scrollSizeAttr], n = this.axis[e].track.el[this.axis[e].offsetSizeAttr], i = parseInt(this.elStyles[this.axis[e].sizeAttr], 10), o = this.axis[e].scrollbar, s = this.contentWrapperEl[this.axis[e].scrollOffsetAttr], a = (s = "x" === e && this.isRtl && t.getRtlHelpers().isRtlScrollingInverted ? -s : s) / (r - i), c = ~~((n - o.size) * a); c = "x" === e && this.isRtl && t.getRtlHelpers().isRtlScrollbarInverted ? c + (n - o.size) : c, o.el.style.transform = "x" === e ? "translate3d(" + c + "px, 0, 0)" : "translate3d(0, " + c + "px, 0)" } }, e.toggleTrackVisibility = function (t) { void 0 === t && (t = "y"); var e = this.axis[t].track.el, r = this.axis[t].scrollbar.el; this.axis[t].isOverflowing || this.axis[t].forceVisible ? (e.style.visibility = "visible", this.contentWrapperEl.style[this.axis[t].overflowAttr] = "scroll") : (e.style.visibility = "hidden", this.contentWrapperEl.style[this.axis[t].overflowAttr] = "hidden"), this.axis[t].isOverflowing ? r.style.display = "block" : r.style.display = "none" }, e.hideNativeScrollbar = function () { this.offsetEl.style[this.isRtl ? "left" : "right"] = this.axis.y.isOverflowing || this.axis.y.forceVisible ? "-" + this.scrollbarWidth + "px" : 0, this.offsetEl.style.bottom = this.axis.x.isOverflowing || this.axis.x.forceVisible ? "-" + this.scrollbarWidth + "px" : 0 }, e.onMouseMoveForAxis = function (t) { void 0 === t && (t = "y"), this.axis[t].track.rect = this.axis[t].track.el.getBoundingClientRect(), this.axis[t].scrollbar.rect = this.axis[t].scrollbar.el.getBoundingClientRect(), this.isWithinBounds(this.axis[t].scrollbar.rect) ? this.axis[t].scrollbar.el.classList.add(this.classNames.hover) : this.axis[t].scrollbar.el.classList.remove(this.classNames.hover), this.isWithinBounds(this.axis[t].track.rect) ? (this.showScrollbar(t), this.axis[t].track.el.classList.add(this.classNames.hover)) : this.axis[t].track.el.classList.remove(this.classNames.hover) }, e.onMouseLeaveForAxis = function (t) { void 0 === t && (t = "y"), this.axis[t].track.el.classList.remove(this.classNames.hover), this.axis[t].scrollbar.el.classList.remove(this.classNames.hover) }, e.showScrollbar = function (t) { void 0 === t && (t = "y"); var e = this.axis[t].scrollbar.el; this.axis[t].isVisible || (e.classList.add(this.classNames.visible), this.axis[t].isVisible = !0), this.options.autoHide && this.hideScrollbars() }, e.onDragStart = function (t, e) { void 0 === e && (e = "y"); var r = Xi(this.el), n = $i(this.el), i = this.axis[e].scrollbar, o = "y" === e ? t.pageY : t.pageX; this.axis[e].dragOffset = o - i.rect[this.axis[e].offsetAttr], this.draggedAxis = e, this.el.classList.add(this.classNames.dragging), r.addEventListener("mousemove", this.drag, !0), r.addEventListener("mouseup", this.onEndDrag, !0), null === this.removePreventClickId ? (r.addEventListener("click", this.preventClick, !0), r.addEventListener("dblclick", this.preventClick, !0)) : (n.clearTimeout(this.removePreventClickId), this.removePreventClickId = null) }, e.onTrackClick = function (t, e) { var r = this; if (void 0 === e && (e = "y"), this.options.clickOnTrack) { var n = $i(this.el); this.axis[e].scrollbar.rect = this.axis[e].scrollbar.el.getBoundingClientRect(); var i = this.axis[e].scrollbar.rect[this.axis[e].offsetAttr], o = parseInt(this.elStyles[this.axis[e].sizeAttr], 10), s = this.contentWrapperEl[this.axis[e].scrollOffsetAttr], a = ("y" === e ? this.mouseY - i : this.mouseX - i) < 0 ? -1 : 1, c = -1 === a ? s - o : s + o; !function t() { var i, o; -1 === a ? s > c && (s -= 40, r.contentWrapperEl.scrollTo(((i = {})[r.axis[e].offsetAttr] = s, i)), n.requestAnimationFrame(t)) : s < c && (s += 40, r.contentWrapperEl.scrollTo(((o = {})[r.axis[e].offsetAttr] = s, o)), n.requestAnimationFrame(t)) }() } }, e.getContentElement = function () { return this.contentEl }, e.getScrollElement = function () { return this.contentWrapperEl }, e.getScrollbarWidth = function () { try { return "none" === getComputedStyle(this.contentWrapperEl, "::-webkit-scrollbar").display || "scrollbarWidth" in document.documentElement.style || "-ms-overflow-style" in document.documentElement.style ? 0 : gi() } catch (t) { return gi() } }, e.removeListeners = function () { var t = this, e = $i(this.el); this.options.autoHide && this.el.removeEventListener("mouseenter", this.onMouseEnter), ["mousedown", "click", "dblclick"].forEach((function (e) { t.el.removeEventListener(e, t.onPointerEvent, !0) })), ["touchstart", "touchend", "touchmove"].forEach((function (e) { t.el.removeEventListener(e, t.onPointerEvent, { capture: !0, passive: !0 }) })), this.el.removeEventListener("mousemove", this.onMouseMove), this.el.removeEventListener("mouseleave", this.onMouseLeave), this.contentWrapperEl.removeEventListener("scroll", this.onScroll), e.removeEventListener("resize", this.onWindowResize), this.mutationObserver.disconnect(), this.resizeObserver.disconnect(), this.recalculate.cancel(), this.onMouseMove.cancel(), this.hideScrollbars.cancel(), this.onWindowResize.cancel() }, e.unMount = function () { this.removeListeners(), t.instances.delete(this.el) }, e.isWithinBounds = function (t) { return this.mouseX >= t.left && this.mouseX <= t.left + t.width && this.mouseY >= t.top && this.mouseY <= t.top + t.height }, e.findChild = function (t, e) { var r = t.matches || t.webkitMatchesSelector || t.mozMatchesSelector || t.msMatchesSelector; return Array.prototype.filter.call(t.children, (function (t) { return r.call(t, e) }))[0] }, t }(); return Yi.defaultOptions = { autoHide: !0, forceVisible: !1, clickOnTrack: !0, classNames: { contentEl: "simplebar-content", contentWrapper: "simplebar-content-wrapper", offset: "simplebar-offset", mask: "simplebar-mask", wrapper: "simplebar-wrapper", placeholder: "simplebar-placeholder", scrollbar: "simplebar-scrollbar", track: "simplebar-track", heightAutoObserverWrapperEl: "simplebar-height-auto-observer-wrapper", heightAutoObserverEl: "simplebar-height-auto-observer", visible: "simplebar-visible", horizontal: "simplebar-horizontal", vertical: "simplebar-vertical", hover: "simplebar-hover", dragging: "simplebar-dragging" }, scrollbarMinSize: 25, scrollbarMaxSize: 0, timeout: 1e3 }, Yi.instances = new WeakMap, Yi.initDOMLoadedElements = function () { document.removeEventListener("DOMContentLoaded", this.initDOMLoadedElements), window.removeEventListener("load", this.initDOMLoadedElements), Array.prototype.forEach.call(document.querySelectorAll('[data-simplebar]:not([data-simplebar="init"])'), (function (t) { Yi.instances.has(t) || new Yi(t, qi(t.attributes)) })) }, Yi.removeObserver = function () { this.globalObserver.disconnect() }, Yi.initHtmlApi = function () { this.initDOMLoadedElements = this.initDOMLoadedElements.bind(this), "undefined" != typeof MutationObserver && (this.globalObserver = new MutationObserver(Yi.handleMutations), this.globalObserver.observe(document, { childList: !0, subtree: !0 })), "complete" === document.readyState || "loading" !== document.readyState && !document.documentElement.doScroll ? window.setTimeout(this.initDOMLoadedElements) : (document.addEventListener("DOMContentLoaded", this.initDOMLoadedElements), window.addEventListener("load", this.initDOMLoadedElements)) }, Yi.handleMutations = function (t) { t.forEach((function (t) { Array.prototype.forEach.call(t.addedNodes, (function (t) { 1 === t.nodeType && (t.hasAttribute("data-simplebar") ? !Yi.instances.has(t) && new Yi(t, qi(t.attributes)) : Array.prototype.forEach.call(t.querySelectorAll('[data-simplebar]:not([data-simplebar="init"])'), (function (t) { !Yi.instances.has(t) && new Yi(t, qi(t.attributes)) }))) })), Array.prototype.forEach.call(t.removedNodes, (function (t) { 1 === t.nodeType && (t.hasAttribute('[data-simplebar="init"]') ? Yi.instances.has(t) && Yi.instances.get(t).unMount() : Array.prototype.forEach.call(t.querySelectorAll('[data-simplebar="init"]'), (function (t) { Yi.instances.has(t) && Yi.instances.get(t).unMount() }))) })) })) }, Yi.getOptions = qi, Yt && Yi.initHtmlApi(), Yi }));
-

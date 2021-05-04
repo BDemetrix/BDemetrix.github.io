@@ -163,32 +163,46 @@ DynamicAdapt.prototype.arraySort = function (arr) {
 
 const da = new DynamicAdapt("max");
 da.init();
-
 var isMobile = { Android: function () { return navigator.userAgent.match(/Android/i); }, BlackBerry: function () { return navigator.userAgent.match(/BlackBerry/i); }, iOS: function () { return navigator.userAgent.match(/iPhone|iPad|iPod/i); }, Opera: function () { return navigator.userAgent.match(/Opera Mini/i); }, Windows: function () { return navigator.userAgent.match(/IEMobile/i); }, any: function () { return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()); } };
 if (isMobile.any()) {
   document.querySelector('body').classList.add('_touch');
 }
 
-//Tabs
-let tabs = document.querySelectorAll("._tabs");
-for (let index = 0; index < tabs.length; index++) {
-  let tab = tabs[index];
-  let tabs_items = tab.querySelectorAll("._tabs-item");
-  let tabs_blocks = tab.querySelectorAll("._tabs-block");
-  for (let index = 0; index < tabs_items.length; index++) {
-    let tabs_item = tabs_items[index];
-    tabs_item.addEventListener("click", function (e) {
-      for (let index = 0; index < tabs_items.length; index++) {
-        let tabs_item = tabs_items[index];
-        tabs_item.classList.remove('_active');
-        tabs_blocks[index].classList.remove('_active');
-      }
-      tabs_item.classList.add('_active');
-      tabs_blocks[index].classList.add('_active');
-      e.preventDefault();
-    });
+// Tabs for notify__content
+/* let tabs = document.querySelectorAll("._tabs");
+if (tabs) {
+  for (let i = 0; i < tabs.length; i++) {
+    let tab = tabs[i];
+    let tabs_items = tab.querySelectorAll("._tabs-item");
+    let tabs_blocks = tab.querySelectorAll("._tabs-block");
+    for (let i = 0; i < tabs_items.length; i++) {
+      let tabs_item = tabs_items[i];
+      tabs_item.addEventListener("click", function (e) {
+        for (let i = 0; i < tabs_items.length; i++) {
+          tabs_items[i].classList.remove('_active');
+          tabs_blocks[i].classList.remove('_active');
+        }
+        tabs_item.classList.add('_active');
+        tabs_blocks[i].classList.add('_active');
+        e.preventDefault();
+      });
+    }
+  }
+} */
+
+// To connect the SimpleBar
+function plugSimpleBar(selector) {
+  let simpleBarEl = document.querySelector(selector);
+  if (simpleBarEl) {
+    try {
+      new SimpleBar(simpleBarEl);
+
+    } catch {
+      simpleBarEl.style.ovetflowY = 'auto';
+    }
   }
 }
+
 //=================
 // HEADER JS / begin ============================================================================
 function closeAllHeadersMenu() {
@@ -211,22 +225,6 @@ document.documentElement.addEventListener('click', (e)=>{
     closeAllHeadersMenu();  
   }
 });
-
-// SimpleBar
-
-plugSimpleBar('.header .notify__body');
-
-function plugSimpleBar(selector) {  
-  let simpleBarEl = document.querySelector(selector);
-  if (simpleBarEl) {
-    try {
-      new SimpleBar(simpleBarEl);
-      
-    } catch {
-      simpleBarEl.style.ovetflowY = 'auto';
-    }
-  }
-}
 
 // Header search ========= 
 
@@ -258,7 +256,7 @@ clnInputBtn.addEventListener('click', () => {
 }, false);
 
 
-// jQuary ==========
+// jQuary Header search  ==========
 
 let response = [
   {
@@ -309,7 +307,7 @@ $('[autocompleter]').autocomplete({
   lookup: response,
   appendTo: '.query-search__suggestions',
   maxHeight: 'auto',
-  autoSelectFirst: true,
+  //autoSelectFirst: true,
   onSelect: function (suggestion) {
     window.open(suggestion.data, "WindowName", windowFeatures);
     this.value = '';
@@ -324,16 +322,113 @@ $('[autocompleter]').autocomplete({
 });
 plugSimpleBar('.query-search__suggestions');
 
+// jBox ======================================
+var nPopup = new jBox('Tooltip',
+  {
+    id: 'notifiesPopover',
+    trigger: 'click',
+    appendTo: $('#notify-body'),
+    attach: $('#notify-icon'),
+    content: $('#notify-inner'), // для демонстрации вёрстки
+    position: {x: 0, y: 0},
+    isolateScroll: false,
+  
+/* 
+    clearTab: [$('#notify-icon').attr('tab') ? $('#notify-icon').attr('tab') : 'blog'],
+    ajax: {
+      url: '/profile/ajaxnotifies/',
+      data: {
+        security_ls_key: LIVESTREET_SECURITY_KEY,
+        tab: $('#notify-icon').attr('tab') ? $('#notify-icon').attr('tab') : 'blog'
+      },
+      reload: 'strict',
+      setContent: false,
+      success: function (response) {
+        if (response.bStateError) {
+          this.close();
+          return msgErrorBox.alert(response.sMsgTitle, response.sMsg);
+        }
+        this.setContent(response.sHtml);
 
-/* $('[autocompleter]').autocomplete({
+        var nTab = this.content.find('.notify__nav-item ._active');
+        if (nTab.length && nTab.find('.notify-label').text() != '0') {
+          var sTab = nTab.attr('tab');
 
-  serviceUrl: 'https://smart-lab.ru/' + ($(this).attr('autocompleter')), //'https://smart-lab.ru/forum/ajaxsearch/',
+          clearTabCounter(sTab).then(function (iCounter) {
+            nPopup.options.globalCounter = iCounter;
+          });
+        } else {
+          nPopup.options.globalCounter = parseInt($('#notify-icon > .notify-label').text());
+        }
+      },
+      error: function () {
+        msgErrorBox.alert('Ошибка', 'Неизвестная ошибка!');
+        this.close();
+      }
+    },
+ */
+    onOpen: function () {
+      // Костыль. Обязательно для вёрстки 
+      this.wrapper.css({
+        "position": "relative",
+        'width': '100%'
+      });
+      plugSimpleBar('#notify-body');
+      // для вёрстки
 
-  onSelect: function (suggestion) {
-    console.log(suggestion);
-    
-    //alert('You selected: ' + suggestion.value + ', ' + suggestion.data);
-  }
-}); */
+      var nContent = this.content;
+      nContent.on('click', '.notify__nav-item', function () {
+        var nTab = $(this);
+        var sTab = nTab.attr('tab');
+
+        var nTabs = nContent.find('.notify__nav');
+        if (nTabs.length) {
+          var nActiveTab = nTabs.find('.notify__nav-item._active');
+          if (nActiveTab.attr('tab') === nTab.attr('tab')) return;
+
+          nActiveTab.removeClass('_active').addClass('_empty');
+          //setGlobalCounter(nPopup.options.globalCounter);
+
+          nTab.addClass('_active');
+          nContent.find('.notify__block').removeClass('_active');
+          nContent.find('.notify__block[id="' + sTab + '"]').addClass('_active');
+
+          /* clearTabCounter(sTab).then(function (iCounter) {
+            nPopup.options.globalCounter = iCounter;
+          }); */
+        }
+      }).on('click', '.notify__massage', function () {
+        var sLink = $(this).attr('link');
+        if (sLink) {
+          nPopup.close();
+          document.location.href = sLink;
+        }
+      }).on('click', 'a', function () {
+        nPopup.close();
+      });
+    },
+
+    onClose: function () {
+      this.content.parents('._open').removeClass('_open');
+      var nTab = this.content.find('.notify__nav-item._active');
+      if (nTab.length) {
+        /* clearTabCounter('all').then(function (iCounter) {
+          nPopup.options.globalCounter = iCounter;
+          setGlobalCounter(iCounter);
+        }); */
+      }
+      this.content.off('click');
+    }
+  });
+
+// кастыль глюкала
+$('body').on('click', function (e) {
+  if ($(e.target).parents('#notify-icon').length) return;
+  if ($(e.target).parents('#notifiesPopover').length) return;
+  if (nPopup.isOpen) nPopup.close();
+});
+
+
+
 
 // HEADER JS / end ============================================================================
