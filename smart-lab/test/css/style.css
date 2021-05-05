@@ -726,6 +726,7 @@ h5.logo__title span:nth-child(2) {
 }
 
 .query-search__input {
+  display: block;
   width: 100%;
   font-size: 16px;
   background: #424242;
@@ -836,6 +837,52 @@ h5.logo__title span:nth-child(2) {
   -webkit-transform: translate(0, 0);
       -ms-transform: translate(0, 0);
           transform: translate(0, 0);
+}
+
+.query-search .autocomplete-suggestions {
+  position: relative;
+  cursor: default;
+  font-size: 16px;
+  color: #d4d4d4;
+  background: #424242;
+  border: 0px;
+}
+
+.query-search .autocomplete-suggestion {
+  position: relative;
+  padding: 10px 15px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.query-search .autocomplete-suggestion::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 35px;
+  background: -o-linear-gradient(right, #424242, #424242 12px, transparent);
+  background: linear-gradient(to left, #424242, #424242 12px, transparent);
+}
+
+.query-search .autocomplete-suggestion:hover::after {
+  background: -o-linear-gradient(right, #4f4f4f, #4f4f4f 12px, transparent);
+  background: linear-gradient(to left, #4f4f4f, #4f4f4f 12px, transparent);
+}
+
+.query-search .autocomplete-selected {
+  background: #4f4f4f;
+  color: #fff;
+}
+
+.query-search .autocomplete-group {
+  padding: 2px 5px;
+}
+
+.query-search .autocomplete-group strong {
+  display: block;
+  border-bottom: 1px solid red;
 }
 
 .alphabet-search {
@@ -1391,66 +1438,6 @@ textarea {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-}
-
-.input {
-  width: 100%;
-  display: block;
-  padding: 0px 15px;
-}
-
-textarea.input {
-  resize: none;
-  padding: 0px 0px;
-}
-
-.autocomplete-suggestions {
-  position: relative;
-  cursor: default;
-  font-size: 16px;
-  color: #d4d4d4;
-  background: #424242;
-  border: 0px;
-  -webkit-transform: translate(0, -2px);
-      -ms-transform: translate(0, -2px);
-          transform: translate(0, -2px);
-}
-
-.autocomplete-suggestion {
-  position: relative;
-  padding: 10px 15px;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.autocomplete-suggestion::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 35px;
-  background: -o-linear-gradient(right, #424242, #424242 12px, transparent);
-  background: linear-gradient(to left, #424242, #424242 12px, transparent);
-}
-
-.autocomplete-suggestion:hover::after {
-  background: -o-linear-gradient(right, #4f4f4f, #4f4f4f 12px, transparent);
-  background: linear-gradient(to left, #4f4f4f, #4f4f4f 12px, transparent);
-}
-
-.autocomplete-selected {
-  background: #4f4f4f;
-  color: #fff;
-}
-
-.autocomplete-group {
-  padding: 2px 5px;
-}
-
-.autocomplete-group strong {
-  display: block;
-  border-bottom: 1px solid red;
 }
 
 .page {

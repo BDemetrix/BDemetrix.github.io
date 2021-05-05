@@ -8290,6 +8290,7 @@ div.console_acc_menu div.dbst
 	position: relative;
 	display: table-cell;
 	vertical-align: top;
+	/* height: 30px; */
 }
 
 .undermenu > ul > li:before
@@ -8301,6 +8302,7 @@ div.console_acc_menu div.dbst
 	bottom: 0;
 	left: 0;
 	width: 1px;
+	height: 100%;
 	background: #505050;
 }
 
@@ -8314,7 +8316,7 @@ div.console_acc_menu div.dbst
 	display: block;
 	padding: 7px 16px 7px;
 	margin: 0;
-	height: 15px;
+	height: 100%;
 	color: #fff;
 	font: bold 12px/15px Arial, sans-serif;
 	text-align: center;
@@ -8439,7 +8441,7 @@ div.console_acc_menu div.dbst
 	display: block;
 	padding: 6px 16px 5px;
 	margin: 0;
-	height: 15px;
+	/* height: 15px; */
 	color: #fff;
 	font: bold 12px/15px Arial, sans-serif;
 	text-align: left;
