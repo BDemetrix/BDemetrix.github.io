@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>video_ibg</title>
+  <style>
+    .container {
+      max-width: 720px;
+      margin: 10px auto;
+      padding: 0 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    /* Адаптивный блок для видео */
+    .video-block {
+      position: relative;
+      width: 100%;
+      padding: 0px 0px 56% 0px;
+    }
+    .video-block iframe,
+    .video-block video {
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    /* Адаптивный блок для видео */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Адаптивный блок для видео</h2>
+
+    <!-- Адаптивный блок для видео -->
+    <div class="video-block">
+      <iframe src="//www.youtube.com/embed/6uwhY4Tmlq4" frameborder="0" allowfullscreen=""></iframe>
+    </div>
+    <!-- Адаптивный блок для видео -->
+
+  </div>
+  
+</body>
+</html>
