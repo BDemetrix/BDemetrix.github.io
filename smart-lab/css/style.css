@@ -724,6 +724,7 @@ h5.logo__title span:nth-child(2) {
 
 .query-search__input-wrap._focus .query-search__input {
   padding: 6px 28px 6px 38px !important;
+  border-radius: 6px;
 }
 
 .query-search__input-wrap._focus .query-search__input-arrow {
@@ -761,7 +762,7 @@ h5.logo__title span:nth-child(2) {
   background: #1f1f1f;
   color: #fff;
   padding: 6px 28px 6px 0px !important;
-  border-radius: 6px;
+  border-radius: 4px;
   border: 1px solid rgba(212, 212, 212, 0.5);
 }
 
@@ -787,6 +788,7 @@ h5.logo__title span:nth-child(2) {
 
 .query-search__input:hover {
   padding: 6px 28px 6px 15px !important;
+  border-radius: 6px;
   border: 1px solid rgba(212, 212, 212, 0.5);
 }
 
