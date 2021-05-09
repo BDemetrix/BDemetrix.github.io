@@ -88,9 +88,9 @@ searchIcon.addEventListener('click', () => {
   searchInput.focus();
 });
 
-let clnInputBtn = document.querySelector('.query-search__input-clean');
-clnInputBtn.addEventListener('click', () => {
-  searchInput.blur();
+let arrowInputBtn = document.querySelector('.query-search__input-arrow');
+arrowInputBtn.addEventListener('click', () => {
+  //searchInput.blur();
   setTimeout(() => {
     searchInput.focus();
   }, 210);

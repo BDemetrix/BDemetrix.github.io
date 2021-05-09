@@ -48,9 +48,18 @@
 				<div class="query-search__body">
 					<form class="query-search__form" action="">
 						<div class="query-search__input-wrap">
+							<button class="query-search__btn" type="submit">
+								<svg>
+									<use xlink:href="images/symbol/sprite.svg#search"></use>
+								</svg>
+							</button>
 							<input class="query-search__input" placeholder="Ищу компанию.." type="text" autocomplete="off" name="form[]"
 								autocompleter="forum/ajaxsearch/">
-								<div class="query-search__input-clean cls-btn" title="очистить"><span></span></div>
+							<div class="query-search__input-arrow" title="варианты поиска">
+								<svg>
+									<use xlink:href="images/symbol/sprite.svg#triangle-arrow"></use>
+								</svg>
+							</div>
 						</div>
 						
 						<div class="query-search__suggestions">
