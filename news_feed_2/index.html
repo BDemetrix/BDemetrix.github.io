@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<link rel="stylesheet" href="css/style.min.css">
-	<link rel="stylesheet" data-path="css/themes/black-red.min.css" href="" id="theme-link">
+	<link rel="stylesheet" data-path="css/themes/black-red.min.css" href="" id="theme-link"> <!-- data-path="css/themes/black-red.min.css" -->
 	<!-- <link rel="shortcut icon" href="favicon.ico"> -->
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
@@ -117,17 +117,21 @@
 			<div class="header__search search">
 				<form action="#" class="search__form">
 					<div class="search__body">
-						<div class="search__controls">
-							<div class="search__input news-search">
-								<input class="input" type="text" placeholder="Поиск..." autocomplete="off" name="header-search">
-							</div>
-							<button class="search__submit news-button" type="submit" data-da=".search__input,567.98,2">
-								<span>Найти</span>
-								<svg>
+						<div class="search__body-inner">
+							<div class="search__controls">
+								<div class="search__input news-search">
+									<input class="input" id="headerAutoComplete" name="header-search" type="text" dir="ltr" spellcheck=false
+										autocorrect="off" autocomplete="off" autocapitalize="off" maxlength="2048" placeholder="Поиск...">
+								</div>
+								<button class="search__submit news-button" type="submit" data-da=".search__input,567.98,2">
+									<span>Найти</span>
+									<svg>
 										<use xlink:href="images/symbol/sprite.svg#arrow"></use>
-								</svg>
-							</button>
-							<span class="search__cls-btn cls-btn"><span></span></span>
+									</svg>
+								</button>
+								<span class="search__cls-btn cls-btn"><span></span></span>
+							</div>
+							<div class="search__auto-complete"></div>
 						</div>
 					</div>
 					<svg class="search__icon">
@@ -334,7 +338,7 @@
 </div>
 	</div>
 	
-</header>
+</header> 
 			<main class="page _font-family _font-weight _font-size" data-fontscale="" data-mobfontsize="18">
 				<div class="page__inner">
 					<div class="news">
