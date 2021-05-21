@@ -1,0 +1,624 @@
+const button = document.querySelector('#menu-drop');
+const menu = document.querySelector('.profile_menu');
+
+button.addEventListener('click', (e) => {
+	e.stopPropagation();
+	menu.classList.toggle('profile_open__menu');
+});
+
+document.addEventListener('click', ({target}) => {
+		//if (!menu.contains(target)) {
+			menu.classList.remove('profile_open__menu');
+		//}
+});
+
+
+$(document).ready(function(){
+
+
+	$('.place-btn').jBox('Tooltip', {
+		target: '.place-btn > span',
+		maxWidth: '300px'
+	});
+
+
+	$('.image_true').jBox('Tooltip', {
+		maxWidth: '300px',
+		position: {
+          x: 'right',
+          y: 'center'
+        },
+		outside: 'x'
+	});
+
+	$('a.last_link, .profile_text').on('click', function(e)
+	{
+		if ((e.target.nodeName != 'A') || ($(e.target).hasClass('last_link'))) $('.profile_text').toggleClass('short');
+	});
+
+	var al = $('.profile_text').map(function(i, e)
+	{
+		return $(e).html().length;
+	});
+
+	if ((al.length == 0) || (al.length == 1) || (al[0] == al[1])) $('a.last_link').hide();
+
+	let guestsCarousel = $('.owl-carousel_guests');
+	let statusCarousel = $('.owl-carousel_status');
+
+	if(guestsCarousel && guestsCarousel.length) {
+		guestsCarousel.owlCarousel({
+			loop:true,
+			nav:true,
+			responsive:{
+				0:{
+					items:3
+				},
+				1024:{
+					items:5
+				}
+			}
+		})
+	}
+
+	if(statusCarousel && statusCarousel.length) {
+		statusCarousel.owlCarousel({
+			loop:false,
+			nav:true,
+			responsive:{
+				0:{
+					items:3
+				},
+				1024:{
+					items:5
+				}
+			}
+		})
+	}
+});
+
+$('#follow').on('click', function(e)
+{
+	e.preventDefault();
+	
+	var n = $(this);
+	$.post('/friends/ajax_user_subscribe/' + '?JsHttpRequest=' + (new Date()).getTime() + '-xml', {login: n.attr('login'), subscribe: n.hasClass('is_not_follow') ? 1 : 0, security_ls_key: LIVESTREET_SECURITY_KEY}, function(result)
+	{
+		try
+		{
+			result = JSON.parse(result);
+		} catch (e)
+		{
+			return msgErrorBox.alert('Error','Please try again later');
+		}
+
+		if (!result) return msgErrorBox.alert('Error','Please try again later');
+		if (!result.js.bStateError)
+		{
+			if (result.js.bSubscribeState)
+			{
+				n.removeClass('is_not_follow').addClass('is_follow');
+			} else
+			{
+				n.removeClass('is_follow').addClass('is_not_follow');
+			}
+
+			msgNoticeBox.alert(result.js.sMsgTitle, result.js.sMsg);
+		} else
+		{
+			msgErrorBox.alert(result.js.sMsgTitle, result.js.sMsg);
+		}
+	});
+	return false;
+});
+
+
+function ajaxAddUserFriend(idUser)
+{
+	var d = $.Deferred();
+	$.post(aRouter.profile+'ajaxfriendadd/' + '?JsHttpRequest=' + (new Date()).getTime() + '-xml', { idUser: idUser,userText: '', security_ls_key: LIVESTREET_SECURITY_KEY }, function(result)
+	{
+		try
+		{
+			result = JSON.parse(result);
+		} catch (e)
+		{
+			d.reject('Error','Please try again later');
+		}
+
+		if (!result) {
+			d.reject('Error','Please try again later');
+		}
+		
+		if (result.js.bStateError)
+		{
+			d.reject(result.js.sMsgTitle,result.js.sMsg);
+		} else
+		{
+			d.resolve(result.js.sMsgTitle,result.js.sMsg);
+		}
+	});
+	return d;
+}
+
+function ajaxDeleteUserFriend(idUser)
+{
+	var d = $.Deferred();
+	$.post(aRouter.profile + 'ajaxfrienddelete/' + '?JsHttpRequest=' + (new Date()).getTime() + '-xml', { idUser: idUser,sAction: 'del', security_ls_key: LIVESTREET_SECURITY_KEY }, function(result)
+	{
+		try
+		{
+			result = JSON.parse(result);
+		} catch (e)
+		{
+			d.reject('Error','Please try again later');
+		}
+
+		if (!result)
+		{
+			d.reject('Error','Please try again later');
+		}
+		
+		if (result.js.bStateError)
+		{
+			d.reject(result.js.sMsgTitle,result.js.sMsg);
+		} else {
+			d.resolve(result.js.sMsgTitle,result.js.sMsg);
+		}                               
+	});
+	return d;
+}
+
+$('#add_to_friends').on('click', function()
+{
+	var n = $(this);
+	var iUserId = n.attr('user_id');
+
+	if (n.hasClass('is_not_friend'))
+	{
+		window.fz('track', 'subscribe profile-addfriend');
+
+		ajaxAddUserFriend(iUserId).then(function(sTitle, sMsg)
+		{
+			n.removeClass('is_not_friend');			
+			if ('Заявка отправлена' == sMsg)
+			{
+				n.addClass('response');
+
+			} else if ('У вас появился новый друг' == sMsg)
+			{
+				n.addClass('is_friend');
+			}
+
+			msgNoticeBox.alert(sTitle, sMsg);
+
+		}, function(sTitle, sMsg)
+		{
+			msgErrorBox.alert(sTitle, sMsg);
+		});
+
+	} else if (n.hasClass('response'))
+	{
+		msgNoticeBox.alert('Внимание!', 'Вы уже отправляли заявку в друзья');
+
+	} else if (n.hasClass('is_friend'))
+	{
+		ajaxDeleteUserFriend(iUserId).then(function(sTitle, sMsg)
+		{
+			n.removeClass('is_friend');
+			if ('У вас больше нет этого друга' == sMsg)
+			{
+				n.addClass('is_not_friend');
+
+			}
+
+			msgNoticeBox.alert(sTitle, sMsg);
+
+		}, function(sTitle, sMsg)
+		{
+			msgErrorBox.alert(sTitle, sMsg);
+		})
+	}
+});
+
+$('.flistlink').on('click', function(e)
+{
+	var t = $(this);
+	var url =  DIR_WEB_ROOT + '/profile/ajax' + t.attr('type') + 'list/';
+	var login = t.attr('user');
+
+	$.get(url, {'JsHttpRequest' : (new Date()).getTime() +'-xml', 'login': login}, function(result, errors)
+	{
+		var res = null;
+		try
+		{
+			res = JSON.parse(result);
+		} catch (e)
+		{
+			return msgErrorBox.alert('Error','Please try again later');
+		}
+
+		if (!res.js)
+		{
+			msgErrorBox.alert('Error','Please try again later');
+		}
+		if (res.js.bStateError)
+		{
+			msgErrorBox.alert(res.js.sMsgTitle,res.js.sMsg);
+		} else
+		{
+			var dialogTitle = $.trim(t.text().replace('Посмотреть', ''));
+			dialogTitle = dialogTitle.toLocaleUpperCase();
+			var userListDialog = new jBox('Confirm', 
+			{
+				id: 'userListDialog',
+				title: dialogTitle,
+				confirmButton: 'ОК',
+				cancelButton: 'Отмена',
+				content: '<div id="user_list_dialog_content"></div>',
+
+				confirm: function()
+				{
+				},
+
+				_onCreated: function ()
+				{
+					this.footer = jQuery('<div class="jBox-Confirm-footer"/>');
+					this.submitButton = jQuery('<div class="jBox-Confirm-button jBox-Confirm-button-submit"/>').html(this.options.confirmButton).appendTo(this.footer);
+					this.footer.appendTo(this.container);
+				},
+
+				onOpen: function()
+				{
+					var c = $('#user_list_dialog_content');
+					$.each(res.js.aUsersList, function(i,a)
+					{
+						$('<a/>').attr('href', DIR_WEB_ROOT + '/profile/' + a.user_login + '/').text(a.user_profile_name).appendTo(c);
+					});
+
+					if (t.attr('type') == 'subscribe')
+					{
+						var a = $('<a/>')
+						.attr('href', DIR_WEB_ROOT + '/friends/' + login + '/')
+						.text('Открыть ленту друзей')
+						.css({
+							'float': 'right',
+							'background': 'none',
+							'padding': 0,
+							'margin': 0}).prependTo(this.title);
+					}
+				},
+				onClose: function()
+				{
+				}, 
+
+				onCloseComplete: function()
+				{
+					this.destroy();
+				}
+			});
+
+			userListDialog.open();
+		}
+	});
+});
+
+if ($('.reputation_container').attr('admin')) $('.reputation_container').on('click', '.reputation_item', function()
+{
+	var iBanId = $(this).attr('ban_id');
+	if (!iBanId) return;
+
+	var dialog = new jBox('Confirm',
+	{
+		id: 'deleteBanInfoDialog',
+		title: 'Внимание!',
+		confirmButton: 'Удалить',
+		cancelButton: 'Отмена',
+		content: 'Удалить отметку о бане?',
+
+		confirm: function()
+		{
+			var data = {ban_id: iBanId, security_ls_key: LIVESTREET_SECURITY_KEY};
+			$.post('/profile/ajaxwarningclear/', data, function(result)
+			{
+				if (!result)
+				{
+					msgErrorBox.alert('Error', 'Please try again later');
+				}
+
+				if (result.bStateError)
+				{
+					msgErrorBox.alert(result.sMsgTitle, result.sMsg);
+				} else
+				{
+					msgNoticeBox.alert(result.sMsgTitle, result.sMsg);
+					setTimeout(function()
+					{
+						document.location.reload()
+					}, 1000);
+				}
+			});
+		},
+
+		onCloseComplete: function()
+		{
+			this.destroy();
+		}
+	});
+	dialog.open();
+});
+
+
+function VoteUser(iUserId)
+{
+	$.post('/include/ajax/voteUser.php?JsHttpRequest=' + (new Date()).getTime() + '-xml', { value: 1, idUser: iUserId, security_ls_key: LIVESTREET_SECURITY_KEY }, function(result)
+	{
+		try
+		{
+			result = JSON.parse(result);
+		} catch (e)
+		{
+			return msgErrorBox.alert('Error','Please try again later');
+		}
+
+		if (!result) {
+					msgErrorBox.alert('Error','Please try again later');
+		}
+		
+		if (result.js.bStateError)
+		{
+			msgErrorBox.alert(result.js.sMsgTitle,result.js.sMsg);
+		} else
+		{
+			msgNoticeBox.alert(result.js.sMsgTitle,result.js.sMsg);
+		}
+	});
+}
+
+if ($('#profile_vote').length)
+{
+	$('#profile_vote').on('click', function(e)
+	{
+		var iUserId = $(this).attr('userid');
+		VoteUser(iUserId);
+		$(this).remove();
+	});
+}
+
+$(document).on('change', '#file-input-avatar, #file-input-cover', function()
+{
+	if (('files' in this) && (this.files.length))
+	{
+		var bError = false;
+		$.each(this.files, function(i, file)
+		{
+			if(!file.type.match(/.(png|jpeg|jpg|gif|webp)$/i))
+			{
+				// not an image
+				bError = true;
+				msgErrorBox.alert(file.name, 'Неподдерживаемый тип изображения, можно только: <b>gif</b>, <b>jpg</b>, <b>png</b>, <b>webp</b>');
+				return false;
+			}
+		});
+
+		if (bError) return;
+
+		var formData = new FormData();
+		
+		formData.append('security_ls_key', LIVESTREET_SECURITY_KEY);
+		formData.append('image', this.files[0]);
+		
+		var type = $(this).attr('name');
+		formData.append('type', type);
+
+
+
+		return $.ajax({
+			url: '/settings/some_images_ajax/?JsHttpRequest=' + (new Date()).getTime() + '-xml', // ебаное гавно с JsHttpRequest
+			type: 'POST',
+			contentType: false,
+			processData: false,
+			data: formData
+		}).then(function(result)
+		{
+			if (result.bStateError)
+			{
+				msgErrorBox.alert(result.sMsgTitle, result.sMsg);
+			} else
+			{
+				switch (type)
+				{
+					case 'avatar':
+					{
+						if ($('.profile_user > form img').length) $('.profile_user > form img').attr('src', result.sImageUrl);
+						break;
+					}
+
+					case 'cover':
+					{
+						if ($('.profile_bg > img').length)
+						{
+							$('.profile_bg > img').attr('src', result.sImageUrl);
+						} else
+						{
+							$('<img />').addClass('form_hover_img label_image').attr('src', result.sImageUrl).appendTo($('.profile_bg'));
+							$('.profile_bg .upload-label').removeClass('empty');
+						}
+						break;
+					}
+				}
+			}
+		});
+	}
+});
+
+
+function statusDialog(sLogin)
+{
+	var sWindowContent = '<div class="statusBox">\
+							<div>\
+								<span>Выберите статус:</span><br/>\
+								<div>\
+									<select/>\
+									<input type="button" value="Добавить" />\
+								</div>\
+							</div><br/>\
+							<span>Статусы пользователя:</span>\
+							<ul>\
+								<li>Загружаю...</li>\
+							</ul>\
+					</div>';
+
+	var statusesDialogParam = {
+
+		id: 'statusDialog',
+		title: 'Редактирование статусов пользователя ' + sLogin,
+		confirmButton: 'ОК',
+		cancelButton: 'Отмена',			
+		content: sWindowContent,
+		width: 450,
+
+		onOpen: function()
+		{
+			var self = this;
+			if ('confirmed' in this.options) delete this.options.confirmed;
+			this.options.loadUserStatuses.call(this);
+			
+			var list = self.wrapper.find('ul');
+			this.wrapper.on('click', '.removeStatus', function()
+			{
+				$(this).parents('li').remove();
+				if (!list.find('li').length) list.append('<li id="0">Нет статусов.</li>');
+			});
+
+			this.wrapper.on('click', 'input:button', function()
+			{
+				var iStatusId = self.wrapper.find('select').val();
+				var nStatus = self.wrapper.find('select').find('option[value="' + iStatusId + '"]');
+				if (nStatus.length)
+				{
+					var list = self.wrapper.find('ul');
+
+					var li = $('<li/>');
+					li.attr('id', iStatusId);
+					var span = $('<span/>').attr('title', nStatus.attr('title')).text(nStatus.text());
+					li.append(span);
+
+					li.append($('<span class="removeStatus" title="Удалить статус">&ndash;</span>'));
+					list.append(li);					
+				}
+			});
+		},
+
+		loadUserStatuses: function()
+		{
+			var self = this;
+			$.ajax({
+
+				url: '/admin/users/statuses/profile/' + encodeURIComponent(sLogin) + '/get/' + '?JsHttpRequest=' + (new Date()).getTime() + '-xml',
+				type: 'GET',
+				data: {security_ls_key: LIVESTREET_SECURITY_KEY}
+
+			}).then(function(result)
+			{
+				try
+				{
+					result = JSON.parse(result);
+					if (result.js.bStateError)
+					{
+						msgErrorBox.alert(result.js.sMsgTitle, result.js.sMsg);
+						return;
+					}
+
+				} catch (e) {}
+
+				var list = self.wrapper.find('ul');
+				list.empty();
+				if (('aUserStatuses' in result.js) && !$.isEmptyObject(result.js.aUserStatuses))
+				{
+					$.each(result.js.aUserStatuses, function(i,v)
+					{
+						var li = $('<li/>');
+						li.attr('id', v['id']);
+						var span = $('<span/>').attr('title', v['description']).text(v['title']);
+						li.append(span);
+
+						li.append($('<span class="removeStatus" title="Удалить статус">&ndash;</span>'));
+						list.append(li);
+					});
+
+				} else
+				{
+					list.append('<li id="0">Нет статусов.</li>');
+				}
+
+
+				var list = self.wrapper.find('select');
+				list.empty();
+
+				if (('aAllStatuses' in result.js) && !$.isEmptyObject(result.js.aAllStatuses))
+				{
+					$.each(result.js.aAllStatuses, function(i,v)
+					{
+						var option = $('<option/>');
+						option.attr('value', v['id']);
+						option.attr('title', v['description']);
+						option.text(v['title']);
+						list.append(option);
+					});
+
+				}				
+			});
+		},
+
+		saveUserStatuses: function()
+		{
+			var self = this;
+
+			var aStatusesIds = [];
+			this.wrapper.find('ul').find('li').each(function(i, n)
+			{
+				aStatusesIds.push(this.id);
+			});
+
+			if (aStatusesIds.indexOf(0) !== -1) aStatusesIds = aStatusesIds.splice(aStatusesIds.indexOf(0), 1);
+
+			$.ajax({
+
+				url: '/admin/users/statuses/profile/' + encodeURIComponent(sLogin) + '/set/' + '?JsHttpRequest=' + (new Date()).getTime() + '-xml',
+				type: 'POST',
+				data: {status_id: aStatusesIds, security_ls_key: LIVESTREET_SECURITY_KEY}
+
+			}).then(function(result)
+			{
+				try
+				{
+					result = JSON.parse(result);
+					if (result.js.bStateError)
+					{
+						msgErrorBox.alert(result.js.sMsgTitle, result.js.sMsg);
+						return;
+					} else
+					{
+						if (result.js.sMsg) msgNoticeBox.alert(result.js.sMsgTitle, result.js.sMsg);
+					}
+
+				} catch (e) {}
+			});
+		},
+
+		confirm: function()
+		{
+			this['confirmed'] = true;
+		},
+
+		onClose: function()
+		{
+			if (('confirmed' in this.options) && (this.options.confirmed)) this.options.saveUserStatuses.call(this);
+			this.wrapper.off('click');
+		}
+	};
+
+	var box = new jBox('Confirm', statusesDialogParam);
+	box.open();
+}

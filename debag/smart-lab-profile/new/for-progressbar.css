@@ -1,0 +1,63 @@
+#upload-container {
+ position: relative;
+ overflow: visible;
+ width: 140px;
+ height: 140px;
+}
+
+#upload-container  svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+#upload-container label {
+ display: block;
+}
+
+#profile-avatar-link {
+  display: block;
+  padding-bottom: 100%;
+  position: relative;
+}
+
+#profile-avatar-img {
+  position: absolute;
+	width: 95%;
+	height: 95%;
+	top: 2.5%;
+	left: 2.5%;
+	object-fit: cover;
+  border-radius: 50%;
+}
+
+.progress-text {
+  z-index: 2;
+  font-size: 14px;
+  line-height: 19px;
+  cursor: pointer;
+  top: 0px;
+  right: -10px;
+
+}
+.progress-text-link {
+  position: absolute;
+  display: block;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  opacity: 0;
+}
+
+@media (min-width: 700px) {
+  .progress-text {
+    left: -10px;
+    bottom: -10px;
+    top: auto;
+    right: auto;
+  }
+}
