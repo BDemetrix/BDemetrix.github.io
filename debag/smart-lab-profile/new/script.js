@@ -1,5 +1,5 @@
   
-let circleBar = new ProgressBar.Circle('#upload-container', {   // #profile-avatar-link
+let circleBar = new ProgressBar.Circle('#upload-container', {   
   color: "violet",
   strokeWidth: 3.5,
   trailWidth: 3.5,
@@ -27,7 +27,8 @@ let circleBar = new ProgressBar.Circle('#upload-container', {   // #profile-avat
   }
 });
 
-circleBar.animate(.90, {
+let rating = +document.getElementById('upload-container').dataset.rating; // Получаем рейтинг
+circleBar.animate(rating, {
   duration: 1500
 });
 

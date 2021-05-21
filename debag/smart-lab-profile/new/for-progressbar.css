@@ -60,4 +60,15 @@
     top: auto;
     right: auto;
   }
+  /* добавить в style.css  чтобы имя на мобилке выравнивалоссь по центру*/
+  .author {
+    justify-content: flex-start !important;
+  }
+  /* добавить в style.css */
 }
+
+/* добавить в style.css */
+.author {
+    justify-content: center;
+}
+/* добавить в style.css */
