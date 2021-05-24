@@ -1,0 +1,96 @@
+
+						jQuery(document).ready(function($)
+						{
+							// $('.flistlink').on('click', function(e)
+							// {
+							// 	var t = $(e.target);
+							// 	var url =  '/profile/ajax' + t.attr('type') + 'list/';
+							// 	var login = t.attr('user');
+
+							// 	var c =	t.parents('tr').next('tr').find('.friends_w');
+							// 	$.get(url, {'JsHttpRequest' : (new Date()).getTime(), 'login': login}, function(result, errors)
+							// 	{
+							// 		var res = result.match(/^JsHttpRequest\.dataReady\((.+)\)/);
+							// 		if (res != null) res = JSON.parse(res[1]);
+
+							// 		if (!res.js)
+							// 		{
+							// 			msgErrorBox.alert('Error','Please try again later');
+							// 		}
+							// 		if (res.js.bStateError)
+							// 		{
+							// 			msgErrorBox.alert(res.js.sMsgTitle,res.js.sMsg);
+							// 		} else
+							// 		{
+							// 			c.empty();
+							// 			$.each(res.js.aUsersList, function(i,a)
+							// 			{
+							// 				$('<a></a>').attr('href', '/profile/' + a.user_login + '/').text(a.user_profile_name).appendTo(c);
+							// 			});
+
+							// 			c.show();
+							// 		}
+							// 	});
+							// 	t.remove();
+
+							// });
+
+							$('#plus100link').on('click', function(e)
+							{
+								var sLogin = $(e.target).attr('login');
+								$.post('/profile/ajaxplus100/?JsHttpRequest=' + (new Date()).getTime() + '-xml', {'sLogin': sLogin, security_ls_key: LIVESTREET_SECURITY_KEY}, function(result)
+								{
+									try
+									{
+										result = JSON.parse(result);
+									} catch (e)
+									{
+										return msgErrorBox.alert('Error', 'Please try again later');
+									}
+									if (!result) msgErrorBox.alert('Error', 'Please try again later');
+									if (!result.js.bStateError)
+									{
+										$('#rating_span').text(result.js.sNewRating);
+										msgNoticeBox.alert(result.js.sMsgTitle, result.js.sMsg);
+									} else
+									{
+										msgErrorBox.alert(result.js.sMsgTitle, result.js.sMsg);
+									}
+								});
+							});
+
+							$('#allowPostNowlink').on('click', function(e)
+							{
+								var sLogin = $(e.target).attr('login');
+								$.post('/profile/ajaxallownewbie/?JsHttpRequest=' + (new Date()).getTime() + '-xml', {'sLogin': sLogin, security_ls_key: LIVESTREET_SECURITY_KEY}, function(result)
+								{
+									try
+									{
+										result = JSON.parse(result);
+									} catch (e)
+									{
+										return msgErrorBox.alert('Error', 'Please try again later');
+									}
+									if (!result) msgErrorBox.alert('Error', 'Please try again later');
+									if (!result.js.bStateError)
+									{
+										msgNoticeBox.alert(result.js.sMsgTitle, result.js.sMsg);
+									} else
+									{
+										msgErrorBox.alert(result.js.sMsgTitle, result.js.sMsg);
+									}
+								});
+							});							
+
+							$('#books_help_link').jBox('Tooltip', {
+								position: {
+									x: 'right',
+									y: 'bottom'
+								},
+								width: '300px'
+							});
+
+							$('.detail_status .item, .user_status a, .reputation_item').jBox('Tooltip', {
+								width: '300px'
+							});
+						});	

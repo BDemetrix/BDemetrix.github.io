@@ -1,0 +1,35 @@
+.form_hover {
+  flex: 0 0 138px;
+}
+.profile_data {
+  overflow: hidden;
+  flex: 0 0 270px;
+}
+.profile_site {
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+
+}
+
+.author {
+  justify-content: flex-start;
+}
+
+@media only screen and (max-width: 700px) {
+  
+  .profile_data {
+    flex: 0 0 100%;
+  }
+
+  .author {
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .profile_site {
+    text-align: center;
+  }
+}
