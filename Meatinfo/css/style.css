@@ -132,6 +132,246 @@ picture {
   margin: 0 auto;
 }
 
+[data-simplebar] {
+  position: relative;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.simplebar-wrapper {
+  overflow: hidden;
+  width: inherit;
+  height: inherit;
+  max-width: inherit;
+  max-height: inherit;
+}
+
+.simplebar-mask {
+  direction: inherit;
+  position: absolute;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: auto !important;
+  height: auto !important;
+  z-index: 0;
+}
+
+.simplebar-offset {
+  direction: inherit !important;
+  -webkit-box-sizing: inherit !important;
+          box-sizing: inherit !important;
+  resize: none !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 0;
+  margin: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.simplebar-content-wrapper {
+  direction: inherit;
+  -webkit-box-sizing: border-box !important;
+          box-sizing: border-box !important;
+  position: relative;
+  display: block;
+  height: 100%;
+  /* Required for horizontal native scrollbar to not appear if parent is taller than natural height */
+  width: auto;
+  max-width: 100%;
+  /* Not required for horizontal scroll to trigger */
+  max-height: 100%;
+  /* Needed for vertical scroll to trigger */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.simplebar-content-wrapper::-webkit-scrollbar,
+.simplebar-hide-scrollbar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.simplebar-content:before,
+.simplebar-content:after {
+  content: ' ';
+  display: table;
+}
+
+.simplebar-placeholder {
+  max-height: 100%;
+  max-width: 100%;
+  width: 100%;
+  pointer-events: none;
+}
+
+.simplebar-height-auto-observer-wrapper {
+  -webkit-box-sizing: inherit !important;
+          box-sizing: inherit !important;
+  height: 100%;
+  width: 100%;
+  max-width: 1px;
+  position: relative;
+  float: left;
+  max-height: 1px;
+  overflow: hidden;
+  z-index: -1;
+  padding: 0;
+  margin: 0;
+  pointer-events: none;
+  -webkit-box-flex: inherit;
+      -ms-flex-positive: inherit;
+          flex-grow: inherit;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -ms-flex-preferred-size: 0;
+      flex-basis: 0;
+}
+
+.simplebar-height-auto-observer {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+  display: block;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1000%;
+  width: 1000%;
+  min-height: 1px;
+  min-width: 1px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.simplebar-track {
+  z-index: 1;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+  padding-left: 10px;
+}
+
+[data-simplebar].simplebar-dragging .simplebar-content {
+  pointer-events: none;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+}
+
+[data-simplebar].simplebar-dragging .simplebar-track {
+  pointer-events: all;
+}
+
+.simplebar-scrollbar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  min-height: 10px;
+}
+
+.simplebar-scrollbar:before {
+  position: absolute;
+  content: '';
+  background: #000;
+  border-radius: 7px;
+  left: 5px;
+  right: 2px;
+  opacity: 0.25;
+  -webkit-transition: opacity 0.2s linear;
+  -o-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
+}
+
+.simplebar-scrollbar.simplebar-visible:before {
+  /* When hovered, remove all transitions from drag handle */
+  opacity: 0.5;
+  -webkit-transition: opacity 0s linear;
+  -o-transition: opacity 0s linear;
+  transition: opacity 0s linear;
+}
+
+.simplebar-track.simplebar-vertical {
+  top: 0;
+  width: 5px;
+}
+
+.simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
+  top: 2px;
+  bottom: 2px;
+}
+
+.simplebar-track.simplebar-horizontal {
+  left: 0;
+  height: 10px;
+}
+
+.simplebar-track.simplebar-horizontal .simplebar-scrollbar:before {
+  height: 5px;
+  left: 2px;
+  right: 2px;
+}
+
+.simplebar-track.simplebar-horizontal .simplebar-scrollbar {
+  right: auto;
+  left: 0;
+  top: 2px;
+  height: 10px;
+  min-height: 0;
+  min-width: 10px;
+  width: auto;
+}
+
+/* Rtl support */
+
+[data-simplebar-direction='rtl'] .simplebar-track.simplebar-vertical {
+  right: auto;
+  left: 0;
+}
+
+.hs-dummy-scrollbar-size {
+  direction: rtl;
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+  height: 500px;
+  width: 500px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+
+.simplebar-hide-scrollbar {
+  position: fixed;
+  left: 0;
+  visibility: hidden;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
 .header__content-top {
   background: #005FAE;
   height: 44px;
@@ -810,8 +1050,7 @@ picture {
 
 .page {
   width: 100%;
-  padding-top: 32px;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
 }
 
 .page__inner {
@@ -819,6 +1058,7 @@ picture {
   display: -ms-flexbox;
   display: flex;
   margin: 0 -10px 0;
+  padding-top: 32px;
 }
 
 .page__content {
@@ -876,13 +1116,14 @@ picture {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   font-weight: 500;
   font-size: 24px;
   line-height: 32px;
   color: #212121;
+}
+
+.page__maker img {
+  margin-top: 4px;
 }
 
 .page__maker--confirmed .confirmed {
@@ -896,18 +1137,31 @@ picture {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.page__header-links-box {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
 }
 
 .page__header-link {
   margin-right: 24px;
 }
 
+.page__header-link:last-child {
+  margin-right: 0;
+}
+
 .page__header-employee {
-  margin-left: auto;
+  margin: 32px auto 0;
 }
 
 .page__aside {
   padding: 0 10px;
+  display: none;
 }
 
 .page__aside-item {
@@ -923,6 +1177,10 @@ picture {
   display: -ms-flexbox;
   display: flex;
   margin: 0 -10px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .page__left {
@@ -946,6 +1204,10 @@ picture {
   margin-bottom: 16px;
 }
 
+.page__abs-title span {
+  display: none;
+}
+
 .page__abs-table {
   font-size: 12px;
   line-height: 16px;
@@ -962,6 +1224,7 @@ picture {
   padding: 8px 16px;
   border-bottom: 1px solid #E0E0E0;
   text-align: left;
+  width: 570px;
 }
 
 .page__abs-row--head {
@@ -981,7 +1244,6 @@ picture {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
-  max-width: 300px;
   min-width: 100px;
   overflow: hidden;
   padding-right: 8px;
@@ -1013,9 +1275,9 @@ picture {
 
 .page__abs-author {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 225px;
-          flex: 0 0 225px;
-  max-width: 225px;
+      -ms-flex: 0 0 28%;
+          flex: 0 0 28%;
+  max-width: 28%;
   padding-left: 8px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1075,6 +1337,10 @@ picture {
      text-overflow: ellipsis;
 }
 
+.page__photos {
+  margin-bottom: 40px;
+}
+
 .page__photos-title {
   font-weight: 500;
   font-size: 19px;
@@ -1085,12 +1351,17 @@ picture {
 }
 
 .page__photos-box {
+  padding-top: 16px;
+}
+
+.page__photos-inner {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
   padding-top: 16px;
+  padding-bottom: 5px;
 }
 
 .page__photo {
@@ -1100,11 +1371,6 @@ picture {
 }
 
 .page__right {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 36%;
-          flex: 1 1 36%;
-  max-width: 360px;
-  min-width: 280px;
   padding: 0 10px;
 }
 
@@ -1143,6 +1409,7 @@ picture {
 .breadcrumbs {
   font-size: 12px;
   line-height: 16px;
+  white-space: nowrap;
 }
 
 .breadcrumbs__list {
@@ -1227,6 +1494,36 @@ picture {
 
 .tippy-content {
   padding: 0 0 0 10px;
+}
+
+@media (min-width: 610px) {
+  .page__header-links {
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+  }
+
+  .page__header-links-box {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+  }
+
+  .page__header-employee {
+    margin: 0px 0px 0px auto;
+  }
+
+  .page__abs-title span {
+    display: inline-block;
+  }
+
+  .page__abs-row {
+    width: auto;
+  }
+
+  .page__photos-inner {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
 }
 
 @media (min-width: 768px) {
@@ -1369,6 +1666,44 @@ picture {
 
   .feedback__close-btn {
     display: none;
+  }
+}
+
+@media (min-width: 980px) {
+  .page {
+    padding-bottom: 100px;
+  }
+
+  .page__main {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+
+  .page__abs-text {
+    max-width: 300px;
+  }
+
+  .page__abs-author {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 225px;
+            flex: 0 0 225px;
+    max-width: 225px;
+  }
+
+  .page__right {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 36%;
+            flex: 1 1 36%;
+    max-width: 360px;
+    min-width: 280px;
+  }
+}
+
+@media (min-width: 1150px) {
+  .page__aside {
+    display: block;
   }
 }
 
