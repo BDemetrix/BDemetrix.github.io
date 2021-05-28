@@ -1,0 +1,150 @@
+function AttachFinancialsCSVs(n)
+{
+	function b64EncodeUnicode(str) {
+		// first we use encodeURIComponent to get percent-encoded UTF-8,
+		// then we convert the percent encodings into raw bytes which
+		// can be fed into btoa.
+		return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,
+			function toSolidBytes(match, p1) {
+				return String.fromCharCode('0x' + p1);
+		}));
+	}
+
+	function BuildCSV(table)
+	{
+		var aTableData = [];
+		var oCol2Delete = {};
+
+		var trs = $(table).find('tr');
+		trs.each(function(ir, row)
+		{
+			if ((ir > 1) && ((ir + 1) < trs.length))
+			{
+				var aRow = [];
+				$(row).find(' > th, > td').each(function(ic, col)
+				{
+					var c = $(col).clone();
+					var sValue = null;
+					switch ($(row).attr('field'))
+					{
+						case 'date':
+						{
+							sValue = c.text().replace(/(\t|\s)+/g, ' ');
+							break;
+						}
+
+						case 'report_url':
+						case 'year_report_url':
+						case 'presentation_url':
+						{
+							return true;
+						}
+
+						default: 
+						{
+							if (c.find('strong').length) c = c.find('strong');
+							sValue = c.text().replace(/(\t|\s)+/g, ' ').replace(/\./g, ',');
+						}
+					}
+
+					aRow.push($.trim(sValue));
+
+					if ($(col).find('.charticon2').length) oCol2Delete[ic] = true;
+					if (ic == 1) oCol2Delete[ic] = true;
+					if (ic == 8) oCol2Delete[ic] = true;
+				});
+
+				if (!$(row).hasClass('company_report_separator') && aRow.length) aTableData.push(aRow);
+			}
+		});
+
+		var aCol2Delete = [];
+		for (var i in oCol2Delete)
+		{
+			aCol2Delete.push(i);
+		}
+		aCol2Delete.sort(function(a,b)
+		{
+			return a - b;
+		}).reverse();
+
+		$.each(aCol2Delete, function(i, c2di)
+		{
+			$.each(aTableData, function(i, aRow)
+			{
+				aTableData[i].splice(c2di, 1);
+			});
+		});
+
+		var sCsv = '';
+		$.each(aTableData, function(i, aRow)
+		{
+			var sRow = '';
+			$.each(aRow, function(ii, sCol)
+			{
+				if (sRow != '') sRow += ';';
+				sRow += '"' + sCol.replace(/\"/g, '\"') + '"';
+			});
+
+			sCsv += sRow + "\r\n";
+		});
+
+		return sCsv;
+	}
+
+
+	$(n).each(function(i, table)
+	{
+		var csv = "\ufeff" + BuildCSV(table);
+
+		var a = $('<a/>');
+		a.attr('href', 'data:text/csv;base64,' + b64EncodeUnicode(csv));
+		a.attr('title', '<b><u>Скачать таблицу в виде CSV файла</u></b>.<br />Если у вас неверно определяется кодировка, выберите в Excel пункт меню<br />&quot;Данные&quot; --> &quot;Из текстового/CSV файла&quot; и выберите кодировку &quot;Юникод (UTF-8)&quot;.');
+		a.attr('download', $(table).attr('financials-csv-download-data') + '.csv');
+		a.addClass('download-table');
+		if (navigator.msSaveBlob) a.addClass('ie');
+		
+		a.jBox('Tooltip', {
+			maxWidth: '300px'
+		});
+
+		var item = $('<li/>').addClass('download-financials');
+		item.append(a);
+		item.prependTo($(table).find('.tabs-block').find('.tabs')[1]);
+
+
+		// $(table).wrap('<div class="trades-table-wrapper"></div>');
+		// $(table).parents('.trades-table-wrapper').append(a);
+	});
+}
+
+jQuery(document).ready(function($)
+{
+
+	AttachFinancialsCSVs('[financials-csv-download-data]');
+	// кастыль для старых IE
+	$('.download-table.ie').on('click', function(e)
+	{
+		e.preventDefault();
+		var sData = $(this).attr('href');
+		sData = sData.substr(sData.indexOf(',') + 1);
+		sData = decodeURIComponent(atob(sData).split('').map(function(c)
+		{
+        	return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    	}).join(''));
+
+
+		var oBlob = new Blob([sData], {type:  'text/csv;charset=utf-8;'});
+		navigator.msSaveOrOpenBlob(oBlob, $(this).attr('download'));
+	});
+
+	if ($('.tabs-block .download-financials.static a').length)
+	{
+		$('.tabs-block .download-financials.static a')
+			.attr('title', '<b><u>Скачать таблицу в виде CSV файла</u></b>.<br />Если у вас неверно определяется кодировка, выберите в Excel пункт меню<br />&quot;Данные&quot; --> &quot;Из текстового/CSV файла&quot; и выберите кодировку &quot;Юникод (UTF-8)&quot;.')
+			.jBox('Tooltip', {
+				maxWidth: '300px'
+		});
+	}
+
+});

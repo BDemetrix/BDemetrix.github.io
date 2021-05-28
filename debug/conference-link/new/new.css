@@ -1,0 +1,8 @@
+.conference-link {
+  background: blue;
+  padding-left: 108px;
+  padding-bottom: 3px;
+}
+.conference-link a {
+  color: #fff;
+}
