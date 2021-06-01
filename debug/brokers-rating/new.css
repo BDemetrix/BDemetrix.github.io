@@ -1,0 +1,14 @@
+.news-card {
+  border: 2px solid #bbb;
+  box-shadow: 0 0 5px 3px #ccc;
+}
+.card-footer {
+  border-radius: 0;
+}
+
+@media screen and (max-width: 1024px) {
+
+  .td_value {
+    margin: 0 auto;
+  }
+}
