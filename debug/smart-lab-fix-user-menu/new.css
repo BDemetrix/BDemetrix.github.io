@@ -1,0 +1,6 @@
+/** Необходимо добавить эти правила в шаблон */
+
+.drop-menu-main-sub {
+  white-space: nowrap;
+  margin: 10px 0 0 -98px;
+}
