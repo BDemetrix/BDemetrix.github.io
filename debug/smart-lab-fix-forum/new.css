@@ -8,6 +8,9 @@
 .temp_micex_info_item {
   margin: .5em 1em .5em 0;
 }
+.temp_micex_info_item:last-child {
+  margin: .5em 0;
+}
 
 @media(max-width: 767px) {
 
@@ -17,7 +20,8 @@
   .nocenter .page-title__text {
     margin: 0 10px 0 10px;
   }
-  .temp_micex_info span {
+  .temp_micex_info span,
+  .temp_micex_info_item:last-child  {
     margin: 5px 15px 0px 0px;
   }
 
