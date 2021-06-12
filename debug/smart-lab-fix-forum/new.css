@@ -1,0 +1,31 @@
+.close-button.hidden:after {
+  content: 'показать ♒';
+  white-space: nowrap;
+}
+.nocenter .page-title__text {
+  margin: 0 0 0 18px;
+}
+.temp_micex_info span {
+  vertical-align: bottom;
+}
+@media(max-width: 767px) {
+
+  .forum_content .forum-top-buttons {
+    margin: 5px 0;
+  }
+  .nocenter .page-title__text {
+    margin: 0 0 0 10px;
+  }
+  .temp_micex_info span {
+    margin: 5px 5px 0 5px;
+  }
+
+  #commentBox {
+    margin: 0px 0px 20px 0px;
+  }
+
+  #commentBox .write_comment {
+    min-height: 0;
+  }
+  
+}
