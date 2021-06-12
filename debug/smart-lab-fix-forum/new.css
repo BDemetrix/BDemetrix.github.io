@@ -5,19 +5,20 @@
 .nocenter .page-title__text {
   margin: 0 0 0 18px;
 }
-.temp_micex_info span {
-  vertical-align: bottom;
+.temp_micex_info_item {
+  margin: .5em 1em .5em 0;
 }
+
 @media(max-width: 767px) {
 
   .forum_content .forum-top-buttons {
     margin: 5px 0;
   }
   .nocenter .page-title__text {
-    margin: 0 0 0 10px;
+    margin: 0 10px 0 10px;
   }
   .temp_micex_info span {
-    margin: 5px 10px 0px 0px;
+    margin: 5px 15px 0px 0px;
   }
 
   #commentBox {
