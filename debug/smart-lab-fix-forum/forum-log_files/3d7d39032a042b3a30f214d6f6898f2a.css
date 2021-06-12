@@ -10098,7 +10098,7 @@ a.mart_tree_a {padding: 10px;display: inline-block;position: relative;left: 15px
 }
 
 .notify_svg__notification {
-    background: url(/plugins/smartusers/templates/skin/default/img/notification.svg) center 0/cover;
+    background: url(https://smart-lab.ru/plugins/smartusers/templates/skin/default/img/notification.svg) center 0/cover;
 }
 
 .notify_settings a {
