@@ -1,5 +1,5 @@
-.close-button.hidden:after {
-  content: 'показать ♒';
+.close-button.hidden:after,
+.close-button:after {
   white-space: nowrap;
 }
 .nocenter .page-title__text {
@@ -13,6 +13,9 @@
 }
 
 @media(max-width: 767px) {
+  .guest-close-button {
+    margin: 0.5em 10px;
+  }  
 
   .forum_content .forum-top-buttons {
     margin: 5px 0;
