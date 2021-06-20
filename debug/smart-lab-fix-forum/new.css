@@ -20,13 +20,21 @@
   .nocenter .page-title__text {
     margin: 0 10px 0 10px;
   }
+  .temp_micex_info {
+    margin-top: -5px;
+  }
+
   .temp_micex_info span,
   .temp_micex_info_item:last-child  {
     margin: 5px 15px 0px 0px;
+    font-size: 14px;
   }
+  .temp_micex_info i {
+		font-size: 17px;
+	}
 
   #commentBox {
-    margin: 0px 0px 34px 0px;
+    margin: 0px 0px 17px 0px;
   }
 
   #commentBox .write_comment {
