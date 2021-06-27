@@ -1,0 +1,48 @@
+<div class="navbar">
+  <ul class="navbar__list">
+    <!-- если у элемента списка есть вложеный список, то при нажатии на стрелку navbar__down-arrow
+      элементу navbar__item присваивается класс ._open и появляется выпадающее меню. 
+      При повторном нажатии на стрелку или любую точку в документе, если она не лежит внутри 
+      открытого выпадающего меню, оно закрывается удалением у родителя класса ._open
+    -->
+    <li class="navbar__item"><a class="navbar__link" href="/">смартлаб</a></li>
+    <!-- <li>&gt;</li> -->
+    <li class="navbar__item">
+      <span class="navbar__drop-item">
+        <a class="navbar__link" href="#">форумы</a>
+        <span class="navbar__down-arrow">
+          <span></span>
+        </span>
+      </span>
+      <div class="navbar__drop-menu">
+        <a class="navbar__sub-link" href="#">фьючерс ртс</a>
+      </div>
+    </li>
+    <li class="navbar__item">
+      <span class="navbar__drop-item">
+        <a class="navbar__link" href="#">форум акций</a>
+        <span class="navbar__down-arrow"> 
+          <span></span>
+        </span>
+      </span>
+
+      <div class="navbar__drop-menu">
+        <a class="navbar__sub-link" href="#">облигации</a>
+        <a class="navbar__sub-link" href="#">общий форум</a>
+        <a class="navbar__sub-link" href="#">forex</a>
+        <a class="navbar__sub-link" href="#">крипта</a>
+        <a class="navbar__sub-link" href="#">алготрейдинг</a>
+        <a class="navbar__sub-link" href="#">опционы</a>
+        <a class="navbar__sub-link" href="#">трейдинг софт</a>
+        <a class="navbar__sub-link" href="#">банки</a>
+        <a class="navbar__sub-link" href="#">финансовый словарь</a>
+        <a class="navbar__sub-link" href="#">брокеры</a>
+      </div>
+    </li>
+    <!-- если ссылка ведет на другой шаблон, например из форума на котировки, ей присваивается модификатор 
+      navbar__item--out по которому меняется контент before -->
+    <li class="navbar__item navbar__item--out"><a class="navbar__link" href="#">котировки акций</a></li>
+    <!-- текущей ссылке присваивается модификатор navbar__item--current, служит для выделения ее на общем фоне списка -->
+    <li class="navbar__item navbar__item--current"><a class="navbar__link" href="#">Сбербанк</a></li>
+  </ul>
+</div>

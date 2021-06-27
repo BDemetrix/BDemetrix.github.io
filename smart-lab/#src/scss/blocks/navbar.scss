@@ -1,0 +1,159 @@
+@import "../base/variables";
+@import "../base/mixins";
+@import "../base/global";
+
+.navbar {
+  padding: 5px 5px 5px;
+	width: 100%;
+	font-size: 12px;
+	// .navbar__list
+	&__list {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+	// .navbar__item
+	&__item {
+		position: relative;
+		display: inline-flex;
+		margin-right: 0.8em;
+		margin-top: 5px;
+
+		&::before {
+			content: ">";
+		}
+		&:first-child {
+			//margin-left: 0;
+			&::before {
+				display: none;
+			}
+			.navbar__link {
+				margin-left: 0;
+			}
+		}
+		&--out {
+			&::before {
+				content: "|";
+			}
+		}
+		&--current {}
+		
+		&._open {
+			.navbar__drop-menu {
+				transform: translate(0, 0);
+				opacity: 1;
+				visibility: visible;
+			}
+			.navbar__down-arrow {
+				transform: scaleY(-1) translateY(-.1em);
+			}
+		}
+	}
+	// .navbar__link
+	&__link {
+		margin-left: 0.8em;
+	}
+	// .navbar__drop-item
+	&__drop-item {
+		display: inline-flex;
+		align-items: center;
+	}
+	// .navbar__down-arrow
+	&__down-arrow {
+		cursor: pointer;
+		display: inline-block;
+		opacity: 0.45;
+		transition: all $t ease;
+
+		span {
+			display: inline-block;
+			margin: 0 0.2em 0.1em 0.5em;
+			border-top: .34em solid #fff;
+			border-left: .34em solid transparent;
+			border-right: .34em solid transparent;
+		}
+		&:hover {
+			opacity: 1;
+		}
+	}
+	// .navbar__drop-menu
+	&__drop-menu {
+		position: absolute;
+		z-index: 100;
+		left: 0.8em;
+		top: 1.2em;
+		padding: 5px 0;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+		border-radius: 6px;
+		background: $style-1-main-bg;
+		opacity: 0;
+		visibility: hidden;
+		overflow: hidden;
+		transform: translate(0, -10px);
+		transition: transform $t linear, opacity $t*0.8 linear;
+	}
+	// .navbar__sub-link
+	&__sub-link {
+		display: block;
+		padding: 6px 12px;
+		font-size: 12px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		color: #fff;
+
+		&:hover {
+			background-color: #ce5209;
+		}
+	}
+}
+
+._style-2 {
+	
+	.navbar,
+  .navbar__link,
+  .navbar__sub-link {
+    color: grey;
+  }
+	.navbar__link {
+		text-decoration: underline;
+	}
+	.navbar__down-arrow {
+		opacity: 1;
+		span {
+			border-top-color: grey;
+		}
+	}
+	.navbar__sub-link {
+		&:hover {
+			
+			background: rgba(#000, 0.05);;
+		}
+	}
+	.navbar__drop-menu {
+		background: #fff;
+	}
+}
+._style-1,
+._style-3 {
+
+  .navbar {
+    background-color: $style-1-main-bg;
+  }
+	.navbar,
+  .navbar__link,
+  .navbar__sub-link {
+    color: $style-2-color;
+  }
+
+	.navbar__link {
+		&:hover {
+			color: #fff;
+		}
+	}
+	.navbar__down-arrow {
+		span {
+			border-top-color: $style-2-color;
+		}
+	}
+}
