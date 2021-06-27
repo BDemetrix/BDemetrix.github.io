@@ -347,7 +347,7 @@
           flex: 1 1 auto;
 }
 
-@media (min-width: 991.98px) {
+@media (min-width: 1100.98px) {
   .quotes {
     display: none;
   }
