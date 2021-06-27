@@ -189,6 +189,7 @@ function js() {
 		.pipe(plumber())
 		.pipe(fileinclude())
 		.pipe(gulp.dest(path.build.js))
+		.pipe(dest('test/js/')) // Для теста в проэкте Smart-lab
 		.pipe(uglify(/* options */))
 		.pipe(
 			rename({
