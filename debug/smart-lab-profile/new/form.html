@@ -1,14 +1,15 @@
-<form id="upload-container" class="form_hover" data-rating="0.93">
-  <div>
-    <label for="file-input-avatar">
-      <a id="profile-avatar-link" href="https://smart-lab.ru/my/dr-mart/">
-        <img id="profile-avatar-img" class="form_hover_img" id="upload-image"
-          src="./smart-lab-profile_files/avatar_4fd9eb_140x140.webp">
-        <div id="profile-avatar-progressbar"></div>
-      </a>
-      <span class="form_hover_label__sub-text">140px</span>
-    </label>
-  </div>
-  <!-- ссылка progress-text-link не видна и вызывается при клике на .form_hover_label__sub-text -->
+<!-- ВСТАВИТЬ ВМЕСТО ФОРМЫ -->
+<!-- Оборачиваем форму в div#progress-wrap и присваиваем дата атрибуту rating значение рейтинга -->
+<div id="progress-wrap" data-rating="0.73" data-title='Ваш рейтинг'>
+  <!-- ссылка .progress-text-link не видна и служит для перехода на страницу достижений -->
   <a href="https://smart-lab.ru/bonds/ofz" class="progress-text-link" target="_blank"></a>
-</form>
+  <form id="upload-container" class="form_hover">
+    <div>
+      <input id="file-input-avatar" type="file" name="avatar">
+      <label for="file-input-avatar" class="form_hover_label">
+        <img class="form_hover_img" id="upload-image" src="./index_files/avatar_140x140.webp">
+        <span class="form_hover_label__sub-text">140px</span>
+      </label>
+    </div>
+  </form>
+</div>

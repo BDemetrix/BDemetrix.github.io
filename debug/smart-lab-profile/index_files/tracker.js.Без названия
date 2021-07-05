@@ -1,0 +1,543 @@
+	function toJSON() 
+	{
+			var $ = jQuery;
+
+			var json = {};
+			
+			$(this).find('input, select, textarea').each(function(i, el)
+			{
+				if (!el.name || el.disabled || el.type == 'submit' || el.type == 'reset' || el.type == 'file') return;
+				var value = (el.tagName.toLowerCase() == 'select') ? $(el).val() : ((el.type == 'radio' || el.type == 'checkbox') && !el.checked) ? null : el.value;
+				if (value != 'undefined') json[el.name] = value;
+			});
+			return json;
+	}
+
+	Highcharts.setOptions({
+		global: { useUTC: false },
+		lang:{
+			months_r:['Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноябрья', 'Декабря'],
+			months:['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+			weekdays:['Воскресение', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
+			resetZoom: 'Сбросить увеличение'
+		}
+	});
+
+	var charts = {
+		chart: {
+			renderTo: '',
+			zoomType: 'x',
+			spacingRight: 20,
+			marginBottom: 50,
+			type: 'line'
+		},
+
+		title: {
+			text: 'Изменение счета в процентах во времени'
+		},
+		subtitle: {
+			text: 'Выделите участок который хотите увеличить'
+		},
+		xAxis: {
+			type: 'datetime',
+			maxZoom: 14 * 24 * 3600000, // fourteen days
+			title: {
+				text: null
+			}
+		},
+		yAxis: {
+			title: {
+				text: 'Проценты'
+			},
+			startOnTick: false,
+			showFirstLabel: false
+		},
+		tooltip: {
+			shared: true
+		},
+		legend: {
+			enabled: false
+		},
+		credits:{
+			enabled: false
+		},
+		plotOptions: {
+			line: {
+				lineWidth: 3,
+				marker: {
+					enabled: false,
+					states: {
+						hover: {
+							enabled: true,
+							radius: 5
+						}
+					}
+				},
+				shadow: false,
+				states: {
+					hover: {
+						lineWidth: 3
+					}
+				}
+			},
+			area: {
+				lineWidth: 3,
+				fillColor: {
+					linearGradient: [0, 0, 0, 300],
+					stops: [
+						[0, 'rgba(2,0,0,0)'],
+						[1, 'rgba(2,0,0,0)']
+					]
+				},
+				marker: {
+					enabled: false,
+					states: {
+						hover: {
+							enabled: true,
+							radius: 5
+						}
+					}
+				},
+				shadow: false,
+				states: {
+					hover: {
+						lineWidth: 3
+					}
+				}
+			},
+
+			series: {turboThreshold: 0}
+		},
+		series: []
+	};
+
+
+	function clone(o) {
+		if (!o || "object" !== typeof o) {
+			return o;
+		}
+		var c = "function" === typeof o.pop ? [] : {};
+		var p, v;
+		for (p in o) {
+			if (o.hasOwnProperty(p)) {
+				v = o[p];
+				if (v && "object" === typeof v) {
+					c[p] = clone(v);
+				}
+				else c[p] = v;
+			}
+		}
+		return c;
+	}
+
+
+	function submitTrack() {
+		var $ = jQuery;
+		var nTracker = $('#trackerf').get(0);
+		send(toJSON.call(nTracker), function() 
+		{
+			location.reload()
+		});
+	}
+
+	function submitEditTrack() {
+		var $ = jQuery;
+		var params = new Hash;
+		var time = $('#time').val();
+		params['tracker_id'] = $('#tracker_id').val();
+		params['values[' + time + '][account]'] = $('#account').val();
+		params['values[' + time + '][movement]'] = $('#movement').val();
+		params['values[' + time + '][comment]'] = $('#comment').val();
+		return  send(
+				params,
+				function() {
+					$('#tracker').hide();
+					$('#cover').hide();
+					location.reload();
+				});
+
+	}
+
+
+	function send(params, fn) {
+		if (!fn) {
+			fn = function() {
+			};
+		}
+		;
+		var sWebPluginPath = "/plugins/tracker/include/ajax/update.php";
+		params['security_ls_key'] = LIVESTREET_SECURITY_KEY;
+
+		JsHttpRequest.query(
+				'POST ' + sWebPluginPath,
+				params,
+				function(result, errors) {
+					if (!result) msgErrorBox.alert('Error', 'Please try again later');
+					if (result.bStateError) {
+						msgErrorBox.alert(result.sTitle, result.sText);
+					} else {
+						msgNoticeBox.alert(result.sTitle, result.sText);
+						fn();
+					}
+				},
+				true
+		);
+
+		return false;
+	}
+
+	function trackerEdit(tracker_id, date, time, accout, movement, comment) {
+
+		var $ = jQuery;
+		$('#date').html(date);
+		$('#comment').val(comment);
+		$('#movement').val(movement);
+		$('#account').val(accout);
+		$('#time').val(time);
+		$('#tracker_id').val(tracker_id);
+
+		$('#tracker').css('position', 'fixed').show();
+		$('#cover').show();
+	}
+
+	function fillGraphLineDay(element, data, data_name, title, values)
+	{
+		var start_date = (new Date(data['start_time'])).getTime();
+		var data_tmp = [];
+		var min = 0;
+
+		for (var i = 0, j = data[data_name].length, min = data[data_name][0]; i < j; i++)
+		{
+			min = Math.min(min, data[data_name][i]);
+			var day = {y:data[data_name][i]};
+			if (i in data['data_comments'])
+			{
+				day['comment'] = '<hr />' + data['data_comments'][i];
+				day['color'] = '#FF0000';
+			} else
+			{
+				day['comment'] = '';
+			}
+			data_tmp.push(day);
+		}
+
+		data[data_name] = data_tmp;
+		data[data_name + 'min'] = min;
+
+
+		var chart = clone(charts);
+		chart.legend.margin = 30;
+
+		chart.title.text = title;		
+		chart.chart.renderTo = element[0];
+		chart.chart.type = 'line';
+		chart.tooltip = {
+			shared: false,
+			useHTML: true,
+			pointFormat: '{series.name}: {point.y}<br /><div class="tracker_comment_div">{point.comment}</div>'
+		};
+
+		chart.series.push({pointStart: start_date, pointInterval: 86400000, data: data[data_name], name: values});
+		chart.yAxis.title.text = chart.series[0].name;
+		chart.yAxis.min = data[data_name + 'min'];
+		var c = new Highcharts.Chart(chart);
+		if ('user_name' in data) c.renderer.text('smart-lab.ru статистика: ' + data.user_name, 40, c.chartHeight - 5).css({ color: '#aaa', fontSize: '12px'}).add();
+	}
+
+	function fillGraphBarDay(element, data, data_name, title, values)
+	{
+		var start_date = (new Date(data['start_time'])).getTime();
+		var opt = Highcharts.getOptions();
+		var months_r = opt.lang.months_r;
+
+		var chart = clone(charts);
+		chart.chart.type = 'column';
+		chart.chart.renderTo = element[0];
+
+		chart.plotOptions = {
+			series: 
+			{
+				borderWidth: 0,
+				pointPadding: 0,
+				groupPadding: 0.1,
+				turboThreshold: 0
+			}
+		};
+
+		chart.series = [{data: [], name: values, color: '#006400'}];
+		chart.xAxis = {
+				
+			labels: {enabled: false},
+			tickColor : '#fff',
+			minorTickWidth : 0,
+			type: 'category',
+			categories : []
+		};
+
+		chart.tooltip = {
+			shared: false,
+			useHTML: true,
+			pointFormat: '{series.name}: {point.y}<br /><div class="tracker_comment_div">{point.comment}</div>'
+		};
+
+		var data_tmp = [];
+		for (var i = 0, j = data[data_name].length, curr_date = new Date(start_date); i<j; i++, curr_date.setDate(curr_date.getDate() + 1))
+		{
+			if (data[data_name][i] != 0)
+			{
+				var day = {y:data[data_name][i], comment: ((i in data['data_comments']) ? '<hr />' + data['data_comments'][i] : '')};
+				if (data[data_name][i] < 0) day['color'] = '#FF0000';
+				chart.xAxis.categories.push(curr_date.getDate() + ' ' + months_r[curr_date.getMonth()] + ' ' + curr_date.getFullYear());
+				data_tmp.push(day);
+			}
+		}
+		
+		chart.series[0].data = data_tmp;
+		chart.title.text = title;
+		chart.yAxis.title.text = chart.series[0].name; 
+		var c = new Highcharts.Chart(chart);
+		if ('user_name' in data) c.renderer.text('smart-lab.ru статистика: ' + data.user_name, 40, c.chartHeight - 5).css({ color: '#aaa', fontSize: '12px'}).add();
+	}
+
+	function fillGraphBarMonth(element, data, data_name, title, values)
+	{
+		var start_date = new Date(data['start_time']);
+		// месяца с 1 числа отсчитывать будем
+		start_date.setDate(1);
+		start_date = start_date.getTime();
+
+		var opt = Highcharts.getOptions();
+		var month = opt.lang.months;
+			
+		var chart = clone(charts);
+		chart.chart.type = 'column';
+		chart.chart.renderTo = element[0];
+
+		chart.plotOptions = {
+
+			series: 
+			{
+				borderWidth: 0,
+				pointPadding: 0,
+				groupPadding: 0.1,
+				turboThreshold: 0
+			}
+		};
+		
+		chart.series = [{data: [], name: values, color: '#006400'}];
+		chart.xAxis = {
+			
+			labels: {enabled: false},
+			tickColor : '#fff',
+			minorTickWidth : 0,
+			type: 'category',
+			categories : []
+		};
+
+		for (var i = 0, j = data[data_name].length, curr_date = new Date(start_date); i<j; i++, curr_date.setMonth(curr_date.getMonth() + 1))
+		{
+			chart.xAxis.categories.push(month[curr_date.getMonth()] + ' ' + curr_date.getFullYear());
+			chart.series[0].data.push((data[data_name][i] < 0) ? {y: data[data_name][i], color: '#FF0000'} : data[data_name][i]);
+		}
+
+		chart.title.text = title;
+		chart.yAxis.title.text = chart.series[0].name;
+		var c = new Highcharts.Chart(chart);
+		if ('user_name' in data) c.renderer.text('smart-lab.ru статистика: ' + data.user_name, 40, c.chartHeight - 5).css({ color: '#aaa', fontSize: '12px'}).add();
+	}
+
+	function fillTrackerGtraphs(data, trackers, width, height)
+	{
+		var $ = jQuery;
+		var opt = Highcharts.getOptions();
+		var months_r = opt.lang.months_r;			
+
+		var tracker_div = trackers.find('div#tracker_' + data['id']);
+		if (!tracker_div.length)
+		{
+			var tracker_div = $('<div />').attr('id', 'tracker_' + data['id']);
+			tracker_div.appendTo(trackers);
+
+			if ('title' in data) $('<h3 />').text(data['title']).prependTo(tracker_div);
+		}
+
+		if ('data' in data)
+		{
+			var graph_x0 = $('<div />').attr('class', 'x0_chart').css({width:width, height: height});
+			graph_x0.appendTo(tracker_div);
+			fillGraphLineDay(graph_x0, data, 'data', 'Ваш счет', 'Деньги');
+		}	
+
+		if ('data1' in data)
+		{
+			var graph_x1 = $('<div />').attr('class', 'x1_chart').css({width:width, height: height});
+			graph_x1.appendTo(tracker_div);
+			fillGraphLineDay(graph_x1, data, 'data1', 'Изменение счета в деньгах во времени', 'Деньги');
+		}
+
+		if ('data2' in data)
+		{
+			var graph_x2 =  $('<div />').attr('class', 'x2_chart').css({width:width, height: height});
+			graph_x2.appendTo(tracker_div);
+
+			var c1 = tracker_div.find('div.x1_chart');
+			if (c1.length)
+			{
+				graph_x2.hide();
+				var x1_btn_div = $('<div />').attr('id', 'x1_btn_div').css({ textAlign: 'right'})
+				x1_btn_div.insertBefore(c1);
+
+				var btn = $('<input />')
+					.attr('mode', 'a')
+					.attr('type', 'button')
+					.attr('title', 'Показать изменение счета в процентах во времени')
+					.css({ padding: '0.5em 1em', textAlign: 'center', width: '100px'})
+					.val('В %')
+					.on('click', function(e)
+					{
+						var mode = $(this).attr('mode');
+						if (mode == 'a')
+						{
+							$(this).val('В деньгах').attr('title', 'Показать изменение счета в деньгах во времени');
+							
+							c1.hide();
+							graph_x2.show();
+
+							$(this).attr('mode', 'p');
+						} else
+						{
+							$(this).val('В %').attr('title', 'Показать изменение счета в процентах во времени');
+							graph_x2.hide();
+							c1.show();
+
+							$(this).attr('mode', 'a');
+						}
+					});
+
+				btn.prependTo(x1_btn_div);
+			}
+			fillGraphLineDay(graph_x2, data, 'data2', 'Изменение счета в процентах во времени', 'Проценты');
+		}
+
+		if ('data4' in data)
+		{
+			var graph_x4 = $('<div />').attr('class', 'x4_chart').css({width:width, height: height});
+			graph_x4.appendTo(tracker_div);
+			fillGraphBarDay(graph_x4, data, 'data4', 'Изменение счета в деньгах за день', 'Деньги');
+		}
+
+		if ('data3' in data)
+		{
+			var graph_x3 = $('<div />').attr('class', 'x3_chart').css({width:width, height: height});
+			graph_x3.appendTo(tracker_div);
+
+			var c4 = tracker_div.find('div.x4_chart');
+			if (c4.length)
+			{
+				graph_x3.hide();
+				var x4_btn_div = $('<div />').attr('id', 'x4_btn_div').css({ textAlign: 'right'});
+				x4_btn_div.insertBefore(c4);
+
+				var btn = $('<input />') 
+							.attr('mode', 'a')
+							.attr('type', 'button')
+							.attr('title', 'Показать изменение счета в процентах по дням')
+							.val('В %')
+							.css({ padding: '0.5em 1em', textAlign: 'center', width: '100px'})
+							.on('click', function(e)
+							{
+								var mode = $(this).attr('mode');
+								if (mode == 'a')
+								{
+									$(this).val('В деньгах');
+									$(this).attr('title', 'Показать изменение счета в деньгах за день');
+									c4.hide();
+									graph_x3.show();
+									$(this).attr('mode', 'p');
+								} else
+								{
+									$(this).val('В %');
+									$(this).attr('title', 'Показать изменение счета в процентах по дням');
+									graph_x3.hide();
+									c4.show();
+									$(this).attr('mode', 'a');
+								}
+							});
+				btn.prependTo(x4_btn_div);
+			}
+			fillGraphBarDay(graph_x3, data, 'data3', 'Изменение счета в процентах по дням', 'Проценты');
+		}
+
+		if ('data6' in data)
+		{
+			var graph_x6 = $('<div />').attr('class', 'x6_chart').css({width:width, height: height});
+			graph_x6.appendTo(tracker_div);
+			fillGraphBarMonth(graph_x6, data, 'data6', 'Изменение счета в деньгах по месяцам', 'Деньги');
+		}
+
+		if ('data5' in data)
+		{
+			var graph_x5 = $('<div />').attr('class', 'x5_chart').css({width:width, height: height});
+			graph_x5.appendTo(tracker_div);
+
+			var c6 = tracker_div.find('div.x6_chart');
+			if (c6.length)
+			{
+				graph_x5.hide();
+				var x6_btn_div = $('<div />').attr('id', 'x6_btn_div').css({ textAlign: 'right'});
+				x6_btn_div.insertBefore(c6);
+
+				var btn = $('<input />')
+							.attr('mode', 'a')
+							.attr('type', 'button')
+							.attr('title', 'Показать изменение счета в процентах по месяцам')
+							.val('В %')
+							.css({ padding: '0.5em 1em', textAlign: 'center', width: '100px'})
+							.on('click', function(e)
+							{
+								var mode = $(this).attr('mode');
+								if (mode == 'a')
+								{
+									$(this).val('В деньгах');
+									$(this).attr('title', 'Показать изменение счета в деньгах по месяцам');
+									c6.hide();
+									graph_x5.show();
+									$(this).attr('mode', 'p');
+								} else
+								{
+									$(this).val('В %');
+									$(this).attr('title', 'Показать изменение счета в процентах по месяцам');
+									graph_x5.hide();
+									c6.show();
+									$(this).attr('mode', 'a');
+								}
+							});
+
+				btn.prependTo(x6_btn_div);
+			}
+			fillGraphBarMonth(graph_x5, data, 'data5', 'Изменение счета в процентах по месяцам', 'Проценты');
+		}
+	}
+
+	jQuery(document).ready(function($)
+	{
+		$('#dialog_controls').find('.cancel').on('click', function(e)
+		{
+			e.preventDefault();
+			$('#tracker').hide();
+			$('#cover').hide();
+			return false;
+		});
+
+		$('#dialog_controls').find('.save').on('click', function(e)
+		{
+			e.preventDefault();
+			return submitEditTrack();
+		});
+
+		$('#tracker_controls').find('.save').on('click', function(e)
+		{
+			e.preventDefault();
+			return submitTrack();
+		});
+	});

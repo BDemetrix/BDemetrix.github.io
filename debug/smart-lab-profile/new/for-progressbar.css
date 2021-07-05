@@ -1,74 +1,44 @@
-#upload-container {
- position: relative;
- overflow: visible;
- width: 140px;
- height: 140px;
-}
-
-#upload-container  svg {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-}
-
-#upload-container label {
- display: block;
-}
-
-#profile-avatar-link {
-  display: block;
-  padding-bottom: 100%;
+#progress-wrap {
+  flex: 0 0 150px;
+  margin: 0 auto;
   position: relative;
+  width: 150px;
+  height: 150px;
 }
 
-#profile-avatar-img {
+#progress-wrap svg {
   position: absolute;
-	width: 95%;
-	height: 95%;
-	top: 2.5%;
-	left: 2.5%;
-	object-fit: cover;
-  border-radius: 50%;
+  z-index: 3;
 }
-
+ 
 .progress-text {
-  z-index: 2;
+  z-index: 11;
   font-size: 14px;
+  font-weight: 700;
   line-height: 19px;
   cursor: pointer;
   top: 0px;
   right: -10px;
-
 }
-.progress-text-link {
+#upload-container {
   position: absolute;
-  display: block;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  opacity: 0;
+  top: 5px;
+  left: 5px;
+  z-index: 10;
+  width: 140px;
+  height: 140px;
 }
-
 @media (min-width: 700px) {
   .progress-text {
-    left: -10px;
-    bottom: -10px;
+    left: -3px;
+    bottom: -5px;
     top: auto;
     right: auto;
   }
-  /* добавить в style.css  чтобы имя на мобилке выравнивалоссь по центру*/
-  .author {
-    justify-content: flex-start !important;
-  }
-  /* добавить в style.css */
 }
 
-/* добавить в style.css */
-.author {
-    justify-content: center;
+
+/* временно для демонстрации */
+.form_hover_label::before {
+  background-image: url('https://smart-lab.ru/plugins/smartusers/templates/skin/default/actions/ActionProfile/whois_assets/photo_camera.svg');
 }
-/* добавить в style.css */
