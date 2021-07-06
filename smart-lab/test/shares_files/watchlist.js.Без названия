@@ -1,0 +1,640 @@
+var $ = jQuery;
+
+function SetMainWatchlistEvent(id)
+{
+	var d = $.Deferred()
+	var data = {action:'set_main', id: id,  security_ls_key: LIVESTREET_SECURITY_KEY};
+
+	$.ajax({
+
+	type: 'POST',
+	url: aRouter['q'] + 'watchlist-ajax/',
+	data: data}).then(function(result)
+	{
+		if (!result)
+		{
+			d.reject('Error', 'Please try again later');
+			return;
+		}
+
+		if (result.bStateError)
+		{
+			d.reject(result.sMsgTitle, result.sMsg);
+		} else
+		{
+			d.resolve(result.sMsgTitle, result.sMsg);
+		}
+	});
+
+	return d;
+}
+
+
+function ClearWatchlistEvent(action, id, type, message)
+{
+	var clearDialog = new jBox('Confirm', 
+	{
+		id: 'clearDialog',
+		title: 'Внимание!',
+		confirmButton: 'ОК',
+		cancelButton: 'Отмена',
+		content: message,
+		confirm: function()
+		{
+			var data = {action: action, id: id, type:type, security_ls_key: LIVESTREET_SECURITY_KEY}
+
+			$.post(aRouter['q'] + 'watchlist-ajax/', data, function(result)
+			{
+				if (!result)
+				{
+					msgErrorBox.alert('Error', 'Please try again later');
+				}
+
+				if (result.bStateError)
+				{
+					msgErrorBox.alert(result.sMsgTitle, result.sMsg);
+				} else
+				{
+					msgNoticeBox.alert(result.sMsgTitle, result.sMsg);
+					var m = document.location.pathname.match(/^\/q\/watchlist\/([^\/]+)\//);
+					if (m != null)
+					{
+						if (action != 'delete_list')
+						{
+							setTimeout(function(e)
+							{
+								document.location.reload();
+
+							}, 1000);
+						} else
+						{
+							document.location.href = '/q/watchlist/' + m[1] + '/';
+						}
+					}
+				}
+			});
+
+
+		}, onCloseComplete: function()
+		{
+			this.destroy();
+		}
+	});
+	clearDialog.open();
+}
+
+function AddWatchlistEvent(dialogTitle, action, id)
+{
+	var d = $.Deferred();
+
+	function dialogOpen(title, hidden, main)
+	{
+		var addDialog = new jBox('Confirm', 
+		{
+			id: 'buySharesDialog',
+			title: dialogTitle,
+			confirmButton: 'Сохранить',
+			cancelButton: 'Отмена',
+
+			content: '<label for="list_title">Название списка:</label><br /><input id="list_title" type="text" name="title" style="width: 100%; box-sizing: border-box" /><br /><br /><label><input type="checkbox" name="hidden" />скрытый список</label><br /><label><input type="checkbox" name="main" />сделать главным</label>',
+
+			confirm: function()
+			{
+				var data = {action:action, title: addDialog.wrapper.find('input[name="title"]').val(), security_ls_key: LIVESTREET_SECURITY_KEY};
+				if (addDialog.wrapper.find('input[name="hidden"]').is(':checked')) data['hidden'] = 1;
+				if (addDialog.wrapper.find('input[name="main"]').is(':checked')) data['main'] = 1;
+				if (typeof(id) != 'undefined') data['id'] = id;
+
+				$.ajax({
+					type: 'POST',
+					url: aRouter['q'] + 'watchlist-ajax/',
+					data: data}).then(function(result)
+					{
+						if (!result)
+						{
+							d.reject('Error', 'Please try again later');
+							return;
+						}
+
+						if (result.bStateError)
+						{
+							d.reject(result.sMsgTitle, result.sMsg);
+						} else
+						{
+							d.resolve(result.sMsgTitle, result.sMsg, ('id' in result) ? result.id : null, ('title' in result) ? result.title : null);
+						}
+					});
+			},
+
+			onOpen: function()
+			{
+				this.wrapper.find('input[name="title"]').val(title);
+				this.wrapper.find('input[name="hidden"]').prop('checked', hidden);
+				this.wrapper.find('input[name="main"]').prop('checked', main);
+			},
+
+			onCloseComplete: function()
+			{
+				this.destroy();
+			}
+		});
+
+		addDialog.open();
+	}
+
+	function loadList(id)
+	{
+		var lld = $.Deferred();
+		var data = {action:'get_list', id: id, security_ls_key: LIVESTREET_SECURITY_KEY}
+		$.ajax({
+			type: 'POST',
+			url: aRouter['q'] + 'watchlist-ajax/',
+			data: {action:'get_list', id: id, security_ls_key: LIVESTREET_SECURITY_KEY}
+		}).then(function(result)
+		{
+			if (!result)
+			{
+				lld.reject('Error', 'Please try again later');
+				return;
+			}
+
+			if (result.bStateError)
+			{
+				lld.reject(result.sMsgTitle, result.sMsg);
+			} else
+			{
+				lld.resolve(result.title, result.hidden, result.main);
+			}
+		});
+		return lld;
+	}
+
+	if (typeof(id) != 'undefined')
+	{
+		loadList(id).then(
+			function(title, hidden, main)
+			{
+				dialogOpen(title, hidden, main);
+			},
+
+			function(sMsgTitle, sMsg)
+			{
+				d.reject(sMsgTitle, sMsg);
+			}
+		);
+	} else
+	{
+		dialogOpen('', false);
+	}
+
+	return d;
+}
+
+function AddWatchlistStockEvent(action, symbol, list_id)
+{
+	function dialogOpen(watchlists, info)
+	{
+		var dialogTitle = (typeof(info) !== 'undefined') ? 'Добавить ' + info['short_name'] + ' (' + info['symbol'] + ') в список' : 'Добавить бумагу в список';
+		var stockDialog = new jBox('Confirm', 
+		{
+			id: 'buySharesDialog',
+			title: dialogTitle,
+			confirmButton: 'ОК',
+			closeOnConfirm: false,
+			cancelButton: 'Отмена',
+			content:'<table>\
+						<tr>\
+							<td><label>Список бумаг:</label></td>\
+							<td><select name="watchlist_id"></select><input type="button" value="Создать новый список" class="watchlist-add-link-inside" /></td>\
+						</tr>\
+						<tr>\
+							<td><label>Тикер/Название:</label></td>\
+							<td>\
+								<input type="text" name="symbol" />\
+								<input type="hidden" name="sec_type" />\
+							</td>\
+						</tr>\
+					</table>',
+
+			confirm: function()
+			{
+				var data = {action:action, watchlist_id: stockDialog.wrapper.find('select[name="watchlist_id"]').val(), security_ls_key: LIVESTREET_SECURITY_KEY};
+				data['symbol'] = stockDialog.wrapper.find('input[name="symbol"]').length ? stockDialog.wrapper.find('input[name="symbol"]').val() : symbol;
+				data['sec_type'] = stockDialog.wrapper.find('input[name="sec_type"]').length ? stockDialog.wrapper.find('input[name="sec_type"]').val() : info.sec_type;
+
+				$.post(aRouter['q'] + 'watchlist-ajax/', data, function(result)
+				{
+					if (!result)
+					{
+						msgErrorBox.alert('Error', 'Please try again later');
+					}
+
+					if (result.bStateError)
+					{
+						msgErrorBox.alert(result.sMsgTitle, result.sMsg);
+
+					} else
+					{
+						stockDialog.close();
+						msgNoticeBox.alert(result.sMsgTitle, result.sMsg);
+						if (document.location.pathname.match(/^\/q\/watchlist\/?/))
+						{
+							setTimeout(function(e)
+							{
+								document.location.reload();
+
+							}, 1000);
+						}
+					}
+				});
+			},
+
+			onOpen: function()
+			{
+				var that = this;
+
+				var tr = this.wrapper.find('tr');
+				if (tr.length && (typeof(symbol) != 'undefined') && symbol.length) $(tr.get(1)).remove();
+
+				var wl = this.wrapper.find('select[name="watchlist_id"]');
+				if (wl.length)
+				{
+					wl.empty();
+					if (typeof(watchlists) != 'undefined')
+					{
+						for (i in watchlists)
+						{
+							var o = $('<option value="' + i + '"></option>');
+							o.text(watchlists[i]);
+							wl.append(o);
+						}
+						if (typeof(list_id) != 'undefined') wl.val(list_id);
+					}
+				}
+
+				if (this.wrapper.find('input[name="symbol"]').length)
+				{
+					this.wrapper.find('input[name="symbol"]').val('');					
+					this.wrapper.find('input[name="symbol"]').autocomplete({
+						serviceUrl: '/q/portfolio-autocomplete-ajax/',
+						type: 'POST',
+						dataType: 'json',
+						paramName: 'value',
+						params: {'json': 1},
+						preventBadQueries: false,
+						zIndex: 99999,
+						width: 'flex',
+						beforeRender: function(container, suggestions)
+						{
+							$.each(suggestions, function(i,v)
+							{
+								var aComment = [v['symbol']];
+								var sCurrencyField = 'currency_id' in v ? v['currency_id'] : null;
+								if (sCurrencyField != null) aComment.push ((sCurrencyField in oCurrenciesMap) ? oCurrenciesMap[sCurrencyField] : '₽');
+								if (aComment.length) container.find('.autocomplete-suggestion[data-index="' + i + '"]').append('(' + aComment.join(', ') + ')');
+							});
+						},						
+						transformResult: function(response)
+						{
+							return { suggestions: response };
+						},
+						onSelect: function (suggestion)
+						{
+							that.wrapper.find('input[name="symbol"]').val(suggestion.symbol);
+							that.wrapper.find('input[name="sec_type"]').val(suggestion.sec_type);
+						}
+					});
+				}
+
+				this.wrapper.find('.watchlist-add-link-inside').on('click', function()
+				{
+					AddWatchlistEvent('Создание нового списка', 'add_list').then(function(sMsgTitle, sMsg, sListId, sListTitle)
+					{
+						msgNoticeBox.alert(sMsgTitle, sMsg);
+						wl.append($('<option/>').text(sListTitle).attr('value', sListId));
+						wl.val(sListId);
+					
+					}, function(sMsgTitle, sMsg)
+					{
+						msgErrorBox.alert(sMsgTitle, sMsg);
+					});
+				});
+			},
+
+			onClose: function()
+			{
+				this.wrapper.find('.watchlist-add-link-inside').off('click');
+			},
+
+			onCloseComplete: function()
+			{
+				this.destroy();
+			}
+		});
+
+		stockDialog.open();
+	}
+
+	function loadLists()
+	{
+		var d = $.Deferred();
+
+		$.ajax({
+
+			url: aRouter['q'] + 'watchlist-ajax/',
+			type: 'POST',
+			data: { action: 'get_lists', security_ls_key: LIVESTREET_SECURITY_KEY }
+
+		}).then(function(result)
+		{
+			if (!result)
+			{
+				d.reject('Error', 'Please try again later');
+				return;
+			}
+
+			if (result.bStateError)
+			{
+				if (('errorCode' in result) && (result.errorCode == 1))
+				{
+					d.resolve([]);
+				} else
+				{
+
+					d.reject(result.sMsgTitle, result.sMsg);
+				}
+
+			} else
+			{
+				d.resolve(result.list);
+			}
+		});
+
+		return d;
+	}
+
+	function loadInfo(symbol)
+	{
+		var d = $.Deferred();
+
+		$.ajax({
+			
+			type: 'POST',
+			url: aRouter['q'] + 'watchlist-ajax/',
+			data: {action: 'info', symbol: symbol, security_ls_key: LIVESTREET_SECURITY_KEY}
+		
+		}).then(function(result)
+		{
+			if (!result)
+			{
+				d.reject('Error', 'Please try again later');
+				return;
+			}
+
+			if (result.bStateError)
+			{
+				d.reject(result.sMsgTitle, result.sMsg);
+			} else
+			{
+				d.resolve(result.info);
+			}
+		});
+		return d;
+	}
+
+	loadLists().then(function(lists)
+	{
+		if (!$.isEmptyObject(lists))
+		{
+			if (typeof(symbol) !== 'undefined')
+			{
+				loadInfo(symbol).then(function(info)
+				{
+					dialogOpen(lists, info);
+
+				}, function(sMsgTitle, sMsg)
+				{
+					msgErrorBox.alert(sMsgTitle, sMsg);
+				});
+			} else
+			{
+				dialogOpen(lists);
+			}
+
+		} else
+		{
+			AddWatchlistEvent('Создание нового списка', 'add_list').then(function(sMsgTitle, sMsg, list_id, list_title)
+			{
+				msgNoticeBox.alert(sMsgTitle, sMsg);
+				AddWatchlistStockEvent(action, symbol, list_id);
+
+			}, function(sMsgTitle, sMsg)
+			{
+				msgErrorBox.alert(sMsgTitle, sMsg);
+			});
+		}
+
+	}, function(sMsgTitle, sMsg)
+	{
+		msgErrorBox.alert(sMsgTitle, sMsg);
+	});
+}
+
+function RemoveWatchlistStockEvent(action, symbol, list_id)
+{
+	function dialogOpen(info)
+	{
+		var stockDialog = new jBox('Confirm', 
+		{
+			id: 'buySharesDialog',
+			title: 'Внимание!',
+			confirmButton: 'ОК',
+			closeOnConfirm: false,
+			cancelButton: 'Отмена',
+			content: (typeof(info) !== 'undefined') ? 'Удалить ' + info['short_name'] + ' (' + info['symbol'] + ') из списка ?' : 'Удалить ' + symbol + ' из списка?',
+
+			confirm: function()
+			{
+				var data = {action:action, symbol: symbol, sec_type: info['sec_type'], watchlist_id: list_id, security_ls_key: LIVESTREET_SECURITY_KEY};
+
+				$.post(aRouter['q'] + 'watchlist-ajax/', data, function(result)
+				{
+					if (!result)
+					{
+						msgErrorBox.alert('Error', 'Please try again later');
+					}
+
+					if (result.bStateError)
+					{
+						msgErrorBox.alert(result.sMsgTitle, result.sMsg);
+
+					} else
+					{
+						stockDialog.close();
+						msgNoticeBox.alert(result.sMsgTitle, result.sMsg);
+						if (document.location.pathname.match(/^\/q\/watchlist\/?/))
+						{
+							setTimeout(function(e)
+							{
+								document.location.reload();
+
+							}, 1000);
+						}
+					}
+				});
+			},
+
+			onCloseComplete: function()
+			{
+				this.destroy();
+			}
+		});
+
+		stockDialog.open();
+	}
+
+	function loadInfo(symbol)
+	{
+		var d = $.Deferred();
+
+		$.ajax({
+			
+			type: 'POST',
+			url: aRouter['q'] + 'watchlist-ajax/',
+			data: {action: 'info', symbol: symbol, security_ls_key: LIVESTREET_SECURITY_KEY}
+		
+		}).then(function(result)
+		{
+			if (!result)
+			{
+				d.reject('Error', 'Please try again later');
+				return;
+			}
+
+			if (result.bStateError)
+			{
+				d.reject(result.sMsgTitle, result.sMsg);
+			} else
+			{
+				d.resolve(result.info);
+			}
+		});
+		return d;
+	}
+
+	loadInfo(symbol).then(function(info)
+	{
+		dialogOpen(info);
+
+	}, function(sMsgTitle, sMsg)
+	{
+		msgErrorBox.alert(sMsgTitle, sMsg);
+	});
+}
+
+
+jQuery(document).ready(function($)
+{
+	if (typeof(CURRENT_USER_ID) === 'undefined') return;
+	
+	$('body').on('click', '.watchlist-delete-link', function(e)
+	{
+		if ($(this).attr('list-id')) ClearWatchlistEvent('delete_list', $(this).attr('list-id'), null, 'Удалить список со всеми бумагами?');
+
+	}).on('click', '.watchlist-clear-link', function(e)
+	{
+		if ($(this).attr('list-id'))
+		{
+			switch ($(this).attr('list-type'))
+			{
+				case 'shares':
+				{
+					ClearWatchlistEvent('clear_list', $(this).attr('list-id'), $(this).attr('list-type'), 'Удалить все акции, etf и ПИФы из списка?');
+					break;
+				}
+
+				case 'currencies':
+				{
+					ClearWatchlistEvent('clear_list', $(this).attr('list-id'), $(this).attr('list-type'), 'Удалить все валюты и из списка?');
+					break;
+				}
+
+				case 'futures':
+				{
+					ClearWatchlistEvent('clear_list', $(this).attr('list-id'), $(this).attr('list-type'), 'Удалить все фьючерсы из списка?');
+					break;
+				}
+
+				case 'bonds':
+				{
+					ClearWatchlistEvent('clear_list', $(this).attr('list-id'), $(this).attr('list-type'), 'Удалить все облигации из списка?');
+					break;
+				}
+
+				default:
+				{
+					ClearWatchlistEvent('clear_list', $(this).attr('list-id'), null, 'Удалить ВСЕ бумаги из списка?');
+					break;
+				}
+			}
+		}
+
+	}).on('click', '.watchlist-edit-link', function(e)
+	{
+		if ($(this).attr('list-id')) AddWatchlistEvent('Редактирование свойств списка', 'update_list', $(this).attr('list-id')).then(function(sMsgTitle, sMsg)
+			{
+				msgNoticeBox.alert(sMsgTitle, sMsg);
+
+			},function(sMsgTitle, sMsg)
+			{
+				msgErrorBox.alert(sMsgTitle, sMsg);
+			}
+		)
+
+	}).on('click', '.watchlist-add-link', function(e)
+	{
+		AddWatchlistEvent('Создание нового списка', 'add_list').then(function(sMsgTitle, sMsg)
+		{
+			msgNoticeBox.alert(sMsgTitle, sMsg);
+
+			if (document.location.pathname.match(/^\/q\/watchlist\/[^\/]+\/?/))
+			{
+				setTimeout(function(e)
+				{
+					document.location.reload();
+
+				}, 1000);
+			}			
+		
+		}, function(sMsgTitle, sMsg)
+		{
+			msgErrorBox.alert(sMsgTitle, sMsg);
+		});
+
+	}).on('click', '.watchlist-main-link', function(e)
+	{
+		var item = $(this);
+		SetMainWatchlistEvent($(this).attr('list-id')).then(function(sMsgTitle, sMsg)
+		{
+			msgNoticeBox.alert(sMsgTitle, sMsg);
+
+			item.addClass('main');
+			item.find('> span').text('Главный список');			
+
+		}, function(sMsgTitle, sMsg)
+		{
+			msgErrorBox.alert(sMsgTitle, sMsg);
+		});
+
+	}).on('click', '.watchlist_action, .watchlist_action_new', function(e)
+	{
+		if ($(this).attr('type') == 'add')
+		{
+			AddWatchlistStockEvent($(this).attr('type'), $(this).attr('symbol'), $(this).attr('list-id'));
+
+		} if ($(this).attr('type') == 'remove')
+		{
+			RemoveWatchlistStockEvent($(this).attr('type'), $(this).attr('symbol'), $(this).attr('list-id'));
+		}
+	});
+});

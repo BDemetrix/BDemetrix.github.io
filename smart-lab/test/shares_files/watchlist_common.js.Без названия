@@ -1,0 +1,18 @@
+jQuery(document).ready(function($)
+{
+	if (typeof(CURRENT_USER_ID) === 'undefined')
+	{
+		$('body').on('click', '.watchlist-delete-link, .watchlist-clear-link, .watchlist-edit-link, .watchlist-add-link, .watchlist-main-link, .watchlist_action, .watchlist_action_new', function(e)
+		{
+			(new jBox('Modal', {
+			
+				id : 'regReqDialog',
+				width: 300,
+				title: 'Необходимо зарегистрироваться',
+				content: 'Есть аккаунт?<br /><a href="/login/">Авторизуйтесь</a><br />или<br /><a href="/registration/">зарегистрируйтесь</a>',
+				closeButton: 'title'
+			
+			})).open();
+		});
+	}
+});

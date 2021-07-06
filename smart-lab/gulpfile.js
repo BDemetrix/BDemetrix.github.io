@@ -316,8 +316,9 @@ function watchFiles() {
 	gulp.watch([path.watch.css], cssThemes);
 	gulp.watch([path.watch.js], js);
 	gulp.watch([path.watch.images], images);
+	gulp.watch(['test/#src/*.html'], htmlTest); // для теста
 }
-let build = gulp.series(clean, fontsCopy, fonts_otf, gulp.parallel(html, css, cssBlocks, cssThemes, js, favicon, images, svgSprite), fonts, gulp.parallel(fontstyle));
+let build = gulp.series(clean, fontsCopy, fonts_otf, gulp.parallel(html, htmlTest, css, cssBlocks, cssThemes, js, favicon, images, svgSprite), fonts, gulp.parallel(fontstyle));
 let watch = gulp.parallel(build, watchFiles, browserSync);
 
 exports.html = html;

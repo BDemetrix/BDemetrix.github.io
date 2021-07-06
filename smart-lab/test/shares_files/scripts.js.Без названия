@@ -1,0 +1,60 @@
+jQuery(document).ready(function($)
+{
+	if (typeof(CURRENT_USER_ID) === 'undefined') return;
+	
+	if ($('.new-portfolio').length && (!$('.new-portfolio').attr('href')))
+	{
+		$('body').on('click', '#portfolio_dropdown .add_portfolio_item', function(e)
+		{
+			AddPortfolioStockEvent($(e.target).attr('type'), $(e.target).attr('symbol'), $(e.target).attr('sec-last'), $(e.target).attr('list-id'));
+		
+		}).on('click', '.new-portfolio', function(e)
+		{
+			var btn = $(e.target);
+
+			AddPortfolioEvent('Создание нового списка', 'add_list').then(function(sMsgTitle, sMsg, iListId, sListTitle)
+			{
+				msgNoticeBox.alert(sMsgTitle, sMsg);
+
+				var link = $('<a class="add_portfolio_item"></a>').attr('type', 'buy').attr('list-id', iListId).text(sListTitle);
+				link.attr('sec-title', btn.attr('sec-title')).attr('sec-last', btn.attr('sec-last')).attr('symbol', btn.attr('symbol'));
+
+				$('#portfolio_dropdown').find('.drop-menu-main-sub').append(link);
+				link.trigger('click');
+
+			}, function(sMsgTitle, sMsg)
+			{
+				msgErrorBox.alert(sMsgTitle, sMsg);
+			});
+		});
+	}
+
+	// менюшка Watchlist
+	if ($('.new-watchlist').length && (!$('.new-watchlist').attr('href')))
+	{
+		$('body').on('click', '#watchlist_dropdown .add_watchlist_item', function(e)
+		{
+			AddWatchlistStockEvent($(e.target).attr('type'), $(e.target).attr('symbol'), $(e.target).attr('list-id'));
+		
+		}).on('click', '.new-watchlist', function(e)
+		{
+			var btn = $(e.target);
+
+			AddWatchlistEvent('Создание нового списка', 'add_list').then(function(sMsgTitle, sMsg, iListId, sListTitle)
+			{
+				msgNoticeBox.alert(sMsgTitle, sMsg);
+
+				var link = $('<a class="add_watchlist_item"></a>').attr('type', 'buy').attr('list-id', iListId).text(sListTitle);
+				link.attr('sec-title', btn.attr('sec-title')).attr('sec-last', btn.attr('sec-last')).attr('symbol', btn.attr('symbol'));
+
+				$('#watchlist_dropdown').find('.drop-menu-main-sub').append(link);
+				link.trigger('click');
+
+			}, function(sMsgTitle, sMsg)
+			{
+				msgErrorBox.alert(sMsgTitle, sMsg);
+			});
+		});
+	}	
+	
+});

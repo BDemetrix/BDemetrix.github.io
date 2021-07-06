@@ -1,0 +1,532 @@
+function AttachCSVs(n)
+{
+	function b64EncodeUnicode(str) {
+		// first we use encodeURIComponent to get percent-encoded UTF-8,
+		// then we convert the percent encodings into raw bytes which
+		// can be fed into btoa.
+		return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,
+			function toSolidBytes(match, p1) {
+				return String.fromCharCode('0x' + p1);
+		}));
+	}
+
+
+	function BuildCSV(table)
+	{
+		var aTableData = [];
+		var oCol2Delete = {};
+
+		$(table).find('tr').each(function(ir, row)
+		{
+			var aRow = [];
+			$(row).find(' > th, > td').each(function(ic, col)
+			{
+				if ($(col).find('.portfolio_action[type="comment"]').length)
+				{
+					var nComment = $(col).find('.portfolio_action[comment]');
+					if (nComment.length)
+					{
+						aRow.push($.trim(nComment.attr('comment').replace(/(\t|\s)+/g, ' ')));
+					} else
+					{
+						aRow.push('');
+					}
+				} else
+				{
+					aRow.push($.trim($(col).text().replace(/(\t|\s)+/g, ' ').replace(/\./g, ',')));
+				}
+				if ($(col).find('.portfolio_action[type="sell"], .portfolio_action[type="edit"], .portfolio_action[type="remove"], .report_bug, .charticon, .charticon2, .charticon3').length) oCol2Delete[ic] = true;
+			});
+			aTableData.push(aRow);
+		});
+
+		var aCol2Delete = [];
+		for (var i in oCol2Delete)
+		{
+			aCol2Delete.push(i);
+		}
+		aCol2Delete.sort(function(a,b)
+		{
+			return a - b;
+		}).reverse();
+
+		$.each(aCol2Delete, function(i, c2di)
+		{
+			$.each(aTableData, function(i, aRow)
+			{
+				aTableData[i].splice(c2di, 1);
+			});
+		});
+
+		var sCsv = '';
+		$.each(aTableData, function(i, aRow)
+		{
+			var sRow = '';
+			$.each(aRow, function(ii, sCol)
+			{
+				if (sRow != '') sRow += ';';
+				sRow += '"' + sCol.replace(/\"/g, '\"') + '"';
+			});
+
+			sCsv += sRow + "\r\n";
+		});
+
+		return sCsv;
+	}
+
+
+	$(n).each(function(i, table)
+	{
+		var csv = "\ufeff" + BuildCSV(table);
+
+		var a = $('<a/>');
+		a.attr('href', 'data:text/csv;base64,' + b64EncodeUnicode(csv));
+		a.attr('title', '<b><u>Скачать таблицу в виде CSV файла</u></b>.<br />Если у вас неверно определяется кодировка, выберите в Excel пункт меню<br />&quot;Данные&quot; --> &quot;Из текстового/CSV файла&quot; и выберите кодировку &quot;Юникод (UTF-8)&quot;.');
+		a.attr('download', $(table).attr('csv-download-data') + '.csv');
+		a.addClass('download-table');
+		if (navigator.msSaveBlob) a.addClass('ie');
+
+		a.jBox('Tooltip', {
+			maxWidth: '300px'
+		});
+
+		$(table).wrap('<div class="trades-table-wrapper"></div>');
+		$(table).parents('.trades-table-wrapper').append(a);
+	});
+}
+
+function FillAllDiagrams()
+{
+	var oNeeded = {};
+
+	if ($('#portfolioGraphContainer').length && (typeof(aGraphData) != 'undefined')) oNeeded['graph'] = true;
+	if ($('#sharesSectorsWeightsContainer').length && (typeof(aSharesSectorsWeights) != 'undefined')) oNeeded['shares_sectors'] = true;
+	if ($('#bondsSectorsWeightsContainer').length && (typeof(aBondsSectorsWeights) != 'undefined')) oNeeded['bonds_sectors'] = true;
+	if ($('#statesWeightsContainer').length && (typeof(aStateWeights) != 'undefined')) oNeeded['states'] = true;
+	if ($('#marketWeightsContainer').length && (typeof(aMarketWeights) != 'undefined')) oNeeded['market'] = true;
+	if ($('#portfolioWeightsContainer').length && (typeof(aPortfolioWeights) != 'undefined')) oNeeded['portfolio'] = true;
+	if ($('#portfolioTotalContainer').length && (typeof(aPortfolioTotal) != 'undefined')) oNeeded['total'] = true;
+	
+
+	if (jQuery.isEmptyObject(oNeeded)) return;
+
+	$.ajax({url: '/engine/lib/external/HighCharts/highcharts.js', dataType: 'script', cache: true}).done(function()
+	{
+		if ('graph' in oNeeded)
+		{
+			$('#portfolioGraphContainer').highcharts({
+				credits:{
+					enabled: false
+				},
+
+				chart: {
+					marginRight: 200,
+					plotBackgroundColor: null,
+					plotBorderWidth: null,
+					plotShadow: false,
+					type: 'pie'
+				},
+				title: {
+					text: 'Портфель акций по бумагам',
+					align: 'left'
+				},
+				tooltip: {
+					pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+				},
+				plotOptions: {
+					pie: {
+						allowPointSelect: true,
+						cursor: 'pointer',
+						dataLabels: {
+							enabled: false,
+							format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+							style: {
+								color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+							}
+						},
+						showInLegend: true
+					}
+				},
+
+				legend: {
+					layout: 'vertical',
+					align: 'right',
+					verticalAlign: 'top',
+					y: 20,
+					floating: true,
+					backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF',
+					itemWidth: 180
+				},
+
+				series: [{
+					name: 'Акции',
+					colorByPoint: true,
+					data: aGraphData
+				}]
+			});
+		}
+
+
+		if ('shares_sectors' in oNeeded)
+		{
+			$('#sharesSectorsWeightsContainer').highcharts({
+				credits:{
+					enabled: false
+				},
+
+				chart: {
+					marginRight: 200,
+					plotBackgroundColor: null,
+					plotBorderWidth: null,
+					plotShadow: false,
+					type: 'pie'
+				},
+				title: {
+					text: 'Портфель акций по секторам',
+					align: 'left'
+				},
+				tooltip: {
+					pointFormat: '<b>{point.percentage:.1f}%</b> ({point.y_cur} {point.y_cur_name})'
+				},
+				plotOptions: {
+					pie: {
+						allowPointSelect: true,
+						cursor: 'pointer',
+						dataLabels: {
+							enabled: false,
+							format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+							style: {
+								color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+							}
+						},
+						showInLegend: true
+					}
+				},
+
+				legend: {
+					layout: 'vertical',
+					align: 'right',
+					verticalAlign: 'top',
+					y: 10,
+					floating: true,
+					backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF',
+					itemWidth: 180
+				},
+
+				series: [{
+					colorByPoint: true,
+					data: aSharesSectorsWeights
+				}]
+			});
+		}
+
+		if ('bonds_sectors' in oNeeded)
+		{
+			$('#bondsSectorsWeightsContainer').highcharts({
+				credits:{
+					enabled: false
+				},
+
+				chart: {
+					marginRight: 200,
+					plotBackgroundColor: null,
+					plotBorderWidth: null,
+					plotShadow: false,
+					type: 'pie'
+				},
+				title: {
+					text: 'Портфель облигаций по секторам',
+					align: 'left'
+				},
+				tooltip: {
+					pointFormat: '<b>{point.percentage:.1f}%</b> ({point.y_cur} {point.y_cur_name})'
+				},
+				plotOptions: {
+					pie: {
+						allowPointSelect: true,
+						cursor: 'pointer',
+						dataLabels: {
+							enabled: false,
+							format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+							style: {
+								color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+							}
+						},
+						showInLegend: true
+					}
+				},
+
+				legend: {
+					layout: 'vertical',
+					align: 'right',
+					verticalAlign: 'top',
+					y: 10,
+					floating: true,
+					backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF',
+					itemWidth: 180
+				},
+
+				series: [{
+					colorByPoint: true,
+					data: aBondsSectorsWeights
+				}]
+			});
+		}
+
+
+
+		if ('states' in oNeeded)
+		{
+			$('#statesWeightsContainer').highcharts({
+				credits:{
+					enabled: false
+				},
+
+				chart: {
+					marginRight: 200,
+					plotBackgroundColor: null,
+					plotBorderWidth: null,
+					plotShadow: false,
+					type: 'pie'
+				},
+				title: {
+					text: 'Портфель акций по собственности',
+					align: 'left'
+				},
+				tooltip: {
+					pointFormat: '<b>{point.percentage:.1f}%</b> ({point.y_cur} {point.y_cur_name})'
+				},
+				plotOptions: {
+					pie: {
+						allowPointSelect: true,
+						cursor: 'pointer',
+						dataLabels: {
+							enabled: false,
+							format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+							style: {
+								color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+							}
+						},
+						showInLegend: true
+					}
+				},
+
+				legend: {
+					layout: 'vertical',
+					align: 'right',
+					verticalAlign: 'top',
+					y: 20,
+					floating: true,
+					backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF',
+					itemWidth: 180
+				},
+
+				series: [{
+					colorByPoint: true,
+					data: aStateWeights
+				}]
+			});
+		}
+
+
+		if ('market' in oNeeded)
+		{
+			$('#marketWeightsContainer').highcharts({
+				credits:{
+					enabled: false
+				},
+
+				chart: {
+					marginRight: 200,
+					plotBackgroundColor: null,
+					plotBorderWidth: null,
+					plotShadow: false,
+					type: 'pie'
+				},
+				title: {
+					text: 'Портфель акций по рынку',
+					align: 'left'
+				},
+				tooltip: {
+					pointFormat: '<b>{point.percentage:.1f}%</b> ({point.y_cur} {point.y_cur_name})'
+				},
+				plotOptions: {
+					pie: {
+						allowPointSelect: true,
+						cursor: 'pointer',
+						dataLabels: {
+							enabled: false,
+							format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+							style: {
+								color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+							}
+						},
+						showInLegend: true
+					}
+				},
+
+				legend: {
+					layout: 'vertical',
+					align: 'right',
+					verticalAlign: 'top',
+					y: 10,
+					floating: true,
+					backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF',
+					itemWidth: 180
+				},
+
+				series: [{
+					colorByPoint: true,
+					data: aMarketWeights
+				}]
+			});
+		}
+
+		if ('portfolio' in oNeeded)
+		{
+			$('#portfolioWeightsContainer').highcharts({
+				credits:{
+					enabled: false
+				},
+
+				chart: {
+					marginRight: 200,
+					plotBackgroundColor: null,
+					plotBorderWidth: null,
+					plotShadow: false,
+					type: 'pie'
+				},
+				title: {
+					text: 'Разбивка портфеля по активам',
+					align: 'left'
+				},
+				tooltip: {
+					pointFormat: '<b>{point.percentage:.1f}%</b> ({point.y_cur} {point.y_cur_name})'
+				},
+				plotOptions: {
+					pie: {
+						allowPointSelect: true,
+						cursor: 'pointer',
+						dataLabels: {
+							enabled: false,
+							format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+							style: {
+								color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+							}
+						},
+						showInLegend: true
+					}
+				},
+
+				legend: {
+					layout: 'vertical',
+					align: 'right',
+					verticalAlign: 'top',
+					y: 10,
+					floating: true,
+					backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF',
+					itemWidth: 180
+				},
+
+				series: [{
+					colorByPoint: true,
+					data: aPortfolioWeights
+				}]
+			});			
+		}
+
+		if ('total' in oNeeded)
+		{
+			$('#portfolioTotalContainer').highcharts({
+				credits:{
+					enabled: false
+				},
+
+				chart: {
+					marginRight: 200,
+					plotBackgroundColor: null,
+					plotBorderWidth: null,
+					plotShadow: false,
+					type: 'pie'
+				},
+				title: {
+					text: null,
+					align: 'left'
+				},
+				tooltip: {
+					pointFormat: '<b>{point.percentage:.1f}%</b> ({point.y_cur} {point.y_cur_name})'
+				},
+				plotOptions: {
+					pie: {
+						allowPointSelect: true,
+						cursor: 'pointer',
+						dataLabels: {
+							enabled: false,
+							format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+							style: {
+								color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+							}
+						},
+						showInLegend: true
+					}
+				},
+
+				legend: {
+					layout: 'vertical',
+					align: 'right',
+					verticalAlign: 'top',
+					y: 10,
+					floating: true,
+					backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF',
+					itemWidth: 180
+				},
+
+				series: [{
+					colorByPoint: true,
+					data: aPortfolioTotal
+				}]
+			});			
+		}		
+	});
+}
+
+
+jQuery(document).ready(function($)
+{
+	FillAllDiagrams();
+	AttachCSVs('[csv-download-data]');
+	// кастыль для старых IE
+	$('.download-table.ie').on('click', function(e)
+	{
+		e.preventDefault();
+		var sData = $(this).attr('href');
+		sData = sData.substr(sData.indexOf(',') + 1);
+		sData = decodeURIComponent(atob(sData).split('').map(function(c)
+		{
+        	return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    	}).join(''));
+
+
+		var oBlob = new Blob([sData], {type:  'text/csv;charset=utf-8;'});
+		navigator.msSaveOrOpenBlob(oBlob, $(this).attr('download'));
+	});
+
+	if (typeof(CURRENT_USER_ID) === 'undefined')
+	{
+		$('body').on('click', '.portfolio-delete-link, .portfolio-clear-link, .portfolio-edit-link, .portfolio-add-link, .portfolio_action, .portfolio_action_new', function(e)
+		{
+			(new jBox('Modal', {
+			
+				id : 'regReqDialog',
+				width: 300,
+				title: 'Необходимо зарегистрироваться',
+				content: 'Есть аккаунт?<br /><a href="/login/">Авторизуйтесь</a><br />или<br /><a href="/registration/">зарегистрируйтесь</a>',
+				closeButton: 'title'
+			
+			})).open();
+		});
+
+		if ($('#hide_probably_dividends').length) $('#hide_probably_dividends').remove();
+
+	}
+});

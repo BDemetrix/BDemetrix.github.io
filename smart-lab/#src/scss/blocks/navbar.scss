@@ -43,6 +43,7 @@
 				transform: translate(0, 0);
 				opacity: 1;
 				visibility: visible;
+				transition: all $t ease;
 			}
 			.navbar__down-arrow {
 				transform: scaleY(-1) translateY(-.1em);
@@ -90,7 +91,7 @@
 		visibility: hidden;
 		overflow: hidden;
 		transform: translate(0, -10px);
-		transition: transform $t linear, opacity $t*0.8 linear;
+		transition: opacity $t*0.5 linear;
 	}
 	// .navbar__sub-link
 	&__sub-link {
