@@ -907,7 +907,6 @@ h5.logo__title {
 		z-index: 10;
 		top: 55px;
 		right: 10px;
-		max-width: 300px;
 		border-radius: 6px;
 		background: $header-bg-color;
 		box-shadow: 0 2px 8px rgba($color: #000000, $alpha: 0.45);
@@ -921,9 +920,11 @@ h5.logo__title {
 
 		a, span{
 			color: $icon-color;
-    	display: block;
+    	display: flex;
+			align-items: center;
+			max-width: calc(100vw - 50px);
 			margin: 0;
-			padding: 6px 12px;
+			padding: 10px 12px;
     	cursor: pointer;
     	text-decoration: none;
 			white-space: nowrap;
@@ -937,6 +938,7 @@ h5.logo__title {
 		}
 		img {
 			width: 16px;
+			margin-right: 0.4em;
     	border: none;
     	vertical-align: bottom;
 		}
