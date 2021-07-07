@@ -91,7 +91,7 @@
 		visibility: hidden;
 		overflow: hidden;
 		transform: translate(0, -10px);
-		transition: opacity $t*0.5 linear;
+		transition: transform 0 linear, opacity $t*0.5 linear;
 	}
 	// .navbar__sub-link
 	&__sub-link {

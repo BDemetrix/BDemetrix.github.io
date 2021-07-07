@@ -1754,9 +1754,11 @@ textarea {
   -webkit-transform: translate(0, -10px);
       -ms-transform: translate(0, -10px);
           transform: translate(0, -10px);
-  -webkit-transition: opacity 0.15s linear;
-  -o-transition: opacity 0.15s linear;
-  transition: opacity 0.15s linear;
+  -webkit-transition: opacity 0.15s linear, -webkit-transform 0 linear;
+  transition: opacity 0.15s linear, -webkit-transform 0 linear;
+  -o-transition: transform 0 linear, opacity 0.15s linear;
+  transition: transform 0 linear, opacity 0.15s linear;
+  transition: transform 0 linear, opacity 0.15s linear, -webkit-transform 0 linear;
 }
 
 .navbar__sub-link {
