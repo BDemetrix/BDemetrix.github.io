@@ -3,9 +3,11 @@
 @import "../base/global";
 
 .navbar {
-  padding: 5px 5px 5px;
+	margin-top: -5px;
+  padding: 0px 0px 5px;
 	width: 100%;
 	font-size: 12px;
+	line-height: 12px;
 	// .navbar__list
 	&__list {
 		display: flex;
@@ -139,7 +141,7 @@
 ._style-3 {
 
   .navbar {
-    background-color: $style-1-main-bg;
+    background-color: $header-bg;
   }
 	.navbar,
   .navbar__link,

@@ -1,4 +1,6 @@
 // HEADER JS / begin ============================================================================
+
+
 /**
  * навешиваем обработчик нажатия на каждый активный елемент (кнопку/иконку)
  * в хедере, которому присвоен класс ._active-el
@@ -13,6 +15,22 @@ activeHeadersEls.forEach(el => {
     el.parentElement.classList.toggle('_open');
   });
 });
+
+// Открытие/закрытие основного меню
+const mainMenuBtn = document.getElementById('main-menu-btn');
+if (mainMenuBtn) {
+  mainMenuBtn.addEventListener('click', (e) => {
+    if (e.target.closest('._open')) {
+      blockOverflow();
+    }
+    else {
+      unBlockOverflow();
+    }
+  });
+}
+
+// Подключаем к .menu__body кастомный скролл
+plugSimpleBar('.menu__body');
 
 // Header search ========= 
 /**

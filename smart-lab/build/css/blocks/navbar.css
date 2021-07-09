@@ -64,9 +64,11 @@
 }
 
 .navbar {
-  padding: 5px 5px 5px;
+  margin-top: -5px;
+  padding: 0px 0px 5px;
   width: 100%;
   font-size: 12px;
+  line-height: 12px;
 }
 
 .navbar__list {
@@ -172,9 +174,11 @@
   -webkit-transform: translate(0, -10px);
       -ms-transform: translate(0, -10px);
           transform: translate(0, -10px);
-  -webkit-transition: opacity 0.15s linear;
-  -o-transition: opacity 0.15s linear;
-  transition: opacity 0.15s linear;
+  -webkit-transition: opacity 0.15s linear, -webkit-transform 0 linear;
+  transition: opacity 0.15s linear, -webkit-transform 0 linear;
+  -o-transition: transform 0 linear, opacity 0.15s linear;
+  transition: transform 0 linear, opacity 0.15s linear;
+  transition: transform 0 linear, opacity 0.15s linear, -webkit-transform 0 linear;
 }
 
 .navbar__sub-link {
@@ -220,7 +224,7 @@
 
 ._style-1 .navbar,
 ._style-3 .navbar {
-  background-color: #2d2d2d;
+  background-color: #1f1f1f;
 }
 
 ._style-1 .navbar,

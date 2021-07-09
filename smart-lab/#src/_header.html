@@ -3,26 +3,7 @@
 		его родителю присваивается класс ._open 
 	-->
 	<div class="header__content">
-		<div class="header__menu menu">
-				<div class="menu__icon _active-el">
-					<div class="icon-menu">
-						<span></span>
-						<span></span>
-						<span></span>
-					</div>
-				</div>
-				<nav class="menu__body">
-						<ul class="menu__list">
-								<li><a class="menu__link" href="#"></a></li>
-								<li><a class="menu__link" href="#"></a></li>
-								<li><a class="menu__link" href="#"></a></li>
-								<li><a class="menu__link" href="#"></a></li>
-								<li><a class="menu__link" href="#"></a></li>
-								<li><a class="menu__link" href="#"></a></li>
-								<li><a class="menu__link" href="#"></a></li>
-						</ul>
-				</nav>
-		</div>
+		@@include('_menu.html', {"MixClass": "header__menu"})
 		<div class="header__logo">
 			<a href="https://smart-lab.ru/" class="logo">
 				<h5 class="logo__title">SMART<span>-</span><span> </span>LAB</h5>
