@@ -199,29 +199,11 @@
 	}
 	// .logo__title-main
 	&__title-main {
-		font-size: 18px;
-		line-height: 18px;
+		font-size: adaptiv-value($md5,25,320,18);
+		line-height: adaptiv-value($md5,25,320,18);
+		white-space: nowrap;
 
-		span {
-			display: none;
-		}
-		br {
-			display: inline;
-		}
-		@media (min-width: 390px) {
-			span {
-				display: inline;
-			}
-			br {
-				display: none;
-			}
-		}
 
-		@media (min-width: 390px) {
-			white-space: nowrap;
-			font-size: 25px;
-			line-height: 25px;
-		}
 		@media (min-width: $md5 + px) {
 			font-size: 25px;
 			line-height: 25px;
@@ -253,34 +235,13 @@
 // Для исправления конфликтов
 h5.logo__title-main {
 	font-family: 'Tahoma', sans-serif !important; // !important Для исправления конфликтов
-	line-height: 1em;
-	font-size: 18px;
-	font-weight: 700;
-	margin: 0;
-
-	span {
-			display: none;
-		}
-		br {
-			display: inline;
-		}
-		@media (min-width: 390px) {
-			span {
-				display: inline;
-			}
-			br {
-				display: none;
-			}
-		}
-	@media (min-width: 390px) {
-		white-space: nowrap;
-		font-size: 25px;
-		line-height: 25px;
-	}
+	font-size: adaptiv-value($md5,25,320,18);
+	line-height: adaptiv-value($md5,25,320,18);
+	white-space: nowrap;
+	
 	@media (min-width: $md5 + px) {
 		font-size: 25px;
 		line-height: 25px;
-		white-space: nowrap;
 	}
 	@media (min-width: $md4 + px) {
 		font-size: 33px;
@@ -1072,8 +1033,4 @@ textarea {
 	appearance: none;
 }
 //</INPUT>====================================================================================================
-
-
-
-
 

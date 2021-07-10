@@ -761,16 +761,9 @@ picture {
 }
 
 .logo__title-main {
-  font-size: 18px;
-  line-height: 18px;
-}
-
-.logo__title-main span {
-  display: none;
-}
-
-.logo__title-main br {
-  display: inline;
+  font-size: calc(18px + 7 * ((100vw - 320px) / 159.98));
+  line-height: calc(18px + 7 * ((100vw - 320px) / 159.98));
+  white-space: nowrap;
 }
 
 .logo__title-motto {
@@ -784,18 +777,9 @@ picture {
 
 h5.logo__title-main {
   font-family: "Tahoma", sans-serif !important;
-  line-height: 1em;
-  font-size: 18px;
-  font-weight: 700;
-  margin: 0;
-}
-
-h5.logo__title-main span {
-  display: none;
-}
-
-h5.logo__title-main br {
-  display: inline;
+  font-size: calc(18px + 7 * ((100vw - 320px) / 159.98));
+  line-height: calc(18px + 7 * ((100vw - 320px) / 159.98));
+  white-space: nowrap;
 }
 
 .query-search__icon {
@@ -1626,6 +1610,7 @@ textarea {
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
+  overflow-x: hidden;
 }
 
 .menu__body .simplebar-scrollbar:before {
@@ -1637,6 +1622,10 @@ textarea {
 
 .menu__body .simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
   width: 9px;
+}
+
+.menu__body .simplebar-track.simplebar-horizontal {
+  display: none;
 }
 
 .menu__list {
@@ -2387,36 +2376,6 @@ textarea {
           flex: 1 1 auto;
 }
 
-@media (min-width: 390px) {
-  .logo__title-main span {
-    display: inline;
-  }
-
-  .logo__title-main br {
-    display: none;
-  }
-
-  .logo__title-main {
-    white-space: nowrap;
-    font-size: 25px;
-    line-height: 25px;
-  }
-
-  h5.logo__title-main span {
-    display: inline;
-  }
-
-  h5.logo__title-main br {
-    display: none;
-  }
-
-  h5.logo__title-main {
-    white-space: nowrap;
-    font-size: 25px;
-    line-height: 25px;
-  }
-}
-
 @media (min-width: 479.98px) {
   .header__search-alphabet {
     display: block;
@@ -2435,7 +2394,6 @@ textarea {
   h5.logo__title-main {
     font-size: 25px;
     line-height: 25px;
-    white-space: nowrap;
   }
 
   .query-search__icon {
@@ -2630,6 +2588,10 @@ textarea {
 }
 
 @media (min-width: 1170px) {
+  .menu__body .simplebar-content-wrapper {
+    margin-bottom: -15px;
+  }
+
   .menu__body .simplebar-content {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -2662,7 +2624,8 @@ textarea {
         -ms-flex: 0 0 230px;
             flex: 0 0 230px;
     width: 230px;
-    padding: 20px 0 10px;
+    padding: 20px 0 20px;
+    min-height: calc(100vh - 51px);
     border-left: 1px solid #3F3F3F;
   }
 

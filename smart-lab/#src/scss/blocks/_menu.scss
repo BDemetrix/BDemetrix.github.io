@@ -21,6 +21,7 @@
 		border-top: 1px solid $menu-border;
 		transform: translate(-102%, 0);
 		transition: all $t ease;
+		overflow-x: hidden;
 
 		.simplebar-scrollbar:before {
 			right: 0;
@@ -31,8 +32,15 @@
 		.simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
 			width: 9px;
 		}
+		.simplebar-track.simplebar-horizontal {
+			display: none;
+		}
 		
 		@media (min-width: 1170px) {
+
+			.simplebar-content-wrapper {
+				margin-bottom: -15px;
+			}
 			.simplebar-content {
 				display: flex;
 			}
@@ -96,7 +104,8 @@
 		@media (min-width: 1170px) {
 			flex: 0 0 230px;
 			width: 230px;
-			padding: 20px 0 10px;
+			padding: 20px 0 20px;
+			min-height: calc(100vh - 51px);
 			border-left: 1px solid $menu-border;
 
 			&:last-child {
