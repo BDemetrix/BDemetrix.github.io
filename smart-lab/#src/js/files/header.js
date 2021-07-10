@@ -1,4 +1,25 @@
 // HEADER JS / begin ============================================================================
+let mainHeader = document.querySelector('header.header');
+let headerMenuBody = document.querySelector('.header .menu__body');
+
+/**
+ * Устанавливает высоту основного меню
+ */
+function setheaderMenuBodyHeight() {
+  let mainHeaderHeight = mainHeader.offsetHeight;
+  let headerMenuBodyHeight = document.documentElement.clientHeight - mainHeaderHeight;
+  headerMenuBody.style.height = headerMenuBodyHeight + 'px';
+}
+// Подключаем к .menu__body кастомный скролл
+let mainMenuSimpleBar = plugSimpleBar('.header .menu__body');
+
+setheaderMenuBodyHeight();
+mainMenuSimpleBar.recalculate();
+window.addEventListener('resize', () => {
+  setheaderMenuBodyHeight();
+  if (mainMenuSimpleBar) mainMenuSimpleBar.recalculate();
+} );
+
 
 
 /**
@@ -28,9 +49,6 @@ if (mainMenuBtn) {
     }
   });
 }
-
-// Подключаем к .menu__body кастомный скролл
-plugSimpleBar('.menu__body');
 
 // Header search ========= 
 /**

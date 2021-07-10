@@ -199,7 +199,7 @@ function plugSimpleBar(selector) {
   let simpleBarEl = document.querySelector(selector);
   if (simpleBarEl) {
     try {
-      new SimpleBar(simpleBarEl);
+      return new SimpleBar(simpleBarEl);
 
     } catch {
       simpleBarEl.style.ovetflowY = 'auto';

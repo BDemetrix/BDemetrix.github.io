@@ -44,8 +44,7 @@
 	}
 	// .header__search
 	&__search {
-		font-family: 'Tahoma', sans-serif;
-		
+		font-family: Tahoma, OpenSans, Verdana, sans-serif;
 		flex: 1 1 auto;
 		display: flex;
 		justify-content: flex-end;
@@ -53,7 +52,7 @@
 		
 		@media (min-width: $md2-1 + px) {
 			justify-content: space-between;
-			margin: 0 25px;
+			margin: 0 25px 0 15px;
 		}
 	}
 	// .header__search-query
@@ -125,6 +124,7 @@
 	}
 	// .header__notify
 	&__notify {
+		font-family: OpenSans, Tahoma, Verdana, sans-serif;
 		margin-right: 25px;
 
 		@media (min-width: $md2 + px) {
@@ -195,71 +195,104 @@
 	}
 	// .logo__title
 	&__title {
-		position: relative;
+		font-weight: 700;
+	}
+	// .logo__title-main
+	&__title-main {
 		font-size: 18px;
+		line-height: 18px;
 
-		span:nth-child(1) {
+		span {
 			display: none;
 		}
-		span:nth-child(2) {
+		br {
 			display: inline;
 		}
-		@media (min-width: $md6 + px) {
-			font-size: 20px;
-			span:nth-child(1) {
+		@media (min-width: 390px) {
+			span {
 				display: inline;
 			}
-			span:nth-child(2) {
+			br {
 				display: none;
 			}
 		}
 
-		@media (min-width: $md4 + px) {
-			font-size: 20px;
-		}
-		@media (min-width: $md2-1 + px) {
+		@media (min-width: 390px) {
+			white-space: nowrap;
 			font-size: 25px;
+			line-height: 25px;
+		}
+		@media (min-width: $md5 + px) {
+			font-size: 25px;
+			line-height: 25px;
+		}
+		@media (min-width: $md4 + px) {
+			font-size: 33px;
+			line-height: 33px;
 		}
 		@media (min-width: $md2 + px) {
-			font-size: 30px;
+	    font-size: 44px;
+    	line-height: 44px;
+		}
+	}
+	// .logo__title-motto
+	&__title-motto {
+		display: none;
+		margin-top: -3px;
+		font-size: 10px;
+		line-height: 10px;
+		font-weight: 700;
+		text-align: right;
+
+		@media (min-width: $md4 + px) {
+			display: block;
 		}
 	}
 }
 
 // Для исправления конфликтов
-h5.logo__title {
+h5.logo__title-main {
 	font-family: 'Tahoma', sans-serif !important; // !important Для исправления конфликтов
 	line-height: 1em;
-	position: relative;
 	font-size: 18px;
 	font-weight: 700;
 	margin: 0;
 
-	span:nth-child(1) {
-		display: none;
-	}
-	span:nth-child(2) {
-		display: inline;
-	}
-	@media (min-width: $md6 + px) {
-		font-size: 20px;
-		span:nth-child(1) {
-			display: inline;
-		}
-		span:nth-child(2) {
+	span {
 			display: none;
 		}
+		br {
+			display: inline;
+		}
+		@media (min-width: 390px) {
+			span {
+				display: inline;
+			}
+			br {
+				display: none;
+			}
+		}
+	@media (min-width: 390px) {
+		white-space: nowrap;
+		font-size: 25px;
+		line-height: 25px;
+	}
+	@media (min-width: $md5 + px) {
+		font-size: 25px;
+		line-height: 25px;
+		white-space: nowrap;
 	}
 	@media (min-width: $md4 + px) {
-		font-size: 25px;
+		font-size: 33px;
+		line-height: 33px;
 	}
 	@media (min-width: $md2 + px) {
-		font-size: 30px;
+	  font-size: 44px;
+  	line-height: 44px;
 	}
 }
 // Для исправления конфликтов
 .query-search {
-
 	// .query-search__icon
 	&__icon {
 		
@@ -340,7 +373,6 @@ h5.logo__title {
 				
 			}
 			.query-search__input {
-				padding: 6px 28px 6px 38px !important;
 				border-radius: 6px; 
 			}
 			.query-search__input-arrow {
@@ -372,14 +404,16 @@ h5.logo__title {
 	}
 	// .query-search__input
 	&__input {
+		font-family: Tahoma, OpenSans, Verdana, sans-serif;
 		transition: all $t ease;
 		display: block;
 		width: 100%;
 		font-size: 16px;
+		line-height: 24px;
 		font-weight: 400;
 		background: $search-input-bg; 
 		color: #fff;
-		padding: 6px 28px 6px 38px !important;
+		padding: 5px 28px 5px 38px !important;
 		border-radius: 4px;
 		//box-shadow: 0px 0px 2px 2px rgba($color: $icon-color, $alpha: 0.45);
 		border: 1px solid rgba($color: $icon-color, $alpha: 0.5);
@@ -387,6 +421,9 @@ h5.logo__title {
 		&::placeholder {
 			color: $icon-color;
 			font-weight: 400;
+			font-size: 13.33px;
+			line-height: 24px;
+			vertical-align: top;
 		}
 		&:hover {
 			border-radius: 6px; 
@@ -584,7 +621,6 @@ h5.logo__title {
 }
 .notify {
 	flex: 0 0 20px;
-	font-family: Verdana;
 	font-size: 11px;
 
 	width: 20px;
