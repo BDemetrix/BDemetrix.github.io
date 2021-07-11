@@ -86,11 +86,11 @@
 	&__down-arrow {
 		cursor: pointer;
 		display: inline-block;
-		margin-left: 0.1em;
+		padding-left: 0.1em;
 		width: 1.4em;
 		height: 1.4em;
 		fill: $icon-color;
-		transition: all $t ease;
+		transition: all $t/2 linear;
 	}
 	// .navbar__drop-menu
 	&__drop-menu {
