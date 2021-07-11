@@ -1885,7 +1885,7 @@ textarea {
 }
 
 .navbar {
-  font-family: Tahoma, OpenSans, Verdana, sans-serif;
+  font-family: OpenSans, Tahoma, Verdana, sans-serif;
   margin-top: -5px;
   padding: 0px 0px 5px;
   width: 100%;
