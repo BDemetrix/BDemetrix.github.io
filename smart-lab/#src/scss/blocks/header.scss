@@ -212,10 +212,7 @@
 			font-size: 33px;
 			line-height: 33px;
 		}
-		@media (min-width: $md2 + px) {
-	    font-size: 44px;
-    	line-height: 44px;
-		}
+
 	}
 	// .logo__title-motto
 	&__title-motto {
@@ -246,10 +243,6 @@ h5.logo__title-main {
 	@media (min-width: $md4 + px) {
 		font-size: 33px;
 		line-height: 33px;
-	}
-	@media (min-width: $md2 + px) {
-	  font-size: 44px;
-  	line-height: 44px;
 	}
 }
 // Для исправления конфликтов
@@ -786,10 +779,11 @@ h5.logo__title-main {
 		}
 	}
 }
+
 .notify-note {
 	display: flex;
 	margin: 0 -5px;
-  padding: 15px;
+  padding: 10px;
   cursor: pointer;
   overflow: hidden;
 
@@ -904,7 +898,7 @@ h5.logo__title-main {
 		background: $header-bg-color;
 		box-shadow: 0 2px 8px rgba($color: #000000, $alpha: 0.45);
 		font-size: 12px;
-		padding: 5px 0 5px;
+		padding: 5px 0;
 
 		transform: translate(0, -10px);
 		opacity: 0;
@@ -912,17 +906,16 @@ h5.logo__title-main {
 		transition: transform $t linear, opacity $t*0.8 linear;
 
 		a, span{
-			color: $icon-color;
     	display: flex;
 			align-items: center;
 			max-width: calc(100vw - 50px);
-			margin: 0;
 			padding: 10px 12px;
+			color: $icon-color;
     	cursor: pointer;
     	text-decoration: none;
 			white-space: nowrap;
 			overflow: hidden;
-			transition: background-color $t ease;
+			//transition: background-color $t ease;
 
 			&:hover {
 				background-color: #CE5209;
@@ -961,8 +954,7 @@ h5.logo__title-main {
 		padding: 5px 0px 5px;
 		font-size: 16px;
 		a, span {
-    	padding: 6px 32px;
-			margin: 15px 0;
+    	padding: 15px 25px;
 		}
 		img {
 			width: 18px;

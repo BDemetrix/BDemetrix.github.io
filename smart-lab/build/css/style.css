@@ -1346,7 +1346,7 @@ h5.logo__title-main {
   display: -ms-flexbox;
   display: flex;
   margin: 0 -5px;
-  padding: 15px;
+  padding: 10px;
   cursor: pointer;
   overflow: hidden;
 }
@@ -1445,7 +1445,7 @@ h5.logo__title-main {
   -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
           box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
   font-size: 12px;
-  padding: 5px 0 5px;
+  padding: 5px 0;
   -webkit-transform: translate(0, -10px);
       -ms-transform: translate(0, -10px);
           transform: translate(0, -10px);
@@ -1460,7 +1460,6 @@ h5.logo__title-main {
 
 .usermenu__body a,
 .usermenu__body span {
-  color: #d4d4d4;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1468,15 +1467,12 @@ h5.logo__title-main {
       -ms-flex-align: center;
           align-items: center;
   max-width: calc(100vw - 50px);
-  margin: 0;
   padding: 10px 12px;
+  color: #d4d4d4;
   cursor: pointer;
   text-decoration: none;
   white-space: nowrap;
   overflow: hidden;
-  -webkit-transition: background-color 0.3s ease;
-  -o-transition: background-color 0.3s ease;
-  transition: background-color 0.3s ease;
 }
 
 .usermenu__body a:hover,
@@ -1516,8 +1512,7 @@ h5.logo__title-main {
 
 ._touch .usermenu__body a,
 ._touch .usermenu__body span {
-  padding: 6px 32px;
-  margin: 15px 0;
+  padding: 15px 25px;
 }
 
 ._touch .usermenu__body img {
@@ -1895,7 +1890,7 @@ textarea {
   padding: 0px 0px 5px;
   width: 100%;
   font-size: 12px;
-  line-height: 13px;
+  line-height: 1;
   background-color: #1f1f1f;
   color: #d4d4d4;
 }
@@ -1957,10 +1952,15 @@ textarea {
           transform: scaleY(-1);
 }
 
+.navbar__drop-link,
 .navbar__link {
   margin-left: 0.8em;
   padding-bottom: 0.2em;
   color: #d4d4d4;
+}
+
+.navbar__drop-link {
+  cursor: pointer;
 }
 
 .navbar__drop-item {
@@ -1970,6 +1970,12 @@ textarea {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.navbar__drop-item:hover .navbar__down-arrow {
+  -webkit-transform: scale(1.3);
+      -ms-transform: scale(1.3);
+          transform: scale(1.3);
 }
 
 .navbar__down-arrow {
@@ -1984,12 +1990,6 @@ textarea {
   transition: all 0.3s ease;
 }
 
-.navbar__down-arrow:hover {
-  -webkit-transform: scale(1.3);
-      -ms-transform: scale(1.3);
-          transform: scale(1.3);
-}
-
 .navbar__drop-menu {
   position: absolute;
   z-index: 100;
@@ -2000,31 +2000,45 @@ textarea {
           box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
   border-radius: 6px;
   background-color: #1f1f1f;
-  opacity: 0;
-  visibility: hidden;
-  overflow: hidden;
   -webkit-transform: translate(0, -10px);
       -ms-transform: translate(0, -10px);
           transform: translate(0, -10px);
-  -webkit-transition: opacity 0.15s linear, -webkit-transform 0 linear;
-  transition: opacity 0.15s linear, -webkit-transform 0 linear;
-  -o-transition: transform 0 linear, opacity 0.15s linear;
-  transition: transform 0 linear, opacity 0.15s linear;
-  transition: transform 0 linear, opacity 0.15s linear, -webkit-transform 0 linear;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 0.24s linear, -webkit-transform 0.3s linear;
+  transition: opacity 0.24s linear, -webkit-transform 0.3s linear;
+  -o-transition: transform 0.3s linear, opacity 0.24s linear;
+  transition: transform 0.3s linear, opacity 0.24s linear;
+  transition: transform 0.3s linear, opacity 0.24s linear, -webkit-transform 0.3s linear;
 }
 
 .navbar__sub-link {
   display: block;
   padding: 10px 12px;
+  color: #d4d4d4;
+  cursor: pointer;
+  cursor: pointer;
+  text-decoration: none;
   white-space: nowrap;
   overflow: hidden;
-  -o-text-overflow: ellipsis;
-     text-overflow: ellipsis;
-  color: #d4d4d4;
 }
 
 .navbar__sub-link:hover {
   background-color: #ce5209;
+  color: #FFFFFF;
+}
+
+._touch .navbar {
+  font-size: 14px;
+}
+
+._touch .navbar__drop-menu {
+  padding: 5px 0px 5px;
+  font-size: 16px;
+}
+
+._touch .navbar__sub-link {
+  padding: 15px 25px;
 }
 
 ._style-2 {
@@ -2556,16 +2570,6 @@ textarea {
 
   .header__notify {
     margin-right: 35px;
-  }
-
-  .logo__title-main {
-    font-size: 44px;
-    line-height: 44px;
-  }
-
-  h5.logo__title-main {
-    font-size: 44px;
-    line-height: 44px;
   }
 
   .notify__body {

@@ -505,18 +505,18 @@ $('body').on('click', function (e) {
 
 // HEADER JS / end ============================================================================
 /**
- *  Обработка событий "хлебных крошек" - блок .navbar
- * если у элемента списка есть вложеный список, то при нажатии на стрелку navbar__down-arrow
+ * Обработка событий "хлебных крошек" - блок .navbar
+ * если у элемента списка есть вложеный список, то при нажатии на элемент navbar__drop-item
  * элементу navbar__item присваивается класс ._open и появляется выпадающее меню.
  * При повторном нажатии на стрелку или любую точку в документе, если она не лежит внутри
  * открытого выпадающего меню, оно закрывается удалением у родителя класса ._open
  */
 
 const navbarLinks = document.querySelectorAll('.navbar__link');
-const navbarDownArrows = document.querySelectorAll('.navbar__down-arrow');
+const navbarDropItem = document.querySelectorAll('.navbar__drop-item');
 
-if (navbarDownArrows.length) {
-  navbarDownArrows.forEach( downArrow => {
+if (navbarDropItem.length) {
+  navbarDropItem.forEach( downArrow => {
     downArrow.addEventListener('click', () => {
       if (!downArrow.closest('.navbar__item').classList.contains('_open')) {
         closeAllOpenedMenu();
@@ -535,7 +535,7 @@ if (navbarLinks.length) {
 }
 // при клике на любую область документа, если эта область не находится внутри открытого меню, оно закрывается
 document.documentElement.addEventListener('click', (e) => {
-  if (!e.target.closest('._open') && !e.target.closest('.navbar__drop-down')) {
+  if (!e.target.closest('._open') && !e.target.closest('.navbar__link')) {
     closeAllOpenedMenu();
   }
 });

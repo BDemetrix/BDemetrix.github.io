@@ -136,8 +136,15 @@
     </div>
   </div>
   <nav class="menu__body">
-    <!--  -->
-    <ul class="menu__list _spollers _one" data-spoller-maxwidth="1120">
+    <!-- 
+      * Блоку спойлеров добавяется класс _spollers
+      * элементам, при клике на которые раскрывается список, добавляется класс _spoller
+      * раскрвающийся список должен быть соседним и следующим за блоком _spoller
+      * data-spoller-maxwidth - ширина экрана меньше которой работает спойлер
+      * при клике на заголовок спойлера, заголовку присваивается/удаляется класс _active
+      * если у блока спойлеров есть класс _one, то то он является аккордеоном 
+    -->
+    <ul class="menu__list _spollers _one" data-spoller-maxwidth="1170">
       <li class="menu__item menu__item--feeds"> <!-- Ленты -->
         <div class="menu__item-title _spoller">
           <span>Ленты</span>
@@ -156,9 +163,9 @@
               сигналы</a></li>
           <li class="menu__sub-item"><a href="http://smart-lab.ru/vopros/" class="menu__link">Ответы на вопросы</a></li>
           <li class="menu__sub-item"><a href="https://smart-lab.ru/blog/disclosure/?utm_source=main_menu"
-              class="menu__link">Раскрытие информации</a></li>
-          <li class="menu__sub-item menu__sub-item--mb"><a href="http://smart-lab.ru/blog/offtop" class="menu__link">Оффтоп</a></li>
-          <li class="menu__sub-item menu__sub-item--border"><a href="http://smart-lab.ru/comments/" class="menu__link">Лента комментариев</a>
+              class="menu__link">Раскр. информации</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/blog/offtop" class="menu__link">Оффтоп</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/comments/" class="menu__link">Лента комментариев</a>
           </li>
         </ul>
       </li>
@@ -171,14 +178,17 @@
         </div>
         <ul class="menu__sub-list">
           <li class="menu__sub-item"><a href="http://smart-lab.ru/forum/" class="menu__link menu__link--bold">Форум акций</a></li>
-          <li class="menu__sub-item"><a href="http://smart-lab.ru/bonds/" class="menu__link menu__link--bold">Облигации</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/bonds/" class="menu__link">Облигации</a></li>
           <li class="menu__sub-item"><a href="https://smart-lab.ru/trading/?utm_source=main_menu" class="menu__link">Общий
               форум</a></li>
           <li class="menu__sub-item"><a href="http://smart-lab.ru/algotrading/" class="menu__link">Алготрейдинг</a></li>
           <li class="menu__sub-item"><a href="http://smart-lab.ru/options/" class="menu__link">Опционы</a></li>
           <li class="menu__sub-item"><a href="http://smart-lab.ru/forex/" class="menu__link">Forex</a></li>
           <li class="menu__sub-item"><a href="http://smart-lab.ru/banki/" class="menu__link">Банки</a></li>
-          <li class="menu__sub-item"><a href="http://smart-lab.ru/brokers/" class="menu__link">Брокеры</a></li>
+          <li class="menu__sub-item menu__sub-item--mb"><a href="http://smart-lab.ru/brokers/" class="menu__link">Брокеры</a></li>
+          <li class="menu__sub-item menu__sub-item--border"><a href="http://smart-lab.ru/comments/" class="menu__link">Лента
+              форума</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/chat/" class="menu__link">Форум в виде чата</a></li>
         </ul>
       </li>
       <li class="menu__item menu__item--quotes"> <!-- Котировки -->
@@ -194,13 +204,15 @@
           <li class="menu__sub-item"><a href="http://smart-lab.ru/q/shares/" class="menu__link">СПб Биржа</a></li>
           <li class="menu__sub-item"><a href="https://smart-lab.ru/q/ofz/?utm_source=main_menu" class="menu__link">ОФЗ</a>
           </li>
-          <li class="menu__sub-item"><a href="https://smart-lab.ru/q/bonds/" class="menu__link">Корпоративные бонды</a>
+          <li class="menu__sub-item"><a href="https://smart-lab.ru/q/bonds/" class="menu__link">Корпоратив. бонды</a>
           </li>
           <li class="menu__sub-item"><a href="http://smart-lab.ru/q/futures/" class="menu__link">Фьючерсы</a></li>
           <li class="menu__sub-item"><a href="https://smart-lab.ru/q/world-quotes/?utm_source=main_menu"
               class="menu__link">Мировые рынки</a></li>
           <li class="menu__sub-item"><a href="http://smart-lab.ru/g" class="menu__link">Графики онлайн</a></li>
-          <li class="menu__sub-item"><a href="http://smart-lab.ru/q/adr/" class="menu__link">АДР / ГДР</a></li>
+          <li class="menu__sub-item menu__sub-item--mb"><a href="http://smart-lab.ru/q/adr/" class="menu__link">АДР / ГДР</a></li>
+          <li class="menu__sub-item menu__sub-item--border"><a href="https://smart-lab.ru/q/watchlist/?utm_source=main_menu"
+              class="menu__link">Мой watchlist</a></li>
         </ul>
       </li>
       <li class="menu__item menu__item--stocks"> <!-- Акции -->
@@ -212,21 +224,17 @@
         </div>
         <ul class="menu__sub-list">
           <li class="menu__sub-item"><a href="https://smart-lab.ru/q/shares_fundamental/?utm_source=main_menu"
-              class="menu__link">Фундаментальный анализ</a></li>
+              class="menu__link menu__link--bold">Фундаментал. анализ</a></li>
           <li class="menu__sub-item"><a href="https://smart-lab.ru/dividends/?utm_source=main_menu"
               class="menu__link">Дивиденды</a></li>
           <li class="menu__sub-item"><a href="https://smart-lab.ru/q/shares_fundamental3/?utm_source=main_menu"
               class="menu__link">Отчеты РСБУ/МСФО</a></li>
           <li class="menu__sub-item"><a href="https://smart-lab.ru/calendar/stocks/?utm_source=main_menu"
-              class="menu__link">Календарь по акциям</a></li>
+              class="menu__link">Календарь акций</a></li>
           <li class="menu__sub-item menu__sub-item--mb"><a href="https://smart-lab.ru/calendar/stocks/?utm_source=main_menu"
               class="menu__link">Показатели за 10 лет</a></li>
           <li class="menu__sub-item menu__sub-item--border"><a href="https://smart-lab.ru/q/portfolio/timmartynov/?utm_source=main_menu"
               class="menu__link">Мой портфель</a></li>
-          <li class="menu__sub-item menu__sub-item--mb"><a href="https://smart-lab.ru/q/watchlist/?utm_source=main_menu"
-              class="menu__link">Мой watchlist</a></li>
-          <li class="menu__sub-item menu__sub-item--border"><a href="http://smart-lab.ru/comments/" class="menu__link">Лента форума</a></li>
-          <li class="menu__sub-item"><a href="http://smart-lab.ru/chat/" class="menu__link">Чат</a></li>
         </ul>
       </li>
       <li class="menu__item  menu__item--comb">
@@ -282,7 +290,12 @@
 
 		<div class="header__logo">
 			<a href="https://smart-lab.ru/" class="logo">
-				<h5 class="logo__title">SMART<span>-</span><span> </span>LAB</h5>
+				<h5 class="logo__title">
+					<div class="logo__title-main">
+						SMART-LAB
+					</div>
+					<div class="logo__title-motto">Мы делаем деньги на бирже</div>
+				</h5>
 			</a>
 		</div>
 		<div class="header__search">
