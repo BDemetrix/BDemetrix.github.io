@@ -13,6 +13,10 @@
   color: #fff;
   background: #e83a3a;
   overflow: hidden;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .cls-btn {
