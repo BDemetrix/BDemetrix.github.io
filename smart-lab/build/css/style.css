@@ -2031,7 +2031,7 @@ textarea {
   top: 0;
   right: 0;
   bottom: 0;
-  width: 30px;
+  width: 15px;
   background: -webkit-gradient(linear, right top, left top, from(#1f1f1f), color-stop(50%, #1f1f1f), to(transparent));
   background: -o-linear-gradient(right, #1f1f1f, #1f1f1f 50%, transparent 100%);
   background: linear-gradient(to left, #1f1f1f, #1f1f1f 50%, transparent 100%);
