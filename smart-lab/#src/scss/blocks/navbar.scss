@@ -110,6 +110,7 @@
 	}
 	// .navbar__sub-link
 	&__sub-link {
+		position: relative;
 		display: block;
 		padding: 10px 12px;
 		color: $icon-color;
@@ -119,10 +120,23 @@
 		white-space: nowrap;
 		overflow: hidden;
 		//transition: background-color $t ease;
-
+		&::before {
+			content: "";
+			position: absolute;
+			z-index: 2;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			width: 30px;
+			background: linear-gradient(to left, $header-bg, $header-bg 50%, transparent 100%);
+		}
 		&:hover {
 			background-color: #ce5209;
 			color: #FFFFFF;
+
+			&::before {
+				background: linear-gradient(to left, #ce5209, #ce5209 50%, transparent 100%);
+			}
 		}
 	}
 }
@@ -132,11 +146,12 @@
 		font-size: 14px;
 	}
 	.navbar__drop-menu {
+		left: 5px;
 		padding: 5px 0px 5px;
 		font-size: 16px;
 	}
 	.navbar__sub-link {
-  	padding: 15px 25px;
+  	padding: 15px 15px;
 	}
 }
 ._style-2 {

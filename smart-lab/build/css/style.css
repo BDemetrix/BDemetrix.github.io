@@ -2013,6 +2013,7 @@ textarea {
 }
 
 .navbar__sub-link {
+  position: relative;
   display: block;
   padding: 10px 12px;
   color: #d4d4d4;
@@ -2023,9 +2024,28 @@ textarea {
   overflow: hidden;
 }
 
+.navbar__sub-link::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 30px;
+  background: -webkit-gradient(linear, right top, left top, from(#1f1f1f), color-stop(50%, #1f1f1f), to(transparent));
+  background: -o-linear-gradient(right, #1f1f1f, #1f1f1f 50%, transparent 100%);
+  background: linear-gradient(to left, #1f1f1f, #1f1f1f 50%, transparent 100%);
+}
+
 .navbar__sub-link:hover {
   background-color: #ce5209;
   color: #FFFFFF;
+}
+
+.navbar__sub-link:hover::before {
+  background: -webkit-gradient(linear, right top, left top, from(#ce5209), color-stop(50%, #ce5209), to(transparent));
+  background: -o-linear-gradient(right, #ce5209, #ce5209 50%, transparent 100%);
+  background: linear-gradient(to left, #ce5209, #ce5209 50%, transparent 100%);
 }
 
 ._touch .navbar {
@@ -2033,12 +2053,13 @@ textarea {
 }
 
 ._touch .navbar__drop-menu {
+  left: 5px;
   padding: 5px 0px 5px;
   font-size: 16px;
 }
 
 ._touch .navbar__sub-link {
-  padding: 15px 25px;
+  padding: 15px 15px;
 }
 
 ._style-2 {
