@@ -190,6 +190,11 @@ picture {
   display: flex;
 }
 
+.categories-slider__body .categories-slider__slide:first-child {
+  font-weight: 700;
+  color: #0a5991;
+}
+
 .categories-slider__slide {
   color: #3b91cd;
 }
