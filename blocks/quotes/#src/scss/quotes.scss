@@ -75,6 +75,10 @@ $red-color: #f00;
 	&__body {
 		//width: 100%;
 		//margin: -20px;
+
+		&--loading {
+			display: flex;
+		}
 	}
 	// .categories-slider__slide
 	&__slide {
@@ -98,10 +102,21 @@ $red-color: #f00;
 
 	// .content-slider__body
 	&__body {
+
+		&--loading {
+			display: flex;
+			width: 100%;
+			overflow: hidden;
+
+			.content-slider__slide {
+				min-width: 100%;
+			}
+		}
 	}
 	// .content-slider__slide
 	&__slide {
 		overflow: hidden;
+		//min-width: 100%;
 	}
 }
 .slide-content {

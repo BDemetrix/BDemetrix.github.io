@@ -1,7 +1,10 @@
 <div class="quotes">
   <div class="quotes__inner">
     <div class="quotes__categories categories-slider">
-      <div class="categories-slider__body _swiper"> <!-- _swiper -->
+      <!-- по техническому классу _swiper срабатывает скрипт и билдит из блока слайдер      -->
+      <!-- Модификатор categories-slider__body--loading нужен на время загрузки скриптов,   -->
+      <!-- чтобы не прыгал контент. Он удаляется переда подключением слайдера Swiper        -->
+      <div class="categories-slider__body categories-slider__body--loading _swiper"> <!-- _swiper -->
         <div class="categories-slider__slide">
           <span>Лидеры роста и падения</span>
         </div>
@@ -23,8 +26,10 @@
       </div>
     </div>
     <div class="quotes__content content-slider">
-      <!-- по техническому классу _swiper срабатывает скрипт и билдит из блока слайдер-->
-      <div class="content-slider__body _swiper"> <!--  _swiper -->
+      <!-- по техническому классу _swiper срабатывает скрипт и билдит из блока слайдер      -->
+      <!-- Модификатор content-slider__body--loading нужен на время загрузки скриптов,   -->
+      <!-- чтобы не прыгал контент. Он удаляется переда подключением слайдера Swiper        -->
+      <div class="content-slider__body content-slider__body--loading _swiper"> <!--  _swiper -->
 
         <div class="content-slider__slide slide-content">
           <!-- класс _tabs указывает, что в этом блоке содержатся табы
