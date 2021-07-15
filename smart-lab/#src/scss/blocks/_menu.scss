@@ -207,6 +207,7 @@
 	&__sub-list {
 		display: none;
 		padding-bottom: 10px;
+		transition-timing-function: ease-in-out;
 
 		@media (min-width: 1170px) { 
 			display: block;

@@ -1713,6 +1713,9 @@ textarea {
 .menu__sub-list {
   display: none;
   padding-bottom: 10px;
+  -webkit-transition-timing-function: ease-in-out;
+       -o-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
 }
 
 .menu__sub-item {
@@ -2258,6 +2261,9 @@ textarea {
   line-height: 24px;
   font-size: 16px;
   text-transform: uppercase;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .footer__item-title span {
@@ -2267,9 +2273,6 @@ textarea {
 }
 
 .footer__item-title svg {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 24px;
-          flex: 0 0 24px;
   width: 24px;
   height: 24px;
   fill: #d4d4d4;
@@ -2290,9 +2293,9 @@ textarea {
   list-style: none;
   padding: 0 0 8px;
   line-height: 16px;
-  -webkit-transition: all 0.25s linear;
-  -o-transition: all 0.25s linear;
-  transition: all 0.25s linear;
+  -webkit-transition-timing-function: ease-in-out;
+       -o-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
 }
 
 .footer__link {
@@ -2523,9 +2526,10 @@ textarea {
     line-height: 26px;
     font-size: 13px;
     font-weight: bold;
+    text-transform: none;
   }
 
-  .footer__item-title text-transform svg {
+  .footer__item-title svg {
     display: none;
   }
 
