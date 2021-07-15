@@ -76,11 +76,11 @@ $red-color: #f00;
 
 		&--loading {
 			display: flex;
-		}
 
-		.categories-slider__slide:first-child {
-			font-weight: 700;
-    	color: #0a5991;
+			.categories-slider__slide:first-child {
+				font-weight: 700;
+    		color: #0a5991;
+			}
 		}
 	}
 	// .categories-slider__slide
