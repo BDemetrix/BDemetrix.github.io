@@ -90,7 +90,7 @@
 		width: 1.4em;
 		height: 1.4em;
 		fill: $icon-color;
-		transition: all $t/2 linear;
+		transition: all $t*0.5 linear;
 	}
 	// .navbar__drop-menu
 	&__drop-menu {
