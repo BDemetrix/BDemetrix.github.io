@@ -595,6 +595,7 @@ picture {
 }
 
 .header {
+  font-family: Tahoma, OpenSans, Verdana, sans-serif;
   background: #1f1f1f;
   position: relative;
   z-index: 10;
@@ -632,7 +633,6 @@ picture {
 }
 
 .header__search {
-  font-family: Tahoma, OpenSans, Verdana, sans-serif;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
@@ -695,7 +695,6 @@ picture {
 }
 
 .header__notify {
-  font-family: OpenSans, Tahoma, Verdana, sans-serif;
   margin-right: 25px;
 }
 
@@ -1583,6 +1582,10 @@ textarea {
   appearance: none;
 }
 
+.menu {
+  font-family: OpenSans, Tahoma, Verdana, sans-serif;
+}
+
 .menu__icon {
   cursor: pointer;
   padding: 10px 5px;
@@ -1888,7 +1891,10 @@ textarea {
 }
 
 .navbar {
-  font-family: OpenSans, Tahoma, Verdana, sans-serif;
+  font-family: Tahoma, OpenSans, Verdana, sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   margin-top: -5px;
   padding: 0px 0px 5px;
   width: 100%;
@@ -2034,7 +2040,7 @@ textarea {
   top: 0;
   right: 0;
   bottom: 0;
-  width: 15px;
+  width: 12px;
   background: -webkit-gradient(linear, right top, left top, from(#1f1f1f), color-stop(50%, #1f1f1f), to(transparent));
   background: -o-linear-gradient(right, #1f1f1f, #1f1f1f 50%, transparent 100%);
   background: linear-gradient(to left, #1f1f1f, #1f1f1f 50%, transparent 100%);
@@ -2508,6 +2514,12 @@ textarea {
 
   .usermenu__icon-arrow {
     right: 12px;
+  }
+
+  .navbar__list {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 
   .footer__list {

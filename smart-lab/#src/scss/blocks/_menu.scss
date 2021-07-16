@@ -1,5 +1,5 @@
 .menu {
-
+	font-family: OpenSans, Tahoma, Verdana, sans-serif;
 	// .menu__icon
 	&__icon {
 		cursor: pointer;
@@ -50,6 +50,7 @@
 	&__list {
 		display: flex;
     margin: 0;
+		//padding-top: 10px;
 		list-style: none;
 		flex-direction: column;
 		overflow: hidden;

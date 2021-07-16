@@ -3,7 +3,8 @@
 @import "../base/global";
 
 .navbar {
-	font-family: OpenSans, Tahoma,Verdana, sans-serif;
+	font-family: Tahoma, OpenSans, Verdana, sans-serif;
+	display: flex;
 	margin-top: -5px;
   padding: 0px 0px 5px;
 	width: 100%;
@@ -16,6 +17,10 @@
 		display: flex;
 		align-items: center;
 		flex-wrap: wrap;
+
+		@media (min-width: $md2 + px) {
+			justify-content: center;
+		}
 	}
 	// .navbar__item
 	&__item {
@@ -127,7 +132,7 @@
 			top: 0;
 			right: 0;
 			bottom: 0;
-			width: 15px;
+			width: 12px;
 			background: linear-gradient(to left, $header-bg, $header-bg 50%, transparent 100%);
 		}
 		&:hover {

@@ -131,9 +131,10 @@
     line-height: 26px;
     font-size: 13px;
     font-weight: bold;
+    text-transform: none;
   }
 
-  .footer__item-title text-transform svg {
+  .footer__item-title svg {
     display: none;
   }
 

@@ -4,7 +4,7 @@
 
 //====================================================================================================
 .header {
-	//font-family: Tahoma, OpenSans, Verdana, sans-serif;
+	font-family: Tahoma, OpenSans, Verdana, sans-serif;
 	background: $header-bg-color;
 	position: relative;
 	z-index: 10;
@@ -44,7 +44,6 @@
 	}
 	// .header__search
 	&__search {
-		font-family: Tahoma, OpenSans, Verdana, sans-serif;
 		flex: 1 1 auto;
 		display: flex;
 		justify-content: flex-end;
@@ -124,7 +123,6 @@
 	}
 	// .header__notify
 	&__notify {
-		font-family: OpenSans, Tahoma, Verdana, sans-serif;
 		margin-right: 25px;
 
 		@media (min-width: $md2 + px) {
