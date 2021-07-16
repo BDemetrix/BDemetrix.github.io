@@ -28,6 +28,7 @@ $fontFamily: OpenSans, Tahoma, Verdana, sans-serif;
 
 body {
 	font-family: $fontFamily;
+	background: $style-1-main-bg;
 	color: #000;
 	font-size: 14px;
 	&._lock {
