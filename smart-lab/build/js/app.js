@@ -251,8 +251,6 @@ window.addEventListener('resize', () => {
   if (mainMenuSimpleBar) mainMenuSimpleBar.recalculate();
 } );
 
-
-
 /**
  * навешиваем обработчик нажатия на каждый активный елемент (кнопку/иконку)
  * в хедере, которому присвоен класс ._active-el

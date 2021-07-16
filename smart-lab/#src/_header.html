@@ -1,6 +1,7 @@
 <header class="header">
-	<!-- по классу ._active-el навешиваем обработчик нажатия на каждый из этих елементов (кнопку/иконку), 
-		его родителю присваивается класс ._open 
+	<!-- 
+		* по классу ._active-el навешиваем обработчик события 'click' на каждый
+		* из этих елементов (кнопку/иконку), его родителю присваивается класс ._open 
 	-->
 	<div class="header__content">
 		@@include('_menu.html', {"MixClass": "header__menu"})
@@ -16,6 +17,11 @@
 		</div>
 		<div class="header__search">
 			<div class="header__search-query query-search">
+				<!-- 
+				    * Класс _active-el добавляется кнопке открывающей/закрывающей Pop-Up  
+				    * и нужен для синхконизации всплывающих окон между собой
+				    * при клике на элемен содержащий класс _active-el его родителю присваивается сласс _open
+				  -->
 				<div class="query-search__icon _active-el">
 					<svg>
 							<use xlink:href="images/symbol/sprite.svg#search"></use>
@@ -48,16 +54,16 @@
 					</form>
 				</div>
 			</div>
-			<div class="header__search-alphabet alphabet-search">
-				<div class="alphabet-search__icon _active-el">
-					<span>A...</span>
-				</div>
-				<div class="alphabet-search__body">
-
-				</div>
-			</div>
+			@@include('_alphabet.html',{
+			"MixClass":"header__search-alphabet"
+			})
 		</div>
 		<div class="header__message">
+			<!-- 
+			    * Класс _active-el добавляется кнопке открывающей/закрывающей Pop-Up  
+			    * и нужен для синхконизации всплывающих окон между собой
+			    * при клике на элемен содержащий класс _active-el его родителю присваивается сласс _open
+			  -->
 			<div class="header__message-icon _active-el">
 				<svg>
 					<use xlink:href="images/symbol/sprite.svg#message"></use>
@@ -66,6 +72,11 @@
 			</div>
 		</div>
 		<div class="header__notify notify">
+			<!-- 
+			    * Класс _active-el добавляется кнопке открывающей/закрывающей Pop-Up  
+			    * и нужен для синхконизации всплывающих окон между собой
+			    * при клике на элемен содержащий класс _active-el его родителю присваивается сласс _open
+			  -->
 			<div class="notify__icon _active-el" id="notify-icon" tab="blog">
 				<svg class="">
 					<use xlink:href="images/symbol/sprite.svg#notification"></use>
@@ -285,6 +296,11 @@
 			</div>
 		</div>
 		<div class="header__usermenu usermenu">
+			<!-- 
+			    * Класс _active-el добавляется кнопке открывающей/закрывающей Pop-Up  
+			    * и нужен для синхконизации всплывающих окон между собой
+			    * при клике на элемен содержащий класс _active-el его родителю присваивается сласс _open
+			  -->
 			<div class="usermenu__icon _active-el">
 				<div class="usermenu__avatar">
 					<img src="images/icons/usermenu/avatar_48x48.jpg" alt="avatar">

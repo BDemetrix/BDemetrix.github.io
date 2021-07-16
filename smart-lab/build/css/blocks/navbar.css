@@ -68,7 +68,10 @@
 }
 
 .navbar {
-  font-family: OpenSans, Tahoma, Verdana, sans-serif;
+  font-family: Tahoma, OpenSans, Verdana, sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   margin-top: -5px;
   padding: 0px 0px 5px;
   width: 100%;
@@ -214,7 +217,7 @@
   top: 0;
   right: 0;
   bottom: 0;
-  width: 15px;
+  width: 12px;
   background: -webkit-gradient(linear, right top, left top, from(#1f1f1f), color-stop(50%, #1f1f1f), to(transparent));
   background: -o-linear-gradient(right, #1f1f1f, #1f1f1f 50%, transparent 100%);
   background: linear-gradient(to left, #1f1f1f, #1f1f1f 50%, transparent 100%);
@@ -293,4 +296,12 @@
   		border-top-color: $style-2-color;
   	}
   } */
+}
+
+@media (min-width: 991.98px) {
+  .navbar__list {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }

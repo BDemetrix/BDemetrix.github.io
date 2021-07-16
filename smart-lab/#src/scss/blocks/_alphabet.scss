@@ -1,0 +1,79 @@
+.alphabet {
+  position: relative;
+
+	// .alphabet__icon
+	&__icon {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+		height: 22px;
+		
+		span {
+			display: inline-block;
+			font-size: 22px;
+			color: $icon-color;
+			transition: all $t ease;
+		}
+		&:hover {
+			span {
+				transform: scale(1.3) translate(0, 1px);
+				color: #fff;
+			}
+		}
+	}
+	// .alphabet__body
+	&__body {
+		position: absolute;
+		right: -10px;
+		top: 40px;
+		opacity: 0;
+		visibility: hidden;
+		transform: translate(0, -10px);
+		transition: transform $t linear, opacity $t*0.8 linear;
+
+    @media (min-width: $md4 + px) {
+      right: 0;
+    }
+	}
+
+	&._open {
+
+		.alphabet__body {
+			transform: translate(0, 0);
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+	// .alphabet__list
+	&__list {
+    display: inline-flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    width: 300px;
+    border-radius: 6px;
+    background: $header-bg-color;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 45%);
+
+    @media (min-width: $md4 + px) {
+      width: 360px;
+    }
+	}
+	// .alphabet__item
+	&__item {
+    a {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 54px;
+      height: 30px;
+      font-size: 18px;
+      color: $style-3-color;
+      transition: all 0.25s ease-in-out;
+
+      &:hover {
+        background: $style-1-color;
+      }
+    }
+	}
+}
