@@ -1115,7 +1115,7 @@ h5.logo__title-main {
 
 .notify__body {
   position: absolute;
-  top: 57px;
+  top: 52px;
   right: 10px;
   padding: 10px;
   width: calc(100% - 20px);
@@ -1376,7 +1376,7 @@ h5.logo__title-main {
 .usermenu__body {
   position: absolute;
   z-index: 10;
-  top: 55px;
+  top: 50px;
   right: 10px;
   border-radius: 6px;
   background: #1f1f1f;
@@ -1796,8 +1796,13 @@ textarea {
 
 .alphabet__body {
   position: absolute;
-  right: -10px;
-  top: 40px;
+  right: -30px;
+  top: 35px;
+  padding: 10px;
+  background: #1f1f1f;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
   opacity: 0;
   visibility: hidden;
   -webkit-transform: translate(0, -10px);
@@ -1824,12 +1829,11 @@ textarea {
   display: inline-flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding: 10px;
   width: 300px;
-  border-radius: 6px;
-  background: #1f1f1f;
-  -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
+
+.alphabet__item {
+  margin: 0 3px;
 }
 
 .alphabet__item a {
@@ -1852,7 +1856,7 @@ textarea {
 }
 
 .alphabet__item a:hover {
-  background: #F59300;
+  background-color: #F59300;
 }
 
 .notify-label {

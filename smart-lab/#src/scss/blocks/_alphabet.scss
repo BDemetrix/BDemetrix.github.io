@@ -25,8 +25,12 @@
 	// .alphabet__body
 	&__body {
 		position: absolute;
-		right: -10px;
-		top: 40px;
+		right: -30px;
+		top: 35px;
+    padding: 10px;
+    background: $header-bg-color;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 45%);
 		opacity: 0;
 		visibility: hidden;
 		transform: translate(0, -10px);
@@ -49,11 +53,7 @@
 	&__list {
     display: inline-flex;
     flex-wrap: wrap;
-    padding: 10px;
     width: 300px;
-    border-radius: 6px;
-    background: $header-bg-color;
-    box-shadow: 0 2px 8px rgb(0 0 0 / 45%);
 
     @media (min-width: $md4 + px) {
       width: 360px;
@@ -61,6 +61,7 @@
 	}
 	// .alphabet__item
 	&__item {
+    margin: 0 3px;
     a {
       display: inline-flex;
       justify-content: center;
@@ -69,10 +70,10 @@
       height: 30px;
       font-size: 18px;
       color: $style-3-color;
-      transition: all 0.25s ease-in-out;
+      transition: all 0.25s ease-in-out; // background-color
 
       &:hover {
-        background: $style-1-color;
+        background-color: $style-1-color;
       }
     }
 	}
