@@ -530,67 +530,6 @@ h5.logo__title-main {
   border-bottom: 1px solid red;
 }
 
-.alphabet-search {
-  position: relative;
-}
-
-.alphabet-search__icon {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  cursor: pointer;
-  height: 22px;
-}
-
-.alphabet-search__icon span {
-  display: inline-block;
-  font-size: 22px;
-  color: #d4d4d4;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-
-.alphabet-search__icon:hover span {
-  -webkit-transform: scale(1.3) translate(0, 1px);
-      -ms-transform: scale(1.3) translate(0, 1px);
-          transform: scale(1.3) translate(0, 1px);
-  color: #fff;
-}
-
-.alphabet-search__body {
-  position: absolute;
-  right: 0;
-  top: 40px;
-  width: 300px;
-  height: 400px;
-  background: #1f1f1f;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transform: translate(0, -10px);
-      -ms-transform: translate(0, -10px);
-          transform: translate(0, -10px);
-  -webkit-transition: opacity 0.24s linear, -webkit-transform 0.3s linear;
-  transition: opacity 0.24s linear, -webkit-transform 0.3s linear;
-  -o-transition: transform 0.3s linear, opacity 0.24s linear;
-  transition: transform 0.3s linear, opacity 0.24s linear;
-  transition: transform 0.3s linear, opacity 0.24s linear, -webkit-transform 0.3s linear;
-}
-
-.alphabet-search._open .alphabet-search__body {
-  -webkit-transform: translate(0, 0);
-      -ms-transform: translate(0, 0);
-          transform: translate(0, 0);
-  opacity: 1;
-  visibility: visible;
-}
-
 .notify {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 20px;
@@ -649,7 +588,7 @@ h5.logo__title-main {
 
 .notify__body {
   position: absolute;
-  top: 57px;
+  top: 52px;
   right: 10px;
   padding: 10px;
   width: calc(100% - 20px);
@@ -910,7 +849,7 @@ h5.logo__title-main {
 .usermenu__body {
   position: absolute;
   z-index: 10;
-  top: 55px;
+  top: 50px;
   right: 10px;
   border-radius: 6px;
   background: #1f1f1f;

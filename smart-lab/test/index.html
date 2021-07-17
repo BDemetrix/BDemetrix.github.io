@@ -123,8 +123,9 @@
 	<!-- Header -->
 	<div class="center" style="display: block;">
 		<header class="header">
-	<!-- по классу ._active-el навешиваем обработчик нажатия на каждый из этих елементов (кнопку/иконку), 
-		его родителю присваивается класс ._open 
+	<!-- 
+		* по классу ._active-el навешиваем обработчик события 'click' на каждый
+		* из этих елементов (кнопку/иконку), его родителю присваивается класс ._open 
 	-->
 	<div class="header__content">
 		<div class="header__menu menu">
@@ -300,6 +301,11 @@
 		</div>
 		<div class="header__search">
 			<div class="header__search-query query-search">
+				<!-- 
+				    * Класс _active-el добавляется кнопке открывающей/закрывающей Pop-Up  
+				    * и нужен для синхконизации всплывающих окон между собой
+				    * при клике на элемен содержащий класс _active-el его родителю присваивается сласс _open
+				  -->
 				<div class="query-search__icon _active-el">
 					<svg>
 							<use xlink:href="images/symbol/sprite.svg#search"></use>
@@ -332,16 +338,136 @@
 					</form>
 				</div>
 			</div>
-			<div class="header__search-alphabet alphabet-search">
-				<div class="alphabet-search__icon _active-el">
-					<span>A...</span>
-				</div>
-				<div class="alphabet-search__body">
-
-				</div>
-			</div>
+			<div class="alphabet header__search-alphabet">
+  <!-- 
+    * Класс _active-el добавляется кнопке открывающей/закрывающей Pop-Up  
+    * и нужен для синхконизации всплывающих окон между собой
+    * при клике на элемен содержащий класс _active-el его родителю присваивается сласс _open
+  -->
+  <div class="alphabet__icon _active-el">
+    <span>A...</span>
+  </div>
+  <div class="alphabet__body">
+    <ul class="alphabet__list">
+      <li class="alphabet__item"><a href="/forum/letter/А/" title="Показать все компании на букву &quot;А&quot;">А</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Б/" title="Показать все компании на букву &quot;Б&quot;">Б</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/В/" title="Показать все компании на букву &quot;В&quot;">В</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Г/" title="Показать все компании на букву &quot;Г&quot;">Г</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Д/" title="Показать все компании на букву &quot;Д&quot;">Д</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Е/" title="Показать все компании на букву &quot;Е&quot;">Е</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Ж/" title="Показать все компании на букву &quot;Ж&quot;">Ж</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/З/" title="Показать все компании на букву &quot;З&quot;">З</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/И/" title="Показать все компании на букву &quot;И&quot;">И</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/К/" title="Показать все компании на букву &quot;К&quot;">К</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Л/" title="Показать все компании на букву &quot;Л&quot;">Л</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/М/" title="Показать все компании на букву &quot;М&quot;">М</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Н/" title="Показать все компании на букву &quot;Н&quot;">Н</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/О/" title="Показать все компании на букву &quot;О&quot;">О</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/П/" title="Показать все компании на букву &quot;П&quot;">П</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Р/" title="Показать все компании на букву &quot;Р&quot;">Р</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/С/" title="Показать все компании на букву &quot;С&quot;">С</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Т/" title="Показать все компании на букву &quot;Т&quot;">Т</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/У/" title="Показать все компании на букву &quot;У&quot;">У</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Ф/" title="Показать все компании на букву &quot;Ф&quot;">Ф</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Х/" title="Показать все компании на букву &quot;Х&quot;">Х</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Ц/" title="Показать все компании на букву &quot;Ц&quot;">Ц</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Ч/" title="Показать все компании на букву &quot;Ч&quot;">Ч</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Ш/" title="Показать все компании на букву &quot;Ш&quot;">Ш</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Щ/" title="Показать все компании на букву &quot;Щ&quot;">Щ</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Э/" title="Показать все компании на букву &quot;Э&quot;">Э</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Ю/" title="Показать все компании на букву &quot;Ю&quot;">Ю</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Я/" title="Показать все компании на букву &quot;Я&quot;">Я</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/A/" title="Показать все компании на букву &quot;A&quot;">A</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/B/" title="Показать все компании на букву &quot;B&quot;">B</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/C/" title="Показать все компании на букву &quot;C&quot;">C</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/D/" title="Показать все компании на букву &quot;D&quot;">D</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/E/" title="Показать все компании на букву &quot;E&quot;">E</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/F/" title="Показать все компании на букву &quot;F&quot;">F</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/G/" title="Показать все компании на букву &quot;G&quot;">G</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/H/" title="Показать все компании на букву &quot;H&quot;">H</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/I/" title="Показать все компании на букву &quot;I&quot;">I</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/J/" title="Показать все компании на букву &quot;J&quot;">J</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/K/" title="Показать все компании на букву &quot;K&quot;">K</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/L/" title="Показать все компании на букву &quot;L&quot;">L</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/M/" title="Показать все компании на букву &quot;M&quot;">M</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/N/" title="Показать все компании на букву &quot;N&quot;">N</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/O/" title="Показать все компании на букву &quot;O&quot;">O</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/P/" title="Показать все компании на букву &quot;P&quot;">P</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Q/" title="Показать все компании на букву &quot;Q&quot;">Q</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/R/" title="Показать все компании на букву &quot;R&quot;">R</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/S/" title="Показать все компании на букву &quot;S&quot;">S</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/T/" title="Показать все компании на букву &quot;T&quot;">T</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/U/" title="Показать все компании на букву &quot;U&quot;">U</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/V/" title="Показать все компании на букву &quot;V&quot;">V</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/W/" title="Показать все компании на букву &quot;W&quot;">W</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/X/" title="Показать все компании на букву &quot;X&quot;">X</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Y/" title="Показать все компании на букву &quot;Y&quot;">Y</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Z/" title="Показать все компании на букву &quot;Z&quot;">Z</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/last/" title="Последние добавленные компании">....</a></li>
+    </ul>
+  </div>
+</div>
 		</div>
 		<div class="header__message">
+			<!-- 
+			    * Класс _active-el добавляется кнопке открывающей/закрывающей Pop-Up  
+			    * и нужен для синхконизации всплывающих окон между собой
+			    * при клике на элемен содержащий класс _active-el его родителю присваивается сласс _open
+			  -->
 			<div class="header__message-icon _active-el">
 				<svg>
 					<use xlink:href="images/symbol/sprite.svg#message"></use>
@@ -350,6 +476,11 @@
 			</div>
 		</div>
 		<div class="header__notify notify">
+			<!-- 
+			    * Класс _active-el добавляется кнопке открывающей/закрывающей Pop-Up  
+			    * и нужен для синхконизации всплывающих окон между собой
+			    * при клике на элемен содержащий класс _active-el его родителю присваивается сласс _open
+			  -->
 			<div class="notify__icon _active-el" id="notify-icon" tab="blog">
 				<svg class="">
 					<use xlink:href="images/symbol/sprite.svg#notification"></use>
@@ -569,6 +700,11 @@
 			</div>
 		</div>
 		<div class="header__usermenu usermenu">
+			<!-- 
+			    * Класс _active-el добавляется кнопке открывающей/закрывающей Pop-Up  
+			    * и нужен для синхконизации всплывающих окон между собой
+			    * при клике на элемен содержащий класс _active-el его родителю присваивается сласс _open
+			  -->
 			<div class="usermenu__icon _active-el">
 				<div class="usermenu__avatar">
 					<img src="images/icons/usermenu/avatar_48x48.jpg" alt="avatar">
