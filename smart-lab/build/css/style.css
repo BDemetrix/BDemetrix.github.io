@@ -1,22 +1,6 @@
 @font-face {
-  font-family: "Helvetica";
-  font-display: swap;
-  src: url("../fonts/Helvetica.woff2") format("woff2"), url("../fonts/Helvetica.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
   font-family: "OpenSans";
-  font-display: swap;
-  src: url("../fonts/OpenSans-v18-latin-ext_cyrillic-ext-Bold-italic.woff2") format("woff2"), url("../fonts/OpenSans-v18-latin-ext_cyrillic-ext-Bold-italic.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "OpenSans";
-  font-display: swap;
+  font-display: auto;
   src: url("../fonts/OpenSans-v18-latin-ext_cyrillic-ext-Bold.woff2") format("woff2"), url("../fonts/OpenSans-v18-latin-ext_cyrillic-ext-Bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
@@ -24,65 +8,33 @@
 
 @font-face {
   font-family: "OpenSans";
-  font-display: swap;
+  font-display: auto;
   src: url("../fonts/OpenSans-v20-latin-ext_cyrillic-ext-400.woff2") format("woff2"), url("../fonts/OpenSans-v20-latin-ext_cyrillic-ext-400.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Roboto";
-  font-display: swap;
-  src: url("../fonts/Roboto-Bold.woff2") format("woff2"), url("../fonts/Roboto-Bold.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Roboto";
-  font-display: swap;
-  src: url("../fonts/Roboto-Medium.woff2") format("woff2"), url("../fonts/Roboto-Medium.woff") format("woff");
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Roboto";
-  font-display: swap;
-  src: url("../fonts/Roboto-Regular.woff2") format("woff2"), url("../fonts/Roboto-Regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
   font-family: "Tahoma";
-  font-display: swap;
-  src: url("../fonts/Tahoma-Bold.woff2") format("woff2"), url("../fonts/Tahoma-Bold.woff") format("woff");
+  font-display: auto;
+  src: url("../fonts/Tahoma-short-Bold.woff2") format("woff2"), url("../fonts/Tahoma-short-Bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Tahoma";
-  font-display: swap;
-  src: url("../fonts/Tahoma.woff2") format("woff2"), url("../fonts/Tahoma.woff") format("woff");
+  font-display: auto;
+  src: url("../fonts/Tahoma-short.woff2") format("woff2"), url("../fonts/Tahoma-short.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Verdana";
-  font-display: swap;
-  src: url("../fonts/Verdana-Bold.woff2") format("woff2"), url("../fonts/Verdana-Bold.woff") format("woff");
+  font-family: "OpenSans";
+  font-display: auto;
+  src: url("../fonts/OpenSans-v18-latin-ext_cyrillic-ext-Bold-italic.woff2") format("woff2"), url("../fonts/OpenSans-v18-latin-ext_cyrillic-ext-Bold-italic.woff") format("woff");
   font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Verdana";
-  font-display: swap;
-  src: url("../fonts/Verdana.woff2") format("woff2"), url("../fonts/Verdana.woff") format("woff");
-  font-weight: 400;
   font-style: normal;
 }
 

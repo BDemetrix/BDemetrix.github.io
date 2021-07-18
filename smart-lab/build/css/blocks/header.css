@@ -1060,9 +1060,10 @@ textarea {
 
 @media (min-width: 810px) {
   .header__search {
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
     margin: 0 25px 0 15px;
   }
 
@@ -1070,7 +1071,7 @@ textarea {
     -webkit-box-flex: 0;
         -ms-flex: 0 1 510px;
             flex: 0 1 510px;
-    margin-right: 25px;
+    margin-right: 15px;
   }
 
   .header__search-alphabet {

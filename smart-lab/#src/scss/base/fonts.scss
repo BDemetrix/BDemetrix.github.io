@@ -1,11 +1,5 @@
-@include font("Helvetica", "Helvetica", "400", "normal");
-@include font("OpenSans", "OpenSans-v18-latin-ext_cyrillic-ext-Bold-italic", "700", "normal");
 @include font("OpenSans", "OpenSans-v18-latin-ext_cyrillic-ext-Bold", "700", "normal");
 @include font("OpenSans", "OpenSans-v20-latin-ext_cyrillic-ext-400", "400", "normal");
-@include font("Roboto", "Roboto-Bold", "700", "normal");
-@include font("Roboto", "Roboto-Medium", "500", "normal");
-@include font("Roboto", "Roboto-Regular", "400", "normal");
-@include font("Tahoma", "Tahoma-Bold", "700", "normal");
-@include font("Tahoma", "Tahoma", "400", "normal");
-@include font("Verdana", "Verdana-Bold", "700", "normal");
-@include font("Verdana", "Verdana", "400", "normal");
+@include font("Tahoma", "Tahoma-short-Bold", "700", "normal");
+@include font("Tahoma", "Tahoma-short", "400", "normal");
+@include font("OpenSans", "OpenSans-v18-latin-ext_cyrillic-ext-Bold-italic", "700", "normal");
