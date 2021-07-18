@@ -1,6 +1,5 @@
 .alphabet {
-  position: relative;
-
+  
 	// .alphabet__icon
 	&__icon {
 		display: flex;
@@ -17,16 +16,28 @@
 		}
 		&:hover {
 			span {
-				transform: scale(1.3) translate(0, 1px);
+				transform: scale(1.15);
 				color: #fff;
+			}
+		}
+
+		@media (min-width: $md2-1 + px) {
+			opacity: 0;
+			visibility: hidden;
+
+			&:hover {
+				span {
+					transform: scale(1.3) translate(0, 1px);
+					color: #fff;
+				}
 			}
 		}
 	}
 	// .alphabet__body
 	&__body {
 		position: absolute;
-		right: -30px;
-		top: 35px;
+		right: 0px;
+		top: 88px;
     padding: 10px;
     background: $header-bg-color;
     border-radius: 6px;
@@ -36,8 +47,9 @@
 		transform: translate(0, -10px);
 		transition: transform $t linear, opacity $t*0.8 linear;
 
-    @media (min-width: $md4 + px) {
+    @media (min-width: $md2-1 + px) {
       right: 0;
+			top: 35px;
     }
 	}
 
@@ -53,7 +65,11 @@
 	&__list {
     display: inline-flex;
     flex-wrap: wrap;
-    width: 300px;
+    width: 240px;
+		
+		@media (min-width: $md6 + px) {
+			width: 300px;
+		}
 
     @media (min-width: $md4 + px) {
       width: 360px;
@@ -76,5 +92,13 @@
         background-color: $style-1-color;
       }
     }
+	}
+
+	&._show {
+
+		.alphabet__icon {
+			opacity: 1;
+			visibility: visible;
+		}
 	}
 }

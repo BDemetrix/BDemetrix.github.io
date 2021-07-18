@@ -280,25 +280,32 @@ if (mainMenuBtn) {
 }
 
 // Header search ========= 
-/**
- * когда поисковый инпут в фокусе, то его родителю присваивается класс _focus
- */
+
+let alphabet = document.querySelector('.alphabet')
 let searchInput = document.querySelector('.query-search__input');
-searchInput.addEventListener('focus', () => {
-  searchInput.classList.add('_focus');
-  searchInput.parentElement.classList.add('_focus');
+if (searchInput) {
+  /**
+  * когда поисковый инпут в фокусе, то его родителю присваивается класс _focus
+  * также блоку .alphabet прсваивается или удаляется модификатор _show
+  */
+  searchInput.addEventListener('focus', () => {
+    searchInput.classList.add('_focus');
+    searchInput.parentElement.classList.add('_focus');
+    alphabet.classList.add('_show');
   });
-/**
- * когда поисковый инпут не в фокусе, то у его родителю удаляется класс _focus
- */
-searchInput.addEventListener('blur', () => {
-  const searchInputParent = searchInput.parentElement;
-  setTimeout(() => {
-    searchInput.classList.remove('_focus');
-    searchInputParent.classList.remove('_focus');
-    searchInput.value = '';
-  }, 200);
-});
+  /**
+   * когда поисковый инпут не в фокусе, то у его родителю удаляется класс _focus
+   */
+  searchInput.addEventListener('blur', () => {
+    const searchInputParent = searchInput.parentElement;
+    setTimeout(() => {
+      alphabet.classList.remove('_show');
+      searchInput.classList.remove('_focus');
+      searchInputParent.classList.remove('_focus');
+      searchInput.value = '';
+    }, 200);
+  });
+}
 /**
  * при клике на кнопку-иконку поиска в хедере (появляется при заданном брейкпоинте) фокус переносится в инпут
  */
