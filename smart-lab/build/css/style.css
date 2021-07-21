@@ -659,6 +659,12 @@ picture {
   margin-right: 25px;
 }
 
+.header__login-link svg {
+  width: 40px;
+  height: 30px;
+  fill: #9E9E9E;
+}
+
 .menu__icon {
   cursor: pointer;
   padding: 10px 5px;

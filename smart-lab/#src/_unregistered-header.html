@@ -1,0 +1,73 @@
+<header class="header">
+	<!-- 
+		* по классу ._active-el навешиваем обработчик события 'click' на каждый
+		* из этих елементов (кнопку/иконку), его родителю присваивается класс ._open 
+	-->
+	<div class="header__content">
+		@@include('_menu.html', {"MixClass": "header__menu"})
+		<div class="header__logo">
+			<a href="https://smart-lab.ru/" class="logo">
+				<h5 class="logo__title">
+					<div class="logo__title-main">
+						SMART-LAB
+					</div>
+					<div class="logo__title-motto">Мы делаем деньги на бирже</div>
+				</h5>
+			</a>
+		</div>
+		<div class="header__search">
+			<div class="header__search-query query-search">
+				<!-- 
+				    * Класс _active-el добавляется кнопке открывающей/закрывающей Pop-Up  
+				    * и нужен для синхконизации всплывающих окон между собой
+				    * при клике на элемен содержащий класс _active-el его родителю присваивается сласс _open
+				  -->
+				<div class="query-search__icon _active-el">
+					<svg>
+							<use xlink:href="images/symbol/sprite.svg#search"></use>
+					</svg>
+				</div>
+				<div class="query-search__body">
+					<form class="query-search__form" action="">
+						<div class="query-search__input-wrap">
+							<!-- такой порядок элементов в этом блоке и параметр required в инпуте нужен, 
+								чтобы кнопка query-search__btn становилась активной, а стрелка query-search__input-arrow появлялась
+								только при условии что инпут не пустой (правило задано в стилях)
+							 -->
+							<input class="query-search__input" placeholder="Ищу компанию.." type="text" autocomplete="off" name="form[]"
+								autocompleter="forum/ajaxsearch/" required>
+							<button class="query-search__btn" type="submit">
+								<svg>
+									<use xlink:href="images/symbol/sprite.svg#search"></use>
+								</svg>
+							</button>
+							<div class="query-search__input-arrow" title="варианты поиска">
+								<svg>
+									<use xlink:href="images/symbol/sprite.svg#triangle-arrow"></use>
+								</svg>
+							</div>
+						</div>
+						
+						<div class="query-search__suggestions">
+							<!-- isert .autocomplete-suggestions -->
+						</div>
+					</form>
+					@@include('_alphabet.html',{
+					"MixClass":"header__search-alphabet"
+					})
+				</div>
+			</div>
+		</div>
+		<!-- 
+			* Только для незалогиненых вставляется блок header__login
+			* Иначе на его место ставятся блоки header__message, header__notify, header__usermenu
+		-->
+		<div class="header__login">
+			<a href="https://smart-lab.ru/login/" class="header__login-link">
+				<svg>
+						<use xlink:href="images/symbol/sprite.svg#login"></use>
+				</svg>
+			</a>
+		</div>
+	</div>
+</header>
