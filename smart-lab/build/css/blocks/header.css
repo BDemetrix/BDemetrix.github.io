@@ -232,6 +232,14 @@
   display: inline-block;
 }
 
+.logo::before {
+  position: absolute;
+  top: 0;
+  right: -10px;
+  width: 10px;
+  height: 10px;
+}
+
 .logo * {
   font-family: "Tahoma", sans-serif !important;
 }
@@ -946,6 +954,10 @@ h5.logo__title-main {
   color: #F59300 !important;
 }
 
+._style-1 .logo::before {
+  background: #F59300;
+}
+
 ._style-1 .logo a {
   color: #F59300 !important;
 }
@@ -970,6 +982,11 @@ h5.logo__title-main {
 ._style-2 .logo,
 ._style-3 .logo {
   color: #d4d4d4 !important;
+}
+
+._style-2 .logo::before,
+._style-3 .logo::before {
+  background: #F59300;
 }
 
 ._style-2 .logo a,

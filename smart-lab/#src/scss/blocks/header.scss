@@ -189,6 +189,36 @@
 	position: relative;
 	display: inline-block;
 	
+	&::before {
+		content: '';
+		position: absolute;
+		border-radius: 50%;
+		display: none;
+
+		@media (min-width: $md7 + px) {
+			display: block;
+			top: 2px;
+			right: adaptiv-value($md5,-12,320,-7);
+			width: adaptiv-value($md4,8,320,5);
+			height: adaptiv-value($md4,8,320,5);
+		}
+	
+		@media (min-width: $md5 + px) {
+			top: 3px;
+			right: -12px;
+			width: 8px;
+			height: 8px;
+		}
+
+		@media (min-width: $md4 + px) {
+			top: 5px;
+			right: -15px;
+			width: 10px;
+			height: 10px;
+		}
+
+	}
+
 	* {
 		font-family: 'Tahoma', sans-serif !important; // !important Для исправления конфликтов
 	}
@@ -248,8 +278,7 @@ h5.logo__title-main {
 .query-search {
 	// .query-search__icon
 	&__icon {
-		
-		margin-right: 15px;
+		margin-right: 10px;
 		cursor: pointer;
 		width: 20px;
 		height: 20px;
@@ -265,6 +294,12 @@ h5.logo__title-main {
 				transform: scale(1.3);
 				fill: #fff;
 			}
+		}
+		@media (min-width: $md7 + px) {
+			margin-right: adaptiv-value($md6,15,320,10);
+		}
+		@media (min-width: $md6 + px) {
+			margin-right: 15px;
 		}
 		@media (min-width: $md5 + px) {
 			margin-right: 20px;
@@ -916,6 +951,10 @@ h5.logo__title-main {
 	.logo {
 		color: $style-1-color !important;
 
+		&::before {
+			background: $style-1-color;
+		}
+
 		a {
 			color:$style-1-color !important;
 		}
@@ -942,6 +981,10 @@ h5.logo__title-main {
 	
 	.logo {
 		color: $style-2-color !important;
+
+		&::before {
+			background: $style-1-color;
+		}
 
 		a {
 			color: $style-2-color !important;

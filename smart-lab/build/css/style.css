@@ -712,6 +712,13 @@ picture {
   display: inline-block;
 }
 
+.logo::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  display: none;
+}
+
 .logo * {
   font-family: "Tahoma", sans-serif !important;
 }
@@ -743,7 +750,7 @@ h5.logo__title-main {
 }
 
 .query-search__icon {
-  margin-right: 15px;
+  margin-right: 10px;
   cursor: pointer;
   width: 20px;
   height: 20px;
@@ -1426,6 +1433,10 @@ h5.logo__title-main {
   color: #F59300 !important;
 }
 
+._style-1 .logo::before {
+  background: #F59300;
+}
+
 ._style-1 .logo a {
   color: #F59300 !important;
 }
@@ -1450,6 +1461,11 @@ h5.logo__title-main {
 ._style-2 .logo,
 ._style-3 .logo {
   color: #d4d4d4 !important;
+}
+
+._style-2 .logo::before,
+._style-3 .logo::before {
+  background: #F59300;
 }
 
 ._style-2 .logo a,
@@ -2361,7 +2377,25 @@ textarea {
           flex: 1 1 auto;
 }
 
+@media (min-width: 320px) {
+  .logo::before {
+    display: block;
+    top: 2px;
+    right: calc(-7px + -5 * ((100vw - 320px) / 159.98));
+    width: calc(5px + 3 * ((100vw - 320px) / 247.98));
+    height: calc(5px + 3 * ((100vw - 320px) / 247.98));
+  }
+
+  .query-search__icon {
+    margin-right: calc(10px + 5 * ((100vw - 320px) / 44.98));
+  }
+}
+
 @media (min-width: 364.98px) {
+  .query-search__icon {
+    margin-right: 15px;
+  }
+
   .alphabet__list {
     width: 300px;
   }
@@ -2378,6 +2412,13 @@ textarea {
 @media (min-width: 479.98px) {
   .menu__icon {
     padding: 10px;
+  }
+
+  .logo::before {
+    top: 3px;
+    right: -12px;
+    width: 8px;
+    height: 8px;
   }
 
   .logo__title-main {
@@ -2419,6 +2460,13 @@ textarea {
 }
 
 @media (min-width: 567.98px) {
+  .logo::before {
+    top: 5px;
+    right: -15px;
+    width: 10px;
+    height: 10px;
+  }
+
   .logo__title-main {
     font-size: 33px;
     line-height: 33px;
