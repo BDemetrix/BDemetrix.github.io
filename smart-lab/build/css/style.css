@@ -5160,7 +5160,8 @@ textarea {
 }
 
 .main__table {
-  margin: 20px 0 70px;
+  margin: 20px auto 70px;
+  padding: 0 15px;
 }
 
 @media (min-width: 320px) {
