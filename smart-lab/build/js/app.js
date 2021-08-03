@@ -1,6 +1,168 @@
 function email_test(input) {
 	return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
 }
+// Dynamic Adapt v.1
+// HTML data-da="where(uniq class name),when(breakpoint),position(digi)"
+// e.x. data-da=".item,992,2"
+// Andrikanych Yevhen 2020
+// https://www.youtube.com/c/freelancerlifestyle
+
+"use strict";
+
+
+function DynamicAdapt(type) {
+	this.type = type;
+}
+
+DynamicAdapt.prototype.init = function () {
+	const _this = this;
+	// массив объектов
+	this.оbjects = [];
+	this.daClassname = "_dynamic_adapt_";
+	// массив DOM-элементов
+	this.nodes = document.querySelectorAll("[data-da]");
+
+	// наполнение оbjects объктами
+	for (let i = 0; i < this.nodes.length; i++) {
+		const node = this.nodes[i];
+		const data = node.dataset.da.trim();
+		const dataArray = data.split(",");
+		const оbject = {};
+		оbject.element = node;
+		оbject.parent = node.parentNode;
+		оbject.destination = document.querySelector(dataArray[0].trim());
+		оbject.breakpoint = dataArray[1] ? dataArray[1].trim() : "767";
+		оbject.place = dataArray[2] ? dataArray[2].trim() : "last";
+		оbject.index = this.indexInParent(оbject.parent, оbject.element);
+		this.оbjects.push(оbject);
+	}
+
+	this.arraySort(this.оbjects);
+
+	// массив уникальных медиа-запросов
+	this.mediaQueries = Array.prototype.map.call(this.оbjects, function (item) {
+		return '(' + this.type + "-width: " + item.breakpoint + "px)," + item.breakpoint;
+	}, this);
+	this.mediaQueries = Array.prototype.filter.call(this.mediaQueries, function (item, index, self) {
+		return Array.prototype.indexOf.call(self, item) === index;
+	});
+
+	// навешивание слушателя на медиа-запрос
+	// и вызов обработчика при первом запуске
+	for (let i = 0; i < this.mediaQueries.length; i++) {
+		const media = this.mediaQueries[i];
+		const mediaSplit = String.prototype.split.call(media, ',');
+		const matchMedia = window.matchMedia(mediaSplit[0]);
+		const mediaBreakpoint = mediaSplit[1];
+
+		// массив объектов с подходящим брейкпоинтом
+		const оbjectsFilter = Array.prototype.filter.call(this.оbjects, function (item) {
+			return item.breakpoint === mediaBreakpoint;
+		});
+		matchMedia.addListener(function () {
+			_this.mediaHandler(matchMedia, оbjectsFilter);
+		});
+		this.mediaHandler(matchMedia, оbjectsFilter);
+	}
+};
+
+DynamicAdapt.prototype.mediaHandler = function (matchMedia, оbjects) {
+	if (matchMedia.matches) {
+		for (let i = 0; i < оbjects.length; i++) {
+			const оbject = оbjects[i];
+			оbject.index = this.indexInParent(оbject.parent, оbject.element);
+			this.moveTo(оbject.place, оbject.element, оbject.destination);
+		}
+	} else {
+		for (let i = 0; i < оbjects.length; i++) {
+			const оbject = оbjects[i];
+			if (оbject.element.classList.contains(this.daClassname)) {
+				this.moveBack(оbject.parent, оbject.element, оbject.index);
+			}
+		}
+	}
+};
+
+// Функция перемещения
+DynamicAdapt.prototype.moveTo = function (place, element, destination) {
+	element.classList.add(this.daClassname);
+	if (place === 'last' || place >= destination.children.length) {
+		destination.insertAdjacentElement('beforeend', element);
+		return;
+	}
+	if (place === 'first') {
+		destination.insertAdjacentElement('afterbegin', element);
+		return;
+	}
+	destination.children[place].insertAdjacentElement('beforebegin', element);
+}
+
+// Функция возврата
+DynamicAdapt.prototype.moveBack = function (parent, element, index) {
+	element.classList.remove(this.daClassname);
+	if (parent.children[index] !== undefined) {
+		parent.children[index].insertAdjacentElement('beforebegin', element);
+	} else {
+		parent.insertAdjacentElement('beforeend', element);
+	}
+}
+
+// Функция получения индекса внутри родителя
+DynamicAdapt.prototype.indexInParent = function (parent, element) {
+	const array = Array.prototype.slice.call(parent.children);
+	return Array.prototype.indexOf.call(array, element);
+};
+
+// Функция сортировки массива по breakpoint и place 
+// по возрастанию для this.type = min
+// по убыванию для this.type = max
+DynamicAdapt.prototype.arraySort = function (arr) {
+	if (this.type === "min") {
+		Array.prototype.sort.call(arr, function (a, b) {
+			if (a.breakpoint === b.breakpoint) {
+				if (a.place === b.place) {
+					return 0;
+				}
+
+				if (a.place === "first" || b.place === "last") {
+					return -1;
+				}
+
+				if (a.place === "last" || b.place === "first") {
+					return 1;
+				}
+
+				return a.place - b.place;
+			}
+
+			return a.breakpoint - b.breakpoint;
+		});
+	} else {
+		Array.prototype.sort.call(arr, function (a, b) {
+			if (a.breakpoint === b.breakpoint) {
+				if (a.place === b.place) {
+					return 0;
+				}
+
+				if (a.place === "first" || b.place === "last") {
+					return 1;
+				}
+
+				if (a.place === "last" || b.place === "first") {
+					return -1;
+				}
+
+				return b.place - a.place;
+			}
+
+			return b.breakpoint - a.breakpoint;
+		});
+		return;
+	}
+};
+
+const da = new DynamicAdapt("max");
+da.init();
 /**
  * Объект isMobile содержит результаты проверки типа и марки тачпада
  */
@@ -196,14 +358,21 @@ let _slideToggle = (target, duration = 500) => {
 // To connect the SimpleBar
 /**
  * Функци подключает плагин SimpleBar для стилизации скролл-бара, в случае неудаче блоку задается стиль ovetflowY = 'auto'
- * @param {String} selector - селектор блока, в котором требуется стилизация скролла
+ * @param {String || Object} selector - селектор блока, в котором требуется стилизация скролла
  */
 function plugSimpleBar(selector) {
-  let simpleBarEl = document.querySelector(selector);
+  let simpleBarEl
+  if (typeof selector === 'string') {
+    simpleBarEl = document.querySelector(selector);
+  }
+  else if (typeof selector === 'object') {
+    simpleBarEl = selector;
+  }
+  else return;
+  
   if (simpleBarEl) {
     try {
       return new SimpleBar(simpleBarEl);
-
     } catch {
       simpleBarEl.style.ovetflowY = 'auto';
     }
@@ -215,12 +384,13 @@ function plugSimpleBar(selector) {
  */
 function closeAllOpenedMenu() {
   const allMenu = document.querySelectorAll('._open');
-  allMenu.forEach(menu => menu.classList.remove('_open'))
+  allMenu.forEach(menu => menu.classList.remove('_open'));
+  unBlockOverflow();
 }
 
 /**
  * при клике на любую область документа, если эта область не находится внутри открытого меню, 
- * то закрываются все кнопки
+ * то закрываются все окна
  */
 document.documentElement.addEventListener('click', (e) => {
   if (!e.target.closest('._open') && !e.target.closest('._active-el')) {
@@ -229,6 +399,50 @@ document.documentElement.addEventListener('click', (e) => {
 });
 
 //=================
+
+/**
+ * Когда <input class="input"> в фокусе его родителю присваивается класс _focus
+ */
+
+let inputArr = document.querySelectorAll('._input');
+if (inputArr.length) {
+  inputArr.forEach(input => {
+    input.addEventListener('focus', () => {
+      input.parentElement.classList.add('_focus');
+    });
+    input.addEventListener('blur', () => {
+      input.parentElement.classList.remove('_focus');
+    });
+    input.addEventListener('change', () => {
+      if (input.value)
+        input.parentElement.classList.add('_filled');
+      else
+        input.parentElement.classList.remove('_filled');
+    });
+  });
+}
+
+//===================
+
+/**
+ * Валиация ввода - только цифры
+ * @param {event} event
+ */
+function numOnly(event) {
+  if (event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || event.keyCode == 13 ||
+    // Разрешаем: Ctrl+A
+    (event.keyCode == 65 && event.ctrlKey === true) ||
+    // Разрешаем: home, end, влево, вправо
+    (event.keyCode >= 35 && event.keyCode <= 39)) {
+    // Ничего не делаем
+    return;
+  } else {
+    // Запрещаем все, кроме цифр на основной клавиатуре, а так же Num-клавиатуре
+    if ((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105)) {
+      event.preventDefault();
+    }
+  }
+}
 // HEADER JS / begin ============================================================================
 let mainHeader = document.querySelector('header.header');
 let headerMenuBody = document.querySelector('.header .menu__body');
@@ -575,3 +789,265 @@ function dropMenuMaxWidth(dropMenu) {
 
   dropMenu.style.maxWidth = (windowWidth - dropMenuLeft - 5) + 'px';
 }
+//BildSlider
+let sliders = document.querySelectorAll('._swiper');
+if (sliders) {
+	for (let index = 0; index < sliders.length; index++) {
+		let slider = sliders[index];
+		if (!slider.classList.contains('swiper-bild')) {
+			let slider_items = slider.children;
+			if (slider_items) {
+				for (let index = 0; index < slider_items.length; index++) {
+					let el = slider_items[index];
+					el.classList.add('swiper-slide');
+				}
+			}
+			let slider_content = slider.innerHTML;
+			let slider_wrapper = document.createElement('div');
+			slider_wrapper.classList.add('swiper-wrapper');
+			slider_wrapper.innerHTML = slider_content;
+			slider.innerHTML = '';
+			slider.appendChild(slider_wrapper);
+			slider.classList.add('swiper-bild');
+
+			if (slider.classList.contains('_swiper_scroll')) {
+				let sliderScroll = document.createElement('div');
+				sliderScroll.classList.add('swiper-scrollbar');
+				slider.appendChild(sliderScroll);
+			}
+		}
+		if (slider.classList.contains('_gallery')) {
+			//slider.data('lightGallery').destroy(true);
+		}
+	}
+	sliders_bild_callback();
+}
+
+function sliders_bild_callback(params) { }
+
+let sliderScrollItems = document.querySelectorAll('._swiper_scroll');
+if (sliderScrollItems.length > 0) {
+	for (let index = 0; index < sliderScrollItems.length; index++) {
+		const sliderScrollItem = sliderScrollItems[index];
+		const sliderScrollBar = sliderScrollItem.querySelector('.swiper-scrollbar');
+		const sliderScroll = new Swiper(sliderScrollItem, {
+			direction: 'vertical',
+			slidesPerView: 'auto',
+			freeMode: true,
+			scrollbar: {
+				el: sliderScrollBar,
+				draggable: true,
+				snapOnRelease: false
+			},
+			mousewheel: {
+				releaseOnEdges: true,
+			},
+		});
+		sliderScroll.scrollbar.updateSize();
+	}
+}
+
+let qnMenuSelectorsSlider;
+const qnMenuSelectors = document.querySelector('.qn-menu__selectors');
+if (qnMenuSelectors) {
+	qnMenuSelectors.classList.remove('_loading');
+
+	qnMenuSelectorsSlider = new Swiper(qnMenuSelectors, {
+		slidesPerView: 'auto',
+		//centeredSlides: true,
+		//centeredSlidesBounds: true,
+		watchOverflow: true,
+		//spaceBetween: 40,
+		//freeMode: true,
+		//freeModeSticky: true,
+		speed: 400,
+	});
+}
+
+window.addEventListener('resize', () => {
+	if (qnMenuSelectorsSlider) {
+		qnMenuSelectorsSlider.updateSize();
+	}
+});
+const qnMenuMobTabs = document.querySelectorAll('.qn-menu__mob-tabs a');
+qnMenuMobTabs.forEach(a => {
+  a.addEventListener('click', (e) => {
+    e.stopPropagation()
+  })
+});
+
+// Обработчик открытия/закрытия окна "фильтры"
+const qnMenuBtnFilter = document.querySelector('.qn-menu__btn--filter');
+const qnFilters = document.querySelector('.qn-filters');
+const qnFiltersClose = document.querySelector('.qn-filters__close');
+
+if (qnMenuBtnFilter && qnFilters && qnFiltersClose) {
+
+  qnMenuBtnFilter.addEventListener('click', () => {
+    if (qnMenuBtnFilter.parentElement.classList.contains('_open')) 
+      unBlockOverflow();
+    else 
+      blockOverflow();
+    qnMenuBtnFilter.parentElement.classList.toggle('_open');
+  });
+
+  qnFilters.addEventListener('click', (e) => {
+    if (!e.target.closest('.qn-filters__content') || e.target.closest('.qn-filters__close')) {
+      qnFilters.closest('._open').classList.remove('_open');
+      unBlockOverflow()
+    }
+  });  
+}
+
+
+// Подключения кастомного селекта 
+
+if ($('#sector_id').length) $('#sector_id').SumoSelect({ 
+  placeholder: 'Все сектора',
+  csvDispCount: 2,
+  captionFormat: 'Сектора ({0})',
+
+});
+var f = $('#val_middle_gt, #val_middle_lt, #capitalization_gt, #capitalization_lt, #is_state_owned, #is_exporter, #year, #type, #quarter, #duration_lt_id, #duration_gt_id, #mat_years_lt_id, #mat_years_gt_id, #year_yield_lt_id, #year_yield_gt_id, #ofz_type_id');
+if (f.length) f.SumoSelect();
+
+// подключение кастомного скролла
+let optWrapperUls = document.querySelectorAll('.optWrapper ul');
+if (optWrapperUls.length) {
+  optWrapperUls.forEach(element => {
+    plugSimpleBar(element);
+  });
+}
+plugSimpleBar('.qn-filters__content');
+
+
+// Подключение календаря
+
+Datepicker.locales.ru = {
+  days: ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'],
+  daysShort: ['Вск', 'Пнд', 'Втр', 'Сре', 'Чтв', 'Птн', 'Суб'],
+  daysMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+  months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+  monthsShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
+  today: 'Today',
+  clear: 'Очистить',
+  titleFormat: 'MM y',
+  format: 'dd.mm.yyyy',
+  weekStart: 1,
+};
+
+let filterDatepicker;
+let filterDateRargeElm = document.querySelector('.qn-filters__date-input');
+if (filterDateRargeElm) {
+  const arrow = `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 6L2.29289 5.29289L1.58579 6L2.29289 6.70711L3 6ZM8.70711 10.2929L3.70711 5.29289L2.29289 6.70711L7.29289 11.7071L8.70711 10.2929ZM3.70711 6.70711L8.70711 1.7071L7.29289 0.292891L2.29289 5.29289L3.70711 6.70711Z"/></svg>`;
+  filterDatepicker = new Datepicker(filterDateRargeElm, {
+    autohide: true,
+    daysOfWeekDisabled: [],
+    daysOfWeekHighlighted: [],
+    nextArrow: arrow,
+    prevArrow: arrow,
+    todayBtnMode: 1,
+    clearBtn: true,
+    format: 'dd.mm.yyyy',
+    container: '.qn-filters__datepicker',
+    language: "ru",
+  });
+}
+// ==============================
+
+//RANGE
+// Подключение ползунка
+let qnFiltersRangeSliderObjs = [];
+const qnFiltersRangeSliderEls = document.querySelectorAll('.qn-filters__range-slider');
+qnFiltersRangeSliderEls.forEach( el => {
+
+  qnFiltersRangeSliderObjs.push({
+    target: el,
+    settings: {
+      start: [1, 1000],
+      margin: 10,
+      connect: true,
+      range: {
+        'min': [0],
+        'max': [1000]
+      }
+    },
+    wNumbFormat: wNumb({
+      decimals: 0,
+      thousand: '',
+      suffix: "М ₽"
+    })
+  });
+});
+
+qnFiltersRangeSliderObjs.forEach( obj => plugNoUiSlider(obj));
+
+
+
+/**
+ * Функция подключает noUiSlider 
+ * @param {Object} obj - одержит селектор или объект к которому подключается слайдер и  объект настроек
+ * Ищет инпуты в родительском элементе и подключает их к слайдеру
+ */
+function plugNoUiSlider(obj) {
+
+  if (!obj || !obj.target || !obj.settings || !obj.wNumbFormat) {
+    console.log('Плагин NoUiSlider не може быть подключен. function plugNoUiSlider(obj)');
+    return;
+  }
+
+  let sliderEl;
+  if (typeof obj.target == 'string') 
+    sliderEl = document.querySelector(obj.target);
+  else if (typeof obj.target == 'object')
+    sliderEl = obj.target;
+  else {
+    console.log('Плагин NoUiSlider не може быть подключен. Не определен целевой объект');
+    return;
+  }
+  
+
+  if (sliderEl) {
+    const inputs = sliderEl.parentElement.querySelectorAll('input');
+    slider = noUiSlider.create(sliderEl, {
+      ...obj.settings,
+      format: obj.wNumbFormat
+    });
+
+    if (inputs) {
+
+      slider.on('slide', (params) => {
+        inputs.forEach((input, i) => {
+          input.value = params[i];
+        });
+      });
+
+      inputs.forEach((input) => {
+        input.addEventListener('keydown', numOnly);
+        input.addEventListener('blur', inputBlur);
+        input.addEventListener('focus', (e) => { e.target.select() });
+        input.addEventListener('change', setSliderValues);
+
+        input.focus();
+        input.blur();
+      })
+    }
+
+    function inputBlur() {
+      let x = Number(obj.wNumbFormat.from(this.value));
+      this.value = obj.wNumbFormat.to(x);
+    }
+
+    function setSliderValues() {
+      let inputsValues = [];
+      inputs.forEach(input => inputsValues.push(input.value));
+      console.log(inputsValues);
+      sliderEl.noUiSlider.set(inputsValues);
+    }
+  }
+}
+
+// Подключение адаптивной таблицы
+setTimeout(() => {
+ new FlexTable('.trades-table'); 
+}, 500);

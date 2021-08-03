@@ -59,14 +59,10 @@ picture {
 
 //<ОСНОВНАЯ СЕТКА>===========================================================================================================
 ._container {
-	//max-width: $maxWidthContainer + px;
+	max-width: $maxWidthContainer + px;
 	padding: 0 15px;
 	margin: 0 auto;
 	width: 100%;
-	
-	@media (max-width: $md4+px) {
-		padding: 0 15px;
-	}
 }
 //</ОСНОВНАЯ СЕТКА>===========================================================================================================
 
@@ -78,8 +74,12 @@ picture {
 
 //<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
 @import "./plugins/simplebar";
-//@import "./plugins/lightgallery";
+@import "./plugins/swiper";
+@import "./plugins/sumoselect";
+@import "./plugins/datepicker-new";
+@import "./plugins/flex-table";
 //@import "./plugins/nouislider";
+@import "./plugins/nouislider";
 //@import "./blocks/pagging";
 //@import "./blocks/popup";
 @import "./blocks/header";
@@ -89,13 +89,24 @@ picture {
 @import "./blocks/main";
 @import "./blocks/social-btn";
 @import "./blocks/footer";
-@import "./blocks/_login-page";
+@import "./blocks/_quotes-menu";
+@import "./blocks/_qn-filters";
+@import "./blocks/_trades-table";
+
 
 //</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
 
 //<ОСНОВНОЙ БЛОК>====================================================================================================
-.page {
+.main{
 	flex: 1 1 auto;
+	background: #E5E5E5;
+	&___quotes {
+		
+	}
+  // .main__table 
+  &__table {
+    margin: 20px 0 70px;
+  }
 }
 //===================================================================================================================================
 

@@ -50,7 +50,7 @@ let path = {
 		cssBlocks: [src_folder + "/scss/blocks/*.scss", "!" + src_folder + "/scss/blocks/_*.scss"],
 		cssThemes: src_folder + "/scss/themes/*.scss",
 		images: [src_folder + "/images/**/*.{jpg,png,svg,gif,ico,webp}", "!**/favicon.*", "!**/sprite/**.*"],
-        webp: [src_folder + "/images/**/*.{jpg,png,svg,gif,ico,webp}", "!**/favicon.*", "!**/sprite/**.*", "!**/**.svg"],
+    webp: [src_folder + "/images/**/*.{jpg,png,svg,gif,ico,webp}", "!**/favicon.*", "!**/sprite/**.*", "!**/**.svg"],
 		fonts: src_folder + "/fonts/*.ttf",
 		sprite: src_folder + "/images/sprite/**.svg"
 	},

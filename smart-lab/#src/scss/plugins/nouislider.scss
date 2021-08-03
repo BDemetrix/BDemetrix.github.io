@@ -88,13 +88,14 @@
 /* Slider size and handle placement;
  */
 .noUi-horizontal {
-	height: 18px;
+	height: 2px;
 }
 .noUi-horizontal .noUi-handle {
-	width: 23px;
-	height: 23px;
-	right: -11.5px;
-	top: -10px;
+  cursor: pointer;
+	width: 10px;
+	height: 10px;
+	right: -5px;
+	top: -4.5px;
 }
 .noUi-vertical {
 	width: 18px;
@@ -113,30 +114,30 @@
  * Giving the connect element a border radius causes issues with using transform: scale
  */
 .noUi-target {
-	height: 4px;
-	background-color: #eaeaea;
-	margin: 0px 11px 50px;
+	height: 2px;
+	background-color: #E2E2E2;
+	margin: 0px 6px 25px;
 	position: relative;
 	&::before,
 	&::after {
 		content: "";
-		background-color: #eaeaea;
-		width: 11px;
-		height: 4px;
+		background-color: #E2E2E2;
+		width: 6px;
+		height: 2px;
 		position: absolute;
 		top: 0;
 	}
 	&::before {
-		left: -10px;
+		left: -5px;
 	}
 	&::after {
-		right: -10px;
+		right: -5px;
 	}
 }
 .noUi-connects {
 }
 .noUi-connect {
-	background-color: #ffcda5;
+	background-color: #4F91CD;
 }
 /* Handles and cursors;
  */
@@ -147,19 +148,18 @@
 	cursor: ns-resize;
 }
 .noUi-handle {
-	border: 1px solid #f68038;
-	background-color: #ffffff;
+	background-color: #4F91CD;;
 	border-radius: 50%;
 	cursor: default;
 	&::after {
 		content: "";
-		width: 15px;
-		height: 15px;
+		width: 10px;
+		height: 10px;
 		position: absolute;
-		left: 3px;
-		top: 3px;
+		left: 0px;
+		top: 0px;
 		border-radius: 50%;
-		background-color: #f68038;
+		//background-color: #4F91CD;;
 	}
 }
 .noUi-active {
@@ -169,12 +169,13 @@
 /* Disabled state;
  */
 [disabled] .noUi-connect {
-	background: #b8b8b8;
+	background: #E2E2E2;
 }
 [disabled].noUi-target,
 [disabled].noUi-handle,
 [disabled] .noUi-handle {
 	cursor: not-allowed;
+  background: #E2E2E2;
 }
 /* Base;
  *

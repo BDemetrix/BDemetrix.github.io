@@ -13,11 +13,13 @@
 		<div class="wrapper">
 			@@include('_header.html',{})
 			@@include('_navbar.html',{"Class": "_container"})
-			<main class="main _container">
-
-				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-				<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			<main class="main">
+				@@include('_quotes-menu.html', {
+					"MixClass": "main__quotes"
+				})
+				@@include('_trades-table.html', {
+					"MixClass": "main__table _container"
+				})
 			</main>
 			@@include('_footer.html',{})
 		</div>
