@@ -1,3 +1,5 @@
+//plugSimpleBar('.qn-filters__content');
+
 const qnMenuMobTabs = document.querySelectorAll('.qn-menu__mob-tabs a');
 qnMenuMobTabs.forEach(a => {
   a.addEventListener('click', (e) => {
@@ -28,7 +30,19 @@ if (qnMenuBtnFilter && qnFilters && qnFiltersClose) {
   });  
 }
 
-//plugSimpleBar('.qn-filters__content');
+// Обработка сброса
+const qnFiltersContent = document.querySelector('.qn-filters__content');
+const filtersInputs = qnFilters.querySelectorAll('input');
+let inputChange = new Event('change');
+
+qnFiltersContent.addEventListener('reset', (e) => {
+  filtersInputs.forEach( input => {
+    setTimeout(() => {
+      input.dispatchEvent(inputChange);
+    }, 100);
+  });
+})
+
 
 // Подключения кастомного селекта
 
