@@ -18,7 +18,8 @@
 
 	// .qn-filters__content
 	&__content {
-    display: inline-flex;
+    //display: inline-flex;
+    overflow-y: auto;
     position: relative;
     background: #fff;
     width: 100%;
@@ -59,7 +60,7 @@
     @media (min-width: $md3 + px) {
 
       &:last-child {
-        margin-top: -130px;
+        margin-top: -116px;
 
         .qn-filters__block {
           padding: 24px 30px 8px;
@@ -463,10 +464,6 @@
       &:focus {
         color: #4F91CD;
       }
-
-      /* &[disabled] {
-        color : $disabled-color;
-      } */
     }   
 
     &--submit {
@@ -478,11 +475,6 @@
       &:focus {
         box-shadow: 0px 7px 18px rgba(31, 88, 139, 0.25);
       }
-      
-      /* &[disabled] {
-        background: #F4F4F4;
-        color     : $disabled-color;
-      } */
     }    
     
     &[disabled] {

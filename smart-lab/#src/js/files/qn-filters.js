@@ -28,8 +28,9 @@ if (qnMenuBtnFilter && qnFilters && qnFiltersClose) {
   });  
 }
 
+//plugSimpleBar('.qn-filters__content');
 
-// Подключения кастомного селекта 
+// Подключения кастомного селекта
 
 if ($('#sector_id').length) $('#sector_id').SumoSelect({ 
   placeholder: 'Все сектора',
@@ -37,7 +38,7 @@ if ($('#sector_id').length) $('#sector_id').SumoSelect({
   captionFormat: 'Сектора ({0})',
 
 });
-var f = $('#val_middle_gt, #val_middle_lt, #capitalization_gt, #capitalization_lt, #is_state_owned, #is_exporter, #year, #type, #quarter, #duration_lt_id, #duration_gt_id, #mat_years_lt_id, #mat_years_gt_id, #year_yield_lt_id, #year_yield_gt_id, #ofz_type_id');
+var f = $('#country_id, #val_middle_gt, #val_middle_lt, #capitalization_gt, #capitalization_lt, #is_state_owned, #is_exporter, #year, #type, #quarter, #duration_lt_id, #duration_gt_id, #mat_years_lt_id, #mat_years_gt_id, #year_yield_lt_id, #year_yield_gt_id, #ofz_type_id');
 if (f.length) f.SumoSelect();
 
 // подключение кастомного скролла
@@ -47,7 +48,7 @@ if (optWrapperUls.length) {
     plugSimpleBar(element);
   });
 }
-plugSimpleBar('.qn-filters__content');
+
 
 
 // Подключение календаря

@@ -168,7 +168,7 @@
 .SumoSelect.open > .optWrapper {
     top: 48px;
     display: block;
-    max-height: 250px;
+    max-height: 200px;
 }  
 .SumoSelect.open > .optWrapper.up {
     top: auto;
@@ -189,7 +189,7 @@
     border-radius: 2px;
     position:relative;
     /*Set the height of pop up here (only for desktop mode)*/
-    max-height: 220px;
+    max-height: 200px;
     /*height*/ 
 }  
 .SumoSelect > .optWrapper.okCancelInMulti > .options {
@@ -252,7 +252,7 @@
   overflow: hidden;
   display: block;
   cursor: pointer;
-    
+  color: #585858;
 }  
 .SumoSelect > .optWrapper > .options li span {
   display: none; 
@@ -487,7 +487,8 @@
 
 
 // sumo_ofz_type - выбор только одного пункта
-.SumoSelect.sumo_ofz_type {
+/* .SumoSelect.sumo_ofz_type
+ {
 
   &>.optWrapper>.options li.opt {
     padding: 14px 14px 14px 24px;
@@ -500,4 +501,15 @@
     }
   }
 
-}
+} */
+
+.optWrapper:not(.multiple)>.options li.opt {
+    padding: 14px 14px 14px 24px;
+    position: relative;
+    border-bottom: 1px solid #E2E2E2;
+
+    &:hover label{
+      background: #F4F4F4;
+      color: #4F91CD;
+    }
+  }

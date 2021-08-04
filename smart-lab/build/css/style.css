@@ -714,7 +714,7 @@ picture {
 .SumoSelect.open > .optWrapper {
   top: 48px;
   display: block;
-  max-height: 250px;
+  max-height: 200px;
 }
 
 .SumoSelect.open > .optWrapper.up {
@@ -735,7 +735,7 @@ picture {
   border-radius: 2px;
   position: relative;
   /*Set the height of pop up here (only for desktop mode)*/
-  max-height: 220px;
+  max-height: 200px;
   /*height*/
 }
 
@@ -810,6 +810,7 @@ picture {
   overflow: hidden;
   display: block;
   cursor: pointer;
+  color: #585858;
 }
 
 .SumoSelect > .optWrapper > .options li span {
@@ -1062,13 +1063,29 @@ picture {
   display: none;
 }
 
-.SumoSelect.sumo_ofz_type > .optWrapper > .options li.opt {
+/* .SumoSelect.sumo_ofz_type
+ {
+
+  &>.optWrapper>.options li.opt {
+    padding: 14px 14px 14px 24px;
+    position: relative;
+    border-bottom: 1px solid #E2E2E2;
+
+    &:hover {
+      background: #F4F4F4;
+      color: #4F91CD;
+    }
+  }
+
+} */
+
+.optWrapper:not(.multiple) > .options li.opt {
   padding: 14px 14px 14px 24px;
   position: relative;
   border-bottom: 1px solid #E2E2E2;
 }
 
-.SumoSelect.sumo_ofz_type > .optWrapper > .options li.opt:hover {
+.optWrapper:not(.multiple) > .options li.opt:hover label {
   background: #F4F4F4;
   color: #4F91CD;
 }
@@ -4250,9 +4267,7 @@ textarea {
 }
 
 .qn-filters__content {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
+  overflow-y: auto;
   position: relative;
   background: #fff;
   width: 100%;
@@ -4689,9 +4704,6 @@ textarea {
   margin-right: 10px;
   background: #F4F4F4;
   color: #585858;
-  /* &[disabled] {
-    color : $disabled-color;
-  } */
 }
 
 .qn-filters__btn--reset:hover,
@@ -4703,10 +4715,6 @@ textarea {
 .qn-filters__btn--submit {
   background: #4F91CD;
   color: #fff;
-  /* &[disabled] {
-    background: #F4F4F4;
-    color     : $disabled-color;
-  } */
 }
 
 .qn-filters__btn--submit:hover,
@@ -5346,7 +5354,7 @@ textarea {
   }
 
   .qn-filters__row:last-child {
-    margin-top: -130px;
+    margin-top: -116px;
   }
 
   .qn-filters__row:last-child .qn-filters__block {
