@@ -345,5 +345,6 @@
 
 .datepicker-input.in-edit:active,
 .datepicker-input.in-edit:focus {
-	box-shadow: 0 0 .25em .25em rgba(35, 102, 209, .2)
+  border-color: #2366d1
+	//box-shadow: 0 0 .25em .25em rgba(35, 102, 209, .2)
 }

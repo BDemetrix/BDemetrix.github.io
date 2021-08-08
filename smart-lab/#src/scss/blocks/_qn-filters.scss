@@ -33,12 +33,12 @@
     }
 
     @media (min-width: $md0 + px) {
-      margin: 60px auto;
       max-height: 90vh;
       min-height: 467px;
       max-width: none;
       height: auto;
       width: 1320px;
+      padding-bottom: 30px;
       overflow: visible;
     }
 	}

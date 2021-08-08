@@ -1426,8 +1426,7 @@ picture {
 
 .datepicker-input.in-edit:active,
 .datepicker-input.in-edit:focus {
-  -webkit-box-shadow: 0 0 0.25em 0.25em rgba(35, 102, 209, 0.2);
-          box-shadow: 0 0 0.25em 0.25em rgba(35, 102, 209, 0.2);
+  border-color: #2366d1;
 }
 
 .flex-table {
@@ -6101,12 +6100,12 @@ textarea {
   }
 
   .qn-filters__content {
-    margin: 60px auto;
     max-height: 90vh;
     min-height: 467px;
     max-width: none;
     height: auto;
     width: 1320px;
+    padding-bottom: 30px;
     overflow: visible;
   }
 
