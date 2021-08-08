@@ -1,0 +1,130 @@
+<header class="header _lp">
+
+	<div class="header__content">
+			<div class="header__menu menu">
+					<div class="menu__icon icon-menu">
+							<span></span>
+							<span></span>
+							<span></span>
+					</div>
+					<nav class="menu__body">
+						<div class="menu__body-box">
+							<ul class="menu__list _container">
+								<li><a class="menu__link" href="#">Пункт 1</a></li>
+								<li><a class="menu__link" href="#">Пункт 2</a></li>
+								<li><a class="menu__link" href="#">Пункт 3</a></li>
+								<li><a class="menu__link" href="#">Пункт 4</a></li>
+								<li><a class="menu__link" href="#">Пункт 5</a></li>
+							</ul>
+						</div>
+					</nav>
+			</div>
+			<div class="header__setting setting">
+				<div class="setting__icon">
+					<svg class="setting__svg">
+							<use xlink:href="images/symbol/sprite.svg#settings"></use>
+					</svg>
+				</div>
+				<div class="setting__body">
+					<form class="setting__form" name="settings">
+						<div class="setting__column">
+							<div class="setting__title">Выбор темы</div>
+							<div class="setting__box">
+								<label class="setting__item radio" for="black-red">
+									<input class="radio__input" type="radio" name="theme" value="black-red" id="black-red" checked>
+									<span class="radio__text">черно-рыжая</span>
+								</label>
+								<label class="setting__item radio" for="black-white">
+									<input class="radio__input" type="radio" name="theme" value="black-white" id="black-white">
+									<span class="radio__text">черно-белая</span>
+								</label>
+								<label class="setting__item radio" for="light">
+									<input class="radio__input" type="radio" name="theme" value="light" id="light">
+									<span class="radio__text">белая</span>
+								</label>
+							</div>
+						</div>
+						<div class="setting__column setting__column_last">
+							<div class="setting__title">Выбор стиля шрифта</div>
+							<div class="setting__box">
+								<label class="setting__item radio" for="Roboto">
+									<input class="radio__input" type="radio" name="font-family" value="Roboto" id="Roboto">
+									<span class="radio__text">Roboto</span>
+								</label>
+								<label class="setting__item radio" for="Lora">
+									<input class="radio__input" type="radio" name="font-family" value="Lora" id="Lora">
+									<span class="radio__text">Lora</span>
+								</label>
+								<label class="setting__item radio" for="Arial">
+									<input class="radio__input" type="radio" name="font-family" value="Arial" id="Arial">
+									<span class="radio__text">Arial</span>
+								</label>
+								<label class="setting__item radio" for="OpenSans">
+									<input class="radio__input" type="radio" name="font-family" value="OpenSans" id="OpenSans">
+									<span class="radio__text">Open&nbsp;Sans</span>
+								</label>
+								<label class="setting__item radio" for="Consolas">
+									<input class="radio__input" type="radio" name="font-family" value="Consolas" checked id="Consolas">
+									<span class="radio__text">Consolas</span>
+								</label>
+							</div>
+							<div class="setting__box">
+								<label class="setting__item radio">
+									<input class="radio__input" type="radio" name="font-weight" value="normal" @@checked1 id="regular">
+									<span class="radio__text" for="regular">Обычный</span>
+								</label>
+								<label class="setting__item radio">
+									<input class="radio__input" type="radio" name="font-weight" value="bold" @@checked2 id="bold">
+									<span class="radio__text" for="bold">Жирный</span>
+								</label>
+							</div>
+							<div class="setting__box setting__box_horizontal">
+								<label class="setting__item radio">
+									<input class="radio__input" type="radio" name="font-size" value="30px" id="font-size-30" checked>
+									<span class="radio__text" for="font-size-30" style="font-size: 30px">Aa</span>
+								</label>
+								<label class="setting__item radio">
+									<input class="radio__input" type="radio" name="font-size" value="23px" id="font-size-23">
+									<span class="radio__text" for="font-size-23" style="font-size: 23px">Aa</span>
+								</label>
+								<label class="setting__item radio">
+									<input class="radio__input" type="radio" name="font-size" value="15px" id="font-size-15">
+									<span class="radio__text" for="font-size-15" style="font-size: 15px">Aa</span>
+								</label>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="header__title">
+				<div class="header__title-content"><span>SMARTLAB</span> <span>NEWS</span></div>
+			</div>
+			<div class="header__search search">
+				<form action="#" class="search__form">
+					<div class="search__body">
+						<div class="search__body-inner">
+							<div class="search__controls">
+								<div class="search__input news-search">
+									<input class="input" id="headerAutoComplete" name="header-search" type="text" dir="ltr" spellcheck=false
+										autocorrect="off" autocomplete="off" autocapitalize="off" maxlength="2048" placeholder="Поиск...">
+								</div>
+								<button class="search__submit news-button" type="submit" data-da=".search__input,567.98,2">
+									<span>Найти</span>
+									<svg>
+										<use xlink:href="images/symbol/sprite.svg#arrow"></use>
+									</svg>
+								</button>
+								<span class="search__cls-btn cls-btn"><span></span></span>
+							</div>
+							<div class="search__auto-complete"></div>
+						</div>
+					</div>
+					<svg class="search__icon">
+						<use xlink:href="images/symbol/sprite.svg#search"></use>
+					</svg>
+				</form> <!-- data-value="Поиск..."  placeholder="Поиск..."-->
+			</div>
+			@@include('_filters.html',{})
+	</div>
+	
+</header> 

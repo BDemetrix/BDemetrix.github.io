@@ -1,0 +1,539 @@
+.header {
+  background: #627592;
+  color: #fff;
+}
+
+.header svg {
+  fill: #fff;
+}
+
+.header__content {
+  background: #627592;
+}
+
+.menu__body-box {
+  background: #627592;
+}
+
+.menu__link {
+  color: #fff;
+}
+
+.setting {
+  position: relative;
+}
+
+.setting__body {
+  -webkit-box-shadow: -1px 1px 10px 4px #3f3f3f;
+          box-shadow: -1px 1px 10px 4px #3f3f3f;
+}
+
+.setting__body .simplebar-scrollbar:before {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.setting__body::before {
+  background: -webkit-gradient(linear, left bottom, left top, from(transparent), color-stop(70%, #627592), to(#627592));
+  background: -o-linear-gradient(bottom, transparent, #627592 70%, #627592);
+  background: linear-gradient(to top, transparent, #627592 70%, #627592);
+}
+
+.setting__body::after {
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(70%, #627592), to(#627592));
+  background: -o-linear-gradient(top, transparent, #627592 70%, #627592);
+  background: linear-gradient(to bottom, transparent, #627592 70%, #627592);
+}
+
+.setting__form {
+  background: #627592;
+}
+
+.setting__title {
+  opacity: 0.9;
+}
+
+.search__body {
+  background: rgba(98, 117, 146, 0.95);
+}
+
+.search__input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.search__input._focus {
+  -webkit-box-shadow: 0 0 5px 0px #fff;
+          box-shadow: 0 0 5px 0px #fff;
+}
+
+.search__input input::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search__input input::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search__input input:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search__input input::-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search__input input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search__submit {
+  border-left: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.search__cls-btn span::before,
+.search__cls-btn span::after {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.search__auto-list .simplebar-scrollbar:before {
+  background: rgba(255, 255, 255, 0.2);
+  opacity: 1;
+}
+
+.search__auto-item {
+  border-bottom-color: rgba(255, 255, 255, 0.35);
+}
+
+.search__auto-item a {
+  color: inherit;
+}
+
+.search__auto-item:hover,
+.search__auto-item._active {
+  -webkit-box-shadow: 0 6px 4px -4px rgba(255, 255, 255, 0.75);
+          box-shadow: 0 6px 4px -4px rgba(255, 255, 255, 0.75);
+  border-bottom-color: transparent;
+}
+
+.search__auto-item .autoComplete_highlighted {
+  color: #319fff;
+}
+
+.filter__body {
+  background: #627592;
+  -webkit-box-shadow: 1px 1px 10px 4px #3f3f3f;
+          box-shadow: 1px 1px 10px 4px #3f3f3f;
+}
+
+.filter__body .simplebar-scrollbar:before {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.filter__body::before {
+  background: -webkit-gradient(linear, left bottom, left top, from(transparent), color-stop(70%, #627592), to(#627592));
+  background: -o-linear-gradient(bottom, transparent, #627592 70%, #627592);
+  background: linear-gradient(to top, transparent, #627592 70%, #627592);
+}
+
+.filter__body::after {
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(70%, #627592), to(#627592));
+  background: -o-linear-gradient(top, transparent, #627592 70%, #627592);
+  background: linear-gradient(to bottom, transparent, #627592 70%, #627592);
+}
+
+.section-filter::after {
+  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.1)), color-stop(50%, #ddd), to(rgba(255, 255, 255, 0.1)));
+  background: -o-linear-gradient(left, rgba(255, 255, 255, 0.1), #ddd 50%, rgba(255, 255, 255, 0.1));
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.1), #ddd 50%, rgba(255, 255, 255, 0.1));
+  opacity: 0.3;
+}
+
+.section-filter:last-child {
+  border-bottom: 0;
+}
+
+.section-filter__title svg {
+  color: #fff;
+}
+
+.section-filter__date input {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.section-filter__select {
+  background: #627592;
+}
+
+.section-filter__header {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.section-filter__link {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.section-filter__reset,
+.section-filter__submit {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.section-filter__reset:hover,
+.section-filter__submit:hover {
+  background: rgba(255, 255, 255, 0.07);
+  -webkit-box-shadow: 0 0 3px #fff;
+          box-shadow: 0 0 3px #fff;
+}
+
+.icon-menu span {
+  background-color: #fff;
+}
+
+.icon-menu._active span {
+  background: #fff;
+}
+
+.page {
+  background: #efefef;
+}
+
+.page__inner {
+  background: #efefef;
+}
+
+.page__inner .simplebar-scrollbar:before {
+  background: rgba(63, 63, 63, 0.4);
+}
+
+.news {
+  background: #efefef;
+  color: #3f3f3f;
+}
+
+.news__line {
+  border-bottom-color: rgba(63, 63, 63, 0.15);
+}
+
+.news__line_active {
+  background: #fe0003;
+  color: #f5fff8;
+}
+
+.news__line_active .news__link a {
+  color: #f5fff8;
+}
+
+.news__date[data-tippy-content]:hover {
+  background: rgba(98, 117, 146, 0.12);
+  -webkit-box-shadow: 0 0 5px 3px rgba(98, 117, 146, 0.12);
+          box-shadow: 0 0 5px 3px rgba(98, 117, 146, 0.12);
+}
+
+.news__link {
+  color: #3f3f3f;
+}
+
+.news__line._hover {
+  background: rgba(98, 117, 146, 0.15);
+}
+
+.news__line.news__line_active._hover {
+  background: #d00000;
+}
+
+.article {
+  background: #efefef;
+}
+
+.article__content {
+  color: #3f3f3f;
+}
+
+.article__text {
+  border-bottom: 1px solid #3f3f3f;
+}
+
+.article__text a {
+  color: #319fff;
+}
+
+.info-article__link {
+  background: #319fff;
+  color: #efefef;
+}
+
+.info-article__comment {
+  border-color: #319fff;
+  color: #319fff;
+}
+
+.banner__content {
+  background: #3f3f3f;
+  opacity: 0.05;
+}
+
+.banner__content-text {
+  color: #efefef;
+}
+
+.footer {
+  background: #c9daf8;
+}
+
+.footer__link {
+  color: #020f22;
+}
+
+.footer__h1 {
+  color: #020f22;
+}
+
+.checkbox__text::before {
+  background: #fff;
+  opacity: 0.5;
+}
+
+.checkbox__text::after {
+  background: #627592;
+  border: 2px solid #627592;
+  background: #fff;
+}
+
+.radio__text::before {
+  background: #fff;
+  opacity: 0.5;
+}
+
+.radio__text::after {
+  background: #627592;
+  border: 2px solid #627592;
+  background: #fff;
+}
+
+.select__title {
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.select__value:before {
+  border-top: 8px solid #fff;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+}
+
+.select__input {
+  background-color: transparent;
+}
+
+.select__options {
+  color: #fff;
+  background-color: #627592;
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.select__option:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tippy-box {
+  background: #627592;
+  -webkit-box-shadow: 0 0 5px 3px rgba(63, 63, 63, 0.5);
+          box-shadow: 0 0 5px 3px rgba(63, 63, 63, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #fff;
+  font-size: 18px;
+}
+
+.tippy-arrow {
+  color: #627592;
+}
+
+/* .datepicker {
+}
+.datepicker.active {
+}
+.datepicker-dropdown {
+}
+.datepicker-dropdown.datepicker-orient-top {
+}
+.datepicker-picker {
+	//box-shadow: 0px 0px 0px 2px $main-bg;
+	border: 1px solid rgba($color: $header-color, $alpha: 0.8);
+	color: $datepicker-picker-color;
+	background-color: $main-bg;
+}
+.datepicker-dropdown .datepicker-picker {
+	box-shadow: 0 2px 3px rgba(10, 10, 10, .1), 0 0 0 1px rgba(10, 10, 10, .1);
+}
+.datepicker-picker span {
+}
+.datepicker-main {
+}
+.datepicker-footer {
+	box-shadow: inset 0 1px 1px rgba($color: $header-bg , $alpha: 0.1);
+	background-color: $main-bg;
+}
+.datepicker-title {
+	box-shadow: inset 0 -1px 1px rgba($color: $header-color , $alpha: 0.1);
+	background-color: $header-bg;
+}
+.datepicker-controls .button {
+	border: 0 ;//1px solid transparent; // $header-color;
+	background-color: transparent;
+	color: $txt-color;
+}
+.datepicker-controls .button:hover {
+	color: $header-bg;
+	font-weight: 700;
+}
+
+.datepicker-controls .button:focus {
+	border: 0;
+	color: $header-bg;
+}
+
+.datepicker-controls .button:focus:not(:active) {
+	box-shadow: 0 0 0 .125em rgba(50, 115, 220, .25)
+}
+
+.datepicker-controls .button:active {
+	border-color: $news_line_hover_color;
+	color: $txt-color;
+}
+.datepicker-header .datepicker-controls .button {
+	border-color: transparent;
+}
+
+.datepicker-header .datepicker-controls .button:hover {
+	background-color: $news_line_hover_color;
+}
+
+.datepicker-header .datepicker-controls .button:focus:not(:active) {
+	box-shadow: 0 0 0 .125em hsla(0, 0%, 100%, .25)
+}
+.datepicker-header .datepicker-controls .button:active {
+	//background-color: #f2f2f2
+}
+.datepicker-view .week {
+	//color: #b5b5b5;
+}
+.datepicker-cell:not(.disabled):hover {
+	background-color: $news_line_hover_color;
+}
+
+.datepicker-cell.focused:not(.selected) {
+	background-color: transparent;
+	border: 2px solid $header-bg;
+}
+
+.datepicker-cell.selected,
+.datepicker-cell.selected:hover {
+	background-color: $header-bg;
+	color: $header-color; 
+	font-weight: 600
+}
+
+.datepicker-cell.disabled {
+	//color: red
+}
+
+.datepicker-cell.next:not(.disabled),
+.datepicker-cell.prev:not(.disabled) {
+	color: $datepicker-cell-next-prev;
+}
+
+.datepicker-cell.next.selected,
+.datepicker-cell.prev.selected {
+	color: $header-color;
+}
+
+.datepicker-cell.highlighted:not(.selected):not(.range):not(.today) {
+	//border-radius: 0;
+	//background-color: #f5f5f5
+}
+
+.datepicker-cell.highlighted:not(.selected):not(.range):not(.today):not(.disabled):hover {
+	//background-color: #eee
+}
+
+.datepicker-cell.highlighted:not(.selected):not(.range):not(.today).focused {
+	//background-color: #e8e8e8
+}
+
+.datepicker-cell.today:not(.selected) {
+	//background-color: #00d1b2
+}
+
+.datepicker-cell.today:not(.selected):not(.disabled) {
+	//color: #fff
+}
+
+.datepicker-cell.today.focused:not(.selected) {
+	background-color: $datepicker-cell-range-start-end-not-sel;
+}
+
+.datepicker-cell.range-end:not(.selected),
+.datepicker-cell.range-start:not(.selected) {
+	background-color: $datepicker-cell-range-start-end-not-sel;
+	color: $header-color;
+}
+
+.datepicker-cell.range-end.focused:not(.selected),
+.datepicker-cell.range-start.focused:not(.selected) {
+	background-color: $datepicker-cell-range-start-end-not-sel;
+}
+
+.datepicker-cell.range-start {
+}
+
+.datepicker-cell.range-end {
+}
+
+.datepicker-cell.range {
+	background-color: $datepicker-cell-range-bg;
+}
+
+.datepicker-cell.range:not(.disabled):not(.focused):not(.today):hover {
+	background-color: $news_line_hover_color;
+}
+
+.datepicker-cell.range.disabled {
+	color: $datepicker-cell-range-bg;
+}
+
+.datepicker-cell.range.focused {
+	background-color: $datepicker-cell-range-bg;
+}
+
+.datepicker-view.datepicker-grid .datepicker-cell {
+}
+
+.datepicker-input.in-edit {
+	border-color: $header-color;
+}
+
+.datepicker-input.in-edit:active,
+.datepicker-input.in-edit:focus {
+	box-shadow: 0 0 .25em .25em rgba($color: $header-color, $alpha: .2);
+} */
+
+@media (min-width: 567.98px) {
+  .search__submit {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #fff;
+    color: #627592;
+  }
+
+  .search__submit:hover {
+    background: #fff;
+  }
+}
+
+@media (min-width: 991.98px) {
+  .info-article__link {
+    background: transparent;
+    color: #3f3f3f;
+  }
+}

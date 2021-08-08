@@ -1,0 +1,90 @@
+<div class="header__filter filters">
+
+  <div class="filters__icon">
+    <span></span>
+    <svg>
+      <use xlink:href="images/symbol/sprite.svg#controls2"></use>
+    </svg>
+  </div>
+  
+  <div class="filters__body">
+    <form class="filters__content" action="#">
+
+      <button class="filters__close" type="button">
+        <svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3.333 17.251L17.251 3.333m-13.918 0l13.918 13.918" stroke-width="2.222" stroke-linecap="round" />
+        </svg>
+      </button>
+
+      <div class="filters__row">
+          <div class="filters__block">
+            
+            <div class="filters__field">
+              <div class="filters__datepicker">
+                <svg>
+                  <use xlink:href="images/symbol/sprite.svg#calendar"></use>
+                </svg>
+                <!--
+                  * по классу input навешивается обработчик - при форусе родителю присваивается класс _focus и _filled
+                -->
+                <input class="filters__date-input input" type="text" placeholder="Дата">
+              </div>
+            </div>
+
+            <!-- 
+              * При необходимости сделать поле неактивным надо присвоить модификатор _disabled 
+            -->
+            <div class="filters__field">
+              <select id="country_id" name="country_id" tabindex="-1">
+								<option value="255" selected="">Все страны</option>
+								<option value="0" >Россия</option>
+								<option value="1">США</option>
+								<option value="11">Китай</option>
+								<option value="24">Европа</option>
+							</select>
+            </div>
+
+            <div class="filters__field">
+              <select id="news_id" name="news_id[]" multiple="true" tabindex="-1">
+                <option value="1" selected="">Новости</option>
+                <option value="2">Аналитика</option>
+                <option value="3">Причины</option>
+                <option value="4">Раскрытие Информации </option>
+              </select>
+            </div>
+
+            <div class="filters__field">
+              <select name="stocks_id" id="stocks_id" multiple="true" tabindex="-1">
+                <option value="" selected="">Акции</option>
+                <option value="default">Облигации</option>
+                <option value="indexed">Банки</option>
+                <option value="variable">Брокеры</option>
+              </select>
+            </div>
+
+          </div>
+
+          <div class="filters__block">
+
+            <div class="filters__field">
+              <!-- для  отключения добалляется атрибут [disabled] -->
+              <label class="filters__checkbox">
+                <input class="filters__checkbox-input" type="checkbox">
+                <span class="filters__checkbox-text">breaking news</span>
+              </label>
+            </div>
+
+            <div class="filters__field">
+              <div class="filters__btns">
+                <button class="filters__btn filters__btn--reset" type="reset">Сбросить</button>
+                <button class="filters__btn filters__btn--submit" type="submit">Применить</button>
+              </div>
+            </div>
+
+          </div>
+      </div>
+
+    </form>
+</div>
+
+</div>

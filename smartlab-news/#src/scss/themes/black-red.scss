@@ -1,0 +1,805 @@
+$minWidth: 320px;
+$maxWidth: 1920;
+$maxWidthContainer: 1170;
+$md1: $maxWidthContainer;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 567.98;
+$md5: 479.98;
+
+
+$header-bg: #292929; //#2b293c
+$header-color: #dcdcdc;
+$header-svg-color: $header-color;
+$txt-color: #f59300;
+$articles-links-color: #319fff;
+$main-bg: #080808;
+$line-active-bg: #a50100;
+$line-active-txt: #fff;
+$footer-bg: #292929;
+$footer-txt: #b7b7b7;
+$autoComplete-highlighted: $txt-color;
+
+$news_line_opacity: 0.15;
+$news_line_hover_color: rgba($color: $header-color, $alpha: $news_line_opacity);
+$news_line_active_opacity: 1; //0.7
+$news_line_active_hover_color: #fe0000; // $line-active-bg
+
+$datepicker-picker-color: rgba($color: $header-color, $alpha: .7);
+$datepicker-cell-next-prev: rgba($color: $header-color, $alpha: .4);
+$datepicker-cell-prev-selected: rgba($color: $txt-color, $alpha: .3);
+$datepicker-cell-range-start-end-not-sel: rgba($color: $txt-color, $alpha: .5);
+$datepicker-cell-range-bg: rgba($color: $header-color, $alpha: .1);
+
+// HEADER ====================================================================================================
+.header {
+	background: $header-bg;
+  color: $header-color;
+
+  svg {
+    fill: $header-svg-color;
+  }
+	// .header__content
+	&__content {
+		background: $header-bg;
+	}
+	// .header__menu
+	&__menu {
+	}
+	// .header__setting
+	&__setting {
+	}
+	// .header__title
+	&__title {
+	}
+	// .header__search
+	&__search {
+	}
+	// .header__filter
+	&__filter {
+	}
+}
+.menu {
+	// .menu__body
+	&__body {
+		&._active {
+		}
+	}
+	// .menu__body-box 
+	&__body-box {
+		background: $header-bg;
+	}
+	// .menu__list
+	&__list {
+	}
+	// .menu__link
+	&__link {
+		color: $header-color;
+	}
+}
+.setting {
+	position: relative;
+
+	// .setting__body
+	&__body {
+		box-shadow: -1px 1px 10px 1px rgba($color: $header-color, $alpha: 0.3);
+
+		.simplebar-scrollbar:before {
+  		background: rgba($color: $header-color, $alpha: .1);
+			//opacity: 1;
+			//border: 1px solid $txt-color;
+		}
+
+		&::before {
+			background:  linear-gradient(to top,  transparent, $header-bg 70%, $header-bg);
+		}
+		&::after {
+			background:  linear-gradient(to bottom,  transparent, $header-bg 70%, $header-bg);
+		}
+	}
+	// .setting__form
+	&__form {
+    background: $header-bg;
+	}
+	// .setting__column
+	&__column{
+	}
+	// .setting__title
+	&__title {
+    opacity: 0.9;
+	}
+	// .setting__box
+	&__box {
+		// .setting__box_horizontal
+		&_horizontal {
+
+			& > .setting__item > .radio__text {
+			}
+		}
+		&_disabled {
+			.radio__input:checked + .radio__text{
+				&::after{
+				}
+			}
+		}
+	}
+	// .setting__item
+	&__item {
+		.radio__text {
+		}
+		&:last-child {
+		}
+	}
+	// .setting__icon
+	&__icon{
+		svg {
+		}
+	}
+	&._active{
+		.setting__form {
+		}
+		.setting__svg{
+		}
+	}
+}
+.search {
+	// .search__form
+	&__form {
+	}
+	// .search__body
+	&__body {
+		background: rgba($color: $header-bg, $alpha: .95);
+	}
+	// .search__controls
+	&__controls {
+	}
+	// .search__input
+	&__input {
+		background: rgba($color: $header-color, $alpha: .05);
+		border: 1px solid rgba($color: $header-color, $alpha: .8);
+
+		&._focus {
+			box-shadow: 0 0 5px 0px $header-color;
+		}
+		input::placeholder {
+		 color: rgba($color: $header-color, $alpha: .7);
+		}
+	}
+	// .search__submit
+	&__submit {
+		border-left: 1px solid rgba($color: $header-color, $alpha: .9);
+		svg {
+			&:hover {
+			}
+		}
+		span{
+		}
+		@media (min-width: $md4 + px) {
+			background: rgba($color: $header-color, $alpha: .8);
+			border: 1px solid $header-color;//rgba($color: #fff, $alpha: 1);
+			color: $header-bg;
+			svg {
+			}
+			span{
+			}
+			&:hover {
+				background: $header-color;
+			}
+		}
+		&:hover {
+		}
+	}
+	// .search__cls-btn
+	&__cls-btn {
+		& span::before,
+		& span::after {
+			background: rgba($color: $header-svg-color, $alpha: .5);
+		}
+	}
+	// .search__icon
+	&__icon {
+	}
+		&__auto-complete {
+	}
+	// .search__auto-list 
+	&__auto-list {
+		.no_result {
+		}
+		.simplebar-scrollbar:before {
+  		background: rgba($color: $header-color, $alpha: .2);
+			opacity: 1;
+		}
+	}
+	// .search__auto-item
+	&__auto-item {
+		border-bottom-color: rgba($color: $header-color, $alpha: .25);
+
+		a {
+			color: inherit;
+		}
+		&:hover,
+		&._active {
+			box-shadow: 0 6px 4px -4px rgba($color: $header-svg-color , $alpha: 0.75);
+			border-bottom-color: transparent;
+		}
+		.autoComplete_highlighted {
+			color: $autoComplete-highlighted;
+		}
+	}
+}
+.filter {
+	
+	// .filter__icon
+	&__icon {
+
+		span {
+		}
+		svg {
+		}
+	}
+	// .filter__body
+	&__body {
+		background: $header-bg;
+		box-shadow: 1px 1px 10px 1px rgba($color: $header-color, $alpha: 0.3);
+			
+		.simplebar-scrollbar:before {
+  		background: rgba($color: $header-color, $alpha: .1);
+			//opacity: 0;
+			//border: 1px solid $txt-color;
+		}
+		
+		&::before {
+			background:  linear-gradient(to top,  transparent, $header-bg 70%, $header-bg);
+		}
+		&::after {
+			background:  linear-gradient(to bottom,  transparent, $header-bg 70%, $header-bg);
+		}
+	}
+	&._active {
+		.filter__body{
+		}
+		.filter__icon svg {
+		}
+	}
+}
+.section-filter {
+
+	&::after {
+		$color: rgba($color: $header-color, $alpha: .1);
+		background: linear-gradient(to right, $color, #ddd 50%, $color); 
+	}
+	&:first-child {
+		.section-filter__title {
+		}
+		.section-filter__body {
+		}
+	}
+
+	&:last-child {
+		border-bottom: 0;
+	}
+
+	// .section-filter__title
+	&__title {
+
+		// .section-filter__title--label 
+		&--label{
+			&::before {
+			}
+		}
+
+		svg {
+			color: $header-color;
+		}
+		&:hover {
+		}
+
+		&._active {
+			&::after {
+			}
+		}
+	}
+	// .section-filter__body
+	&__body {
+
+		&--none {
+		}
+	}
+	// .section-filter__date
+	&__date {
+		input {
+			background: rgba($color: $header-color, $alpha: .1)
+		}
+		span {
+		}
+	}
+	// .section-filter__checkbox
+	&__checkbox {
+	}
+	// .section-filter__select
+	&__select {
+		background: $header-bg;
+	}
+	// .section-filter__radio
+	&__radio {
+	}
+	// .section-filter__author
+	&__author {
+	}
+	// .section-filter__company
+	&__company {
+	}
+	// .section-filter__tags
+	&__tags {
+	}
+	// .section-filter__header
+	&__header {
+		background: rgba($color: $header-color, $alpha: .1);
+		svg{
+		}
+		input {
+		}
+		input::placeholder {
+		} 
+	}
+	// .section-filter__box
+	&__box {
+	}
+	// .section-filter__link
+	&__link {
+		background: rgba($color: $header-color, $alpha: .1);
+		border: 1px solid rgba($color: $header-color, $alpha: .2);
+
+		&>span:first-child {
+		}
+		.cls-btn {
+		}
+	}
+	// .section-filter__buttons
+	&__buttons {
+	}
+	&__reset,
+	&__submit {
+		background: rgba($color: $header-color, $alpha: .1);
+		border: 1px solid rgba($color: $header-color, $alpha: .2);
+		&:hover {
+			background: rgba($color: $header-color, $alpha: .07);
+			box-shadow: 0 0 3px $header-color; //rgba($color: #ddd, $alpha: .8);
+		}
+	}
+	// .section-filter__reset
+	&__reset {
+	}
+	// .section-filter__submit
+	&__submit {
+	}
+}
+
+
+//====================================================================================================
+
+//Burger
+.icon-menu {
+	span {
+		background-color: $header-color;
+		&:first-child {
+		}
+		&:last-child {
+		}
+	}
+	&._active {
+		span {
+			background: $header-color;
+			&:first-child {
+			}
+			&:last-child {
+			}
+		}
+	}
+}
+
+// MAIN ===============================================================================================================================================
+.page {
+  background: $main-bg;
+	// .page__inner
+	&__inner {
+		
+		.simplebar-scrollbar:before {
+  		background: rgba($color: $txt-color, $alpha: .4);
+			//border: 1px solid $txt-color;
+		}
+	}	
+}
+//===================================================================================================================================
+.news {
+	background: $main-bg;
+  color: $txt-color;
+
+	// .news__line
+	&__line {
+
+		border-bottom-color: rgba($color: $header-color, $alpha: .25);
+		
+		&_active{
+			background: $line-active-bg;
+      color: $line-active-txt;
+
+      .news__link a {
+        color: $line-active-txt;
+      }
+		}
+	}
+	// .news__first-icon
+	&__first-icon {
+		
+	}
+	// .news__second-icon
+	&__second-icon {
+	}
+	&__first-icon, 
+	&__second-icon {
+	}
+	// .news__date
+	&__date {
+		&[data-tippy-content]:hover{
+			background: rgba($color: $header-color, $alpha: 0.075);
+			box-shadow: 0 0 5px 3px rgba($color: $header-color, $alpha: 0.075);
+		}
+	}
+	// .news__link
+	&__link {
+		color: $txt-color;
+	}
+}
+
+.news__line._hover {
+	background: $news_line_hover_color;
+}
+.news__line.news__line_active._hover {
+	background: rgba($color: $news_line_active_hover_color, $alpha: $news_line_active_opacity);
+}
+
+// ARTICLE ===============================================================================================================================================
+.article {
+	background: $main-bg;
+	// .article__content
+	&__content {
+		color: $txt-color;
+	}
+	// .article__title
+	&__title {
+		//border-bottom: 2px solid $txt-color;
+	}
+	// .article__info
+	&__info  {
+	}
+	// .article__text
+	&__text {
+		border-bottom: 1px solid $txt-color;
+		
+		a {
+			color: $articles-links-color;
+		}
+	}
+	// .article__banner
+	&__banner {
+	}
+}
+.info-article {
+
+	// .info-article__value
+	&__value {
+	}
+	// .info-article__link 
+	&__link {
+		background: $articles-links-color;
+		color: $main-bg;
+		font-weight: 700;
+		@media (min-width: $md2 + px) {
+			background: transparent;
+			color: $txt-color;
+			font-weight: 400;
+		}
+	}
+	// .info-article__comment
+	&__comment{
+		border-color: $articles-links-color;
+		color: $articles-links-color;
+	}
+}
+.banner {
+	
+	// .banner__content
+	&__content {
+		/* background: $txt-color;
+		opacity: 0.1; */
+		background: #333;
+	}
+	// .banner__content-text
+	&__content-text {
+		color: $main-bg;
+	}
+}
+
+// FOOTER===============================================================================================================================================
+
+.footer {
+  background: $footer-bg;
+
+	// .footer__content
+	&__content {
+	}
+	// .footer__item
+	&__item {
+	}
+	// .footer__link
+	&__link {
+    color: $footer-txt;
+    &:hover {
+    }
+	}
+	//. footer__h1
+  &__h1{
+		color: $footer-txt;
+	}
+}
+
+//<CHECK (chk+tab)>====================================================================================================
+.checkbox {
+	// .checkbox__text
+	&__text {
+		&::before {
+			background: $header-color;
+      opacity: 0.5;
+		}
+		&::after {
+			background: $header-bg;
+      border: 2px solid $header-bg;
+			background: $header-color;
+		}
+	}
+}
+//</CHECK>====================================================================================================
+
+//<RADIO (rdo+tab)>====================================================================================================
+.radio {
+	// .radio__text
+	&__text {
+		&::before {
+			background: $header-color;
+      opacity: 0.5;
+		}
+		&::after {
+			background: $header-bg;
+      border: 2px solid $header-bg;
+			background: $header-color;
+		}
+	}
+}
+//</RADIO>====================================================================================================
+
+//<SELECT (sel+tab)>====================================================================================================
+.select {
+	// .select__item
+	&__item {
+	}
+	// .select__title
+	&__title {
+		color: $header-color;
+		border: 1px solid rgba($color: $header-color, $alpha: .7);
+		background-color: rgba($color: $header-color, $alpha: .1);
+	}  
+	// .select__value
+	&__value {
+		span {
+		}
+		&:before {
+  		border-top: 8px solid $header-color;
+  		border-left: 7px solid transparent;
+  		border-right: 7px solid transparent;
+		}
+	}
+	&__input {
+		background-color: transparent;
+	}
+	// .select__options
+	&__options {
+		color: $header-color;
+		background-color: $header-bg; //rgba($color: $header-color, $alpha: .2);
+		border-color: rgba($color: $header-color, $alpha: .8);
+	}
+	// .select__option
+	&__option {
+
+		&:hover {
+			background: rgba($color: $header-color, $alpha: .1);
+		}
+	}
+}
+//</SELECT>====================================================================================================
+
+//<TIPPY>
+.tippy-box {
+	background: $header-bg;
+	box-shadow: 0 0 5px 3px rgba($color: $header-color, $alpha: 0.2);
+	border: 1px solid rgba($color: $header-color, $alpha: 0.3);
+	color: $header-color;
+	font-size: 18px;
+}
+.tippy-tooltip {
+}
+.tippy-arrow {
+	color: $header-bg;
+}
+//</TIPPY>
+
+//<DATEPICKER>====================================================================================================
+/* .datepicker {
+}
+.datepicker.active {
+}
+.datepicker-dropdown {
+}
+.datepicker-dropdown.datepicker-orient-top {
+}
+.datepicker-picker {
+	//box-shadow: 0px 0px 0px 2px $main-bg;
+	border: 1px solid rgba($color: $header-color, $alpha: 0.8);
+	color: $datepicker-picker-color;
+	background-color: $main-bg;
+}
+.datepicker-dropdown .datepicker-picker {
+	box-shadow: 0 2px 3px rgba(10, 10, 10, .1), 0 0 0 1px rgba(10, 10, 10, .1);
+}
+.datepicker-picker span {
+}
+.datepicker-main {
+}
+.datepicker-footer {
+	box-shadow: inset 0 1px 1px rgba($color: $header-color , $alpha: 0.1);
+	background-color: $main-bg;
+}
+.datepicker-title {
+	box-shadow: inset 0 -1px 1px rgba($color: $header-color , $alpha: 0.1);
+	background-color: $header-bg;
+}
+.datepicker-controls .button {
+	border: 0 ;//1px solid transparent; // $header-color;
+	background-color: transparent;
+	color: $header-color;
+}
+.datepicker-controls .button:hover {
+	color: $txt-color;
+	font-weight: 700;
+}
+
+.datepicker-controls .button:focus {
+	border: 0;
+	color: $header-color;
+}
+
+.datepicker-controls .button:focus:not(:active) {
+	box-shadow: 0 0 0 .125em rgba(50, 115, 220, .25)
+}
+
+.datepicker-controls .button:active {
+	border-color: $news_line_hover_color;
+	color: $txt-color;
+}
+.datepicker-header .datepicker-controls .button {
+	border-color: transparent;
+}
+
+.datepicker-header .datepicker-controls .button:hover {
+	background-color: transparent;// $news_line_hover_color;
+}
+
+.datepicker-header .datepicker-controls .button:focus:not(:active) {
+	box-shadow: 0 0 0 .125em hsla(0, 0%, 100%, .25)
+}
+.datepicker-header .datepicker-controls .button:active {
+	//background-color: #f2f2f2
+}
+.datepicker-view .week {
+	//color: #b5b5b5;
+}
+.datepicker-cell:not(.disabled):hover {
+	background-color: $news_line_hover_color;
+}
+
+.datepicker-cell.focused:not(.selected) {
+	background-color: transparent;
+	border: 2px solid $txt-color;
+}
+
+.datepicker-cell.selected,
+.datepicker-cell.selected:hover {
+	background-color: $txt-color;
+	color: $header-color;
+	font-weight: 600
+}
+
+.datepicker-cell.disabled {
+	//color: red
+}
+
+.datepicker-cell.next:not(.disabled),
+.datepicker-cell.prev:not(.disabled) {
+	color: $datepicker-cell-next-prev;
+}
+
+.datepicker-cell.next.selected,
+.datepicker-cell.prev.selected {
+	color: $header-color;
+}
+
+.datepicker-cell.highlighted:not(.selected):not(.range):not(.today) {
+	//border-radius: 0;
+	//background-color: #f5f5f5
+}
+
+.datepicker-cell.highlighted:not(.selected):not(.range):not(.today):not(.disabled):hover {
+	//background-color: #eee
+}
+
+.datepicker-cell.highlighted:not(.selected):not(.range):not(.today).focused {
+	//background-color: #e8e8e8
+}
+
+.datepicker-cell.today:not(.selected) {
+	//background-color: #00d1b2
+}
+
+.datepicker-cell.today:not(.selected):not(.disabled) {
+	//color: #fff
+}
+
+.datepicker-cell.today.focused:not(.selected) {
+	background-color: $datepicker-cell-range-start-end-not-sel;
+}
+
+.datepicker-cell.range-end:not(.selected),
+.datepicker-cell.range-start:not(.selected) {
+	background-color: $datepicker-cell-range-start-end-not-sel;
+	color: $header-color;
+}
+
+.datepicker-cell.range-end.focused:not(.selected),
+.datepicker-cell.range-start.focused:not(.selected) {
+	background-color: $datepicker-cell-range-start-end-not-sel;
+}
+
+.datepicker-cell.range-start {
+}
+
+.datepicker-cell.range-end {
+}
+
+.datepicker-cell.range {
+	background-color: $datepicker-cell-range-bg;
+}
+
+.datepicker-cell.range:not(.disabled):not(.focused):not(.today):hover {
+	background-color: $news_line_hover_color;
+}
+
+.datepicker-cell.range.disabled {
+	color: $datepicker-cell-range-bg;
+}
+
+.datepicker-cell.range.focused {
+	background-color: transparent;
+}
+
+.datepicker-view.datepicker-grid .datepicker-cell {
+}
+
+.datepicker-input.in-edit {
+	border-color: $header-color;
+}
+
+.datepicker-input.in-edit:active,
+.datepicker-input.in-edit:focus {
+	box-shadow: 0 0 .25em .25em rgba($color: $header-color, $alpha: .2);
+} */
+//</DATEPICKER>====================================================================================================

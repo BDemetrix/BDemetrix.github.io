@@ -1,0 +1,80 @@
+footer{}
+//====================================================================================================
+.footer {
+  font-family: "Consolas";
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background:transparent; // #ccc;
+  transition: all $t ease;
+
+  // .footer__container
+  &__container {
+    padding: 0 20px;
+  }
+	// .footer__content
+	&__content {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    padding-top: 10px;
+    width: 100%;
+    img {
+      vertical-align: middle;
+    }
+	}
+	// .footer__item
+	&__item {
+    display: flex;
+    margin-bottom: 10px;
+    vertical-align: middle;
+    margin-left: 30px;
+
+    //. footer__item_h1
+    &_h1 {
+      display: none;
+    }
+    @media (min-width: $md5 + px) {
+      margin-left: 40px;
+    }
+
+    @media (min-width: $md4 + px) {
+      margin-left: 50px;
+      &_h1 {
+        display: block;
+        flex: 1 1 auto;
+        margin-left: 0;
+        margin-bottom: 10px;
+        justify-content: start;
+        align-items: center;
+      }
+    }
+	}
+	// .footer__link
+	&__link {
+    font-size: 14px;
+    color: #333;
+    transition: all $t ease;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    
+    &:hover {
+      text-decoration: underline dashed;
+    }
+	}
+  //. footer__h1
+  &__h1 {
+    font-size: 14px;
+    color: #333;
+    transition: all $t ease;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+//====================================================================================================
+

@@ -1,4 +1,4 @@
-//plugSimpleBar('.qn-filters__content');
+plugSimpleBar('.qn-filters__content');
 
 const qnMenuMobTabs = document.querySelectorAll('.qn-menu__mob-tabs a');
 qnMenuMobTabs.forEach(a => {
@@ -30,7 +30,7 @@ if (qnMenuBtnFilter && qnFilters && qnFiltersClose) {
   });  
 }
 
-// Обработка сброса
+// Обработка сброса формы
 const qnFiltersContent = document.querySelector('.qn-filters__content');
 const filtersInputs = qnFilters.querySelectorAll('input');
 let inputChange = new Event('change');
@@ -39,34 +39,43 @@ qnFiltersContent.addEventListener('reset', (e) => {
   filtersInputs.forEach( input => {
     setTimeout(() => {
       input.dispatchEvent(inputChange);
-    }, 100);
+      clearSumoContents();
+    }, 50);
   });
 })
 
 
 // Подключения кастомного селекта
-
 if ($('#sector_id').length) $('#sector_id').SumoSelect({ 
   placeholder: 'Все сектора',
   csvDispCount: 2,
   captionFormat: 'Сектора ({0})',
-
 });
-var f = $('#country_id, #val_middle_gt, #val_middle_lt, #capitalization_gt, #capitalization_lt, #is_state_owned, #is_exporter, #year, #type, #quarter, #duration_lt_id, #duration_gt_id, #mat_years_lt_id, #mat_years_gt_id, #year_yield_lt_id, #year_yield_gt_id, #ofz_type_id');
-if (f.length) f.SumoSelect();
+var sumoSelects = $('#country_id, #val_middle_gt, #val_middle_lt, #capitalization_gt, #capitalization_lt, #is_state_owned, #is_exporter, #year, #type, #quarter, #duration_lt_id, #duration_gt_id, #mat_years_lt_id, #mat_years_gt_id, #year_yield_lt_id, #year_yield_gt_id, #ofz_type_id');
+if (sumoSelects.length) sumoSelects.SumoSelect(); 
 
-// подключение кастомного скролла
-let optWrapperUls = document.querySelectorAll('.optWrapper ul');
-if (optWrapperUls.length) {
-  optWrapperUls.forEach(element => {
-    plugSimpleBar(element);
-  });
+// подключение кастомного скролла к селекту
+function plugSimpleBarSumoSelect() {
+  let optWrapperUls = document.querySelectorAll('.optWrapper');
+  if (optWrapperUls.length) {
+    optWrapperUls.forEach(element => {
+      plugSimpleBar(element);
+    });
+  } 
+}
+plugSimpleBarSumoSelect();
+
+// Функция сброса 
+function clearSumoContents(){
+  $.each(sumoSelects, function() {
+    this.sumo.unSelectAll();
+    this.sumo.selectItem(0);
+  })
+ $('#sector_id')[0].sumo.unSelectAll();
 }
 
 
-
 // Подключение календаря
-
 Datepicker.locales.ru = {
   days: ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'],
   daysShort: ['Вск', 'Пнд', 'Втр', 'Сре', 'Чтв', 'Птн', 'Суб'],
@@ -127,7 +136,6 @@ qnFiltersRangeSliderEls.forEach( el => {
 qnFiltersRangeSliderObjs.forEach( obj => plugNoUiSlider(obj));
 
 
-
 /**
  * Функция подключает noUiSlider 
  * @param {Object} obj - одержит селектор или объект к которому подключается слайдер и  объект настроек
@@ -185,7 +193,6 @@ function plugNoUiSlider(obj) {
     function setSliderValues() {
       let inputsValues = [];
       inputs.forEach(input => inputsValues.push(input.value));
-      console.log(inputsValues);
       sliderEl.noUiSlider.set(inputsValues);
     }
   }
@@ -194,4 +201,5 @@ function plugNoUiSlider(obj) {
 // Подключение адаптивной таблицы
 setTimeout(() => {
  new FlexTable('.trades-table'); 
-}, 500);
+}, 300);
+

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('_head.html',{
+	"title":"Новости рынка акций"
+	})
+	<body style="display: flex; background: #000; height: 100vh;">
+		<div class="wrap" style="width: 50%; height: 50%; margin: auto; border: 3px solid #f00;">
+			<div class="did-1" style="height: 100%;">
+				<div class="did-2" style="height: 90%; border: 3px solid rgb(37, 218, 37); overflow: auto;">
+					<div class="did-3" style="height: 90%;">
+						<div class="inner" style="height: 300%; background: #777;"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- @@include('_popup.html',{}) -->
+		<!-- @@include('_js.html',{}) -->
+		<script>
+			let selector = '.did-2'; //.page__inner';
+			document.addEventListener('scroll', (e) => { console.log(e.target) });
+			document.querySelector(selector).addEventListener('scroll', (e) => { console.log(e.target) });
+		</script>
+	</body>
+</html>

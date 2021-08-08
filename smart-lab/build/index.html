@@ -838,6 +838,19 @@
 
       <div class="qn-filters__row">
           <div class="qn-filters__block">
+            
+            <div class="qn-filters__field">
+              <div class="qn-filters__datepicker">
+                <svg>
+                  <use xlink:href="images/symbol/sprite.svg#calendar"></use>
+                </svg>
+                <!--
+                  * по классу _input навешивается обработчик - при форусе родителю присваивается класс _focus и _filled
+                -->
+                <input class="qn-filters__date-input _input" type="text" placeholder="Дата">
+              </div>
+            </div>
+
             <!-- 
               * При необходимости сделать поле неактивным надо присвоить модификатор _disabled 
             -->
@@ -888,18 +901,6 @@
                 <option disabled="" value="Прочее">Прочее</option>
                 <option value="32">Холдинг</option>
               </select>
-            </div>
-
-            <div class="qn-filters__field">
-              <div class="qn-filters__datepicker">
-                <svg>
-                  <use xlink:href="images/symbol/sprite.svg#calendar"></use>
-                </svg>
-                <!--
-                         * по классу _input навешивается обработчик - при форусе родителю присваивается класс _focus и _filled
-                      -->
-                <input class="qn-filters__date-input _input" type="text" placeholder="Дата">
-              </div>
             </div>
 
             <div class="qn-filters__field">

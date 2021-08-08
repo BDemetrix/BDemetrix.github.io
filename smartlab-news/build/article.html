@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ru">
+	 <head>
+	<title>Новости рынка акций</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" data-path="css/themes/black-red.min.css" href="" id="theme-link"> <!-- data-path="css/themes/black-red.min.css" -->
+	<!-- <link rel="shortcut icon" href="favicon.ico"> -->
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+	<body>
+		<div class="wrapper">
+
+			<header class="header _lp">
+	<div class="header__content">
+			<div class="header__menu menu">
+					<div class="menu__icon icon-menu">
+							<span></span>
+							<span></span>
+							<span></span>
+					</div>
+					<nav class="menu__body">
+						<div class="menu__body-box">
+							<ul class="menu__list _container">
+								<li><a class="menu__link" href="#">Пункт 1</a></li>
+								<li><a class="menu__link" href="#">Пункт 2</a></li>
+								<li><a class="menu__link" href="#">Пункт 3</a></li>
+								<li><a class="menu__link" href="#">Пункт 4</a></li>
+								<li><a class="menu__link" href="#">Пункт 5</a></li>
+							</ul>
+						</div>
+					</nav>
+			</div>
+			<div class="header__setting header__setting_article setting">
+				<div class="setting__icon">
+					<svg class="setting__svg">
+							<use xlink:href="images/symbol/sprite.svg#settings"></use>
+					</svg>
+				</div>
+				<div class="setting__body">
+					<form class="setting__form" name="settings">
+						<div class="setting__column">
+							<div class="setting__title">Выбор темы</div>
+							<div class="setting__box">
+								<label class="setting__item radio" for="black-red">
+									<input class="radio__input" type="radio" name="theme" value="black-red" id="black-red" checked>
+									<span class="radio__text">черно-рыжая</span>
+								</label>
+								<label class="setting__item radio" for="black-white">
+									<input class="radio__input" type="radio" name="theme" value="black-white" id="black-white">
+									<span class="radio__text">черно-белая</span>
+								</label>
+								<label class="setting__item radio" for="light">
+									<input class="radio__input" type="radio" name="theme" value="light" id="light">
+									<span class="radio__text">белая</span>
+								</label>
+							</div>
+						</div>
+						<div class="setting__column setting__column_last">
+							<div class="setting__title">Выбор стиля шрифта</div>
+
+							<div class="setting__box">
+								<label class="setting__item radio" for="Roboto">
+									<input class="radio__input" type="radio" name="font-family" value="Roboto" id="Roboto">
+									<span class="radio__text">Roboto</span>
+								</label>
+								<label class="setting__item radio" for="Lora">
+									<input class="radio__input" type="radio" name="font-family" value="Lora" id="Lora">
+									<span class="radio__text">Lora</span>
+								</label>
+								<label class="setting__item radio" for="Arial">
+									<input class="radio__input" type="radio" name="font-family" value="Arial" id="Arial">
+									<span class="radio__text">Arial</span>
+								</label>
+								<label class="setting__item radio" for="OpenSans">
+									<input class="radio__input" type="radio" name="font-family" value="OpenSans" id="OpenSans">
+									<span class="radio__text">Open&nbsp;Sans</span>
+								</label>
+								<label class="setting__item radio" for="Consolas">
+									<input class="radio__input" type="radio" name="font-family" value="Consolas" checked id="Consolas">
+									<span class="radio__text">Consolas</span>
+								</label>
+							</div>
+							<div class="setting__box setting__box_disabled">
+								<label class="setting__item radio">
+									<input class="radio__input" type="radio" name="font-weight" value="normal"  id="regular">
+									<span class="radio__text" for="regular">Обычный</span>
+								</label>
+								<label class="setting__item radio">
+									<input class="radio__input" type="radio" name="font-weight" value="bold"  id="bold">
+									<span class="radio__text" for="bold">Жирный</span>
+								</label>
+							</div>
+
+							<div class="setting__box setting__box_horizontal">
+								<label class="setting__item" for="font-size-24">
+									<input class="radio__input" type="radio" name="font-size" value="24px" id="font-size-24" checked>
+									<span class="radio__text" style="font-size: 24px">Aa</span>
+								</label>
+								<label class="setting__item" for="font-size-20">
+									<input class="radio__input" type="radio" name="font-size" value="20px" id="font-size-20">
+									<span class="radio__text" style="font-size: 20px">Aa</span>
+								</label>
+								<label class="setting__item" for="font-size-16">
+									<input class="radio__input" type="radio" name="font-size" value="16px" id="font-size-16">
+									<span class="radio__text" style="font-size: 16px">Aa</span>
+								</label>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="header__title header__title_article">
+				<a href="index.html" class="header__back-icon">
+					<svg>
+						<use xlink:href="images/symbol/sprite.svg#arrow"></use>
+					</svg>
+				</a>
+				<a href="index.html" class="header__title-content"><span>SMARTLAB</span> <span>NEWS</span></a>
+			</div>
+			<div class="header__search search">
+				<form action="#" class="search__form">
+					<div class="search__body">
+						<div class="search__body-inner">
+							<div class="search__controls">
+								<div class="search__input news-search">
+									<input class="input" id="headerAutoComplete" name="header-search" type="text" dir="ltr" spellcheck=false
+										autocorrect="off" autocomplete="off" autocapitalize="off" maxlength="2048" placeholder="Поиск...">
+								</div>
+								<button class="search__submit news-button" type="submit" data-da=".search__input,567.98,2">
+									<span>Найти</span>
+									<svg>
+										<use xlink:href="images/symbol/sprite.svg#arrow"></use>
+									</svg>
+								</button>
+								<span class="search__cls-btn cls-btn"><span></span></span>
+							</div>
+							<div class="search__auto-complete"></div>
+						</div>
+					</div>
+					<svg class="search__icon">
+						<use xlink:href="images/symbol/sprite.svg#search"></use>
+					</svg>
+				</form> <!-- data-value="Поиск..."  placeholder="Поиск..."-->
+			</div>
+			<div class="header__filter filters">
+
+  <div class="filters__icon">
+    <span></span>
+    <svg>
+      <use xlink:href="images/symbol/sprite.svg#controls2"></use>
+    </svg>
+  </div>
+  
+  <div class="filters__body">
+    <form class="filters__content" action="#">
+
+      <button class="filters__close" type="button">
+        <svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3.333 17.251L17.251 3.333m-13.918 0l13.918 13.918" stroke-width="2.222" stroke-linecap="round" />
+        </svg>
+      </button>
+
+      <div class="filters__row">
+          <div class="filters__block">
+            
+            <div class="filters__field">
+              <div class="filters__datepicker">
+                <svg>
+                  <use xlink:href="images/symbol/sprite.svg#calendar"></use>
+                </svg>
+                <!--
+                  * по классу input навешивается обработчик - при форусе родителю присваивается класс _focus и _filled
+                -->
+                <input class="filters__date-input input" type="text" placeholder="Дата">
+              </div>
+            </div>
+
+            <!-- 
+              * При необходимости сделать поле неактивным надо присвоить модификатор _disabled 
+            -->
+            <div class="filters__field">
+              <select id="country_id" name="country_id" tabindex="-1">
+								<option value="255" selected="">Все страны</option>
+								<option value="0" >Россия</option>
+								<option value="1">США</option>
+								<option value="11">Китай</option>
+								<option value="24">Европа</option>
+							</select>
+            </div>
+
+            <div class="filters__field">
+              <select id="news_id" name="news_id[]" multiple="true" tabindex="-1">
+                <option value="1" selected="">Новости</option>
+                <option value="2">Аналитика</option>
+                <option value="3">Причины</option>
+                <option value="4">Раскрытие Информации </option>
+              </select>
+            </div>
+
+            <div class="filters__field">
+              <select name="stocks_id" id="stocks_id" multiple="true" tabindex="-1">
+                <option value="" selected="">Акции</option>
+                <option value="default">Облигации</option>
+                <option value="indexed">Банки</option>
+                <option value="variable">Брокеры</option>
+              </select>
+            </div>
+
+          </div>
+
+          <div class="filters__block">
+
+            <div class="filters__field">
+              <!-- для  отключения добалляется атрибут [disabled] -->
+              <label class="filters__checkbox">
+                <input class="filters__checkbox-input" type="checkbox">
+                <span class="filters__checkbox-text">breaking news</span>
+              </label>
+            </div>
+
+            <div class="filters__field">
+              <div class="filters__btns">
+                <button class="filters__btn filters__btn--reset" type="reset">Сбросить</button>
+                <button class="filters__btn filters__btn--submit" type="submit">Применить</button>
+              </div>
+            </div>
+
+          </div>
+      </div>
+
+    </form>
+</div>
+
+</div>
+	</div>
+</header>	
+
+			<main class="page">
+				<div class="page__inner">
+					<section class="article">
+						<article class="article__content _font-size" data-mobfontsize="16">
+							<h1 class="article__title _font-family _font-size" data-fontscale="1" data-mobfontsize="16">
+								Обувь России не будет выплачивать дивиденды за 20 г - Титов
+							</h1>
+							<div class="article__text _font-family _font-size" data-fontscale="1" data-mobfontsize="16">
+								<p>
+									Крупнейший акционер и генеральный директор Обувь России Антон Титов:
+									2020 год был для компании достаточно тяжелый, как и для рынка. Что касается дивидендов за 2020 год, то мы не планируем
+									выплачивать их: рекомендация будет — не выплачивать дивиденды по 2020 году, потому что компании нужны средства для
+									снижения долговой нагрузки, развития новой <a href="#">бизнес-модели</a>.
+								</p>
+								<p>
+									<a href="https://smart-lab.ru/r.php?u=https%3A%2F%2Fwww.vedomosti.ru%2Frealty%2Farticles%2F2021%2F06%2F08%2F873288-gazprom-media-shtab-kvartiru&amp;s=3603890726"
+										target="_blank">https://www.vedomosti.ru/realty/articles/2021/06/08/873288-gazprom-media-shtab-kvartiru</a></p>
+								<p>
+									Планов по обратному выкупу акций у компании в ближайшее время нет.
+								</p>
+								<p>
+									Компания сконцентрирована на российском рынке и не рассматривает экспансию за рубеж.
+								</p>
+								<p> <!-- class="article__text-link" -->
+									Трансляции тут:&nbsp;<a  href="https://smart-lab.ru/r.php?u=https%3A%2F%2Fwww.youtube.com%2Fchannel%2FUCIRR_Z_Ma9CpbgTloKA1t2g%2Ffeatured&amp;s=789486971" target="_blank">https://www.youtube.com/channel/UCIRR_Z_Ma9CpbgTloKA1t2g/featured</a>
+								</p>
+								<img src="https://smart-lab.ru/uploads/images/00/00/16/2021/04/08/b24f39.png"
+									alt="📉Акции Банка Санкт-Петербург завалили сегодня на 7% от максимума дня на новостях об обратном выкупе"
+									title="📉Акции Банка Санкт-Петербург завалили сегодня на 7% от максимума дня на новостях об обратном выкупе"
+									width="590" height="180">  
+							</div>
+							<div class="article__info info-article">
+								<div class="info-article__box _font-family _font-size" data-fontscale="0.8" data-mobfontsize="16" data-minfontsize="12">
+									<div class="info-article__edition edition-info">
+										<div class="edition-info__date">
+											<span class="edition-info__date-title">сегодня</span>
+											<span class="edition-info__date-data">15:57:00</span>
+										</div>
+										<div class="edition-info__author">
+											<span class="edition-info__author-title">редактор</span>
+											<a href="#" class="edition-info__author-name">Боб</a>
+										</div>
+									</div>
+
+									<div class="info-article__row">
+										<div class="info-article__title">Страна:</div>
+										<div class="info-article__value">
+											<a href="#" class="info-article__link">Россия</a>
+										</div>
+									</div>
+									<div class="info-article__row">
+										<div class="info-article__title">Инструменты:</div>
+										<div class="info-article__value">
+											<a href="#" class="info-article__link">Обувь России</a>
+										</div>
+									</div>
+									<div class="info-article__row">
+										<div class="info-article__title">Теги:</div>
+										<div class="info-article__value">
+											<a href="#" class="info-article__link">мотоциклы</a>
+											<a href="#" class="info-article__link">аналитика</a>
+											<a href="#" class="info-article__link">инвестидея</a>
+										</div>
+									</div>
+									<div class="info-article__row">
+										<div class="info-article__title">Тип:</div>
+										<div class="info-article__value">
+											<a href="#" class="info-article__link">блог</a>
+										</div>
+									</div>
+									<div class="info-article__row">
+										<div class="info-article__title">Источник:</div>
+										<div class="info-article__value">
+											<a href="#" class="info-article__link">Центрокредит</a>
+										</div>
+									</div>
+									<div class="info-article__row">
+										<div class=""></div>
+										<div class="info-article__value">
+											<a class="info-article__comment"comment href="https://smart-lab.ru/blog/700969.php#comments" target="_blank" class="info-article__link">Комментировать на
+												смартлабе</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</article>
+						<div class="article__banner banner" data-da=".article__text,991.98,last">
+							<div class="banner__content _font-family _font-size" data-fontscale="1.9" data-mobfontsize="15">
+								<div class="banner__content-text">
+									<p>
+										<span>В</span><span>а</span><span>ш</span><span>а</span>
+									</p>
+									<p>
+										<span>р</span><span>е</span><span>к</span><span>л</span><span>а</span><span>м</span><span>а</span>
+									</p>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+			</main>
+			<footer class="footer">
+	<div class="footer__container">
+		<div class="footer__content">
+			<div class="footer__item footer__item_h1">
+				<h1 class="footer__h1">Биржевые новости. Новости рынка акций</h1>
+			</div>
+			<div class="footer__item"><a href="#" class="footer__link">Информация</a></div>
+			<div class="footer__item"><a href="#" class="footer__link">Контакты</a></div>
+		</div>
+	</div>
+</footer>
+		</div>
+		
+		<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+<!-- <script src="js/vendors.min.js"></script>
+<script src="js/app.min.js"></script> -->
+<script src="js/vendors.js"></script>
+<script src="js/app.js"></script>
+	</body>
+</html>

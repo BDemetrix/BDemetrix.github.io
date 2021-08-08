@@ -18,17 +18,15 @@
 
 	// .qn-filters__content
 	&__content {
-    //display: inline-flex;
-    overflow-y: auto;
     position: relative;
     background: #fff;
     width: 100%;
     height: 100%;
     
-    @media (min-width: $md2-1 + px) {
+    /* @media (min-width: $md2-1 + px) {
       height: 80%;
       width: 90%;
-    }
+    } */
     
     @media (min-width: $md2 + px) {
       max-width: 800px;
@@ -36,10 +34,11 @@
 
     @media (min-width: $md0 + px) {
       margin: 60px auto;
+      max-height: 90vh;
+      min-height: 467px;
       max-width: none;
       height: auto;
-      width: auto;
-      //width: 1320px;
+      width: 1320px;
       overflow: visible;
     }
 	}
@@ -84,8 +83,8 @@
   }
 	// .qn-filters__block
 	&__block {
-    display: flex;
-    flex-direction: column;
+    //display: flex;
+    //flex-direction: column;
     padding: 35px adaptiv-value($md5,35,320,15); 
     border-bottom: 1px solid #E2E2E2;
     width: 100%;
@@ -167,6 +166,12 @@
 
     @media (min-width: $md0 + px) {
       width: 267px;
+
+      &:last-child {
+        .optWrapper {
+          max-height: 130px;
+        }
+      }
     }
 
     // При необходимости сделать поле не активным _disabled
