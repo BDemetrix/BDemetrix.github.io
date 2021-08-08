@@ -140,11 +140,15 @@
 		right: 0;
 		bottom: 0;
 		background: rgba(0, 0, 0, 0.7);
+		opacity: 0;
+		visibility: hidden;
 		transform: translate(-100%, 0);
-		transition: all $t ease;
+		transition: transform $t ease;
 		z-index: 2;
 
 		&._active {
+			opacity: 1;
+			visibility: visible;
 			transform: translate(0, 0);
 		}
 	}

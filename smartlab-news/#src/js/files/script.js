@@ -478,3 +478,5 @@ window.addEventListener('storage', ()=>{
 
 // tippy
 tippy('[data-tippy-content]');
+
+// Для предотвращения мигания  меню 

@@ -8,8 +8,9 @@ const filtersBodyClose = document.querySelector('.filters__close');
 
 if (filtersBtn && filtersBody && filtersBodyClose) {
 
-  filtersBtn.addEventListener('click', () => {
+  filtersBtn.addEventListener('click', (e) => {
     filtersBtn.parentElement.classList.toggle('_open')
+    e.preventDefault();
   });
 
   filtersBody.addEventListener('click', (e) => {
