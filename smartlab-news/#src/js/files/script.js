@@ -479,4 +479,9 @@ window.addEventListener('storage', ()=>{
 // tippy
 tippy('[data-tippy-content]');
 
-// Для предотвращения мигания  меню 
+// Для предотвращения мигания основного меню и меню фильтров 
+const headerSearchBody = document.querySelector('header .search__body');
+const headerMenuBody  = document.querySelector('header .menu__body');
+
+headerSearchBody.style.display = ``;
+headerMenuBody.style.display = ``;

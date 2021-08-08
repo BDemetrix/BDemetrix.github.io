@@ -2895,16 +2895,12 @@ body.ie {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.7);
-  opacity: 0;
-  visibility: hidden;
   -webkit-transform: translate(-100%, 0);
       -ms-transform: translate(-100%, 0);
           transform: translate(-100%, 0);
-  -webkit-transition: -webkit-transform 0.5s ease;
-  transition: -webkit-transform 0.5s ease;
-  -o-transition: transform 0.5s ease;
-  transition: transform 0.5s ease;
-  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
   z-index: 2;
 }
 
@@ -3087,8 +3083,8 @@ body.ie {
 }
 
 .search__body {
+  display: block;
   position: absolute;
-  z-index: -1 !important;
   padding: 40px 15px;
   left: 0;
   right: 0;
@@ -3097,7 +3093,6 @@ body.ie {
   -webkit-transform: translate(0, -200%);
       -ms-transform: translate(0, -200%);
           transform: translate(0, -200%);
-  opacity: 0;
   -webkit-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
@@ -3212,7 +3207,6 @@ body.ie {
   -webkit-transform: translate(0, 0);
       -ms-transform: translate(0, 0);
           transform: translate(0, 0);
-  opacity: 1;
 }
 
 .search__auto-list {

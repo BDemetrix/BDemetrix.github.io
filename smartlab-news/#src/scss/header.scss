@@ -140,10 +140,8 @@
 		right: 0;
 		bottom: 0;
 		background: rgba(0, 0, 0, 0.7);
-		opacity: 0;
-		visibility: hidden;
 		transform: translate(-100%, 0);
-		transition: transform $t ease;
+		transition: all $t ease;
 		z-index: 2;
 
 		&._active {
@@ -316,20 +314,18 @@
 	// .search__form
 	&__form {
 		display: block;
-		
 	}
 	
 	// .search__body
 	&__body {
+		display: block;
 		position: absolute;
-		z-index: -1 !important;
 		padding: 40px 15px;
 		left: 0;
 		right: 0;
 		top: 60px;
 		background: rgba($color: #627592, $alpha: .95);
 		transform: translate(0, -200%);
-		opacity: 0;
 		transition: all $t ease;
 
 		@media (min-width: $md2 + px) {
@@ -469,7 +465,6 @@
 	&._active {
 		.search__body {
 			transform: translate(0,0);
-			opacity: 1;
 		}
 	}
 	// .search__auto-complete
