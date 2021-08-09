@@ -6,6 +6,8 @@ const filtersBtn = document.querySelector('.filters__icon');
 const filtersBody = document.querySelector('.filters__body');
 const filtersBodyClose = document.querySelector('.filters__close');
 
+filtersBody.style.display = '';     // Очищает style="display: none;"
+
 if (filtersBtn && filtersBody && filtersBodyClose) {
 
   filtersBtn.addEventListener('click', (e) => {
@@ -27,7 +29,7 @@ const filtersBodyContent = document.querySelector('.filters__content');
 let inputChange = new Event('change');
 
 filtersBodyContent.addEventListener('reset', (e) => {
-  /* filtersInputs.forEach( input => { // сброс ползунка 
+  /* filtersInputs.forEach( input => { // сброс ползунка noUiSlider
     setTimeout(() => {
       input.dispatchEvent(inputChange);
     }, 50);

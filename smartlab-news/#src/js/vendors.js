@@ -1,7 +1,6 @@
 @@include('libs/wNumb.min.js', {})
 @@include('libs/jquery-3.5.1.min.js', {})
 @@include('libs/jquery.sumoselect.js', {})
-@@include('libs/nouislider.js', {})
 @@include('libs/simplebar.js', {})
 @@include('libs/smoothScroll.js', {})
 @@include('libs/inputmask.min.js', {})

@@ -483,5 +483,5 @@ tippy('[data-tippy-content]');
 const headerSearchBody = document.querySelector('header .search__body');
 const headerMenuBody  = document.querySelector('header .menu__body');
 
-headerSearchBody.style.display = ``;
-headerMenuBody.style.display = ``;
+headerSearchBody.style.display = '';
+headerMenuBody.style.display = '';
