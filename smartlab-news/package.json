@@ -2,7 +2,7 @@
 	"name": "fls_start_gulp",
 	"version": "1.0.0",
 	"description": "Start template with Gulp",
-	"author": "FLS",
+	"author": "Bogdanov Dmitry",
 	"private": true,
 	"license": "GNU General Public License (GPL)",
 	"devDependencies": {
