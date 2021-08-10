@@ -1,0 +1,8 @@
+info.txt
+Thumbs.db
+.vscode
+package-lock.json
+node_modules
+[#]src/design/
+screen
+howtouse.txt
