@@ -349,6 +349,7 @@ h5.logo__title-main {
           transform: translate(0, -50%);
   width: 18px;
   height: 18px;
+  padding-left: 1px;
   border: none;
   background-color: transparent;
   -webkit-user-select: none;
@@ -360,7 +361,7 @@ h5.logo__title-main {
 .query-search__btn svg {
   width: 100%;
   height: 100%;
-  fill: #d4d4d4;
+  fill: #fff;
 }
 
 .query-search__input {

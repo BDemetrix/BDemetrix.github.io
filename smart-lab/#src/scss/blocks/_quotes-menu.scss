@@ -14,7 +14,7 @@
 	&__tabs-control {
 		cursor: pointer;
 		display: inline-flex;
-		align-items: start;
+		align-items: flex-start;
 		font-size: 16px;
 		line-height: 22px;
 		color: #DADADA;
@@ -43,7 +43,8 @@
 		list-style: none;
 		position: absolute;
     z-index: 2;
-		top: 9px;
+		top: 50%;
+    transform: translateY(-50%);
 		right: 0;
 		display: inline-flex; 
 
@@ -119,11 +120,9 @@
 		color: #DADADA;
 
 		svg	{
-			width: 32px;
-			height: 32px;
-			border: 1px solid #DADADA;
-			border-radius: 50%;
-			fill: #DADADA;
+			width: 24px;
+			height: 24px;
+      fill: #DADADA;
 		}
 
 		&:hover {
@@ -139,7 +138,6 @@
 			color: #FFFFFF;
 			
 			svg	{
-				background: #FFFFFF;
 				border-color: #FFFFFF;
 				fill: #4F91CD;
 			}
@@ -158,8 +156,8 @@
 			margin-right: adaptiv-value($md2,85,$md3,50); 
 
 			svg	{
-				width: 36px;
-				height: 36px;
+				width: 28px;
+				height: 28px;
 			}
 		}
 
@@ -171,8 +169,7 @@
 	// .qn-menu__selectors
 	&__selectors {
 		position: relative;
-		//overflow: hidden;
-		padding-top: 25px;
+		//padding-top: 25px;
 		background: $style-2-main-bg;
 		
 		&::after {
@@ -181,13 +178,13 @@
 			z-index: 2;
 			top: 0;
 			bottom: 3px;
-			right: 0;
-			width: 40px;
+			right: -10px;
+			width: 30px;
 			background: linear-gradient(to left, $style-2-main-bg, transparent);
 		}
 
 		@media (min-width: $md1 + px) {
-			padding-top: 55px;
+			//padding-top: 55px;
 		}
 
 		&._loading {
@@ -199,7 +196,7 @@
 	&__selector {
 		display: inline-block;
 		padding: 14px 0;
-		font-size: 14px;
+		font-size: 16px;
 		line-height: 20px;
 		white-space: nowrap;
 		border-bottom: 1px solid $disabled-color;

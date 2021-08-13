@@ -129,8 +129,8 @@
 }
 
 .trades-table .flex-table__l-table thead tr th {
-  max-height: 54px;
-  height: 54px;
+  max-height: 55px;
+  height: 55px;
 }
 
 .trades-table .flex-table__l-table tr th:first-child,

@@ -70,6 +70,7 @@
 .flex-table__l-thead td {
   position: -webkit-sticky;
   position: sticky;
+  top: 0;
   background: #fbfb70;
 }
 
@@ -144,6 +145,7 @@
 .flex-table__r-table-thead td {
   position: -webkit-sticky;
   position: sticky;
+  top: 0;
   background: #fbfb70;
 }
 

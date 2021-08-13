@@ -122,6 +122,9 @@
 			}
 		}
 	}
+  .notify-label.empty { 
+    display: none 
+  }
 	// .header__notify
 	&__notify {
 		margin-right: 25px;
@@ -381,6 +384,7 @@ h5.logo__title-main {
 		transform: translate(0, -50%);
 		width: 18px;
 		height: 18px;
+    padding-left: 1px;
 		border: none;
 		background-color: transparent;
 		user-select: none;
@@ -388,7 +392,7 @@ h5.logo__title-main {
 		svg {
 			width: 100%;
 			height: 100%;
-			fill: $icon-color;
+			fill: #fff;
 		}
 		@media (min-width: $md2-1 + px) {
 			display: block;
