@@ -14893,9 +14893,9 @@ input:checked + .slider:before {
         width: 100%;
     }
 
-    .dividents-page .my_table__responsive {
+   /*  .dividents-page .my_table__responsive {
         max-height: 500px!important;
-    }
+    } */
 }
 
 @media (max-width: 960px) {
