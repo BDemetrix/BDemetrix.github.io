@@ -2700,14 +2700,14 @@ h5.logo__title-main {
 .query-search__btn {
   position: absolute;
   z-index: 10;
-  left: 10px;
+  left: 7px;
   top: 50%;
   -webkit-transform: translate(0, -50%);
       -ms-transform: translate(0, -50%);
           transform: translate(0, -50%);
-  width: 18px;
-  height: 18px;
-  padding-left: 1px;
+  width: 23px;
+  height: 23px;
+  margin-left: 1px;
   border: none;
   background-color: transparent;
   -webkit-user-select: none;
@@ -4476,8 +4476,6 @@ textarea {
 }
 
 .qn-menu__box {
-  padding-top: 24px;
-  padding-bottom: 16px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5608,7 +5606,7 @@ textarea {
 }
 
 .main__table {
-  margin: 20px auto 70px;
+  margin: 10px auto 70px;
 }
 
 @media (min-width: 320px) {
@@ -5812,10 +5810,6 @@ textarea {
   .qn-menu__tab-link svg {
     width: 28px;
     height: 28px;
-  }
-
-  .qn-menu__box {
-    padding-top: 24px;
   }
 
   .qn-filters__row:last-child {

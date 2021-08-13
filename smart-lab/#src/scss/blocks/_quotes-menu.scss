@@ -253,15 +253,9 @@
 	}
 	// .qn-menu__box
 	&__box {
-		padding-top: 24px;
-		padding-bottom: 16px;
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
-
-		@media (min-width: $md3 + px) {
-			padding-top: 24px;
-		}
 	}
 	// .qn-menu__title
 	&__title {

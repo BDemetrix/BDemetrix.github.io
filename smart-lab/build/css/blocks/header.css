@@ -175,6 +175,10 @@
   display: none;
 }
 
+.header .notify-label.empty {
+  display: none;
+}
+
 .header__notify {
   margin-right: 25px;
 }
