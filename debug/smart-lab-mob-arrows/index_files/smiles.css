@@ -1,0 +1,368 @@
+/* smiles */
+
+img[smile]
+{
+	display: inline-block;
+	border: none;
+	outline: none;
+	margin: 0px;
+	padding: 0px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	-webkit-appearance: unset;
+	-moz-appearance: unset;
+	-ms-appearance: unset;
+	-moz-force-broken-image-icon: 0;
+}
+
+img[smile="air_kiss"]
+{
+	width: 24px;
+	height: 26px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/air_kiss.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/air_kiss.gif');
+}
+
+img[smile="bad"]
+{
+	width: 22px;
+	height: 26px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/bad.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/bad.gif');
+}
+
+img[smile="biggrin"]
+{
+	width: 21px;
+	height: 25px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/biggrin.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/biggrin.gif');
+}
+
+img[smile="blum1"]
+{
+	width: 21px;
+	height: 25px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/blum1.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/blum1.gif');
+}
+
+img[smile="blush"]
+{
+	width: 28px;
+	height: 28px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/blush.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/blush.gif');
+}
+
+img[smile="bomb"]
+{
+	width: 26px;
+	height: 24px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/bomb.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/bomb.gif');
+}
+
+img[smile="bye2"]
+{
+	width: 37px;
+	height: 25px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/bye2.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/bye2.gif');
+}
+
+img[smile="cool"]
+{
+	width: 22px;
+	height: 21px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/cool.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/cool.gif');
+}
+
+img[smile="cray"]
+{
+	width: 31px;
+	height: 26px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/cray.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/cray.gif');
+}
+
+img[smile="crazy"]
+{
+	width: 21px;
+	height: 28px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/crazy.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/crazy.gif');
+}
+
+img[smile="dance"]
+{
+	width: 38px;
+	height: 26px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/dance.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/dance.gif');
+}
+
+img[smile="diablo"]
+{
+	width: 39px;
+	height: 34px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/diablo.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/diablo.gif');
+}
+
+img[smile="drinks"]
+{
+	width: 51px;
+	height: 28px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/drinks.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/drinks.gif');
+}
+
+img[smile="gamer"]
+{
+	width: 36px;
+	height: 33px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/gamer.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/gamer.gif');
+}
+
+img[smile="girl_angel"]
+{
+	width: 31px;
+	height: 32px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/girl_angel.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/girl_angel.gif');
+}
+
+img[smile="give_heart"]
+{
+	width: 29px;
+	height: 25px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/give_heart.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/give_heart.gif');
+}
+
+img[smile="give_rose"]
+{
+	width: 31px;
+	height: 26px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/give_rose.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/give_rose.gif');
+}
+
+img[smile="good"]
+{
+	width: 27px;
+	height: 26px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/good.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/good.gif');
+}
+
+img[smile="hang1"]
+{
+	width: 27px;
+	height: 35px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/hang1.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/hang1.gif');
+}
+
+img[smile="hi"]
+{
+	width: 39px;
+	height: 30px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/hi.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/hi.gif');
+}
+
+img[smile="i_am_so_happy"]
+{
+	width: 27px;
+	height: 25px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/i_am_so_happy.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/i_am_so_happy.gif');
+}
+
+img[smile="ireful"]
+{
+	width: 37px;
+	height: 25px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/ireful.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/ireful.gif');
+}
+
+img[smile="kiss"]
+{
+	width: 35px;
+	height: 24px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/kiss.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/kiss.gif');
+}
+
+img[smile="kiss3"]
+{
+	width: 49px;
+	height: 25px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/kiss3.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/kiss3.gif');
+}
+
+img[smile="lol"]
+{
+	width: 21px;
+	height: 21px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/lol.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/lol.gif');
+}
+
+img[smile="mad"]
+{
+	width: 21px;
+	height: 25px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/mad.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/mad.gif');
+}
+
+img[smile="man_in_love"]
+{
+	width: 21px;
+	height: 28px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/man_in_love.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/man_in_love.gif');
+}
+
+img[smile="mocking"]
+{
+	width: 26px;
+	height: 25px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/mocking.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/mocking.gif');
+}
+
+img[smile="music"]
+{
+	width: 27px;
+	height: 26px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/music.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/music.gif');
+}
+
+img[smile="nea"]
+{
+	width: 21px;
+	height: 25px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/nea.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/nea.gif');
+}
+
+img[smile="pardon"]
+{
+	width: 34px;
+	height: 25px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/pardon.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/pardon.gif');
+}
+
+img[smile="rofl"]
+{
+	width: 30px;
+	height: 25px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/rofl.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/rofl.gif');
+}
+
+img[smile="sad"]
+{
+	width: 21px;
+	height: 25px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/sad.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/sad.gif');
+}
+
+img[smile="scratch_one-s_head"]
+{
+	width: 29px;
+	height: 25px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/scratch_one-s_head.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/scratch_one-s_head.gif');
+}
+
+img[smile="shok"]
+{
+	width: 21px;
+	height: 26px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/shok.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/shok.gif');
+}
+
+img[smile="shout"]
+{
+	width: 21px;
+	height: 25px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/shout.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/shout.gif');
+}
+
+img[smile="smile"]
+{
+	width: 21px;
+	height: 25px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/smile.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/smile.gif');
+}
+
+img[smile="sorry"]
+{
+	width: 32px;
+	height: 26px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/sorry.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/sorry.gif');
+}
+
+img[smile="unknown"]
+{
+	width: 35px;
+	height: 25px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/unknown.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/unknown.gif');
+}
+
+img[smile="wacko1"]
+{
+	width: 21px;
+	height: 26px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/wacko1.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/wacko1.gif');
+}
+
+img[smile="wink"]
+{
+	width: 21px;
+	height: 25px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/wink.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/wink.gif');
+}
+
+img[smile="yahoo"]
+{
+	width: 45px;
+	height: 30px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/yahoo.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/yahoo.gif');
+}
+
+img[smile="yes"]
+{
+	width: 21px;
+	height: 25px;
+	content: url('/templates/skin/smart-lab-x3/images/smiles/yes.gif');
+	background-image: url('/templates/skin/smart-lab-x3/images/smiles/yes.gif');
+}
+
+@-moz-document url-prefix() {
+
+	img[smile] {
+
+		content: none !important;
+	}
+}

@@ -1,0 +1,30 @@
+/* Заменить стили на следующие */
+
+/* В html правой кнопке .prevNextButtons a  убрать из span неразрывный пробел &nbsp; */
+
+.prevNextButtons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #303bff;
+  margin: 1em 0 0 1rem;
+  padding: 1.2em 1em;
+  border-radius: 0.2em;
+  border: 0;
+  vertical-align: top;
+  font-weight: normal;
+}
+
+.prevNextButtons a span {
+  background-size: 100%;
+  width: 16px;
+  height: 16px;
+  margin: 0; /* эта строка - костыль, после редактирования основных стилей можно удалить */
+  background: transparent url("arrow.svg") no-repeat center center;
+  transform: scale(2);
+}
+
+.prevNextButtons a:last-child span {
+  margin: 0; /* эта строка - костыль, после редактирования основных стилей можно удалить */
+  transform: scale(2) rotate(180deg);
+}

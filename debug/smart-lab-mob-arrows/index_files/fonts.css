@@ -1,0 +1,9 @@
+@font-face {
+	font-family: "Open Sans";
+	src: url(/plugins/mobile/templates/skin/default/actions/ActionMobile/css/fonts/OpenSans-Regular.ttf);
+}
+
+@font-face {
+	font-family: "OpenSans SemiBold";
+	src: url(/plugins/mobile/templates/skin/default/actions/ActionMobile/css/fonts/OpenSans-SemiBold.ttf);
+}
