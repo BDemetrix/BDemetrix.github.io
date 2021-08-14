@@ -11,7 +11,7 @@ let scss = require('gulp-sass')(require('sass'))
 let group_media = require("gulp-group-css-media-queries");
 let plumber = require("gulp-plumber");
 let del = require("del");
-//let imagemin = require("gulp-imagemin");
+let imagemin = require("gulp-imagemin");
 let uglify = require("gulp-uglify-es").default;
 let rename = require("gulp-rename");
 let fileinclude = require("gulp-file-include");
@@ -204,14 +204,14 @@ function js() {
 function images() {
     return src(path.src.images)
 		.pipe(newer(path.build.images))
-		/* .pipe(
+		.pipe(
 			imagemin({
 				progressive: true,
 				svgoPlugins: [{ removeViewBox: false }],
 				interlaced: true,
 				optimizationLevel: 3 // 0 to 7
 			})
-		) */
+		)
 		.pipe(dest(path.build.images))
 		.pipe(dest('test/images/')) // Для теста в проэкте Smart-lab
 }

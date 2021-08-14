@@ -385,7 +385,6 @@ function plugSimpleBar(selector) {
 function closeAllOpenedMenu() {
   const allMenu = document.querySelectorAll('._open');
   allMenu.forEach(menu => menu.classList.remove('_open'));
-  unBlockOverflow();
 }
 
 /**
@@ -393,9 +392,23 @@ function closeAllOpenedMenu() {
  * то закрываются все окна
  */
 document.documentElement.addEventListener('click', (e) => {
-  if (!e.target.closest('._open') && !e.target.closest('._active-el')) {
+  if (!e.target.closest('._open')) {
     closeAllOpenedMenu();
   }
+});
+/**
+ * навешиваем обработчик нажатия на каждый активный елемент (кнопку/иконку)
+ * которому присвоен класс ._active-el
+ * при нажатии закрываются все елементы открытые елементы, содержащие класс ._open
+ */
+let activeHeadersEls = document.querySelectorAll('._active-el');
+activeHeadersEls.forEach(el => {
+  el.addEventListener('click', () => {
+    if (!el.parentElement.classList.contains('_open')) {
+      closeAllOpenedMenu();
+    }
+    el.parentElement.classList.toggle('_open');
+  });
 });
 
 //=================
@@ -464,21 +477,6 @@ window.addEventListener('resize', () => {
   setheaderMenuBodyHeight();
   if (mainMenuSimpleBar) mainMenuSimpleBar.recalculate();
 } );
-
-/**
- * навешиваем обработчик нажатия на каждый активный елемент (кнопку/иконку)
- * в хедере, которому присвоен класс ._active-el
- * при нажатии закрываются все елементы открытые елементы, содержащие класс ._open
- */
-let activeHeadersEls = document.querySelectorAll('.header ._active-el');
-activeHeadersEls.forEach(el => {
-  el.addEventListener('click', () => {
-    if (!el.parentElement.classList.contains('_open')) {
-      closeAllOpenedMenu();
-    }
-    el.parentElement.classList.toggle('_open');
-  });
-});
 
 // Открытие/закрытие основного меню
 const mainMenuBtn = document.getElementById('main-menu-btn');
@@ -887,10 +885,9 @@ if (qnMenuBtnFilter && qnFilters && qnFiltersClose) {
 
   qnMenuBtnFilter.addEventListener('click', () => {
     if (qnMenuBtnFilter.parentElement.classList.contains('_open')) 
-      unBlockOverflow();
-    else 
       blockOverflow();
-    qnMenuBtnFilter.parentElement.classList.toggle('_open');
+    else 
+      unBlockOverflow();
   });
 
   qnFilters.addEventListener('click', (e) => {

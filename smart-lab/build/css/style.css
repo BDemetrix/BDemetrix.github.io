@@ -4495,18 +4495,81 @@ textarea {
   white-space: nowrap;
 }
 
-.qn-menu__btns {
+.qn-menu__actions {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.qn-menu__btns .qn-filters {
+.qn-menu__buy-shares {
+  position: relative;
+}
+
+.qn-menu__buy-shares._open .qn-menu__buy-popup {
+  -webkit-transform: translate(0, 10px);
+      -ms-transform: translate(0, 10px);
+          transform: translate(0, 10px);
+  opacity: 1;
+  visibility: visible;
+}
+
+.qn-menu__buy-popup {
+  overflow: hidden;
+  position: absolute;
+  z-index: 99;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #ffffff;
+  border-color: #74a3c7;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   opacity: 0;
   visibility: hidden;
 }
 
-.qn-menu__btns._open .qn-filters {
+.qn-menu__broker-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.7em 1em;
+  font-size: 16px;
+  color: #74a3c7;
+  white-space: nowrap;
+}
+
+.qn-menu__broker-link img {
+  width: 26px;
+  height: 26px;
+  margin-left: 0.6em;
+  margin-right: 0.25em;
+}
+
+.qn-menu__broker-link:hover {
+  background-color: #f4f4f4;
+}
+
+.qn-menu__broker {
+  font-weight: 700;
+}
+
+.qn-menu__filter .qn-filters {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.qn-menu__filter._open .qn-filters {
   opacity: 1;
   visibility: visible;
 }

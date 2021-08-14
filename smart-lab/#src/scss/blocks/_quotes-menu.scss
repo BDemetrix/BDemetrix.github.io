@@ -271,16 +271,72 @@
 			line-height: 30px;
 		}
 	}
-	// .qn-menu__btns
-	&__btns {
+	// .qn-menu__actions
+	&__actions {
 		display: flex;
 
-    .qn-filters {
+	}
+	// .qn-menu__buy-shares
+	&__buy-shares {
+		position: relative;
+
+		&._open {
+
+      .qn-menu__buy-popup { 
+				transform: translate(0, 10px);
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+	}
+	// .qn-menu__buy-popup
+	&__buy-popup {
+		overflow: hidden;
+		position: absolute;
+		z-index: 99;
+		display: flex;
+		flex-direction: column;
+		background-color: #ffffff;
+    border-color: #74a3c7;
+    border-radius: 4px;
+		box-shadow: 0 2px 8px rgba($color: #000000, $alpha: .45);		
+		transition: all $t ease;
+		opacity: 0;
+		visibility: hidden;
+	}
+	// .qn-menu__broker-link 
+	&__broker-link {
+		display: flex;
+		align-items: center;
+		padding: 0.7em 1em;
+		font-size: 16px;
+		color: #74a3c7;
+		white-space: nowrap;
+
+		img {
+	    width: 26px;
+    	height: 26px;
+			margin-left: 0.6em;
+			margin-right: 0.25em;
+		}
+
+		&:hover {
+			background-color: #f4f4f4;
+		}
+	} 
+	// .qn-menu__broker
+	&__broker {
+		font-weight: 700;
+	}
+	// .qn-menu__filter
+	&__filter {
+
+		.qn-filters {
       opacity: 0;
       visibility: hidden;
     }
 
-    &._open {
+		&._open {
 
       .qn-filters { 
         opacity: 1;

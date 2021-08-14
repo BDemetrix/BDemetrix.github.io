@@ -16,10 +16,9 @@ if (qnMenuBtnFilter && qnFilters && qnFiltersClose) {
 
   qnMenuBtnFilter.addEventListener('click', () => {
     if (qnMenuBtnFilter.parentElement.classList.contains('_open')) 
-      unBlockOverflow();
-    else 
       blockOverflow();
-    qnMenuBtnFilter.parentElement.classList.toggle('_open');
+    else 
+      unBlockOverflow();
   });
 
   qnFilters.addEventListener('click', (e) => {

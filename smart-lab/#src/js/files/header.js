@@ -20,21 +20,6 @@ window.addEventListener('resize', () => {
   if (mainMenuSimpleBar) mainMenuSimpleBar.recalculate();
 } );
 
-/**
- * навешиваем обработчик нажатия на каждый активный елемент (кнопку/иконку)
- * в хедере, которому присвоен класс ._active-el
- * при нажатии закрываются все елементы открытые елементы, содержащие класс ._open
- */
-let activeHeadersEls = document.querySelectorAll('.header ._active-el');
-activeHeadersEls.forEach(el => {
-  el.addEventListener('click', () => {
-    if (!el.parentElement.classList.contains('_open')) {
-      closeAllOpenedMenu();
-    }
-    el.parentElement.classList.toggle('_open');
-  });
-});
-
 // Открытие/закрытие основного меню
 const mainMenuBtn = document.getElementById('main-menu-btn');
 if (mainMenuBtn) {

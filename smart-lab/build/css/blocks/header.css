@@ -346,14 +346,14 @@ h5.logo__title-main {
 .query-search__btn {
   position: absolute;
   z-index: 10;
-  left: 10px;
+  left: 7px;
   top: 50%;
   -webkit-transform: translate(0, -50%);
       -ms-transform: translate(0, -50%);
           transform: translate(0, -50%);
-  width: 18px;
-  height: 18px;
-  padding-left: 1px;
+  width: 23px;
+  height: 23px;
+  margin-left: 1px;
   border: none;
   background-color: transparent;
   -webkit-user-select: none;
@@ -996,7 +996,7 @@ h5.logo__title-main {
 
 ._style-2 .logo::before,
 ._style-3 .logo::before {
-  background: #F59300;
+  background: #15e11e;
 }
 
 ._style-2 .logo a,
