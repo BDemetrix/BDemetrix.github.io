@@ -1376,9 +1376,11 @@ tippy('[data-tippy-content]');
 // Для предотвращения мигания основного меню и меню фильтров 
 const headerSearchBody = document.querySelector('header .search__body');
 const headerMenuBody  = document.querySelector('header .menu__body');
+const headerSettingBody  = document.querySelector('header .setting__body');
 
 headerSearchBody.style.display = '';
 headerMenuBody.style.display = '';
+headerSettingBody.style.display = '';
 
 plugSimpleBar('.filters__content');
 
