@@ -44,7 +44,7 @@ let path = {
 	src: {
 		favicon: src_folder + "/images/favicon.{jpg,png,svg,gif,ico,webp}",
 		html: [src_folder + "/*.html", "!" + src_folder + "/_*.html"],
-		js: [src_folder + "/js/app.js", src_folder + "/js/vendors.js"],
+		js: src_folder + "/js/*.js",
 		css: src_folder + "/scss/style.scss",
 		cssThemes: src_folder + "/scss/themes/*.scss",
 		images: [src_folder + "/images/**/*.{jpg,png,svg,gif,ico,webp}", "!**/favicon.*", "!**/sprite/**.*"],
@@ -158,14 +158,14 @@ function js() {
 }
 function images() {
     return src(path.src.webp)
-        .pipe(newer(path.build.images))
-		.pipe(
+    .pipe(newer(path.build.images))
+		/* .pipe(
 			imagemin([
 				webp({
 					quality: 75
 				})
 			])
-		)
+		) */
 		.pipe(
 			rename({
 				extname: ".webp"

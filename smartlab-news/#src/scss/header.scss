@@ -348,7 +348,7 @@
 		position: relative;
 		flex: 1 1 auto;
 		font-size: 18px;
-		padding-right: 3em;
+		padding-right: 4.1em;
 		background: rgba($color: #fff, $alpha: .05);
 		border: 1px solid rgba($color: #fff, $alpha: .8);
 		border-radius: 4px;
@@ -438,13 +438,20 @@
 	}
 	// .search__cls-btn
 	&__cls-btn {
-		display: none;
+		position: absolute;
+		top: 50%;
+		right: 50px;
+		transform: translateY(-50%);
 		width: 20px;
 		flex: 0 0 20px;
+		order: 2;
 		margin-left: 15px;
 
 		@media (min-width: $md4 + px) {
-			display: flex;
+			position: relative;
+			transform: translateY(0);
+			top: auto;
+			right: auto;
 		}
 	}
 	// .search__icon
