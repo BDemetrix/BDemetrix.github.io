@@ -1,0 +1,118 @@
+.comments_total {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.comments_total-info {
+  margin-right: 20px;
+}
+
+.comments_filter {
+  position: relative;
+}
+
+.comments_filter-btn,
+.comments_filter-pop,
+.comments_filter-date {
+  position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.comments_filter-btn span,
+.comments_filter-pop span,
+.comments_filter-date span {
+  height: auto;
+  margin: 0;
+  color: #000;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.comments_filter-btn svg {
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.comments_filter-btn span {
+  margin-right: 7px;
+}
+
+.comments_filter-date.active::before,
+.comments_filter-pop.active::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  background: url('check.svg');
+}
+
+.comments_filter-date span,
+.comments_filter-pop span {
+  padding: 8px 20px 8px 40px;
+}
+
+.comments_filter-date:hover,
+.comments_filter-pop:hover {
+  background: #eee;
+}
+
+.comments_filter-body {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 8px 0;
+  right: 0;
+  top: calc( 100% + 7px);
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  -webkit-box-shadow: 1px 1px 5px 1px rgb(0 0 0 / 50%);
+          box-shadow: 1px 1px 5px 1px rgb(0 0 0 / 50%);
+  z-index: 555;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.15s ease;
+  -o-transition: all 0.15s ease;
+  transition: all 0.15s ease;
+}
+
+.comments_filter.active .comments_filter-body{
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.comments_filter.active .comments_filter-btn > svg {
+  -webkit-transform: scaleY(-1);
+      -ms-transform: scaleY(-1);
+          transform: scaleY(-1);
+}

@@ -1,0 +1,16 @@
+@import url('./smiles.css');
+
+body { font-size: 10pt; margin-bottom: 15px; font-family: Verdana, sans-serif;}
+img { margin: 5px; max-width: 100%}
+p { margin-bottom: 15px; }
+
+ul, ol { margin-bottom: 15px; margin-left: 45px; }
+ul li { list-style: disc; }
+ol li { list-style: decimal; }
+dl { margin-bottom: 15px; }
+dl dt { font-weight: bold; }
+dl dd { font-style: italic; margin: 0 0 5px 20px; color: #555; }
+
+blockquote { margin: 0; background: #fbfbfc; color: #555; padding: 10px 15px 10px 30px;  clear: both; border-left: 5px solid #7f7f7f }
+pre { overflow: auto; width: 95%; padding: 5px 2%; margin-bottom: 10px; background: #f8f8f8 url(../images/code.gif); border: 1px solid #dce6f0; clear: both; }
+.dictionary_link {color: inherit !important; text-decoration: none; border-bottom: 1px solid #7f7f7f !important}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!-- saved from url=(1063)https://cdn.adhigh.net/media/html/5a184d56/300x250.html?clickTAG=https%3A%2F%2Ff21-ru.adhigh.net%2Fp%2Fclick%2Ff228188f337835a9yandex_hb04fom2000000000002al3fqf2h8h17ip0k9m5s0icchdqmscm78brmovrg7orgncjm81049s2eor0m7nn19u1rjmp7n5t3g4hndmirr19gkbd41v81hm2ib30u2ga08ihgeq294m8bgrphevapu7iucpp5uf7pkrtv6rpmfqa9erkcrefpv93vdgvdknlr2ctfibngr7vc4lq6jo5k0n0rhmh8bc4qtpbjc7d0q8desrar6gp4kr20682306bgoqebv2oefl8rc8pv05oumjvsgnjmd1v6ceknlompiumunt0dre770ir27hqf6om7pnbov7jvng7k8ti6skc8q27c4c03ups7ukmln27324df76m4l2b90i9bns1kah6tr0vcm4fa6s3gi2202l8h4u6galoi26svpth0skqq5oqa9rck3scccojiqaq00g9ni3lg74vb5dksbqeglcbpvnbbu5dvq7d0rcmt8u77gal3rbv8vv8d1bfogvc7vq953vbv59v47ib4kc1admpdvcpld9hscklilr01obkkrq3gaf4kbhtblbo3uguvdjd0hilf6t0na4t4e0le8j5cfao8mvp74ct6m4vans09kk0hf22rncmk7tvbkc4sp2rigvt9s4rjvffb732vgbagsp1rc1br5il5lc7ggadlkmkk47jm7bb405me8qpaqul4nmc03k81n3i7upvbks6tqt7k7ki9j18753l1cqcdj4cjjk7nr33bgneji45jv820g000%2F%3Fscr%3D1366x768x24%26uit%3D1629139587092%26ifr%3D3%26tz%3D-180%26url%3Dhttps%253A%252F%252Fyastatic.net%252F%26rf%3D%26pl%3D443304750&clickTarget=_blank -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="ad.size" content="width=300,height=250"><meta name="authoring-tool" content="Adobe_Animate_CC"><title>HTML5</title><!-- write your code here --><script src="./createjs-2015.11.26.min.js.Без названия"></script><script src="./300x250.js.Без названия"></script><script>
+var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+function init() {
+	canvas = document.getElementById("canvas");
+	anim_container = document.getElementById("animation_container");
+	dom_overlay_container = document.getElementById("dom_overlay_container");
+	var comp=AdobeAn.getComposition("72F6DCEB06BB6C4EBF5923DCC737DD19");
+	var lib=comp.getLibrary();
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
+	loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
+	var lib=comp.getLibrary();
+	loader.loadManifest(lib.properties.manifest);
+}
+function handleFileLoad(evt, comp) {
+	var images=comp.getImages();	
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+}
+function handleComplete(evt,comp) {
+	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var lib=comp.getLibrary();
+	var ss=comp.getSpriteSheet();
+	var queue = evt.target;
+	var ssMetadata = lib.ssMetadata;
+	for(i=0; i<ssMetadata.length; i++) {
+		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+	}
+	exportRoot = new lib._300x250();
+	stage = new lib.Stage(canvas);	
+	//Registers the "tick" event listener.
+	fnStartAnimation = function() {
+		stage.addChild(exportRoot);
+		createjs.Ticker.setFPS(lib.properties.fps);
+		createjs.Ticker.addEventListener("tick", stage);
+	}	    
+	//Code to support hidpi screens and responsive scaling.
+	AdobeAn.makeResponsive(false,'both',false,1,[canvas,anim_container,dom_overlay_container]);	
+	AdobeAn.compositionLoaded(lib.properties.id);
+	fnStartAnimation();
+}
+</script><!-- write your code here --><style type="text/css">body {
+    margin: 0 ! important;
+    padding: 0 ! important;
+}
+
+#canvas {
+    cursor: pointer;
+}</style></head><body onclick="window.open (adlink, &#39;_blank&#39;);" style="cursor:pointer;margin:0" onload="init();">
+	<div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); width:300px; height:250px">
+		<canvas id="canvas" width="300" height="250" style="position: absolute; display: block; background-color: rgb(255, 255, 255); width: 300px; height: 250px;"></canvas><div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:300px; height:250px; position: absolute; left: 0px; top: 0px; display: block;">
+		</div>
+	</div>
+<script>// add click TAG
+function getQueryStringValue (key) {
+    return unescape(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + escape(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+}
+
+var clickArea = document.getElementById('canvas');
+clickArea.onclick = function() {
+    clickTAGvalue = getQueryStringValue('clickTAG');
+    window.open(clickTAGvalue, '_blank');
+};</script>
+</body></html>
