@@ -684,6 +684,22 @@ h5.logo__title-main {
 		  top: 65px;
 		  bottom: 10px;
 		}
+
+		// Костыль для  .jBox
+		.jBox-content {
+			padding: 0;
+		}
+		#notifiesPopover .jBox-content {
+    	max-width: 100% !important;
+    	width: 100% !important;
+		}
+		@media screen and (min-width: 767px) {
+			#notifiesPopover .jBox-content {
+    		max-width: 100% !important;
+    		width: 100% !important;
+			}
+		}
+		//=====
 	}
 	// .notify__inner
 	&__inner {

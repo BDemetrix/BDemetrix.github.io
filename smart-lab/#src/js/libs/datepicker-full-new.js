@@ -1,3 +1,6 @@
+// https://prognote.ru/web-dev/front-end/datepicker-for-pure-javascript/
+// https://mymth.github.io/vanillajs-datepicker/#/
+
 ! function () {
   "use strict";
 
