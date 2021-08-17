@@ -685,6 +685,11 @@ h5.logo__title-main {
   padding: 0;
 }
 
+.notify__body #notifiesPopover .jBox-content {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
 .notify__inner {
   position: relative;
 }
@@ -1131,7 +1136,7 @@ textarea {
 }
 
 @media screen and (min-width: 767px) {
-  .notify__body .notify__body #notifiesPopover .jBox-content {
+  .notify__body #notifiesPopover .jBox-content {
     max-width: 100% !important;
     width: 100% !important;
   }

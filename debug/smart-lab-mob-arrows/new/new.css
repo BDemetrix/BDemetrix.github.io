@@ -6,10 +6,11 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  height: 40px;
   background-color: #303bff;
   margin: 1em 0 0 1rem;
-  padding: 1.2em 1em;
-  border-radius: 0.2em;
+  padding: 0;
+  border-radius: 4px;
   border: 0;
   vertical-align: top;
   font-weight: normal;
