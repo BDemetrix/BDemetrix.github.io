@@ -75,7 +75,7 @@ if (categoriesSliderBbody) {
 		watchOverflow: true,
 		//spaceBetween: 25,
 		freeMode: true,
-		//freeModeSticky: true,
+		freeModeSticky: true,
 		speed: 400,
 		observer: true,
 		resizeObserver: !0,
