@@ -48,9 +48,6 @@ picture {
 .wrapper {
 	width: 100%;
 	min-height: 100%;
-	overflow-x: hidden;
-	display: flex;
-	flex-direction: column;
 	/* &._loaded {
 
 	} */
@@ -98,19 +95,15 @@ picture {
 
 //<ОСНОВНОЙ БЛОК>====================================================================================================
 .main{
-	flex: 1 1 auto;
 	background: #E5E5E5;
 	&___quotes {
 		
 	}
   // .main__table 
-  /* &__table {
-    margin: 10px auto 70px;
+   &__table {
+    padding-bottom: 20px;
 
-    @media (min-width: $md3 + px) {
-      padding: 0 5px;
-    }
-  } */
+  }
 }
 //===================================================================================================================================
 

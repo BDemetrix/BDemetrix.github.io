@@ -152,14 +152,6 @@ picture {
 .wrapper {
   width: 100%;
   min-height: 100%;
-  overflow-x: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   /* &._loaded {
 
   } */
@@ -5576,17 +5568,11 @@ textarea {
 }
 
 .main {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
   background: #E5E5E5;
-  /* &__table {
-    margin: 10px auto 70px;
+}
 
-    @media (min-width: $md3 + px) {
-      padding: 0 5px;
-    }
-  } */
+.main__table {
+  padding-bottom: 20px;
 }
 
 @media (min-width: 320px) {
@@ -6164,6 +6150,80 @@ textarea {
 
   .menu__comb-item:not(:first-child) {
     margin-top: 20px;
+  }
+}
+
+@media (min-width: 1300px) {
+  .trades-table__n {
+    width: 4.4%;
+  }
+
+  /*  .trades-table__time {
+     width: 7.9%;
+   } */
+
+  .trades-table__name {
+    width: 7.9%;
+  }
+
+  .trades-table__ticker {
+    width: 5.7%;
+  }
+
+  .trades-table__chartrow {
+    width: 2.4%;
+  }
+
+  .trades-table__price {
+    width: 5.6%;
+  }
+
+  .trades-table__change-per {
+    width: 62px;
+  }
+
+  .trades-table__volume {
+    width: 75px;
+  }
+
+  .trades-table__week {
+    width: 61px;
+  }
+
+  .trades-table__month {
+    width: 51px;
+  }
+
+  .trades-table__first {
+    width: 59px;
+  }
+
+  .trades-table__year {
+    width: 61px;
+  }
+
+  .trades-table__rub {
+    width: 71px;
+  }
+
+  .trades-table__usd {
+    width: 71px;
+  }
+
+  .trades-table__change-vol {
+    width: 71px;
+  }
+
+  .trades-table__change-pos {
+    width: 76px;
+  }
+
+  .trades-table__add-case {
+    width: 64px;
+  }
+
+  .trades-table__add-list {
+    width: 64px;
   }
 }
 
