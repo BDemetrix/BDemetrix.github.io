@@ -49,7 +49,9 @@ let categoriesSlider = new Swiper(".categories-slider__body", {
 		centeredSlides: !0,
 		centeredSlidesBounds: !0,
 		watchOverflow: !0,
-		speed: 400
+		speed: 400,
+    resizeObserver: !0,
+    watchOverflow: !0
 	}),
 	contentSlider = new Swiper(".content-slider__body", {
 		thumbs: {
@@ -57,15 +59,17 @@ let categoriesSlider = new Swiper(".categories-slider__body", {
 		},
 		slidesPerView: 1,
 		speed: 400,
-		simulateTouch: !1
+		simulateTouch: !1,
+    resizeObserver: !0,
+    watchOverflow: !0
 	});
 
-window.addEventListener("resize", () => {
+/* window.addEventListener("resize", () => {
   if (categoriesSlider)
 	  categoriesSlider.updateSize();
   if (contentSlider)
     contentSlider.updateSize();
-});
+}); */
 
 let now = new Date,
 	slideDate = document.querySelector(".slide-content__date");

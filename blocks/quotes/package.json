@@ -15,7 +15,7 @@
 		"gulp-file-include": "latest",
 		"gulp-fonter": "latest",
 		"gulp-group-css-media-queries": "latest",
-		"gulp-imagemin": "latest",
+		"gulp-imagemin": "^7.1.0",
 		"gulp-media-queries-splitter": "latest",
 		"gulp-newer": "latest",
 		"gulp-plumber": "latest",
@@ -33,6 +33,7 @@
 		"gulp-webpcss": "^1.1.1",
 		"imagemin-webp": "latest",
 		"transform-runtime": "0.0.0",
-		"webp-converter": "^2.2.3"
+		"webp-converter": "^2.2.3",
+		"sass": "^1.38.0"
 	}
 }

@@ -77,6 +77,9 @@ if (categoriesSliderBbody) {
 		freeMode: true,
 		//freeModeSticky: true,
 		speed: 400,
+		observer: true,
+		resizeObserver: !0,
+    watchOverflow: !0
 	});
 }
 
@@ -97,17 +100,19 @@ if (categoriesSliderBbody) {
 		speed: 400,
 		simulateTouch: false,
 		observer: true,
+		resizeObserver: !0,
+    watchOverflow: !0
 	});
 }
 	
-window.addEventListener('resize', ()=> {
+/* window.addEventListener('resize', ()=> {
 	if (categoriesSlider) {
 		categoriesSlider.updateSize(); 
 	}
 	if (contentSlider) {
 		contentSlider.updateSize();
 	}
-});
+}); */
 let now = new Date();
 let slideDate = document.querySelector('.slide-content__date');
 

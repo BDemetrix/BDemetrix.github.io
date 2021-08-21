@@ -123,7 +123,7 @@ picture {
           flex-direction: column;
   /* &._loaded {
 
-	} */
+  } */
 }
 
 ._container {
@@ -148,7 +148,7 @@ picture {
 
 .quotes__trend-icon {
   /* flex: 0 0 2em;
-		width: 2em; */
+  width: 2em; */
 }
 
 .quotes__trend-icon::before {
