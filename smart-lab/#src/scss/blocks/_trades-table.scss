@@ -34,7 +34,7 @@
   -webkit-transform: translate(50%, 0);
       -ms-transform: translate(50%, 0);
           transform: translate(50%, 0);
-  background: url('../images/icons/flex-table/loading.gif') center/100% no-repeat;
+  background: url("../images/icons/flex-table/loading.gif") center/100% no-repeat;
 }
 
 .trades-table * {
@@ -67,11 +67,11 @@
 }
 
 .trades-table a.charticon {
-  background: url('../images/icons/flex-table/chart-icon-small.png') no-repeat;
+  background: url(../images/icons/flex-table/chart-icon-small.png) no-repeat;
 }
 
 .trades-table a.charticon2 {
-  background: url('../images/icons/flex-table/chart2-icon-small.png') no-repeat;
+  background: url(../images/icons/flex-table/chart2-icon-small.png) no-repeat;
 }
 
 .trades-table .flex-table__ad-text {
@@ -407,98 +407,3 @@
     width: 70px;
   }
 }
-/* 
-@media (min-width: 1300px) {
-
-  .flex-table__inner {
-    max-width: none;
-    width: 100%;
-
-    .flex-table__r-header-wrap,
-    .flex-table__r-header-inner,
-    .flex-table__l-table {
-      max-width: none;
-      width: 100%;
-    }
-  }
-
-  .flex-table__l-box {
-    width: calc( 130/1230 * 100%);
-  }
-  .flex-table__r-box {
-    width: calc( 1100/1230 * 100%);
-  }
-  
-  .trades-table__n {
-    width: auto;
-  }
-
-  .trades-table__time {
-    width: auto;
-  }
-
-  .trades-table__name {
-    width: auto;
-  }
-
-  .trades-table__ticker {
-    width: auto;
-  }
-
-  .trades-table__chartrow {
-    width: auto;
-  }
-
-  .trades-table__price {
-    width: auto;
-  }
-
-  .trades-table__change-per {
-    width: auto;
-  }
-
-  .trades-table__volume {
-    width: auto;
-  }
-
-  .trades-table__week {
-    width: auto;
-  }
-
-  .trades-table__month {
-    width: auto;
-  }
-
-  .trades-table__first {
-    width: auto;
-  }
-
-  .trades-table__year {
-    width: auto;
-  }
-
-  .trades-table__rub {
-    width: auto;
-  }
-
-  .trades-table__usd {
-    width: auto;
-  }
-
-  .trades-table__change-vol {
-    width: auto;
-  }
-
-  .trades-table__change-pos {
-    width: auto;
-  }
-
-  .trades-table__add-case {
-    width: auto;
-  }
-
-  .trades-table__add-list {
-    width: auto;
-  }
-}
- */

@@ -23,6 +23,10 @@
 		transition: all $t ease;
 		overflow-x: hidden;
 
+		.simplebar-track.simplebar-horizontal { 
+			display: none;
+		}
+		
 		.simplebar-scrollbar:before {
 			right: 0;
 			background: #666;

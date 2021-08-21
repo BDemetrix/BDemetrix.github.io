@@ -431,7 +431,6 @@ picture {
 }
 
 .simplebar-track.simplebar-horizontal {
-  display: none;
   left: 0;
   height: 5px;
 }
@@ -1501,7 +1500,6 @@ picture {
 .flex-table__l-thead td {
   position: -webkit-sticky;
   position: sticky;
-  top: 0;
   background: #fbfb70;
 }
 
@@ -1576,7 +1574,6 @@ picture {
 .flex-table__r-table-thead td {
   position: -webkit-sticky;
   position: sticky;
-  top: 0;
   background: #fbfb70;
 }
 
@@ -3425,6 +3422,10 @@ textarea {
   overflow-x: hidden;
 }
 
+.menu__body .simplebar-track.simplebar-horizontal {
+  display: none;
+}
+
 .menu__body .simplebar-scrollbar:before {
   right: 0;
   background: #666;
@@ -5268,11 +5269,11 @@ textarea {
 }
 
 .trades-table a.charticon {
-  background: url("../images/icons/flex-table/chart-icon-small.png") no-repeat;
+  background: url(../images/icons/flex-table/chart-icon-small.png) no-repeat;
 }
 
 .trades-table a.charticon2 {
-  background: url("../images/icons/flex-table/chart2-icon-small.png") no-repeat;
+  background: url(../images/icons/flex-table/chart2-icon-small.png) no-repeat;
 }
 
 .trades-table .flex-table__ad-text {
@@ -5574,111 +5575,18 @@ textarea {
   display: none;
 }
 
-/* 
-@media (min-width: 1300px) {
-
-  .flex-table__inner {
-    max-width: none;
-    width: 100%;
-
-    .flex-table__r-header-wrap,
-    .flex-table__r-header-inner,
-    .flex-table__l-table {
-      max-width: none;
-      width: 100%;
-    }
-  }
-
-  .flex-table__l-box {
-    width: calc( 130/1230 * 100%);
-  }
-  .flex-table__r-box {
-    width: calc( 1100/1230 * 100%);
-  }
-
-  .trades-table__n {
-    width: auto;
-  }
-
-  .trades-table__time {
-    width: auto;
-  }
-
-  .trades-table__name {
-    width: auto;
-  }
-
-  .trades-table__ticker {
-    width: auto;
-  }
-
-  .trades-table__chartrow {
-    width: auto;
-  }
-
-  .trades-table__price {
-    width: auto;
-  }
-
-  .trades-table__change-per {
-    width: auto;
-  }
-
-  .trades-table__volume {
-    width: auto;
-  }
-
-  .trades-table__week {
-    width: auto;
-  }
-
-  .trades-table__month {
-    width: auto;
-  }
-
-  .trades-table__first {
-    width: auto;
-  }
-
-  .trades-table__year {
-    width: auto;
-  }
-
-  .trades-table__rub {
-    width: auto;
-  }
-
-  .trades-table__usd {
-    width: auto;
-  }
-
-  .trades-table__change-vol {
-    width: auto;
-  }
-
-  .trades-table__change-pos {
-    width: auto;
-  }
-
-  .trades-table__add-case {
-    width: auto;
-  }
-
-  .trades-table__add-list {
-    width: auto;
-  }
-}
- */
-
 .main {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
   background: #E5E5E5;
-}
+  /* &__table {
+    margin: 10px auto 70px;
 
-.main__table {
-  margin: 10px auto 70px;
+    @media (min-width: $md3 + px) {
+      padding: 0 5px;
+    }
+  } */
 }
 
 @media (min-width: 320px) {
@@ -5924,10 +5832,6 @@ textarea {
 
   .qn-filters__block:last-child {
     border-right: 0;
-  }
-
-  .main__table {
-    padding: 0 5px;
   }
 }
 
