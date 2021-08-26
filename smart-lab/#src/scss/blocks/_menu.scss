@@ -1,5 +1,5 @@
 .menu {
-	font-family: OpenSans, Tahoma, Verdana, sans-serif;
+	font-family: "Open Sans", Tahoma, Verdana, sans-serif;
 	// .menu__icon
 	&__icon {
 		cursor: pointer;
@@ -14,6 +14,7 @@
 		position: absolute;
 		top: 51px;
 		left: 0px;
+		z-index: 999;
 		display: flex;
 		width: 100%;
 		height: calc(100vh - 51px);

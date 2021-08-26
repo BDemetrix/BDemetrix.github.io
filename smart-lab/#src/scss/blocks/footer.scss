@@ -6,12 +6,12 @@
 
 	// .footer__list
 	&__list {
-    font-family: OpenSans, Tahoma, sans-serif;
+    font-family: "Open Sans", Tahoma, sans-serif;
     padding: 80px 0 0;
     list-style: none;
 
     @media (min-width: $md2 + px) {
-      font-family: Tahoma, OpenSans, sans-serif;
+      font-family: Tahoma, "Open Sans", sans-serif;
       display: flex;
       justify-content: space-around;
     }

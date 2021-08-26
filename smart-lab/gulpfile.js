@@ -295,7 +295,7 @@ function fontstyle() {
 					}
 					fontname = fontname.split('-');
 					fontname = fontname[0];
-					fontname.replace(' ', '');
+					//fontname.replace(' ', '');
 					if (c_filename != filename) {
 						fs.appendFile(src_folder + '/scss/base/fonts.scss', '@include font("' + fontname + '", "' + filename + '", "' + fontWeigh + '", "normal");\r\n', cb);
 					}

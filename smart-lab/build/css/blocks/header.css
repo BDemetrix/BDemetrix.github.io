@@ -68,7 +68,7 @@
 }
 
 .header {
-  font-family: Tahoma, OpenSans, Verdana, sans-serif;
+  font-family: Tahoma, "Open Sans", Verdana, sans-serif;
   background: #1f1f1f;
   position: relative;
   z-index: 10;
@@ -369,7 +369,7 @@ h5.logo__title-main {
 }
 
 .query-search__input {
-  font-family: Tahoma, OpenSans, Verdana, sans-serif;
+  font-family: Tahoma, "Open Sans", Verdana, sans-serif;
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
