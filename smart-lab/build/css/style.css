@@ -5567,6 +5567,87 @@ textarea {
   display: none;
 }
 
+/* 
+@media (min-width: 1250px) {
+
+  .trades-table .flex-table__r-header-table,
+  .trades-table .flex-table__r-table {
+    width: calc( 88vw - 10px );
+  }
+
+  .trades-table__n {
+    width: 30%;
+  }
+
+  .trades-table__name {
+    width: 70%;
+  }
+
+  .trades-table__ticker {
+    width: 5.7%;
+  }
+
+  .trades-table__chartrow {
+    width: 2.4%;
+  }
+
+  .trades-table__price {
+    width: 5.6%;
+  }
+
+  .trades-table__change-per {
+    width: 5.2%;
+  }
+
+  .trades-table__volume {
+    width: 6.1%;
+  }
+
+  .trades-table__time {
+    width: 5.4%;
+  }
+
+  .trades-table__week {
+    width: 5.0%;
+  }
+
+  .trades-table__month {
+    width: 5.0%;
+  }  
+
+  .trades-table__year {
+    width: 5.0%;
+  }
+
+  .trades-table__first {
+    width: 5.0%;
+  }
+
+  .trades-table__rub {
+    width: 5.5%;
+  }
+
+  .trades-table__usd {
+    width: 5.5%;
+  }
+
+  .trades-table__change-vol {
+    width: 5.5%;
+  }
+
+  .trades-table__change-pos {
+    width: 6.0%;
+  }
+
+  .trades-table__add-case {
+    width: 5.0%;
+  }
+
+  .trades-table__add-list {
+    width: 5.0%;
+  }
+} */
+
 .main {
   background: #E5E5E5;
 }
@@ -6150,80 +6231,6 @@ textarea {
 
   .menu__comb-item:not(:first-child) {
     margin-top: 20px;
-  }
-}
-
-@media (min-width: 1300px) {
-  .trades-table__n {
-    width: 4.4%;
-  }
-
-  /*  .trades-table__time {
-     width: 7.9%;
-   } */
-
-  .trades-table__name {
-    width: 7.9%;
-  }
-
-  .trades-table__ticker {
-    width: 5.7%;
-  }
-
-  .trades-table__chartrow {
-    width: 2.4%;
-  }
-
-  .trades-table__price {
-    width: 5.6%;
-  }
-
-  .trades-table__change-per {
-    width: 62px;
-  }
-
-  .trades-table__volume {
-    width: 75px;
-  }
-
-  .trades-table__week {
-    width: 61px;
-  }
-
-  .trades-table__month {
-    width: 51px;
-  }
-
-  .trades-table__first {
-    width: 59px;
-  }
-
-  .trades-table__year {
-    width: 61px;
-  }
-
-  .trades-table__rub {
-    width: 71px;
-  }
-
-  .trades-table__usd {
-    width: 71px;
-  }
-
-  .trades-table__change-vol {
-    width: 71px;
-  }
-
-  .trades-table__change-pos {
-    width: 76px;
-  }
-
-  .trades-table__add-case {
-    width: 64px;
-  }
-
-  .trades-table__add-list {
-    width: 64px;
   }
 }
 

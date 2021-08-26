@@ -1,0 +1,42 @@
+.profile_text_show  {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  margin-top: -24px;
+  padding-top: 12px;
+  background: linear-gradient(to top, #fff,  #fff 30%, transparent);
+  text-align: center;
+}
+
+.profile_text_show a {
+  color: grey ; 
+}
+
+.last_link  {
+  display: inline-block;
+  width: 60px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .4);
+  color: grey;
+  transition: all .4 ease;
+}
+
+.last_link:hover  {
+  color: #424242;
+}
+
+.last_link  svg{
+  transition: all .4 ease;
+  transform: scale(1.2, 1);
+}
+
+.last_link._opened {
+  box-shadow: 0 0px 5px rgba(0, 0, 0, .4);
+}
+
+.last_link._opened  svg{
+  transform: scale(1.2, -1);
+}

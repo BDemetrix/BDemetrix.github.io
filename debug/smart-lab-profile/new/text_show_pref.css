@@ -1,0 +1,67 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
+.profile_text_show  {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 2;
+  margin-top: -24px;
+  padding-top: 12px;
+  background: -webkit-gradient(linear, left bottom, left top, from(#fff),  color-stop(30%, #fff), to(transparent));
+  background: -o-linear-gradient(bottom, #fff,  #fff 30%, transparent);
+  background: linear-gradient(to top, #fff,  #fff 30%, transparent);
+  text-align: center;
+}
+
+.profile_text_show a {
+  color: grey ; 
+}
+
+.last_link  {
+  display: inline-block;
+  width: 60px;
+  text-align: center;
+  border-radius: 12px;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .4);
+          box-shadow: 0 3px 5px rgba(0, 0, 0, .4);
+  color: grey;
+  -webkit-transition: all .4 ease;
+  -o-transition: all .4 ease;
+  transition: all .4 ease;
+}
+
+.last_link:hover  {
+  color: #424242;
+}
+
+.last_link  svg{
+  -webkit-transition: all .4 ease;
+  -o-transition: all .4 ease;
+  transition: all .4 ease;
+  -webkit-transform: scale(1.2, 1);
+      -ms-transform: scale(1.2, 1);
+          transform: scale(1.2, 1);
+}
+
+.last_link._opened {
+  -webkit-box-shadow: 0 0px 5px rgba(0, 0, 0, .4);
+          box-shadow: 0 0px 5px rgba(0, 0, 0, .4);
+}
+
+.last_link._opened  svg{
+  -webkit-transform: scale(1.2, -1);
+      -ms-transform: scale(1.2, -1);
+          transform: scale(1.2, -1);
+}
