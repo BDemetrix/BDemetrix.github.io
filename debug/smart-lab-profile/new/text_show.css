@@ -6,7 +6,7 @@
   z-index: 2;
   margin-top: -24px;
   padding-top: 12px;
-  background: linear-gradient(to top, #fff,  #fff 30%, transparent);
+  background: linear-gradient(to top, #fff,  #fff 40%, transparent);
   text-align: center;
 }
 
@@ -19,7 +19,8 @@
   width: 60px;
   text-align: center;
   border-radius: 12px;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, .4);
+  background: #fff;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, .4);
   color: grey;
   transition: all .4 ease;
 }
