@@ -1,3 +1,9 @@
+/* 
+  Оригинальные стили лежат в ./forum-new_files/original_styles.css
+  Предположительно ненужные правила в оригинальном файле закомментированы
+*/
+
+/* Новые стили для оболочки. Оболочка в файле smart-lab\test\#src\wrapp.html*/
 .main  {
   display: flex;
   max-width: 1366px;
