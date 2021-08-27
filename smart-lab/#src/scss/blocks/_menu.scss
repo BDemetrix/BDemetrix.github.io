@@ -169,6 +169,7 @@
 			width: 24px;
 			height: 24px;
 			fill: $icon-color;
+			transition: all $t ease;
 		}
 
 		&--f-size {

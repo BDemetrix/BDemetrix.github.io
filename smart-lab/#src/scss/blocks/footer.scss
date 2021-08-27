@@ -38,6 +38,7 @@
 			width: 24px;
 			height: 24px;
 			fill: $icon-color;
+      transition: all $t ease;
 		}
 
     @media (min-width: $md2 + px) {
