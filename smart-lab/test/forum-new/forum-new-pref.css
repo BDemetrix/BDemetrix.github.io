@@ -1,0 +1,225 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
+/* 
+  * Оригинальные стили лежат в ./forum-new_files/original_styles.css ,
+  * предположительно ненужные правила в оригинальном файле закомментированы
+	* 
+	* Тегу <body> добавляем класс _style-3
+  * В конце этого файфла рнаходятся комментарии по удаениюя старого css
+	* С префиксами forum-new-pref.css
+*/
+
+/* Новые стили для оболочки. Оболочка в файле smart-lab\test\#src\wrapp.html*/
+
+.main {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	max-width: 1366px;
+}
+
+.main__aside {
+	padding-bottom: 73px;
+	background: #2d2d2d;
+}
+
+.main__content {
+	width: calc(100% - 190px);
+	padding: 0 20px 0 0;
+	background: #2d2d2d
+}
+
+
+/*  старые классы 
+    и редизайн кнопки открывающей боковое меню. 
+    Новая кнопка меню вставлена в  main__aside, старую (class="hidden_menu mob_menu_btn") удалил 
+*/
+
+.forum_content {
+	width: 100%;
+	background: white;
+	overflow-x: hidden;
+}
+
+.forum_content a {
+	color: #77b3ff;
+}
+
+.company_bar {
+	position: relative;
+	width: 190px;
+	padding: 15px 10px 30px;
+	background: #2d2d2d;
+}
+
+.simple-little-table {
+	background: transparent;
+}
+
+.simple-little-table th {
+	padding: 11px 25px 12px 25px;
+	border-top: 0;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.hidden_menu {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 40px;
+          flex: 0 0 40px;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	display: block;
+	position: fixed;
+	z-index: 999;
+	bottom: 10px;
+	left: 30px;
+	width: 40px;
+	height: 40px;
+	border: 1px solid #525252;
+	border-radius: 50%;
+	background: -webkit-gradient(linear, left top, right top, from(#999999), to(#525252));
+	background: -o-linear-gradient(left, #999999, #525252);
+	background: linear-gradient(to right, #999999, #525252);
+	cursor: pointer;
+	-webkit-transition: all 0.25s ease-in-out;
+	-o-transition: all 0.25s ease-in-out;
+	transition: all 0.25s ease-in-out;
+}
+
+.hidden_menu.active {
+	left: 130px;
+}
+
+.hidden_menu.active {
+	background: -webkit-gradient(linear, right top, left top, from(#999999), to(#525252));
+	background: -o-linear-gradient(right, #999999, #525252);
+	background: linear-gradient(to left, #999999, #525252);
+}
+
+.hidden_menu:hover,
+.hidden_menu.active:hover {
+	background: -webkit-gradient(linear, right top, left top, from(#525252), to(#525252));
+	background: -o-linear-gradient(right, #525252, #525252);
+	background: linear-gradient(to left, #525252, #525252);
+}
+
+.hidden_menu.scrolled {}
+
+.icon-menu {
+	position: relative;
+	display: block;
+	-webkit-box-flex: 0;
+	-ms-flex: 0 0 14px;
+	flex: 0 0 14px;
+	width: 14px;
+	height: 12px;
+	cursor: pointer;
+	z-index: 5;
+}
+
+.icon-menu span {
+	-webkit-transition: all 0.3s ease 0s;
+	-o-transition: all 0.3s ease 0s;
+	transition: all 0.3s ease 0s;
+	top: calc(50% - 1px);
+	left: 0px;
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	border-radius: 2px;
+	background-color: #d4d4d4;
+}
+
+.icon-menu span:first-child {
+	top: 0px;
+}
+
+.icon-menu span:last-child {
+	top: auto;
+	bottom: 0px;
+}
+
+.icon-menu:hover span {
+	background: #fff;
+}
+
+.hidden_menu.active .icon-menu span {
+	-webkit-transform: scale(0);
+	-ms-transform: scale(0);
+	transform: scale(0);
+}
+
+.hidden_menu.active .icon-menu span:first-child {
+	-webkit-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	top: calc(50% - 1px);
+}
+
+.hidden_menu.active .icon-menu span:last-child {
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+	bottom: calc(50% - 1px);
+}
+
+.posts .post .comments_count {
+	background-position: -426px 0;
+}
+
+@media screen and (min-width: 1025px) {
+	.hidden_menu {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 1024px) {
+	.main__aside {
+		width: 0;
+	}
+	.company_bar {
+		position: sticky;
+		top: 0;
+    z-index: 9;
+		height: 100vh;
+		overflow-y: auto;
+		padding-bottom: 90px;
+	}
+	.main__content {
+		width: 100%;
+		padding: 0 5px;
+	}
+	.forum_content {
+		border-radius: 2px;
+	}
+	.hidden_menu.mob_menu_btn {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
+		-webkit-box-pack: center;
+		    -ms-flex-pack: center;
+		        justify-content: center;
+	}
+}
+
+@media(max-width: 767px) {
+	.dividents-page .my_table__responsive {
+		overflow-x: auto;
+	}
+}
+
+
+/* Коментарии по удалению старого css  */
+/* 
+* Класс  undermenu_more_main - это старое главное меню и все, что с ним связано можно улаить (в оригинальном коде почему-то дублировались правила в двух местах) 
+* Закомментированные правила в оригинальном css после проверки можно будет удалить
+*
+*/
