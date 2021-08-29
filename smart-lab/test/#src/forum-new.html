@@ -76,21 +76,29 @@
 	
 
 </head>
-	<body class="stock_forum large_font" cz-shortcut-listen="true">
+	<body class="stock_forum large_font _style-3" cz-shortcut-listen="true">
 
 		<!-- вынес якорную ссылку -->
 		<a id="top" style="position: fixed;"></a>
 
 
 		@@include('../../#src/_header.html')
-		@@include('../../#src/_navbar.html')
+		@@include('../../#src/_navbar.html',{"Class": "_container"})
 
 		<div class="main">
 
 			<div class="main__aside">
-
+				<!-- Новая кнопка меню, старую (class="hidden_menu mob_menu_btn") удалил -->
+				<div class="hidden_menu mob_menu_btn">
+					<div class="icon-menu">
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+				</div>
+				
 				<aside class="company_bar">
-
+				
 					
 											
 								<ul class="links-to-forum links-to-forum--flex">
@@ -1374,15 +1382,6 @@
 			</div>
 		</div>
 
-		<!-- Новая кнопка меню, старую (class="hidden_menu mob_menu_btn") удалил -->
-		<div class="hidden_menu mob_menu_btn">
-			<div class="icon-menu">
-				<span></span>
-				<span></span>
-				<span></span>
-			</div>
-		</div>
-
 		<div class="right_scroller">
 			<div class="scroll_up">
 				<a href="#top" rel="nofollow" aria-label="Проскрулить вверх сайта"></a>
@@ -1392,99 +1391,6 @@
 				<a href="#bottom" rel="nofollow" aria-label="Проскрулить вниз сайта"></a>
 			</div>
 		</div>
-		
-		<div id="undermenu_more_main" class="undermenu_more_main clickmenu">
-				<div class="menu_columns">
-					<div class="menu_column">
-						<div class="menu_column__item">
-							<h4 class="menu_column__title">Ленты</h4>
-							<ul class="menu_column__list">
-								<li><a href="https://smart-lab.ru/allblog/" class="menu_bg__orange"><img src="./forum-new_files/all-blog.svg" loading="lazy" alt="Все блоги"><span>Все блоги</span></a></li>
-								<li><a href="https://smart-lab.ru/chat/" class="menu_bg__green"><img src="./forum-new_files/chat(1).svg" loading="lazy" alt="Чат"><span>Чат</span></a></li>
-								<li><a href="https://smart-lab.ru/news/" class="menu_bg__green"><img src="./forum-new_files/news(1).svg" loading="lazy" alt="Новости"><span>Новости</span></a></li>
-																<li><a href="https://smart-lab.ru/flow/">Поток</a></li>
-								<li><a href="https://smart-lab.ru/blog/tradesignals/">Сигналы</a></li>
-								<li><a href="https://smart-lab.ru/forums/">Лента форума</a></li>
-								<li><a href="https://smart-lab.ru/top/" class="menu_bg__green"><img src="./forum-new_files/top24.svg" loading="lazy" alt="Топ 24"><span>Топ 24</span></a></li>
-								<li><a href="https://smart-lab.ru/vopros/">Вопросы</a></li>
-								<li><a href="https://smart-lab.ru/smartlab-tv/">Видео</a></li>
-								<li><a href="https://smart-lab.ru/blog/offtop/" rel="nofollow">Оффтоп</a></li>
-								<li><a href="https://smart-lab.ru/blog/disclosure/">Раскрытие инф.</a></li>
-							</ul>
-						</div>
-					</div>
-					<!-- second column -->
-					<div class="menu_column">
-						<div class="menu_column__item">
-							<h4 class="menu_column__title">Форумы</h4>
-							<ul class="menu_column__list">
-								<li><a href="https://smart-lab.ru/forum/" class="menu_bg__orange">Форум акций</a></li>
-								<li><a href="https://smart-lab.ru/trading/">Общий</a></li>
-								<li><a href="https://smart-lab.ru/bonds/">Облигации</a></li>
-								<li><a href="https://smart-lab.ru/algotrading/">Торговые роботы</a></li>
-								<li><a href="https://smart-lab.ru/options/">Опционы</a></li>
-								<li><a href="https://smart-lab.ru/forex/">Forex</a></li>
-								<li><a href="https://smart-lab.ru/banki/">Банки</a></li>
-								<li><a href="https://smart-lab.ru/brokers-rating/">Брокеры</a></li>
-							</ul>
-						</div>
-						<div class="menu_column__item">
-							<h4 class="menu_column__title">Участники</h4>
-							<ul class="menu_column__list">
-								<li><a href="https://smart-lab.ru/people/" class="menu_bg__green"><img src="./forum-new_files/people.svg" loading="lazy" alt="Люди"><span>Люди</span></a></li>
-								<li><a href="https://smart-lab.ru/company/"><img src="./forum-new_files/companies(1).svg" loading="lazy" alt="Компании"><span>Компании</span></a></li>
-							</ul>
-						</div>
-					</div>
-					<!-- third column -->
-					<div class="menu_column">
-						<div class="menu_column__item">
-							<h4 class="menu_column__title">Котировки</h4>
-							<ul class="menu_column__list">
-								<li><a href="https://smart-lab.ru/q/shares/" class="menu_bg__orange"><img src="./forum-new_files/quotes(1).svg" loading="lazy" alt="Котировки акций"><span>Котировки акций</span></a></li>
-								<li><a href="https://smart-lab.ru/q/ofz/"><img src="./forum-new_files/ofz.svg" loading="lazy" alt="Облигации федерального займа"><span>ОФЗ</span></a></li>
-								<li><a href="https://smart-lab.ru/q/map/" class="menu_bg__green">Карта рынка</a></li>
-								<li><a href="https://smart-lab.ru/q/futures/">Фьючерсы</a></li>
-								<li><a href="https://smart-lab.ru/q/world-quotes/">Мир/FX/Сырье/Крипта</a></li>
-								<li><a href="https://smart-lab.ru/g/"><img src="./forum-new_files/charts(1).svg" loading="lazy" alt="Графики онлайн"><span>Графики онлайн</span></a></li>
-							</ul>
-						</div>
-						<div class="menu_column__item">
-							<h4 class="menu_column__title">Акции</h4>
-							<ul class="menu_column__list">
-								<li><a href="https://smart-lab.ru/dividends/" class="menu_bg__orange"><img src="./forum-new_files/dividends(1).svg" loading="lazy" alt="Дивиденды"><span>Дивиденды</span></a></li>
-								<li><a href="https://smart-lab.ru/q/shares_fundamental3/"><img src="./forum-new_files/reports(1).svg" loading="lazy" alt="Отчеты РСБУ/МСФО"><span>Отчеты РСБУ/МСФО</span></a>
-								</li><li><a href="https://smart-lab.ru/q/shares_fundamental/"><img src="./forum-new_files/fundamental.svg" loading="lazy" alt="Фундам. анализ"><span>Фундам. анализ</span></a></li>
-																							</ul>
-						</div>
-					</div>
-					<!-- four column -->
-					<div class="menu_column">
-						<div class="menu_column__item">
-							<h4 class="menu_column__title">Календарь</h4>
-							<ul class="menu_column__list">
-								<li><a href="https://smart-lab.ru/calendar/stocks/" class="menu_bg__green"><img src="./forum-new_files/shares.svg" loading="lazy" alt="Акции"><span>Акции</span></a></li>
-								<li><a href="https://smart-lab.ru/calendar/economic/">Экономика</a></li>
-							</ul>
-						</div>
-						<div class="menu_column__item">
-							<h4 class="menu_column__title">Информация</h4>
-							<ul class="menu_column__list">
-								<li><a href="https://smart-lab.ru/finansoviy-slovar/"><img src="./forum-new_files/wiki.svg" loading="lazy" alt="Энциклопедия"><span>Энциклопедия</span></a></li>
-								<li><a href="https://smart-lab.ru/tradingreads/">лучшие статьи</a></li>
-							</ul>
-						</div>
-						<div class="menu_column__item">
-							<h4 class="menu_column__title">Книги</h4>
-							<ul class="menu_column__list">
-								<li><a href="https://smart-lab.ru/books/"><img src="./forum-new_files/books-catalog.svg" loading="lazy" alt="Каталог книг"><span>Каталог книг</span></a></li>
-								<li><a href="https://smart-lab.ru/books/top/">100 лучших книг</a></li>
-								<li><a href="https://smart-lab.ru/blog/reviews/">Книжные рецензии</a></li>
-							</ul>
-						</div>
-					</div>
-									</div>
-			</div>
 
 		<script type="text/javascript">
 		   var DIR_WEB_ROOT = 'https://smart-lab.ru';
