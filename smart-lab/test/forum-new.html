@@ -87,7 +87,7 @@
 		* по классу ._active-el навешиваем обработчик события 'click' на каждый
 		* из этих елементов (кнопку/иконку), его родителю присваивается класс ._open 
 	-->
-	<div class="header__content">
+	<div class="header__content _container">
 		<div class="header__menu menu">
   <div id="main-menu-btn" class="menu__icon _active-el">
     <div class="icon-menu">
@@ -250,12 +250,12 @@
 </div>
 
 		<div class="header__logo">
-			<a href="https://smart-lab.ru/" class="logo">
-				<h5 class="logo__title">
-					<div class="logo__title-main">
+			<a href="https://smart-lab.ru/" class="main-logo">
+				<h5 class="main-logo__title">
+					<div class="main-logo__title-main">
 						SMART-LAB
 					</div>
-					<div class="logo__title-motto">Мы делаем деньги на бирже</div>
+					<div class="main-logo__title-motto">Мы делаем деньги на бирже</div>
 				</h5>
 			</a>
 		</div>
@@ -810,125 +810,139 @@
 				<div class="forum_content">
 				
 					<div class="forum_top_panel">
-						<div class="graph_button guest-close-button hidden" title="скрыть/показать график, календарь и фундаментал"></div>
+						<div class="graph_button guest-close-button hidden" title="скрыть/показать график, календарь и фундаментал" onclick="$('.guest-close-button').toggleClass('hidden')"></div>
 				
 						<div class="chart_wrapper">
-				
-							<div id="trading_view_container" class="chart_wrapper1" ticker="MOEX.VTBR"></div>
-				
-							<div class="chart_wrapper2">
-								<div class="chart_wrapper">
-									<table class="fundam_table">
-										<tbody>
-											<tr>
-												<td><a href="https://smart-lab.ru/q/VTBR/f/y/MSFO/number_of_shares/">Число акций ао</a></td>
-												<td>12 960 541 млн</td>
-											</tr>
-				
-											<tr>
-												<td>Номинал ао</td>
-												<td>0.01 руб</td>
-											</tr>
-				
-				
-											<tr>
-												<td>Тикер ао</td>
-												<td>
-													<ul>
-														<li title="MOEX.VTBR">VTBR</li>
-													</ul>
-												</td>
-											</tr>
-				
-				
-										</tbody>
-									</table>
-				
-									<table class="fundam_table">
-										<tbody>
-											<tr>
-												<td><a
-														href="https://smart-lab.ru/q/shares_fundamental2/?field=market_cap&amp;sector_id%5B%5D=2">Капит-я</a>
-												</td>
-												<td>1 173,3 млрд</td>
-											</tr>
-				
-											<tr>
-												<td><a
-														href="https://smart-lab.ru/q/shares_fundamental2/?field=net_operating_income&amp;sector_id%5B%5D=2">Опер.доход</a>
-												</td>
-												<td>723,5 млрд</td>
-											</tr>
-				
-				
-											<tr>
-												<td><a
-														href="https://smart-lab.ru/q/shares_fundamental2/?field=net_income&amp;sector_id%5B%5D=2">Прибыль</a>
-												</td>
-												<td>203,7 млрд</td>
-											</tr>
-				
-											<tr>
-												<td><a href="https://smart-lab.ru/q/VTBR/dividend/">Дивиденд ао</a></td>
-												<td>0,0014</td>
-											</tr>
-				
-				
-				
-										</tbody>
-									</table>
-				
-									<table class="fundam_table">
-										<tbody>
-											<tr>
-												<td><a href="https://smart-lab.ru/q/shares_fundamental2/?field=p_e&amp;sector_id%5B%5D=2">P/E</a></td>
-												<td>5,8</td>
-											</tr>
-				
-				
-											<tr>
-												<td><a href="https://smart-lab.ru/q/shares_fundamental2/?field=p_b&amp;sector_id%5B%5D=2">P/B</a></td>
-												<td>0,6</td>
-											</tr>
-				
-				
-											<tr>
-												<td><a
-														href="https://smart-lab.ru/q/shares_fundamental2/?field=net_intertest_margin&amp;sector_id%5B%5D=2">ЧПМ</a>
-												</td>
-												<td>3,8%</td>
-											</tr>
-				
-				
-											<tr>
-												<td><a href="https://smart-lab.ru/q/VTBR/dividend/">Див.доход ао</a></td>
-												<td>2,8%</td>
-											</tr>
-				
-										</tbody>
-									</table>
-				
-									<span style="font-size: 12px; margin: 16px; color:gray">* Все показатели рассчитываются по данным за последние
-										12 месяцев (LTM)</span>
-				
-									<table class="fundam_table calendar">
-										<tbody>
-											<tr>
-												<td colspan="2" class="head">ВТБ Календарь Акционеров</td>
-											</tr>
-				
-											<tr>
-												<td class="fter">
-													<a href="https://smart-lab.ru/forum/VTBR/last_events/">Прошедшие события</a> <a
-														href="https://smart-lab.ru/calendar/add/?type_1=company_reports&amp;stock_1=%D0%92%D0%A2%D0%91"
-														rel="nofollow">Добавить событие</a>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-				
-								</div>
-							</div>
+
+										<div id="trading_view_container" class="chart_wrapper1" ticker="MOEX.CHMF"><div id="tradingview_f08e6-wrapper" style="position: relative;box-sizing: content-box;width: 100%;height: 400px;margin: 0 auto !important;padding: 0 !important;font-family:Arial,sans-serif;"><div style="width: 100%;height: 400px;background: transparent;padding: 0 !important;"><iframe id="tradingview_f08e6" src="https://s.tradingview.com/smartlab-custom/widgetembed/?frameElementId=tradingview_f08e6&amp;symbol=MOEX%3ACHMF&amp;interval=60&amp;range=6m&amp;saveimage=1&amp;toolbarbg=f4f7f9&amp;studies=%5B%5D&amp;hideideas=1&amp;style=3&amp;timezone=Europe%2FMoscow&amp;studies_overrides=%7B%7D&amp;overrides=%7B%7D&amp;enabled_features=%5B%5D&amp;disabled_features=%5B%5D&amp;locale=ru&amp;referral_id=1339&amp;utm_source=smart-lab.ru&amp;utm_medium=widget&amp;utm_campaign=chart&amp;utm_term=MOEX%3ACHMF" style="width: 100%; height: 100%; margin: 0 !important; padding: 0 !important;" frameborder="0" allowtransparency="true" scrolling="no" allowfullscreen=""></iframe></div></div></div>
+					
+					<div class="chart_wrapper2">
+						<div class="chart_wrapper">
+														<table class="fundam_table">
+								<tbody><tr>
+									<td><a href="/q/CHMF/f/y/MSFO/number_of_shares/">Число акций ао</a></td>
+									<td>838 млн</td>
+								</tr>
+								
+								<tr>
+									<td>Номинал ао</td>
+									<td>0.01 руб</td>
+								</tr>
+
+								
+																<tr>
+									<td>Тикер ао</td>
+									<td>
+										<ul>
+																				<li title="MOEX.CHMF">CHMF</li>																																								</ul>
+									</td>
+								</tr>
+								
+								
+							</tbody></table>
+
+							<table class="fundam_table">
+								<tbody><tr>
+									<td><a href="/q/shares_fundamental2/?field=market_cap&amp;sector_id%5B%5D=3">Капит-я</a></td>
+									<td>1 460,3 млрд</td>
+								</tr>
+
+								<tr>
+																		<td><a href="/q/shares_fundamental2/?field=revenue&amp;sector_id%5B%5D=3">Выручка</a></td>
+									<td>640,9 млрд</td>
+																	</tr>
+
+																<tr>
+									<td><a href="/q/shares_fundamental2/?field=ebitda&amp;sector_id%5B%5D=3">EBITDA</a></td>
+									<td>310,7 млрд</td>
+								</tr>
+								
+								<tr>
+									<td><a href="/q/shares_fundamental2/?field=net_income&amp;sector_id%5B%5D=3">Прибыль</a></td>
+									<td>179,4 млрд</td>
+								</tr>
+
+																<tr>
+									<td><a href="/q/CHMF/dividend/">Дивиденд ао</a></td>
+									<td>204,73</td>
+								</tr>
+								
+																
+
+							</tbody></table>
+
+							<table class="fundam_table">
+								<tbody><tr>
+									<td><a href="/q/shares_fundamental2/?field=p_e&amp;sector_id%5B%5D=3">P/E</a></td>
+									<td>8,1</td>
+								</tr>
+
+																<tr>
+									<td><a href="/q/shares_fundamental2/?field=p_s&amp;sector_id%5B%5D=3">P/S</a></td>
+									<td>2,3</td>
+								</tr>
+								
+								<tr>
+																		<td><a href="/q/shares_fundamental2/?field=p_bv&amp;sector_id%5B%5D=3">P/BV</a></td>
+									<td>5,4</td>									
+																	</tr>
+
+								
+								<tr>
+																		<td><a href="/q/shares_fundamental2/?field=ev_ebitda&amp;sector_id%5B%5D=3">EV/EBITDA</a></td>
+									<td>5,1</td>
+																	</tr>
+								
+
+																<tr>
+									<td><a href="/q/CHMF/dividend/">Див.доход ао</a></td>
+									<td>11,7%</td>
+								</tr>
+								
+															</tbody></table>
+
+							<span style="font-size: 12px; margin: 16px; color:gray">* Все показатели рассчитываются по данным за последние 12 месяцев (LTM)</span>
+							
+														<table class="fundam_table calendar">
+								<tbody><tr><td colspan="2" class="head">Северсталь Календарь Акционеров</td></tr>
+																																<tr>
+									<td><span>
+																					31/08
+										</span>
+										<span>CHMF: последний день с дивидендом 84,45 руб</span>									</td>
+									<td></td>
+								</tr>
+																																<tr>
+									<td><span>
+																					02/09
+										</span>
+										<span>CHMF: закрытие реестра по дивидендам 84,45 руб</span>									</td>
+									<td></td>
+								</tr>
+																																<tr>
+									<td><span>
+																					07/09
+										</span>
+										<span>Заседание ФАС</span>									</td>
+									<td></td>
+								</tr>
+																																<tr>
+									<td><span>
+																					07/09
+										</span>
+										<span>ФАС рассмотрит дело по ценам на прокат</span>									</td>
+									<td></td>
+								</tr>
+								
+								<tr>
+									<td class="fter">
+										<a href="/forum/CHMF/last_events/">Прошедшие события</a> <a href="/calendar/add/?type_1=company_reports&amp;stock_1=%D0%A1%D0%B5%D0%B2%D0%B5%D1%80%D1%81%D1%82%D0%B0%D0%BB%D1%8C" rel="nofollow">Добавить событие</a>
+									</td>
+								</tr>
+							</tbody></table>
+							
+						</div>
+					</div>
 						</div>
 				
 						<div class="nocenter page-title">

@@ -198,7 +198,7 @@
 	}
 }
 
-.logo {
+.main-logo {
 	font-family: 'Tahoma', sans-serif !important; // !important Для исправления конфликтов
 	font-weight: 700;
 	position: relative;
@@ -237,11 +237,11 @@
 	* {
 		font-family: 'Tahoma', sans-serif !important; // !important Для исправления конфликтов
 	}
-	// .logo__title
+	// .main-logo__title
 	&__title {
 		font-weight: 700;
 	}
-	// .logo__title-main
+	// .main-logo__title-main
 	&__title-main {
 		font-size: adaptiv-value($md5,25,320,18);
 		line-height: adaptiv-value($md5,25,320,18);
@@ -258,7 +258,7 @@
 		}
 
 	}
-	// .logo__title-motto
+	// .main-logo__title-motto
 	&__title-motto {
 		display: none;
 		margin-top: -3px;
@@ -274,8 +274,8 @@
 }
 
 // Для исправления конфликтов
-h5.logo__title-main {
-	font-family: 'Tahoma', sans-serif !important; // !important Для исправления конфликтов
+h5.main-logo__title-main {
+	/* font-family: 'Tahoma', sans-serif !important; // !important Для исправления конфликтов
 	font-size: adaptiv-value($md5,25,320,18);
 	line-height: adaptiv-value($md5,25,320,18);
 	white-space: nowrap;
@@ -287,7 +287,7 @@ h5.logo__title-main {
 	@media (min-width: $md4 + px) {
 		font-size: 33px;
 		line-height: 33px;
-	}
+	} */
 }
 // Для исправления конфликтов
 .query-search {
@@ -980,7 +980,7 @@ h5.logo__title-main {
 
 ._style-1 {
 	
-	.logo {
+	.main-logo {
 		color: $style-1-color !important;
 
 		&::before {
@@ -992,7 +992,7 @@ h5.logo__title-main {
 		}
 	}
 	// Для исправления конфликтов
-	h5.logo__title {
+	h5.main-logo__title {
 		color: $style-1-color !important;
 	}
 
@@ -1011,7 +1011,7 @@ h5.logo__title-main {
 ._style-2,
 ._style-3 {
 	
-	.logo {
+	.main-logo {
 		color: $style-2-color !important;
 
 		&::before {
@@ -1023,7 +1023,7 @@ h5.logo__title-main {
 		}
 	}
 	// Для исправления конфликтов
-	h5.logo__title {
+	h5.main-logo__title {
 		color: $style-2-color  !important;
 	}
 

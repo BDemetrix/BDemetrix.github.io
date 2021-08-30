@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 @font-face {
   font-family: "Open Sans";
   font-display: auto;
@@ -150,10 +152,9 @@ picture {
 }
 
 ._container {
-  max-width: 1170px;
+  max-width: 1920px;
   padding: 0 15px;
   margin: 0 auto;
-  width: 100%;
 }
 
 .notify-label {
@@ -2570,35 +2571,35 @@ picture {
   bottom: calc(50% - 1px);
 }
 
-.logo {
+.main-logo {
   font-family: "Tahoma", sans-serif !important;
   font-weight: 700;
   position: relative;
   display: inline-block;
 }
 
-.logo::before {
+.main-logo::before {
   content: "";
   position: absolute;
   border-radius: 50%;
   display: none;
 }
 
-.logo * {
+.main-logo * {
   font-family: "Tahoma", sans-serif !important;
 }
 
-.logo__title {
+.main-logo__title {
   font-weight: 700;
 }
 
-.logo__title-main {
+.main-logo__title-main {
   font-size: calc(18px + 7 * ((100vw - 320px) / 159.98));
   line-height: calc(18px + 7 * ((100vw - 320px) / 159.98));
   white-space: nowrap;
 }
 
-.logo__title-motto {
+.main-logo__title-motto {
   display: none;
   margin-top: -3px;
   font-size: 10px;
@@ -2607,11 +2608,20 @@ picture {
   text-align: right;
 }
 
-h5.logo__title-main {
-  font-family: "Tahoma", sans-serif !important;
-  font-size: calc(18px + 7 * ((100vw - 320px) / 159.98));
-  line-height: calc(18px + 7 * ((100vw - 320px) / 159.98));
+h5.main-logo__title-main {
+  /* font-family: 'Tahoma', sans-serif !important; // !important Для исправления конфликтов
+  font-size: adaptiv-value($md5,25,320,18);
+  line-height: adaptiv-value($md5,25,320,18);
   white-space: nowrap;
+
+  @media (min-width: $md5 + px) {
+  	font-size: 25px;
+  	line-height: 25px;
+  }
+  @media (min-width: $md4 + px) {
+  	font-size: 33px;
+  	line-height: 33px;
+  } */
 }
 
 .query-search__icon {
@@ -3304,19 +3314,19 @@ h5.logo__title-main {
   width: 18px;
 }
 
-._style-1 .logo {
+._style-1 .main-logo {
   color: #F59300 !important;
 }
 
-._style-1 .logo::before {
+._style-1 .main-logo::before {
   background: #F59300;
 }
 
-._style-1 .logo a {
+._style-1 .main-logo a {
   color: #F59300 !important;
 }
 
-._style-1 h5.logo__title {
+._style-1 h5.main-logo__title {
   color: #F59300 !important;
 }
 
@@ -3333,23 +3343,23 @@ h5.logo__title-main {
   text-shadow: 2px 2px 4px #000;
 }
 
-._style-2 .logo,
-._style-3 .logo {
+._style-2 .main-logo,
+._style-3 .main-logo {
   color: #d4d4d4 !important;
 }
 
-._style-2 .logo::before,
-._style-3 .logo::before {
+._style-2 .main-logo::before,
+._style-3 .main-logo::before {
   background: #15e11e;
 }
 
-._style-2 .logo a,
-._style-3 .logo a {
+._style-2 .main-logo a,
+._style-3 .main-logo a {
   color: #d4d4d4 !important;
 }
 
-._style-2 h5.logo__title,
-._style-3 h5.logo__title {
+._style-2 h5.main-logo__title,
+._style-3 h5.main-logo__title {
   color: #d4d4d4 !important;
 }
 
@@ -5656,7 +5666,7 @@ textarea {
 }
 
 @media (min-width: 320px) {
-  .logo::before {
+  .main-logo::before {
     display: block;
     top: 2px;
     right: calc(-7px + -5 * ((100vw - 320px) / 159.98));
@@ -5692,19 +5702,14 @@ textarea {
     padding: 10px;
   }
 
-  .logo::before {
+  .main-logo::before {
     top: 3px;
     right: -12px;
     width: 8px;
     height: 8px;
   }
 
-  .logo__title-main {
-    font-size: 25px;
-    line-height: 25px;
-  }
-
-  h5.logo__title-main {
+  .main-logo__title-main {
     font-size: 25px;
     line-height: 25px;
   }
@@ -5746,25 +5751,20 @@ textarea {
 }
 
 @media (min-width: 567.98px) {
-  .logo::before {
+  .main-logo::before {
     top: 5px;
     right: -15px;
     width: 10px;
     height: 10px;
   }
 
-  .logo__title-main {
+  .main-logo__title-main {
     font-size: 33px;
     line-height: 33px;
   }
 
-  .logo__title-motto {
+  .main-logo__title-motto {
     display: block;
-  }
-
-  h5.logo__title-main {
-    font-size: 33px;
-    line-height: 33px;
   }
 
   .notify__body {
