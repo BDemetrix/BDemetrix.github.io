@@ -259,9 +259,14 @@
 }
 
 .info-article__link {
-  background: #319fff;
-  color: #080808;
+  /* background: $articles-links-color;
+  color: $main-bg;
   font-weight: 700;
+  @media (min-width: $md2 + px) {
+  	background: transparent;
+  	color: $txt-color;
+  	font-weight: 400;
+  } */
 }
 
 .info-article__comment {
@@ -530,13 +535,5 @@
 
   .search__submit:hover {
     background: #d5d5d5;
-  }
-}
-
-@media (min-width: 991.98px) {
-  .info-article__link {
-    background: transparent;
-    color: #d5d5d5;
-    font-weight: 400;
   }
 }

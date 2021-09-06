@@ -3972,7 +3972,7 @@ textarea {
   background: linear-gradient(to left, #ce5209, #ce5209 50%, transparent 100%);
 }
 
-._touch .navbar {
+._touch .navbar .navbar__drop-link {
   font-size: 14px;
 }
 

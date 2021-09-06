@@ -491,12 +491,12 @@ $datepicker-cell-range-bg: rgba($color: $header-bg, $alpha: .2);
 	}
 	// .info-article__link 
 	&__link {
-		background: $articles-links-color;
+		/* background: $articles-links-color;
 		color: $main-bg;
 		@media (min-width: $md2 + px) {
 			background: transparent;
 			color: $txt-color;
-		}
+		} */
 	}
 	// .info-article__comment
 	&__comment{

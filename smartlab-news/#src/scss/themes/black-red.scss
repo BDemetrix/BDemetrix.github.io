@@ -492,14 +492,14 @@ $datepicker-cell-range-bg: rgba($color: $header-color, $alpha: .1);
 	}
 	// .info-article__link 
 	&__link {
-		background: $articles-links-color;
+	/* 	background: $articles-links-color;
 		color: $main-bg;
 		font-weight: 700;
 		@media (min-width: $md2 + px) {
 			background: transparent;
 			color: $txt-color;
 			font-weight: 400;
-		}
+		} */
 	}
 	// .info-article__comment
 	&__comment{

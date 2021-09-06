@@ -353,14 +353,17 @@ $side-padding: 5px;
 	}
 	// .info-article__link
 	&__link {
-		display: inline-block;
+		display: inline-flex;
+		align-items: center;
 		margin-bottom: 0.5em;
 		margin-right: 0.5em;
-		color: inherit;
-		padding: 0 0.5em 0.1em;
+		font-weight: 500;
+		color: #fff;
+		background: #006bc7;
+		padding: .12em .6em .12em;
 		border-radius: .75em;
 
-
+		/*
 		@media (min-width: $md2 + px) {
 			border: 0px;
 			text-align: left;
@@ -370,12 +373,12 @@ $side-padding: 5px;
 			&:hover {
 				text-decoration: underline;
 			}
-		}
+		} */
 	}
 	// .info-article__comment
 	&__comment {
 		margin-top: 1em;
-		padding: 0.5em;
+		padding: 0.7em;
 		display: block;
 		text-align: center;
 		border: 1px solid #000;
