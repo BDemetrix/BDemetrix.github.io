@@ -359,10 +359,13 @@ $side-padding: 5px;
 		margin-right: 0.5em;
 		font-weight: 400;
 		color: #fff;
-		background: #006bc7;
-		padding: .12em .6em .12em;
-		border-radius: .75em;
+		background: #47aaff; //#006bc7;
+		padding: .5em .6em .55em;
+		border-radius: 1em;
 
+		/* &--lower {
+			padding: .12em .6em .19em;
+		} */
 		/*
 		@media (min-width: $md2 + px) {
 			border: 0px;
@@ -383,7 +386,7 @@ $side-padding: 5px;
 		text-align: center;
 		border: 1px solid #000;
 		border-radius: 3px;
-		font-weight: 700;
+		font-weight: 400;
 		@media (min-width: $md2 + px) {
 			border: 0px;
 			text-align: left;

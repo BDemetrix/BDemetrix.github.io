@@ -4146,9 +4146,12 @@ body.ie {
   margin-right: 0.5em;
   font-weight: 400;
   color: #fff;
-  background: #006bc7;
-  padding: 0.12em 0.6em 0.12em;
-  border-radius: 0.75em;
+  background: #47aaff;
+  padding: 0.5em 0.6em 0.55em;
+  border-radius: 1em;
+  /* &--lower {
+  	padding: .12em .6em .19em;
+  } */
   /*
   @media (min-width: $md2 + px) {
   	border: 0px;
@@ -4169,7 +4172,7 @@ body.ie {
   text-align: center;
   border: 1px solid #000;
   border-radius: 3px;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .edition-info {
