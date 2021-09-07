@@ -4127,6 +4127,7 @@ body.ie {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 8em;
           flex: 0 0 8em;
+  padding-top: 0.5em;
 }
 
 .info-article__value {
