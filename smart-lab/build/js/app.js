@@ -185,7 +185,7 @@ const scrollWidth = window.innerWidth - document.documentElement.clientWidth; //
 function blockOverflow() {
   bodyGlobal.style.overflow = `hidden`;
   bodyGlobal.style.touchAction = `none`;
-  //bodyGlobal.style.paddingRight = scrollWidth + 'px';
+  bodyGlobal.style.paddingRight = scrollWidth + 'px';
 };
 
 /**
@@ -195,7 +195,7 @@ function unBlockOverflow() {
   setTimeout(() => {
     bodyGlobal.style.overflow = ``;
     bodyGlobal.style.touchAction = ``;
-    //bodyGlobal.style.paddingRight = ``;
+    bodyGlobal.style.paddingRight = ``;
   }, 400)
 };
 
@@ -1189,6 +1189,8 @@ setTimeout(() => {
       attach: '#moderators>li>a, #readers>li>a',
       content: $('#profile-popup'),
       zIndex: 999,
+      //adjustPosition: true,
+      isolateScroll: false,
       closeOnMouseleave: true,
       animation: "move",
     

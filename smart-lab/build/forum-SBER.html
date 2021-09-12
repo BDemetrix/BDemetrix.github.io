@@ -1244,7 +1244,65 @@
 
 				<!-- 
    * Для светлого фона (изображения) модификатор profile-popup--bg 
+   * класс .context-menu общий для всех контекстных меню 
 -->
+<div class="profile-popup" id="profile-popup">
+   <div class="profile-popup__inner">
+      <div class="profile-popup__avatar">		
+         <a href="https://smart-lab.ru/profile/cadonache/" title="Посмотреть профиль пользователя">			
+            <img src="images/profile-popup/mart_avatar.webp">		
+         </a>	
+      </div>
+      <div class="profile-popup__info">
+         <div><a id="user_link" href="https://smart-lab.ru/profile/cadonache/" title="Посмотреть профиль пользователя">Тимофей Мартынов</a></div>
+         <div id="user_work">Предприниматель</div>
+         <div><a id="user_city" href="https://smart-lab.ru/people/city/Балашиха МО/">Москва</a></div>
+         <div class="profile-popup__rating">
+            <div class="profile-popup__reading">
+               <a href="https://smart-lab.ru/my/cadonache/" id="blog_link">Читать блог</a>
+               <a href="https://smart-lab.ru/my/cadonache/comment-forum/" id="forum_link">Читать форум</a>
+            </div>
+            <div class="profile-popup__audience">
+               <div>Подписчиков: <span id="user_subscribers">40</span></div>
+               <div>Друзей: <span id="user_friends">25</span></div>
+            </div>
+            <div>Рейтинг: <span id="user_rating">218</span>, сила: <span id="user_skill">3138</span></div>
+            <div>Зарегистрирован: <span id="user_registred">30.07.2012</span></div>
+         </div>
+      </div> 
+   </div>
+   <div class="profile-popup__panel">
+      <div class="profile-popup__panel-wrap">
+         <button id="user_friend_btn" type="button">		
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="20">
+               <path d="M0 0h24v24H0z" fill="none"></path>
+               <path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+            </svg>
+            Дружить
+         </button>	
+         <button id="user_subscribe_btn" type="button">Подписаться</button>		
+      </div>
+      <button id="user_pm_btn" title="Отправить ЛС"  type="button">
+         <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="24">
+            <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"></path>
+            <path d="M0 0h24v24H0z" fill="none"></path>
+         </svg>
+      </button>
+   </div>
+   <div class="profile-popup__more context-menu">
+      <button class="profile-popup__more-btn">
+         <svg>
+             <use xlink:href="images/symbol/sprite.svg#more"></use>
+         </svg>
+      </button>			
+      <ul class="profile-popup__more-menu">
+         <li><button class="profile-popup__blacklist">В черный список</button></li>
+         <li><button class="profile-popup__ban">Наказать</button></li>
+      </ul>
+   </div>
+</div>
+
+<!-- 
 <div class="profile-popup profile-popup--bg" id="profile-popup">
    <div class="profile-popup__inner">
       <img src="images/profile-popup/background.webp">
@@ -1289,7 +1347,6 @@
          </svg>
       </button>
    </div>
-   <!-- класс .context-menu общий для всех контекстных меню -->
    <div class="profile-popup__more context-menu">
       <button class="profile-popup__more-btn">
          <svg>
@@ -1301,7 +1358,7 @@
          <li><button class="profile-popup__ban">Наказать</button></li>
       </ul>
    </div>
-</div>
+</div>  -->
 
 		</div>
 

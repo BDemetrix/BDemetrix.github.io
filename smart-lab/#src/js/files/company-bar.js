@@ -19,6 +19,8 @@
       attach: '#moderators>li>a, #readers>li>a',
       content: $('#profile-popup'),
       zIndex: 999,
+      //adjustPosition: true,
+      isolateScroll: false,
       closeOnMouseleave: true,
       animation: "move",
     

@@ -124,12 +124,13 @@ picture {
 //<Доп правила для jBox>===
 
 .jBox-Tooltip .jBox-container {
-	max-width: calc(100vh - 10px);
+	max-width: calc(100vw - 10px);
 	border-radius: 5px;
 	box-shadow: 0 0 3px rgb(0 0 0 / 25%);
 	overflow: hidden;
 }
 .jBox-content {
+	//overflow: hidden;
 	padding: 0;
 }
 //</Доп правила для jBox>===

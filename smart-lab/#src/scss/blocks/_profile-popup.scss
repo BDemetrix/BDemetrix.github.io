@@ -1,6 +1,7 @@
 .profile-popup {
   font-family:  "Open Sans", Tahoma,  Verdana, sans-serif;
   position: relative;
+  width: calc(100vw - 10px);
   max-width: 420px;
   background: #fff;
   color: #242424;
@@ -39,7 +40,7 @@
 	&__inner {
     position: relative;
     display: flex;
-    //min-height: 170px;
+    min-height: 170px;
     padding: 8px 8px 40px;
 
     img {
