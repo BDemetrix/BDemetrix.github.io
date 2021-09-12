@@ -7423,14 +7423,23 @@ textarea {
   font-size: 12px;
   line-height: 20px;
   color: #fff;
+  -webkit-transform: translate(-110%, 0);
+      -ms-transform: translate(-110%, 0);
+          transform: translate(-110%, 0);
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .company-bar._open {
   z-index: 9;
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0);
 }
 
 .company-bar._open .company-bar__btn {
-  left: 150px;
+  right: 20px;
 }
 
 .company-bar._open .company-bar__btn-icon span {
@@ -7453,12 +7462,6 @@ textarea {
   bottom: calc(50% - 1px);
 }
 
-.company-bar._open .company-bar__body {
-  -webkit-transform: translate(0, 0);
-      -ms-transform: translate(0, 0);
-          transform: translate(0, 0);
-}
-
 .company-bar__btn {
   position: fixed;
   -webkit-box-sizing: border-box;
@@ -7469,7 +7472,7 @@ textarea {
   display: flex;
   z-index: 999;
   bottom: 10px;
-  left: 20px;
+  right: -80px;
   width: 40px;
   height: 40px;
   border: 1px solid #525252;
@@ -7549,12 +7552,6 @@ textarea {
   height: 100%;
   background: #2d2d2d;
   border-right: 1px solid #E5E5E5;
-  -webkit-transform: translate(-110%, 0);
-      -ms-transform: translate(-110%, 0);
-          transform: translate(-110%, 0);
-  -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
 }
 
 .company-bar__body .simplebar-track.simplebar-horizontal {
@@ -8912,6 +8909,9 @@ textarea {
     position: static;
     height: auto;
     padding-top: 0;
+    -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+            transform: translate(0, 0);
   }
 
   .company-bar__btn {
@@ -8919,9 +8919,6 @@ textarea {
   }
 
   .company-bar__body {
-    -webkit-transform: translate(0, 0);
-        -ms-transform: translate(0, 0);
-            transform: translate(0, 0);
     border-right: 0;
   }
 }

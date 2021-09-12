@@ -8,19 +8,23 @@
   font-size: 12px;
   line-height: 20px;
   color: #fff;
+  transform: translate( -110%, 0);
+    transition: all $t ease-in-out;
 
   @media (min-width: $md1 + px) {
     position: static;
     //width: auto;
     height: auto;
     padding-top: 0;
+    transform: translate( 0, 0);
   }
 
   &._open {
     z-index: 9;
+    transform: translate( 0, 0);
     
     .company-bar__btn {
-      left: 150px;
+      right: 20px;
     }
 
     .company-bar__btn-icon {
@@ -41,7 +45,7 @@
     }
     
     .company-bar__body {
-      transform: translate( 0, 0);
+      
     }
   }
 	// .company-bar__btn
@@ -52,7 +56,7 @@
 	  display: flex;
 	  z-index: 999;
 	  bottom: 10px;
-	  left: 20px;
+	  right: -80px;
 	  width: 40px;
 	  height: 40px;
 	  border: 1px solid #525252;
@@ -124,11 +128,8 @@
     height: 100%;
     background: $style-1-main-bg;
     border-right: 1px solid $style-2-main-bg;
-    transform: translate( -110%, 0);
-    transition: all $t ease-in-out;
 
     @media (min-width: $md1 + px) {
-      transform: translate( 0, 0);
       border-right: 0;
     }
 
