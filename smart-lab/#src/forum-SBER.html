@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 	@@include('_head.html',{
-	"title":"Главная"
+	"title":"forum-SBER"
 	})
 	<body class="_style-1">
 		<!-- классы ._style-1 , ._style-2 и ._style-3 используются для стилизации двух видов шаблонов 
@@ -11,24 +11,41 @@
 		._style-3 для smart-lab.ru/forum/
 		-->
 		<div class="wrapper">
+			<!-- стрелки прокрутки странициы вверх/вниз -->
+			@@include('_abs-scroller.html',{})
+			<!-- анкерная ссылка -->
+			<a id="top"></a>
+
 			@@include('_header.html',{"Class": "_container"})
-			@@include('_navbar.html',{"Class": "_container"})
 
 			<div class="content">
-				@@include('_company-bar.html', {
-					"MixClass": "content__left"
-				})
+				<aside class="content__left">
+					@@include('_company-bar.html', {})
+				</aside>
 				<main class="content__main main">
+						
+
+				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 				</main>
-				<aside class="content__right"></aside>
+				<aside class="content__right">
+					@@include('_new-msgs-box.html',{})
+				</aside>
 			</div>
+			<!-- анкерная ссылка -->
+			<a id="bottom"></a>
 
-			<main class="main">
-			
-			</main>
 			@@include('_footer.html',{})
 		</div>
+		<div class="pop-up-container" style="display: none;">
+			<!-- Здесь хранятся контейнеры для jBox -->
+
+				@@include('_profile-popup.html', {
+					"MixClass": "profile-popup--w-bg"
+				})
+
+		</div>
+
 		@@include('_js.html',{})
 	</body>
 </html>

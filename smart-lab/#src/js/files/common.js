@@ -20,7 +20,7 @@ const scrollWidth = window.innerWidth - document.documentElement.clientWidth; //
 function blockOverflow() {
   bodyGlobal.style.overflow = `hidden`;
   bodyGlobal.style.touchAction = `none`;
-  bodyGlobal.style.paddingRight = scrollWidth + 'px';
+  //bodyGlobal.style.paddingRight = scrollWidth + 'px';
 };
 
 /**
@@ -30,9 +30,16 @@ function unBlockOverflow() {
   setTimeout(() => {
     bodyGlobal.style.overflow = ``;
     bodyGlobal.style.touchAction = ``;
-    bodyGlobal.style.paddingRight = ``;
+    //bodyGlobal.style.paddingRight = ``;
   }, 400)
 };
+
+function toggleOverflow() {
+  if (window.getComputedStyle(bodyGlobal).overflow != 'hidden') 
+    blockOverflow();
+  else
+    unBlockOverflow();
+}
 
 //Spollers
 
@@ -196,7 +203,7 @@ let _slideToggle = (target, duration = 500) => {
  * @param {String || Object} selector - селектор блока, в котором требуется стилизация скролла
  */
 function plugSimpleBar(selector) {
-  let simpleBarEl
+  let simpleBarEl;
   if (typeof selector === 'string') {
     simpleBarEl = document.querySelector(selector);
   }
@@ -229,6 +236,7 @@ function closeAllOpenedMenu() {
 document.documentElement.addEventListener('click', (e) => {
   if (!e.target.closest('._open')) {
     closeAllOpenedMenu();
+    unBlockOverflow();
   }
 });
 /**
@@ -291,3 +299,28 @@ function numOnly(event) {
     }
   }
 }
+
+
+// Обработка событий для контекстного меню .context-menu
+const popUpMenu = document.querySelectorAll('.context-menu');
+if (popUpMenu.length) {
+  popUpMenu.forEach( menu => {
+    const btn = menu.querySelector('button');
+    console.log('menu');
+    
+    if (btn) {
+      btn.addEventListener('click', () => {
+        menu.classList.toggle('_open');
+      });
+    }
+  });
+
+  document.documentElement.addEventListener('click', (e) => {
+    if(!e.target.closest('.context-menu > button')) {
+      const popUpMenu = document.querySelector('.context-menu._open');
+      if (popUpMenu) popUpMenu.classList.remove('_open');
+    }
+  });
+}
+
+

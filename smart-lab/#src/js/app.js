@@ -5,3 +5,6 @@
 @@include('files/main.js', {})
 @@include('files/sliders.js', {})
 @@include('files/qn-filters.js', {})
+@@include('files/slide-sidebar-padding.js', {})
+@@include('files/company-bar.js', {})
+@@include('files/new-msgs-box.js', {})

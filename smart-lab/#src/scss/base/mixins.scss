@@ -69,6 +69,18 @@
 	}
 }
 
+
+// Обрезка текстового блока после $rows строк с многоточием (необходимо задать высоту строки $lineHeight)
+@mixin line-clamp($rows, $lineHeight) {
+	display: -webkit-box;
+  -webkit-line-clamp: #{$rows};
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+  max-height: #{$lineHeight * $rows}px;
+  line-height: #{$lineHeight}px;
+};
+
+
 @mixin visually-hidden {
   position   : absolute;
   width      : 1px;

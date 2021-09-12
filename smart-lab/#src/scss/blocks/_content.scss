@@ -1,0 +1,25 @@
+.content {
+  display: flex;
+  align-items: stretch ;
+
+  // .content__left
+  &__left {
+    //height: 100%;
+    //width: 1px;
+    //align-self: stretch;
+  }
+  // .content__main
+  &__main {
+    flex: 1 1 auto;
+    background: #FBFBFB;
+  }
+  // .content__right
+  &__right {
+    /* flex: 0 0 25%;
+    width: 25%;
+    min-width: 320px;
+    max-width: 360px; */
+  }
+}
+.main {
+}

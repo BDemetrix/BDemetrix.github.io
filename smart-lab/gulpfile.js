@@ -38,7 +38,7 @@ let path = {
 		js: project_name + "/js/",
 		css: project_name + "/css/",
 		cssBlocks: project_name + "/css/blocks/",
-		cssThemes: project_name + "/css/themes/",
+		// cssThemes: project_name + "/css/themes/",
 		images: project_name + "/images/",
 		fonts: project_name + "/fonts/"
 	},
@@ -48,7 +48,7 @@ let path = {
 		js: [src_folder + "/js/app.js", src_folder + "/js/vendors.js"],
 		css: src_folder + "/scss/style.scss",
 		cssBlocks: [src_folder + "/scss/blocks/*.scss", "!" + src_folder + "/scss/blocks/_*.scss"],
-		cssThemes: src_folder + "/scss/themes/*.scss",
+		// cssThemes: src_folder + "/scss/themes/*.scss",
 		images: [src_folder + "/images/**/*.{jpg,png,svg,gif,ico,webp}", "!**/favicon.*", "!**/sprite/**.*"],
     webp: [src_folder + "/images/**/*.{jpg,png,svg,gif,ico,webp}", "!**/favicon.*", "!**/sprite/**.*", "!**/**.svg"],
 		fonts: src_folder + "/fonts/*.ttf",
@@ -152,7 +152,7 @@ function cssBlocks() {
 		.pipe(dest(path.build.cssBlocks))
 		.pipe(browsersync.stream());
 }
-function cssThemes() {
+/* function cssThemes() {
 	return src(path.src.cssThemes, {})
 		.pipe(plumber())
 		.pipe(
@@ -168,12 +168,12 @@ function cssThemes() {
 				cascade: true
 			})
 		)
-		/* .pipe(webpcss(
-			{
-				webpClass: "._webp",
-				noWebpClass: "._no-webp"
-			}
-		)) */
+		//.pipe(webpcss(
+		//	{
+		//		webpClass: "._webp",
+		//		noWebpClass: "._no-webp"
+		//	}
+		//)) 
 		.pipe(dest(path.build.cssThemes))
 		.pipe(clean_css())
 		.pipe(
@@ -183,7 +183,7 @@ function cssThemes() {
 		)
 		.pipe(dest(path.build.cssThemes))
 		.pipe(browsersync.stream());
-}
+} */
 function js() {
 	return src(path.src.js, {})
 		.pipe(plumber())
@@ -313,19 +313,19 @@ function clean() {
 function watchFiles() {
 	gulp.watch([path.watch.html], html);
 	gulp.watch([path.watch.css], css);
-	gulp.watch([path.watch.css], cssThemes);
+	//gulp.watch([path.watch.css], cssThemes);
 	gulp.watch([path.watch.js], js);
 	gulp.watch([path.watch.images], images);
 	gulp.watch(['test/#src/*.html'], htmlTest); // для теста
 }
-let build = gulp.series(clean, fontsCopy, fonts_otf, gulp.parallel(html, htmlTest, css, cssBlocks, cssThemes, js, favicon, images, svgSprite), fonts, gulp.parallel(fontstyle));
+let build = gulp.series(clean, fontsCopy, fonts_otf, gulp.parallel(html, htmlTest, css, cssBlocks, /* cssThemes, */ js, favicon, images, svgSprite), fonts, gulp.parallel(fontstyle));
 let watch = gulp.parallel(build, watchFiles, browserSync);
 
 exports.html = html;
 exports.htmlTest = htmlTest;
 exports.css = css;
 exports.cssBlocks = cssBlocks;
-exports.cssThemes = cssThemes;
+//exports.cssThemes = cssThemes;
 exports.js = js;
 exports.favicon = favicon;
 exports.fonts_otf = fonts_otf;

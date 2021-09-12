@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 	 <head>
-	<title>Главная</title>
+	<title>forum-SBER</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<link rel="stylesheet" href="css/style.min.css">
@@ -22,6 +22,25 @@
 		._style-3 для smart-lab.ru/forum/
 		-->
 		<div class="wrapper">
+			<!-- стрелки прокрутки странициы вверх/вниз -->
+			<!-- стрелки прокрутки странициы вверх/вниз -->
+<div class="abs-scroller">
+		<div class="abs-scroller__up">
+		<a href="#top" rel="nofollow" aria-label="Проскрулить вверх сайта"></a>
+	</div>
+		<div class="abs-scroller__down">
+		<a href="#bottom" rel="nofollow" aria-label="Проскрулить вниз сайта"></a>
+	</div>
+</div>
+
+<!-- 
+  * анкерные ссылки
+  <a id="top"></a>
+  <a id="bottom"></a>
+ -->
+			<!-- анкерная ссылка -->
+			<a id="top"></a>
+
 			<header class="header">
 	<!-- 
 		* по классу ._active-el навешиваем обработчик события 'click' на каждый
@@ -647,8 +666,7 @@
 			</div>
 		</div>
 	</div>
-</header>
-			<nav class="navbar">
+	<nav class="navbar">
   <ul class="navbar__list _container">
     <!-- если у элемента списка есть вложеный список, то при нажатии на стрелку navbar__down-arrow
       элементу navbar__item присваивается класс ._open и появляется выпадающее меню. 
@@ -695,85 +713,108 @@
     <li class="navbar__item navbar__item--current"><a class="navbar__link" href="#">Сбербанк</a></li>
   </ul>
 </nav>
+</header>
 
 			<div class="content">
-				<aside class="content__left company-bar">
+				<aside class="content__left">
+					<div class="company-bar _slide-sidebar-padding">
+  <!--
+    * класс _slide-sidebar-padding нужен для расчета верхнего паддинга боковых панелей (когда они показываются при нажатии на кнопку) 
+    * _active-el - общий для обработки событий класс для обработки нажатия на кнопку
+  -->
   <button class="company-bar__btn _active-el">
-    <span></span>
-    <span></span>
-    <span></span>
+    <div class="company-bar__btn-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </button>
   <nav class="company-bar__body">
 
-    <ul class="company-bar__links">
-			<li><h2>Сбербанк</h2></li>
+    <h2 class="company-bar__title">Сбербанк</h2>
+
+    <ul class="company-bar__links company-bar__links--pages">
 			<li>
         <a href="/forum/news/SBER/" title="Сбербанк новости">
-          <img src="/templates/skin/smart-lab-new/images/forum-menu/news.svg" alt="Сбербанк новости">
+          <svg>
+              <use xlink:href="images/symbol/sprite.svg#news"></use>
+          </svg>
           <span>Новости Сбербанк</span>
         </a>
       </li>
 			<li>
         <a href="/q/SBER/f/y/">
-          <img src="/templates/skin/smart-lab-new/images/forum-menu/reports.svg" alt="Таблицы МСФО/РСБУ">
-          <span>Таблицы МСФО/РСБУ</span>
+          <svg>
+            <use xlink:href="images/symbol/sprite.svg#reports"></use>
+          </svg>
+          <span>Отчетность Сбербанк</span>
         </a>
       </li>
 			<li>
         <a href="/q/SBER/dividend/">
-          <img src="/templates/skin/smart-lab-new/images/forum-menu/dividends.svg" alt="Дивиденды">
-          <span>Дивиденды</span>
+          <svg>
+            <use xlink:href="images/symbol/sprite.svg#dollar"></use>
+          </svg>
+          <span>Дивиденды Сбербанк</span>
         </a>
       </li>
 			<li>
         <a href="/gr/MOEX.SBER">
-          <img src="/templates/skin/smart-lab-new/images/forum-menu/charts.svg" alt="График акций SBER">
+          <svg>
+            <use xlink:href="images/symbol/sprite.svg#chart"></use>
+          </svg>
           <span>График акций SBER</span>
         </a>
       </li>
       <li>
-        <a href="/gr/MOEX.SBERP">
-          <img src="/templates/skin/smart-lab-new/images/forum-menu/charts.svg" alt="График акций SBERP">
+        <a href="/gr/MOEX.SBER">
+          <svg>
+            <use xlink:href="images/symbol/sprite.svg#chart"></use>
+          </svg>
           <span>График акций SBERP</span>
+        </a>
+      </li>	
+      <li>
+        <a href="/q/SBER/shareholders/">
+          <svg>
+            <use xlink:href="images/symbol/sprite.svg#structure"></use>
+          </svg>
+          <span>Структура акционеров</span>
         </a>
       </li>
       <li>
-        <a href="/gr/LSIN.SBER">
-          <img src="/templates/skin/smart-lab-new/images/forum-menu/charts.svg" alt="График АДР SBER">
-          <span>График АДР SBER</span>
+        <!-- Текущей ссылке присваивается класс, она становится не активной и меняет цвет -->
+        <a href="/chat/?x=1900" class="company-bar__current-link" rel="nofollow" title="Чат акций Сбербанк">
+          <svg>
+            <use xlink:href="images/symbol/sprite.svg#chat"></use>
+          </svg>
+          <span>Сбербанк чат</span>
         </a>
-      </li>						
+      </li>
 			<li>
         <a href="#factors">
-          <img src="/templates/skin/smart-lab-new/images/forum-menu/factors.svg" alt="Факторы роста и падения">
+          <svg>
+            <use xlink:href="images/symbol/sprite.svg#growth_fall"></use>
+          </svg>
           <span>Факторы роста и падения</span>
         </a>
       </li>
       <li>
         <a href="/q/SBER/f/l/">
-          <img src="/templates/skin/smart-lab-new/images/forum-menu/reports-all.svg" alt="Отчеты и презентации">
+          <svg>
+            <use xlink:href="images/symbol/sprite.svg#folder"></use>
+          </svg>
           <span>Отчеты и презентации</span>
         </a>
       </li>
       <li>
-        <a href="/q/SBER/shareholders/">
-          <img src="/templates/skin/smart-lab-new/images/forum-menu/shareholders-structure.svg" alt="Структура акционеров">
-          <span>Структура акционеров</span>
-        </a>
-      </li>
-      <li>
         <a href="http://www.sberbank.com/ru/investor-relations/reports-and-publications/ifrs" target="_blank" rel="nofollow">
-          <img src="/templates/skin/smart-lab-new/images/forum-menu/shareholders-website.svg" alt="Сайт для акционеров">
-          <span>Сайт для акционеров</span>
+          <svg>
+            <use xlink:href="images/symbol/sprite.svg#bonds"></use>
+          </svg>
+          <span>Облигации Сбербанк</span>
         </a>
-      </li>
-      <li>
-        <a href="/chat/?x=1900" style="color: #00f500" rel="nofollow" title="Чат акций Сбербанк">
-          <img src="/templates/skin/smart-lab-new/images/forum-menu/chat.svg" alt="Сбербанк чат">
-          <span>Сбербанк чат</span>
-        </a>
-      </li>
-			<li><a href="/bonds/Sberbank" title="Сбербанк">Облигации Сбербанк</a></li>				
+      </li>				
 		</ul>
     
     <ul class="company-bar__links company-bar__links--readers" id="readers">
@@ -794,30 +835,279 @@
     </ul>
 
     <ul class="company-bar__links company-bar__links--admin" id="admin-links">
-			<li><a href="https://smart-lab.ru/forum/stat/1900/" rel="nofollow">* <span>статистика</span></a></li>
-			<li><a href="https://smart-lab.ru/forum/edit/1900/" rel="nofollow">+ <span>редактировать</span></a></li>
-      <li><a href="https://smart-lab.ru/forum/del/1900/" rel="nofollow" class="company-bar__link-del">- <span>удалить</span></a></li>
+			<li><a href="https://smart-lab.ru/forum/stat/1900/" rel="nofollow"><span>*</span> <span>статистика</span></a></li>
+			<li><a href="https://smart-lab.ru/forum/edit/1900/" rel="nofollow"><span>+</span> <span>редактировать</span></a></li>
+      <li><a href="https://smart-lab.ru/forum/del/1900/" rel="nofollow" class="company-bar__link-del"><span>&ndash;</span> <span>удалить</span></a></li>
     </ul>
 
-    <ul class="company-bar__links company-bar__links--moderators" id="moderators" style="margin-top: 2em">
-			<li>Модераторы:</li>
+    <ul class="company-bar__links company-bar__links--moderators" id="moderators">
+			<li>
+        Модераторы: 
+        <span class="company-bar__add-btn">+</span>
+      </li>
 			<li><a href="https://smart-lab.ru/profile/dr-mart/">Тимофей Мартынов</a></li>
 			<li><a href="https://smart-lab.ru/profile/Geist/">Geist</a></li>
 			<li><a href="https://smart-lab.ru/profile/Auximen/">Auximen</a></li>
 			<li><a href="https://smart-lab.ru/profile/kayumovr/">Руслан Каюмов</a></li>
 		</ul>
-
   </nav>
-</aside>
+</div>
+				</aside>
 				<main class="content__main main">
+						
+
+				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 				</main>
-				<aside class="content__right"></aside>
-			</div>
+				<aside class="content__right">
+					<!--
+    * класс _slide-sidebar-padding нужен для расчета верхнего паддинга боковых панелей (когда они показываются при нажатии на кнопку) 
+    * _active-el - общий для обработки событий класс для обработки нажатия на кнопку
+-->
+<div class="new-msgs-box _slide-sidebar-padding">
+  <div class="new-msgs-box__content">
+    <div class="new-msgs-box__head">
+      <div class="new-msgs-box__logo">
+        <img src="images/new-msgs-box/sber.jpg" alt="лого сбер">
+      </div>
+      <div class="new-msgs-box__title">Последние сообщения на форуме:</div>
+    </div>
+    <div class="new-msgs-box__body">
+      <ul class="new-msgs-box__list">
+        <li class="new-msgs-box__item smg-item">
+          <div class="smg-item__info">
+            <div class="smg-item__column">
+              <a  href="#" class="smg-item__logo">
+                <img src="images/new-msgs-box/kolizey.jpg" alt="Лого компании">
+              </a>
+              <div class="smg-item__inner">
+                <a  href="#" class="smg-item__company">Новый Колизей</a>
+                <a  href="#" class="smg-item__author">Тиберий</a>
+              </div>
+            </div>
+            <div class="smg-item__column">
+              <div class="smg-item__inner">
+                <div class="smg-item__comments">
+                  <svg>
+                      <use xlink:href="images/symbol/sprite.svg#chat"></use>
+                  </svg>
+                  <span>25</span>
+                </div>
+                <div class="smg-item__time">15:23</div>
+              </div>
+            </div>
+          </div>
+          <div class="smg-item__text">
+            <span>США для поддержки Суверенитета Украины и территориальной целостности выделили прилетевшему Зеленскому 60 лямов долларей </span>
+          </div>
+        </li>
+        <li class="new-msgs-box__item smg-item">
+          <div class="smg-item__info">
+            <div class="smg-item__column">
+              <a href="#" class="smg-item__logo">
+                <img src="images/new-msgs-box/vtb_av.jpg" alt="Лого компании">
+              </a>
+              <div class="smg-item__inner">
+                <a  href="#" class="smg-item__company">ВТБ</a>
+                <a  href="#" class="smg-item__author">КОТ ЛЕОПОЛЬД</a>
+              </div>
+            </div>
+            <div class="smg-item__column">
+              <div class="smg-item__inner">
+                <div class="smg-item__comments">
+                  <svg>
+                      <use xlink:href="images/symbol/sprite.svg#chat"></use>
+                  </svg>
+                  <span>39</span>
+                </div>
+                <div class="smg-item__time">17:13</div>
+              </div>
+            </div>
+          </div>
+          <div class="smg-item__text">
+            <span>Oleg Nazarenko, вы как себе представляете формат видеоконференции? Обычно это очень ограниченный круг участников. Ответ на вопрос, как попасть человеку с «улицы» на любую корпоративную видеокоферен...</span>
+          </div>
+        </li>
+        <li class="new-msgs-box__item smg-item">
+          <div class="smg-item__info">
+            <div class="smg-item__column">
+              <a  href="#" class="smg-item__logo">
+                <img src="images/new-msgs-box/tatn_ic.png" alt="Лого компании">
+              </a>
+              <div class="smg-item__inner">
+                <a  href="#" class="smg-item__company">Татнефть</a>
+                <a  href="#" class="smg-item__author">СуперСТар</a>
+              </div>
+            </div>
+            <div class="smg-item__column">
+              <div class="smg-item__inner">
+                <div class="smg-item__comments">
+                  <svg>
+                      <use xlink:href="images/symbol/sprite.svg#chat"></use>
+                  </svg>
+                  <span>25</span>
+                </div>
+                <div class="smg-item__time">18:41</div>
+              </div>
+            </div>
+          </div>
+          <div class="smg-item__text">
+            <span>Oleg Nazarenko, это ведь обычное производственное совещание, просто в виде видеоконференции. Которое идет по закрытой для посторонних корпоративной сети. Единственно, о чем можно было бы узнать: бу...</span>
+          </div>
+        </li>
+        <li class="new-msgs-box__item smg-item">
+          <div class="smg-item__info">
+            <div class="smg-item__column">
+              <a href="#" class="smg-item__logo">
+                <img src="images/new-msgs-box/vtb_av.jpg" alt="Лого компании">
+              </a>
+              <div class="smg-item__inner">
+                <a  href="#" class="smg-item__company">Газпром</a>
+                <a  href="#" class="smg-item__author">Все Верно</a>
+              </div>
+            </div>
+            <div class="smg-item__column">
+              <div class="smg-item__inner">
+                <div class="smg-item__comments">
+                  <svg>
+                      <use xlink:href="images/symbol/sprite.svg#chat"></use>
+                  </svg>
+                  <span>39</span>
+                </div>
+                <div class="smg-item__time">19:17</div>
+              </div>
+            </div>
+          </div>
+          <div class="smg-item__text">
+            <span>📈 Акции Газпрома и Новатэка растут вместе с ценами на газ 👉 Цены на газ не перестают расти — стоимость ближайших фьючерсов на газ в моменте достигала $650 за тыс. кубометров 👉 Последний раз такие...</span>
+          </div>
+        </li>
+        <li class="new-msgs-box__item smg-item">
+          <div class="smg-item__info">
+            <div class="smg-item__column">
+              <a  href="#" class="smg-item__logo">
+                <img src="images/new-msgs-box/kolizey.jpg" alt="Лого компании">
+              </a>
+              <div class="smg-item__inner">
+                <a  href="#" class="smg-item__company">Новый Колизей</a>
+                <a  href="#" class="smg-item__author">Тиберий</a>
+              </div>
+            </div>
+            <div class="smg-item__column">
+              <div class="smg-item__inner">
+                <div class="smg-item__comments">
+                  <svg>
+                      <use xlink:href="images/symbol/sprite.svg#chat"></use>
+                  </svg>
+                  <span>25</span>
+                </div>
+                <div class="smg-item__time">15:23</div>
+              </div>
+            </div>
+          </div>
+          <div class="smg-item__text">
+            <span>США для поддержки Суверенитета Украины и территориальной целостности выделили прилетевшему Зеленскому 60 лямов долларей </span>
+          </div>
+        </li>
+        <li class="new-msgs-box__item smg-item">
+          <div class="smg-item__info">
+            <div class="smg-item__column">
+              <a href="#" class="smg-item__logo">
+                <img src="images/new-msgs-box/vtb_av.jpg" alt="Лого компании">
+              </a>
+              <div class="smg-item__inner">
+                <a  href="#" class="smg-item__company">ВТБ</a>
+                <a  href="#" class="smg-item__author">КОТ ЛЕОПОЛЬД</a>
+              </div>
+            </div>
+            <div class="smg-item__column">
+              <div class="smg-item__inner">
+                <div class="smg-item__comments">
+                  <svg>
+                      <use xlink:href="images/symbol/sprite.svg#chat"></use>
+                  </svg>
+                  <span>39</span>
+                </div>
+                <div class="smg-item__time">17:13</div>
+              </div>
+            </div>
+          </div>
+          <div class="smg-item__text">
+            <span>Oleg Nazarenko, вы как себе представляете формат видеоконференции? Обычно это очень ограниченный круг участников. Ответ на вопрос, как попасть человеку с «улицы» на любую корпоративную видеокоферен...</span>
+          </div>
+        </li>
+        <li class="new-msgs-box__item smg-item">
+          <div class="smg-item__info">
+            <div class="smg-item__column">
+              <a  href="#" class="smg-item__logo">
+                <img src="images/new-msgs-box/tatn_ic.png" alt="Лого компании">
+              </a>
+              <div class="smg-item__inner">
+                <a  href="#" class="smg-item__company">Татнефть</a>
+                <a  href="#" class="smg-item__author">СуперСТар</a>
+              </div>
+            </div>
+            <div class="smg-item__column">
+              <div class="smg-item__inner">
+                <div class="smg-item__comments">
+                  <svg>
+                      <use xlink:href="images/symbol/sprite.svg#chat"></use>
+                  </svg>
+                  <span>25</span>
+                </div>
+                <div class="smg-item__time">18:41</div>
+              </div>
+            </div>
+          </div>
+          <div class="smg-item__text">
+            <span>Oleg Nazarenko, это ведь обычное производственное совещание, просто в виде видеоконференции. Которое идет по закрытой для посторонних корпоративной сети. Единственно, о чем можно было бы узнать: бу...</span>
+          </div>
+        </li>
+        <li class="new-msgs-box__item smg-item">
+          <div class="smg-item__info">
+            <div class="smg-item__column">
+              <a href="#" class="smg-item__logo">
+                <img src="images/new-msgs-box/vtb_av.jpg" alt="Лого компании">
+              </a>
+              <div class="smg-item__inner">
+                <a  href="#" class="smg-item__company">Газпром</a>
+                <a  href="#" class="smg-item__author">Все Верно</a>
+              </div>
+            </div>
+            <div class="smg-item__column">
+              <div class="smg-item__inner">
+                <div class="smg-item__comments">
+                  <svg>
+                      <use xlink:href="images/symbol/sprite.svg#chat"></use>
+                  </svg>
+                  <span>39</span>
+                </div>
+                <div class="smg-item__time">19:17</div>
+              </div>
+            </div>
+          </div>
+          <div class="smg-item__text">
+            <span>📈 Акции Газпрома и Новатэка растут вместе с ценами на газ 👉 Цены на газ не перестают расти — стоимость ближайших фьючерсов на газ в моменте достигала $650 за тыс. кубометров 👉 Последний раз такие...</span>
+          </div>
+        </li>
+      </ul>
+      <div class="new-msgs-box__buttons">
+        <a href="#">Все сообщения</a>
+        <a href="#">+ создать тему</a>
+      </div>
+    </div>
+  </div>
 
-			<main class="main">
-			
-			</main>
+  <button class="new-msgs-box__btn _active-el">
+    <span><span>Последние&nbsp;</span>сообщения</span>
+  </button>
+
+</div>
+				</aside>
+			</div>
+			<!-- анкерная ссылка -->
+			<a id="bottom"></a>
+
 			<footer class="footer">
 	<!-- 
 	  * Блоку спойлеров добавяется класс _spollers
@@ -949,6 +1239,72 @@
 	</div>
 </footer>
 		</div>
+		<div class="pop-up-container" style="display: none;">
+			<!-- Здесь хранятся контейнеры для jBox -->
+
+				<!-- 
+   * Для светлого фона (изображения) модификатор profile-popup--bg 
+-->
+<div class="profile-popup profile-popup--bg" id="profile-popup">
+   <div class="profile-popup__inner">
+      <img src="images/profile-popup/background.webp">
+      <div class="profile-popup__avatar">		
+         <a href="https://smart-lab.ru/profile/cadonache/" title="Посмотреть профиль пользователя">			
+            <img src="images/profile-popup/avatar.webp">		
+         </a>	
+      </div>
+      <div class="profile-popup__info">
+         <div><a id="user_link" href="https://smart-lab.ru/profile/cadonache/" title="Посмотреть профиль пользователя">Центурио́н</a></div>
+         <div id="user_work">Программист</div>
+         <div><a id="user_city" href="https://smart-lab.ru/people/city/Балашиха МО/">Балашиха МО</a></div>
+         <div class="profile-popup__rating">
+            <div class="profile-popup__reading">
+               <a href="https://smart-lab.ru/my/cadonache/" id="blog_link">Читать блог</a>
+               <a href="https://smart-lab.ru/my/cadonache/comment-forum/" id="forum_link">Читать форум</a>
+            </div>
+            <div class="profile-popup__audience">
+               <div>Подписчиков: <span id="user_subscribers">40</span></div>
+               <div>Друзей: <span id="user_friends">25</span></div>
+            </div>
+            <div>Рейтинг: <span id="user_rating">218</span>, сила: <span id="user_skill">3138</span></div>
+            <div>Зарегистрирован: <span id="user_registred">20.08.2018</span></div>
+         </div>
+      </div> 
+   </div>
+   <div class="profile-popup__panel">
+      <div class="profile-popup__panel-wrap">
+         <button id="user_friend_btn" type="button">		
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="20">
+               <path d="M0 0h24v24H0z" fill="none"></path>
+               <path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+            </svg>
+            Дружить
+         </button>	
+         <button id="user_subscribe_btn" type="button">Подписаться</button>		
+      </div>
+      <button id="user_pm_btn" title="Отправить ЛС"  type="button">
+         <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="24">
+            <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"></path>
+            <path d="M0 0h24v24H0z" fill="none"></path>
+         </svg>
+      </button>
+   </div>
+   <!-- класс .context-menu общий для всех контекстных меню -->
+   <div class="profile-popup__more context-menu">
+      <button class="profile-popup__more-btn">
+         <svg>
+             <use xlink:href="images/symbol/sprite.svg#more"></use>
+         </svg>
+      </button>			
+      <ul class="profile-popup__more-menu">
+         <li><button class="profile-popup__blacklist">В черный список</button></li>
+         <li><button class="profile-popup__ban">Наказать</button></li>
+      </ul>
+   </div>
+</div>
+
+		</div>
+
 		<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
 <!-- <script src="js/vendors.min.js"></script>
 <script src="js/app.min.js"></script> -->

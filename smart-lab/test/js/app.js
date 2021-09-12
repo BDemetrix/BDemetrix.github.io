@@ -185,7 +185,7 @@ const scrollWidth = window.innerWidth - document.documentElement.clientWidth; //
 function blockOverflow() {
   bodyGlobal.style.overflow = `hidden`;
   bodyGlobal.style.touchAction = `none`;
-  bodyGlobal.style.paddingRight = scrollWidth + 'px';
+  //bodyGlobal.style.paddingRight = scrollWidth + 'px';
 };
 
 /**
@@ -195,9 +195,16 @@ function unBlockOverflow() {
   setTimeout(() => {
     bodyGlobal.style.overflow = ``;
     bodyGlobal.style.touchAction = ``;
-    bodyGlobal.style.paddingRight = ``;
+    //bodyGlobal.style.paddingRight = ``;
   }, 400)
 };
+
+function toggleOverflow() {
+  if (window.getComputedStyle(bodyGlobal).overflow != 'hidden') 
+    blockOverflow();
+  else
+    unBlockOverflow();
+}
 
 //Spollers
 
@@ -361,7 +368,7 @@ let _slideToggle = (target, duration = 500) => {
  * @param {String || Object} selector - селектор блока, в котором требуется стилизация скролла
  */
 function plugSimpleBar(selector) {
-  let simpleBarEl
+  let simpleBarEl;
   if (typeof selector === 'string') {
     simpleBarEl = document.querySelector(selector);
   }
@@ -394,6 +401,7 @@ function closeAllOpenedMenu() {
 document.documentElement.addEventListener('click', (e) => {
   if (!e.target.closest('._open')) {
     closeAllOpenedMenu();
+    unBlockOverflow();
   }
 });
 /**
@@ -456,6 +464,32 @@ function numOnly(event) {
     }
   }
 }
+
+
+// Обработка событий для контекстного меню .context-menu
+const popUpMenu = document.querySelectorAll('.context-menu');
+if (popUpMenu.length) {
+  popUpMenu.forEach( menu => {
+    const btn = menu.querySelector('button');
+    console.log('menu');
+    
+    if (btn) {
+      btn.addEventListener('click', () => {
+        menu.classList.toggle('_open');
+      });
+    }
+  });
+
+  document.documentElement.addEventListener('click', (e) => {
+    if(!e.target.closest('.context-menu > button')) {
+      const popUpMenu = document.querySelector('.context-menu._open');
+      if (popUpMenu) popUpMenu.classList.remove('_open');
+    }
+  });
+}
+
+
+
 // HEADER JS / begin ============================================================================
 let mainHeader = document.querySelector('header.header');
 let headerMenuBody = document.querySelector('.header .menu__body');
@@ -900,18 +934,22 @@ if (qnMenuBtnFilter && qnFilters && qnFiltersClose) {
 }
 
 // Обработка сброса формы
-const qnFiltersContent = document.querySelector('.qn-filters__content');
-const filtersInputs = qnFilters.querySelectorAll('input');
-let inputChange = new Event('change');
-
-qnFiltersContent.addEventListener('reset', (e) => {
-  filtersInputs.forEach( input => {
-    setTimeout(() => {
-      input.dispatchEvent(inputChange);
-      clearSumoContents();
-    }, 50);
-  });
-})
+if (qnFilters) {
+  const qnFiltersContent = document.querySelector('.qn-filters__content');
+  const filtersInputs = qnFilters.querySelectorAll('input');
+  let inputChange = new Event('change');
+  
+  if(qnFiltersContent) {
+    qnFiltersContent.addEventListener('reset', (e) => {
+      filtersInputs.forEach( input => {
+        setTimeout(() => {
+          input.dispatchEvent(inputChange);
+          clearSumoContents();
+        }, 50);
+      });
+    })
+  }  
+}
 
 
 // Подключения кастомного селекта
@@ -1072,3 +1110,106 @@ setTimeout(() => {
  new FlexTable('.trades-table'); 
 }, 300);
 
+
+/**
+ * Расщет верхнего паддинга боковых панелей 
+ * нужен для корректного отображения левой и правой боковых панелей, когда хедер виден и когда не виден
+ * боковым панелям присваивается класс _slide-sidebar-padding
+ */
+(function () {
+
+  const header = document.querySelector('.header');
+  const headerHeight = header.getBoundingClientRect().height;
+  const slideSidebarPadding = document.querySelectorAll('._slide-sidebar-padding');
+  
+  if (header && slideSidebarPadding.length) {
+  
+    slideSidebarPadding.forEach( function(sidebar){
+      sidebar.slidePos = window.getComputedStyle(sidebar).position;
+      console.log(sidebar.slidePos);
+      
+      const delta = header.getBoundingClientRect().top + headerHeight;
+      if (sidebar.slidePos == 'fixed')
+        sidebar.style.paddingTop = delta >= 0 ? (delta + 'px') : '0px' ;
+    });
+  
+    window.addEventListener('scroll', function() {
+    
+      slideSidebarPadding.forEach( sidebar => {
+         if (sidebar.slidePos == 'fixed') {
+          const delta = header.getBoundingClientRect().top + headerHeight;
+          sidebar.style.paddingTop = delta >= 0 ? (delta + 'px') : '0px' ;
+        }  
+      });
+    });
+  
+    window.addEventListener('resize', () => {
+      resizeUpdate(slideSidebarPadding);
+    });
+
+    window.addEventListener('orientationchange', () => {
+      resizeUpdate(slideSidebarPadding);
+    });
+  }
+
+  function resizeUpdate(slideSidebarPadding) {
+    slideSidebarPadding.forEach( sidebar => {
+      sidebar.slidePos = window.getComputedStyle(sidebar).position;
+      if ( sidebar.slidePos != 'fixed') {
+        sidebar.style.paddingTop = '0px' ;
+        sidebar.classList.remove('_open');
+        unBlockOverflow();
+      }
+      else {
+        delta = header.getBoundingClientRect().top + headerHeight;
+        sidebar.style.paddingTop = delta >= 0 ? (delta + 'px') : '0px' ;
+      }
+    });
+  }
+
+}());
+(function () {
+
+  plugSimpleBar('.company-bar__body');
+  
+  const companyBar = document.querySelector('.company-bar');
+  const companyBarBtn = document.querySelector('.company-bar__btn');
+  
+  if (companyBar && companyBarBtn) {
+  
+    companyBarBtn.addEventListener('click', () => {
+      if (window.getComputedStyle(bodyGlobal).overflow != 'hidden') 
+        blockOverflow();
+      else
+        unBlockOverflow();
+    });
+  
+  
+    new jBox('Tooltip', {
+      attach: '#moderators>li>a, #readers>li>a',
+      content: $('#profile-popup'),
+      zIndex: 999,
+      closeOnMouseleave: true,
+      animation: "move",
+    
+      onClose: function() {
+        this.container.find('.context-menu').removeClass('_open');
+      }
+    });
+  }
+
+}());
+(function () {
+  
+  plugSimpleBar('.new-msgs-box__content');
+
+  const newMsgsBoxBtn = document.querySelector('.new-msgs-box__btn');
+
+  newMsgsBoxBtn.addEventListener('click', () => {
+    if (window.getComputedStyle(bodyGlobal).overflow != 'hidden') 
+      blockOverflow();
+    else
+      unBlockOverflow();
+  });
+
+}());

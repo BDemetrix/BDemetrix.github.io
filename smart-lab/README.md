@@ -46,3 +46,24 @@ _js.html
 Проблема с pyton:  ```  npm install --global windows-build-tools  ```
 
 
+#### Общие классы для стилизации и обработки событий
+##### #src\scss\base\global.scss
+##### #src\js\files\common.js
+
+1) Для контекстных меню класс .context-menu для которого написаны правила, анимация и минимальный набор обработчиков js
+структура: 
+```
+<div class="context-menu">
+  <button>
+     <svg>
+         <use xlink:href="images/symbol/sprite.svg#..."></use>
+     </svg>
+  </button>			
+  <ul>
+     <li><button>кнопка 1</button></li>
+     <li><button>кнопка 2</button></li>
+  </ul>
+</div>
+```
+
+2)  Класс _active-el добавляется кнопке открывающей/закрывающей Pop-Up и нужен для синхконизации всплывающих окон между собой при клике на элемен содержащий класс _active-el его родителю присваивается сласс _open

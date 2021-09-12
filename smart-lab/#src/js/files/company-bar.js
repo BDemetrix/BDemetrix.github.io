@@ -1,0 +1,31 @@
+(function () {
+
+  plugSimpleBar('.company-bar__body');
+  
+  const companyBar = document.querySelector('.company-bar');
+  const companyBarBtn = document.querySelector('.company-bar__btn');
+  
+  if (companyBar && companyBarBtn) {
+  
+    companyBarBtn.addEventListener('click', () => {
+      if (window.getComputedStyle(bodyGlobal).overflow != 'hidden') 
+        blockOverflow();
+      else
+        unBlockOverflow();
+    });
+  
+  
+    new jBox('Tooltip', {
+      attach: '#moderators>li>a, #readers>li>a',
+      content: $('#profile-popup'),
+      zIndex: 999,
+      closeOnMouseleave: true,
+      animation: "move",
+    
+      onClose: function() {
+        this.container.find('.context-menu').removeClass('_open');
+      }
+    });
+  }
+
+}());

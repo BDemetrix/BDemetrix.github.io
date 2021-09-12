@@ -26,6 +26,10 @@ $fontFamily: Tahoma, "Open Sans",  Verdana, sans-serif;
 //<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
 @import "./base/null";
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	font-family: $fontFamily;
 	background: $style-1-main-bg;
@@ -77,18 +81,23 @@ picture {
 @import "./plugins/flex-table";
 @import "./plugins/choices";
 @import "./plugins/nouislider";
+@import "./plugins/jBox.all";
 //@import "./blocks/pagging";
 //@import "./blocks/popup";
 @import "./blocks/header";
 @import "./blocks/_menu";
 @import "./blocks/_alphabet";
 @import "./blocks/navbar";
-@import "./blocks/main";
+@import "./blocks/_content";
 @import "./blocks/social-btn";
 @import "./blocks/footer";
 @import "./blocks/_quotes-menu";
 @import "./blocks/_qn-filters";
 @import "./blocks/_trades-table";
+@import "./blocks/_company-bar";
+@import "./blocks/_new-msgs-box";
+@import "./blocks/_profile-popup";
+@import "./blocks/_abs-scroller";
 
 
 //</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
@@ -104,7 +113,23 @@ picture {
 		padding: 0 5px 20px;
   }
 }
+
+.pop-up-container {
+	display: none;
+}
 //===================================================================================================================================
 
 //</ОСНОВНОЙ БЛОК>====================================================================================================
 
+//<Доп правила для jBox>===
+
+.jBox-Tooltip .jBox-container {
+	max-width: calc(100vh - 10px);
+	border-radius: 5px;
+	box-shadow: 0 0 3px rgb(0 0 0 / 25%);
+	overflow: hidden;
+}
+.jBox-content {
+	padding: 0;
+}
+//</Доп правила для jBox>===
