@@ -56,25 +56,51 @@ if (sliderScrollItems.length > 0) {
 	}
 }
 
-let qnMenuSelectorsSlider;
-const qnMenuSelectors = document.querySelector('.qn-menu__selectors');
-if (qnMenuSelectors) {
-	qnMenuSelectors.classList.remove('_loading');
+// сдайдер ссылок
+let selectorLinksSlider;
+const selectorLinks = document.querySelector('.selector-links__list');
+if (selectorLinks) {
+	selectorLinks.parentElement.classList.remove('_loading');
 
-	qnMenuSelectorsSlider = new Swiper(qnMenuSelectors, {
+	selectorLinksSlider = new Swiper(selectorLinks, {
 		slidesPerView: 'auto',
-		//centeredSlides: true,
-		//centeredSlidesBounds: true,
 		watchOverflow: true,
-		//spaceBetween: 40,
-		//freeMode: true,
-		//freeModeSticky: true,
-		speed: 400,
+		freeMode: {
+  	  enabled: true,
+  	  sticky: true,
+  	},
+		speed: 300,
+		navigation: {
+  	  nextEl: '.selector-links__next',
+  	  prevEl: '.selector-links__prev',
+  	},
+	});
+}
+
+
+// слайдер "хлебные крошки"
+let navbarBCSlider;
+const navbarBC = document.querySelector('.navbar__list');
+if (navbarBC) {
+	navbarBC.parentElement.classList.remove('_loading');
+
+	navbarBCSlider = new Swiper(navbarBC, {
+		slidesPerView: 'auto',
+		watchOverflow: true,
+		freeMode: {
+  	  enabled: true,
+  	  sticky: true,
+  	},
+		speed: 300,
+		navigation: {
+  	  nextEl: '.navbar__next',
+  	  prevEl: '.navbar__prev',
+  	},
 	});
 }
 
 window.addEventListener('resize', () => {
-	if (qnMenuSelectorsSlider) {
-		qnMenuSelectorsSlider.updateSize();
+	if (selectorLinksSlider) {
+		selectorLinksSlider.updateSize();
 	}
 });

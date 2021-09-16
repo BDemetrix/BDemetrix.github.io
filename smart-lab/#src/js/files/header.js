@@ -5,22 +5,23 @@ let headerMenuBody = document.querySelector('.header .menu__body');
 /**
  * Устанавливает высоту основного меню
  */
-function setheaderMenuBodyHeight() {
+/* function setheaderMenuBodyHeight() {
   let mainHeaderHeight = mainHeader.offsetHeight;
   let headerMenuBodyHeight = document.documentElement.clientHeight - mainHeaderHeight;
   headerMenuBody.style.height = headerMenuBodyHeight + 'px';
-}
+} */
+
 // Подключаем к .menu__body кастомный скролл
 let mainMenuSimpleBar = plugSimpleBar('.header .menu__body');
 
-setheaderMenuBodyHeight();
+//setheaderMenuBodyHeight();
 mainMenuSimpleBar.recalculate();
 window.addEventListener('resize', () => {
-  setheaderMenuBodyHeight();
+  //setheaderMenuBodyHeight();
   if (mainMenuSimpleBar) mainMenuSimpleBar.recalculate();
 } );
 
-// Открытие/закрытие основного меню
+// При открытии/закрытии основного меню блокируется/разблокируется скролл
 const mainMenuBtn = document.getElementById('main-menu-btn');
 if (mainMenuBtn) {
   mainMenuBtn.addEventListener('click', (e) => {
@@ -260,7 +261,6 @@ $('body').on('click', function (e) {
   if ($(e.target).parents('#notifiesPopover').length) return;
   if (nPopup.isOpen) nPopup.close();
 });
-
 
 
 // HEADER JS / end ============================================================================

@@ -1,0 +1,156 @@
+// Значения padding лучше переопределять в родительском блоке 
+// либо помещать его в блок с классом _container
+.selector-links {
+	position: relative;
+	flex: 0 0 100%;
+	max-width: 100%;
+	width: 100%;
+	overflow: hidden;
+
+	&._loading  {
+
+		.selector-links__list {
+			display: flex;
+			width: 100%;
+		}
+
+		.selector-links__prev	{
+			opacity: 0;
+			visibility: hidden;
+		}
+	}
+
+	// .selector-links__list
+	&__list{
+		position: relative;
+		border-bottom: 1px solid $disabled-color;
+	}
+  
+	// .selector-links__item
+	&__item {
+    display: inline-block;
+		padding: 14px 0;
+		font-size: 16px;
+		line-height: 20px;
+		white-space: nowrap;
+		transition: all $t*0.5 ease;
+
+		&:last-child {
+
+			a {
+				margin-right: 0;
+			}
+		}
+
+		a {
+			position: relative;
+			margin-right: 40px;
+			display: inline-block;
+			text-decoration: none;
+			color: #585858;
+
+			&:hover,
+			&:active {
+				color: #000;
+			}
+
+			&:disabled {
+				color: $disabled-color;
+				pointer-events: none;
+			}
+
+			&::before {
+				position: absolute;
+				right: 0;
+				bottom: -14px;
+				left: 0;
+				height: 3px;
+				background: #000;
+			}
+		}
+		
+		&._active {
+
+			a {
+				color: #000;
+				pointer-events: none;
+
+				&::before {
+					content: "";
+				}
+			}
+		}
+	}
+	&__prev, 
+	&__next {
+		cursor: pointer;
+		position: absolute;
+		height: calc(100% - 1px);
+		top: 0;
+		z-index: 2;
+		display: flex;
+		align-items: center;
+		transition: all $t*2 ease;
+
+		&::before {
+			content: "";
+			display: inline-block;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			width: 200%;
+		}
+
+		svg {
+			width: 24px;
+			height: 24px;
+			fill: #585858;
+			
+		}
+
+		&:hover {
+			
+			svg {
+				fill: #242424;
+			}
+		}
+
+		&.swiper-button-disabled {
+			opacity: 0;
+			visibility: hidden;
+			transition: all $t*2 ease;
+		}
+	}
+	// .selector-links__prev
+	&__prev {
+		left: 0;
+		padding-right: 6px;
+
+		&::before {
+			left: 0;
+			border-radius: 0 30px 30px 0;
+			background: linear-gradient(to right, #fbfbfb 0%, #fbfbfb 35%, transparent 100%);
+		}
+
+		svg {
+			left: 0;
+			transform: rotate(90deg);
+		}
+	}
+	// .selector-links__next
+	&__next {
+		right: -1px;
+		padding-left: 6px;
+
+		&::before {
+			right: -1px;
+			border-radius: 30px 0 0 30px;
+			background: linear-gradient(to left, #fbfbfb 0%, #fbfbfb 35%, transparent 100%);
+		}
+
+		svg {
+			right: 0;
+			transform: rotate(-90deg);
+		}
+	}
+}

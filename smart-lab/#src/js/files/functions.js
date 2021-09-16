@@ -59,14 +59,12 @@ if (location.hash) {
 let iconMenu = document.querySelector(".icon-menu");
 if (iconMenu != null) {
 	let delay = 0;
-	let menuBody = document.querySelector(".menu__body"),
-		logo = document.querySelector('.top-header__column--logo');
+	let menuBody = document.querySelector(".menu__body");
 	iconMenu.addEventListener("click", function (e) {
 		if (unlock) {
 			scroll_lock(delay);
 			iconMenu.classList.toggle("_active");
 			menuBody.classList.toggle("_active");
-			logo.classList.toggle("_active");
 		}
 	});
 };

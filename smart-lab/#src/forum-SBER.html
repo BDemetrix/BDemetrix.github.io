@@ -4,11 +4,12 @@
 	"title":"forum-SBER"
 	})
 	<body class="_style-1">
-		<!-- классы ._style-1 , ._style-2 и ._style-3 используются для стилизации двух видов шаблонов 
-		Например: при body._style-1 Логотип имеет один цвет, а при body._style-2 и ._style-3 - другой
-		._style-1 для smart-lab.ru
-		._style-2 для smart-lab.ru/q/
-		._style-3 для smart-lab.ru/forum/
+		<!-- 
+			*	классы ._style-1 , ._style-2 и ._style-3 используются для стилизации двух видов шаблонов 
+			*	Например: при body._style-1 Логотип имеет один цвет, а при body._style-2 и ._style-3 - другой
+			*	._style-1 для smart-lab.ru
+			*	._style-2 для smart-lab.ru/q/
+			*	._style-3 для smart-lab.ru/forum/
 		-->
 		<div class="wrapper">
 			<!-- стрелки прокрутки странициы вверх/вниз -->
@@ -21,16 +22,24 @@
 			<div class="content">
 				<!-- 
 					* Если  одна из боковых панелей или обе не заполнена контентом, 
-					* то центральная колонка растягивается и занимает все свободное пространство 
+					* то центральная колонка растягивается и занимает все свободное пространство,
+					* чтобы не писать массу медиа запросов для каждого шаблона, а ширины колонок были адаптивны и универсальны,
+					* для .content__main максимальная ширина max-width:  вычисляется и задается в файле common.js 
+					* по формуле content - content__left - content__right. У блока content ширина должна быть 100%
 				-->
 				<aside class="content__left">
 					@@include('_company-bar.html', {})
 				</aside>
+
 				<main class="content__main main">
-						
-				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+					<div class="main__selectors">
+						@@include('_selector-links.html',{})
+					</div>
+					
+					<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 				</main>
+
 				<aside class="content__right">
 					@@include('_new-msgs-box.html',{})
 				</aside>
@@ -41,7 +50,7 @@
 			@@include('_footer.html',{})
 		</div>
 		<div class="pop-up-container" style="display: none;">
-			<!-- Здесь хранятся контейнеры для jBox -->
+			<!-- Здесь хранится контент для jBox -->
 
 				@@include('_profile-popup.html', {
 					"MixClass": "profile-popup--w-bg"

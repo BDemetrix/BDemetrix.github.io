@@ -14,7 +14,7 @@
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-	<body class="_style-1">
+	<body class="_style-2">
 		<!-- классы ._style-1 , ._style-2 и ._style-3 используются для стилизации двух видов шаблонов 
 		Например: при body._style-1 Логотип имеет один цвет, а при body._style-2 и ._style-3 - другой
 		._style-1 для smart-lab.ru
@@ -647,12 +647,15 @@
 			</div>
 		</div>
 	</div>
-	<nav class="navbar">
-  <ul class="navbar__list _container">
-    <!-- если у элемента списка есть вложеный список, то при нажатии на стрелку navbar__down-arrow
-      элементу navbar__item присваивается класс ._open и появляется выпадающее меню. 
-      При повторном нажатии на стрелку или любую точку в документе, если она не лежит внутри 
-      открытого выпадающего меню, оно закрывается удалением у родителя класса ._open
+	<!--
+  * Класс _swiper нужен для подключения слайдера 
+  * Класс _loading для того, чтобы стили не прыгали, пока слайдер не подключился
+-->
+<nav class="navbar _loading">
+  <ul class="navbar__list _container _swiper">
+    <!-- 
+      * если у элемента списка есть вложеный список, то при наведении на стрелку navbar__down-arrow
+      * открывается .jBox с содержимым соответствующего меню из соседнего элемента .navbar__drop-menu-wrap
     -->
     <li class="navbar__item"><a class="navbar__link" href="/">смартлаб</a></li>
     <li class="navbar__item">
@@ -662,8 +665,10 @@
           <use xlink:href="images/symbol/sprite.svg#ic_spoller_arrow"></use>
         </svg>
       </span>
-      <div class="navbar__drop-menu">
-        <a class="navbar__sub-link" href="#">фьючерс ртс</a>
+      <div class="navbar__drop-menu-wrap">
+        <div class="navbar__drop-menu">
+          <a class="navbar__sub-link" href="#">фьючерс ртс</a>
+        </div>
       </div>
     </li>
     <li class="navbar__item">
@@ -673,18 +678,19 @@
           <use xlink:href="images/symbol/sprite.svg#ic_spoller_arrow"></use>
         </svg>
       </span>
-
-      <div class="navbar__drop-menu">
-        <a class="navbar__sub-link" href="#">облигации</a>
-        <a class="navbar__sub-link" href="#">общий форум</a>
-        <a class="navbar__sub-link" href="#">forex</a>
-        <a class="navbar__sub-link" href="#">крипта</a>
-        <a class="navbar__sub-link" href="#">алготрейдинг</a>
-        <a class="navbar__sub-link" href="#">опционы</a>
-        <a class="navbar__sub-link" href="#">трейдинг софт</a>
-        <a class="navbar__sub-link" href="#">банки</a>
-        <a class="navbar__sub-link" href="#">финансовый словарь</a>
-        <a class="navbar__sub-link" href="#">брокеры</a>
+      <div class="navbar__drop-menu-wrap">
+        <div class="navbar__drop-menu">
+          <a class="navbar__sub-link" href="#">облигации</a>
+          <a class="navbar__sub-link" href="#">общий форум</a>
+          <a class="navbar__sub-link" href="#">forex</a>
+          <a class="navbar__sub-link" href="#">крипта</a>
+          <a class="navbar__sub-link" href="#">алготрейдинг</a>
+          <a class="navbar__sub-link" href="#">опционы</a>
+          <a class="navbar__sub-link" href="#">трейдинг софт</a>
+          <a class="navbar__sub-link" href="#">банки</a>
+          <a class="navbar__sub-link" href="#">финансовый словарь</a>
+          <a class="navbar__sub-link" href="#">брокеры</a>
+        </div>
       </div>
     </li>
     <!-- если ссылка ведет на другой шаблон, например из форума на котировки, ей присваивается модификатор 
@@ -693,6 +699,16 @@
     <!-- текущей ссылке присваивается модификатор navbar__item--current, служит для выделения ее на общем фоне списка -->
     <li class="navbar__item navbar__item--current"><a class="navbar__link" href="#">Сбербанк</a></li>
   </ul>
+  <div class="navbar__prev">
+    <svg>
+      <use xlink:href="images/symbol/sprite.svg#ic_spoller_arrow"></use>
+    </svg>
+  </div>
+  <div class="navbar__next">
+    <svg>
+      <use xlink:href="images/symbol/sprite.svg#ic_spoller_arrow"></use>
+    </svg>
+  </div>
 </nav>
 </header>
 			<main class="main">
@@ -767,54 +783,71 @@
       </li>
     </ul>
   </div>
-  <div class="_container">
-    <ul class="qn-menu__selectors _swiper _loading">
-      <li class="qn-menu__selector _active">
-        <a href="https://smart-lab.ru/q/shares/?utm_source=quotes">Акции RU</a>
-      </li>
-      <li class="qn-menu__selector">
-        <a href="https://smart-lab.ru/q/spbex/?utm_source=quotes">Акции СПБ</a>
-      </li>
-      <li class="qn-menu__selector">
-        <a href="https://smart-lab.ru/q/bonds/?utm_source=quotes">Корп Облигации</a>
-      </li>
-      <li class="qn-menu__selector">
-        <a href="https://smart-lab.ru/q/ofz/?utm_source=quotes">ОФЗ</a>
-      </li>
-      <li class="qn-menu__selector">
-        <a href="https://smart-lab.ru/q/futures/?utm_source=quotes">Фьючерсы</a>
-      </li>
-      <li class="qn-menu__selector">
-        <a href="https://smart-lab.ru/q/world-quotes/?utm_source=quotes">Мир/FX/Сырье/Крипта</a>
-      </li>
-      <li class="qn-menu__selector">
-        <a href="https://smart-lab.ru/q/usa/?utm_source=quotes">Акции US</a>
-      </li>
-      <li class="qn-menu__selector">
-        <a href="https://smart-lab.ru/q/world-stocks/?utm_source=quotes">Акции Мир</a>
-      </li>
-      <li class="qn-menu__selector">
-        <a href="https://smart-lab.ru/q/etf/?utm_source=quotes">БПИФ/ETF</a>
-      </li>
-      <li class="qn-menu__selector">
-        <a href="https://smart-lab.ru/q/currencies/?utm_source=quotes">Рубль</a>
-      </li>
-      <li class="qn-menu__selector">
-        <a href="https://smart-lab.ru/q/adr/?utm_source=quotes">АДР</a>
-      </li>
-      <li class="qn-menu__selector">
-        <a href="https://smart-lab.ru/q/usa-stocks-moex/?utm_source=quotes">US MOEX</a>
-      </li>
-      <li class="qn-menu__selector">
-        <a href="https://smart-lab.ru/q/pif/?utm_source=quotes">ПИФы</a>
-      </li>
-      <li class="qn-menu__selector">
-        <a href="https://smart-lab.ru/q/index_stocks/">Индексы</a>
-      </li>
-      <li class="qn-menu__selector">
-        <a href="https://smart-lab.ru/q/repo-s-ck/">РЕПО с ЦК</a>
-      </li>
-    </ul>
+  <div class="qn-menu__selectors  _container">
+    <!--
+  * Класс _swiper нужен для подключения слайдера 
+  * Класс _loading для того, чтобы стили не прыгали, пока слайдер не подключился
+  * Элементу li с текущей ссылкой присваивается класс _active по которому она меняет свой стиль и становится не активной 
+-->
+<div class="selector-links _loading">
+  <ul class="selector-links__list _swiper">
+    <li class="selector-links__item _active">
+      <a href="https://smart-lab.ru/q/shares/?utm_source=quotes">Акции RU</a>
+    </li>
+    <li class="selector-links__item">
+      <a href="https://smart-lab.ru/q/spbex/?utm_source=quotes">Акции СПБ</a>
+    </li>
+    <li class="selector-links__item">
+      <a href="https://smart-lab.ru/q/bonds/?utm_source=quotes">Корп Облигации</a>
+    </li>
+    <li class="selector-links__item">
+      <a href="https://smart-lab.ru/q/ofz/?utm_source=quotes">ОФЗ</a>
+    </li>
+    <li class="selector-links__item">
+      <a href="https://smart-lab.ru/q/futures/?utm_source=quotes">Фьючерсы</a>
+    </li>
+    <li class="selector-links__item">
+      <a href="https://smart-lab.ru/q/world-quotes/?utm_source=quotes">Мир/FX/Сырье/Крипта</a>
+    </li>
+    <li class="selector-links__item">
+      <a href="https://smart-lab.ru/q/usa/?utm_source=quotes">Акции US</a>
+    </li>
+    <li class="selector-links__item">
+      <a href="https://smart-lab.ru/q/world-stocks/?utm_source=quotes">Акции Мир</a>
+    </li>
+    <li class="selector-links__item">
+      <a href="https://smart-lab.ru/q/etf/?utm_source=quotes">БПИФ/ETF</a>
+    </li>
+    <li class="selector-links__item">
+      <a href="https://smart-lab.ru/q/currencies/?utm_source=quotes">Рубль</a>
+    </li>
+    <li class="selector-links__item">
+      <a href="https://smart-lab.ru/q/adr/?utm_source=quotes">АДР</a>
+    </li>
+    <li class="selector-links__item">
+      <a href="https://smart-lab.ru/q/usa-stocks-moex/?utm_source=quotes">US MOEX</a>
+    </li>
+    <li class="selector-links__item">
+      <a href="https://smart-lab.ru/q/pif/?utm_source=quotes">ПИФы</a>
+    </li>
+    <li class="selector-links__item">
+      <a href="https://smart-lab.ru/q/index_stocks/">Индексы</a>
+    </li>
+    <li class="selector-links__item">
+      <a href="https://smart-lab.ru/q/repo-s-ck/">РЕПО с ЦК</a>
+    </li>
+  </ul>
+  <div class="selector-links__prev">
+    <svg>
+      <use xlink:href="images/symbol/sprite.svg#ic_spoller_arrow"></use>
+    </svg>
+  </div>
+  <div class="selector-links__next">
+    <svg>
+      <use xlink:href="images/symbol/sprite.svg#ic_spoller_arrow"></use>
+    </svg>
+  </div>
+</div>
   </div>
   <div class="qn-menu__box _container">
     <h1 class="qn-menu__title">Котировки акций ММВБ</h1>

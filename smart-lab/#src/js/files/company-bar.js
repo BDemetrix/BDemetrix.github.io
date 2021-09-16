@@ -19,10 +19,11 @@
       attach: '#moderators>li>a, #readers>li>a',
       content: $('#profile-popup'),
       zIndex: 999,
-      //adjustPosition: true,
+      adjustPosition: true,
       isolateScroll: false,
       closeOnMouseleave: true,
       animation: "move",
+      addClass: 'company-bar-jBox',
     
       onClose: function() {
         this.container.find('.context-menu').removeClass('_open');

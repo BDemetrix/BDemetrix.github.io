@@ -1,9 +1,12 @@
-<nav class="navbar">
-  <ul class="navbar__list @@Class">
-    <!-- если у элемента списка есть вложеный список, то при нажатии на стрелку navbar__down-arrow
-      элементу navbar__item присваивается класс ._open и появляется выпадающее меню. 
-      При повторном нажатии на стрелку или любую точку в документе, если она не лежит внутри 
-      открытого выпадающего меню, оно закрывается удалением у родителя класса ._open
+<!--
+  * Класс _swiper нужен для подключения слайдера 
+  * Класс _loading для того, чтобы стили не прыгали, пока слайдер не подключился
+-->
+<nav class="navbar _loading">
+  <ul class="navbar__list @@Class _swiper">
+    <!-- 
+      * если у элемента списка есть вложеный список, то при наведении на стрелку navbar__down-arrow
+      * открывается .jBox с содержимым соответствующего меню из соседнего элемента .navbar__drop-menu-wrap
     -->
     <li class="navbar__item"><a class="navbar__link" href="/">смартлаб</a></li>
     <li class="navbar__item">
@@ -13,8 +16,10 @@
           <use xlink:href="images/symbol/sprite.svg#ic_spoller_arrow"></use>
         </svg>
       </span>
-      <div class="navbar__drop-menu">
-        <a class="navbar__sub-link" href="#">фьючерс ртс</a>
+      <div class="navbar__drop-menu-wrap">
+        <div class="navbar__drop-menu">
+          <a class="navbar__sub-link" href="#">фьючерс ртс</a>
+        </div>
       </div>
     </li>
     <li class="navbar__item">
@@ -24,18 +29,19 @@
           <use xlink:href="images/symbol/sprite.svg#ic_spoller_arrow"></use>
         </svg>
       </span>
-
-      <div class="navbar__drop-menu">
-        <a class="navbar__sub-link" href="#">облигации</a>
-        <a class="navbar__sub-link" href="#">общий форум</a>
-        <a class="navbar__sub-link" href="#">forex</a>
-        <a class="navbar__sub-link" href="#">крипта</a>
-        <a class="navbar__sub-link" href="#">алготрейдинг</a>
-        <a class="navbar__sub-link" href="#">опционы</a>
-        <a class="navbar__sub-link" href="#">трейдинг софт</a>
-        <a class="navbar__sub-link" href="#">банки</a>
-        <a class="navbar__sub-link" href="#">финансовый словарь</a>
-        <a class="navbar__sub-link" href="#">брокеры</a>
+      <div class="navbar__drop-menu-wrap">
+        <div class="navbar__drop-menu">
+          <a class="navbar__sub-link" href="#">облигации</a>
+          <a class="navbar__sub-link" href="#">общий форум</a>
+          <a class="navbar__sub-link" href="#">forex</a>
+          <a class="navbar__sub-link" href="#">крипта</a>
+          <a class="navbar__sub-link" href="#">алготрейдинг</a>
+          <a class="navbar__sub-link" href="#">опционы</a>
+          <a class="navbar__sub-link" href="#">трейдинг софт</a>
+          <a class="navbar__sub-link" href="#">банки</a>
+          <a class="navbar__sub-link" href="#">финансовый словарь</a>
+          <a class="navbar__sub-link" href="#">брокеры</a>
+        </div>
       </div>
     </li>
     <!-- если ссылка ведет на другой шаблон, например из форума на котировки, ей присваивается модификатор 
@@ -44,4 +50,14 @@
     <!-- текущей ссылке присваивается модификатор navbar__item--current, служит для выделения ее на общем фоне списка -->
     <li class="navbar__item navbar__item--current"><a class="navbar__link" href="#">Сбербанк</a></li>
   </ul>
+  <div class="navbar__prev">
+    <svg>
+      <use xlink:href="images/symbol/sprite.svg#ic_spoller_arrow"></use>
+    </svg>
+  </div>
+  <div class="navbar__next">
+    <svg>
+      <use xlink:href="images/symbol/sprite.svg#ic_spoller_arrow"></use>
+    </svg>
+  </div>
 </nav>

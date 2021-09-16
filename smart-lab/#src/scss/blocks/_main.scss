@@ -1,0 +1,29 @@
+@import "../base/variables";
+@import "../base/mixins";
+@import "../base/global";
+
+.main {
+	background: #E5E5E5;
+
+	// .main__selectors
+	&__selectors {
+		max-width: 100%;
+		width: 100%;
+		padding: 0 5px;
+
+		.selector-links{
+			padding: 0 10px;
+		}
+
+		@media (min-width: $md3 + px) {
+			padding: 0 10px;
+		}
+	}
+	
+  // .main__table 
+   &__table {
+		padding: 0 5px 20px;
+  }
+
+}
+

@@ -471,7 +471,6 @@ const popUpMenu = document.querySelectorAll('.context-menu');
 if (popUpMenu.length) {
   popUpMenu.forEach( menu => {
     const btn = menu.querySelector('button');
-    console.log('menu');
     
     if (btn) {
       btn.addEventListener('click', () => {
@@ -488,7 +487,134 @@ if (popUpMenu.length) {
   });
 }
 
+// Вычисление ширины центральной колонки content__main
+const Content = document.querySelector('.content');
+const contentLeft = document.querySelector('.content__left');
+const contentMain = document.querySelector('.content__main');
+const contentRight = document.querySelector('.content__right');
 
+calcWidthContentMain();
+window.addEventListener('resize', calcWidthContentMain);
+window.addEventListener('orientationchange', calcWidthContentMain);
+
+function calcWidthContentMain() {
+  if (Content) {
+    const contentWidth = Content.clientWidth ;
+    const contentLeftWidth = contentLeft ? contentLeft.offsetWidth : 0 ;
+    const contentRightWidth = contentRight ? contentRight.offsetWidth  : 0 ;
+
+    if (contentMain) {
+      contentMain.style.width = (contentWidth - contentLeftWidth - contentRightWidth) + 'px';
+      contentMain.style.maxWidth = (contentWidth - contentLeftWidth - contentRightWidth) + 'px';
+    }
+  }
+}
+//BildSlider
+let sliders = document.querySelectorAll('._swiper');
+if (sliders) {
+	for (let index = 0; index < sliders.length; index++) {
+		let slider = sliders[index];
+		if (!slider.classList.contains('swiper-bild')) {
+			let slider_items = slider.children;
+			if (slider_items) {
+				for (let index = 0; index < slider_items.length; index++) {
+					let el = slider_items[index];
+					el.classList.add('swiper-slide');
+				}
+			}
+			let slider_content = slider.innerHTML;
+			let slider_wrapper = document.createElement('div');
+			slider_wrapper.classList.add('swiper-wrapper');
+			slider_wrapper.innerHTML = slider_content;
+			slider.innerHTML = '';
+			slider.appendChild(slider_wrapper);
+			slider.classList.add('swiper-bild');
+
+			if (slider.classList.contains('_swiper_scroll')) {
+				let sliderScroll = document.createElement('div');
+				sliderScroll.classList.add('swiper-scrollbar');
+				slider.appendChild(sliderScroll);
+			}
+		}
+		if (slider.classList.contains('_gallery')) {
+			//slider.data('lightGallery').destroy(true);
+		}
+	}
+	sliders_bild_callback();
+}
+
+function sliders_bild_callback(params) { }
+
+let sliderScrollItems = document.querySelectorAll('._swiper_scroll');
+if (sliderScrollItems.length > 0) {
+	for (let index = 0; index < sliderScrollItems.length; index++) {
+		const sliderScrollItem = sliderScrollItems[index];
+		const sliderScrollBar = sliderScrollItem.querySelector('.swiper-scrollbar');
+		const sliderScroll = new Swiper(sliderScrollItem, {
+			direction: 'vertical',
+			slidesPerView: 'auto',
+			freeMode: true,
+			scrollbar: {
+				el: sliderScrollBar,
+				draggable: true,
+				snapOnRelease: false
+			},
+			mousewheel: {
+				releaseOnEdges: true,
+			},
+		});
+		sliderScroll.scrollbar.updateSize();
+	}
+}
+
+// сдайдер ссылок
+let selectorLinksSlider;
+const selectorLinks = document.querySelector('.selector-links__list');
+if (selectorLinks) {
+	selectorLinks.parentElement.classList.remove('_loading');
+
+	selectorLinksSlider = new Swiper(selectorLinks, {
+		slidesPerView: 'auto',
+		watchOverflow: true,
+		freeMode: {
+  	  enabled: true,
+  	  sticky: true,
+  	},
+		speed: 300,
+		navigation: {
+  	  nextEl: '.selector-links__next',
+  	  prevEl: '.selector-links__prev',
+  	},
+	});
+}
+
+
+// слайдер "хлебные крошки"
+let navbarBCSlider;
+const navbarBC = document.querySelector('.navbar__list');
+if (navbarBC) {
+	navbarBC.parentElement.classList.remove('_loading');
+
+	navbarBCSlider = new Swiper(navbarBC, {
+		slidesPerView: 'auto',
+		watchOverflow: true,
+		freeMode: {
+  	  enabled: true,
+  	  sticky: true,
+  	},
+		speed: 300,
+		navigation: {
+  	  nextEl: '.navbar__next',
+  	  prevEl: '.navbar__prev',
+  	},
+	});
+}
+
+window.addEventListener('resize', () => {
+	if (selectorLinksSlider) {
+		selectorLinksSlider.updateSize();
+	}
+});
 
 // HEADER JS / begin ============================================================================
 let mainHeader = document.querySelector('header.header');
@@ -497,22 +623,23 @@ let headerMenuBody = document.querySelector('.header .menu__body');
 /**
  * Устанавливает высоту основного меню
  */
-function setheaderMenuBodyHeight() {
+/* function setheaderMenuBodyHeight() {
   let mainHeaderHeight = mainHeader.offsetHeight;
   let headerMenuBodyHeight = document.documentElement.clientHeight - mainHeaderHeight;
   headerMenuBody.style.height = headerMenuBodyHeight + 'px';
-}
+} */
+
 // Подключаем к .menu__body кастомный скролл
 let mainMenuSimpleBar = plugSimpleBar('.header .menu__body');
 
-setheaderMenuBodyHeight();
+//setheaderMenuBodyHeight();
 mainMenuSimpleBar.recalculate();
 window.addEventListener('resize', () => {
-  setheaderMenuBodyHeight();
+  //setheaderMenuBodyHeight();
   if (mainMenuSimpleBar) mainMenuSimpleBar.recalculate();
 } );
 
-// Открытие/закрытие основного меню
+// При открытии/закрытии основного меню блокируется/разблокируется скролл
 const mainMenuBtn = document.getElementById('main-menu-btn');
 if (mainMenuBtn) {
   mainMenuBtn.addEventListener('click', (e) => {
@@ -754,153 +881,26 @@ $('body').on('click', function (e) {
 });
 
 
-
 // HEADER JS / end ============================================================================
 /**
  * Обработка событий "хлебных крошек" - блок .navbar
- * если у элемента списка есть вложеный список, то при нажатии на элемент navbar__drop-item
- * элементу navbar__item присваивается класс ._open и появляется выпадающее меню.
- * При повторном нажатии на стрелку или любую точку в документе, если она не лежит внутри
- * открытого выпадающего меню, оно закрывается удалением у родителя класса ._open
+ * открывается .jBox с содержимым соответствующего меню из соседнего элемента .navbar__drop-menu-wrap
  */
 
-const navbarLinks = document.querySelectorAll('.navbar__link');
-const navbarDropItem = document.querySelectorAll('.navbar__drop-item');
-
-if (navbarDropItem.length) {
-  navbarDropItem.forEach( downArrow => {
-    downArrow.addEventListener('click', () => {
-      if (!downArrow.closest('.navbar__item').classList.contains('_open')) {
-        closeAllOpenedMenu();
-      }
-      downArrow.closest('.navbar__item').classList.toggle('_open');
-    });
-  });
-}
-
-if (navbarLinks.length) {
-  navbarLinks.forEach( navbarLink => {
-    navbarLink.addEventListener('click', () => {
-      navbarLink.closest('.navbar__item').classList.remove('_open');
-    });
-  });
-}
-// при клике на любую область документа, если эта область не находится внутри открытого меню, оно закрывается
-document.documentElement.addEventListener('click', (e) => {
-  if (!e.target.closest('._open') && !e.target.closest('.navbar__link')) {
-    closeAllOpenedMenu();
+new jBox('Tooltip', {
+  attach: '.navbar__drop-item',
+  zIndex: 999,
+  adjustPosition: true,
+  isolateScroll: false,
+  closeOnMouseleave: true,
+  animation: "move",
+  addClass: 'navbar-jBox',
+  //pointer: false,
+  
+  onOpen: function() {
+    let content = this.target[0].nextElementSibling.innerHTML;
+    this.setContent(content); 
   }
-});
-
-/**
- * если меню .navbar__drop-menu не влезает в окно браузера, то ему при сваивеется свойство max-width
- */
-const navbarDropMenus = document.querySelectorAll('.navbar__drop-menu');
-navbarDropMenusMaxWidt();
-window.addEventListener('resize', () => {
-  navbarDropMenusMaxWidt();
-});
-
-/**
- * Расчитывает и присваивает максимальную ширину для каждого элемента .navbar__drop-menu
- */
-function navbarDropMenusMaxWidt() {
-  if (navbarDropMenus) {
-    navbarDropMenus.forEach(dropMenu => {
-      dropMenuMaxWidth(dropMenu);
-    });
-  }
-}
-/**
- * функция расчета максимальной ширины для выпадающего меню
- * @param {Object} dropMenu - DOM объект (выпадающий список)
- */
-function dropMenuMaxWidth(dropMenu) {
-  let dropMenuRight = dropMenu.getBoundingClientRect().right;
-  let dropMenuLeft = dropMenu.getBoundingClientRect().left;
-  let windowWidth = document.documentElement.clientWidth;
-
-  dropMenu.style.maxWidth = (windowWidth - dropMenuLeft - 5) + 'px';
-}
-//BildSlider
-let sliders = document.querySelectorAll('._swiper');
-if (sliders) {
-	for (let index = 0; index < sliders.length; index++) {
-		let slider = sliders[index];
-		if (!slider.classList.contains('swiper-bild')) {
-			let slider_items = slider.children;
-			if (slider_items) {
-				for (let index = 0; index < slider_items.length; index++) {
-					let el = slider_items[index];
-					el.classList.add('swiper-slide');
-				}
-			}
-			let slider_content = slider.innerHTML;
-			let slider_wrapper = document.createElement('div');
-			slider_wrapper.classList.add('swiper-wrapper');
-			slider_wrapper.innerHTML = slider_content;
-			slider.innerHTML = '';
-			slider.appendChild(slider_wrapper);
-			slider.classList.add('swiper-bild');
-
-			if (slider.classList.contains('_swiper_scroll')) {
-				let sliderScroll = document.createElement('div');
-				sliderScroll.classList.add('swiper-scrollbar');
-				slider.appendChild(sliderScroll);
-			}
-		}
-		if (slider.classList.contains('_gallery')) {
-			//slider.data('lightGallery').destroy(true);
-		}
-	}
-	sliders_bild_callback();
-}
-
-function sliders_bild_callback(params) { }
-
-let sliderScrollItems = document.querySelectorAll('._swiper_scroll');
-if (sliderScrollItems.length > 0) {
-	for (let index = 0; index < sliderScrollItems.length; index++) {
-		const sliderScrollItem = sliderScrollItems[index];
-		const sliderScrollBar = sliderScrollItem.querySelector('.swiper-scrollbar');
-		const sliderScroll = new Swiper(sliderScrollItem, {
-			direction: 'vertical',
-			slidesPerView: 'auto',
-			freeMode: true,
-			scrollbar: {
-				el: sliderScrollBar,
-				draggable: true,
-				snapOnRelease: false
-			},
-			mousewheel: {
-				releaseOnEdges: true,
-			},
-		});
-		sliderScroll.scrollbar.updateSize();
-	}
-}
-
-let qnMenuSelectorsSlider;
-const qnMenuSelectors = document.querySelector('.qn-menu__selectors');
-if (qnMenuSelectors) {
-	qnMenuSelectors.classList.remove('_loading');
-
-	qnMenuSelectorsSlider = new Swiper(qnMenuSelectors, {
-		slidesPerView: 'auto',
-		//centeredSlides: true,
-		//centeredSlidesBounds: true,
-		watchOverflow: true,
-		//spaceBetween: 40,
-		//freeMode: true,
-		//freeModeSticky: true,
-		speed: 400,
-	});
-}
-
-window.addEventListener('resize', () => {
-	if (qnMenuSelectorsSlider) {
-		qnMenuSelectorsSlider.updateSize();
-	}
 });
 plugSimpleBar('.qn-filters__content');
 
@@ -1126,7 +1126,6 @@ setTimeout(() => {
   
     slideSidebarPadding.forEach( function(sidebar){
       sidebar.slidePos = window.getComputedStyle(sidebar).position;
-      console.log(sidebar.slidePos);
       
       const delta = header.getBoundingClientRect().top + headerHeight;
       if (sidebar.slidePos == 'fixed')
@@ -1189,10 +1188,11 @@ setTimeout(() => {
       attach: '#moderators>li>a, #readers>li>a',
       content: $('#profile-popup'),
       zIndex: 999,
-      //adjustPosition: true,
+      adjustPosition: true,
       isolateScroll: false,
       closeOnMouseleave: true,
       animation: "move",
+      addClass: 'company-bar-jBox',
     
       onClose: function() {
         this.container.find('.context-menu').removeClass('_open');

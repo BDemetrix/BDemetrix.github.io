@@ -32,11 +32,20 @@ html {
 
 body {
 	font-family: $fontFamily;
-	background: $style-1-main-bg;
 	color: #000;
 	font-size: 14px;
 	&._lock {
 		overflow: hidden;
+	}
+
+	&._style-1 {
+		background: $style-1-main-bg;
+	}
+	&._style-2 {
+		background: $style-2-main-bg;
+	}
+	&._style-3 {
+		background: $style-1-main-bg;
 	}
 }
 html._lock  {
@@ -85,6 +94,7 @@ picture {
 //@import "./blocks/pagging";
 //@import "./blocks/popup";
 @import "./blocks/header";
+@import "./blocks/_main";
 @import "./blocks/_menu";
 @import "./blocks/_alphabet";
 @import "./blocks/navbar";
@@ -92,6 +102,7 @@ picture {
 @import "./blocks/social-btn";
 @import "./blocks/footer";
 @import "./blocks/_quotes-menu";
+@import "./blocks/_selector-links";
 @import "./blocks/_qn-filters";
 @import "./blocks/_trades-table";
 @import "./blocks/_company-bar";
@@ -103,16 +114,6 @@ picture {
 //</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
 
 //<ОСНОВНОЙ БЛОК>====================================================================================================
-.main{
-	background: #E5E5E5;
-	&___quotes {
-		
-	}
-  // .main__table 
-   &__table {
-		padding: 0 5px 20px;
-  }
-}
 
 .pop-up-container {
 	display: none;
@@ -130,7 +131,8 @@ picture {
 	overflow: hidden;
 }
 .jBox-content {
-	//overflow: hidden;
+	overflow: hidden;
 	padding: 0;
 }
 //</Доп правила для jBox>===
+

@@ -13,7 +13,6 @@
   
     slideSidebarPadding.forEach( function(sidebar){
       sidebar.slidePos = window.getComputedStyle(sidebar).position;
-      console.log(sidebar.slidePos);
       
       const delta = header.getBoundingClientRect().top + headerHeight;
       if (sidebar.slidePos == 'fixed')

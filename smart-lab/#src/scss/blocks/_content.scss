@@ -1,12 +1,14 @@
+// тобы не писать массу медиа запросов для каждого шаблона, а ширины колонок были адаптивны и универсальны,
+// для .content__main максимальная ширина max-width:  вычисляется и задается в файле common.js
 .content {
   display: flex;
   align-items: stretch ;
+  max-width: 100%;
+  width: 100%;
 
   // .content__left
   &__left {
-    //height: 100%;
-    //width: 1px;
-    //align-self: stretch;
+    // ширина определяется контентом
   }
   // .content__main
   &__main {
@@ -15,11 +17,6 @@
   }
   // .content__right
   &__right {
-    /* flex: 0 0 25%;
-    width: 25%;
-    min-width: 320px;
-    max-width: 360px; */
+    // ширина определяется контентом
   }
-}
-.main {
 }
