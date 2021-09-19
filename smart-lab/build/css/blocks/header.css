@@ -70,21 +70,20 @@
 }
 
 .context-menu {
-  position: absolute;
-  z-index: 3;
+  position: relative;
   top: 0;
   right: 0;
   color: #000;
 }
 
-.context-menu button {
-  background: none;
+.context-menu__btn {
+  background: transparent;
   border: 0;
   padding: 0;
   margin: 0;
 }
 
-.context-menu svg {
+.context-menu__svg {
   display: block;
   width: 24px;
   height: 24px;
@@ -93,18 +92,24 @@
 
 .context-menu ul {
   position: absolute;
+  z-index: 100;
+  max-width: calc( 100vw - 20px );
+  opacity: 0;
+  visibility: hidden;
+}
+
+.context-menu__list {
   padding: 3px 0;
+  display: inline-block;
   background: #fff;
   white-space: nowrap;
   border: 1px solid #ccc;
   border-radius: 3px;
   -webkit-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.5);
           box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  visibility: hidden;
 }
 
-.context-menu ul li button {
+.context-menu__item {
   cursor: pointer;
   display: block;
   width: 100%;
@@ -114,7 +119,7 @@
   text-align: left;
 }
 
-.context-menu ul li button:hover {
+.context-menu__item:hover {
   background: #E2E2E2;
 }
 
@@ -127,8 +132,8 @@
   0% {
     opacity: 0;
     visibility: hidden;
-    -webkit-transform: translate(0, -20px);
-            transform: translate(0, -20px);
+    -webkit-transform: translate(0, 20px);
+            transform: translate(0, 20px);
   }
 
   100% {
@@ -143,8 +148,8 @@
   0% {
     opacity: 0;
     visibility: hidden;
-    -webkit-transform: translate(0, -20px);
-            transform: translate(0, -20px);
+    -webkit-transform: translate(0, 20px);
+            transform: translate(0, 20px);
   }
 
   100% {
@@ -153,6 +158,14 @@
     -webkit-transform: translate(0, 0);
             transform: translate(0, 0);
   }
+}
+
+._up {
+  color: green;
+}
+
+._down {
+  color: red;
 }
 
 .header {

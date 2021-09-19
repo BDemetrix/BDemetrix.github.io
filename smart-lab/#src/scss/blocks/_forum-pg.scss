@@ -1,0 +1,35 @@
+.forum-pg {
+
+
+  // .forum-pg__selectors
+  &__selectors {
+    margin-bottom: 10px;
+
+    .selector-links {
+      padding: 0 10px;
+    }
+
+    @media (min-width: $md3 + px) {
+      padding: 0 20px;
+
+      .selector-links {
+        padding: 0;
+      }
+    }
+  }
+  // .forum-pg__header 
+  &__header {
+    
+  }
+
+  // .forum-pg__actions 
+  &__actions {
+
+  }
+
+  // .forum-pg__buy-shares 
+  &__buy-shares  {
+
+    
+  }
+}

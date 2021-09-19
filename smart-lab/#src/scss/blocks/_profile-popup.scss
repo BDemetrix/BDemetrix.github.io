@@ -29,6 +29,7 @@
     }
 
     .profile-popup__more {
+      position: absolute;
 
       svg {
         fill: #fff;
@@ -95,6 +96,10 @@
     position: relative;
     z-index: 1;
 	}
+  // .profile-popup__info-head 
+  &__info-head {
+    padding-right: 12px;
+  }
 	// .profile-popup__rating
 	&__rating {
     margin-top: 1em;
@@ -170,6 +175,7 @@
 	}
   // .profile-popup__more
 	&__more {
+    position: absolute;
     top: 8px;
 	}
   // .profile-popup__more-btn 

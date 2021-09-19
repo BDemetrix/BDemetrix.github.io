@@ -1,4 +1,29 @@
 /**
+ * Вычисление ширины центральной колонки content__main
+ */
+const Content = document.querySelector('.content');
+const contentLeft = document.querySelector('.content__left');
+const contentMain = document.querySelector('.content__main');
+const contentRight = document.querySelector('.content__right');
+
+calcWidthContentMain();
+window.addEventListener('resize', calcWidthContentMain);
+window.addEventListener('orientationchange', calcWidthContentMain);
+
+function calcWidthContentMain() {
+  if (Content) {
+    const contentWidth = Content.clientWidth ;
+    const contentLeftWidth = contentLeft ? contentLeft.offsetWidth : 0 ;
+    const contentRightWidth = contentRight ? contentRight.offsetWidth  : 0 ;
+
+    if (contentMain) {
+      contentMain.style.width = (contentWidth - contentLeftWidth - contentRightWidth) + 'px';
+      contentMain.style.maxWidth = (contentWidth - contentLeftWidth - contentRightWidth) + 'px';
+    }
+  }
+}
+
+/**
  * Объект isMobile содержит результаты проверки типа и марки тачпада
  */
 var isMobile = { Android: function () { return navigator.userAgent.match(/Android/i); }, BlackBerry: function () { return navigator.userAgent.match(/BlackBerry/i); }, iOS: function () { return navigator.userAgent.match(/iPhone|iPad|iPod/i); }, Opera: function () { return navigator.userAgent.match(/Opera Mini/i); }, Windows: function () { return navigator.userAgent.match(/IEMobile/i); }, any: function () { return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()); } };
@@ -305,10 +330,17 @@ function numOnly(event) {
 const popUpMenu = document.querySelectorAll('.context-menu');
 if (popUpMenu.length) {
   popUpMenu.forEach( menu => {
-    const btn = menu.querySelector('button');
-    
+    const btn = menu.querySelector('button, a');
+
     if (btn) {
       btn.addEventListener('click', () => {
+        if (!menu.classList.contains('_open')) {
+          closeAllOpenedMenu();
+          popUpMenuCorrectPos(menu);
+        }
+        else
+          popUpMenuCleartPos(menu);
+          
         menu.classList.toggle('_open');
       });
     }
@@ -320,27 +352,43 @@ if (popUpMenu.length) {
       if (popUpMenu) popUpMenu.classList.remove('_open');
     }
   });
-}
 
-// Вычисление ширины центральной колонки content__main
-const Content = document.querySelector('.content');
-const contentLeft = document.querySelector('.content__left');
-const contentMain = document.querySelector('.content__main');
-const contentRight = document.querySelector('.content__right');
-
-calcWidthContentMain();
-window.addEventListener('resize', calcWidthContentMain);
-window.addEventListener('orientationchange', calcWidthContentMain);
-
-function calcWidthContentMain() {
-  if (Content) {
-    const contentWidth = Content.clientWidth ;
-    const contentLeftWidth = contentLeft ? contentLeft.offsetWidth : 0 ;
-    const contentRightWidth = contentRight ? contentRight.offsetWidth  : 0 ;
-
-    if (contentMain) {
-      contentMain.style.width = (contentWidth - contentLeftWidth - contentRightWidth) + 'px';
-      contentMain.style.maxWidth = (contentWidth - contentLeftWidth - contentRightWidth) + 'px';
+  /**
+   * если окно выходит за рамки окна браузера, корректируем позицию
+   */
+  function popUpMenuCorrectPos(popUpMenu) {
+    const ul = popUpMenu.querySelector('ul');
+    let menuPosLeft =  popUpMenu.getBoundingClientRect().left;
+    let menuPosRight = popUpMenu.getBoundingClientRect().right;
+    let ulPosLeft =  ul.getBoundingClientRect().left - 5;
+    let ulPosRight = document.documentElement.clientWidth - ul.getBoundingClientRect().right - 5;
+  
+    console.log(ulPosLeft);
+    
+    if (ulPosLeft < 0 ) {
+      if ((document.documentElement.clientWidth - menuPosLeft - 5) >= ul.offsetWidth) 
+        ul.style.left = '0';
+      else 
+        ul.style.right = ulPosLeft + 'px';
     }
+
+    if (ulPosRight < 0 ) {
+      if ((menuPosRight - 5) >= ul.offsetWidth) 
+        ul.style.right = '0';
+      else 
+        ul.style.left = ulPosRight + 'px';
+    }
+  } 
+
+  function popUpMenuCleartPos(popUpMenu) {
+    const ul = popUpMenu.querySelector('ul');
+    ul.style.left = ul.style.right = '';
   }
+
+  window.addEventListener('resize', () => {
+    popUpMenu.forEach( menu => {
+      popUpMenuCleartPos(menu);
+      popUpMenuCorrectPos(menu);
+    })
+  });
 }

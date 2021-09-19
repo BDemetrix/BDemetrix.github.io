@@ -6,6 +6,11 @@
 	max-width: 100%;
 	width: 100%;
 	overflow: hidden;
+	font-size: 14px;
+
+	@media (min-width: $md3 + px) {
+		font-size: 16px;
+	}
 
 	&._loading  {
 
@@ -30,7 +35,6 @@
 	&__item {
     display: inline-block;
 		padding: 14px 0;
-		font-size: 16px;
 		line-height: 20px;
 		white-space: nowrap;
 		transition: all $t*0.5 ease;
@@ -102,8 +106,8 @@
 		}
 
 		svg {
-			width: 24px;
-			height: 24px;
+			width: 1.375em;
+			height: 1.375em;
 			fill: #585858;
 			
 		}

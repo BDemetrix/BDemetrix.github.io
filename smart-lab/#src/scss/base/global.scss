@@ -50,21 +50,21 @@
 }
 
 // Класс общий для всех контекстных меню .context-menu
+// Индивидуальные правила переопределяются в родительских элементах
 .context-menu {
-    position: absolute;
-    z-index: 3;
+    position: relative;
     top: 0;         // при необходимости переопределяются непосредственно в самом элементе
     right: 0;       // при необходимости переопределяются непосредственно в самом элементе
     color: #000;
 
-    button{
-        background: none;
+    &__btn{
+        background: transparent;
         border: 0;
         padding: 0;
         margin: 0;
     }
 
-    svg {
+    &__svg {
       display: block;
       width: 24px;
       height: 24px;
@@ -73,30 +73,33 @@
 
     ul {
         position: absolute;
+        z-index: 100;
+        max-width: calc( 100vw - 20px );
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    &__list {
         padding: 3px 0;
+        display: inline-block;
         background: #fff;
         white-space: nowrap;
         border: 1px solid #ccc;
         border-radius: 3px;
         box-shadow: 1px 1px 5px 1px rgb(0 0 0 / 50%);
-        opacity: 0;
-        visibility: hidden;
+    }
 
-        li {
+    &__item{
+        cursor: pointer;
+        display: block;
+        width: 100%;
+        line-height: 20px;
+        padding: 5px 10px;
+        background: none;
+        text-align: left;
 
-            button{
-                cursor: pointer;
-                display: block;
-                width: 100%;
-                line-height: 20px;
-                padding: 5px 10px;
-                background: none;
-                text-align: left;
-
-                &:hover {
-                  background: #E2E2E2;
-                }
-            }
+        &:hover {
+            background: #E2E2E2;
         }
     }
 
@@ -113,7 +116,7 @@
     0% {
         opacity: 0;
         visibility: hidden;
-        transform: translate(0, -20px);
+        transform: translate(0, 20px);
     }
 
     100% {
@@ -121,4 +124,13 @@
         visibility: visible;
         transform: translate(0, 0);
     }
+}
+
+// Модификаторы цвета текста
+._up {
+    color: green;
+}
+
+._down {
+    color: red;
 }

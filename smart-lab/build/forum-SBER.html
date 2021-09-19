@@ -878,9 +878,13 @@
 </div>
 				</aside>
 
-				<main class="content__main main">
-					<div class="main__selectors">
-						<!--
+				<main class="content__main forum-pg">
+					
+					<!-- центральная колонка страницы форума компании -->
+
+<div class="forum-pg">
+  <div class="forum-pg__selectors">
+		<!--
   * Класс _swiper нужен для подключения слайдера 
   * Класс _loading для того, чтобы стили не прыгали, пока слайдер не подключился
   * Элементу li с текущей ссылкой присваивается класс _active по которому она меняет свой стиль и становится не активной 
@@ -944,9 +948,287 @@
     </svg>
   </div>
 </div>
-					</div>
+	</div>
+  <div class="forum-pg__header forum-top-panel">
+  <div class="forum-top-panel__title">
+    <img class="forum-top-panel__title-flag" src="images/forum/flag_rf.jpg" alt="флаг">
+    <div class="forum-top-panel__title-text">
+      Сбербанк акции
+    </div>
+  </div>
+  <div class="forum-top-panel__price">
+    <span class="forum-top-panel__price-vol">326.41₽</span>&nbsp;
+    <!-- Используются модификаторы _up и _down -->
+    <span class="forum-top-panel__price-change _up">+2.13%</span>
+  </div>
+</div>
+ <!--  <div class="forum-pg__btns-box forum-top-btns">
+    <div class="action-btns__wrap">
+
+      <div class="action-btns__btn context-menu">
+        <button>
+          Подписаться
+        </button>			
+        <ul>
+           <li><button>кнопка 1</button></li>
+           <li><button>кнопка 2</button></li>
+        </ul>
+      </div>
+
+
+
+
+      <div class="action-btns__btn"></div>
+      <div class="action-btns__btn action-btns__btn--buy"></div>
+      <div class="action-btns__btn"></div>
+      <div class="action-btns__btn"></div>
+      <div class="action-btns__btn"></div>
+      <div class="action-btns__btn"></div>
+      <div class="action-btns__btn"></div>
+      <div class="action-btns__btn"></div>
+    </div>
+  </div> -->
+
+  <div class="forum-pg__actions forum-top-actions">
+    <!-- Основные правила написаны в классе .forum-pop-up, а класс .context-menu используется для привязки анимации -->
+    <div class="forum-top-actions__pop-up forum-pop-up forum-pop-up--subscribe context-menu">
+      <button class="forum-pop-up__btn">
+        Подписаться
+      </button>
+      <ul class="forum-pop-up__body">
+        <!-- если пользователь подписан, то добавляется модификатор _selected -->
+        <li>
+          <button class="forum-pop-up__item" id="push_notifies_button" data-target-id="1900" data-target-type="article" data-target-how="comment" title="С этой подпиской вам будут приходить всплывающие уведомления в браузер (на ПК/телефоне) если на форуме появится новый комментарий.">
+            <svg>
+                <use xlink:href="images/symbol/sprite.svg#feedback"></use>
+            </svg>
+            Всплывающие уведомления <span>(Push)</span>
+          </button>
+        </li>
+        <li>
+          <button class="forum-pop-up__item forum-pop-up__item--favourite" data-subscribe-type="favourite" data-target-id="1900" title="Избранные форумы можно выбирать через пункт &quot;форумы&quot; строки навигации наверху страницы форума, а также в чате через пункт меню &quot;Избранные форумы&quot;.">
+            <svg>
+                <use xlink:href="images/symbol/sprite.svg#star"></use>
+            </svg>
+            Избранное
+          </button>
+        </li>
+        <li>
+          <button class="forum-pop-up__item" data-subscribe-type="email" data-target-id="1900" title="Письма о новых сообщениях на этом форуме будут приходить вам на электронную почту">
+            <svg>
+                <use xlink:href="images/symbol/sprite.svg#email"></use>
+            </svg>
+            Подписаться по Email
+          </button>
+        </li>
+        <li>
+          <button class="forum-pop-up__item forum-pop-up__item--none" href="/forum/SBER/rss/" title="Ссылку на эту тему можно добавить в ваш RSS-фид">
+            <svg>
+                <use xlink:href="images/symbol/sprite.svg#rss_feed"></use>
+            </svg>
+            RSS
+          </button>
+        </li>
+        <li>
+          <button class="forum-pop-up__item" id="push_notifies_reply_button" data-target-id="0" data-target-type="forum" data-target-how="reply" title="Всплывающие уведомления в браузер (на ПК/телефоне) если вам ответили на комментарий на любом из форумов. Этот пункт общий для всех форумов.">
+            <svg>
+                <use xlink:href="images/symbol/sprite.svg#feedback"></use>
+            </svg>
+            Уведомления об ответах
+          </button>
+        </li>
+      </ul>
+    </div>  
+
+    <!-- Класс _active-el нужен для синхронизации закрытия всех меню -->
+<div class="forum-top-actions__pop-up buy-shares context-menu">
+  <button class="buy-shares__btn">Купить акции Сбербанк</button>
+  <ul class="buy-shares__popup">
+    <li>
+      <a class="buy-shares__link" href="https://www.finam.ru/services/promo00096/?AgencyBAckofficeID=1&amp;agent=17FDE70F-5D0A-4DE9-809E-A9F5334CE8DD" target="_blank" rel="nofollow"> 
+        <span>Купить в</span>
+        <img   alt="Финам" src="images/icons/quotes-menu/finam.png">
+        <span class="buy-shares__broker">Финаме</span>
+      </a>
+    </li>
+    <li>
+      <a class="buy-shares__link" href="https://www.vtb.ru/personal/investicii/?code=media_smart-lab_invest&amp;utm_source=smart-lab&amp;utm_medium=media&amp;utm_campaign=media_invest_smart-lab_link_package_rf" target="_blank" rel="nofollow"> 
+        <span>Купить в</span>
+        <img   alt="ВТБ" src="images/icons/quotes-menu/VTB.png">
+        <span class="buy-shares__broker">ВТБ</span>
+      </a>  
+    </li>
+    <li>
+      <a class="buy-shares__link" href="https://open-broker.ru/ru/open-account/?aid=20628&utm_source=agent&utm_medium=referral&utm_campaign=smart_lab" target="_blank" rel="nofollow"> 
+        <span>Купить в</span>
+        <img   alt="Открытие Брокер" src="images/icons/quotes-menu/open.png">
+        <span class="buy-shares__broker">Открытие Брокер</span>
+      </a>
+    </li>
+    <li>
+      <a class="buy-shares__link" href="https://www.alfadirect.ru/?platform=smartlab" target="_blank" rel="nofollow"> 
+        <span>Купить в</span>
+        <img   alt="Альфа-Банк" src="images/icons/quotes-menu/alfa.png">
+        <span class="buy-shares__broker">Альфа-Банк</span>
+      </a>										
+    </li>
+		<li>
+      <a class="buy-shares__link" href="https://iticapital.ru/hellosmartlab/" target="_blank" rel="nofollow"> 
+        <span>Купить в</span>
+        <img   alt="ITI Capital" src="images/icons/quotes-menu/iti.png">
+        <span class="buy-shares__broker">ITI Capital</span>
+      </a>										
+    </li>
+  </ul>
+</div>
+
+    <div class="forum-top-actions__pop-up forum-pop-up context-menu">
+      <button class="forum-pop-up__btn">
+        <svg>
+            <use xlink:href="images/symbol/sprite.svg#portfolio"></use>
+        </svg>
+        в портфель
+      </button>
+      <ul class="forum-pop-up__body">
+        <!-- если пользователь подписан, то добавляется модификатор _selected -->
+        <li>
+          <button class="forum-pop-up__item forum-pop-up__item--mark">
+            + Новый Список
+          </button>
+        </li>
+        <li>
+          <button class="forum-pop-up__item">
+            Андрей Верстальщик
+          </button>
+        </li>
+      </ul>
+    </div>  
+
+    <div class="forum-top-actions__pop-up forum-pop-up context-menu">
+      <button class="forum-pop-up__btn">
+        <svg>
+            <use xlink:href="images/symbol/sprite.svg#list"></use>
+        </svg>
+        в список
+      </button>
+      <ul class="forum-pop-up__body">
+        <!-- если пользователь подписан, то добавляется модификатор _selected -->
+        <li>
+          <button class="forum-pop-up__item forum-pop-up__item--mark">
+            + Новый Список
+          </button>
+        </li>
+        <li>
+          <button class="forum-pop-up__item">
+            список 1
+          </button>
+        </li>
+        <li>
+          <button class="forum-pop-up__item">
+            список 2
+          </button>
+        </li>
+        <li>
+          <button class="forum-pop-up__item">
+            список 3
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <button class="forum-top-actions__btn forum-top-actions__btn--sort">
+      <svg>
+          <use xlink:href="images/symbol/sprite.svg#arrow"></use>
+      </svg>
+      последние сверху
+    </button>
+
+    <button class="forum-top-actions__btn forum-top-actions__btn--svg">
+      <svg>
+          <use xlink:href="images/symbol/sprite.svg#calendar_s"></use>
+      </svg>
+    </button>
+
+    <a href="#" class="forum-top-actions__btn forum-top-actions__btn--svg">
+      <svg>
+          <use xlink:href="images/symbol/sprite.svg#update"></use>
+      </svg>
+    </a>
+
+    <a href="#" class="forum-top-actions__btn forum-top-actions__btn--svg">
+      <svg>
+          <use xlink:href="images/symbol/sprite.svg#watchlists"></use>
+      </svg>
+    </a>
+
+  </div>
+
+  <div class="company-description">
+   <h2 class="company-description__title">
+      Сбербанк - факторы роста и падения акций
+   </h2>
+   <div class="company-description__reasons">
+      <div class="company-description__reasons-up">
+         <ul class="company-description__list-reasons-up">
+            <li>Новые сервисы Сбера могут  увеличить прибыль на 30%. А позиционирование как экосистемы может вызвать переоценку компании инвесторами в сторону повышения. <span>(11.10.2020)</span></li>
+            <li>Сбербанк перешел на выплату дивидендов 50% от прибыли начиная с 2020 года <span>(08.03.2021)</span></li>
+            <li>Прибыль Сбербанка может составить по итогам 2021 года около 1 трлн рублей из-за снижения отчисления в резервы, что означает рост дивидендов до рекордных значений. <span>(08.03.2021)</span></li>
+            <li>амбиции монополиста с огромным фндированием заставляют быть активным на рынке M&amp;A что неминуемо приведет к увеличению доли рынка <span>(21.07.2021)</span></li>
+         </ul>
+         <div class="company-description__btns">
+           <button class="company-description__btn">+ добавить</button>
+           <button class="company-description__btn">изменить</button>
+         </div>
+      </div>
+      <div class="company-description__reasons-down">
+         <ul class="company-description__list-reasons-down">
+            <li>Банк России предпринимает активные усилия по демонополизации банковского рынка: 1. Введение СБП 2. Попытка снизить комисии за эквайринг 3. Освобождение от зарплатного рабства. Это все угрожает комиссионным доходам Сбера <span>(11.04.2019)</span></li>
+            <li>Сбербанк - основной прокси на российский рынок. Если нерезиденты хотят купить Россию, они в первую очередь покупают именно Сбербанк <span>(18.08.2019)</span></li>
+            <li>Процентные ставки перестали снижаться, это значит, что процентные расходы Сбера перестанут сокращаться в 2021 году <span>(08.03.2021)</span></li>
+            <li>неэффективность затрат на персонал раздутого ИТ-блока <span>(21.07.2021)</span></li>
+         </ul>
+         <div class="company-description__btns">
+           <button class="company-description__btn">+ добавить</button>
+           <button class="company-description__btn">изменить</button>
+         </div>
+      </div>
+   </div>
+   <div class="company-description__reasons-mistake">
+      ⚠️ Если вы считаете, что какой-то фактор роста/падения больше не является актуальным, выделите его и нажмите CTRL+ENTER на клавиатуре, чтобы сообщить нам.
+   </div>
+   <div class="company-description__title">
+      Сбербанк описание компании
+   </div>
+   <div class="company-description__about">
+      <p>
+         Мы даем людям уверенность и надежность, мы делаем их жизнь лучше, помогая реализовывать устремления и мечты.​​​​​​​<br>
+         Наша миссия определяет смысл и содержание деятельности СберБанка, подчеркивая его важнейшую роль в экономике России.
+      </p>
+      <p>Наши клиенты, их потребности, мечты и цели есть основа всей деятельности банка как организации.</p>
+      <p>Миссия банка также устанавливает амбициозную цель наших устремлений — стать одной из лучших финансовых компаний мира — и подчеркивает, насколько важны для СберБанка его сотрудники, и насколько реализация его целей невозможна без реализации их личных и профессиональных целей</p>
+      <p>Высокие цели достигаются командой единомышленников, которых объединяет общая система ценностей.</p>
+   </div>
+</div>
+	<div class="brokers-block">
+	<div class="brokers-block__title">Чтобы купить акции, выберите надежногно брокера</div>
+  <a  class="brokers-card" target="_blank"  href="https://www.finam.ru/services/promo00096/?AgencyBAckofficeID=1&amp;agent=17FDE70F-5D0A-4DE9-809E-A9F5334CE8DD">
+    <img src="images/brokers-block/finam.webp" loading="lazy" width="150" height="40">
+  </a>
+	
+  <a  class="brokers-card" target="_blank"  href="https://open-broker.ru/ru/open-account/?aid=20628&amp;utm_source=agent&amp;utm_medium=referral&amp;utm_campaign=smart_lab">
+    <img src="images/brokers-block/open.webp" loading="lazy" width="150" height="40">
+  </a>
+	
+  <a  class="brokers-card" target="_blank"  href="https://www.vtb.ru/personal/investicii/?code=media_smart-lab_invest&amp;utm_source=smart-lab&amp;utm_medium=media&amp;utm_campaign=media_invest_smart-lab_blog_package_rf">
+    <img src="images/brokers-block/vtb.webp" loading="lazy" width="150" height="40">
+  </a>
+	
+  <a  class="brokers-card" target="_blank"  href="https://www.alfadirect.ru/?platform=smartlab">
+    <img src="images/brokers-block/alfa.webp" loading="lazy" width="150" height="40">
+  </a>
+</div>
+</div>
 					
-					<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 				</main>
 
@@ -1345,9 +1627,11 @@
          </a>	
       </div>
       <div class="profile-popup__info">
-         <div><a id="user_link" href="https://smart-lab.ru/profile/cadonache/" title="Посмотреть профиль пользователя">Тимофей Мартынов</a></div>
-         <div id="user_work">Предприниматель</div>
-         <div><a id="user_city" href="https://smart-lab.ru/people/city/Балашиха МО/">Москва</a></div>
+         <div class="profile-popup__info-head">
+            <div><a id="user_link" href="https://smart-lab.ru/profile/cadonache/" title="Посмотреть профиль пользователя">Тимофей Мартынов</a></div>
+            <div id="user_work">Предприниматель</div>
+            <div><a id="user_city" href="https://smart-lab.ru/people/city/Балашиха МО/">Москва</a></div>
+         </div>
          <div class="profile-popup__rating">
             <div class="profile-popup__reading">
                <a href="https://smart-lab.ru/my/cadonache/" id="blog_link">Читать блог</a>
@@ -1381,14 +1665,14 @@
       </button>
    </div>
    <div class="profile-popup__more context-menu">
-      <button class="profile-popup__more-btn">
-         <svg>
+      <button class="profile-popup__more-btn context-menu__btn">
+         <svg class="context-menu__svg">
              <use xlink:href="images/symbol/sprite.svg#more"></use>
          </svg>
       </button>			
-      <ul class="profile-popup__more-menu">
-         <li><button class="profile-popup__blacklist">В черный список</button></li>
-         <li><button class="profile-popup__ban">Наказать</button></li>
+      <ul class="profile-popup__more-menu context-menu__list">
+         <li><button class="profile-popup__blacklist context-menu__item">В черный список</button></li>
+         <li><button class="profile-popup__ban context-menu__item">Наказать</button></li>
       </ul>
    </div>
 </div>
@@ -1458,5 +1742,9 @@
 <script src="js/app.min.js"></script> -->
 <script src="js/vendors.js"></script>
 <script src="js/app.js"></script>
+
+<!-- demo.js предназначен исключительно для демонстрации некоторых свойств вёрстки -->
+<script src="js/demo.js"></script>
+
 	</body>
 </html>

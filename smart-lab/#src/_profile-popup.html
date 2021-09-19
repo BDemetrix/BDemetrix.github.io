@@ -10,9 +10,11 @@
          </a>	
       </div>
       <div class="profile-popup__info">
-         <div><a id="user_link" href="https://smart-lab.ru/profile/cadonache/" title="Посмотреть профиль пользователя">Тимофей Мартынов</a></div>
-         <div id="user_work">Предприниматель</div>
-         <div><a id="user_city" href="https://smart-lab.ru/people/city/Балашиха МО/">Москва</a></div>
+         <div class="profile-popup__info-head">
+            <div><a id="user_link" href="https://smart-lab.ru/profile/cadonache/" title="Посмотреть профиль пользователя">Тимофей Мартынов</a></div>
+            <div id="user_work">Предприниматель</div>
+            <div><a id="user_city" href="https://smart-lab.ru/people/city/Балашиха МО/">Москва</a></div>
+         </div>
          <div class="profile-popup__rating">
             <div class="profile-popup__reading">
                <a href="https://smart-lab.ru/my/cadonache/" id="blog_link">Читать блог</a>
@@ -46,14 +48,14 @@
       </button>
    </div>
    <div class="profile-popup__more context-menu">
-      <button class="profile-popup__more-btn">
-         <svg>
+      <button class="profile-popup__more-btn context-menu__btn">
+         <svg class="context-menu__svg">
              <use xlink:href="images/symbol/sprite.svg#more"></use>
          </svg>
       </button>			
-      <ul class="profile-popup__more-menu">
-         <li><button class="profile-popup__blacklist">В черный список</button></li>
-         <li><button class="profile-popup__ban">Наказать</button></li>
+      <ul class="profile-popup__more-menu context-menu__list">
+         <li><button class="profile-popup__blacklist context-menu__item">В черный список</button></li>
+         <li><button class="profile-popup__ban context-menu__item">Наказать</button></li>
       </ul>
    </div>
 </div>
