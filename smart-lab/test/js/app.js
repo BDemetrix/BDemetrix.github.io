@@ -163,30 +163,6 @@ DynamicAdapt.prototype.arraySort = function (arr) {
 
 const da = new DynamicAdapt("max");
 da.init();
-/**
- * Вычисление ширины центральной колонки content__main
- */
-const Content = document.querySelector('.content');
-const contentLeft = document.querySelector('.content__left');
-const contentMain = document.querySelector('.content__main');
-const contentRight = document.querySelector('.content__right');
-
-calcWidthContentMain();
-window.addEventListener('resize', calcWidthContentMain);
-window.addEventListener('orientationchange', calcWidthContentMain);
-
-function calcWidthContentMain() {
-  if (Content) {
-    const contentWidth = Content.clientWidth ;
-    const contentLeftWidth = contentLeft ? contentLeft.offsetWidth : 0 ;
-    const contentRightWidth = contentRight ? contentRight.offsetWidth  : 0 ;
-
-    if (contentMain) {
-      contentMain.style.width = (contentWidth - contentLeftWidth - contentRightWidth) + 'px';
-      contentMain.style.maxWidth = (contentWidth - contentLeftWidth - contentRightWidth) + 'px';
-    }
-  }
-}
 
 /**
  * Объект isMobile содержит результаты проверки типа и марки тачпада
@@ -489,6 +465,31 @@ function numOnly(event) {
     }
   }
 }
+
+/**
+ * Вычисление ширины центральной колонки content__main
+ */
+/* const Content = document.querySelector('.content');
+const contentLeft = document.querySelector('.content__left');
+const contentMain = document.querySelector('.content__main');
+const contentRight = document.querySelector('.content__right');
+
+calcWidthContentMain();
+window.addEventListener('resize', calcWidthContentMain);
+window.addEventListener('orientationchange', calcWidthContentMain);
+
+function calcWidthContentMain() {
+  if (Content) {
+    const contentWidth = Content.clientWidth ;
+    const contentLeftWidth = contentLeft ? contentLeft.offsetWidth : 0 ;
+    const contentRightWidth = contentRight ? contentRight.offsetWidth  : 0 ;
+
+    if (contentMain) {
+      contentMain.style.width = (contentWidth - contentLeftWidth - contentRightWidth) + 'px';
+      contentMain.style.maxWidth = (contentWidth - contentLeftWidth - contentRightWidth) + 'px';
+    }
+  }
+} */
 
 
 // Обработка событий для контекстного меню .context-menu

@@ -5,19 +5,17 @@
   padding-top: 71px;
   z-index: 7;
   height: 100vh;
-  width: 100vw;
+  width: 0;
 
   @media (min-width: $md4 + px) {
-    max-width: 500px;
+    
   }
 
   @media (min-width: $md2 + px) {
     position: static;
+    width: auto;
     height: auto;
     padding: 0;
-    width: 25vw;
-    min-width: 320px;
-    max-width: 360px;
   }
 
   &._open {
@@ -46,6 +44,7 @@
   }
   // .new-msgs-box__content 
   &__content {
+    width: 100vw;
     padding: 12px 16px 64px;
     background: $style-1-main-bg;
     height: 100%;
@@ -53,7 +52,7 @@
     transition: all $t ease;
 
     @media (min-width: $md4 + px) {
-      padding: 12px 24px 64px;
+      width: 300px;
       border-left: 1px solid $style-2-main-bg;
     }
 
@@ -61,6 +60,10 @@
       padding: 12px 12px 16px;
       border-left: 0;
       transform: translate(0, 0);
+    }
+
+    @media (min-width: $md1 + px) {
+      width: 360px;
     }
 
     .simplebar-track.simplebar-horizontal { 
@@ -120,13 +123,13 @@
 	&__buttons {
     display: flex;
     justify-content: space-between;
-    padding: 0 14px;
+    padding: 0 7px;
 
     a {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 141px;
+      width: 125px;
       height: 33px;
       border: 1px solid #DCDCDC;
       border-radius: 10px;
@@ -135,6 +138,15 @@
 
       &:hover {
         background: #3E4042;
+      }
+    }
+
+
+    @media (min-width: $md1 + px) {
+      padding: 0 14px;
+
+      a {
+        width: 140px;
       }
     }
 	}

@@ -6139,6 +6139,7 @@ textarea {
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
   background: #FBFBFB;
+  max-width: 100%;
 }
 
 .telegram-btn,
@@ -8064,7 +8065,7 @@ textarea {
   padding-top: 71px;
   z-index: 7;
   height: 100vh;
-  width: 100vw;
+  width: 0;
 }
 
 .new-msgs-box._open {
@@ -8097,6 +8098,7 @@ textarea {
 }
 
 .new-msgs-box__content {
+  width: 100vw;
   padding: 12px 16px 64px;
   background: #2d2d2d;
   height: 100%;
@@ -8170,7 +8172,7 @@ textarea {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 0 14px;
+  padding: 0 7px;
 }
 
 .new-msgs-box__buttons a {
@@ -8183,7 +8185,7 @@ textarea {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 141px;
+  width: 125px;
   height: 33px;
   border: 1px solid #DCDCDC;
   border-radius: 10px;
@@ -9232,12 +9234,8 @@ textarea {
     line-height: 30px;
   }
 
-  .new-msgs-box {
-    max-width: 500px;
-  }
-
   .new-msgs-box__content {
-    padding: 12px 24px 64px;
+    width: 300px;
     border-left: 1px solid #E5E5E5;
   }
 
@@ -9559,6 +9557,10 @@ textarea {
             justify-content: center;
   }
 
+  .content__main {
+    max-width: calc( 100% - 300px);
+  }
+
   .footer__list {
     font-family: Tahoma, "Open Sans", sans-serif;
     display: -webkit-box;
@@ -9640,11 +9642,9 @@ textarea {
 
   .new-msgs-box {
     position: static;
+    width: auto;
     height: auto;
     padding: 0;
-    width: 25vw;
-    min-width: 320px;
-    max-width: 360px;
   }
 
   .new-msgs-box__content {
@@ -9795,6 +9795,10 @@ textarea {
 }
 
 @media (min-width: 1200px) {
+  .content__main {
+    max-width: calc( 100% - 360px - 210px);
+  }
+
   .company-bar {
     position: static;
     width: auto;
@@ -9811,6 +9815,18 @@ textarea {
     -webkit-transform: translate(0, 0);
         -ms-transform: translate(0, 0);
             transform: translate(0, 0);
+  }
+
+  .new-msgs-box__content {
+    width: 360px;
+  }
+
+  .new-msgs-box__buttons {
+    padding: 0 14px;
+  }
+
+  .new-msgs-box__buttons a {
+    width: 140px;
   }
 }
 
