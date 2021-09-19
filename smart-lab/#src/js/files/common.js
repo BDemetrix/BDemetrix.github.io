@@ -304,7 +304,7 @@ function numOnly(event) {
 /**
  * Вычисление ширины центральной колонки content__main
  */
-const Content = document.querySelector('.content');
+/* const Content = document.querySelector('.content');
 const contentLeft = document.querySelector('.content__left');
 const contentMain = document.querySelector('.content__main');
 const contentRight = document.querySelector('.content__right');
@@ -324,7 +324,7 @@ function calcWidthContentMain() {
       contentMain.style.maxWidth = (contentWidth - contentLeftWidth - contentRightWidth) + 'px';
     }
   }
-}
+} */
 
 
 // Обработка событий для контекстного меню .context-menu

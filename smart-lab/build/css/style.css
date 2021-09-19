@@ -6141,14 +6141,6 @@ textarea {
           flex: 1 1 auto;
   background: #FBFBFB;
   max-width: 100%;
-  /* 
-      @media (min-width: $md2 + px) {
-        max-width: calc( 100% - 300px);
-      }
-
-      @media (min-width: $md1 + px) {
-        max-width: calc( 100% - 360px - 210px);
-      } */
 }
 
 .telegram-btn,
@@ -9566,6 +9558,10 @@ textarea {
             justify-content: center;
   }
 
+  .content__main {
+    max-width: calc( 100% - 300px);
+  }
+
   .footer__list {
     font-family: Tahoma, "Open Sans", sans-serif;
     display: -webkit-box;
@@ -9800,6 +9796,10 @@ textarea {
 }
 
 @media (min-width: 1200px) {
+  .content__main {
+    max-width: calc( 100% - 360px - 210px);
+  }
+
   .company-bar {
     position: static;
     width: auto;
