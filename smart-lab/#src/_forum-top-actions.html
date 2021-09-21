@@ -1,0 +1,128 @@
+<div class="forum-top-actions">
+  <!-- Основные правила написаны в классе .forum-pop-up, а класс .context-menu используется для привязки анимации -->
+  <div class="forum-top-actions__pop-up forum-pop-up forum-pop-up--subscribe context-menu">
+    <button class="forum-pop-up__btn">
+      Подписаться
+    </button>
+    <ul class="forum-pop-up__body">
+      <!-- если пользователь подписан, то добавляется модификатор _selected -->
+      <li>
+        <button class="forum-pop-up__item" id="push_notifies_button" data-target-id="1900" data-target-type="article" data-target-how="comment" title="С этой подпиской вам будут приходить всплывающие уведомления в браузер (на ПК/телефоне) если на форуме появится новый комментарий.">
+          <svg>
+              <use xlink:href="images/symbol/sprite.svg#feedback"></use>
+          </svg>
+          Всплывающие уведомления <span>(Push)</span>
+        </button>
+      </li>
+      <li>
+        <button class="forum-pop-up__item forum-pop-up__item--favourite" data-subscribe-type="favourite" data-target-id="1900" title="Избранные форумы можно выбирать через пункт &quot;форумы&quot; строки навигации наверху страницы форума, а также в чате через пункт меню &quot;Избранные форумы&quot;.">
+          <svg>
+              <use xlink:href="images/symbol/sprite.svg#star"></use>
+          </svg>
+          Избранное
+        </button>
+      </li>
+      <li>
+        <button class="forum-pop-up__item" data-subscribe-type="email" data-target-id="1900" title="Письма о новых сообщениях на этом форуме будут приходить вам на электронную почту">
+          <svg>
+              <use xlink:href="images/symbol/sprite.svg#email"></use>
+          </svg>
+          Подписаться по Email
+        </button>
+      </li>
+      <li>
+        <button class="forum-pop-up__item forum-pop-up__item--none" href="/forum/SBER/rss/" title="Ссылку на эту тему можно добавить в ваш RSS-фид">
+          <svg>
+              <use xlink:href="images/symbol/sprite.svg#rss_feed"></use>
+          </svg>
+          RSS
+        </button>
+      </li>
+      <li>
+        <button class="forum-pop-up__item" id="push_notifies_reply_button" data-target-id="0" data-target-type="forum" data-target-how="reply" title="Всплывающие уведомления в браузер (на ПК/телефоне) если вам ответили на комментарий на любом из форумов. Этот пункт общий для всех форумов.">
+          <svg>
+              <use xlink:href="images/symbol/sprite.svg#feedback"></use>
+          </svg>
+          Уведомления об ответах
+        </button>
+      </li>
+    </ul>
+  </div>  
+  @@include('_buy-shares.html',{
+    "MixClass": "forum-top-actions__pop-up",
+    "Text": "Купить акции Сбербанк"
+  })
+  <div class="forum-top-actions__pop-up forum-pop-up context-menu">
+    <button class="forum-pop-up__btn">
+      <svg>
+          <use xlink:href="images/symbol/sprite.svg#portfolio"></use>
+      </svg>
+      в портфель
+    </button>
+    <ul class="forum-pop-up__body">
+      <!-- если пользователь подписан, то добавляется модификатор _selected -->
+      <li>
+        <button class="forum-pop-up__item forum-pop-up__item--mark">
+          + Новый Список
+        </button>
+      </li>
+      <li>
+        <button class="forum-pop-up__item">
+          Андрей Верстальщик
+        </button>
+      </li>
+    </ul>
+  </div>  
+  <div class="forum-top-actions__pop-up forum-pop-up context-menu">
+    <button class="forum-pop-up__btn">
+      <svg>
+          <use xlink:href="images/symbol/sprite.svg#list"></use>
+      </svg>
+      в список
+    </button>
+    <ul class="forum-pop-up__body">
+      <!-- если пользователь подписан, то добавляется модификатор _selected -->
+      <li>
+        <button class="forum-pop-up__item forum-pop-up__item--mark">
+          + Новый Список
+        </button>
+      </li>
+      <li>
+        <button class="forum-pop-up__item">
+          список 1
+        </button>
+      </li>
+      <li>
+        <button class="forum-pop-up__item">
+          список 2
+        </button>
+      </li>
+      <li>
+        <button class="forum-pop-up__item">
+          список 3
+        </button>
+      </li>
+    </ul>
+  </div>
+  <button class="forum-top-actions__btn forum-top-actions__btn--sort">
+    <svg>
+        <use xlink:href="images/symbol/sprite.svg#arrow"></use>
+    </svg>
+    последние сверху
+  </button>
+  <button class="forum-top-actions__btn forum-top-actions__btn--svg">
+    <svg>
+        <use xlink:href="images/symbol/sprite.svg#calendar_s"></use>
+    </svg>
+  </button>
+  <a href="#" class="forum-top-actions__btn forum-top-actions__btn--svg">
+    <svg>
+        <use xlink:href="images/symbol/sprite.svg#update"></use>
+    </svg>
+  </a>
+  <a href="#" class="forum-top-actions__btn forum-top-actions__btn--svg">
+    <svg>
+        <use xlink:href="images/symbol/sprite.svg#watchlists"></use>
+    </svg>
+  </a>
+</div>

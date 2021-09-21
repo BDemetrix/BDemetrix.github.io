@@ -3,6 +3,7 @@
 
   // .forum-pg__selectors
   &__selectors {
+    width: 100%;
     margin-bottom: 10px;
 
     .selector-links {
@@ -30,6 +31,10 @@
   // .forum-pg__buy-shares 
   &__buy-shares  {
 
-    
   }
+
+  // .forum-pg__comments
+	&__comments {
+    
+	}
 }

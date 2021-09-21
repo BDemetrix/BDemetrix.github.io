@@ -51,17 +51,19 @@ _js.html
 ##### #src\js\files\common.js
 
 1) Для контекстных меню класс .context-menu для которого написаны правила, анимация и минимальный набор обработчиков js
+Для стандартного вида необходимо добавить классы .context-menu__list и другие
+Если же стили меняются, то эти классы присваивать не надо кроме .context-menu
 структура: 
 ```
 <div class="context-menu">
-  <button>
-     <svg>
+  <button class="context-menu__btn">
+     <svg class="context-menu__svg">
          <use xlink:href="images/symbol/sprite.svg#..."></use>
      </svg>
   </button>			
-  <ul>
-     <li><button>кнопка 1</button></li>
-     <li><button>кнопка 2</button></li>
+  <ul class="context-menu__list">
+     <li><button class="context-menu__item">кнопка 1</button></li>
+     <li><button class="context-menu__item">кнопка 2</button></li>
   </ul>
 </div>
 ```

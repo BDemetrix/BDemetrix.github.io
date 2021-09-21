@@ -287,7 +287,7 @@ picture {
   display: block;
   width: 100%;
   line-height: 20px;
-  padding: 5px 10px;
+  padding: 6px 12px;
   background: none;
   text-align: left;
 }
@@ -4140,7 +4140,7 @@ body[class*=" jBox-blockScroll-"] {
   display: block;
   width: 100%;
   line-height: 20px;
-  padding: 5px 10px;
+  padding: 6px 12px;
   background: none;
   text-align: left;
 }
@@ -5276,7 +5276,7 @@ textarea {
   display: block;
   width: 100%;
   line-height: 20px;
-  padding: 5px 10px;
+  padding: 6px 12px;
   background: none;
   text-align: left;
 }
@@ -5333,6 +5333,7 @@ textarea {
 }
 
 .forum-pg__selectors {
+  width: 100%;
   margin-bottom: 10px;
 }
 
@@ -5803,7 +5804,7 @@ textarea {
   display: block;
   width: 100%;
   line-height: 20px;
-  padding: 5px 10px;
+  padding: 6px 12px;
   background: none;
   text-align: left;
 }
@@ -6140,6 +6141,7 @@ textarea {
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
   background: #FBFBFB;
+  width: 100%;
   max-width: 100%;
 }
 
@@ -6194,6 +6196,7 @@ textarea {
 
 .footer {
   background-color: #2d2d2d;
+  padding-bottom: 50px;
 }
 
 .footer__list {
@@ -9085,6 +9088,118 @@ textarea {
   color: red;
 }
 
+.comment {
+  font-size: 14px;
+  padding: 20px;
+  color: #242424;
+}
+
+.comment__item {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.comment__avatar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.comment__avatar img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.comment__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 53px;
+  padding-left: 53px;
+}
+
+.comment__author {
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  margin-right: 6px;
+  line-height: 20px;
+  font-weight: 700;
+  color: #77B3FF;
+}
+
+.comment__time {
+  line-height: 20px;
+  color: #C7C7C7;
+}
+
+.comment__text blockquote {
+  display: block;
+  background: #f3f3f3;
+  color: #555;
+  overflow: hidden;
+  white-space: nowrap;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  word-wrap: break-word;
+  line-height: 30px;
+  height: 30px;
+  cursor: pointer;
+  max-width: 100%;
+}
+
+.comment__text > blockquote,
+.comment__text > blockquote > blockquote {
+  padding: 0 15px 0 8px;
+  border-left: 2px solid #4ad4ef;
+  overflow: hidden;
+  white-space: nowrap;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  word-wrap: break-word;
+  line-height: 30px;
+  height: 30px;
+  cursor: pointer;
+  max-width: 100%;
+}
+
+.comment__text._open blockquote {
+  margin: 7px 0;
+  padding: 1px 15px 1px 8px;
+  border-left: 2px solid #4ad4ef;
+  overflow: visible;
+  white-space: normal;
+  line-height: 20px;
+  height: auto;
+}
+
+.comment__actions {
+  margin-top: 7px;
+  border-top: 1px solid #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .pop-up-container {
   display: none;
 }
@@ -9438,6 +9553,19 @@ textarea {
   .forum-top-actions {
     padding: 0 20px;
   }
+
+  .comment__item {
+    padding: 0 0 0 53px;
+  }
+
+  .comment__info {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    height: auto;
+    padding: 0;
+  }
 }
 
 @media (min-width: 810px) {
@@ -9559,7 +9687,12 @@ textarea {
   }
 
   .content__main {
+    width: calc( 100% - 300px);
     max-width: calc( 100% - 300px);
+  }
+
+  .footer {
+    padding-bottom: 0;
   }
 
   .footer__list {
@@ -9797,6 +9930,7 @@ textarea {
 
 @media (min-width: 1200px) {
   .content__main {
+    width: calc( 100% - 360px - 210px);
     max-width: calc( 100% - 360px - 210px);
   }
 

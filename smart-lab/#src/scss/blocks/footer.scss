@@ -3,6 +3,11 @@
 
 .footer {
   background-color: #2d2d2d;
+  padding-bottom: 50px;
+  
+  @media (min-width: $md2 + px) {
+    padding-bottom: 0;
+  }
 
 	// .footer__list
 	&__list {
