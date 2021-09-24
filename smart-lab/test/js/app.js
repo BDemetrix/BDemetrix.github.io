@@ -469,7 +469,7 @@ function numOnly(event) {
 /**
  * Вычисление ширины центральной колонки content__main
  */
-/* const Content = document.querySelector('.content');
+const Content = document.querySelector('.content');
 const contentLeft = document.querySelector('.content__left');
 const contentMain = document.querySelector('.content__main');
 const contentRight = document.querySelector('.content__right');
@@ -489,7 +489,7 @@ function calcWidthContentMain() {
       contentMain.style.maxWidth = (contentWidth - contentLeftWidth - contentRightWidth) + 'px';
     }
   }
-} */
+}
 
 
 // Обработка событий для контекстного меню .context-menu
@@ -528,8 +528,6 @@ if (popUpMenu.length) {
     let menuPosRight = popUpMenu.getBoundingClientRect().right;
     let ulPosLeft =  ul.getBoundingClientRect().left - 5;
     let ulPosRight = document.documentElement.clientWidth - ul.getBoundingClientRect().right - 5;
-  
-    console.log(ulPosLeft);
     
     if (ulPosLeft < 0 ) {
       if ((document.documentElement.clientWidth - menuPosLeft - 5) >= ul.offsetWidth) 
@@ -1278,5 +1276,13 @@ setTimeout(() => {
     })
   }
 
-  
+  let commentFavorite = document.querySelectorAll('.comment__favorite');
+  if (commentFavorite.length) {
+    commentFavorite.forEach(btn => {
+      btn.addEventListener('click', function() {
+        this.classList.toggle('_active');
+      });
+    });
+  }
+
 } ());

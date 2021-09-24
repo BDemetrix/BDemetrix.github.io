@@ -120,7 +120,7 @@
       <ul class="forum-pop-up__body">
         <!-- если пользователь подписан, то добавляется модификатор _selected -->
         <li>
-          <button class="forum-pop-up__item forum-pop-up__item--mark">
+          <button class="forum-pop-up__item forum-pop-up__item--mark" id="new-watchlist">
             + Новый Список
           </button>
         </li>
@@ -535,6 +535,7 @@
     </ul>
   </div>
 
+  @@include('_paging.html',{"MixClass": "forum-pg__paging"})
   @@include('_company-description.html',{})
 	@@include('_brokers-block.html',{})
 </div>

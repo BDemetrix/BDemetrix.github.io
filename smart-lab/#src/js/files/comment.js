@@ -12,5 +12,13 @@
     })
   }
 
-  
+  let commentFavorite = document.querySelectorAll('.comment__favorite');
+  if (commentFavorite.length) {
+    commentFavorite.forEach(btn => {
+      btn.addEventListener('click', function() {
+        this.classList.toggle('_active');
+      });
+    });
+  }
+
 } ());

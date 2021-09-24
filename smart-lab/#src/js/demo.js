@@ -23,20 +23,7 @@
     commentTextarea.addEventListener('focus', () => {
       commentWriteBox.classList.add('_open');
     });
-
-    /* commentTextarea.addEventListener('blur', (e) => {
-      
-      if (e.target.closest('.comment__write-actions')) {
-        commentWriteBox.classList.remove('_open');
-      }
-    });
-
-    document.documentElement.addEventListener("click", (e) => {
-      console.log(e.target);
-      if (!e.target.closest('.comment__write-box')) {
-        //commentWriteBox.classList.remove('_open');
-      }
-    }); */
+    
 
     if (commentSelectImg && commentWriteImages) {
       commentSelectImg.addEventListener('click', () => {
@@ -44,6 +31,14 @@
       });
     }
   }
+
+
+  new jBox('Confirm', {
+    attach: '#new-watchlist',
+    title: 'Hurray!',
+    content: 'This is my modal window'
+  });
+
 
 }());
 

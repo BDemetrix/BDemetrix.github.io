@@ -1114,7 +1114,7 @@
       <ul class="forum-pop-up__body">
         <!-- если пользователь подписан, то добавляется модификатор _selected -->
         <li>
-          <button class="forum-pop-up__item forum-pop-up__item--mark">
+          <button class="forum-pop-up__item forum-pop-up__item--mark" id="new-watchlist">
             + Новый Список
           </button>
         </li>
@@ -1528,6 +1528,29 @@
       </li>
     </ul>
   </div>
+
+  <div class="forum-pg__paging paging" id="paging">
+   <span class="paging__page  paging__page--clock" title="Выбрать дату">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+         <path fill="none" d="M0 0h24v24H0V0z"></path>
+         <path fill="currentColor" d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"></path>
+      </svg>
+   </span>
+   <a class="paging__page  paging__page--first" href="#">
+    <svg class="pagination__left-arrow-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6 7l-3 3m0 0l3 3m-3-3h14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+   </a>
+   <a class="paging__page " href="#">6196</a>
+   <a class="paging__page " href="#">6197</a>
+   <a class="paging__page " href="#">6198</a>
+   <span class="paging__page paging__page--active">6199</span>
+   <a class="paging__page  paging__page--last paging__page--disabled" href="#">
+     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14 7l3 3m0 0l-3 3m3-3H3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+   </a>
+</div>
 
   <div class="company-description">
    <h2 class="company-description__title">
