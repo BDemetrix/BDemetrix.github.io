@@ -1,7 +1,9 @@
 (function () {
-  
-  plugSimpleBar('.new-msgs-box__content');
 
+  setTimeout(() => {
+    plugSimpleBar('.new-msgs-box__content'); 
+  }, 2000);
+  
   const newMsgsBoxBtn = document.querySelector('.new-msgs-box__btn');
 
   newMsgsBoxBtn.addEventListener('click', () => {

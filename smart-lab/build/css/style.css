@@ -4183,6 +4183,7 @@ body[class*=" jBox-blockScroll-"] {
   background: #1f1f1f;
   position: relative;
   z-index: 10;
+  width: 100%;
 }
 
 .header * {
@@ -4738,12 +4739,12 @@ h5.main-logo__title-main {
 
 .notify__body {
   position: absolute;
+  z-index: 3;
   top: 52px;
   right: 10px;
   padding: 10px;
   width: calc(100% - 20px);
   max-height: 500px;
-  overflow: hidden;
   background: #f3f3f3;
   -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
           box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
@@ -5856,6 +5857,8 @@ textarea {
   margin-top: -5px;
   padding: 0px 0px 5px;
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
   font-size: 12px;
   line-height: 1;
   background-color: #1f1f1f;
@@ -5866,7 +5869,9 @@ textarea {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  max-width: 100%;
   width: 100%;
+  overflow: hidden;
 }
 
 .navbar._loading .navbar__prev {
@@ -5881,8 +5886,8 @@ textarea {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  width: auto;
+  max-width: none;
 }
 
 .navbar__item {
@@ -5932,8 +5937,13 @@ textarea {
   color: #d4d4d4;
 }
 
+.navbar__link {
+  white-space: nowrap;
+}
+
 .navbar__drop-link {
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .navbar__drop-item {
@@ -6147,16 +6157,6 @@ textarea {
   background: #FBFBFB;
   width: 100%;
   max-width: 100%;
-  /* 
-      @media (min-width: $md2 + px) {
-        width: calc( 100% - 300px);
-        max-width: calc( 100% - 300px);
-      }
-
-      @media (min-width: $md1 + px) {
-        width: calc( 100% - 360px - 210px);
-        max-width: calc( 100% - 360px - 210px);
-      } */
 }
 
 .telegram-btn,
@@ -8080,6 +8080,7 @@ textarea {
   font-family: Tahoma, "Open Sans", Verdana, sans-serif;
   position: fixed;
   top: 0;
+  right: 0;
   padding-top: 71px;
   z-index: 7;
   height: 100vh;
@@ -8218,7 +8219,7 @@ textarea {
 .new-msgs-box__btn {
   position: fixed;
   bottom: 10px;
-  right: calc(133px + 17 * ((100vw - 320px) / 159.98));
+  right: calc(123px + 17 * ((100vw - 320px) / 159.98));
   overflow: hidden;
   display: inline-block;
   height: 40px;
@@ -8636,7 +8637,7 @@ textarea {
 .abs-scroller {
   font-size: 0;
   position: fixed;
-  right: 30px;
+  right: 20px;
   bottom: 10px;
   z-index: 5;
 }
@@ -9301,12 +9302,18 @@ textarea {
 }
 
 .comment__author {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 6px;
+}
+
+.comment__author-link {
   max-width: 100%;
   overflow: hidden;
   white-space: nowrap;
   -o-text-overflow: ellipsis;
      text-overflow: ellipsis;
-  margin-right: 6px;
   line-height: 20px;
   font-weight: 700;
   color: #77B3FF;
@@ -9639,7 +9646,7 @@ textarea {
   }
 
   .new-msgs-box__btn {
-    right: 150px;
+    right: 140px;
   }
 
   .new-msgs-box__btn > span {
@@ -9832,10 +9839,6 @@ textarea {
 
   .qn-filters__block:last-child {
     border-right: 0;
-  }
-
-  .new-msgs-box__btn {
-    right: 150px;
   }
 
   .company-description {
@@ -10032,6 +10035,11 @@ textarea {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+  }
+
+  .content__main {
+    width: calc( 100% - 300px);
+    max-width: calc( 100% - 300px);
   }
 
   .footer {
@@ -10272,6 +10280,11 @@ textarea {
 }
 
 @media (min-width: 1200px) {
+  .content__main {
+    width: calc( 100% - 360px - 210px);
+    max-width: calc( 100% - 360px - 210px);
+  }
+
   .company-bar {
     position: static;
     width: auto;

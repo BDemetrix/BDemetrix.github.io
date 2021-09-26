@@ -176,6 +176,8 @@
   margin-top: -5px;
   padding: 0px 0px 5px;
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
   font-size: 12px;
   line-height: 1;
   background-color: #1f1f1f;
@@ -186,7 +188,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  max-width: 100%;
   width: 100%;
+  overflow: hidden;
 }
 
 .navbar._loading .navbar__prev {
@@ -201,8 +205,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  width: auto;
+  max-width: none;
 }
 
 .navbar__item {
@@ -252,8 +256,13 @@
   color: #d4d4d4;
 }
 
+.navbar__link {
+  white-space: nowrap;
+}
+
 .navbar__drop-link {
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .navbar__drop-item {

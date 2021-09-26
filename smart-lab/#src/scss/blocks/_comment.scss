@@ -192,11 +192,15 @@
 	}
 	// .comment__author
 	&__author {
+		display: flex;
+		margin-right: 6px;
+	}
+	// .comment__author-link
+	&__author-link {
 		max-width: 100%;
 		overflow: hidden;
 		white-space: nowrap;
 		text-overflow: ellipsis;
-		margin-right: 6px;
 		line-height: 20px;
 		font-weight: 700;
 		color: #77B3FF;

@@ -173,6 +173,7 @@
   background: #1f1f1f;
   position: relative;
   z-index: 10;
+  width: 100%;
 }
 
 .header * {
@@ -728,12 +729,12 @@ h5.main-logo__title-main {
 
 .notify__body {
   position: absolute;
+  z-index: 3;
   top: 52px;
   right: 10px;
   padding: 10px;
   width: calc(100% - 20px);
   max-height: 500px;
-  overflow: hidden;
   background: #f3f3f3;
   -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
           box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);

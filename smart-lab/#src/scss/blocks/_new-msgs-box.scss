@@ -2,6 +2,7 @@
   font-family: Tahoma, "Open Sans", Verdana, sans-serif;
   position: fixed;
   top: 0;
+  right: 0;
   padding-top: 71px;
   z-index: 7;
   height: 100vh;
@@ -154,7 +155,7 @@
 	&__btn {
     position: fixed;
     bottom: 10px;
-    right: adaptiv-value($md5,150,320,133);
+    right: adaptiv-value($md5,140,320,123);
     overflow: hidden;
     display: inline-block;
     height: 40px;
@@ -207,7 +208,7 @@
 
 
     @media (min-width: $md5 + px) {
-      right: 150px;
+      right: 140px;
 
       &>span {
         padding: 0 16px;
@@ -218,10 +219,6 @@
       &>span>span {
         display: inline;
       }    
-    }
-
-    @media (min-width: $md3 + px) {
-      right: 150px;
     }
 
     @media (min-width: $md2 + px) {

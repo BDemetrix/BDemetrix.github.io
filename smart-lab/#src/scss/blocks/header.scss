@@ -8,6 +8,7 @@
 	background: $header-bg-color;
 	position: relative;
 	z-index: 10;
+	width: 100%;
 	* {
 		box-sizing: border-box;
 	}
@@ -628,12 +629,12 @@ h5.main-logo__title-main {
 	// .notify__body
 	&__body {
 		position: absolute;
+		z-index: 3;
 		top: 52px;
 		right: 10px;
 		padding: 10px;
 		width: calc(100% - 20px);
 		max-height: 500px;
-		overflow: hidden;
 		background: #f3f3f3;
 		box-shadow: 0 2px 8px rgba($color: #000000, $alpha: 0.45);
 		border-radius: 6px;

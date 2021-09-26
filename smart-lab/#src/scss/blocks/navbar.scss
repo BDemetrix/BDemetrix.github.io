@@ -10,6 +10,8 @@
 	margin-top: -5px;
   padding: 0px 0px 5px;
 	width: 100%;
+	max-width: 100%;
+	min-width: 0;
 	font-size: 12px;
 	line-height: 1;
 	background-color: $header-bg;
@@ -19,7 +21,9 @@
 
 		.navbar__list {
 			display: flex;
+			max-width: 100%;
 			width: 100%;
+			overflow: hidden;
 		}
 
 		.navbar__prev	{
@@ -32,7 +36,8 @@
 	&__list {
 		display: flex;
 		align-items: center;
-		flex-wrap: wrap;
+		width: auto;
+		max-width: none;
 
 		@media (min-width: $md2 + px) {
 			justify-content: center;
@@ -86,10 +91,12 @@
 	}
 	// .navbar__link
 	&__link {
+		white-space: nowrap;
 	}
 	// .navbar__drop-link
 	&__drop-link {
 		cursor: pointer;
+		white-space: nowrap;
 	}
 	// .navbar__drop-item
 	&__drop-item {
