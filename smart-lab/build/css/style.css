@@ -244,6 +244,7 @@ picture {
 
 .context-menu {
   position: relative;
+  z-index: 5;
   top: 0;
   right: 0;
   color: #000;
@@ -4099,6 +4100,7 @@ body[class*=" jBox-blockScroll-"] {
 
 .context-menu {
   position: relative;
+  z-index: 5;
   top: 0;
   right: 0;
   color: #000;
@@ -5229,6 +5231,7 @@ textarea {
 
 .context-menu {
   position: relative;
+  z-index: 5;
   top: 0;
   right: 0;
   color: #000;
@@ -5767,6 +5770,7 @@ textarea {
 
 .context-menu {
   position: relative;
+  z-index: 5;
   top: 0;
   right: 0;
   color: #000;
@@ -8444,9 +8448,8 @@ textarea {
 .profile-popup {
   font-family: "Open Sans", Tahoma, Verdana, sans-serif;
   position: relative;
-  width: calc(100% - 10px);
+  width: 100%;
   max-width: 420px;
-  margin: 0 !important;
   background: #fff;
   color: #242424;
   font-size: 14px;
@@ -8541,7 +8544,7 @@ textarea {
 }
 
 .profile-popup__info-head {
-  padding-right: 12px;
+  padding-right: 20px;
 }
 
 .profile-popup__rating {
@@ -9581,11 +9584,8 @@ textarea {
 }
 
 .jBox-content {
-  max-width: 100% !important;
-  width: 100% !important;
   overflow: hidden;
   padding: 0 !important;
-  margin: 0 !important;
 }
 
 /* .jBox-content {

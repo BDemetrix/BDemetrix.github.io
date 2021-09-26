@@ -1,9 +1,8 @@
 .profile-popup {
   font-family:  "Open Sans", Tahoma,  Verdana, sans-serif;
   position: relative;
-  width: calc(100% - 10px);
+  width: 100%;
   max-width: 420px;
-  margin: 0 !important;
   background: #fff;
   color: #242424;
   font-size: 14px;
@@ -99,7 +98,7 @@
 	}
   // .profile-popup__info-head 
   &__info-head {
-    padding-right: 12px;
+    padding-right: 20px;
   }
 	// .profile-popup__rating
 	&__rating {
