@@ -99,6 +99,8 @@
 }
 
 .context-menu__list {
+  top: 100%;
+  right: 0;
   padding: 3px 0;
   display: inline-block;
   background: #fff;

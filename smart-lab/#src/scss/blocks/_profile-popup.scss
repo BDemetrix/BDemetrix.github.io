@@ -1,8 +1,9 @@
 .profile-popup {
   font-family:  "Open Sans", Tahoma,  Verdana, sans-serif;
   position: relative;
-  width: calc(100vw - 10px);
+  width: calc(100% - 10px);
   max-width: 420px;
+  margin: 0 !important;
   background: #fff;
   color: #242424;
   font-size: 14px;

@@ -4747,7 +4747,7 @@ h5.main-logo__title-main {
   top: 52px;
   right: 10px;
   padding: 10px;
-  width: calc(100% - 20px);
+  width: calc(100% - 10px);
   max-height: 500px;
   background: #f3f3f3;
   -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
@@ -4804,15 +4804,6 @@ h5.main-logo__title-main {
 .notify__body .simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
   top: 65px;
   bottom: 10px;
-}
-
-.notify__body .jBox-content {
-  padding: 0;
-}
-
-.notify__body #notifiesPopover .jBox-content {
-  max-width: 100% !important;
-  width: 100% !important;
 }
 
 .notify__inner {
@@ -8094,6 +8085,10 @@ textarea {
   cursor: pointer;
 }
 
+.jBox-wrapper.company-bar-jBox {
+  max-width: calc(100% - 10px);
+}
+
 .new-msgs-box {
   font-family: Tahoma, "Open Sans", Verdana, sans-serif;
   position: fixed;
@@ -8449,8 +8444,9 @@ textarea {
 .profile-popup {
   font-family: "Open Sans", Tahoma, Verdana, sans-serif;
   position: relative;
-  width: calc(100vw - 10px);
+  width: calc(100% - 10px);
   max-width: 420px;
+  margin: 0 !important;
   background: #fff;
   color: #242424;
   font-size: 14px;
@@ -9575,17 +9571,36 @@ textarea {
 }
 
 .jBox-Tooltip .jBox-container {
-  max-width: calc(100vw - 10px);
+  max-width: calc(100% - 20px) !important;
   border-radius: 5px;
   -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
           box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
   overflow: hidden;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 .jBox-content {
+  max-width: 100% !important;
+  width: 100% !important;
   overflow: hidden;
-  padding: 0;
+  padding: 0 !important;
+  margin: 0 !important;
 }
+
+/* .jBox-content {
+	padding: 0;
+}
+#notifiesPopover .jBox-content {
+  	max-width: 100% !important;
+  	width: 100% !important;
+}
+@media screen and (min-width: 767px) {
+	#notifiesPopover .jBox-content {
+  		max-width: 100% !important;
+  		width: 100% !important;
+	}
+} */
 
 @media (min-width: 320px) {
   .main-logo::before {
@@ -9762,13 +9777,6 @@ textarea {
   [dir=rtl] .choices__list--dropdown .choices__item--selectable:after {
     right: auto;
     left: 10px;
-  }
-}
-
-@media screen and (min-width: 767px) {
-  .notify__body #notifiesPopover .jBox-content {
-    max-width: 100% !important;
-    width: 100% !important;
   }
 }
 

@@ -262,6 +262,7 @@
 
 .jBox-wrapper.company-bar-jBox {
 
+  max-width: calc(100% - 10px);
   .jBox-content {
     //min-height: 230px;
   }

@@ -134,14 +134,34 @@ picture {
 //<Доп правила для jBox>===
 
 .jBox-Tooltip .jBox-container {
-	max-width: calc(100vw - 10px);
+	max-width: calc(100% - 20px) !important;
 	border-radius: 5px;
 	box-shadow: 0 0 3px rgb(0 0 0 / 25%);
 	overflow: hidden;
+	padding: 0 !important;
+	margin: 0 !important;
 }
 .jBox-content {
+	max-width: 100% !important;
+  width: 100% !important;
 	overflow: hidden;
-	padding: 0;
+	padding: 0 !important;
+	margin: 0 !important;
 }
 //</Доп правила для jBox>===
 
+// Костыль для  .jBox
+		/* .jBox-content {
+			padding: 0;
+		}
+		#notifiesPopover .jBox-content {
+    	max-width: 100% !important;
+    	width: 100% !important;
+		}
+		@media screen and (min-width: 767px) {
+			#notifiesPopover .jBox-content {
+    		max-width: 100% !important;
+    		width: 100% !important;
+			}
+		} */
+//=====

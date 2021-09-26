@@ -1226,4 +1226,19 @@ setTimeout(() => {
     });
   }
 
+  new jBox('Tooltip', {
+      attach: '.comment__author-link',
+      content: $('#profile-popup'),
+      zIndex: 999,
+      adjustPosition: true,
+      isolateScroll: false,
+      closeOnMouseleave: true,
+      animation: "move",
+      addClass: 'comment-jBox',
+    
+      onClose: function() {
+        this.container.find('.context-menu').removeClass('_open');
+      }
+    });
+
 } ());
