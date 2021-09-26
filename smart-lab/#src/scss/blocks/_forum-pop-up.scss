@@ -6,6 +6,10 @@
   display: flex;
   flex-wrap: wrap;
   padding: 0 10px;
+  width: 100%;
+  max-width: 100%;
+  /* overflow-x: hidden;
+  overflow-y: visible; */
 
   @media (min-width: $md3 + px) {
     padding: 0 20px;

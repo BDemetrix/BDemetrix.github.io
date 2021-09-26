@@ -304,32 +304,6 @@ function numOnly(event) {
   }
 }
 
-/**
- * Вычисление ширины центральной колонки content__main
- */
-/* const Content = document.querySelector('.content');
-const contentLeft = document.querySelector('.content__left');
-const contentMain = document.querySelector('.content__main');
-const contentRight = document.querySelector('.content__right');
-
-calcWidthContentMain();
-window.addEventListener('resize', calcWidthContentMain);
-window.addEventListener('orientationchange', calcWidthContentMain);
-
-function calcWidthContentMain() {
-  if (Content) {
-    const contentWidth = Content.clientWidth ;
-    const contentLeftWidth = contentLeft ? contentLeft.offsetWidth : 0 ;
-    const contentRightWidth = contentRight ? contentRight.offsetWidth  : 0 ;
-
-    if (contentMain) {
-      contentMain.style.width = (contentWidth - contentLeftWidth - contentRightWidth) + 'px';
-      contentMain.style.maxWidth = (contentWidth - contentLeftWidth - contentRightWidth) + 'px';
-    }
-  }
-} */
-
-
 // Обработка событий для контекстного меню .context-menu
 const popUpMenu = document.querySelectorAll('.context-menu');
 if (popUpMenu.length) {
@@ -344,10 +318,14 @@ if (popUpMenu.length) {
         }
         else
           popUpMenuCleartPos(menu);
-          
+        
         menu.classList.toggle('_open');
       });
     }
+
+    setTimeout(() => {
+      popUpMenuCorrectPos(menu);
+    }, 10);
   });
 
   document.documentElement.addEventListener('click', (e) => {
@@ -361,6 +339,8 @@ if (popUpMenu.length) {
    * если окно выходит за рамки окна браузера, корректируем позицию
    */
   function popUpMenuCorrectPos(popUpMenu) {
+    popUpMenuCleartPos(popUpMenu);
+    
     const ul = popUpMenu.querySelector('ul');
     let menuPosLeft =  popUpMenu.getBoundingClientRect().left;
     let menuPosRight = popUpMenu.getBoundingClientRect().right;
@@ -393,4 +373,29 @@ if (popUpMenu.length) {
       popUpMenuCorrectPos(menu);
     })
   });
+}
+
+/**
+ * Вычисление ширины центральной колонки content__main
+ */
+const Content = document.querySelector('.content');
+const contentLeft = document.querySelector('.content__left');
+const contentMain = document.querySelector('.content__main');
+const contentRight = document.querySelector('.content__right');
+
+calcWidthContentMain();
+window.addEventListener('resize', calcWidthContentMain);
+window.addEventListener('orientationchange', calcWidthContentMain);
+
+function calcWidthContentMain() {
+  if (Content) {
+    const contentWidth = Content.clientWidth ;
+    const contentLeftWidth = contentLeft ? contentLeft.offsetWidth : 0 ;
+    const contentRightWidth = contentRight ? contentRight.offsetWidth  : 0 ;
+
+    if (contentMain) {
+      contentMain.style.width = (contentWidth - contentLeftWidth - contentRightWidth) + 'px';
+      contentMain.style.maxWidth = (contentWidth - contentLeftWidth - contentRightWidth) + 'px';
+    }
+  }
 }

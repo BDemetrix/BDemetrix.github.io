@@ -12,13 +12,12 @@
   }
   // .content__main
   &__main {
-    flex: 1 1 auto;
+    //flex: 1 1 auto;
     background: #FBFBFB;
-
     width: 100%;
     max-width: 100%;
 
-    @media (min-width: $md2 + px) {
+   /*  @media (min-width: $md2 + px) {
       width: calc( 100% - 300px);
       max-width: calc( 100% - 300px);
     }
@@ -26,7 +25,7 @@
     @media (min-width: $md1 + px) {
       width: calc( 100% - 360px - 210px);
       max-width: calc( 100% - 360px - 210px);
-    }
+    } */
   }
   // .content__right
   &__right {

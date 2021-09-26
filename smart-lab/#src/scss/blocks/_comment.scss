@@ -1,4 +1,5 @@
 .forum-pg {
+	max-width: 100%;
 
 		// .forum-pg__comments
 
@@ -8,8 +9,12 @@
 }
 .comment {
 	font-size: 14px;
-	padding: 20px;
+	padding: 20px 10px;
 	color: #242424;
+
+	@media (min-width: $md4 + px) {
+		padding: 20px;
+	}
 
 	// .comment__list
 	&__list {

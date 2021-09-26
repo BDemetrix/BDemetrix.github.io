@@ -272,6 +272,8 @@ picture {
 }
 
 .context-menu__list {
+  top: 100%;
+  right: 0;
   padding: 3px 0;
   display: inline-block;
   background: #fff;
@@ -4125,6 +4127,8 @@ body[class*=" jBox-blockScroll-"] {
 }
 
 .context-menu__list {
+  top: 100%;
+  right: 0;
   padding: 3px 0;
   display: inline-block;
   background: #fff;
@@ -5262,6 +5266,8 @@ textarea {
 }
 
 .context-menu__list {
+  top: 100%;
+  right: 0;
   padding: 3px 0;
   display: inline-block;
   background: #fff;
@@ -5331,6 +5337,10 @@ textarea {
 
 .main__table {
   padding: 0 5px 20px;
+}
+
+.forum-pg {
+  overflow-x: hidden;
 }
 
 .forum-pg__selectors {
@@ -5794,6 +5804,8 @@ textarea {
 }
 
 .context-menu__list {
+  top: 100%;
+  right: 0;
   padding: 3px 0;
   display: inline-block;
   background: #fff;
@@ -6151,12 +6163,18 @@ textarea {
 }
 
 .content__main {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
   background: #FBFBFB;
   width: 100%;
   max-width: 100%;
+  /*  @media (min-width: $md2 + px) {
+     width: calc( 100% - 300px);
+     max-width: calc( 100% - 300px);
+   }
+
+   @media (min-width: $md1 + px) {
+     width: calc( 100% - 360px - 210px);
+     max-width: calc( 100% - 360px - 210px);
+   } */
 }
 
 .telegram-btn,
@@ -8907,6 +8925,10 @@ textarea {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   padding: 0 10px;
+  width: 100%;
+  max-width: 100%;
+  /* overflow-x: hidden;
+  overflow-y: visible; */
 }
 
 .forum-top-actions__pop-up {
@@ -9103,9 +9125,13 @@ textarea {
   color: red;
 }
 
+.forum-pg {
+  max-width: 100%;
+}
+
 .comment {
   font-size: 14px;
-  padding: 20px;
+  padding: 20px 10px;
   color: #242424;
 }
 
@@ -9704,6 +9730,10 @@ textarea {
         -ms-flex: 0 0 auto;
             flex: 0 0 auto;
   }
+
+  .comment {
+    padding: 20px;
+  }
 }
 
 @media (min-width: 640px) {
@@ -10037,11 +10067,6 @@ textarea {
             justify-content: center;
   }
 
-  .content__main {
-    width: calc( 100% - 300px);
-    max-width: calc( 100% - 300px);
-  }
-
   .footer {
     padding-bottom: 0;
   }
@@ -10280,11 +10305,6 @@ textarea {
 }
 
 @media (min-width: 1200px) {
-  .content__main {
-    width: calc( 100% - 360px - 210px);
-    max-width: calc( 100% - 360px - 210px);
-  }
-
   .company-bar {
     position: static;
     width: auto;
