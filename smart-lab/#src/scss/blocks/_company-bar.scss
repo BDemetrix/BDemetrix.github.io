@@ -132,7 +132,10 @@
     }
 
     @media (min-width: $md4 + px) {
-      background: #d4d4d4;
+
+      span {
+        background: #d4d4d4;
+      }
     }
   }
 	// .company-bar__body
