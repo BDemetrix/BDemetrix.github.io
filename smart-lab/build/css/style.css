@@ -8259,7 +8259,10 @@ textarea {
 .new-msgs-box__btn {
   position: fixed;
   bottom: 5px;
-  right: calc(123px + 17 * ((100vw - 320px) / 159.98));
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
   overflow: hidden;
   display: inline-block;
   height: 40px;
@@ -9688,10 +9691,6 @@ textarea {
     margin-right: 0;
   }
 
-  .new-msgs-box__btn {
-    right: 140px;
-  }
-
   .new-msgs-box__btn > span {
     padding: 0 16px;
     width: 200px;
@@ -9767,6 +9766,11 @@ textarea {
   }
 
   .new-msgs-box__btn {
+    left: auto;
+    -webkit-transform: none;
+        -ms-transform: none;
+            transform: none;
+    right: 140px;
     bottom: 10px;
     border: 1px solid #525252;
     background: -webkit-gradient(linear, left bottom, left top, from(#a9a9a9), color-stop(50%, #525252), to(#a9a9a9));

@@ -159,7 +159,9 @@
 	&__btn {
     position: fixed;
     bottom: 5px;
-    right: adaptiv-value($md5,140,320,123);
+    left: 50%;
+    transform: translate(-50%, 0);
+    //right: adaptiv-value($md5,140,320,123);
     overflow: hidden;
     display: inline-block;
     height: 40px;
@@ -208,7 +210,6 @@
 
 
     @media (min-width: $md5 + px) {
-      right: 140px;
 
       &>span {
         padding: 0 16px;
@@ -222,6 +223,9 @@
     }
 
     @media (min-width: $md4 + px) {
+      left: auto;
+      transform: none;
+      right: 140px;
       bottom: 10px;
       border: 1px solid #525252;
       background: linear-gradient(to top, #a9a9a9, #525252 50%, #a9a9a9 100%);
