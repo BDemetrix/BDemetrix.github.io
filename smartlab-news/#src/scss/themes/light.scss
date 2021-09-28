@@ -440,9 +440,15 @@ $datepicker-cell-range-bg: rgba($color: $header-bg, $alpha: .2);
 	}
 	// .news__date
 	&__date {
-		&[data-tippy-content]:hover{
-			background: rgba($color: $header-bg, $alpha: 0.12);
-			box-shadow: 0 0 5px 3px rgba($color: $header-bg, $alpha: 0.12);
+		color: rgba($color: $txt-color, $alpha: .65);
+
+		@media (min-width: $md3 + px) {
+			color: inherit;
+
+			&[data-tippy-content]:hover{
+				background: rgba($color: $header-bg, $alpha: 0.12);
+				box-shadow: 0 0 5px 3px rgba($color: $header-bg, $alpha: 0.12);
+			}	
 		}
 	}
 	// .news__link

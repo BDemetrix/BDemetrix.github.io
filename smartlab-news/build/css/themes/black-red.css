@@ -219,10 +219,8 @@
   color: #fff;
 }
 
-.news__date[data-tippy-content]:hover {
-  background: rgba(220, 220, 220, 0.075);
-  -webkit-box-shadow: 0 0 5px 3px rgba(220, 220, 220, 0.075);
-          box-shadow: 0 0 5px 3px rgba(220, 220, 220, 0.075);
+.news__date {
+  color: rgba(220, 220, 220, 0.3);
 }
 
 .news__link {
@@ -530,5 +528,17 @@
 
   .search__submit:hover {
     background: #dcdcdc;
+  }
+}
+
+@media (min-width: 767.98px) {
+  .news__date {
+    color: inherit;
+  }
+
+  .news__date[data-tippy-content]:hover {
+    background: rgba(220, 220, 220, 0.075);
+    -webkit-box-shadow: 0 0 5px 3px rgba(220, 220, 220, 0.075);
+            box-shadow: 0 0 5px 3px rgba(220, 220, 220, 0.075);
   }
 }

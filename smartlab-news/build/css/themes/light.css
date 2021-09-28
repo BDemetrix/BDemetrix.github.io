@@ -224,10 +224,8 @@
   color: #f5fff8;
 }
 
-.news__date[data-tippy-content]:hover {
-  background: rgba(98, 117, 146, 0.12);
-  -webkit-box-shadow: 0 0 5px 3px rgba(98, 117, 146, 0.12);
-          box-shadow: 0 0 5px 3px rgba(98, 117, 146, 0.12);
+.news__date {
+  color: rgba(63, 63, 63, 0.65);
 }
 
 .news__link {
@@ -532,5 +530,17 @@
 
   .search__submit:hover {
     background: #fff;
+  }
+}
+
+@media (min-width: 767.98px) {
+  .news__date {
+    color: inherit;
+  }
+
+  .news__date[data-tippy-content]:hover {
+    background: rgba(98, 117, 146, 0.12);
+    -webkit-box-shadow: 0 0 5px 3px rgba(98, 117, 146, 0.12);
+            box-shadow: 0 0 5px 3px rgba(98, 117, 146, 0.12);
   }
 }
