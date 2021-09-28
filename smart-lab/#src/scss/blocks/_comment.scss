@@ -1,19 +1,11 @@
-.forum-pg {
-	max-width: 100%;
 
-		// .forum-pg__comments
-
-		&__comments {
-			
-		}
-}
 .comment {
 	font-size: 14px;
-	padding: 20px 10px;
+	padding: 0 10px;
 	color: #242424;
 
 	@media (min-width: $md4 + px) {
-		padding: 20px;
+		padding: 0 20px;
 	}
 
 	// .comment__list
@@ -266,6 +258,10 @@
 		justify-content: flex-end;
 		margin-top: 7px;
 		display: flex;
+
+		@media (min-width: $md4 + px) {
+			justify-content: flex-start;
+		}
 	}
 	&__like, 
 	&__dislike {

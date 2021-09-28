@@ -5337,6 +5337,20 @@ textarea {
   overflow-x: hidden;
 }
 
+.forum-pg::after {
+  content: "";
+  position: fixed;
+  z-index: 5;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 45px;
+  -webkit-box-shadow: 0 0 3px 5px #1f1f1f;
+          box-shadow: 0 0 3px 5px #1f1f1f;
+  background: #1f1f1f;
+  opacity: 0.6;
+}
+
 .forum-pg__selectors {
   width: 100%;
   margin-bottom: 10px;
@@ -5344,6 +5358,14 @@ textarea {
 
 .forum-pg__selectors .selector-links {
   padding: 0 10px;
+}
+
+.forum-pg__header {
+  margin: 8px 0 2px;
+}
+
+.forum-pg__comments {
+  margin: 14px 0 20px;
 }
 
 .forum-pg__paging {
@@ -7857,12 +7879,18 @@ textarea {
 
 .company-bar._open .company-bar__btn {
   left: 150px;
+  bottom: 10px;
+  border: 1px solid #525252;
+  background: -webkit-gradient(linear, left top, right top, from(#999999), to(#525252));
+  background: -o-linear-gradient(left, #999999, #525252);
+  background: linear-gradient(to right, #999999, #525252);
 }
 
 .company-bar._open .company-bar__btn-icon span {
   -webkit-transform: scale(0);
       -ms-transform: scale(0);
           transform: scale(0);
+  background: #fff;
 }
 
 .company-bar._open .company-bar__btn-icon span:first-child {
@@ -7894,15 +7922,13 @@ textarea {
   display: -ms-flexbox;
   display: flex;
   z-index: 999;
-  bottom: 10px;
+  bottom: 5px;
   left: 20px;
   width: 40px;
   height: 40px;
-  border: 1px solid #525252;
   border-radius: 50%;
-  background: -webkit-gradient(linear, left top, right top, from(#999999), to(#525252));
-  background: -o-linear-gradient(left, #999999, #525252);
-  background: linear-gradient(to right, #999999, #525252);
+  background: transparent;
+  border: 1px solid transparent;
   cursor: pointer;
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
@@ -7919,14 +7945,6 @@ textarea {
   -webkit-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
-}
-
-.company-bar__btn:hover::before {
-  background: #525252;
-}
-
-.company-bar__btn:hover span {
-  background: #fff;
 }
 
 .company-bar__btn-icon {
@@ -7947,7 +7965,7 @@ textarea {
   width: 100%;
   height: 2px;
   border-radius: 2px;
-  background-color: #d4d4d4;
+  background: #fff;
   -webkit-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
@@ -8121,6 +8139,11 @@ textarea {
   -webkit-transition: border-radius 0.25s ease-in-out 0.15s;
   -o-transition: border-radius 0.25s ease-in-out 0.15s;
   transition: border-radius 0.25s ease-in-out 0.15s;
+  bottom: 10px;
+  border: 1px solid #525252;
+  background: -webkit-gradient(linear, left bottom, left top, from(#a9a9a9), color-stop(50%, #525252), to(#a9a9a9));
+  background: -o-linear-gradient(bottom, #a9a9a9, #525252 50%, #a9a9a9 100%);
+  background: linear-gradient(to top, #a9a9a9, #525252 50%, #a9a9a9 100%);
 }
 
 .new-msgs-box._open .new-msgs-box__btn span {
@@ -8235,16 +8258,14 @@ textarea {
 
 .new-msgs-box__btn {
   position: fixed;
-  bottom: 10px;
+  bottom: 5px;
   right: calc(123px + 17 * ((100vw - 320px) / 159.98));
   overflow: hidden;
   display: inline-block;
   height: 40px;
-  border: 1px solid #525252;
+  border: 1px solid transparent;
   border-radius: 10px;
-  background: -webkit-gradient(linear, left bottom, left top, from(#a9a9a9), color-stop(50%, #525252), to(#a9a9a9));
-  background: -o-linear-gradient(bottom, #a9a9a9, #525252 50%, #a9a9a9 100%);
-  background: linear-gradient(to top, #a9a9a9, #525252 50%, #a9a9a9 100%);
+  background: transparent;
   font-size: 16px;
   -webkit-transition: border-radius 0.1s ease-in-out;
   -o-transition: border-radius 0.1s ease-in-out;
@@ -8270,10 +8291,6 @@ textarea {
   -webkit-transition: width 0.3s ease-in-out, color 0.3s ease-in-out, background 0.25s ease-in-out;
   -o-transition: width 0.3s ease-in-out, color 0.3s ease-in-out, background 0.25s ease-in-out;
   transition: width 0.3s ease-in-out, color 0.3s ease-in-out, background 0.25s ease-in-out;
-}
-
-.new-msgs-box__btn > span:hover {
-  background: #525252;
 }
 
 .new-msgs-box__btn > span > span {
@@ -8655,15 +8672,18 @@ textarea {
   font-size: 0;
   position: fixed;
   right: 20px;
-  bottom: 10px;
-  z-index: 5;
+  bottom: 5px;
+  z-index: 7;
+  opacity: 0.8;
+  -webkit-transform: scaleX(0.7);
+      -ms-transform: scaleX(0.7);
+          transform: scaleX(0.7);
 }
 
 .abs-scroller__up,
 .abs-scroller__down {
   overflow: hidden;
   display: inline-block;
-  border: 1px solid #525252;
   width: 40px;
   height: 40px;
 }
@@ -8682,24 +8702,13 @@ textarea {
   transition: all 0.25s ease-in-out;
 }
 
-.abs-scroller__up a:hover,
-.abs-scroller__down a:hover {
-  background-color: #525252;
-}
-
 .abs-scroller__up {
   border-radius: 10px 0px 0 10px;
-  background: -webkit-gradient(linear, left bottom, left top, from(#a9a9a9), to(#525252));
-  background: -o-linear-gradient(bottom, #a9a9a9, #525252);
-  background: linear-gradient(to top, #a9a9a9, #525252);
 }
 
 .abs-scroller__down {
   border-radius: 0 10px 10px 0px;
   margin-left: -1px;
-  background: -webkit-gradient(linear, left top, left bottom, from(#a9a9a9), to(#525252));
-  background: -o-linear-gradient(top, #a9a9a9, #525252);
-  background: linear-gradient(to bottom, #a9a9a9, #525252);
 }
 
 .abs-scroller__down a {
@@ -8873,7 +8882,7 @@ textarea {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding: 5px 10px;
+  padding: 0 10px;
   font-size: 20px;
   color: #242424;
 }
@@ -8911,9 +8920,6 @@ textarea {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   line-height: 25px;
 }
 
@@ -8926,13 +8932,13 @@ textarea {
   padding: 0 10px;
   width: 100%;
   max-width: 100%;
-  /* overflow-x: hidden;
-  overflow-y: visible; */
 }
 
 .forum-top-actions__pop-up {
-  display: inline-block;
-  margin: 5px 16px 5px 0;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin: 10px 16px 10px 0;
 }
 
 .forum-top-actions__btn {
@@ -8945,7 +8951,7 @@ textarea {
   height: 40px;
   color: #74a3c7;
   padding: 0px 16px;
-  margin: 5px 16px 5px 0;
+  margin: 10px 16px 10px 0;
   border: 1px solid #74A3C7;
   border-radius: 3px;
   background-color: #fff;
@@ -9124,13 +9130,9 @@ textarea {
   color: red;
 }
 
-.forum-pg {
-  max-width: 100%;
-}
-
 .comment {
   font-size: 14px;
-  padding: 20px 10px;
+  padding: 0 10px;
   color: #242424;
 }
 
@@ -9726,6 +9728,10 @@ textarea {
     right: 85px;
   }
 
+  .forum-pg::after {
+    display: none;
+  }
+
   .alphabet__list {
     width: 360px;
   }
@@ -9735,9 +9741,71 @@ textarea {
     line-height: 30px;
   }
 
+  .company-bar__btn {
+    bottom: 10px;
+    border: 1px solid #525252;
+    background: -webkit-gradient(linear, left top, right top, from(#999999), to(#525252));
+    background: -o-linear-gradient(left, #999999, #525252);
+    background: linear-gradient(to right, #999999, #525252);
+  }
+
+  .company-bar__btn:hover::before {
+    background: #525252;
+  }
+
+  .company-bar__btn:hover span {
+    background: #fff;
+  }
+
+  .company-bar__btn-icon {
+    background: #d4d4d4;
+  }
+
   .new-msgs-box__content {
     width: 300px;
     border-left: 1px solid #E5E5E5;
+  }
+
+  .new-msgs-box__btn {
+    bottom: 10px;
+    border: 1px solid #525252;
+    background: -webkit-gradient(linear, left bottom, left top, from(#a9a9a9), color-stop(50%, #525252), to(#a9a9a9));
+    background: -o-linear-gradient(bottom, #a9a9a9, #525252 50%, #a9a9a9 100%);
+    background: linear-gradient(to top, #a9a9a9, #525252 50%, #a9a9a9 100%);
+  }
+
+  .new-msgs-box__btn > span:hover {
+    background: #525252;
+  }
+
+  .abs-scroller {
+    bottom: 10px;
+    opacity: 1;
+    -webkit-transform: none;
+        -ms-transform: none;
+            transform: none;
+  }
+
+  .abs-scroller__up,
+  .abs-scroller__down {
+    border: 1px solid #525252;
+  }
+
+  .abs-scroller__up a:hover,
+  .abs-scroller__down a:hover {
+    background-color: #525252;
+  }
+
+  .abs-scroller__up {
+    background: -webkit-gradient(linear, left bottom, left top, from(#a9a9a9), to(#525252));
+    background: -o-linear-gradient(bottom, #a9a9a9, #525252);
+    background: linear-gradient(to top, #a9a9a9, #525252);
+  }
+
+  .abs-scroller__down {
+    background: -webkit-gradient(linear, left top, left bottom, from(#a9a9a9), to(#525252));
+    background: -o-linear-gradient(top, #a9a9a9, #525252);
+    background: linear-gradient(to bottom, #a9a9a9, #525252);
   }
 
   .forum-top-panel__price {
@@ -9747,7 +9815,13 @@ textarea {
   }
 
   .comment {
-    padding: 20px;
+    padding: 0 20px;
+  }
+
+  .comment__actions {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
   }
 }
 
@@ -9911,7 +9985,7 @@ textarea {
   }
 
   .forum-top-panel {
-    padding: 10px 20px;
+    padding: 0 20px;
     font-size: 25px;
   }
 

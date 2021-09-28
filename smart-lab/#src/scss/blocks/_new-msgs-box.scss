@@ -31,6 +31,10 @@
       right: 24px;
       border-radius: 50%;
       transition: border-radius .25s ease-in-out .15s;
+
+      bottom: 10px;
+      border: 1px solid #525252;
+      background: linear-gradient(to top, #a9a9a9, #525252 50%, #a9a9a9 100%);
       
       span {
         width: 40px;
@@ -154,14 +158,14 @@
 	// .new-msgs-box__btn
 	&__btn {
     position: fixed;
-    bottom: 10px;
+    bottom: 5px;
     right: adaptiv-value($md5,140,320,123);
     overflow: hidden;
     display: inline-block;
     height: 40px;
-    border: 1px solid #525252;
+    border: 1px solid transparent;
     border-radius: 10px;
-    background: linear-gradient(to top, #a9a9a9, #525252 50%, #a9a9a9 100%);
+    background: transparent;
     font-size: 16px;
     transition: border-radius .10s ease-in-out;
     color: #fff;
@@ -176,10 +180,6 @@
       white-space: nowrap;
       text-transform: capitalize ;
       transition: width $t ease-in-out, color $t ease-in-out, background .25s ease-in-out;
-
-      &:hover {
-        background: #525252;
-      }
     }
 
     &>span>span {
@@ -219,6 +219,16 @@
       &>span>span {
         display: inline;
       }    
+    }
+
+    @media (min-width: $md4 + px) {
+      bottom: 10px;
+      border: 1px solid #525252;
+      background: linear-gradient(to top, #a9a9a9, #525252 50%, #a9a9a9 100%);
+
+      &>span:hover {
+        background: #525252;
+      }
     }
 
     @media (min-width: $md2 + px) {

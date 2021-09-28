@@ -1,15 +1,9 @@
-%forum-top-actions-btn {
-  
-}
-
 .forum-top-actions {
   display: flex;
   flex-wrap: wrap;
   padding: 0 10px;
   width: 100%;
   max-width: 100%;
-  /* overflow-x: hidden;
-  overflow-y: visible; */
 
   @media (min-width: $md3 + px) {
     padding: 0 20px;
@@ -17,8 +11,8 @@
 
 	// .forum-top-actions__pop-up
 	&__pop-up {
-    display: inline-block;
-    margin: 5px 16px 5px 0;
+    display: inline-flex;
+    margin: 10px 16px 10px 0;
 
     @media (max-width: $md5 + px) {
       .forum-pop-up__item span {
@@ -35,7 +29,7 @@
     height: 40px;
     color: #74a3c7;
     padding: 0px 16px;
-    margin: 5px 16px 5px 0;
+    margin: 10px 16px 10px 0;
     border: 1px solid #74A3C7;
     border-radius: 3px;
     background-color: #fff;

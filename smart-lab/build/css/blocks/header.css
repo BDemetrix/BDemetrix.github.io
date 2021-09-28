@@ -71,6 +71,7 @@
 
 .context-menu {
   position: relative;
+  z-index: 5;
   top: 0;
   right: 0;
   color: #000;
@@ -735,7 +736,7 @@ h5.main-logo__title-main {
   top: 52px;
   right: 10px;
   padding: 10px;
-  width: calc(100% - 20px);
+  width: calc(100% - 10px);
   max-height: 500px;
   background: #f3f3f3;
   -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
@@ -792,15 +793,6 @@ h5.main-logo__title-main {
 .notify__body .simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
   top: 65px;
   bottom: 10px;
-}
-
-.notify__body .jBox-content {
-  padding: 0;
-}
-
-.notify__body #notifiesPopover .jBox-content {
-  max-width: 100% !important;
-  width: 100% !important;
 }
 
 .notify__inner {
@@ -1235,13 +1227,6 @@ textarea {
 
   .notify__body {
     right: 85px;
-  }
-}
-
-@media screen and (min-width: 767px) {
-  .notify__body #notifiesPopover .jBox-content {
-    max-width: 100% !important;
-    width: 100% !important;
   }
 }
 
