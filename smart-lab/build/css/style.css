@@ -8134,6 +8134,10 @@ textarea {
 }
 
 .new-msgs-box._open .new-msgs-box__btn {
+  left: auto;
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none;
   right: 24px;
   border-radius: 50%;
   -webkit-transition: border-radius 0.25s ease-in-out 0.15s;

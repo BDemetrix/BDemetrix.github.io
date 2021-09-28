@@ -28,6 +28,8 @@
     }
 
     .new-msgs-box__btn {
+      left: auto;
+      transform: none;
       right: 24px;
       border-radius: 50%;
       transition: border-radius .25s ease-in-out .15s;
