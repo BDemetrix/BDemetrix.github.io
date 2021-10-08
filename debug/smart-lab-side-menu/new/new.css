@@ -131,7 +131,23 @@
 }
 
 @media(max-width: 767px) {
+
+  body {
+    width: 100%;
+  }
   .dividents-page .my_table__responsive {
     overflow-x: auto;
   }
+
+  .forum_content {
+    width: calc(100% - 10px);
+    margin: 40px 5px 0;
+  }
+
+  .my_table__responsive {
+    width     : 100%;
+    overflow-x: auto;
+  }
+
+
 }
