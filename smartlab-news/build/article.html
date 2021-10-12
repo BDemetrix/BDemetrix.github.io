@@ -124,6 +124,13 @@
 				</a>
 				<a href="index.html" class="header__title-content"><span>SMARTLAB</span> <span>NEWS</span></a>
 			</div>
+			<div class="header__add-news">
+				<button class="header__add-news-btn" title="Добавить новость" aria-label="Добавить новость">
+					<svg>
+							<use xlink:href="images/symbol/sprite.svg#star_border"></use>
+					</svg>
+				</button>
+			</div>
 			<div class="header__search search">
 				<form action="#" class="search__form">
 					<!-- Для предотвращения мигания основного меню  style="display: none;", убирается после загрузки скрипта -->
@@ -277,6 +284,11 @@
 							<div class="article__info info-article">
 								<div class="info-article__box _font-family _font-size" data-fontscale="0.8" data-mobfontsize="16" data-minfontsize="12">
 									<div class="info-article__edition edition-info">
+										<button class="edition-info__print" title="распечатать страницу" aria-label="распечатать страницу">
+											<svg>
+													<use xlink:href="images/symbol/sprite.svg#print"></use>
+											</svg>
+										</button>
 										<div class="edition-info__date">
 											<span class="edition-info__date-title">сегодня</span>
 											<span class="edition-info__date-data">15:57:00</span>
@@ -320,7 +332,21 @@
 										</div>
 									</div>
 									<div class="info-article__row">
-										<div class=""></div>
+										<div class="info-article__title">Значимость:</div>
+										<div class="info-article__value">
+											<div class="rating">
+												  <div class="rating__items">
+												    <input id="rating-1__3" type="radio" class="rating__item" name="rating-1" value="3">
+												    <label for="rating-1__3" class="rating__label"></label>
+												    <input id="rating-1__2" type="radio" class="rating__item" name="rating-1" value="2">
+												    <label for="rating-1__2" class="rating__label"></label>
+												    <input id="rating-1__1" type="radio" class="rating__item" name="rating-1" value="1" checked>
+												    <label for="rating-1__1" class="rating__label"></label>
+												  </div>
+												</div>
+										</div>
+									</div>
+									<div class="info-article__row">
 										<div class="info-article__value">
 											<a class="info-article__comment"comment href="https://smart-lab.ru/blog/700969.php#comments" target="_blank" class="info-article__link">Комментировать на
 												смартлабе</a>

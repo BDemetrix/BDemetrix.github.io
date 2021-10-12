@@ -248,6 +248,10 @@
   color: #d5d5d5;
 }
 
+.article__content svg {
+  fill: #d5d5d5;
+}
+
 .article__text {
   border-bottom: 1px solid #d5d5d5;
 }

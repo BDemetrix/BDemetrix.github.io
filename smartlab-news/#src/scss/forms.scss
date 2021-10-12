@@ -367,52 +367,67 @@ textarea.input {
 //</OPTIONS>====================================================================================================
 
 //<RATING>====================================================================================================
-/* .rating-block {
-	display: table;
-	font-size: 0;
-}
 .rating {
-	display: inline-block;
-	position: relative;
-	vertical-align: middle;
-	&.edit .star {
-		cursor: pointer;
+  position: relative;
+	display: flex;
+	justify-content: flex-start;
+
+	// .rating__items
+	&__items {
+	  display: flex;
+	  flex-direction: row-reverse;
+	  overflow: hidden;
 	}
-	.star {
-		width: 17px;
-		height: 14px;
-		display: inline-block;
-		position: relative;
-		z-index: 3;
+	// .rating__item
+	&__item {
+    width: 1px;
+		height: 1px;
+		margin: -1px;
+		padding: 0;
+		border: 0;
+		clip: rect(0,0,0,0);
+
+    &:checked ~ .rating__label,
+    &:checked + .rating__label:hover,
+    &:checked:hover ~ .rating__label {
+      &::after {
+        opacity: 1;
+      }
+    }
+    
+    &:hover ~ .rating__label {
+      &::after {
+        opacity: 0.65;
+      }
+    }
+
 	}
+	// .rating__label
+	&__label {
+    flex: 0 0 2em;
+    cursor: pointer;
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 2em;
+      height: 2em;
+      background: url(../images/icons/star_empty.svg) center / 2em no-repeat;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: url(../images/icons/star_filled.svg) center / 2em no-repeat;
+      opacity: 0;
+      transition: all $t ease;
+    }
+	} 
 }
-.rating__line {
-	position: absolute;
-	width: 85px;
-	height: 14px;
-	top: 0;
-	left: 0;
-	background: url("../img/icons/bg_rating.svg") 0 0 no-repeat;
-	z-index: 1;
-	background-size: 85px 100%;
-}
-.rating__activeline {
-	position: absolute;
-	width: 0px;
-	height: 14px;
-	top: 0;
-	left: 0;
-	background: url("../img/icons/bg_rating_active.svg") 0 0 no-repeat;
-	z-index: 2;
-	background-size: 85px 100%;
-}
-.rating__value {
-	display: inline-block;
-	color: #1b3139;
-	font-size: 14px;
-	line-height: 13px;
-	vertical-align: middle;
-} */
 //</RATING>====================================================================================================
 
 //<QUANTITY>====================================================================================================

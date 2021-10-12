@@ -243,6 +243,10 @@
   color: #f59300;
 }
 
+.article__content svg {
+  fill: #f59300;
+}
+
 .article__text {
   border-bottom: 1px solid #f59300;
 }

@@ -404,16 +404,33 @@ $side-padding: 5px;
 .edition-info {
 	display: flex;
 	justify-content: flex-end;
+	align-items: center;
 	line-height: 1.4em;
 	flex-wrap: wrap;
 
 	@media (min-width: $md4 + px) {
 		flex-wrap: nowrap;
 	}
+	// .edition-info__print
+	&__print {
+		display: none;
+		background: transparent;
+		padding: 3px;
 
+		svg {
+			width: 24px;
+			height: 24px;
+		}
+
+		@media (min-width: $md3 + px) {
+			display: inline-flex;	
+		}
+	}
 	// .edition-info__date
 	&__date {
-		//flex: 1 1 auto;
+		@media (min-width: $md3 + px) {
+			margin-left: 2em;
+		}
 	}
 	// .edition-info__date-title
 	&__date-title {

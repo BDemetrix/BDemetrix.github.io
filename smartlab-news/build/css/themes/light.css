@@ -248,6 +248,10 @@
   color: #3f3f3f;
 }
 
+.article__content svg {
+  fill: #3f3f3f;
+}
+
 .article__text {
   border-bottom: 1px solid #3f3f3f;
 }
