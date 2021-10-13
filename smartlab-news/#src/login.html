@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('_head.html',{
+	"title":"Новости рынка акций"
+	})
+	<body>
+		<div class="wrapper">
+			@@include('_header.html',{"checked1" : "", "checked2" : "checked"})
+			<main class="page login">
+				<form class="login__form">
+          <h1 class="login__title">SMARTLAB.<span>NEWS</span></h1>
+          <div class="login__body">
+            <div class="login__field">
+              <label class="login__label">Login:</label>
+              <div class="login__input-wrap">
+                <input type="text" class="login__input">
+                <div class="login__comment">Forgotten my password</div>
+              </div>
+            </div>
+            <div class="login__field">
+              <label class="login__label">Password:</label>
+              <div class="login__input-wrap">
+                <input type="password" class="login__input">
+                <a href="#" class="login__comment-link">Forgotten my password</a>
+              </div>
+            </div>
+            <div class="login__social">
+              <div class="login__social-btns">
+                <a href="https://smartlab.news/oauth/redirect/google" class="login__social-btn">
+                  <img src="images/login/google.png" alt="аккаунт google" aria-label="Перейти в аккаунт google" >
+                </a>
+                <a href="https://smartlab.news/oauth/redirect/facebook" class="login__social-btn">
+                  <img src="images/login/facebook.png" alt="аккаунт facebook" aria-label="Перейти в аккаунт facebook" >
+                </a>
+                <a href="https://smartlab.news/oauth/redirect/vkontakte" class="login__social-btn">
+                  <img src="images/login/vk.png" alt="аккаунт VK" aria-label="Перейти в аккаунт VK" >
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="login__btns">
+           <button class="login__btn" type="submit" aria-label="Sign In" >Sign In</button>     
+           <button class="login__btn" type="cancel" aria-label="Cancel">Cancel</button>       
+          </div>
+        </form>
+			</main>
+			@@include('_footer.html',{})
+		</div>
+		<!-- @@include('_popup.html',{}) -->
+		@@include('_js.html',{})
+	</body>
+</html>

@@ -2835,6 +2835,9 @@ body.ie {
 .header__title {
   position: relative;
   height: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2859,6 +2862,9 @@ body.ie {
 }
 
 .header__title_article {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
   margin-left: -10px;
   padding-left: 10px;
 }
@@ -2915,6 +2921,7 @@ body.ie {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
+  padding: 0 0 4px;
   background: transparent;
   -webkit-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;

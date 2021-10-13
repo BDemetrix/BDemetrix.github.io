@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ru">
+	 <head>
+	<title>Новости рынка акций</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" data-path="css/themes/black-red.min.css" href="" id="theme-link"> <!-- data-path="css/themes/black-red.min.css" -->
+	<!-- <link rel="shortcut icon" href="favicon.ico"> -->
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+	<body>
+		<div class="wrapper">
+			<header class="header _lp">
+
+	<div class="header__content">
+			<div class="header__menu menu">
+					<div class="menu__icon icon-menu">
+							<span></span>
+							<span></span>
+							<span></span>
+					</div>
+					<!-- Для предотвращения мигания основного меню  style="display: none;", убирается после загрузки скрипта -->
+					<nav class="menu__body" style="display: none;">
+						<div class="menu__body-box">
+							<ul class="menu__list _container">
+								<li><a class="menu__link" href="#">Пункт 1</a></li>
+								<li><a class="menu__link" href="#">Пункт 2</a></li>
+								<li><a class="menu__link" href="#">Пункт 3</a></li>
+								<li><a class="menu__link" href="#">Пункт 4</a></li>
+								<li><a class="menu__link" href="#">Пункт 5</a></li>
+							</ul>
+						</div>
+					</nav>
+			</div>
+			<div class="header__setting setting">
+				<div class="setting__icon">
+					<svg class="setting__svg">
+							<use xlink:href="images/symbol/sprite.svg#settings"></use>
+					</svg>
+				</div>
+				<!-- Для предотвращения мигания основного меню  style="display: none;", убирается после загрузки скрипта -->
+				<div class="setting__body" style="display: none;">
+					<form class="setting__form" name="settings">
+						<div class="setting__column">
+							<div class="setting__title">Выбор темы</div>
+							<div class="setting__box">
+								<label class="setting__item radio" for="black-red">
+									<input class="radio__input" type="radio" name="theme" value="black-red" id="black-red" checked>
+									<span class="radio__text">черно-рыжая</span>
+								</label>
+								<label class="setting__item radio" for="black-white">
+									<input class="radio__input" type="radio" name="theme" value="black-white" id="black-white">
+									<span class="radio__text">черно-белая</span>
+								</label>
+								<label class="setting__item radio" for="light">
+									<input class="radio__input" type="radio" name="theme" value="light" id="light">
+									<span class="radio__text">белая</span>
+								</label>
+							</div>
+						</div>
+						<div class="setting__column setting__column_last">
+							<div class="setting__title">Выбор стиля шрифта</div>
+							<div class="setting__box">
+								<label class="setting__item radio" for="Roboto">
+									<input class="radio__input" type="radio" name="font-family" value="Roboto" id="Roboto">
+									<span class="radio__text">Roboto</span>
+								</label>
+								<label class="setting__item radio" for="Lora">
+									<input class="radio__input" type="radio" name="font-family" value="Lora" id="Lora">
+									<span class="radio__text">Lora</span>
+								</label>
+								<label class="setting__item radio" for="Arial">
+									<input class="radio__input" type="radio" name="font-family" value="Arial" id="Arial">
+									<span class="radio__text">Arial</span>
+								</label>
+								<label class="setting__item radio" for="OpenSans">
+									<input class="radio__input" type="radio" name="font-family" value="OpenSans" id="OpenSans">
+									<span class="radio__text">Open&nbsp;Sans</span>
+								</label>
+								<label class="setting__item radio" for="Consolas">
+									<input class="radio__input" type="radio" name="font-family" value="Consolas" checked id="Consolas">
+									<span class="radio__text">Consolas</span>
+								</label>
+							</div>
+							<div class="setting__box">
+								<label class="setting__item radio">
+									<input class="radio__input" type="radio" name="font-weight" value="normal"  id="regular">
+									<span class="radio__text" for="regular">Обычный</span>
+								</label>
+								<label class="setting__item radio">
+									<input class="radio__input" type="radio" name="font-weight" value="bold" checked id="bold">
+									<span class="radio__text" for="bold">Жирный</span>
+								</label>
+							</div>
+							<div class="setting__box setting__box_horizontal">
+								<label class="setting__item radio">
+									<input class="radio__input" type="radio" name="font-size" value="30px" id="font-size-30" checked>
+									<span class="radio__text" for="font-size-30" style="font-size: 30px">Aa</span>
+								</label>
+								<label class="setting__item radio">
+									<input class="radio__input" type="radio" name="font-size" value="23px" id="font-size-23">
+									<span class="radio__text" for="font-size-23" style="font-size: 23px">Aa</span>
+								</label>
+								<label class="setting__item radio">
+									<input class="radio__input" type="radio" name="font-size" value="15px" id="font-size-15">
+									<span class="radio__text" for="font-size-15" style="font-size: 15px">Aa</span>
+								</label>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="header__title">
+				<div class="header__title-content"><span>SMARTLAB</span> <span>NEWS</span></div>
+			</div>
+			<div class="header__search search">
+				<form action="#" class="search__form">
+					<!-- Для предотвращения мигания основного меню  style="display: none;", убирается после загрузки скрипта -->
+					<div class="search__body" style="display: none;">
+						<div class="search__body-inner">
+							<div class="search__controls">
+								<div class="search__input news-search">
+									<input class="input" id="headerAutoComplete" name="header-search" type="text" dir="ltr" spellcheck=false
+										autocorrect="off" autocomplete="off" autocapitalize="off" maxlength="2048" placeholder="Поиск...">
+								</div>
+								<button class="search__submit news-button" type="submit" data-da=".search__input,567.98,3">
+									<span>Найти</span>
+									<svg>
+										<use xlink:href="images/symbol/sprite.svg#arrow"></use>
+									</svg>
+								</button>
+								<span class="search__cls-btn cls-btn" data-da=".search__input,567.98,2"><span></span></span>
+							</div>
+							<div class="search__auto-complete"></div>
+						</div>
+					</div>
+					<svg class="search__icon">
+						<use xlink:href="images/symbol/sprite.svg#search"></use>
+					</svg>
+				</form> <!-- data-value="Поиск..."  placeholder="Поиск..."-->
+			</div>
+			<div class="header__filter filters">
+
+  <div class="filters__icon">
+    <span></span>
+    <svg>
+      <use xlink:href="images/symbol/sprite.svg#controls2"></use>
+    </svg>
+  </div>
+  <!-- Для предотвращения мигания основного меню  style="display: none;", убирается после загрузки скрипта -->
+  <div class="filters__body"  style="display: none;">
+    <form class="filters__content" action="#">
+
+      <button class="filters__close" type="button">
+        <svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3.333 17.251L17.251 3.333m-13.918 0l13.918 13.918" stroke-width="2.222" stroke-linecap="round" />
+        </svg>
+      </button>
+
+      <div class="filters__row">
+          <div class="filters__block">
+            
+            <div class="filters__field">
+              <div class="filters__datepicker">
+                <svg>
+                  <use xlink:href="images/symbol/sprite.svg#calendar"></use>
+                </svg>
+                <!--
+                  * по классу input навешивается обработчик - при форусе родителю присваивается класс _focus и _filled
+                -->
+                <input class="filters__date-input input" type="text" placeholder="Дата" readonly>
+              </div>
+            </div>
+
+            <!-- 
+              * При необходимости сделать поле неактивным надо присвоить модификатор _disabled 
+            -->
+            <div class="filters__field">
+              <select id="country_id" name="country_id" tabindex="-1">
+								<option value="255" selected="">Все страны</option>
+								<option value="0" >Россия</option>
+								<option value="1">США</option>
+								<option value="11">Китай</option>
+								<option value="24">Европа</option>
+							</select>
+            </div>
+
+            <div class="filters__field">
+              <select id="news_id" name="news_id[]" multiple="true" tabindex="-1">
+                <option value="1" selected="">Новости</option>
+                <option value="2">Аналитика</option>
+                <option value="3">Причины</option>
+                <option value="4">Раскрытие Информации </option>
+              </select>
+            </div>
+
+            <div class="filters__field">
+              <select name="stocks_id" id="stocks_id" multiple="true" tabindex="-1">
+                <option value="" selected="">Акции</option>
+                <option value="default">Облигации</option>
+                <option value="indexed">Банки</option>
+                <option value="variable">Брокеры</option>
+              </select>
+            </div>
+
+          </div>
+
+          <div class="filters__block">
+
+            <div class="filters__field">
+              <!-- для  отключения добалляется атрибут [disabled] -->
+              <label class="filters__checkbox">
+                <input class="filters__checkbox-input" type="checkbox">
+                <span class="filters__checkbox-text">breaking news</span>
+              </label>
+            </div>
+
+            <div class="filters__field">
+              <div class="filters__btns">
+                <button class="filters__btn filters__btn--reset" type="reset">Сбросить</button>
+                <button class="filters__btn filters__btn--submit" type="submit">Применить</button>
+              </div>
+            </div>
+
+          </div>
+      </div>
+
+    </form>
+</div>
+
+</div>
+	</div>
+	
+</header> 
+			<main class="page login">
+				<form class="login__form">
+          <h1 class="login__title">SMARTLAB.<span>NEWS</span></h1>
+          <div class="login__body">
+            <div class="login__field">
+              <label class="login__label">Login:</label>
+              <div class="login__input-wrap">
+                <input type="text" class="login__input">
+                <div class="login__comment">Forgotten my password</div>
+              </div>
+            </div>
+            <div class="login__field">
+              <label class="login__label">Password:</label>
+              <div class="login__input-wrap">
+                <input type="password" class="login__input">
+                <a href="#" class="login__comment-link">Forgotten my password</a>
+              </div>
+            </div>
+            <div class="login__social">
+              <div class="login__social-btns">
+                <a href="https://smartlab.news/oauth/redirect/google" class="login__social-btn">
+                  <img src="images/login/google.png" alt="аккаунт google" aria-label="Перейти в аккаунт google" >
+                </a>
+                <a href="https://smartlab.news/oauth/redirect/facebook" class="login__social-btn">
+                  <img src="images/login/facebook.png" alt="аккаунт facebook" aria-label="Перейти в аккаунт facebook" >
+                </a>
+                <a href="https://smartlab.news/oauth/redirect/vkontakte" class="login__social-btn">
+                  <img src="images/login/vk.png" alt="аккаунт VK" aria-label="Перейти в аккаунт VK" >
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="login__btns">
+           <button class="login__btn" type="submit" aria-label="Sign In" >Sign In</button>     
+           <button class="login__btn" type="cancel" aria-label="Cancel">Cancel</button>       
+          </div>
+        </form>
+			</main>
+			<footer class="footer">
+	<div class="footer__container">
+		<div class="footer__content">
+			<div class="footer__item footer__item_h1">
+				<h1 class="footer__h1">Биржевые новости. Новости рынка акций</h1>
+			</div>
+			<div class="footer__item"><a href="#" class="footer__link">Информация</a></div>
+			<div class="footer__item"><a href="#" class="footer__link">Контакты</a></div>
+		</div>
+	</div>
+</footer>
+		</div>
+		
+		<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+<!-- <script src="js/vendors.min.js"></script>
+<script src="js/app.min.js"></script> -->
+<script src="js/vendors.js"></script>
+<script src="js/app.js"></script>
+<!-- Файл js/for-demo.js предназначен для демонстрации работы некоторых плагинов и в app.js попадать не должен -->
+<script src="js/for-demo.js"></script>
+	</body>
+</html>

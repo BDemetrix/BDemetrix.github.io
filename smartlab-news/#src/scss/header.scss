@@ -43,6 +43,7 @@
 	&__title {
 		position: relative;
 		height: 100%;
+		flex: 1 1 auto;
 		display: flex;
 		align-items: center;
 		font-size: 15px;
@@ -72,6 +73,7 @@
 		} */
 
 		&_article {
+			flex: 0 0 auto;
 			margin-left: -10px;
 			padding-left: 10px;
 			@media (max-width: $md4 + px) and (min-width: 450px) {
@@ -118,9 +120,10 @@
 		width: 50px;
 		margin-right: auto;
 	}
-	// . header__add-news-btn
+	// .header__add-news-btn
 	&__add-news-btn {
 		display: inline-flex;
+		padding: 0 0 4px;
 		background: transparent;
 		transition: all $t ease;
 
