@@ -15,7 +15,6 @@
 	<body>
 		<div class="wrapper">
 			<header class="header _lp">
-
 	<div class="header__content">
 			<div class="header__menu menu">
 					<div class="menu__icon icon-menu">
@@ -36,7 +35,7 @@
 						</div>
 					</nav>
 			</div>
-			<div class="header__setting setting">
+			<div class="header__setting header__setting_article setting">
 				<div class="setting__icon">
 					<svg class="setting__svg">
 							<use xlink:href="images/symbol/sprite.svg#settings"></use>
@@ -64,6 +63,7 @@
 						</div>
 						<div class="setting__column setting__column_last">
 							<div class="setting__title">Выбор стиля шрифта</div>
+
 							<div class="setting__box">
 								<label class="setting__item radio" for="Roboto">
 									<input class="radio__input" type="radio" name="font-family" value="Roboto" id="Roboto">
@@ -86,7 +86,7 @@
 									<span class="radio__text">Consolas</span>
 								</label>
 							</div>
-							<div class="setting__box">
+							<div class="setting__box setting__box_disabled">
 								<label class="setting__item radio">
 									<input class="radio__input" type="radio" name="font-weight" value="normal"  id="regular">
 									<span class="radio__text" for="regular">Обычный</span>
@@ -96,27 +96,34 @@
 									<span class="radio__text" for="bold">Жирный</span>
 								</label>
 							</div>
+
 							<div class="setting__box setting__box_horizontal">
-								<label class="setting__item radio">
-									<input class="radio__input" type="radio" name="font-size" value="30px" id="font-size-30" checked>
-									<span class="radio__text" for="font-size-30" style="font-size: 30px">Aa</span>
+								<label class="setting__item" for="font-size-24">
+									<input class="radio__input" type="radio" name="font-size" value="24px" id="font-size-24" checked>
+									<span class="radio__text" style="font-size: 24px">Aa</span>
 								</label>
-								<label class="setting__item radio">
-									<input class="radio__input" type="radio" name="font-size" value="23px" id="font-size-23">
-									<span class="radio__text" for="font-size-23" style="font-size: 23px">Aa</span>
+								<label class="setting__item" for="font-size-20">
+									<input class="radio__input" type="radio" name="font-size" value="20px" id="font-size-20">
+									<span class="radio__text" style="font-size: 20px">Aa</span>
 								</label>
-								<label class="setting__item radio">
-									<input class="radio__input" type="radio" name="font-size" value="15px" id="font-size-15">
-									<span class="radio__text" for="font-size-15" style="font-size: 15px">Aa</span>
+								<label class="setting__item" for="font-size-16">
+									<input class="radio__input" type="radio" name="font-size" value="16px" id="font-size-16">
+									<span class="radio__text" style="font-size: 16px">Aa</span>
 								</label>
 							</div>
 						</div>
 					</form>
 				</div>
 			</div>
-			<div class="header__title">
-				<div class="header__title-content"><span>SMARTLAB</span> <span>NEWS</span></div>
+			<div class="header__title ">
+				<a href="index.html" class="header__back-icon">
+					<svg>
+						<use xlink:href="images/symbol/sprite.svg#arrow"></use>
+					</svg>
+				</a>
+				<a href="index.html" class="header__title-content">Авторизация</a>
 			</div>
+			
 			<div class="header__search search">
 				<form action="#" class="search__form">
 					<!-- Для предотвращения мигания основного меню  style="display: none;", убирается после загрузки скрипта -->
@@ -234,8 +241,7 @@
 
 </div>
 	</div>
-	
-</header> 
+</header>	
 			<main class="page login">
 				<form class="login__form">
           <h1 class="login__title">SMARTLAB.<span>NEWS</span></h1>
@@ -250,21 +256,24 @@
             <div class="login__field">
               <label class="login__label">Password:</label>
               <div class="login__input-wrap">
-                <input type="password" class="login__input">
+                <input type="password" class="login__input login__input--pass">
                 <a href="#" class="login__comment-link">Forgotten my password</a>
               </div>
             </div>
-            <div class="login__social">
-              <div class="login__social-btns">
-                <a href="https://smartlab.news/oauth/redirect/google" class="login__social-btn">
-                  <img src="images/login/google.png" alt="аккаунт google" aria-label="Перейти в аккаунт google" >
-                </a>
-                <a href="https://smartlab.news/oauth/redirect/facebook" class="login__social-btn">
-                  <img src="images/login/facebook.png" alt="аккаунт facebook" aria-label="Перейти в аккаунт facebook" >
-                </a>
-                <a href="https://smartlab.news/oauth/redirect/vkontakte" class="login__social-btn">
-                  <img src="images/login/vk.png" alt="аккаунт VK" aria-label="Перейти в аккаунт VK" >
-                </a>
+            <div class="login__field">
+              <div class="login__social">
+                <div class="login__comment">or log in with social networks:</div>
+                <div class="login__social-btns">
+                  <a href="https://smartlab.news/oauth/redirect/google" class="login__social-btn">
+                    <img src="images/login/google.png" alt="аккаунт google" aria-label="Перейти в аккаунт google" >
+                  </a>
+                  <a href="https://smartlab.news/oauth/redirect/facebook" class="login__social-btn">
+                    <img src="images/login/facebook.png" alt="аккаунт facebook" aria-label="Перейти в аккаунт facebook" >
+                  </a>
+                  <a href="https://smartlab.news/oauth/redirect/vkontakte" class="login__social-btn">
+                    <img src="images/login/vk.png" alt="аккаунт VK" aria-label="Перейти в аккаунт VK" >
+                  </a>
+                </div>
               </div>
             </div>
           </div>

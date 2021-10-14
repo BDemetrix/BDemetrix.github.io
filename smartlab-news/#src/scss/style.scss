@@ -108,7 +108,7 @@ picture {
 @import "filters";
 //@import "main";
 @import "footer";
-//@import "home";
+@import "login";
 
 //</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
 
@@ -121,7 +121,7 @@ picture {
 	box-sizing: border-box;
 	//transition: all $t/2 linear;
 	//font-family: $fontFamily;
-	font-size: 30px;
+	font-size: 24px;
 	font-weight: bold;
 
 	// .page__inner

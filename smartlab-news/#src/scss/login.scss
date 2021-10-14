@@ -1,0 +1,136 @@
+.login {
+  font-family: Roboto, Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+	// .login__form
+	&__form {
+    padding: 20px 30px;
+    width: 600px;
+    max-width: 100%;
+    background: #333;
+    border-radius: 5px;
+
+		color: #fefefe;
+  	font-size: 12px;
+  	line-height: 14px;
+	}
+	// .login__title
+	&__title {
+    color: #ea7e00;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    span {
+      color: #fefefe;
+    }
+	}
+	// .login__body
+	&__body {
+		display: flex;
+		flex-direction: column;
+		padding: 75px 0 45px;
+		align-items: center;
+		justify-content: center;
+	/* 	padding: 75px adaptiv-value($md3,100,320,0) 45px;
+
+		@media (min-width: $md3 + px) {
+			padding: 75px 100px 45px;
+		} */
+	}
+	// .login__field
+	&__field {
+    display: flex;
+		margin: 0 0 4px;
+		width: 360px;
+	}
+	// .login__label
+	&__label {
+		width: 80px;
+		line-height: 22px;
+	}
+	// .login__input-wrap
+	&__input-wrap {
+
+	}
+	// .login__input
+	&__input {
+		display: block;
+		height: 22px;
+		width: 280px;
+		max-width: 100%;
+		background: #D1D1D1;
+		
+		&--pass {
+			width: 175px;
+		}
+	}
+	&__comment, 
+	&__comment-link	{
+		margin: 4px 0;
+		font-weight: 400;
+		font-size: 10px;
+		line-height: 12px;
+	}
+	// .login__comment
+	&__comment {
+		color: #8D8D8D;
+	}
+	// .login__comment-link
+	&__comment-link {
+		display: block;
+		color: #28D2FF;
+	}
+	// .login__social
+	&__social {
+		margin: 16px 0 0 80px;
+	}
+	// .login__social-btns
+	&__social-btns {
+		display: flex;
+		margin-left: -4px;
+	}
+	// .login__social-btn
+	&__social-btn {
+		display: block;
+		width: 48px;
+		height: 48px;
+		margin-right: 14px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+		
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+	// .login__btns
+	&__btns {
+		display: flex;
+		justify-content: center;
+	}
+	// .login__btn
+	&__btn {
+		display: block;
+		margin: 0 12px;
+		width: 98px;
+		height: 32px;
+		background: linear-gradient(180deg, #000000 0%, rgba(163, 163, 163, 0.916667) 0.01%, rgba(0, 0, 0, 0.917526) 11.46%, #000000 28.65%);
+		border: 1px solid #000000;
+		box-sizing: border-box;
+		border-radius: 5px;
+		color: #C9C9C9;
+
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+}

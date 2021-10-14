@@ -5,7 +5,7 @@
 	})
 	<body>
 		<div class="wrapper">
-			@@include('_header.html',{"checked1" : "", "checked2" : "checked"})
+			@@include('_header_article.html',{"checked1" : "", "checked2" : "checked", "Title" : "Авторизация", "Article" : "", "Add-News" : ""})
 			<main class="page login">
 				<form class="login__form">
           <h1 class="login__title">SMARTLAB.<span>NEWS</span></h1>
@@ -20,21 +20,24 @@
             <div class="login__field">
               <label class="login__label">Password:</label>
               <div class="login__input-wrap">
-                <input type="password" class="login__input">
+                <input type="password" class="login__input login__input--pass">
                 <a href="#" class="login__comment-link">Forgotten my password</a>
               </div>
             </div>
-            <div class="login__social">
-              <div class="login__social-btns">
-                <a href="https://smartlab.news/oauth/redirect/google" class="login__social-btn">
-                  <img src="images/login/google.png" alt="аккаунт google" aria-label="Перейти в аккаунт google" >
-                </a>
-                <a href="https://smartlab.news/oauth/redirect/facebook" class="login__social-btn">
-                  <img src="images/login/facebook.png" alt="аккаунт facebook" aria-label="Перейти в аккаунт facebook" >
-                </a>
-                <a href="https://smartlab.news/oauth/redirect/vkontakte" class="login__social-btn">
-                  <img src="images/login/vk.png" alt="аккаунт VK" aria-label="Перейти в аккаунт VK" >
-                </a>
+            <div class="login__field">
+              <div class="login__social">
+                <div class="login__comment">or log in with social networks:</div>
+                <div class="login__social-btns">
+                  <a href="https://smartlab.news/oauth/redirect/google" class="login__social-btn">
+                    <img src="images/login/google.png" alt="аккаунт google" aria-label="Перейти в аккаунт google" >
+                  </a>
+                  <a href="https://smartlab.news/oauth/redirect/facebook" class="login__social-btn">
+                    <img src="images/login/facebook.png" alt="аккаунт facebook" aria-label="Перейти в аккаунт facebook" >
+                  </a>
+                  <a href="https://smartlab.news/oauth/redirect/vkontakte" class="login__social-btn">
+                    <img src="images/login/vk.png" alt="аккаунт VK" aria-label="Перейти в аккаунт VK" >
+                  </a>
+                </div>
               </div>
             </div>
           </div>
