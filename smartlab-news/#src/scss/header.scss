@@ -132,8 +132,27 @@
 			height: 25px;
 		}
 
+		svg:last-child {
+			display: none;
+			fill: #FFCA46
+		}
+
 		&:hover {
 			transform: scale(1.2);
+		}
+
+		&._active {
+			padding: 0 0 3px;
+			
+			svg:first-child {
+				display: none;
+			}
+
+			svg:last-child {
+				display: inline-block;
+				width: 28px;
+				height: 28px;
+			}
 		}
 	}
 	// .header__search

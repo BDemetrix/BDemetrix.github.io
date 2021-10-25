@@ -2932,10 +2932,29 @@ body.ie {
   height: 25px;
 }
 
+.header__add-news-btn svg:last-child {
+  display: none;
+  fill: #FFCA46;
+}
+
 .header__add-news-btn:hover {
   -webkit-transform: scale(1.2);
       -ms-transform: scale(1.2);
           transform: scale(1.2);
+}
+
+.header__add-news-btn._active {
+  padding: 0 0 3px;
+}
+
+.header__add-news-btn._active svg:first-child {
+  display: none;
+}
+
+.header__add-news-btn._active svg:last-child {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
 }
 
 .header__search {
