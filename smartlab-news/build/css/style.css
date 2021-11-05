@@ -4457,13 +4457,14 @@ body.ie {
       flex-wrap: wrap;
 }
 
-.edition-info__print {
+.edition-info__btn {
   display: none;
   background: transparent;
+  margin-left: 12px;
   padding: 3px;
 }
 
-.edition-info__print svg {
+.edition-info__btn svg {
   width: 24px;
   height: 24px;
 }
@@ -4721,7 +4722,7 @@ body.ie {
     padding: 5px 15px;
   }
 
-  .edition-info__print {
+  .edition-info__btn {
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;

@@ -411,10 +411,11 @@ $side-padding: 5px;
 	@media (min-width: $md4 + px) {
 		flex-wrap: nowrap;
 	}
-	// .edition-info__print
-	&__print {
+	// .edition-info__btn
+	&__btn {
 		display: none;
 		background: transparent;
+		margin-left: 12px;
 		padding: 3px;
 
 		svg {
