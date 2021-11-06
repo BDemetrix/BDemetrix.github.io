@@ -423,6 +423,15 @@ $side-padding: 5px;
 			height: 24px;
 		}
 
+		&--copy {
+			
+			svg {
+				width: 20px;
+				height: 20px;
+				stroke-width: 1px;
+			}
+		}
+
 		@media (min-width: $md3 + px) {
 			display: inline-flex;	
 		}

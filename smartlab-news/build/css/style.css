@@ -4469,6 +4469,12 @@ body.ie {
   height: 24px;
 }
 
+.edition-info__btn--copy svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 1px;
+}
+
 .edition-info__author {
   margin-left: 2em;
 }
