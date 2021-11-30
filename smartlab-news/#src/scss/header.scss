@@ -57,6 +57,10 @@
 			display: block;
 		}
 
+		@media (min-width: $md3 + px) {
+				flex: 0 0 auto;
+		}
+
 		@media (min-width: $md4 + px) {
 			font-size: 29px;
 
@@ -159,6 +163,10 @@
 	&__search {
 		flex: 0 0 auto;
 		margin: 0 10px;
+
+		@media (min-width: $md3 + px) {
+				flex: 1 1 auto;
+		}
 	}
 	// .header__filter
 	&__filter {
