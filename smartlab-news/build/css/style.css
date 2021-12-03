@@ -2060,6 +2060,9 @@ body.ie {
   border-color: transparent;
   background-repeat: no-repeat;
   background-position: center center;
+  -webkit-transition: background-color 0.25s ease;
+  -o-transition: background-color 0.25s ease;
+  transition: background-color 0.25s ease;
 }
 
 /*disabled state*/
@@ -2133,6 +2136,7 @@ body.ie {
 }
 
 .SumoSelect > .optWrapper.multiple > .options li.opt {
+  position: relative;
   color: #585858;
 }
 
@@ -2157,6 +2161,60 @@ body.ie {
 .optWrapper:not(.multiple) .options li.opt:hover label {
   background: #F4F4F4;
   color: #4F91CD;
+}
+
+.radio-sumo-btn {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 40px;
+  background: transparent;
+}
+
+.radio-sumo-btn::before,
+.radio-sumo-btn::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  -webkit-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+.radio-sumo-btn::before {
+  width: 16px;
+  height: 16px;
+  top: calc(50% - 8px);
+  right: calc(50% - 8px);
+  border: 1px solid #AEAEAE;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.radio-sumo-btn::after {
+  width: 10px;
+  height: 10px;
+  background: transparent;
+  top: calc(50% - 5px);
+  right: calc(50% - 5px);
+}
+
+.radio-sumo-btn:hover::before {
+  border: 1px solid #000;
+}
+
+.radio-sumo-btn.selected::before {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #000;
+}
+
+.radio-sumo-btn.selected::after {
+  width: 10px;
+  height: 10px;
+  background: #000;
 }
 
 /*! nouislider - 14.6.0 - 6/27/2020 */

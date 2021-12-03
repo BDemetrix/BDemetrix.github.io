@@ -1385,6 +1385,8 @@ headerSettingBody.style.display = '';
 plugSimpleBar('.filters__content');
 
 
+
+
 // Обработчик открытия/закрытия окна "фильтры"
 const filtersBtn = document.querySelector('.filters__icon');
 const filtersBody = document.querySelector('.filters__body');
@@ -1418,7 +1420,7 @@ filtersBodyContent.addEventListener('reset', (e) => {
       input.dispatchEvent(inputChange);
     }, 50);
   }); */
-  clearSumoContents();
+  defaultSumoContents();
 })
 
 
@@ -1428,16 +1430,18 @@ if ($('#news_id').length) $('#news_id').SumoSelect({
   csvDispCount: 2,
   captionFormat: 'Выбрано ({0})',
   captionFormatAllSelected: 'Выбраны все ({0})',
+  floatWidth: 0,
 });
 if ($('#stocks_id').length) $('#stocks_id').SumoSelect({ 
   placeholder: 'Акции',
   csvDispCount: 2,
   captionFormat: 'Выбрано ({0})',
   captionFormatAllSelected: 'Выбраны все ({0}) ',
+  floatWidth: 0,
 });
 
 var sumoSelects = $('#country_id');
-if (sumoSelects.length) sumoSelects.SumoSelect(); 
+if (sumoSelects.length) sumoSelects.SumoSelect({floatWidth: 0}); 
 
 // подключение кастомного скролла к селекту
 function plugSimpleBarSumoSelect() {
@@ -1450,14 +1454,46 @@ function plugSimpleBarSumoSelect() {
 }
 plugSimpleBarSumoSelect();
 
+// Сохранение выбраных по умолчанию опций
+var allSumoSelect = $('.SumoSelect');
+$.each(allSumoSelect, function (i, sumoElement) {
+
+  //console.log(sumoElement.firstElementChild);
+
+   $.each($(sumoElement).find('select').find('option'), function (i, optionEl) {
+
+    if(optionEl.selected) {
+      optionEl.dataset.selected = '1'
+    }
+  });
+});
+
 // Функция сброса 
-function clearSumoContents(){
+/* function clearSumoContents(){
   $.each(sumoSelects, function() {
     this.sumo.unSelectAll();
     this.sumo.selectItem(0);
   })
  $('#news_id')[0].sumo.unSelectAll();
  $('#stocks_id')[0].sumo.unSelectAll();
+} */
+
+// Функция сброса к значениям по умолчанию
+function defaultSumoContents(){
+
+  var select;
+  $.each(allSumoSelect, function (i, sumoElement) {
+
+    select =  $(sumoElement).find('select');
+    select[0].sumo.unSelectAll();
+
+     $.each(select.find('option'), function (i, optionEl) {
+
+      if(optionEl.dataset.selected) {
+        select[0].sumo.selectItem(i);
+      }
+    });
+  });
 }
 
 
@@ -1584,3 +1620,31 @@ filtersBodyRangeSliderObjs.forEach( obj => plugNoUiSlider(obj));
   }
 }
  */
+
+// Доработка sumoSelects
+
+AdvancedSumoSelect();
+
+function AdvancedSumoSelect () {
+  // Находим все элементы списка множественных "селектов"
+  var optionsArr = $('.SumoSelect > .optWrapper.multiple .options li.opt');
+  if(optionsArr.length) {
+    optionsArr.append('<button class="radio-sumo-btn" type="button"></button>');
+
+    $('.radio-sumo-btn').on('click', function (e) {
+      e.stopPropagation();
+      var parentList = $(this).closest('.optWrapper');
+      var parentSelect = $(this).closest('.SumoSelect').find('select');
+
+      parentSelect[0].sumo.unSelectAll();
+      parentList.find('.options li.opt').removeClass('selected');
+
+      $(this).parent().trigger('click');
+      $(this).addClass('selected');
+    });
+
+    optionsArr.on('click', function () {
+      $(this).closest('.optWrapper').find('.radio-sumo-btn').removeClass('selected');
+    });  
+  }
+}
