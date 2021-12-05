@@ -133,6 +133,18 @@
       margin-bottom: 5px;
     }
 
+    select {
+      
+      /* clip: rect(1px,1px,1px,1px);
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
+      z-index: -1000;
+      -webkit-user-select: none; */
+    }
+
     @media (min-width: $md2 + px) {
       width: 267px;
 

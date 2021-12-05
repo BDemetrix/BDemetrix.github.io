@@ -655,6 +655,8 @@ function plugSimpleBar(selector) {
   let simpleBarEl
   if (typeof selector === 'string') {
     simpleBarEl = document.querySelector(selector);
+		console.log({simpleBarEl});
+		
   }
   else if (typeof selector === 'object') {
     simpleBarEl = selector;

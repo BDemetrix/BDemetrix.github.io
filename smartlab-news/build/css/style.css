@@ -3374,6 +3374,10 @@ body.ie {
      text-overflow: ellipsis;
 }
 
+.search__auto-list .simplebar-track.simplebar-vertical {
+  margin-right: -10px;
+}
+
 .search__auto-item {
   position: relative;
   cursor: pointer;
@@ -3643,6 +3647,17 @@ body.ie {
 
 .filters__field:last-child {
   margin-bottom: 5px;
+}
+
+.filters__field select {
+  /* clip: rect(1px,1px,1px,1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  z-index: -1000;
+  -webkit-user-select: none; */
 }
 
 .filters__field._disabled .SumoSelect {

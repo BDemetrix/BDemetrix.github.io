@@ -543,6 +543,10 @@
 			overflow: hidden;
 			text-overflow: ellipsis;
 		}
+
+		.simplebar-track.simplebar-vertical {
+			margin-right: -10px;
+		}
 	}
 	// .search__auto-item
 	&__auto-item {

@@ -1,5 +1,8 @@
 // Файл js/for-demo.js предназначен для демонстрации работы некоторых плагинов и в app.js попадать не должен
 
+
+
+
 // autoComplete.js
 const autoCompleteJS = new autoComplete({
 	// API Advanced Configuration Object
@@ -20,7 +23,13 @@ const autoCompleteJS = new autoComplete({
 				'Ростехнадзор может приостановить работу фабрики Норникеля в Норильске',
 				'ГДР Fix Price допущены к торгам на Московской бирже',
 				'Ликвидность банковского сектора ЦБ',
-				'Обрушение на предприятии Норильского никеля: компания разваливается по частям']
+				'Обрушение на предприятии Норильского никеля: компания разваливается по частям',
+				'Криптоактивы несут большие риски, выпуск инструментов в инвалюте нежелателен — ЦБ',
+				'МНЕНИЕ: Выручка Русской Аквакультуры за 4 квартал может составить 14,3 млрд рублей - Велес Капитал',
+				'Рынок обладает значительным потенциалом для дальнейшего роста, но нужна защита инвесторов — мнение ЦБ',
+				'Freedom Holding покупает американского брокера MKM Partners',
+				'Прекратить с 03 марта 2022 года торги акциями ПАО «ДжиТиЭл» и ОАО «Мультисистема»',
+				'МНЕНИЕ: Потенциал роста акций Сбербанка составляет 31-34% с текущих уровней - Альфа-Банк']
 	},
 	resultsList: {
 		render: true,
@@ -29,7 +38,7 @@ const autoCompleteJS = new autoComplete({
 		className: "search__auto-list",
 		destination: ".search__auto-complete",
 		position: "afterend",
-		//maxResults: 5,
+		maxResults: 20,
 		container: (element, data) => {
 			const liItems = element.querySelectorAll('li');
 			document.querySelector("#headerAutoComplete").addEventListener("navigate", function (event) {
@@ -38,7 +47,8 @@ const autoCompleteJS = new autoComplete({
 				if (liItems[index]) {
 					liItems[index].classList.add('_active');
 				}
-			});			
+			});		
+			plugSimpleBar('.search__auto-list');	
 		},
 		noResults: (list, query) => {
 			// Create "No Results" message element
