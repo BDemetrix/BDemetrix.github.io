@@ -1,7 +1,7 @@
 // Файл js/for-demo.js предназначен для демонстрации работы некоторых плагинов и в app.js попадать не должен
 
 
-
+plugSimpleBar('.search__auto-complete-wrap');
 
 // autoComplete.js
 const autoCompleteJS = new autoComplete({
@@ -37,7 +37,7 @@ const autoCompleteJS = new autoComplete({
 		idName: "header-auto-list",
 		className: "search__auto-list",
 		destination: ".search__auto-complete",
-		position: "afterend",
+		position: "afterbegin",
 		maxResults: 20,
 		container: (element, data) => {
 			const liItems = element.querySelectorAll('li');
@@ -47,8 +47,7 @@ const autoCompleteJS = new autoComplete({
 				if (liItems[index]) {
 					liItems[index].classList.add('_active');
 				}
-			});		
-			plugSimpleBar('.search__auto-list');	
+			});	
 		},
 		noResults: (list, query) => {
 			// Create "No Results" message element

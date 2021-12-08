@@ -3360,10 +3360,21 @@ body.ie {
           transform: translate(0, 0);
 }
 
+.search__auto-complete-wrap {
+  max-height: calc(100vh - 190px);
+  margin-top: 30px;
+}
+
+.search__auto-complete-wrap .simplebar-track.simplebar-vertical {
+  margin-right: -10px;
+}
+
+.search__auto-complete-wrap .simplebar-scrollbar:before {
+  opacity: 1;
+}
+
 .search__auto-list {
   font-size: 20px;
-  margin-top: 30px;
-  max-height: calc(100vh - 190px);
 }
 
 .search__auto-list .no_result {
@@ -3372,10 +3383,6 @@ body.ie {
   overflow: hidden;
   -o-text-overflow: ellipsis;
      text-overflow: ellipsis;
-}
-
-.search__auto-list .simplebar-track.simplebar-vertical {
-  margin-right: -10px;
 }
 
 .search__auto-item {

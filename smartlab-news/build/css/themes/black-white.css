@@ -96,6 +96,10 @@
   background: rgba(213, 213, 213, 0.5);
 }
 
+.search__auto-complete-wrap .simplebar-scrollbar:before {
+  background: rgba(213, 213, 213, 0.25);
+}
+
 .search__auto-list .simplebar-scrollbar:before {
   background: rgba(213, 213, 213, 0.2);
   opacity: 1;

@@ -526,26 +526,32 @@
 			transform: translate(0,0);
 		}
 	}
+	// .search__auto-complete-wrap 
+	&__auto-complete-wrap {
+		max-height: calc(100vh - 190px);
+		margin-top: 30px;
+
+		.simplebar-track.simplebar-vertical {
+			margin-right: -10px;
+		}
+		
+		.simplebar-scrollbar:before {
+			opacity: 1;
+		}
+	}
 	// .search__auto-complete
 	&__auto-complete {
-		
 	}
 	// .search__auto-list 
 	&__auto-list {
 		font-size: 20px;
-		margin-top: 30px;
 		//margin-bottom: -0.75em;
-		max-height: calc(100vh - 190px);
 
 		.no_result {
 			font-size: 18px;
 			padding: 0 10px;
 			overflow: hidden;
 			text-overflow: ellipsis;
-		}
-
-		.simplebar-track.simplebar-vertical {
-			margin-right: -10px;
 		}
 	}
 	// .search__auto-item

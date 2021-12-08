@@ -655,19 +655,19 @@ function plugSimpleBar(selector) {
   let simpleBarEl
   if (typeof selector === 'string') {
     simpleBarEl = document.querySelector(selector);
-		console.log({simpleBarEl});
-		
   }
   else if (typeof selector === 'object') {
     simpleBarEl = selector;
   }
-  else return;
+  else return false;
   
   if (simpleBarEl) {
     try {
+			console.log({simpleBarEl});
       return new SimpleBar(simpleBarEl);
     } catch {
       simpleBarEl.style.ovetflowY = 'auto';
+			return false;
     }
   }
 }

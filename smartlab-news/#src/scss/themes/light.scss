@@ -200,6 +200,13 @@ $datepicker-cell-range-bg: rgba($color: $header-bg, $alpha: .2);
 	// .search__icon
 	&__icon {
 	}
+	// .search__auto-complete-wrap 
+	&__auto-complete-wrap {
+		
+		.simplebar-scrollbar:before {
+  		background: rgba($color: $header-color, $alpha: .35);
+		}
+	}
 	// .search__auto-complete
 	&__auto-complete {
 	}
