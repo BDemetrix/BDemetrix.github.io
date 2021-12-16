@@ -2984,12 +2984,14 @@ body.ie {
   transition: all 0.5s ease;
 }
 
-.header__add-news-btn svg {
-  width: 25px;
-  height: 25px;
+.header__add-news-btn svg:first-child {
+  width: 28px;
+  height: 28px;
 }
 
 .header__add-news-btn svg:last-child {
+  width: 25px;
+  height: 25px;
   display: none;
   fill: #FFCA46;
 }

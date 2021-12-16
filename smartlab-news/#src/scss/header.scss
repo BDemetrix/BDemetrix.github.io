@@ -130,14 +130,16 @@
 		background: transparent;
 		transition: all $t ease;
 
-		svg {
-			width: 25px;
-			height: 25px;
+		svg:first-child {
+			width: 28px;
+			height: 28px;
 		}
 
 		svg:last-child {
+			width: 25px;
+			height: 25px;
 			display: none;
-			fill: #FFCA46
+			fill: #FFCA46;
 		}
 
 		&:hover {
