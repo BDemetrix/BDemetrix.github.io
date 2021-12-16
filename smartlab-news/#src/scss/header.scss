@@ -127,7 +127,6 @@
 	// .header__add-news-btn
 	&__add-news-btn {
 		display: inline-flex;
-		padding: 0 0 4px;
 		background: transparent;
 		transition: all $t ease;
 
@@ -146,7 +145,6 @@
 		}
 
 		&._active {
-			padding: 0 0 3px;
 			
 			svg:first-child {
 				display: none;
