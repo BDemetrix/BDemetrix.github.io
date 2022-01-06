@@ -266,6 +266,19 @@ picture {
   width: 100%;
 }
 
+.slide-content__tabs-footer {
+  margin-top: 0.5em;
+  text-align: center;
+}
+
+.slide-content__tabs-link {
+  color: #3b91cd;
+}
+
+.slide-content__tabs-link:hover {
+  color: #0a5991;
+}
+
 .quote-leaders {
   display: -webkit-box;
   display: -ms-flexbox;

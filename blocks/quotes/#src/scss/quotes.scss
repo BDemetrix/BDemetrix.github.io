@@ -159,6 +159,19 @@ $red-color: #f00;
 	&__tabs-block {
 		width: 100%;
 	}
+	// .slide-content__tabs-footer
+	&__tabs-footer {
+		margin-top: 0.5em;
+		text-align: center;
+	}
+	// .slide-content__tabs-link
+	&__tabs-link {
+		color: #3b91cd;
+
+		&:hover {
+			color: #0a5991;
+		}
+	}
 }
 .quote-leaders {
 	display: flex;
