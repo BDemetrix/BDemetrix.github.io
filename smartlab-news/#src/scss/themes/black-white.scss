@@ -52,6 +52,10 @@ $datepicker-cell-range-bg: rgba($color: $header-color, $alpha: .1);
 	// .header__title
 	&__title {
 	}
+	// .header__title-content 
+	&__title-content {
+		color: $header-color;
+	}
 	// .header__search
 	&__search {
 	}
