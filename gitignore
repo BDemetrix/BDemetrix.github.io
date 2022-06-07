@@ -8,4 +8,4 @@ package-lock.json
 *.psd
 *.sublime*
 node_modules/
-emails/[#]src/
+emails/source/

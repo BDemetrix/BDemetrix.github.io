@@ -15,5 +15,5 @@ Thumbs.db
 default.html
 gulpfile.js
 README.md
-[#]src/
+source/
 package.json
