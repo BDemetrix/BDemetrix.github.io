@@ -1,13 +1,12 @@
 .main {
   max-width: 100%;
+  /* &__content-wrap {
+      padding-top: 24px;
+  } */
 }
 
 .main * {
   font-family: inherit;
-}
-
-.main__content-wrap {
-  padding-top: 24px;
 }
 
 .main__content {
