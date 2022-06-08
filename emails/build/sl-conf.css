@@ -14,6 +14,15 @@
   width: 100%;
 }
 
+.main__head {
+  max-height: 102px;
+}
+
+.main__head img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
 .main__title {
   padding-top: 24px;
   padding-right: 24px;
@@ -41,9 +50,15 @@
 }
 
 .main__banner {
+  max-height: 196px;
   padding-right: 24px;
   padding-left: 24px;
   padding-bottom: 26px;
+}
+
+.main__banner img {
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .main__description {
