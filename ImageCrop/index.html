@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImgCrop</title>
+    <link rel="stylesheet" href="https://unpkg.com/jcrop/dist/jcrop.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/jcrop"></script>
+</head>
+
+<body>
+    <div id="page">
+        <div id="workspace">
+            <img style="float: left; margin-right: 10px;" src="./images/ladybug.jpg" id="image" />
+        </div>
+        <br />
+        <button id="send">Отправить</button>
+        <br /><br />
+        <div id="result" style="overflow: hidden; position: relative ">
+            <img src="/" alt="Результат"  style="display: none; position: absolute"/>
+        </div>
+    </div>
+
+    <script>
+        const stage = Jcrop.attach('image', { aspectRatio: 1 });
+
+        const x = 300
+        const rect = Jcrop.Rect.create(0, 445 - x, x, x);
+        const options = {
+        };
+        const widget = stage.newWidget(rect);
+        console.log(widget);
+
+        $('#send').click( function() {
+            $('#result img')
+            .attr('src', $('#image').attr('src'))
+            .css({ 
+                display: 'block',
+                left: -widget.pos.x,
+                top: -widget.pos.y
+            });
+
+            console.log(widget.pos);
+            //stage.destroy();
+
+            $('#result').css({
+                width: widget.pos.w,
+                height: widget.pos.h
+            })
+        })
+
+
+    </script>
+</body>
+
+</html>

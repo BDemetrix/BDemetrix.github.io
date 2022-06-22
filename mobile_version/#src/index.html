@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('_head.html',{
+	"title":"Главная"
+	})
+	<body class="_style-2">
+		<!-- классы ._style-1 , ._style-2 и ._style-3 используются для стилизации двух видов шаблонов 
+		Например: при body._style-1 Логотип имеет один цвет, а при body._style-2 и ._style-3 - другой
+		._style-1 для smart-lab.ru
+		._style-2 для smart-lab.ru/q/
+		._style-3 для smart-lab.ru/forum/
+		-->
+		<div class="wrapper">
+			@@include('_header.html',{"Class": "_container"})
+			<main class="main">
+				
+				
+			</main>
+			<!-- @@include('_footer.html',{}) -->
+		</div>
+		@@include('_js.html',{})
+	</body>
+</html>

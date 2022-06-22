@@ -1,0 +1,177 @@
+.flex-table {
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+  /* table._hidden {
+		opacity: 0;
+		visibility: hidden;
+  } */
+}
+
+.flex-table * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.flex-table table {
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.flex-table tr th,
+.flex-table tr td {
+  table-layout: fixed;
+  white-space: nowrap;
+}
+
+.flex-table::before {
+  content: "";
+  display: none;
+}
+
+.flex-table._loading {
+  overflow: hidden;
+}
+
+.flex-table._loading::before {
+  display: block;
+  content: "";
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 30px;
+  right: 50%;
+  -webkit-transform: translate(50%, 0);
+      -ms-transform: translate(50%, 0);
+          transform: translate(50%, 0);
+  background: url("../images/loading.gif") center/100% no-repeat;
+}
+
+.flex-table__inner {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  margin: 0 auto;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: all .3s linear;
+  -o-transition: all .3s linear;
+  transition: all .3s linear;
+}
+
+.flex-table__inner._hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.flex-table__l-thead th,
+.flex-table__l-thead td {
+  position: -webkit-sticky;
+  position: sticky;
+  background: #fbfb70;
+}
+
+.flex-table__l-tbody {
+  background: #ccc;
+}
+
+.flex-table__r-box {
+  position: relative;
+}
+
+.flex-table__r-box::before,
+.flex-table__r-box::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  z-index: 5;
+  width: 10px;
+  opacity: 0;
+}
+
+.flex-table__r-box::before {
+  left: 0;
+  background: -webkit-gradient(linear, left top, right top, from(#ccc), to(transparent));
+  background: -o-linear-gradient(left, #ccc, transparent);
+  background: linear-gradient(to right, #ccc, transparent);
+}
+
+.flex-table__r-box::after {
+  right: 0;
+  background: -webkit-gradient(linear, right top, left top, from(#ccc), to(transparent));
+  background: -o-linear-gradient(right, #ccc, transparent);
+  background: linear-gradient(to left, #ccc, transparent);
+}
+
+.flex-table__r-box .simplebar-scrollbar.simplebar-visible:before {
+  opacity: 0;
+}
+
+.flex-table__r-box._overflow::before,
+.flex-table__r-box._overflow::after {
+  opacity: 1;
+}
+
+.flex-table__r-box._overflow .simplebar-scrollbar.simplebar-visible:before {
+  opacity: 1;
+}
+
+.flex-table__r-header-wrap {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  height: 100%;
+  pointer-events: none;
+}
+
+.flex-table__r-header-inner {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+}
+
+.flex-table__r-header-table {
+  position: relative;
+  left: 0px;
+}
+
+.flex-table__r-table-thead th,
+.flex-table__r-table-thead td {
+  position: -webkit-sticky;
+  position: sticky;
+  background: #fbfb70;
+}
+
+.flex-table__r-table-wrap {
+  width: 100%;
+  max-width: 100%;
+}
+
+.flex-table__r-table-wrap .simplebar-track.simplebar-horizontal {
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+.flex-table__ad-wrap {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  overflow: visible;
+}
+
+.flex-table__ad-text {
+  position: absolute;
+  z-index: 3;
+  height: 100%;
+  left: 0;
+  top: 0;
+  text-align: center;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+}

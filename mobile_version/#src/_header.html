@@ -1,0 +1,347 @@
+<header class="header">
+	<!-- 
+		* по классу ._active-el навешиваем обработчик события 'click' на каждый
+		* из этих елементов (кнопку/иконку), его родителю присваивается класс ._open 
+	-->
+	<div class="header__content @@Class">
+		@@include('_menu.html', {"MixClass": "header__menu"})
+		<div class="header__logo">
+			<a href="https://smart-lab.ru/" class="main-logo">
+				<h5 class="main-logo__title">
+					<div class="main-logo__title-main">
+						SMART-LAB
+					</div>
+					<div class="main-logo__title-motto">Мы делаем деньги на бирже</div>
+				</h5>
+			</a>
+		</div>
+		<div class="header__search">
+			<div class="header__search-query query-search">
+				<!-- 
+				    * Класс _active-el добавляется кнопке открывающей/закрывающей Pop-Up  
+				    * и нужен для синхконизации всплывающих окон между собой
+				    * при клике на элемен содержащий класс _active-el его родителю присваивается сласс _open
+				  -->
+				<div class="query-search__icon _active-el">
+					<svg>
+							<use xlink:href="./images/symbol/sprite.svg#search"></use>
+					</svg>
+				</div>
+				<div class="query-search__body">
+					<form class="query-search__form" action="">
+						<div class="query-search__input-wrap">
+							<!-- такой порядок элементов в этом блоке и параметр required в инпуте нужен, 
+								чтобы кнопка query-search__btn становилась активной, а стрелка query-search__input-arrow появлялась
+								только при условии что инпут не пустой (правило задано в стилях)
+							 -->
+							<input class="query-search__input" type="text" autocomplete="off" name="form[]"
+								autocompleter="forum/ajaxsearch/" required>
+							<button class="query-search__btn" type="submit">
+								<svg>
+									<use xlink:href="./images/symbol/sprite.svg#search"></use>
+								</svg>
+							</button>
+							<div class="query-search__input-arrow" title="варианты поиска">
+								<svg>
+									<use xlink:href="./images/symbol/sprite.svg#triangle-arrow"></use>
+								</svg>
+							</div>
+						</div>
+						
+						<div class="query-search__suggestions">
+							<!-- isert .autocomplete-suggestions -->
+						</div>
+					</form>
+					@@include('_alphabet.html',{
+					"MixClass":"header__search-alphabet"
+					})
+				</div>
+			</div>
+		</div>
+		<!-- 
+			* Блоки header__message, header__notify, header__usermenu вставляются на страницу
+			* только для залогиненых пользователей для незалогиненых вставляется блок header__login
+			* пример в файлах _unregistered-header.html и unregistered.html
+		-->
+		<div class="header__message">
+			<!-- 
+			    * Класс _active-el добавляется кнопке открывающей/закрывающей Pop-Up  
+			    * и нужен для синхконизации всплывающих окон между собой
+			    * при клике на элемен содержащий класс _active-el его родителю присваивается сласс _open
+			  -->
+			<div class="header__message-icon _active-el">
+				<svg>
+					<use xlink:href="./images/symbol/sprite.svg#message"></use>
+				</svg>
+				<div class="notify-label">1</div>
+			</div>
+		</div>
+		<div class="header__notify notify">
+			<!-- 
+			    * Класс _active-el добавляется кнопке открывающей/закрывающей Pop-Up  
+			    * и нужен для синхконизации всплывающих окон между собой
+			    * при клике на элемен содержащий класс _active-el его родителю присваивается сласс _open
+			  -->
+			<div class="notify__icon _active-el" id="notify-icon" tab="blog">
+				<svg class="">
+					<use xlink:href="./images/symbol/sprite.svg#notification"></use>
+				</svg>
+				<div class="notify-label">1</div>
+			</div>
+			<div class="notify__body" id="notify-body">
+				<!--  -->
+				<div class="notify__inner" id="notify-inner" tab="reply">
+					<div class="notify__settings">
+						<a href="#">
+							<svg>
+									<use xlink:href="./images/symbol/sprite.svg#settings"></use>
+							</svg>
+						</a>
+					</div>
+					<div class="notify__content">
+						<nav class="notify__nav">
+							<div class="notify__nav-item _active" tab="blog" title="Новые посты">
+								<img src="./images/icons/notify/notifies_news.png" alt="writing">
+								<div class="notify-label"><span>2</span></div>
+							</div>
+							<div class="notify__nav-item _empty" tab="reply" title="Ответы в блоге">
+								<img src="./images/icons/notify/notifies_replyes.png" alt="reply">
+								<div class="notify-label"><span>0</span></div>
+							</div>
+							<div class="notify__nav-item _empty" tab="forum" title="Ответы в форуме">
+								<img src="./images/icons/notify/notifies_replyes_forum.png" alt="chat">
+								<div class="notify-label"><span>0</span></div>
+							</div>
+							<div class="notify__nav-item _empty" tab="likes" title="Кто и где вам поставил плюс">
+								<img src="./images/icons/notify/notifies_likes.png" alt="like">
+								<div class="notify-label"><span>0</span></div>
+							</div>
+						</nav>
+						<div class="notify__blocks">
+							<div id="blog" class="notify__block _active">
+
+								<div class="notify__more">
+									<a href="#">Ваша лента подписок</a>
+								</div>
+							
+								<div class="notify__massage notify-note" link="#"
+									title="Изучил годовой отчет Мать и Дитя за 2020 год. Интересные моменты.">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="#"><img src="./images/icons/avatar_48x48.jpg">
+										</a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Тимофей Мартынов</a></span>&nbsp;написал пост: <span
+											class="notify-note__comment">Изучил годовой отчет Мать и Дитя за 2020 год. Интересные моменты.</span><br><span class="notify-note__time">1
+											час</span>
+									</div>
+								</div>
+							
+								<div class="notify__massage notify-note" link="#"
+									title="Поступили в продажу билеты на конференцию частных инвесторов смартлаба 26 июня">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="#"><img src="./images/icons/avatar_48x48.jpg"></a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Тимофей Мартынов</a></span>&nbsp;написал пост: <span
+											class="notify-note__comment">Поступили в продажу билеты на конференцию частных инвесторов смартлаба 26
+											июня</span><br><span class="notify-note__time"> 4 час</span>
+									</div>
+								</div>
+							
+								<div class="notify__massage notify-note" link="#"
+									title="10 лет спекуляций: наблюдения и выводы. Как правильно выводить крипту. Причины боли в трейдинге">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="#"><img src="./images/icons/avatar_48x48.jpg"></a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Тимофей Мартынов</a></span>&nbsp;написал пост: <span
+											class="notify-note__comment">10 лет спекуляций: наблюдения и выводы. Как правильно выводить крипту. Причины боли в
+											трейдинге</span><br><span class="notify-note__time">25 апреля 2021, 23:02</span>
+									</div>
+								</div>
+							
+								<div class="notify__massage notify-note" link="#" title="Горизонт планирования бизнеса">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="#"><img src="./images/icons/avatar_48x48.jpg"></a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Тимофей Мартынов</a></span>&nbsp;написал пост: <span
+											class="notify-note__comment">Горизонт планирования бизнеса</span><br><span class="notify-note__time">24 апреля 2021, 23:35</span>
+									</div>
+								</div>
+							
+								<div class="notify__massage notify-note" link="#" title="Кого позвать выступить на конфу смартлаба в СПб?">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="#"><img src="./images/icons/avatar_48x48.jpg"></a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Тимофей Мартынов</a></span>&nbsp;написал пост: <span
+											class="notify-note__comment">Кого позвать выступить на конфу смартлаба в СПб?</span><br><span class="notify-note__time">24 апреля
+											2021, 13:29</span>
+									</div>
+								</div>
+							
+								<div class="notify__massage notify-note" link="#"
+									title="Как уберечь дом от пожара и не сгореть в собственном доме?">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="#"><img src="./images/icons/avatar_48x48.jpg"></a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Тимофей Мартынов</a></span>&nbsp;написал пост: <span
+											class="notify-note__comment">Как уберечь дом от пожара и не сгореть в собственном доме?</span><br><span class="notify-note__time">24
+											апреля 2021, 09:50</span>
+									</div>
+								</div>
+
+							</div>
+							<div id="reply" class="notify__block">
+								<div class="notify__more">
+									<a href="#">Смотреть все ответы</a>
+								</div>
+								<p>Нет ответов :(</p>
+							</div>
+							<div id="forum" class="notify__block">
+								
+								<div class="notify__more">
+									<a href="#">Смотреть все ответы</a>
+								</div>
+
+								<div class="notify__massage notify-note" link="#" title="
+											timmartynov, passed">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="#"><img src="./images/icons/avatar_48x48.jpg"></a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Prigl</a></span>&nbsp;ответил: <span class="notify-note__comment">
+											timmartynov, passed</span><br><span class="notify-note__time">13 ноября 2018, 13:49</span>
+									</div>
+								</div>
+							
+								<div class="notify__massage notify-note" link="#" title="timmartynov, согласен, должно быть больше)">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="#"><img src="./images/icons/avatar_48x48.jpg"></a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Владимир С</a></span>&nbsp;ответил: <span
+											class="notify-note__comment">
+											timmartynov, согласен, должно быть больше)</span><br><span class="notify-note__time">30 сентября 2018, 10:25</span>
+									</div>
+								</div>
+							
+								<div class="notify__massage notify-note" link="#" title="
+											timmartynov,">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="#"><img src="./images/icons/avatar_48x48.jpg"></a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Тимофей Мартынов</a></span>&nbsp;ответил: <span
+											class="notify-note__comment">
+											timmartynov,</span><br><span class="notify-note__time">17 мая 2018, 12:51</span>
+									</div>
+								</div>
+							
+								<div class="notify__massage notify-note" link="#" title="
+											timmartynov, еще раз">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="#"><img src="./images/icons/avatar_48x48.jpg"></a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Тимофей Мартынов</a></span>&nbsp;ответил: <span
+											class="notify-note__comment">
+											timmartynov, еще раз</span><br><span class="notify-note__time">11 мая 2018, 12:14</span>
+									</div>
+								</div>
+							
+								<div class="notify__massage notify-note" link="#" title="timmartynov, говори.">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="/profile/Papyrus_bonus/"><img src="./images/icons/avatar_48x48.jpg"></a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Papyrus_bonus</a></span>&nbsp;ответил: <span
+											class="notify-note__comment">
+											timmartynov, говори.</span><br><span class="notify-note__time">11 мая 2018, 12:02</span>
+									</div>
+								</div>
+							
+								<div class="notify__massage notify-note" link="#" title="timmartynov, вроде работает!">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="#"><img src="./images/icons/avatar_48x48.jpg"></a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Тимофей Мартынов</a></span>&nbsp;ответил: <span
+											class="notify-note__comment">
+											timmartynov, вроде работает!</span><br><span class="notify-note__time">06 марта 2018, 12:08</span>
+									</div>
+								</div>
+								
+							</div>
+							<div id="likes" class="notify__block">
+								<div class="notify__more">
+									<a href="#">Смотреть все лайки</a>
+								</div>
+								<p>Нет лайков :(</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--  -->
+			</div>
+		</div>
+		<div class="header__usermenu usermenu">
+			<!-- 
+			    * Класс _active-el добавляется кнопке открывающей/закрывающей Pop-Up  
+			    * и нужен для синхконизации всплывающих окон между собой
+			    * при клике на элемен содержащий класс _active-el его родителю присваивается сласс _open
+			  -->
+			<div class="usermenu__icon _active-el">
+				<div class="usermenu__avatar">
+					<img src="./images/icons/usermenu/avatar_48x48.jpg" alt="avatar">
+				</div>
+				<div class="usermenu__icon-arrow"></div>
+			</div>
+			<div class="usermenu__body">
+				<a href="#">
+						<img src="./images/icons/usermenu/profile.png"> Мой профиль
+				</a>
+				<a href="#">
+						<img src="./images/icons/usermenu/settings.png"> Настройки
+				</a>
+				<div class="usermenu__body-line"></div>
+				<a href="#">
+						<img src="./images/icons/usermenu/favourites.png"> Избранное
+				</a>
+				<a href="#">
+						<img src="./images/icons/usermenu/portfolio.png"> Мой портфель
+				</a>
+				<a href="#">
+						<img src="./images/icons/usermenu/watchlist.png"> Watchlist
+				</a>
+				<a href="#">
+						<img src="./images/icons/usermenu/links.png"> Сохраненные ссылки
+				</a>
+				<a href="#">
+						<img src="./images/icons/usermenu/account.png"> Статистика счета
+				</a>		
+				<div class="usermenu__body-line"></div>					
+				<span>Подписчиков: 9</span>
+				<a href="#">Счет: 500₽</a>
+				<a href="#">Рейтинг 5</a>
+				<a href="#">Выйти</a>
+			</div>
+		</div>
+	</div>
+	<!-- @@include('_navbar.html',{"Class": "_container"}) -->
+</header>
