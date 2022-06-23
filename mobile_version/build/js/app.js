@@ -283,6 +283,31 @@ function clearSpollersStyle() {
 initSpollers(); // инициализируем споллеры
 window.addEventListener('resize', clearSpollersStyle); 
 
+/**
+ * по классу _tabs находятся все блоки, которые должны быть табами 
+ * например в проэкте блок .slide-content__tabs-item
+ */
+//Tabs
+let tabs = document.querySelectorAll("._tabs");
+for (let index = 0; index < tabs.length; index++) {
+  let tab = tabs[index];
+  let tabs_items = tab.querySelectorAll("._tabs-item");
+  let tabs_blocks = tab.querySelectorAll("._tabs-block");
+  for (let index = 0; index < tabs_items.length; index++) {
+    let tabs_item = tabs_items[index];
+    tabs_item.addEventListener("click", function (e) {
+      for (let index = 0; index < tabs_items.length; index++) {
+        let tabs_item = tabs_items[index];
+        tabs_item.classList.remove('_active');
+        tabs_blocks[index].classList.remove('_active');
+      }
+      tabs_item.classList.add('_active');
+      tabs_blocks[index].classList.add('_active');
+      e.preventDefault();
+    });
+  }
+}
+
 //SlideToggle
 /**
  * Функция сворачивает/разворачивает элемент
@@ -564,6 +589,7 @@ function calcWidthContentMain() {
     }
   }
 }
+//=================
 //BildSlider
 let sliders = document.querySelectorAll('._swiper');
 if (sliders) {
@@ -868,377 +894,53 @@ $('body').on('click', function (e) {
 */
 
 // HEADER JS / end ============================================================================
+let now = new Date();
+let slideDate = document.querySelector('.slide-content__date');
+
+slideDate.textContent = `${now.getDate()} ${(now.getMonth()) < 9 ? ('0' + (now.getMonth() + 1)) : (now.getMonth() + 1)} ${now.getFullYear()}`;
+
 /**
- * Обработка событий "хлебных крошек" - блок .navbar
- * открывается .jBox с содержимым соответствующего меню из соседнего элемента .navbar__drop-menu-wrap
+ * создается слайдер из блока .categories-slider__body
+ * Модификатор categories-slider__body--loading нужен на время загрузки скриптов
  */
+let categoriesSlider;
+const categoriesSliderBbody = document.querySelector('.categories-slider__body');
+if (categoriesSliderBbody) {
+    categoriesSliderBbody.classList.remove('categories-slider__body--loading');
 
-new jBox('Tooltip', {
-  attach: '.navbar__drop-item',
-  zIndex: 999,
-  adjustPosition: true,
-  isolateScroll: false,
-  closeOnMouseleave: true,
-  animation: "move",
-  addClass: 'navbar-jBox',
-  //pointer: false,
-  
-  onOpen: function() {
-    let content = this.target[0].nextElementSibling.innerHTML;
-    this.setContent(content); 
-  }
-});
-plugSimpleBar('.qn-filters__content');
-
-const qnMenuMobTabs = document.querySelectorAll('.qn-menu__mob-tabs a');
-qnMenuMobTabs.forEach(a => {
-  a.addEventListener('click', (e) => {
-    e.stopPropagation()
-  })
-});
-
-// Обработчик открытия/закрытия окна "фильтры"
-const qnMenuBtnFilter = document.querySelector('.qn-menu__btn--filter');
-const qnFilters = document.querySelector('.qn-filters');
-const qnFiltersClose = document.querySelector('.qn-filters__close');
-
-if (qnMenuBtnFilter && qnFilters && qnFiltersClose) {
-
-  qnMenuBtnFilter.addEventListener('click', () => {
-    if (qnMenuBtnFilter.parentElement.classList.contains('_open')) 
-      blockOverflow();
-    else 
-      unBlockOverflow();
-  });
-
-  qnFilters.addEventListener('click', (e) => {
-    if (!e.target.closest('.qn-filters__content') || e.target.closest('.qn-filters__close')) {
-      qnFilters.closest('._open').classList.remove('_open');
-      unBlockOverflow()
-    }
-  });  
-}
-
-// Обработка сброса формы
-if (qnFilters) {
-  const qnFiltersContent = document.querySelector('.qn-filters__content');
-  const filtersInputs = qnFilters.querySelectorAll('input');
-  let inputChange = new Event('change');
-  
-  if(qnFiltersContent) {
-    qnFiltersContent.addEventListener('reset', (e) => {
-      filtersInputs.forEach( input => {
-        setTimeout(() => {
-          input.dispatchEvent(inputChange);
-          clearSumoContents();
-        }, 50);
-      });
-    })
-  }  
-}
-
-
-// Подключения кастомного селекта
-if ($('#sector_id').length) $('#sector_id').SumoSelect({ 
-  placeholder: 'Все сектора',
-  csvDispCount: 2,
-  captionFormat: 'Сектора ({0})',
-});
-var sumoSelects = $('#country_id, #val_middle_gt, #val_middle_lt, #capitalization_gt, #capitalization_lt, #is_state_owned, #is_exporter, #year, #type, #quarter, #duration_lt_id, #duration_gt_id, #mat_years_lt_id, #mat_years_gt_id, #year_yield_lt_id, #year_yield_gt_id, #ofz_type_id');
-if (sumoSelects.length) sumoSelects.SumoSelect(); 
-
-// подключение кастомного скролла к селекту
-function plugSimpleBarSumoSelect() {
-  let optWrapperUls = document.querySelectorAll('.optWrapper');
-  if (optWrapperUls.length) {
-    optWrapperUls.forEach(element => {
-      plugSimpleBar(element);
+    categoriesSlider = new Swiper(categoriesSliderBbody, {
+        slidesPerView: 'auto',
+        centeredSlides: true,
+        centeredSlidesBounds: true,
+        watchOverflow: true,
+        //spaceBetween: 25,
+        freeMode: true,
+        freeModeSticky: true,
+        speed: 400,
+        observer: true,
+        resizeObserver: !0,
+        watchOverflow: !0
     });
-  } 
 }
-plugSimpleBarSumoSelect();
-
-// Функция сброса 
-function clearSumoContents(){
-  $.each(sumoSelects, function() {
-    this.sumo.unSelectAll();
-    this.sumo.selectItem(0);
-  })
- $('#sector_id')[0].sumo.unSelectAll();
-}
-
-
-// Подключение календаря
-Datepicker.locales.ru = {
-  days: ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'],
-  daysShort: ['Вск', 'Пнд', 'Втр', 'Сре', 'Чтв', 'Птн', 'Суб'],
-  daysMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
-  months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
-  monthsShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
-  today: 'Today',
-  clear: 'Очистить',
-  titleFormat: 'MM y',
-  format: 'dd.mm.yyyy',
-  weekStart: 1,
-};
-
-let filterDatepicker;
-let filterDateRargeElm = document.querySelector('.qn-filters__date-input');
-if (filterDateRargeElm) {
-  const arrow = `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 6L2.29289 5.29289L1.58579 6L2.29289 6.70711L3 6ZM8.70711 10.2929L3.70711 5.29289L2.29289 6.70711L7.29289 11.7071L8.70711 10.2929ZM3.70711 6.70711L8.70711 1.7071L7.29289 0.292891L2.29289 5.29289L3.70711 6.70711Z"/></svg>`;
-  filterDatepicker = new Datepicker(filterDateRargeElm, {
-    autohide: true,
-    daysOfWeekDisabled: [],
-    daysOfWeekHighlighted: [],
-    nextArrow: arrow,
-    prevArrow: arrow,
-    todayBtnMode: 1,
-    clearBtn: true,
-    format: 'dd.mm.yyyy',
-    container: '.qn-filters__datepicker',
-    language: "ru",
-  });
-}
-// ==============================
-
-//RANGE
-// Подключение ползунка
-let qnFiltersRangeSliderObjs = [];
-const qnFiltersRangeSliderEls = document.querySelectorAll('.qn-filters__range-slider');
-qnFiltersRangeSliderEls.forEach( el => {
-
-  qnFiltersRangeSliderObjs.push({
-    target: el,
-    settings: {
-      start: [1, 1000],
-      margin: 10,
-      connect: true,
-      range: {
-        'min': [0],
-        'max': [1000]
-      }
-    },
-    wNumbFormat: wNumb({
-      decimals: 0,
-      thousand: '',
-      suffix: "М ₽"
-    })
-  });
-});
-
-qnFiltersRangeSliderObjs.forEach( obj => plugNoUiSlider(obj));
 
 
 /**
- * Функция подключает noUiSlider 
- * @param {Object} obj - одержит селектор или объект к которому подключается слайдер и  объект настроек
- * Ищет инпуты в родительском элементе и подключает их к слайдеру
+ *  Модификатор categories - slider__body--loading нужен на время загрузки скриптов
  */
-function plugNoUiSlider(obj) {
+let contentSlider;
+const contentSliderBbody = document.querySelector('.content-slider__body');
+if (categoriesSliderBbody) {
+    categoriesSliderBbody.classList.remove('content-slider__body--loading');
 
-  if (!obj || !obj.target || !obj.settings || !obj.wNumbFormat) {
-    console.log('Плагин NoUiSlider не може быть подключен. function plugNoUiSlider(obj)');
-    return;
-  }
-
-  let sliderEl;
-  if (typeof obj.target == 'string') 
-    sliderEl = document.querySelector(obj.target);
-  else if (typeof obj.target == 'object')
-    sliderEl = obj.target;
-  else {
-    console.log('Плагин NoUiSlider не може быть подключен. Не определен целевой объект');
-    return;
-  }
-  
-
-  if (sliderEl) {
-    const inputs = sliderEl.parentElement.querySelectorAll('input');
-    slider = noUiSlider.create(sliderEl, {
-      ...obj.settings,
-      format: obj.wNumbFormat
+    contentSlider = new Swiper(contentSliderBbody, {
+        thumbs: {
+            swiper: categoriesSlider,
+        },
+        slidesPerView: 1,
+        speed: 400,
+        simulateTouch: false,
+        observer: true,
+        resizeObserver: !0,
+        watchOverflow: !0
     });
-
-    if (inputs) {
-
-      slider.on('slide', (params) => {
-        inputs.forEach((input, i) => {
-          input.value = params[i];
-        });
-      });
-
-      inputs.forEach((input) => {
-        input.addEventListener('keydown', numOnly);
-        input.addEventListener('blur', inputBlur);
-        input.addEventListener('focus', (e) => { e.target.select() });
-        input.addEventListener('change', setSliderValues);
-
-        input.focus();
-        input.blur();
-      })
-    }
-
-    function inputBlur() {
-      let x = Number(obj.wNumbFormat.from(this.value));
-      this.value = obj.wNumbFormat.to(x);
-    }
-
-    function setSliderValues() {
-      let inputsValues = [];
-      inputs.forEach(input => inputsValues.push(input.value));
-      sliderEl.noUiSlider.set(inputsValues);
-    }
-  }
-}
-
-// Подключение адаптивной таблицы
-setTimeout(() => {
- new FlexTable('.trades-table'); 
-}, 300);
-
-
-/**
- * Расщет верхнего паддинга боковых панелей 
- * нужен для корректного отображения левой и правой боковых панелей, когда хедер виден и когда не виден
- * боковым панелям присваивается класс _slide-sidebar-padding
- */
-(function () {
-
-  const header = document.querySelector('.header');
-  const headerHeight = header.getBoundingClientRect().height;
-  const slideSidebarPadding = document.querySelectorAll('._slide-sidebar-padding');
-  
-  if (header && slideSidebarPadding.length) {
-  
-    slideSidebarPadding.forEach( function(sidebar){
-      sidebar.slidePos = window.getComputedStyle(sidebar).position;
-      
-      const delta = header.getBoundingClientRect().top + headerHeight;
-      if (sidebar.slidePos == 'fixed')
-        sidebar.style.paddingTop = delta >= 0 ? (delta + 'px') : '0px' ;
-    });
-  
-    window.addEventListener('scroll', function() {
-    
-      slideSidebarPadding.forEach( sidebar => {
-         if (sidebar.slidePos == 'fixed') {
-          const delta = header.getBoundingClientRect().top + headerHeight;
-          sidebar.style.paddingTop = delta >= 0 ? (delta + 'px') : '0px' ;
-        }  
-      });
-    });
-  
-    window.addEventListener('resize', () => {
-      resizeUpdate(slideSidebarPadding);
-    });
-
-    window.addEventListener('orientationchange', () => {
-      resizeUpdate(slideSidebarPadding);
-    });
-  }
-
-  function resizeUpdate(slideSidebarPadding) {
-    slideSidebarPadding.forEach( sidebar => {
-      sidebar.slidePos = window.getComputedStyle(sidebar).position;
-      if ( sidebar.slidePos != 'fixed') {
-        sidebar.style.paddingTop = '0px' ;
-        sidebar.classList.remove('_open');
-        unBlockOverflow();
-      }
-      else {
-        delta = header.getBoundingClientRect().top + headerHeight;
-        sidebar.style.paddingTop = delta >= 0 ? (delta + 'px') : '0px' ;
-      }
-    });
-  }
-
-}());
-(function () {
-
-  plugSimpleBar('.company-bar__body');
-  
-  const companyBar = document.querySelector('.company-bar');
-  const companyBarBtn = document.querySelector('.company-bar__btn');
-  
-  if (companyBar && companyBarBtn) {
-  
-    companyBarBtn.addEventListener('click', () => {
-      if (window.getComputedStyle(bodyGlobal).overflow != 'hidden') 
-        blockOverflow();
-      else
-        unBlockOverflow();
-    });
-  
-  
-    new jBox('Tooltip', {
-      attach: '#moderators>li>a, #readers>li>a',
-      content: $('#profile-popup'),
-      zIndex: 999,
-      adjustPosition: true,
-      isolateScroll: false,
-      closeOnMouseleave: true,
-      animation: "move",
-      addClass: 'company-bar-jBox',
-    
-      onClose: function() {
-        this.container.find('.context-menu').removeClass('_open');
-      }
-    });
-  }
-
-}());
-(function () {
-
-  setTimeout(() => {
-    plugSimpleBar('.new-msgs-box__content'); 
-  }, 2000);
-  
-  const newMsgsBoxBtn = document.querySelector('.new-msgs-box__btn');
-
-  newMsgsBoxBtn.addEventListener('click', () => {
-    if (window.getComputedStyle(bodyGlobal).overflow != 'hidden') 
-      blockOverflow();
-    else
-      unBlockOverflow();
-  });
-
-}());
-(function () {
-  
-  let commentText = document.querySelectorAll('.comment__text');
-  if (commentText.length) {
-    commentText.forEach( comment => {
-      let blockquote = comment.querySelector('blockquote');
-      if (blockquote) {
-          blockquote.addEventListener('click', () => {
-          comment.classList.toggle('_open');
-        })
-      }
-    })
-  }
-
-  let commentFavorite = document.querySelectorAll('.comment__favorite');
-  if (commentFavorite.length) {
-    commentFavorite.forEach(btn => {
-      btn.addEventListener('click', function() {
-        this.classList.toggle('_active');
-      });
-    });
-  }
-
-  new jBox('Tooltip', {
-      attach: '.comment__author-link',
-      content: $('#profile-popup'),
-      zIndex: 999,
-      adjustPosition: true,
-      isolateScroll: false,
-      closeOnMouseleave: true,
-      animation: "move",
-      addClass: 'comment-jBox',
-    
-      onClose: function() {
-        this.container.find('.context-menu').removeClass('_open');
-      }
-    });
-
-} ());
+} 

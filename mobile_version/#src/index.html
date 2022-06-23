@@ -3,7 +3,7 @@
 	@@include('_head.html',{
 	"title":"Главная"
 	})
-	<body class="_style-2">
+	<body class="">
 		<!-- классы ._style-1 , ._style-2 и ._style-3 используются для стилизации двух видов шаблонов 
 		Например: при body._style-1 Логотип имеет один цвет, а при body._style-2 и ._style-3 - другой
 		._style-1 для smart-lab.ru
@@ -12,8 +12,10 @@
 		-->
 		<div class="wrapper">
 			@@include('_header.html',{"Class": "_container"})
-			<main class="main">
-				
+			<main class="_mobile-container">
+
+				<!-- слайдер  котировок -->
+				@@include('_quotes.html',{})
 				
 			</main>
 			<!-- @@include('_footer.html',{}) -->

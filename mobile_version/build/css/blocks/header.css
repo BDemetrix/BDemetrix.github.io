@@ -341,7 +341,7 @@
 }
 
 .main-logo {
-  font-family: "Tahoma", sans-serif !important;
+  font-family: Roboto, "Tahoma", sans-serif !important;
   font-weight: 700;
   position: relative;
   display: inline-block;
@@ -355,7 +355,7 @@
 }
 
 .main-logo * {
-  font-family: "Tahoma", sans-serif !important;
+  font-family: Roboto, "Tahoma", sans-serif !important;
 }
 
 .main-logo__title {
@@ -363,8 +363,8 @@
 }
 
 .main-logo__title-main {
-  font-size: calc(18px + 7 * ((100vw - 320px) / 159.98));
-  line-height: calc(18px + 7 * ((100vw - 320px) / 159.98));
+  font-size: calc(17px + 8 * ((100vw - 320px) / 159.98));
+  line-height: calc(21px + 4 * ((100vw - 320px) / 159.98));
   white-space: nowrap;
 }
 

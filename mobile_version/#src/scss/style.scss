@@ -73,7 +73,11 @@ picture {
 	max-width: $maxWidthContainer + px;
 	padding: 0 15px;
 	margin: 0 auto;
-	//width: 100%;
+}
+
+._mobile-container {
+	max-width: 768px;
+	margin: 0 auto;
 }
 //</ОСНОВНАЯ СЕТКА>===========================================================================================================
 
@@ -99,7 +103,8 @@ picture {
 //@import "./blocks/_forum-pg";
 @import "./blocks/_menu";
 @import "./blocks/_alphabet";
-@import "./blocks/navbar";
+//@import "./blocks/navbar";
+@import "./blocks/quotes";
 //@import "./blocks/_content";
 //@import "./blocks/social-btn";
 //@import "./blocks/footer";

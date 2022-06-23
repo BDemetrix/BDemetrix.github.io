@@ -247,7 +247,11 @@
 		font-size: adaptiv-value($md5,25,320,17);
 		line-height: adaptiv-value($md5,25,320,21);
 		white-space: nowrap;
+		color: #d4d4d4;
 
+		&:visited {
+			color: #d4d4d4;
+		}
 
 		@media (min-width: $md5 + px) {
 			font-size: 25px;
@@ -267,6 +271,7 @@
 		line-height: 10px;
 		font-weight: 700;
 		text-align: right;
+		color: #d4d4d4; 
 
 		@media (min-width: $md4 + px) {
 			display: block;
@@ -311,15 +316,15 @@ h5.main-logo__title-main {
 				fill: #fff;
 			}
 		}
-		/* @media (min-width: $md7 + px) {
-			margin-right: adaptiv-value($md6,15,320,15);
-		} */
+		@media (min-width: $md7 + px) {
+			margin-right: adaptiv-value($md5,20,320,15);
+		}
 		/* @media (min-width: $md6 + px) {
-			margin-right: 15px;
-		} */
-		/* @media (min-width: $md5 + px) {
 			margin-right: 20px;
 		} */
+		@media (min-width: $md5 + px) {
+			margin-right: 20px;
+		}
 		@media (min-width: $md2-1 + px) {
 			display: none;
 		}

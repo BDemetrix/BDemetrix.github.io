@@ -1,3 +1,4 @@
+// скрипт для левой боковой панели
 (function () {
 
   plugSimpleBar('.company-bar__body');
