@@ -65,7 +65,7 @@ $red-color: #da0c00;
 	.swiper-wrapper {
 		//margin-left: -30px;
 	}
-	&::after {
+/* 	&::after {
 		content: "";
 		position: absolute;
 		top: 0;
@@ -73,7 +73,7 @@ $red-color: #da0c00;
 		bottom: 0;
 		width: 20px;
 		background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #fff 60%, #fff 100%);
-	}
+	} */
 	// .categories-slider__body
 	&__body {
 		&--loading {

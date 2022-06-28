@@ -14,13 +14,13 @@ if (categoriesSliderBbody) {
 
     categoriesSlider = new Swiper(categoriesSliderBbody, {
         slidesPerView: 'auto',
-        centeredSlides: true,
-        centeredSlidesBounds: true,
+        /* centeredSlides: true,
+        centeredSlidesBounds: true, */
         spaceBetween: 25,
-        freeMode: {
+        /* freeMode: {
             enabled: true,
             sticky: true,
-        },
+        }, */
         speed: 400,
         observer: true,
         resizeObserver: true,

@@ -88,13 +88,14 @@ picture {
 //</ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
 
 //<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
-@import "./plugins/simplebar";
-@import "./plugins/swiper";
+//@import "./plugins/simplebar";
+//@import "./plugins/swiper";
 //@import "./plugins/sumoselect";
 //@import "./plugins/datepicker-new";
 //@import "./plugins/flex-table";
 //@import "./plugins/choices";
 //@import "./plugins/nouislider";
+@import "./blocks/custom-swiper";
 @import "./plugins/jBox.all";
 //@import "./blocks/pagging";
 //@import "./blocks/popup";
