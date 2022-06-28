@@ -16,14 +16,18 @@ if (categoriesSliderBbody) {
         slidesPerView: 'auto',
         centeredSlides: true,
         centeredSlidesBounds: true,
-        watchOverflow: true,
-        //spaceBetween: 25,
-        freeMode: true,
-        freeModeSticky: true,
+        spaceBetween: 25,
+        freeMode: {
+            enabled: true,
+            sticky: true,
+        },
         speed: 400,
         observer: true,
-        resizeObserver: !0,
-        watchOverflow: !0
+        resizeObserver: true,
+        watchOverflow: true,
+        mousewheel: {
+            releaseOnEdges: true,
+        }
     });
 }
 
@@ -44,7 +48,7 @@ if (categoriesSliderBbody) {
         speed: 400,
         simulateTouch: false,
         observer: true,
-        resizeObserver: !0,
-        watchOverflow: !0
+        resizeObserver: true,
+        watchOverflow: true,
     });
 }

@@ -1,3 +1,7 @@
+@import "../base/variables";
+@import "../base/mixins";
+@import "../base/global";
+
 $row-active-color: #84acc8;
 $categories-color: #929292;
 $categories-color-active: #0b5483;
@@ -7,7 +11,7 @@ $red-color: #da0c00;
 
 .quotes {
 	font-family: Roboto, Helvetica, verdana, arial, tahoma, sans-serif;
-	padding: 1em 10px;
+	padding: 0 10px;
 	line-height: 1.6;
 
 	// .quotes__inner
@@ -90,8 +94,11 @@ $red-color: #da0c00;
 			cursor: pointer;
 			user-select: none;
 			display: inline-block;
-			margin-right: 1.5em;
+			//margin-right: 1.5em;
 			white-space: nowrap;
+		}
+		&:last-child span {
+			margin-right: 25px;
 		}
 		&.swiper-slide-thumb-active {
 			font-weight: 700;
@@ -333,7 +340,8 @@ $red-color: #da0c00;
 // UI =============================================================================================
 
 // SWIPER ==========================================================================================
-._swiper {
+._swiper,
+.swiper {
 	overflow: hidden;
 	//.swiper-wrapper
 	.swiper-wrapper {
@@ -369,6 +377,8 @@ $red-color: #da0c00;
 .swiper-button-lock {
 	display: none !important;
 }
+
+
 //=====================================================================================================================
 ._tabs {
 }

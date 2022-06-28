@@ -203,14 +203,14 @@ function js() {
 function images() {
     return src(path.src.images)
 		.pipe(newer(path.build.images))
-		.pipe(
+		/* .pipe(
 			imagemin({
 				progressive: true,
-				svgoPlugins: [{ removeViewBox: false }],
+				//svgoPlugins: [{ removeViewBox: false }],
 				interlaced: true,
 				optimizationLevel: 3 // 0 to 7
 			})
-		)
+		) */
 		.pipe(dest(path.build.images))
 		.pipe(dest('test/images/')) // Для теста в проэкте Smart-lab
 }

@@ -1,4 +1,5 @@
-//BildSlider
+//BildSlider 
+// рендер слайдера
 let sliders = document.querySelectorAll('._swiper');
 if (sliders) {
 	for (let index = 0; index < sliders.length; index++) {
@@ -32,7 +33,7 @@ if (sliders) {
 	sliders_bild_callback();
 }
 
-function sliders_bild_callback(params) { }
+function sliders_bild_callback(params) {}
 
 let sliderScrollItems = document.querySelectorAll('._swiper_scroll');
 if (sliderScrollItems.length > 0) {
@@ -55,6 +56,7 @@ if (sliderScrollItems.length > 0) {
 		sliderScroll.scrollbar.updateSize();
 	}
 }
+//end BildSlider
 
 // сдайдер ссылок
 let selectorLinksSlider;
@@ -66,14 +68,14 @@ if (selectorLinks) {
 		slidesPerView: 'auto',
 		watchOverflow: true,
 		freeMode: {
-  	  enabled: true,
-  	  sticky: true,
-  	},
+			enabled: true,
+			sticky: true,
+		},
 		speed: 300,
 		navigation: {
-  	  nextEl: '.selector-links__next',
-  	  prevEl: '.selector-links__prev',
-  	},
+			nextEl: '.selector-links__next',
+			prevEl: '.selector-links__prev',
+		},
 	});
 }
 
@@ -88,14 +90,14 @@ if (navbarBC) {
 		slidesPerView: 'auto',
 		watchOverflow: true,
 		freeMode: {
-  	  enabled: true,
-  	  sticky: true,
-  	},
+			enabled: true,
+			sticky: true,
+		},
 		speed: 300,
 		navigation: {
-  	  nextEl: '.navbar__next',
-  	  prevEl: '.navbar__prev',
-  	},
+			nextEl: '.navbar__next',
+			prevEl: '.navbar__prev',
+		},
 	});
 }
 

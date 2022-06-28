@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
-	 <head>
+ <head>
 	<title>Главная</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
@@ -14,15 +14,16 @@
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-	<body class="">
-		<!-- классы ._style-1 , ._style-2 и ._style-3 используются для стилизации двух видов шаблонов 
+
+<body class="">
+	<!-- классы ._style-1 , ._style-2 и ._style-3 используются для стилизации двух видов шаблонов 
 		Например: при body._style-1 Логотип имеет один цвет, а при body._style-2 и ._style-3 - другой
 		._style-1 для smart-lab.ru
 		._style-2 для smart-lab.ru/q/
 		._style-3 для smart-lab.ru/forum/
 		-->
-		<div class="wrapper">
-			<header class="header">
+	<div class="wrapper">
+		<header class="header">
 	<!-- 
 		* по классу ._active-el навешиваем обработчик события 'click' на каждый
 		* из этих елементов (кнопку/иконку), его родителю присваивается класс ._open 
@@ -649,10 +650,21 @@
 	</div>
 	
 </header>
-			<main class="_mobile-container">
-
-				<!-- слайдер  котировок -->
-				<div class="quotes">
+		<main class="main _mobile-container">
+			<div class="main__top-content">
+				<div class="main__search search-block">
+					<form action="/" class="search-block__form">
+						<input type="text" class="search-block__input" placeholder="Название, тикер или имя автора">
+						<button class="search-block__submit" type="submit">
+							<svg>
+								<use xlink:href="./images/symbol/sprite.svg#search"></use>
+							</svg>
+						</button>
+					</form>
+				</div>
+				<div class="main__quotes">
+					<!-- слайдер  котировок -->
+					<div class="quotes">
   <div class="quotes__inner">
     <div class="quotes__categories categories-slider">
       <!-- по техническому классу _swiper срабатывает скрипт и билдит из блока слайдер      -->
@@ -1077,11 +1089,434 @@
   </div>
 </div>
 
-				
-			</main>
-			
-		</div>
-		<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+				</div>
+				<div class="main__apps-box">
+					<div class="apps-box">
+    <a href="#" class="apps-box__item">
+        <div class="apps-box__icon">
+            <!-- сюда можно вставлять также <img> -->
+            <img src="./images/icons/apps-box/premium.svg" alt="">
+        </div>
+        <span class="apps-box__title">Premium</span>
+    </a>
+    <a href="#" class="apps-box__item">
+        <div class="apps-box__icon">
+            <svg>
+                <use xlink:href="./images/icons/apps-box/sprite.svg#dividend"></use>
+            </svg>
+        </div>
+        <span class="apps-box__title">Дивиденды</span>
+    </a>
+    <a href="#" class="apps-box__item">
+        <div class="apps-box__icon">
+            <svg>
+                <use xlink:href="./images/icons/apps-box/sprite.svg#forum"></use>
+            </svg>
+        </div>
+        <span class="apps-box__title">Форум</span>
+    </a>
+    <a href="#" class="apps-box__item">
+        <div class="apps-box__icon">
+            <svg>
+                <use xlink:href="./images/icons/apps-box/sprite.svg#kalendar"></use>
+            </svg>
+        </div>
+        <span class="apps-box__title">Календ..</span>
+    </a>
+    <a href="#" class="apps-box__item">
+        <div class="apps-box__icon">
+            <svg>
+                <use xlink:href="./images/icons/apps-box/sprite.svg#kotirovki"></use>
+            </svg>
+        </div>
+        <span class="apps-box__title">Котировки</span>
+    </a>
+</div>
+
+				</div>
+				<div class="main__sections-box">
+					<nav class="sections-box swiper">
+    <!-- Additional required wrapper -->
+    <ul class="sections-box__wrap swiper-wrapper">
+        <!-- Slides -->
+        <li class="sections-box__slide sections-box__slide--active swiper-slide"><a href="#">Главная</a></li>
+        <li class="sections-box__slide swiper-slide"><a href="#">Все подряд</a></li>
+        <li class="sections-box__slide swiper-slide"><a href="#">Лучшие</a></li>
+        <li class="sections-box__slide swiper-slide"><a href="#">подписки</a></li> 
+    </ul>
+
+    <!-- If we need navigation buttons -->
+    <!-- <div class="sections-box__prev swiper-button-prev"></div>
+    <div class="sections-box__next swiper-button-next"></div> -->
+</nav>
+				</div>
+			</div>
+			<div class="main__post-card">
+				<section class="post-card">
+    <div class="post-card__header">
+        <img src="./images/icons/post-card/photo.jpg" alt="Фото" class="post-card__photo">
+        <div class="post-card__info">
+            <span class="post-card__name">
+                <!-- Если профиль подтвержден, добавляется модификатор post-card__name-link--approved и svg.post-card__approved -->
+               <a href="#" class="post-card__name-link post-card__name-link--approved">RomanAndreev</a> 
+               <svg class="post-card__approved"  width="20" height="20">
+                   <use xlink:href="images/icons/post-card/sprite.svg#approved"></use>
+               </svg>
+            </span> 
+            <span class="post-card__date">сегодня в 21:28</span>
+        </div>
+    </div>
+    <div class="post-card__body">
+        <h3 class="post-card__title">Ситуация на текущий момент</h3>
+        <p class="post-card__text">
+            Многие из населения и почти 100% смартлабовцев мечтают жить рантье после 40 лет. С одним таким смердом, вернее с
+            женщиной 44 лет лет я недавно брал интервью...
+        </p>
+    </div>
+    <div class="post-card__footer">
+        <div class="post-card__btns-wrap  post-card__btns-wrap--left">
+            <span class="post-card__btns-count">1K</span>
+            <button class="post-card__btn" type="button">
+                <svg width="20" height="20">
+                    <use xlink:href="images/icons/post-card/sprite.svg#views"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="post-card__btns-wrap">
+            <button class="post-card__btn" type="button">
+                <svg width="19" height="18">
+                    <use xlink:href="images/icons/post-card/sprite.svg#star"></use>
+                </svg>
+            </button>
+            <span class="post-card__btns-count">4</span>
+        </div>
+        <div class="post-card__btns-wrap">
+            <button class="post-card__btn" type="button">
+                <svg width="17" height="16">
+                    <use xlink:href="images/icons/post-card/sprite.svg#chat"></use>
+                </svg>
+            </button>
+            <span class="post-card__btns-count">306</span>
+        </div>
+        <div class="post-card__btns-wrap">
+            <button class="post-card__btn" type="button">
+                <svg  width="18" height="17">
+                    <use xlink:href="images/icons/post-card/sprite.svg#heart"></use>
+                </svg>
+            </button>
+            <span class="post-card__btns-count">150</span>
+        </div>
+    </div>
+</section> 
+			</div>
+			<div class="main__post-card">
+				<section class="post-card">
+    <div class="post-card__header">
+        <img src="./images/icons/post-card/photo.jpg" alt="Фото" class="post-card__photo">
+        <div class="post-card__info">
+            <span class="post-card__name">
+                <!-- Если профиль подтвержден, добавляется модификатор post-card__name-link--approved и svg.post-card__approved -->
+               <a href="#" class="post-card__name-link post-card__name-link--approved">RomanAndreev</a> 
+               <svg class="post-card__approved"  width="20" height="20">
+                   <use xlink:href="images/icons/post-card/sprite.svg#approved"></use>
+               </svg>
+            </span> 
+            <span class="post-card__date">сегодня в 21:28</span>
+        </div>
+    </div>
+    <div class="post-card__body">
+        <h3 class="post-card__title">Ситуация на текущий момент</h3>
+        <p class="post-card__text">
+            Многие из населения и почти 100% смартлабовцев мечтают жить рантье после 40 лет. С одним таким смердом, вернее с
+            женщиной 44 лет лет я недавно брал интервью...
+        </p>
+    </div>
+    <div class="post-card__footer">
+        <div class="post-card__btns-wrap  post-card__btns-wrap--left">
+            <span class="post-card__btns-count">1K</span>
+            <button class="post-card__btn" type="button">
+                <svg width="20" height="20">
+                    <use xlink:href="images/icons/post-card/sprite.svg#views"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="post-card__btns-wrap">
+            <button class="post-card__btn" type="button">
+                <svg width="19" height="18">
+                    <use xlink:href="images/icons/post-card/sprite.svg#star"></use>
+                </svg>
+            </button>
+            <span class="post-card__btns-count">4</span>
+        </div>
+        <div class="post-card__btns-wrap">
+            <button class="post-card__btn" type="button">
+                <svg width="17" height="16">
+                    <use xlink:href="images/icons/post-card/sprite.svg#chat"></use>
+                </svg>
+            </button>
+            <span class="post-card__btns-count">306</span>
+        </div>
+        <div class="post-card__btns-wrap">
+            <button class="post-card__btn" type="button">
+                <svg  width="18" height="17">
+                    <use xlink:href="images/icons/post-card/sprite.svg#heart"></use>
+                </svg>
+            </button>
+            <span class="post-card__btns-count">150</span>
+        </div>
+    </div>
+</section>
+			</div>
+			<div class="main__company-box">
+				<nav class="company-box">
+    <h3 class="company-box__title">Компании на смартлабе</h3>
+    <ul class="company-box__list">
+        <li class="company-box__item">
+            <a href="#" class="company-box__link">
+                <img src="./images/icons/company-box/logo_company_081f75_100x100.png" alt="Иконка"
+                    class="company-box__img">
+            </a>
+        </li>
+        <li class="company-box__item">
+            <a href="#" class="company-box__link">
+                <img src="./images/icons/company-box/logo_company_11e8dd_100x100.png" alt="Иконка"
+                    class="company-box__img">
+            </a>
+        </li>
+        <li class="company-box__item">
+            <a href="#" class="company-box__link">
+                <img src="./images/icons/company-box/logo_company_4d9d4d_100x100.png" alt="Иконка"
+                    class="company-box__img">
+            </a>
+        </li>
+        <li class="company-box__item">
+            <a href="#" class="company-box__link">
+                <img src="./images/icons/company-box/logo_company_68e574_100x100.png" alt="Иконка"
+                    class="company-box__img">
+            </a>
+        </li>
+        <li class="company-box__item">
+            <a href="#" class="company-box__link">
+                <img src="./images/icons/company-box/logo_company_68e732_100x100.png" alt="Иконка"
+                    class="company-box__img">
+            </a>
+        </li>
+        <li class="company-box__item">
+            <a href="#" class="company-box__link">
+                <img src="./images/icons/company-box/logo_company_69852a_100x100.png" alt="Иконка"
+                    class="company-box__img">
+            </a>
+        </li>
+        <li class="company-box__item">
+            <a href="#" class="company-box__link">
+                <img src="./images/icons/company-box/logo_company_698838_100x100.png" alt="Иконка"
+                    class="company-box__img">
+            </a>
+        </li>
+        <li class="company-box__item">
+            <a href="#" class="company-box__link">
+                <img src="./images/icons/company-box/logo_company_70911c_100x100.png" alt="Иконка"
+                    class="company-box__img">
+            </a>
+        </li>
+        <li class="company-box__item">
+            <a href="#" class="company-box__link">
+                <img src="./images/icons/company-box/logo_company_7b9ca2_100x100.png" alt="Иконка"
+                    class="company-box__img">
+            </a>
+        </li>
+        <li class="company-box__item">
+            <a href="#" class="company-box__link">
+                <img src="./images/icons/company-box/logo_company_894aa2_100x100.png" alt="Иконка"
+                    class="company-box__img">
+            </a>
+        </li>
+        <li class="company-box__item">
+            <a href="#" class="company-box__link">
+                <img src="./images/icons/company-box/logo_company_994162_100x100.png" alt="Иконка"
+                    class="company-box__img">
+            </a>
+        </li>
+        <li class="company-box__item">
+            <a href="#" class="company-box__link">
+                <img src="./images/icons/company-box/logo_company_ad1cd1_100x100.png" alt="Иконка"
+                    class="company-box__img">
+            </a>
+        </li>
+        <li class="company-box__item">
+            <a href="#" class="company-box__link">
+                <img src="./images/icons/company-box/logo_company_b28ca9_100x100.png" alt="Иконка"
+                    class="company-box__img">
+            </a>
+        </li>
+        <li class="company-box__item">
+            <a href="#" class="company-box__link">
+                <img src="./images/icons/company-box/logo_company_centrocredit_bank_100x100.png" alt="Иконка"
+                    class="company-box__img">
+            </a>
+        </li>
+        <li class="company-box__item">
+            <a href="#" class="company-box__link">
+                <img src="./images/icons/company-box/logo_company_f7b220_100x100.png" alt="Иконка"
+                    class="company-box__img">
+            </a>
+        </li>
+        <li class="company-box__item">
+            <a href="#" class="company-box__link">
+                <img src="./images/icons/company-box/logo_company_finam_100x100.png" alt="Иконка"
+                    class="company-box__img">
+            </a>
+        </li>
+        <li class="company-box__item">
+            <a href="#" class="company-box__link">
+                <img src="./images/icons/company-box/logo_company_general_invest_100x100.png" alt="Иконка"
+                    class="company-box__img">
+            </a>
+        </li>
+        <li class="company-box__item">
+            <a href="#" class="company-box__link">
+                <img src="./images/icons/company-box/logo_company_IDF-eurasia_100x100.png" alt="Иконка"
+                    class="company-box__img">
+            </a>
+        </li>
+        <li class="company-box__item">
+            <a href="#" class="company-box__link">
+                <img src="./images/icons/company-box/logo_company_iticapital_100x100.png" alt="Иконка"
+                    class="company-box__img">
+            </a>
+        </li>
+        <li class="company-box__item">
+            <a href="#" class="company-box__link">
+                <img src="./images/icons/company-box/logo_company_ivolga_capital_100x100.png" alt="Иконка"
+                    class="company-box__img">
+            </a>
+        </li>
+        <li class="company-box__item">
+            <a href="#" class="company-box__link">
+                <img src="./images/icons/company-box/logo_company_just2trade_100x100.png" alt="Иконка"
+                    class="company-box__img">
+            </a>
+        </li>
+        <li class="company-box__item">
+            <a href="#" class="company-box__link">
+                <img src="./images/icons/company-box/logo_company_liveinvestinggroup_100x100.png" alt="Иконка"
+                    class="company-box__img">
+            </a>
+        </li>
+        <li class="company-box__item">
+            <a href="#" class="company-box__link">
+                <img src="./images/icons/company-box/logo_company_metaquotes_100x100.png" alt="Иконка"
+                    class="company-box__img">
+            </a>
+        </li>
+        <li class="company-box__item">
+            <a href="#" class="company-box__link">
+                <img src="./images/icons/company-box/logo_company_mmk_100x100.png" alt="Иконка"
+                    class="company-box__img">
+            </a>
+        </li>
+        <li class="company-box__item">
+            <a href="#" class="company-box__link">
+                <img src="./images/icons/company-box/logo_company_otkritie_broker_100x100.png" alt="Иконка"
+                    class="company-box__img">
+            </a>
+        </li>
+        <li class="company-box__item">
+            <a href="#" class="company-box__link">
+                <img src="./images/icons/company-box/logo_company_positive-technologies_100x100.png" alt="Иконка"
+                    class="company-box__img">
+            </a>
+        </li>
+        <li class="company-box__item">
+            <a href="#" class="company-box__link">
+                <img src="./images/icons/company-box/logo_company_ricom_trust_100x100.png" alt="Иконка"
+                    class="company-box__img">
+            </a>
+        </li>
+        <li class="company-box__item">
+            <a href="#" class="company-box__link">
+                <img src="./images/icons/company-box/logo_company_tickmill_100x100.png" alt="Иконка"
+                    class="company-box__img">
+            </a>
+        </li>
+        <li class="company-box__item">
+            <a href="#" class="company-box__link">
+                <img src="./images/icons/company-box/logo_company_tinkoff_invest_100x100.png" alt="Иконка"
+                    class="company-box__img">
+            </a>
+        </li>
+        <li class="company-box__item">
+            <a href="#" class="company-box__link">
+                <img src="./images/icons/company-box/logo_company_x5retailgroup_100x100.png" alt="Иконка"
+                    class="company-box__img">
+            </a>
+        </li>
+    </ul>
+</nav>
+			</div>
+			<div class="main__post-card">
+				<section class="post-card">
+    <div class="post-card__header">
+        <img src="./images/icons/post-card/photo.jpg" alt="Фото" class="post-card__photo">
+        <div class="post-card__info">
+            <span class="post-card__name">
+                <!-- Если профиль подтвержден, добавляется модификатор post-card__name-link--approved и svg.post-card__approved -->
+               <a href="#" class="post-card__name-link post-card__name-link--approved">RomanAndreev</a> 
+               <svg class="post-card__approved"  width="20" height="20">
+                   <use xlink:href="images/icons/post-card/sprite.svg#approved"></use>
+               </svg>
+            </span> 
+            <span class="post-card__date">сегодня в 21:28</span>
+        </div>
+    </div>
+    <div class="post-card__body">
+        <h3 class="post-card__title">Ситуация на текущий момент</h3>
+        <p class="post-card__text">
+            Многие из населения и почти 100% смартлабовцев мечтают жить рантье после 40 лет. С одним таким смердом, вернее с
+            женщиной 44 лет лет я недавно брал интервью...
+        </p>
+    </div>
+    <div class="post-card__footer">
+        <div class="post-card__btns-wrap  post-card__btns-wrap--left">
+            <span class="post-card__btns-count">1K</span>
+            <button class="post-card__btn" type="button">
+                <svg width="20" height="20">
+                    <use xlink:href="images/icons/post-card/sprite.svg#views"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="post-card__btns-wrap">
+            <button class="post-card__btn" type="button">
+                <svg width="19" height="18">
+                    <use xlink:href="images/icons/post-card/sprite.svg#star"></use>
+                </svg>
+            </button>
+            <span class="post-card__btns-count">4</span>
+        </div>
+        <div class="post-card__btns-wrap">
+            <button class="post-card__btn" type="button">
+                <svg width="17" height="16">
+                    <use xlink:href="images/icons/post-card/sprite.svg#chat"></use>
+                </svg>
+            </button>
+            <span class="post-card__btns-count">306</span>
+        </div>
+        <div class="post-card__btns-wrap">
+            <button class="post-card__btn" type="button">
+                <svg  width="18" height="17">
+                    <use xlink:href="images/icons/post-card/sprite.svg#heart"></use>
+                </svg>
+            </button>
+            <span class="post-card__btns-count">150</span>
+        </div>
+    </div>
+</section>
+			</div>
+			<button class="main__next-btn" type="button">далее</button>
+		</main>
+		
+	</div>
+	<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
 <!-- <script src="js/vendors.min.js"></script>
 <script src="js/app.min.js"></script> -->
 <script src="js/vendors.js"></script>
@@ -1090,5 +1525,6 @@
 <!-- demo.js предназначен исключительно для демонстрации некоторых свойств вёрстки -->
 <!-- <script src="js/demo.js"></script> -->
 
-	</body>
+</body>
+
 </html>

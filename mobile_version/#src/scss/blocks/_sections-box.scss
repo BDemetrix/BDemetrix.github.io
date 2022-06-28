@@ -1,0 +1,32 @@
+.sections-box {
+    padding: 0 8px;
+
+    // .sections-box__wrap
+    &__wrap {
+    }
+
+    // .sections-box__slide
+    &__slide {
+        a {
+            display: block;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 14px;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: #929292;
+            margin-right: 25px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid transparent;
+        }
+
+        &--active a {
+            border-color: #0b5483;
+            color: #0b5483;
+        }
+
+        &:last-child a {
+            margin-right: 0;
+        }
+    }
+}

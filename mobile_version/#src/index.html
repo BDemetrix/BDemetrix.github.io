@@ -1,25 +1,59 @@
 <!DOCTYPE html>
 <html lang="ru">
-	@@include('_head.html',{
-	"title":"Главная"
-	})
-	<body class="">
-		<!-- классы ._style-1 , ._style-2 и ._style-3 используются для стилизации двух видов шаблонов 
+@@include('_head.html',{
+"title":"Главная"
+})
+
+<body class="">
+	<!-- классы ._style-1 , ._style-2 и ._style-3 используются для стилизации двух видов шаблонов 
 		Например: при body._style-1 Логотип имеет один цвет, а при body._style-2 и ._style-3 - другой
 		._style-1 для smart-lab.ru
 		._style-2 для smart-lab.ru/q/
 		._style-3 для smart-lab.ru/forum/
 		-->
-		<div class="wrapper">
-			@@include('_header.html',{"Class": "_container"})
-			<main class="_mobile-container">
+	<div class="wrapper">
+		@@include('_header.html',{"Class": "_container"})
+		<main class="main _mobile-container">
+			<div class="main__top-content">
+				<div class="main__search search-block">
+					<form action="/" class="search-block__form">
+						<input type="text" class="search-block__input" placeholder="Название, тикер или имя автора">
+						<button class="search-block__submit" type="submit">
+							<svg>
+								<use xlink:href="./images/symbol/sprite.svg#search"></use>
+							</svg>
+						</button>
+					</form>
+				</div>
+				<div class="main__quotes">
+					<!-- слайдер  котировок -->
+					@@include('_quotes.html',{})
+				</div>
+				<div class="main__apps-box">
+					@@include('_apps-box.html',{})
 
-				<!-- слайдер  котировок -->
-				@@include('_quotes.html',{})
-				
-			</main>
-			<!-- @@include('_footer.html',{}) -->
-		</div>
-		@@include('_js.html',{})
-	</body>
+				</div>
+				<div class="main__sections-box">
+					@@include('_sections-box.html',{})
+				</div>
+			</div>
+			<div class="main__post-card">
+				@@include('_post-card.html',{}) 
+			</div>
+			<div class="main__post-card">
+				@@include('_post-card.html',{})
+			</div>
+			<div class="main__company-box">
+				@@include('_company-box.html',{})
+			</div>
+			<div class="main__post-card">
+				@@include('_post-card.html',{})
+			</div>
+			<button class="main__next-btn" type="button">далее</button>
+		</main>
+		<!-- @@include('_footer.html',{}) -->
+	</div>
+	@@include('_js.html',{})
+</body>
+
 </html>

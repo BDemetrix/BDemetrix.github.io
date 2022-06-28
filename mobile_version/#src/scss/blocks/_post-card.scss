@@ -1,0 +1,122 @@
+.post-card {
+    font-family: inherit;
+    padding: 14px 10px;
+    background: #ffffff;
+    box-shadow: 0px 4px 4px rgba(117, 117, 117, 0.12);
+    border-radius: 8px;
+
+    // .post-card__header
+    &__header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 14px;
+    }
+    // .post-card__photo
+    &__photo {
+        display: flex;
+        margin-right: 14px;
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        border: 1px solid #e7e7e7;
+        object-fit: cover;
+    }
+    // .post-card__info
+    &__info {
+        max-width: calc(100% - 64px);
+    }
+    // .post-card__name
+    &__name {
+        display: inline-flex;
+        max-width: 100%;
+    }
+
+    &__name-link,
+    &__date {
+        display: block;
+        max-width: 100%;
+        line-height: 20px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    // .post-card__name-link
+    &__name-link {
+        font-weight: 600;
+        font-size: 14px;
+        letter-spacing: 0.02em;
+        color: #808080;
+
+        &--approved {
+            max-width: calc(100% - 24px);
+        }
+    }
+    // .post-card__approved
+    &__approved {
+        margin-left: 4px;
+    }
+    // .post-card__date
+    &__date {
+        font-size: 12px;
+        color: #808080;
+    }
+    // .post-card__body
+    &__body {
+        margin-bottom: 28px;
+    }
+    // .post-card__title
+    &__title {
+        margin: 0 0 7px;
+        font-weight: 500;
+        font-size: 19px;
+        line-height: 22px;
+        letter-spacing: 0.0125em;
+        color: #0b5483;
+    }
+    // .post-card__text
+    &__text {
+        font-size: 14px;
+        line-height: 22px;
+        color: #312c26;
+    }
+    // .post-card__footer
+    &__footer {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-top: 10px;
+        border-top: 1px solid #e0e0e0;
+    }
+    // .post-card__btns-wrap
+    &__btns-wrap {
+        display: inline-flex;
+        align-items: center;
+        margin-right: 28px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &--left {
+            justify-self: flex-start;
+            margin-right: auto;
+        }
+    }
+
+    // .post-card__btns-count
+    &__btns-count {
+        font-size: 12px;
+        line-height: 20px; 
+        color: #808080;
+    }
+    // .post-card__btn
+    &__btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 20px;
+        background: none;
+        border: 0;
+    }
+}

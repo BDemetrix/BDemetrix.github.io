@@ -210,6 +210,7 @@
 		position: absolute;
 		border-radius: 50%;
 		display: none;
+		background: #d4d4d4;
 
 		@media (min-width: $md7 + px) {
 			display: block;
@@ -245,7 +246,7 @@
 	// .main-logo__title-main
 	&__title-main {
 		font-size: adaptiv-value($md5,25,320,17);
-		line-height: adaptiv-value($md5,25,320,21);
+		line-height: 25px; //adaptiv-value($md5,25,320,21);
 		white-space: nowrap;
 		color: #d4d4d4;
 
@@ -255,7 +256,7 @@
 
 		@media (min-width: $md5 + px) {
 			font-size: 25px;
-			line-height: 25px;
+			//line-height: 25px;
 		}
 		@media (min-width: $md4 + px) {
 			font-size: 33px;
@@ -317,13 +318,13 @@ h5.main-logo__title-main {
 			}
 		}
 		@media (min-width: $md7 + px) {
-			margin-right: adaptiv-value($md5,20,320,15);
+			margin-right: adaptiv-value($md5,25,320,20);
 		}
 		/* @media (min-width: $md6 + px) {
 			margin-right: 20px;
 		} */
 		@media (min-width: $md5 + px) {
-			margin-right: 20px;
+			margin-right: 25px;
 		}
 		@media (min-width: $md2-1 + px) {
 			display: none;
