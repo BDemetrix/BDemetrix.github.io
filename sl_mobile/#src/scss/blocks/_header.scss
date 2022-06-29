@@ -28,7 +28,6 @@
 	}
 	// .header__menu
 	&__menu {
-		//width: 25px !important; // !important Для исправления конфликтов
 		flex: 0 0 25px;
 		margin-right: 10px !important; // Для исправления конфликтов
 		margin-left: 0px !important;
@@ -200,7 +199,7 @@
 }
 
 .main-logo {
-	font-family: Roboto, 'Tahoma', sans-serif !important; // !important Для исправления конфликтов
+	font-family: Roboto, 'Tahoma', sans-serif; 
 	font-weight: 700;
 	position: relative;
 	display: inline-block;
@@ -237,7 +236,7 @@
 	}
 
 	* {
-		font-family: Roboto, 'Tahoma', sans-serif !important; // !important Для исправления конфликтов
+		font-family: Roboto, 'Tahoma', sans-serif;
 	}
 	// .main-logo__title
 	&__title {

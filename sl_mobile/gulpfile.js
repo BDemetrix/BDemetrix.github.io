@@ -79,14 +79,6 @@ function html() {
 		.pipe(browsersync.stream());
 }
 
-function htmlTest() {   // Для теста в проэкте Smart-lab
-	return src('test/#src/*.html', {})
-		.pipe(plumber())
-		.pipe(fileinclude())
-		//.pipe(webphtml())
-		.pipe(dest('test/'))
-		.pipe(browsersync.stream());
-}
 function css() {
 	return src(path.src.css, {})
 		.pipe(plumber())
@@ -188,7 +180,6 @@ function js() {
 		.pipe(plumber())
 		.pipe(fileinclude())
 		.pipe(gulp.dest(path.build.js))
-		.pipe(dest('test/js/')) // Для теста в проэкте Smart-lab
 		.pipe(uglify(/* options */))
 		.pipe(
 			rename({
@@ -197,7 +188,6 @@ function js() {
 			})
 		)
 		.pipe(dest(path.build.js))
-		.pipe(dest('test/js/')) // Для теста в проэкте Smart-lab
 		.pipe(browsersync.stream());
 }
 function images() {
@@ -212,7 +202,6 @@ function images() {
 			})
 		) */
 		.pipe(dest(path.build.images))
-		.pipe(dest('test/images/')) // Для теста в проэкте Smart-lab
 }
 function favicon() {
 	return src(path.src.favicon)
@@ -271,7 +260,6 @@ function svgSprite() {
 			}
 		}))
 		.pipe(dest(path.build.images))
-		.pipe(dest('test/images/')) // Для теста в проэкте Smart-lab
 }
 function fontstyle() {
 	let file_content = fs.readFileSync(src_folder + '/scss/base/fonts.scss');
@@ -315,13 +303,11 @@ function watchFiles() {
 	//gulp.watch([path.watch.css], cssThemes);
 	gulp.watch([path.watch.js], js);
 	gulp.watch([path.watch.images], images);
-	gulp.watch(['test/#src/*.html'], htmlTest); // для теста
 }
-let build = gulp.series(clean, fontsCopy, fonts_otf, gulp.parallel(html, htmlTest, css, cssBlocks, /* cssThemes, */ js, favicon, images, svgSprite), fonts, gulp.parallel(fontstyle));
+let build = gulp.series(clean, fontsCopy, fonts_otf, gulp.parallel(html, css, cssBlocks, /* cssThemes, */ js, favicon, images, svgSprite), fonts, gulp.parallel(fontstyle));
 let watch = gulp.parallel(build, watchFiles, browserSync);
 
 exports.html = html;
-exports.htmlTest = htmlTest;
 exports.css = css;
 exports.cssBlocks = cssBlocks;
 //exports.cssThemes = cssThemes;
