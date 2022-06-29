@@ -243,6 +243,7 @@ document.documentElement.addEventListener('click', (e) => {
     unBlockOverflow();
   }
 });
+
 /**
  * навешиваем обработчик нажатия на каждый активный елемент (кнопку/иконку)
  * которому присвоен класс ._active-el
@@ -282,125 +283,6 @@ if (inputArr.length) {
   });
 }
 
-//===================
-
-/**
- * Валиация ввода - только цифры
- * @param {event} event
- */
-function numOnly(event) {
-  if (event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || event.keyCode == 13 ||
-    // Разрешаем: Ctrl+A
-    (event.keyCode == 65 && event.ctrlKey === true) ||
-    // Разрешаем: home, end, влево, вправо
-    (event.keyCode >= 35 && event.keyCode <= 39)) {
-    // Ничего не делаем
-    return;
-  } else {
-    // Запрещаем все, кроме цифр на основной клавиатуре, а так же Num-клавиатуре
-    if ((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105)) {
-      event.preventDefault();
-    }
-  }
-}
-
-// Обработка событий для контекстного меню .context-menu
-const popUpMenu = document.querySelectorAll('.context-menu');
-if (popUpMenu.length) {
-  popUpMenu.forEach( menu => {
-    const btn = menu.querySelector('button, a');
-
-    if (btn) {
-      btn.addEventListener('click', () => {
-        if (!menu.classList.contains('_open')) {
-          closeAllOpenedMenu();
-          popUpMenuCorrectPos(menu);
-        }
-        else
-          popUpMenuCleartPos(menu);
-        
-        menu.classList.toggle('_open');
-      });
-    }
-
-    setTimeout(() => {
-      popUpMenuCorrectPos(menu);
-    }, 10);
-  });
-
-  document.documentElement.addEventListener('click', (e) => {
-    if(!e.target.closest('.context-menu > button')) {
-      const popUpMenu = document.querySelector('.context-menu._open');
-      if (popUpMenu) popUpMenu.classList.remove('_open');
-    }
-  });
-
-  /**
-   * если окно выходит за рамки окна браузера, корректируем позицию
-   */
-  function popUpMenuCorrectPos(popUpMenu) {
-    popUpMenuCleartPos(popUpMenu);
-    
-    const ul = popUpMenu.querySelector('ul');
-    let menuPosLeft =  popUpMenu.getBoundingClientRect().left;
-    let menuPosRight = popUpMenu.getBoundingClientRect().right;
-    let ulPosLeft =  ul.getBoundingClientRect().left - 5;
-    let ulPosRight = document.documentElement.clientWidth - ul.getBoundingClientRect().right - 5;
-    
-    if (ulPosLeft < 0 ) {
-      if ((document.documentElement.clientWidth - menuPosLeft - 5) >= ul.offsetWidth) 
-        ul.style.left = '0';
-      else 
-        ul.style.right = ulPosLeft + 'px';
-    }
-
-    if (ulPosRight < 0 ) {
-      if ((menuPosRight - 5) >= ul.offsetWidth) 
-        ul.style.right = '0';
-      else 
-        ul.style.left = ulPosRight + 'px';
-    }
-  } 
-
-  function popUpMenuCleartPos(popUpMenu) {
-    const ul = popUpMenu.querySelector('ul');
-    ul.style.left = ul.style.right = '';
-  }
-
-  window.addEventListener('resize', () => {
-    popUpMenu.forEach( menu => {
-      popUpMenuCleartPos(menu);
-      popUpMenuCorrectPos(menu);
-    })
-  });
-}
-
-/**
- * Вычисление ширины центральной колонки content__main
- */
-const Content = document.querySelector('.content');
-const contentLeft = document.querySelector('.content__left');
-const contentMain = document.querySelector('.content__main');
-const contentRight = document.querySelector('.content__right');
-
-calcWidthContentMain();
-window.addEventListener('resize', calcWidthContentMain);
-window.addEventListener('orientationchange', calcWidthContentMain);
-
-function calcWidthContentMain() {
-  if (Content) {
-    const contentWidth = Content.clientWidth ;
-    const contentLeftWidth = contentLeft ? contentLeft.offsetWidth : 0 ;
-    const contentRightWidth = contentRight ? contentRight.offsetWidth  : 0 ;
-
-    if (contentMain) {
-      contentMain.style.width = (contentWidth - contentLeftWidth - contentRightWidth) + 'px';
-      contentMain.style.maxWidth = (contentWidth - contentLeftWidth - contentRightWidth) + 'px';
-    }
-  }
-}
-
-
 /**
  * по классу _tabs находятся все блоки, которые должны быть табами 
  * например в проэкте блок .slide-content__tabs-item
@@ -425,6 +307,5 @@ for (let index = 0; index < tabs.length; index++) {
     });
   }
 }
-
 
 //=================

@@ -60,12 +60,9 @@ $red-color: #da0c00;
 			cursor: pointer;
 			user-select: none;
 			display: inline-block;
-			//margin-right: 1.5em;
 			white-space: nowrap;
 		}
-		&:last-child span {
-			margin-right: 25px;
-		}
+
 		&.swiper-slide-thumb-active {
 			font-weight: 700;
 			color: $categories-color-active;

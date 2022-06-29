@@ -3555,10 +3555,6 @@ textarea {
   white-space: nowrap;
 }
 
-.categories-slider__slide:last-child span {
-  margin-right: 25px;
-}
-
 .categories-slider__slide.swiper-slide-thumb-active {
   font-weight: 700;
   color: #0b5483;
