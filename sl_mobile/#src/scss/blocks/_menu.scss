@@ -321,19 +321,7 @@
 			bottom: 0px;
 		}
 	}
-	/* &._active {
-		span {
-			transform: scale(0);
-			&:first-child {
-				transform: rotate(-45deg);
-				top: calc(50% - 1px);
-			}
-			&:last-child {
-				transform: rotate(45deg);
-				bottom: calc(50% - 1px);
-			}
-		} 
-	}*/
+
 	&:hover span {
 		background: #fff;
 	}
