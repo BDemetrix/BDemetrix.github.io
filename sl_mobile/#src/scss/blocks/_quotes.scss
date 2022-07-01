@@ -283,12 +283,14 @@ $red-color: #da0c00;
 }
 .futures {
 	display: flex;
+	align-items: center;
+	justify-content: center;
 	height: 100%;
 
 	span {
 		text-align: center;
-		margin: auto;
 		font-size: adaptiv-value($md2, 80, 320, 40);
+		font-size: 40px;
 		opacity: 0.4;
 	}
 }

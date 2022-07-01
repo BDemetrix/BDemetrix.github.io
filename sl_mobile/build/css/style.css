@@ -3795,13 +3795,19 @@ textarea {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: 100%;
 }
 
 .futures span {
   text-align: center;
-  margin: auto;
   font-size: calc(40px + 40 * ((100vw - 320px) / 671.98));
+  font-size: 40px;
   opacity: 0.4;
 }
 
