@@ -21,7 +21,6 @@ $red-color: #da0c00;
 	&__categories {
 		font-size: 14px;
 		line-height: 100%;
-		font-weight: 600;
 	}
 	// .quotes__content
 	&__content {
@@ -46,7 +45,7 @@ $red-color: #da0c00;
 			display: flex;
 
 			.categories-slider__slide:first-child {
-				font-weight: 700;
+				font-weight: 600;
 				color: #0a5991;
 			}
 		}

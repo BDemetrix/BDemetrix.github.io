@@ -3525,7 +3525,6 @@ textarea {
 .quotes__categories {
   font-size: 14px;
   line-height: 100%;
-  font-weight: 600;
 }
 
 .quotes__content {
@@ -3545,7 +3544,7 @@ textarea {
 }
 
 .categories-slider__body--loading .categories-slider__slide:first-child {
-  font-weight: 700;
+  font-weight: 600;
   color: #0a5991;
 }
 
