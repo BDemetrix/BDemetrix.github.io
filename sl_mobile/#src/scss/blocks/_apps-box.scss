@@ -9,8 +9,25 @@
 		display: flex;
 		flex-direction: column;
 		width: 20%;
+		max-width: 78px;
 		padding: 0 10px;
 		margin-bottom: 32px;
+
+		@media (min-width: 392px ) {
+			width: calc(100%/6);
+		}
+		@media (min-width: 470px ) {
+			width: calc(100%/7);
+		}
+		@media (min-width: 548px ) {
+			width: calc(100%/8);
+		}
+		@media (min-width: 626px ) {
+			width: calc(100%/9);
+		}
+		@media (min-width: 704px ) {
+			width: calc(100%/10);
+		}
 	}
 	// .apps-box__icon
 	&__icon {

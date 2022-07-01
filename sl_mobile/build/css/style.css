@@ -3460,6 +3460,7 @@ textarea {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 20%;
+  max-width: 78px;
   padding: 0 10px;
   margin-bottom: 32px;
 }
@@ -4060,6 +4061,18 @@ textarea {
   }
 }
 
+@media (min-width: 392px) {
+  .apps-box__item {
+    width: 16.6666666667%;
+  }
+}
+
+@media (min-width: 470px) {
+  .apps-box__item {
+    width: 14.2857142857%;
+  }
+}
+
 @media (min-width: 479.98px) {
   .menu__icon {
     padding: 10px;
@@ -4104,6 +4117,12 @@ textarea {
   }
 }
 
+@media (min-width: 548px) {
+  .apps-box__item {
+    width: 12.5%;
+  }
+}
+
 @media (min-width: 567.98px) {
   .main-logo::before {
     top: 5px;
@@ -4127,6 +4146,18 @@ textarea {
 
   .alphabet__list {
     width: 360px;
+  }
+}
+
+@media (min-width: 626px) {
+  .apps-box__item {
+    width: 11.1111111111%;
+  }
+}
+
+@media (min-width: 704px) {
+  .apps-box__item {
+    width: 10%;
   }
 }
 
