@@ -21,6 +21,7 @@ $red-color: #da0c00;
 	&__categories {
 		font-size: 14px;
 		line-height: 100%;
+		font-weight: 400;
 	}
 	// .quotes__content
 	&__content {
@@ -62,7 +63,7 @@ $red-color: #da0c00;
 		}
 
 		&.swiper-slide-thumb-active {
-			font-weight: 700;
+			font-weight: 600;
 			color: $categories-color-active;
 		}
 	}
