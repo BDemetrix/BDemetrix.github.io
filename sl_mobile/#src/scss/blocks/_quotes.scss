@@ -19,10 +19,8 @@ $red-color: #da0c00;
 	}
 	// .quotes__categories
 	&__categories {
-		font-size: adaptiv-value($md2, 20, 320, 13);
-		@media (min-width: $md2 + px) {
-			font-size: 20px;
-		}
+		font-size: 14px;
+		line-height: 100%;
 	}
 	// .quotes__content
 	&__content {
@@ -39,7 +37,7 @@ $red-color: #da0c00;
 .categories-slider {
 	position: relative;
 	border-bottom: 1px solid rgba(11, 84, 131, 0.34);
-	padding: 0px 0px 0.6em 0px;
+	padding: 0px 0px 10px 0px;
 
 	// .categories-slider__body
 	&__body {

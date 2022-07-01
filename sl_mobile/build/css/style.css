@@ -156,6 +156,7 @@ picture {
 .wrapper {
   width: 100%;
   min-height: 100%;
+  background: #f1f1f1;
 }
 
 ._container {
@@ -3001,23 +3002,27 @@ textarea {
 }
 
 .main {
-  background: #f5f5f5;
+  background: -o-linear-gradient(top, #f1f1f1 0px, #f1f1f1 20px, #f5f5f5 21px, #f5f5f5 100%);
+  background: linear-gradient(to bottom, #f1f1f1 0px, #f1f1f1 20px, #f5f5f5 21px, #f5f5f5 100%);
   padding-bottom: 10px;
 }
 
 .main__top-content {
+  margin-top: 10px;
   margin-bottom: 10px;
+  padding-top: 10px;
   background: #fff;
+  border-radius: 8px 8px 0 0;
   -webkit-box-shadow: 0px 4px 4px rgba(117, 117, 117, 0.12);
           box-shadow: 0px 4px 4px rgba(117, 117, 117, 0.12);
 }
 
 .main__search {
-  margin: 20px 0;
+  margin: 0px 0 20px;
 }
 
 .main__quotes {
-  margin: 20px 0 16px;
+  margin: 20px 0 0;
 }
 
 .main__apps-box {
@@ -3518,7 +3523,8 @@ textarea {
 }
 
 .quotes__categories {
-  font-size: calc(13px + 7 * ((100vw - 320px) / 671.98));
+  font-size: 14px;
+  line-height: 100%;
 }
 
 .quotes__content {
@@ -3528,7 +3534,7 @@ textarea {
 .categories-slider {
   position: relative;
   border-bottom: 1px solid rgba(11, 84, 131, 0.34);
-  padding: 0px 0px 0.6em 0px;
+  padding: 0px 0px 10px 0px;
 }
 
 .categories-slider__body--loading {
@@ -4262,10 +4268,6 @@ textarea {
 
   .usermenu__icon-arrow {
     right: 12px;
-  }
-
-  .quotes__categories {
-    font-size: 20px;
   }
 
   .quotes__content {

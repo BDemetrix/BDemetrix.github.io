@@ -402,7 +402,7 @@ if (categoriesSliderBbody) {
         slidesPerView: 'auto',
         /* centeredSlides: true,
         centeredSlidesBounds: true, */
-        spaceBetween: 25,
+        spaceBetween: 32,
         /* freeMode: {
             enabled: true,
             sticky: true,
