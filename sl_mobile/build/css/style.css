@@ -3525,6 +3525,7 @@ textarea {
 .quotes__categories {
   font-size: 14px;
   line-height: 100%;
+  font-weight: 600;
 }
 
 .quotes__content {
