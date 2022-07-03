@@ -25,9 +25,9 @@ $red-color: #da0c00;
 	}
 	// .quotes__content
 	&__content {
-		font-size: adaptiv-value($md2, 18, 320, 13);
-		@media (min-width: $md2 + px) {
-			font-size: 18px;
+		font-size: adaptiv-value($md3, 14, 320, 13);
+		@media (min-width: $md3 + px) {
+			font-size: 14px;
 		}
 	}
 

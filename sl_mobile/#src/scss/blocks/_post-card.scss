@@ -72,12 +72,21 @@
         line-height: 22px;
         letter-spacing: 0.0125em;
         color: #0b5483;
+
+        @media (min-width: $md3 + px) {
+			font-size: 22px;
+            color: #1f1f1f;
+		}
     }
     // .post-card__text
     &__text {
         font-size: 14px;
         line-height: 22px;
         color: #312c26;
+
+        @media (min-width: $md3 + px) {
+			font-size: 17px;
+		}
     }
     // .post-card__footer
     &__footer {

@@ -8,22 +8,33 @@
 
 	// .main__top-content
 	&__top-content {
-		margin-top: 10px;
-		margin-bottom: 10px;
+		margin: 10px 0 10px;
 		padding-top: 10px;
 		background: #fff;
 		border-radius: 8px 8px 0 0;
 		box-shadow: 0px 4px 4px rgba(117, 117, 117, 0.12);
+
+		@media (min-width: $md3 + px) {
+			padding-top: 1px;
+		}
 	}
 
 	// .main__search
 	&__search {
 		margin: 0px 0 0px;
+
+		@media (min-width: $md3 + px) {
+			display: none;
+		}
 	}
 
 	// .main__quotes
 	&__quotes {
 		margin: 20px 0 0;
+
+		@media (min-width: $md3 + px) {
+			margin-top: 13px;
+		}
 	}
 
 	// .main__apps-box

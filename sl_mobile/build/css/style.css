@@ -3007,8 +3007,7 @@ textarea {
 }
 
 .main__top-content {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px 0 10px;
   padding-top: 10px;
   background: #fff;
   border-radius: 8px 8px 0 0;
@@ -3528,7 +3527,7 @@ textarea {
 }
 
 .quotes__content {
-  font-size: calc(13px + 5 * ((100vw - 320px) / 671.98));
+  font-size: calc(13px + 1 * ((100vw - 320px) / 447.98));
 }
 
 .categories-slider {
@@ -4079,6 +4078,12 @@ textarea {
   }
 }
 
+@media (min-width: 454px) {
+  .company-box__item {
+    width: 14.28%;
+  }
+}
+
 @media (min-width: 470px) {
   .apps-box__item {
     width: 14.2857142857%;
@@ -4129,6 +4134,12 @@ textarea {
   }
 }
 
+@media (min-width: 518px) {
+  .company-box__item {
+    width: 12.5%;
+  }
+}
+
 @media (min-width: 548px) {
   .apps-box__item {
     width: 12.5%;
@@ -4161,15 +4172,54 @@ textarea {
   }
 }
 
+@media (min-width: 582px) {
+  .company-box__item {
+    width: 11.11%;
+  }
+}
+
 @media (min-width: 626px) {
   .apps-box__item {
     width: 11.1111111111%;
   }
 }
 
+@media (min-width: 646px) {
+  .company-box__item {
+    width: 10%;
+  }
+}
+
 @media (min-width: 704px) {
   .apps-box__item {
     width: 10%;
+  }
+}
+
+@media (min-width: 767.98px) {
+  .main__top-content {
+    padding-top: 1px;
+  }
+
+  .main__search {
+    display: none;
+  }
+
+  .main__quotes {
+    margin-top: 13px;
+  }
+
+  .quotes__content {
+    font-size: 14px;
+  }
+
+  .post-card__title {
+    font-size: 22px;
+    color: #1f1f1f;
+  }
+
+  .post-card__text {
+    font-size: 17px;
   }
 }
 
@@ -4274,10 +4324,6 @@ textarea {
 
   .usermenu__icon-arrow {
     right: 12px;
-  }
-
-  .quotes__content {
-    font-size: 18px;
   }
 }
 

@@ -22,6 +22,19 @@
     // .company-box__item
     &__item {
         width: 16.66%;
+
+        @media (min-width: 454px) {
+            width: 14.28%;
+        }
+        @media (min-width: 518px) {
+            width: 12.5%;
+        }
+        @media (min-width: 582px) {
+            width: 11.11%;
+        }
+        @media (min-width: 646px) {
+            width: 10%;
+        }
     }
 
     // .company-box__link
