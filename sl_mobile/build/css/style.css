@@ -4020,6 +4020,18 @@ textarea {
 
 .company-box__item {
   width: 16.66%;
+  /*  @media (min-width: 454px) {
+      width: 14.28%;
+  }
+  @media (min-width: 518px) {
+      width: 12.5%;
+  }
+  @media (min-width: 582px) {
+      width: 11.11%;
+  }
+  @media (min-width: 646px) {
+      width: 10%;
+  } */
 }
 
 .company-box__link {
@@ -4078,12 +4090,6 @@ textarea {
   }
 }
 
-@media (min-width: 454px) {
-  .company-box__item {
-    width: 14.28%;
-  }
-}
-
 @media (min-width: 470px) {
   .apps-box__item {
     width: 14.2857142857%;
@@ -4134,12 +4140,6 @@ textarea {
   }
 }
 
-@media (min-width: 518px) {
-  .company-box__item {
-    width: 12.5%;
-  }
-}
-
 @media (min-width: 548px) {
   .apps-box__item {
     width: 12.5%;
@@ -4172,9 +4172,9 @@ textarea {
   }
 }
 
-@media (min-width: 582px) {
+@media (min-width: 584px) {
   .company-box__item {
-    width: 11.11%;
+    width: 14.28%;
   }
 }
 
@@ -4184,9 +4184,9 @@ textarea {
   }
 }
 
-@media (min-width: 646px) {
+@media (min-width: 678px) {
   .company-box__item {
-    width: 10%;
+    width: 12.5%;
   }
 }
 
