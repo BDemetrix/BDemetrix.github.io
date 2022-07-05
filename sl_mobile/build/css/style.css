@@ -3527,7 +3527,7 @@ textarea {
 }
 
 .quotes__content {
-  font-size: calc(13px + 1 * ((100vw - 320px) / 447.98));
+  font-size: 14px;
 }
 
 .categories-slider {
@@ -3680,6 +3680,12 @@ textarea {
   background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), color-stop(60%, #fff), to(#fff));
   background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #fff 60%, #fff 100%);
   background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #fff 60%, #fff 100%);
+}
+
+.quote-leaders__price {
+  display: none;
+  max-width: 6em;
+  text-align: right;
 }
 
 .quote-leaders__trend {
@@ -4170,6 +4176,22 @@ textarea {
   .alphabet__list {
     width: 360px;
   }
+
+  .world-indices__name,
+  .world-indices__value {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 25%;
+            flex: 0 0 25%;
+    width: 25%;
+  }
+
+  .world-indices__percent,
+  .world-indices__time {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 25%;
+            flex: 0 0 25%;
+    width: 25%;
+  }
 }
 
 @media (min-width: 584px) {
@@ -4209,8 +4231,23 @@ textarea {
     margin-top: 13px;
   }
 
-  .quotes__content {
-    font-size: 14px;
+  .quote-leaders__growth {
+    padding-right: 20px;
+  }
+
+  .quote-leaders__decline {
+    padding-left: 20px;
+  }
+
+  .quote-leaders__price {
+    display: block;
+  }
+
+  .quote-leaders__trend {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 1em;
+            flex: 0 0 1em;
+    width: 1em;
   }
 
   .post-card__title {
