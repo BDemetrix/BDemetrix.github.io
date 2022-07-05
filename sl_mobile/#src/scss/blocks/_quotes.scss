@@ -110,7 +110,7 @@ $red-color: #da0c00;
 	}
 	// .slide-content__date
 	&__date {
-		font-weight: 500;
+		font-weight: 400;
 		color: $cart-color;
 	}
 	// .slide-content__body
@@ -173,6 +173,10 @@ $red-color: #da0c00;
 				color: $row-active-color !important;
 			}
 		}
+
+		@media (min-width: $md3 + px) {
+			width: 82%;
+		}
 	}
 	// .quote-leaders__name
 	&__name {
@@ -208,10 +212,10 @@ $red-color: #da0c00;
 		flex: 0 0 2em;
 		width: 2em;
 
-		@media (min-width: $md3 + px) {
+		/* @media (min-width: $md3 + px) {
 			flex: 0 0 1em;
 			width: 1em;
-		}
+		} */
 	}
 	// .quote-leaders__value
 	&__value {

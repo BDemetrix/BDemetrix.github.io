@@ -3610,7 +3610,7 @@ textarea {
 }
 
 .slide-content__date {
-  font-weight: 500;
+  font-weight: 400;
   color: #808080;
 }
 
@@ -3693,6 +3693,10 @@ textarea {
       -ms-flex: 0 0 2em;
           flex: 0 0 2em;
   width: 2em;
+  /* @media (min-width: $md3 + px) {
+  	flex: 0 0 1em;
+  	width: 1em;
+  } */
 }
 
 .quote-leaders__value {
@@ -4025,11 +4029,8 @@ textarea {
 }
 
 .company-box__item {
-  width: 16.66%;
-  /*  @media (min-width: 454px) {
-      width: 14.28%;
-  }
-  @media (min-width: 518px) {
+  width: 20%;
+  /*@media (min-width: 518px) {
       width: 12.5%;
   }
   @media (min-width: 582px) {
@@ -4146,6 +4147,12 @@ textarea {
   }
 }
 
+@media (min-width: 500px) {
+  .company-box__item {
+    width: 16.66%;
+  }
+}
+
 @media (min-width: 548px) {
   .apps-box__item {
     width: 12.5%;
@@ -4239,15 +4246,12 @@ textarea {
     padding-left: 20px;
   }
 
-  .quote-leaders__price {
-    display: block;
+  .quote-leaders__row {
+    width: 82%;
   }
 
-  .quote-leaders__trend {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 1em;
-            flex: 0 0 1em;
-    width: 1em;
+  .quote-leaders__price {
+    display: block;
   }
 
   .post-card__title {
