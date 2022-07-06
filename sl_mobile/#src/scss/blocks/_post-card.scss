@@ -5,6 +5,10 @@
     box-shadow: 0px 4px 4px rgba(117, 117, 117, 0.12);
     border-radius: 8px;
 
+    @media (min-width: $md3 + px) {
+		box-shadow: none;
+	}
+
     // .post-card__header
     &__header {
         display: flex;
