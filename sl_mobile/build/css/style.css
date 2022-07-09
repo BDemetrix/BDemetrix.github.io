@@ -2144,6 +2144,7 @@ body[class*=" jBox-blockScroll-"] {
       -ms-flex: 0 0 20px;
           flex: 0 0 20px;
   margin-right: 25px;
+  display: none;
 }
 
 .header__message-icon {
@@ -2838,6 +2839,7 @@ body[class*=" jBox-blockScroll-"] {
 
 .usermenu__icon {
   position: relative;
+  padding-right: 24px;
   cursor: pointer;
 }
 
@@ -2870,6 +2872,7 @@ body[class*=" jBox-blockScroll-"] {
 
 .usermenu__icon-arrow {
   position: absolute;
+  display: block;
   right: 0px;
   top: calc(50% - 3px);
   border-top: 6px solid #fff;
@@ -2879,7 +2882,6 @@ body[class*=" jBox-blockScroll-"] {
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  display: none;
 }
 
 .usermenu__body {
@@ -4155,6 +4157,10 @@ textarea {
 }
 
 @media (min-width: 567.98px) {
+  .header__message {
+    display: block;
+  }
+
   .main-logo::before {
     top: 5px;
     right: -15px;

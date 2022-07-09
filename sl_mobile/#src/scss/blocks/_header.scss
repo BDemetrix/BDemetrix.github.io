@@ -79,6 +79,11 @@
 	&__message {
 		flex: 0 0 20px;
 		margin-right: 25px;
+		display: none;
+
+		@media (min-width: $md4 + px) {
+			display: block;
+		}
 
 		@media (min-width: $md2 + px) {
 			margin-right: 30px;
@@ -798,6 +803,7 @@
 	// .usermenu__icon
 	&__icon {
 		position: relative;
+		padding-right: 24px;
 		cursor: pointer;
 
 		&:hover {
@@ -839,6 +845,7 @@
 	// .usermenu__icon-arrow
 	&__icon-arrow {
 		position: absolute;
+		display: block;
 		right: 0px;
 		top: calc(50% - 3px);
 		border-top: 6px solid #fff;
@@ -846,7 +853,6 @@
 		border-right: 6px solid transparent;
 		border-left: 6px solid transparent;
 		transition: all $t ease;
-		display: none;
 
 		@media (min-width: $md5 + px) {
 			display: block;
