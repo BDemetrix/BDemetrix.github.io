@@ -122,14 +122,16 @@ $red-color: #da0c00;
 	}
 	// .slide-content__tabs-footer
 	&__tabs-footer {
-		
+		padding-top: 5px;
+		text-align: right;
 	} 
 	// .slide-content__tabs-link
-	&__tabs-link {
-		color: #3b91cd;
+	&__tabs-link { 
+
+		color: #0a5991;
 
 		&:hover {
-			color: #0a5991;
+			color: #3b91cd;
 		}
 	}
 }
