@@ -9,23 +9,50 @@
     // .post-page__banner
     &__banner {
         width: 100%;
+
+        @media (min-width: $md3 + px) {
+            position: relative;
+            height: 250px;
+            text-align: center;
+            overflow: hidden;
+
+           /*  span {
+                position: absolute;
+                opacity: 0.8;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: no-repeat center;
+                background-size: cover;
+                filter: blur(15px);
+            } */
+        }
     }
     // .post-page__banner-img
     &__banner-img {
         width: 100%;
+
+        @media (min-width: $md3 + px) {
+            /* position: relative;
+            z-index: 2; */
+            height: 100%;
+            width: auto;
+            max-width: 100%;
+            margin: 0 auto;
+        }
     }
     // .post-page__post-card
     &__post-card {
     }
     // .post-page__info
     &__info {
-
         @media (min-width: $md3 + px) {
             display: flex;
             justify-content: center;
-        }        
+        }
     }
-    // .post-page__comments 
+    // .post-page__comments
     &__comments {
         border-radius: 8px 8px 0px 0px;
         overflow: hidden;

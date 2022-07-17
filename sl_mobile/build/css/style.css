@@ -3921,6 +3921,7 @@ textarea {
 }
 
 .post-card {
+  position: relative;
   font-family: inherit;
   max-width: 100%;
   padding: 14px 10px;
@@ -3963,6 +3964,8 @@ textarea {
 }
 
 .post-card__photo-wrap {
+  position: relative;
+  z-index: 3;
   margin-right: 10px;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -4007,6 +4010,8 @@ textarea {
 }
 
 .post-card__name-link {
+  position: relative;
+  z-index: 3;
   font-weight: 600;
   font-size: 14px;
   line-height: 24px;
@@ -4184,6 +4189,16 @@ textarea {
   height: 20px;
   background: none;
   border: 0;
+}
+
+.post-card__link {
+  display: block;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .company-box {
@@ -5323,6 +5338,33 @@ textarea {
             box-shadow: 0px 4px 11px 4px rgba(117, 117, 117, 0.12);
   }
 
+  .post-page__banner {
+    position: relative;
+    height: 250px;
+    text-align: center;
+    overflow: hidden;
+    /*  span {
+         position: absolute;
+         opacity: 0.8;
+         top: 0;
+         right: 0;
+         bottom: 0;
+         left: 0;
+         background: no-repeat center;
+         background-size: cover;
+         filter: blur(15px);
+     } */
+  }
+
+  .post-page__banner-img {
+    /* position: relative;
+    z-index: 2; */
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
   .post-page__info {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -5341,6 +5383,10 @@ textarea {
     width: 15px;
     background: -o-linear-gradient(left, transparent 0, #f1f1f1 5px, #f1f1f1 100%);
     background: linear-gradient(to right, transparent 0, #f1f1f1 5px, #f1f1f1 100%);
+  }
+
+  .user-info__photo-wrap {
+    margin-right: 100px;
   }
 
   .user-info__box {
