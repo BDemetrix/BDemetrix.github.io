@@ -3921,7 +3921,6 @@ textarea {
 }
 
 .post-card {
-  position: relative;
   font-family: inherit;
   max-width: 100%;
   padding: 14px 10px;
@@ -3964,8 +3963,6 @@ textarea {
 }
 
 .post-card__photo-wrap {
-  position: relative;
-  z-index: 3;
   margin-right: 10px;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -4010,8 +4007,6 @@ textarea {
 }
 
 .post-card__name-link {
-  position: relative;
-  z-index: 3;
   font-weight: 600;
   font-size: 14px;
   line-height: 24px;
@@ -4065,6 +4060,10 @@ textarea {
           box-shadow: 0px 2px 4px rgba(11, 84, 131, 0.3);
   border-radius: 6px;
   cursor: pointer;
+}
+
+.post-card__body {
+  position: relative;
 }
 
 .post-card__title {

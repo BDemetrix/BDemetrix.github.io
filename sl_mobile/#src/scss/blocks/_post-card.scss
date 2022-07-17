@@ -1,5 +1,4 @@
 .post-card {
-    position: relative;
     font-family: inherit;
     max-width: 100%;
     padding: 14px 10px;
@@ -35,8 +34,6 @@
     }
     // .post-card__photo-wrap
     &__photo-wrap {
-        position: relative;
-        z-index: 3;
         margin-right: 10px;
         display: inline-flex;
     }
@@ -71,8 +68,6 @@
     }
     // .post-card__name-link
     &__name-link {
-        position: relative;
-        z-index: 3;
         font-weight: 600;
         font-size: 14px;
         line-height: 24px;
@@ -120,6 +115,7 @@
     }
     // .post-card__body
     &__body {
+        position: relative;
     }
 
     // .post-card__title
