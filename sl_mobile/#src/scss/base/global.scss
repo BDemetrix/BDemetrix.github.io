@@ -15,3 +15,120 @@
     overflow: hidden;
     user-select: none;
 }
+
+// Класс общий для всех контекстных меню .context-menu
+// Индивидуальные правила переопределяются в родительских элементах
+.context-menu {
+    position: relative;
+    z-index: 5;
+    top: 0; // при необходимости переопределяются непосредственно в самом элементе
+    right: 0; // при необходимости переопределяются непосредственно в самом элементе
+    color: #000;
+
+    &__btn {
+        background: transparent;
+        border: 0;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__svg {
+        display: block;
+        width: 24px;
+        height: 24px;
+        fill: #242424;
+    }
+
+    ul {
+        position: absolute;
+        z-index: 100;
+        max-width: calc(100vw - 20px);
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    &__list {
+        top: 100%;
+        right: 0;
+        padding: 3px 0;
+        display: inline-block;
+        background: #fff;
+        white-space: nowrap;
+        border-radius: 3px;
+        box-shadow: 0 5px 15px rgb(0, 0, 0, 0.07), 0 3px 6px rgb(0, 0, 0, 0.15);
+    }
+
+    &__item {
+        cursor: pointer;
+        display: block;
+        width: 100%;
+        line-height: 20px;
+        padding: 6px 12px;
+        background: none;
+        text-align: left;
+        font-size: inherit;
+
+        &:hover {
+            background: #e2e2e2;
+        }
+    }
+
+    &._open {
+        z-index: 9;
+
+        ul {
+            animation: context-menu $t ease forwards;
+            opacity: 1;
+            visibility: visible;
+            z-index: 999;
+        }
+    }
+}
+
+// Анимацыя для выпадающих контекстных меню .context-menu
+@keyframes context-menu {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+        transform: translate(0, 20px);
+    }
+
+    100% {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(0, 0);
+    }
+}
+
+// .big-blue-btn
+.big-blue-btn {
+    display: block;
+    height: 40px;
+    width: 100%;
+    margin: 0 auto;
+    background: #0b5483;
+    box-shadow: 0px 4px 4px rgba(117, 117, 117, 0.12);
+    border-radius: 8px;
+    border: 0;
+    text-transform: uppercase;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 40px;
+    text-align: center;
+    letter-spacing: 1.5px;
+}
+
+// для скрытия элементов 
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}

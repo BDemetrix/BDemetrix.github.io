@@ -267,7 +267,7 @@ function fontstyle() {
 		fs.writeFile(src_folder + '/scss/base/fonts.scss', '', cb);
 		return fs.readdir(path.build.fonts, function (err, items) {
 			if (items) {
-				let fontWeightArr = ['Light', 'Normal', 'Medium', 'Semi', 'Bold', 'Extra', 'Black'];
+				let fontWeightArr = ['Light', 'Regular', 'Medium', 'Semi', 'Bold', 'Extra', 'Black'];
 				let c_filename, fontname, fontWeigh = 400;
 				for (var i = 0; i < items.length; i++) {
 					let filename = items[i].split('.');

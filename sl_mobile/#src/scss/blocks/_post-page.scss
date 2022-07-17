@@ -1,0 +1,33 @@
+.post-page {
+    background: #f5f5f5;
+
+    @media (min-width: $md3 + px) {
+        background: #f1f1f1;
+        box-shadow: 0px 4px 11px 4px rgb(117, 117, 117, 0.12);
+    }
+
+    // .post-page__banner
+    &__banner {
+        width: 100%;
+    }
+    // .post-page__banner-img
+    &__banner-img {
+        width: 100%;
+    }
+    // .post-page__post-card
+    &__post-card {
+    }
+    // .post-page__info
+    &__info {
+
+        @media (min-width: $md3 + px) {
+            display: flex;
+            justify-content: center;
+        }        
+    }
+    // .post-page__comments 
+    &__comments {
+        border-radius: 8px 8px 0px 0px;
+        overflow: hidden;
+    }
+}

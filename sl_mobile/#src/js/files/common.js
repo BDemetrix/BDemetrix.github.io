@@ -308,4 +308,74 @@ for (let index = 0; index < tabs.length; index++) {
   }
 }
 
+// Обработка событий для контекстного меню .context-menu
+const popUpMenu = document.querySelectorAll('.context-menu');
+if (popUpMenu.length) {
+  popUpMenu.forEach(menu => {
+    const btn = menu.querySelector('button, a');
+
+    if (btn) {
+      btn.addEventListener('click', () => {
+        if (!menu.classList.contains('_open')) {
+          closeAllOpenedMenu();
+          popUpMenuCorrectPos(menu);
+        } else
+          popUpMenuCleartPos(menu);
+
+        menu.classList.toggle('_open');
+      });
+    }
+
+    setTimeout(() => {
+      popUpMenuCorrectPos(menu);
+    }, 10);
+  });
+
+  document.documentElement.addEventListener('click', (e) => {
+    if (!e.target.closest('.context-menu > button')) {
+      const popUpMenu = document.querySelector('.context-menu._open');
+      if (popUpMenu) popUpMenu.classList.remove('_open');
+    }
+  });
+
+  /**
+   * если окно выходит за рамки окна браузера, корректируем позицию
+   */
+  function popUpMenuCorrectPos(popUpMenu) {
+    popUpMenuCleartPos(popUpMenu);
+
+    const ul = popUpMenu.querySelector('ul');
+    let menuPosLeft = popUpMenu.getBoundingClientRect().left;
+    let menuPosRight = popUpMenu.getBoundingClientRect().right;
+    let ulPosLeft = ul.getBoundingClientRect().left - 5;
+    let ulPosRight = document.documentElement.clientWidth - ul.getBoundingClientRect().right - 5;
+
+    if (ulPosLeft < 0) {
+      if ((document.documentElement.clientWidth - menuPosLeft - 5) >= ul.offsetWidth)
+        ul.style.left = '0';
+      else
+        ul.style.right = ulPosLeft + 'px';
+    }
+
+    if (ulPosRight < 0) {
+      if ((menuPosRight - 5) >= ul.offsetWidth)
+        ul.style.right = '0';
+      else
+        ul.style.left = ulPosRight + 'px';
+    }
+  }
+
+  function popUpMenuCleartPos(popUpMenu) {
+    const ul = popUpMenu.querySelector('ul');
+    ul.style.left = ul.style.right = '';
+  }
+
+  window.addEventListener('resize', () => {
+    popUpMenu.forEach(menu => {
+      popUpMenuCleartPos(menu);
+      popUpMenuCorrectPos(menu);
+    })
+  });
+}
+
 //=================
