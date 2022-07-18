@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('_head.html',{
+"title":"БЛОГ"
+})
+
+<body class="">
+	<div class="wrapper">
+		@@include('_header.html',{"Class": "_container"})
+		<main class="main _mobile-container">
+			<a href="./" class="main__post-back-link">
+				<svg class="post-card__approved" width="18" height="16">
+					<use xlink:href="images/icons/post-card/sprite.svg#arrow"></use>
+				</svg>
+				<span>личный блог</span>
+			</a>
+			<div class="post-page__info post-page__info--blog">
+				@@include('_user-info--blog.html',{})
+			</div>
+			<div class="main__post-card">
+				@@include('_post-card--blog.html') 
+			</div> 
+			<div class="main__post-card">
+				@@include('_post-card--blog.html')
+			</div>
+			<div class="main__post-card">
+				@@include('_post-card--blog.html')
+			</div>
+			<div class="main__post-card">
+				@@include('_post-card--blog.html')
+			</div>
+			<button class="big-blue-btn main__next-btn" type="button">далее</button>
+			@@include('_footer_mob.html',{})
+		</main>
+	</div>
+	@@include('_js.html',{})
+</body>
+
+</html>

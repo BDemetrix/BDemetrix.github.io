@@ -47,9 +47,8 @@
     }
     // .post-page__info
     &__info {
-        @media (min-width: $md3 + px) {
-            display: flex;
-            justify-content: center;
+        &--blog {
+            margin-bottom: 12px;
         }
     }
     // .post-page__comments

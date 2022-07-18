@@ -1,8 +1,8 @@
 <!-- Используются стили из _post-card.scss -->
-<section class="post-card post-card--full">
+<section class="post-card post-card--post">
     <div class="post-card__header">
-        <!-- Если есть кнопка подписки, присваивается модификатор post-card__header-inner--full -->
-        <div class="post-card__header-inner post-card__header-inner--full">
+        <!-- Если есть кнопка подписки, присваивается модификатор post-card__header-inner--post -->
+        <div class="post-card__header-inner post-card__header-inner--post">
             <a href="#" class="post-card__photo-wrap">
                 <img src="./images/icons/post-card/photo.jpg" alt="Фото" class="post-card__photo">
             </a>
@@ -14,15 +14,15 @@
                         <use xlink:href="images/icons/post-card/sprite.svg#approved"></use>
                     </svg>
                 </span>
-                <span class="post-card__date">личный блог</span>
+                <a href="./blog.html"  class="post-card__blog-link">личный блог</a>
             </div>
         </div>
         <button class="post-card__subscribe">+&nbsp;Подписаться</button>
     </div>
     <div class="post-card__body">
         <span class="post-card__date-label">сегодня в 21:28</span>
-        <!-- Для полного поста присваивается модификатор post-card__title--full -->
-        <h3 class="post-card__title post-card__title--full">Агрохолдинг "Степь" запустил производство муки</h3>
+        <!-- Для полного поста присваивается модификатор post-card__title--post -->
+        <h3 class="post-card__title post-card__title--post">Агрохолдинг "Степь" запустил производство муки</h3>
         <p class="post-card__text">
             Агрохолдинг «Степь» расширяет продуктовую линейку и запускает новое направление бизнеса — производство муки.
             Выпуск муки
