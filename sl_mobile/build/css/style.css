@@ -304,7 +304,7 @@ picture {
   height: 40px;
   width: 100%;
   margin: 0 auto;
-  background: #0b5483;
+  background: #479cd3;
   -webkit-box-shadow: 0px 4px 4px rgba(117, 117, 117, 0.12);
           box-shadow: 0px 4px 4px rgba(117, 117, 117, 0.12);
   border-radius: 8px;
@@ -3990,6 +3990,18 @@ textarea {
   width: calc(100% - 24px);
 }
 
+.post-card__menu--blog {
+  margin-right: -10px;
+}
+
+.post-card__menu--post {
+  margin-right: 10px;
+}
+
+.post-card__menu--post:last-child {
+  margin-right: 0;
+}
+
 .post-card__menu-btn {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4002,11 +4014,42 @@ textarea {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-right: -10px;
+}
+
+.post-card__menu-btn--post {
+  width: 22px;
+  height: 22px;
 }
 
 .post-card__menu-btn svg {
   fill: #808080;
+}
+
+.post-card__menu-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.post-card__menu-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px 12px;
+}
+
+.post-card__menu-item svg {
+  margin-right: 8px;
+  fill: #312c26;
 }
 
 .post-card__photo-wrap {
@@ -4109,7 +4152,7 @@ textarea {
   font-size: 14px;
   color: #ffffff;
   line-height: 20px;
-  background: #0B5483;
+  background: #479cd3;
   -webkit-box-shadow: 0px 2px 4px rgba(11, 84, 131, 0.3);
           box-shadow: 0px 2px 4px rgba(11, 84, 131, 0.3);
   border-radius: 6px;
@@ -4117,6 +4160,10 @@ textarea {
 }
 
 .post-card__body {
+  position: relative;
+}
+
+.post-card__title-wrap {
   position: relative;
 }
 
@@ -4129,8 +4176,13 @@ textarea {
   color: #0b5483;
 }
 
+.post-card__title--blog,
 .post-card__title--post {
   margin-bottom: 15px;
+}
+
+.post-card__title--post {
+  padding-right: 64px;
 }
 
 .post-card__text {
@@ -4180,12 +4232,12 @@ textarea {
 
 .post-card__tag {
   color: #808080;
-  background: #F1F1F1;
+  background: #f1f1f1;
 }
 
 .post-card__label {
   color: #ffffff;
-  background: #6D99B6;
+  background: #6d99b6;
 }
 
 .post-card__label svg {
@@ -4434,7 +4486,7 @@ textarea {
   font-size: 14px;
   line-height: 15px;
   letter-spacing: 0.02em;
-  color: #0b5483;
+  color: blue;
   overflow: hidden;
   -o-text-overflow: ellipsis;
      text-overflow: ellipsis;
@@ -4542,7 +4594,7 @@ textarea {
   font-size: 14px;
   line-height: 20px;
   color: #ffffff;
-  background: #0b5483;
+  background: #479cd3;
   -webkit-box-shadow: 0px 2px 4px rgba(11, 84, 131, 0.3);
           box-shadow: 0px 2px 4px rgba(11, 84, 131, 0.3);
   border-radius: 6px;
@@ -4597,10 +4649,11 @@ textarea {
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
-  color: #0b5483;
+  color: #479cd3;
 }
 
 .comments__filter-btn svg {
+  fill: #479cd3;
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
@@ -4848,7 +4901,7 @@ textarea {
   max-width: 100%;
   font-size: 14px;
   font-weight: 500;
-  color: #0b5483;
+  color: #479cd3;
 }
 
 .person__label {
@@ -4890,6 +4943,7 @@ textarea {
 
 .footer {
   font-family: Roboto, Tahoma, "Open Sans", Verdana, sans-serif;
+  margin-top: 30px;
 }
 
 .footer__banners {
@@ -5473,6 +5527,11 @@ textarea {
     top: 0;
     height: 100%;
     width: 15px;
+    background: -o-linear-gradient(left, transparent 0, #f1f1f1 5px, #f1f1f1 100%);
+    background: linear-gradient(to right, transparent 0, #f1f1f1 5px, #f1f1f1 100%);
+  }
+
+  .user-info__wrap--blog::after {
     background: -o-linear-gradient(left, transparent 0, #f5f5f5 5px, #f5f5f5 100%);
     background: linear-gradient(to right, transparent 0, #f5f5f5 5px, #f5f5f5 100%);
   }

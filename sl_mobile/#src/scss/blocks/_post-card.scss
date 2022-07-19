@@ -38,19 +38,52 @@
     }
     // .post-card__menu
     &__menu {
+        &--blog {
+            margin-right: -10px;
+        }
 
+        &--post {
+            margin-right: 10px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
     }
-    // .post-card__menu-btn 
+    // .post-card__menu-btn
     &__menu-btn {
         display: flex;
         width: 24px;
         height: 34px;
         align-items: center;
         justify-content: center;
-        margin-right: -10px;
+
+        &--post {
+            width: 22px;
+            height: 22px;
+        }
 
         svg {
             fill: #808080;
+        }
+    }
+    // .post-card__menu-wrap
+    &__menu-wrap {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    // .post-card__menu-item
+    &__menu-item {
+        display: flex;
+        align-items: center;
+        padding: 10px 12px;
+
+        svg {
+            margin-right: 8px;
+            fill: #312c26;
         }
     }
     // .post-card__photo-wrap
@@ -136,13 +169,17 @@
         font-size: 14px;
         color: #ffffff;
         line-height: 20px;
-        background: #0B5483;
+        background: $blue-btn;
         box-shadow: 0px 2px 4px rgba(11, 84, 131, 0.3);
         border-radius: 6px;
         cursor: pointer;
     }
     // .post-card__body
     &__body {
+        position: relative;
+    }
+    // .post-card__title-wrap
+    &__title-wrap {
         position: relative;
     }
 
@@ -155,8 +192,13 @@
         letter-spacing: 0.0125em;
         color: #0b5483;
 
+        &--blog,
         &--post {
             margin-bottom: 15px;
+        }
+
+        &--post {
+            padding-right: 64px;
         }
 
         @media (min-width: $md3 + px) {
@@ -179,20 +221,19 @@
             font-size: 17px;
         }
     }
-    &__tags
-    &__labels {
+    &__tags &__labels {
         display: flex;
         flex-wrap: wrap;
         max-width: 100%;
     }
     // .post-card__tags
-	&__tags {
+    &__tags {
         margin-bottom: 9px;
-	}
+    }
     // .post-card__labels
-	&__labels {
+    &__labels {
         margin-bottom: 18px;
-	}
+    }
 
     &__tag,
     &__label {
@@ -207,22 +248,22 @@
         font-size: 12px;
         line-height: 14px;
     }
-	// .post-card__tag
-	&__tag {
+    // .post-card__tag
+    &__tag {
         color: #808080;
-        background: #F1F1F1;
-	}
-	
-	// .post-card__label
-	&__label {
+        background: #f1f1f1;
+    }
+
+    // .post-card__label
+    &__label {
         color: #ffffff;
-        background: #6D99B6;
+        background: #6d99b6;
 
         svg {
             fill: #ffffff;
             margin-right: 8px;
         }
-	}
+    }
     // .post-card__footer
     &__footer {
         display: flex;
