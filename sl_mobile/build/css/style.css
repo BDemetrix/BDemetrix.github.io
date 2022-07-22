@@ -4057,14 +4057,18 @@ textarea {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: no-repeat center/100% url(./../../images/icons/post-card/avatar_64x64.jpg);
 }
 
 .post-card__photo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 54px;
-  height: 54px;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   border: 1px solid #e7e7e7;
   -o-object-fit: cover;
@@ -4185,7 +4189,15 @@ textarea {
   padding-right: 64px;
 }
 
+.post-card__title-link {
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  text-decoration: none;
+}
+
 .post-card__text {
+  width: 100%;
   margin-bottom: 24px;
   font-size: 14px;
   line-height: 22px;
@@ -4194,6 +4206,36 @@ textarea {
 
 .post-card__text--blog {
   margin-bottom: 15px;
+}
+
+.post-card__video {
+  position: relative;
+  margin: 15px -10px;
+  width: calc(100% + 20px);
+  padding-bottom: 56.25%;
+}
+
+.post-card__video-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.post-card__video-inner > frame {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.post-card__img {
+  margin: 15px -10px;
+  width: calc(100% + 20px);
+}
+
+.post-card__img img {
+  width: 100%;
+  height: auto;
 }
 
 .post-card__tags .post-card__labels {

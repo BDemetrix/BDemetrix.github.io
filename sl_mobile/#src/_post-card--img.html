@@ -1,16 +1,15 @@
 <!-- Используются стили из _post-card.scss -->
 <section class="post-card">
     <div class="post-card__header">
-        <!-- Если есть контекстное меню (при точки), присваивается модификатор post-card__header-inner--blog -->
-        <div class="post-card__header-inner post-card__header-inner--blog">
+        <div class="post-card__header-inner">
             <a href="#" class="post-card__photo-wrap">
                 <!-- Если аватар не загружен, то <img> вставлять на страницу не надо. Будет виден фон .post-card__photo-wrap  заданный в css-->
-                <img src="./images/icons/post-card/photo.jpg" alt="Фото" class="post-card__photo">
+                <!-- <img src="./images/icons/post-card/user2.webp" alt="Фото" class="post-card__photo"> -->
             </a>
             <div class="post-card__info">
                 <span class="post-card__name">
                     <!-- Если профиль подтвержден, добавляется модификатор post-card__name-link--approved и svg.post-card__approved -->
-                    <a href="#" class="post-card__name-link post-card__name-link--approved">RomanAndreev</a>
+                    <a href="#" class="post-card__name-link post-card__name-link--approved">TIGER.TRADE</a>
                     <svg class="post-card__approved" width="20" height="20">
                         <use xlink:href="images/icons/post-card/sprite.svg#approved"></use>
                     </svg>
@@ -18,32 +17,18 @@
                 <span class="post-card__date">сегодня в 21:28</span>
             </div>
         </div>
-        <div class="post-card__menu post-card__menu--blog context-menu">
-            <button class="post-card__menu-btn context-menu__btn">
-                <svg class="context-menu__svg" height="24" width="24">
-                    <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
-                </svg>
-            </button>
-            <ul class="context-menu__list">
-                <li><button class="context-menu__item">Копировать URL</button></li>
-                <li><button class="context-menu__item">Пожаловться</button></li>
-            </ul>
-        </div>
     </div>
     <div class="post-card__body">
-        <!-- Для полного поста присваивается модификатор post-card__title--post -->
-        <h3 class="post-card__title post-card__title--blog">Ситуация на текущий момент</h3>
-        <p class="post-card__text post-card__text--blog">
-            Многие из населения и почти 100% смартлабовцев мечтают жить рантье после 40 лет. С одним таким смердом, вернее с
-            женщиной 44 лет лет я недавно брал интервью...
-        </p>  
-        <div class="post-card__tags">
-            <a href="#" class="post-card__tag">смарт-лаб</a>
-            <a href="#" class="post-card__tag">форекс</a>
-            <a href="#" class="post-card__tag">юань</a> 
-            <a href="#" class="post-card__tag">форекс</a>
-            <a href="#" class="post-card__tag">юань</a>
+        <h3 class="post-card__title">Время лонговать биток?</h3>
+        <div class="post-card__img">
+            <img src="./images/icons/post-card/post-img.webp" alt="Иллюстрация">
         </div>
+        <p class="post-card__text">
+            На глазах у всего мира биткоин отчаянно пытается закрепиться выше $23k, что побуждает трейдеров и инвесторов браться за
+            предсказания развязки этой драматической истории.
+        </p>
+        <!-- .post-card__link - ссылка на всю область поста для перехода на стр. поста -->
+        <a href="./post.html" class="post-card__link" target="_blank"></a>
     </div>
     <div class="post-card__footer">
         <div class="post-card__btns-wrap  post-card__btns-wrap--left">
@@ -78,5 +63,5 @@
             </button>
             <span class="post-card__btns-count">150</span>
         </div>
-    </div>
+    </div> 
 </section>
