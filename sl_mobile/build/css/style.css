@@ -215,9 +215,9 @@ picture {
 
 .context-menu__svg {
   display: block;
-  width: 24px;
-  height: 24px;
-  fill: #242424;
+  width: 20px;
+  height: 20px;
+  fill: #808080;
 }
 
 .context-menu ul {
@@ -3164,6 +3164,10 @@ textarea {
   width: calc(100% - 10px);
 }
 
+.main__forums-slider {
+  margin: 25px 0;
+}
+
 .search-block {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3708,6 +3712,7 @@ textarea {
 }
 
 .slide-content__tabs-link {
+  text-decoration: underline;
   color: #0a5991;
 }
 
@@ -4106,7 +4111,7 @@ textarea {
   font-size: 14px;
   line-height: 24px;
   letter-spacing: 0.02em;
-  color: #808080;
+  color: #479cd3;
 }
 
 .post-card__name-link--approved {
@@ -4279,7 +4284,7 @@ textarea {
 
 .post-card__label {
   color: #ffffff;
-  background: #6d99b6;
+  background: #abc8db;
 }
 
 .post-card__label svg {
@@ -4433,7 +4438,7 @@ textarea {
 
 .user-info__menu {
   position: absolute;
-  top: 20px;
+  top: 23px;
   right: 5px;
 }
 
@@ -4446,6 +4451,7 @@ textarea {
 }
 
 .user-info__menu-btn svg {
+  margin: auto;
   fill: #0b5483;
 }
 
@@ -4457,12 +4463,12 @@ textarea {
   display: -ms-flexbox;
   display: flex;
   max-width: 100%;
-  padding: 22px 30px 28px 15px;
+  padding: 22px 15px 28px;
   overflow: hidden;
 }
 
 .user-info__wrap--blog {
-  padding: 22px 15px 28px;
+  padding: 22px 30px 28px 15px;
 }
 
 .user-info__photo-wrap {
@@ -4528,7 +4534,7 @@ textarea {
   font-size: 14px;
   line-height: 15px;
   letter-spacing: 0.02em;
-  color: blue;
+  color: #479cd3;
   overflow: hidden;
   -o-text-overflow: ellipsis;
      text-overflow: ellipsis;
@@ -5269,7 +5275,7 @@ textarea {
 }
 
 .forums-slider {
-  padding: 25px 10px;
+  padding: 0 10px;
 }
 
 .forums-slider__title {
@@ -5552,6 +5558,10 @@ textarea {
     margin-top: 13px;
   }
 
+  .slide-content__tabs-link {
+    padding-right: 30px;
+  }
+
   .quote-leaders__growth {
     padding-right: 20px;
   }
@@ -5636,9 +5646,14 @@ textarea {
     background: linear-gradient(to right, transparent 0, #f1f1f1 5px, #f1f1f1 100%);
   }
 
+  .user-info__wrap--blog {
+    position: static;
+  }
+
   .user-info__wrap--blog::after {
-    background: -o-linear-gradient(left, transparent 0, #f5f5f5 5px, #f5f5f5 100%);
-    background: linear-gradient(to right, transparent 0, #f5f5f5 5px, #f5f5f5 100%);
+    width: 40px;
+    background: -o-linear-gradient(left, transparent 0, #f5f5f5 10px, #f5f5f5 100%);
+    background: linear-gradient(to right, transparent 0, #f5f5f5 10px, #f5f5f5 100%);
   }
 
   .user-info__photo-wrap {

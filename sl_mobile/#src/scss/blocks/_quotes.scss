@@ -123,11 +123,15 @@ $red-color: #da0c00;
 	} 
 	// .slide-content__tabs-link
 	&__tabs-link { 
-
+		text-decoration: underline;
 		color: #0a5991;
 
 		&:hover {
 			color: #3b91cd;
+		}
+
+		@media (min-width: $md3 + px) {
+			padding-right: 30px;
 		}
 	}
 }

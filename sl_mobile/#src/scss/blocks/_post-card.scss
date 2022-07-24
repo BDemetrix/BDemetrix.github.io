@@ -131,7 +131,7 @@
         font-size: 14px;
         line-height: 24px;
         letter-spacing: 0.02em;
-        color: #808080;
+        color: $blue-btn;
 
         &--approved {
             max-width: calc(100% - 24px);
@@ -299,7 +299,7 @@
     // .post-card__label
     &__label {
         color: #ffffff;
-        background: #6d99b6;
+        background: #abc8db;
 
         svg {
             fill: #ffffff;
