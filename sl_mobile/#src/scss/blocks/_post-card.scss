@@ -93,8 +93,9 @@
         width: 54px;
         height: 54px;
         border-radius: 50%; 
-        background: no-repeat center / 100% url(./../../images/icons/post-card/avatar_64x64.jpg);
+        background: no-repeat center / 100% url(./../images/icons/post-card/avatar_64x64.jpg);
     }
+    
     // .post-card__photo
     &__photo {
         display: flex;
