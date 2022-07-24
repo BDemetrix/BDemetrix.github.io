@@ -2,3 +2,4 @@
 @@include('files/header.js', {})
 @@include('files/quotes.js', {}) 
 @@include('files/sections-box.js', {})
+@@include('files/forums-slider.js', {})

@@ -1,0 +1,59 @@
+.forums-slider {
+    padding: 25px 10px;
+
+    // .forums-slider__title
+    &__title {
+        margin-bottom: 12px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 16px;
+        color: #0b5483;
+    }
+    // .forums-slider__wrap
+    &__wrap {
+    }
+    // .forums-slider__slide
+    &__slide {
+        position: relative;
+        flex: 0 0 auto;
+    }
+    // .forums-slider__slide-inner
+    &__slide-inner {
+        position: relative;
+        width: 100%;
+        padding-bottom: 100%;
+    }
+    // .forums-slider__link
+    &__link {
+        position: absolute;
+        top: 0;
+        height: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    // .forums-slider__img
+    &__img { 
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: contain;
+    }
+    // .forums-slider__label
+    &__label {
+        position: absolute;
+        top: 0;
+        right: -5px;
+        width: 22px;
+        height: 22px;
+        overflow: hidden;
+        font-size: 10px;
+        line-height: 22px;
+        text-align: center;
+        color: #ffffff;
+        font-weight: 500;
+        background: #E22E2D;
+        border-radius: 50%;
+    }
+}

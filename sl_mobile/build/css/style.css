@@ -5268,6 +5268,65 @@ textarea {
   background: #405C94;
 }
 
+.forums-slider {
+  padding: 25px 10px;
+}
+
+.forums-slider__title {
+  margin-bottom: 12px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  color: #0b5483;
+}
+
+.forums-slider__slide {
+  position: relative;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+
+.forums-slider__slide-inner {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+}
+
+.forums-slider__link {
+  position: absolute;
+  top: 0;
+  height: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.forums-slider__img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.forums-slider__label {
+  position: absolute;
+  top: 0;
+  right: -5px;
+  width: 22px;
+  height: 22px;
+  overflow: hidden;
+  font-size: 10px;
+  line-height: 22px;
+  text-align: center;
+  color: #ffffff;
+  font-weight: 500;
+  background: #E22E2D;
+  border-radius: 50%;
+}
+
 .jBox-Tooltip .jBox-container {
   max-width: calc(100% - 20px) !important;
   border-radius: 5px;

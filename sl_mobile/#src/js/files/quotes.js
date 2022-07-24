@@ -46,7 +46,7 @@ if (categoriesSliderBbody) {
         },
         slidesPerView: 1,
         speed: 400,
-        simulateTouch: false,
+        simulateTouch: true,
         observer: true,
         resizeObserver: true,
         watchOverflow: true,
