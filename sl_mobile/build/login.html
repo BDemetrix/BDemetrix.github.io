@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+ <head>
+	<title>ВХОД</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <link rel="stylesheet" href="css/style.css"> -->
+	<link rel="stylesheet" href="./css/blocks/register-page.min.css">
+	<link rel="preload" href="fonts/Tahoma-short-Bold.woff" as="font"> 
+	<link rel="preload" href="fonts/Tahoma-short-Bold.woff2" as="font">
+	<link rel="preload" href="fonts/Tahoma-short.woff" as="font">
+	<link rel="preload" href="fonts/Tahoma-short.woff2" as="font">
+	<!-- <link rel="shortcut icon" href="favicon.ico"> -->
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body class="register-page">
+    <div class="register-page__wrap">
+        <div class="register-page__logo">
+            <a href="/">
+                Smart-Lab.ru
+            </a>
+        </div>
+    
+        <form class="register-page__form" autocomplete="off" action="/login/" method="POST">
+            <h4 class="register-page__form-title">Авторизация</h4>
+            <!-- Если поле input-field заполнено с ошибкой, ему добавляется класс has-error -->
+            <div class="input-field">
+                <div>
+                    <label for="input_login">Логин или эл. почта</label>
+                    <a href="/registration/">Регистрация</a>
+                </div>
+                <input type="text" name="login" id="input_login" placeholder="Ваш логин или EMail" tabindex="1">
+            </div>
+            <div class="input-field">
+                <div>
+                    <label for="input_password">Пароль</label>
+                    <a href="/login/reminder/">Напомнить пароль</a>
+                </div>
+                <input type="password" name="password" id="input_password" placeholder="Ваш пароль" tabindex="2">
+            </div>
+            <div class="input-field input-field__checkbox ">
+                <input type="checkbox" name="remember" id="input_remember" checked="" tabindex="3">
+                <label for="input_remember">Запомнить меня</label>
+            </div>
+            <div class="chat_login">
+                <a class="chat_login__item chat_login__item--vk">
+                    <svg width="40" height="40">
+                        <use xlink:href="./images/icons/login/sprite.svg#vk"></use>
+                    </svg>
+                    <span>ВКонтакте</span>
+                </a>
+                <a class="chat_login__item chat_login__item--fb">
+                    <svg width="40" height="40">
+                        <use xlink:href="./images/icons/login/sprite.svg#fb"></use>
+                    </svg>
+                    <span>Facebook</span>
+                </a>
+                <a class="chat_login__item chat_login__item--gl">
+                    <svg width="32" height="32">
+                        <use xlink:href="./images/icons/login/sprite.svg#google"></use>
+                    </svg>
+                    <span>Google</span>
+                </a>
+            </div>
+            <div class="input-field input-field__button">
+                <button type="submit" name="submit_login" tabindex="4" value="1">Войти</button>
+            </div>
+        </form>
+    </div>
+</body> 
