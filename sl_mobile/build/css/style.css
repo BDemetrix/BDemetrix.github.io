@@ -5650,6 +5650,7 @@ textarea {
 
 .chat_login__item--gl {
   color: #000;
+  border: 2px solid #000;
 }
 
 .chat_login__item--gl svg {
