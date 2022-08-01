@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+ <head>
+	<title>Регистрация</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <link rel="stylesheet" href="css/style.css"> -->
+	<link rel="stylesheet" href="./css/blocks/register-page.min.css">
+	<link rel="preload" href="fonts/Tahoma-short-Bold.woff" as="font"> 
+	<link rel="preload" href="fonts/Tahoma-short-Bold.woff2" as="font">
+	<link rel="preload" href="fonts/Tahoma-short.woff" as="font">
+	<link rel="preload" href="fonts/Tahoma-short.woff2" as="font">
+	<!-- <link rel="shortcut icon" href="favicon.ico"> -->
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+
+<body class="register-page">
+    <div class="register-page__wrap">
+        <div class="register-page__logo">
+            <a href="/">
+                Smart-Lab.ru
+            </a>
+        </div>
+
+        <form class="register-page__form" autocomplete="off" action="/registration/" method="POST">
+            <input type="hidden" name="security_ls_key" value="4f9936057cc8a4fdcdb512811054071d">
+
+            <h4 class="register-page__form-title">Регистрация</h4>
+            <div class="input-field ">
+                <label for="input_login">Логин</label>
+                <input type="text" name="login" id="input_login" placeholder="Введите желаемый логин" value="">
+            </div>
+            <div class="input-field ">
+                <label for="input_name">Имя и Фамилия</label>
+                <input type="text" name="name" id="input_name" placeholder="Введите ваше имя и фамилию" value="">
+                <span class="register-page__hint">но это не обязательно:)</span>
+            </div>
+            <div class="input-field ">
+                <label for="input_email">Электронная почта</label>
+                <input type="email" name="mail" id="input_email" placeholder="Введите ваш e-mail" value="">
+            </div>
+            <div class="input-field ">
+                <label for="input_password">Пароль</label>
+                <input type="password" name="password" id="input_password" placeholder="Введите желаемый пароль" value="">
+            </div>
+            <div class="input-field ">
+                <label for="input_password_confirm">Повторите пароль</label>
+                <input type="password" name="password_confirm" id="input_password_confirm"
+                    placeholder="Введите пароль еще раз" value="">
+            </div>
+            <div class="input-field ">
+                <label for="input_year">С какого года вы на фондовом рынке?</label>
+                <select name="year" id="input_year">
+                    <option value="0" selected="selected">Я не торгую на финансовых рынках</option>
+                    <option value="1991">1991</option>
+                    <option value="1992">1992</option>
+                    <option value="1993">1993</option>
+                    <option value="1994">1994</option>
+                    <option value="1995">1995</option>
+                    <option value="1996">1996</option>
+                    <option value="1997">1997</option>
+                    <option value="1998">1998</option>
+                    <option value="1999">1999</option>
+                    <option value="2000">2000</option>
+                    <option value="2001">2001</option>
+                    <option value="2002">2002</option>
+                    <option value="2003">2003</option>
+                    <option value="2004">2004</option>
+                    <option value="2005">2005</option>
+                    <option value="2006">2006</option>
+                    <option value="2007">2007</option>
+                    <option value="2008">2008</option>
+                    <option value="2009">2009</option>
+                    <option value="2010">2010</option>
+                    <option value="2011">2011</option>
+                    <option value="2012">2012</option>
+                    <option value="2013">2013</option>
+                    <option value="2014">2014</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                </select>
+            </div>
+            <div class="input-field ">
+                <label for="input_city">В каком городе вы проживаете</label>
+                <input type="text" name="profile_city" id="input_city" placeholder="Например - Москва" value=""
+                    autocomplete="off">
+                <span class="register-page__hint">пожалуйста, введите точное название вашего города на русском языке.</span>
+            </div>
+            <div class="input-field ">
+                <label for="input_phone">Введите действующий номер телефона</label>
+                <input type="tel" name="phone" id="input_phone" placeholder="+79134567890" value="">
+                <span class="register-page__hint">Внимательно проверьте введенный номер, на него будет отправлена SMS с
+                    кодом активации.
+                    Если при регистрации у вас возникли неразрешимые проблемы, пишите <a
+                        href="mailto:admin@smart-lab.ru">admin@smart-lab.ru</a>.
+                </span>
+            </div>
+            <div class="input-field ">
+                <label for="input_capcha">Введите цифры: <span class="input-field__capha-value">девятьсот один </span></label>
+                <input type="text" name="captcha" id="input_capcha" placeholder="000" maxlength="3">
+            </div>
+            <div class="text-warning">
+                Чтобы обрести уважение, почет и рейтинг в нашем сообществе, чтобы не допустить блокировки вашего аккаунта, и
+                получить максимальное удовольствие от использования ресурса, перед регистрацией внимательно прочтите <a
+                    class="rules_link" href="http://smart-lab.ru/blog/mytrading/5161.php" target="_blank">правила
+                    смартлаба</a>!!!
+            </div>
+            <div class="input-field input-field__checkbox ">
+                <input type="checkbox" name="rules_readed" id="rules_readed">
+                <label for="rules_readed">Я согласен с правилами</label>
+            </div>
+            <div class="input-field input-field__checkbox ">
+                <input type="checkbox" name="privacy_readed" id="privacy_readed">
+                <label for="privacy_readed">
+                    <a href="https://smart-lab.ru/page/privacy/" target="_blank">
+                        Я даю согласие на  обработку персональных данных
+                    </a>
+                </label>
+            </div>
+            <div class="input-field input-field__button">
+                <button type="submit" name="submit_register" value="1">Зарегистрироваться</button>
+            </div>
+        </form>
+
+    </div>
+</body> 

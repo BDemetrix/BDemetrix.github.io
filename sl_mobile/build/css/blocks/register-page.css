@@ -52,9 +52,10 @@
 }
 
 .register-page__hint a {
-  color: #000;
+  color: #000 !important;
+  font-size: 13px !important;
   font-weight: 600;
-  text-decoration: underline;
+  text-decoration: underline !important;
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
@@ -100,6 +101,7 @@
 }
 
 .input-field label {
+  margin-bottom: 5px;
   font-size: 12px;
   font-weight: 600;
   -webkit-user-select: none;
@@ -155,6 +157,13 @@
   position: relative;
   padding-left: 30px;
   cursor: pointer;
+}
+
+.input-field__checkbox label a {
+  width: 100%;
+  text-align: left !important;
+  font-size: 12px;
+  color: #000;
 }
 
 .input-field__checkbox label::before {
@@ -233,6 +242,11 @@
 .input-field__button button:hover {
   -webkit-box-shadow: 0 0px 3px 2px #48d69f;
   box-shadow: 0 0px 3px 2px #48d69f;
+}
+
+.input-field__capha-value {
+  color: #f95050;
+  font-size: 18px;
 }
 
 .chat_login {
@@ -341,6 +355,26 @@
 .input-field.has-error input ~ .register-page__hint,
 .input-field.has-error textarea ~ .register-page__hint {
   color: #000;
+}
+
+.text-warning {
+  text-align: center;
+  color: #f95050;
+  font-weight: 600;
+  margin: 0 0 20px;
+}
+
+.text-warning a {
+  color: #000;
+  font-weight: 600;
+  text-decoration: underline;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.login .input-field label {
+  margin-bottom: 0;
 }
 
 @media (min-width: 479.98px) {
