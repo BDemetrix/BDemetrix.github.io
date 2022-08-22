@@ -1351,7 +1351,7 @@ headerTitleContent.addEventListener('mouseleave', () => {
   if (headerBackIcon) headerBackIcon.classList.remove('_active');
 });
 
-let newsLink = document.querySelectorAll('.news__link a'); // news__line
+let newsLink = document.querySelectorAll('.news__link'); // news__line
 
 for (let i = 0; i < newsLink.length; i++) {
   newsLink[i].addEventListener('mouseenter', ()=> {

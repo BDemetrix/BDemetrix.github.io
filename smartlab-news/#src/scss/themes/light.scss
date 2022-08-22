@@ -470,9 +470,29 @@ $datepicker-cell-range-bg: rgba($color: $header-bg, $alpha: .2);
 
 .news__line._hover {
 	background: $news_line_hover_color;
+	
+	.news__bookmark {
+		background: $news_line_hover_color;
+		
+		svg:first-child {
+			fill: $txt-color;
+		}
+	}
+
+	.news__link::after {
+		background: $main-bg;
+	}
 }
 .news__line.news__line_active._hover {
 	background: rgba($color: $news_line_active_hover_color, $alpha: $news_line_active_opacity);
+	
+	.news__bookmark {
+		background: rgba($color: $news_line_active_hover_color, $alpha: $news_line_active_opacity);
+		
+		svg:first-child {
+			fill: $txt-color;
+		}
+	}
 }
 
 // ARTICLE ===============================================================================================================================================

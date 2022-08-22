@@ -161,6 +161,21 @@ picture {
 		&_active{
 			//transition: all $t ease;
 		}
+
+		&._hover {
+			@media (min-width: $md3 + px) {
+				.news__bookmark,
+				.news__link::after {
+					opacity: 1;
+					visibility: visible;
+
+				}
+
+				.news__link a {
+					width: calc(100% - 1.8em);
+				}
+			} 
+		}
 	}
 	// .news__icon
 	&__icon {
@@ -178,6 +193,7 @@ picture {
 	// .news__date
 	&__date {
 		position: absolute;
+		z-index: 3;
 		right: 25px;
 		bottom: 0.2em;
 		white-space: nowrap;
@@ -202,6 +218,7 @@ picture {
 	}
 	// .news__link
 	&__link {
+		position: relative;
 		flex: 1 1 auto;
 		padding-right: adaptiv-value($md3,10,320,3);
 		overflow: hidden;
@@ -214,15 +231,72 @@ picture {
 			a {
 				white-space: nowrap;
 			}
+
+			&::after {
+				content: "";
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 1.8em;
+				height: 1.8em;
+				background: #000;
+				visibility: hidden;
+				background: none;
+			}
 		}
 		
 		a {	
 			display: block;
-			max-width: 100%;
+			width: 100%;
 			color: inherit;
 			overflow: hidden;
 			text-overflow: ellipsis;
 		}
+
+
+	}
+	// .news__bookmark	
+	&__bookmark {
+		display: none;
+
+		@media (min-width: $md3 + px) {
+			position: absolute;
+			z-index: 3;
+			top: 0;
+			right: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: inherit;
+			width: 1.8em;
+			height: 1.8em;
+			opacity: 0;
+			visibility: hidden;
+			background: none;
+
+			svg:first-child {
+				width: 1.2em;
+				height: 1.2em;
+			}
+
+			svg:last-child {
+				width: 1.1em;
+				height: 1.1em;
+				display: none;
+				fill: #FFCA46;
+			}
+
+			&._active {
+				svg:first-child {
+					display: none;
+				}
+
+				svg:last-child {
+					display: flex;
+				}
+			}
+		}
+		
 	}
 }
 

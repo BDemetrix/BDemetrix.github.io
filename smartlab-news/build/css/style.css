@@ -4329,6 +4329,7 @@ body.ie {
 
 .news__date {
   position: absolute;
+  z-index: 3;
   right: 25px;
   bottom: 0.2em;
   white-space: nowrap;
@@ -4343,6 +4344,7 @@ body.ie {
 }
 
 .news__link {
+  position: relative;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
@@ -4358,11 +4360,15 @@ body.ie {
 
 .news__link a {
   display: block;
-  max-width: 100%;
+  width: 100%;
   color: inherit;
   overflow: hidden;
   -o-text-overflow: ellipsis;
      text-overflow: ellipsis;
+}
+
+.news__bookmark {
+  display: none;
 }
 
 .article {
@@ -4789,6 +4795,16 @@ body.ie {
     border-bottom: 0;
   }
 
+  .news__line._hover .news__bookmark,
+  .news__line._hover .news__link::after {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .news__line._hover .news__link a {
+    width: calc(100% - 1.8em);
+  }
+
   .news__date {
     overflow: hidden;
     position: static;
@@ -4811,6 +4827,62 @@ body.ie {
 
   .news__link a {
     white-space: nowrap;
+  }
+
+  .news__link::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1.8em;
+    height: 1.8em;
+    background: #000;
+    visibility: hidden;
+    background: none;
+  }
+
+  .news__bookmark {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    right: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    font-size: inherit;
+    width: 1.8em;
+    height: 1.8em;
+    opacity: 0;
+    visibility: hidden;
+    background: none;
+  }
+
+  .news__bookmark svg:first-child {
+    width: 1.2em;
+    height: 1.2em;
+  }
+
+  .news__bookmark svg:last-child {
+    width: 1.1em;
+    height: 1.1em;
+    display: none;
+    fill: #FFCA46;
+  }
+
+  .news__bookmark._active svg:first-child {
+    display: none;
+  }
+
+  .news__bookmark._active svg:last-child {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 
   .article__content {

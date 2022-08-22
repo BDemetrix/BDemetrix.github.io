@@ -239,8 +239,28 @@
   background: rgba(220, 220, 220, 0.15);
 }
 
+.news__line._hover .news__bookmark {
+  background: rgba(220, 220, 220, 0.15);
+}
+
+.news__line._hover .news__bookmark svg:first-child {
+  fill: #f59300;
+}
+
+.news__line._hover .news__link::after {
+  background: #080808;
+}
+
 .news__line.news__line_active._hover {
   background: #fe0000;
+}
+
+.news__line.news__line_active._hover .news__bookmark {
+  background: #fe0000;
+}
+
+.news__line.news__line_active._hover .news__bookmark svg:first-child {
+  fill: #f59300;
 }
 
 .article {

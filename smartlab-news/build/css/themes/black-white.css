@@ -244,8 +244,28 @@
   background: rgba(213, 213, 213, 0.15);
 }
 
+.news__line._hover .news__bookmark {
+  background: rgba(213, 213, 213, 0.15);
+}
+
+.news__line._hover .news__bookmark svg:first-child {
+  fill: #d5d5d5;
+}
+
+.news__line._hover .news__link::after {
+  background: #080808;
+}
+
 .news__line.news__line_active._hover {
   background: rgba(213, 213, 213, 0.15);
+}
+
+.news__line.news__line_active._hover .news__bookmark {
+  background: rgba(213, 213, 213, 0.15);
+}
+
+.news__line.news__line_active._hover .news__bookmark svg:first-child {
+  fill: #d5d5d5;
 }
 
 .article {
