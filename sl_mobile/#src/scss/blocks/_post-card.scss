@@ -26,6 +26,7 @@
     &__header-inner {
         display: flex;
         align-items: center;
+        min-width: 250px;
         max-width: 100%;
 
         &--post {
@@ -107,11 +108,12 @@
     }
     // .post-card__info
     &__info {
-        max-width: calc(100% - 64px);
+        flex-shrink: 0;
+        width: calc(100% - 64px);
     }
     // .post-card__name
     &__name {
-        display: inline-flex;
+        display: flex;
         max-width: 100%;
         align-items: center;
     }
@@ -347,6 +349,7 @@
         background: none;
         border: 0;
     }
+
     // .post-card__link
     &__link {
         display: block;

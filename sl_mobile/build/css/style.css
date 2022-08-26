@@ -3984,6 +3984,7 @@ textarea {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  min-width: 250px;
   max-width: 100%;
 }
 
@@ -4081,13 +4082,15 @@ textarea {
 }
 
 .post-card__info {
-  max-width: calc(100% - 64px);
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  width: calc(100% - 64px);
 }
 
 .post-card__name {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   max-width: 100%;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -4973,11 +4976,6 @@ textarea {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-.person__label--r-star {
-  border-radius: 50%;
-  background: #312c26;
 }
 
 .person__date {
