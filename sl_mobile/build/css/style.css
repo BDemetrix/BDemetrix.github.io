@@ -3959,6 +3959,10 @@ textarea {
   border-radius: 8px;
 }
 
+.post-card img {
+  max-width: 100%;
+}
+
 .post-card--post {
   border-radius: 0 0 8px 8px;
 }
@@ -3984,7 +3988,7 @@ textarea {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  min-width: 250px;
+  min-width: 150px;
   max-width: 100%;
 }
 
@@ -4237,6 +4241,7 @@ textarea {
 }
 
 .post-card__img {
+  display: block;
   margin: 15px -10px;
   width: calc(100% + 20px);
 }
@@ -4976,6 +4981,8 @@ textarea {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 
 .person__date {
@@ -5369,6 +5376,10 @@ textarea {
     width: 300px;
   }
 
+  .post-card__header-inner {
+    min-width: 200px;
+  }
+
   .footer__social-item {
     margin-right: 20px;
   }
@@ -5430,6 +5441,10 @@ textarea {
 
   .menu__icon {
     padding: 10px;
+  }
+
+  .post-card__header-inner {
+    min-width: 250px;
   }
 }
 

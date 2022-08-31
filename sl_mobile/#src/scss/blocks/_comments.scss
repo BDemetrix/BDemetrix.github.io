@@ -258,6 +258,7 @@
 
         svg {
             display: flex;
+            flex-shrink: 0;
         }
     }
     // .person__date

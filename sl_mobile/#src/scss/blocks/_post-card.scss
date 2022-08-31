@@ -6,6 +6,10 @@
     box-shadow: 0px 4px 4px rgba(117, 117, 117, 0.12);
     border-radius: 8px;
 
+    img {
+        max-width: 100%;
+    }
+
     &--post {
         border-radius: 0 0 8px 8px;
     }
@@ -26,8 +30,15 @@
     &__header-inner {
         display: flex;
         align-items: center;
-        min-width: 250px;
+        min-width: 150px;
         max-width: 100%;
+
+        @media (min-width: $md6 + px) {
+            min-width: 200px;
+        }
+        @media (min-width: $md5 + px) {
+            min-width: 250px;
+        }
 
         &--post {
             width: calc(100% - 160px);
@@ -258,6 +269,7 @@
     }
     // .post-card__img 
     &__img {
+        display: block;
         margin: 15px -10px;
         width: calc(100% + 20px);
 
