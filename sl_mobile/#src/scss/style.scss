@@ -74,14 +74,14 @@ picture {
 
 //<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
 @import "./plugins/simplebar";
-@import "./plugins/jBox.all";
+//@import "./plugins/jBox.all";  // Может испортить верстку
 @import "./blocks/_custom-swiper";
 @import "./blocks/_header";
 @import "./blocks/_main";
 @import "./blocks/_search-block";
 @import "./blocks/_menu";
 @import "./blocks/_alphabet";
-//@import "./blocks/_navbar"; // Планируется использв=ование этого блока на других страницах
+//@import "./blocks/_navbar"; // Планируется использваование этого блока на других страницах
 @import "./blocks/_apps-box";
 @import "./blocks/_quotes";
 @import "./blocks/_sections-box";
@@ -95,6 +95,9 @@ picture {
 @import "./blocks/_forums-slider";
 //@import "./blocks/register-page";
 
+// Костыли для совместимости 
+@import "./blocks/crutches"; 
+
 
 //</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
 
@@ -106,7 +109,7 @@ picture {
 
 //<Доп правила для jBox>===
 
-.jBox-Tooltip .jBox-container {
+/* .jBox-Tooltip .jBox-container {
 	max-width: calc(100% - 20px) !important;
 	border-radius: 5px;
 	box-shadow: 0 0 3px rgb(0 0 0 / 25%);
@@ -117,4 +120,4 @@ picture {
 .jBox-content {
 	overflow: hidden;
 	padding: 0 !important;
-}
+} */

@@ -1,15 +1,32 @@
-
 /**
  * Объект isMobile содержит результаты проверки типа и марки тачпада
  */
-var isMobile = { Android: function () { return navigator.userAgent.match(/Android/i); }, BlackBerry: function () { return navigator.userAgent.match(/BlackBerry/i); }, iOS: function () { return navigator.userAgent.match(/iPhone|iPad|iPod/i); }, Opera: function () { return navigator.userAgent.match(/Opera Mini/i); }, Windows: function () { return navigator.userAgent.match(/IEMobile/i); }, any: function () { return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()); } };
+var isMobile = {
+  Android: function () {
+    return navigator.userAgent.match(/Android/i);
+  },
+  BlackBerry: function () {
+    return navigator.userAgent.match(/BlackBerry/i);
+  },
+  iOS: function () {
+    return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+  },
+  Opera: function () {
+    return navigator.userAgent.match(/Opera Mini/i);
+  },
+  Windows: function () {
+    return navigator.userAgent.match(/IEMobile/i);
+  },
+  any: function () {
+    return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+  }
+};
 /**
  * если устройство является тачпадом, body присваивается класс ._touch
  */
 if (isMobile.any()) {
   document.body.classList.add('_touch');
-}
-else {
+} else {
   document.body.classList.remove('_touch');
 }
 
@@ -24,7 +41,7 @@ function blockOverflow() {
   if (!isMobile.any()) {
     bodyGlobal.style.paddingRight = scrollWidth + 'px';
   }
-  
+
 };
 
 /**
@@ -39,7 +56,7 @@ function unBlockOverflow() {
 };
 
 function toggleOverflow() {
-  if (window.getComputedStyle(bodyGlobal).overflow != 'hidden') 
+  if (window.getComputedStyle(bodyGlobal).overflow != 'hidden')
     blockOverflow();
   else
     unBlockOverflow();
@@ -57,12 +74,12 @@ function initSpollers() {
   const timeOut = 400;
   let spollersArr = document.querySelectorAll("._spollers");
   if (spollersArr.length) {
-    spollersArr.forEach( spollersBlock => {
+    spollersArr.forEach(spollersBlock => {
       let spollersGo = true;
       const maxWidth = spollersBlock.dataset.spollerMaxwidth;
       const one = spollersBlock.classList.contains('_one')
       let spollerEl = spollersBlock.querySelectorAll('._spoller');
-      if (spollerEl.length ) {
+      if (spollerEl.length) {
         spollerEl.forEach((spoller, i, spollerArr) => {
           spoller.addEventListener("click", function () {
             if (spollersGo) {
@@ -73,7 +90,7 @@ function initSpollers() {
               }
               // Если блоку спойлеров задан класс _one, то он является аккордеоном
               if (one) {
-                spollerArr.forEach( el => {
+                spollerArr.forEach(el => {
                   if (el != spoller) {
                     el.classList.remove('_active');
                     _slideUp(el.nextElementSibling, timeOut);
@@ -105,18 +122,18 @@ function clearSpollersStyle() {
       if (maxWidth && window.innerWidth > maxWidth) {
         let spollerEl = spollersBlock.querySelectorAll('._spoller');
         if (spollerEl.length) {
-          spollerEl.forEach( spoller => {
+          spollerEl.forEach(spoller => {
             spoller.classList.remove('_active');
             spoller.nextElementSibling.style.display = ``;
           })
-        }  
+        }
       }
     })
-  }    
+  }
 }
 
 initSpollers(); // инициализируем споллеры
-window.addEventListener('resize', clearSpollersStyle); 
+window.addEventListener('resize', clearSpollersStyle);
 
 //SlideToggle
 /**
@@ -210,12 +227,10 @@ function plugSimpleBar(selector) {
   let simpleBarEl;
   if (typeof selector === 'string') {
     simpleBarEl = document.querySelector(selector);
-  }
-  else if (typeof selector === 'object') {
+  } else if (typeof selector === 'object') {
     simpleBarEl = selector;
-  }
-  else return;
-  
+  } else return;
+
   if (simpleBarEl) {
     try {
       return new SimpleBar(simpleBarEl);
@@ -378,8 +393,31 @@ if (popUpMenu.length) {
   });
 }
 
-//=================
+// адаптивная высота textarea
+const textareaAutoHeight = document.querySelectorAll('.js-textarea-auto-height');
+if (textareaAutoHeight.length) {
 
+  textareaAutoHeight.forEach(textarea => {
+    textarea.addEventListener('input', function () {
+      this.style.height = '';
+      this.style.height = this.scrollHeight + 'px';
+    });
+
+    // корректировка высоты при загрузке страницы 
+    if (textarea.getBoundingClientRect().height < textarea.scrollHeight) {
+      textarea.style.height = textarea.scrollHeight  + 'px';
+    }
+  })
+
+  ['resize', 'orientationchange'].forEach(event => {
+    window.addEventListener(event, () => {
+      textareaAutoHeight.forEach(textarea => {
+        textarea.dispatchEvent(new Event('input'))
+      })
+    });
+  });
+}
+//=================
 // HEADER JS / begin ============================================================================
 let mainHeader = document.querySelector('header.header');
 let headerMenuBody = document.querySelector('.header .menu__body');

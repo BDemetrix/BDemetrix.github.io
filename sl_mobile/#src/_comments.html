@@ -705,8 +705,10 @@
         </li>
     </ul>
     <form class="comments__footer">
-        <div class="comments__add">
-            <textarea class="comments__textarea" name="comment" placeholder="Напишите комментарий..."></textarea>
+        <!-- при загрузке добавить класс _loading -->
+        <div class="comments__add _loading">
+            <!-- чтобы у textarea была адаптивная высота надо добавить ей класс .js-textarea-auto-height -->
+            <textarea class="comments__textarea js-textarea-auto-height" name="comment" placeholder="Напишите комментарий..." maxlength="1000"></textarea>
             <label class="comments__add-img">
                 <input type="file" class="comments__add-file visually-hidden">
             </label>

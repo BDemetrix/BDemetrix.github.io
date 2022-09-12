@@ -757,19 +757,19 @@
             </div>
 
         </div>
-        <p class="post-card__text">
+        <div class="post-card__text">
             Агрохолдинг «Степь» расширяет продуктовую линейку и запускает новое направление бизнеса — производство муки.
             Выпуск муки
             высшего и первого сортов начался на производственных площадках компании в городе Сальске Ростовской области
-        </p>
-        <p class="post-card__text">
+        </div>
+        <div class="post-card__text">
             Проект также имеет высокий экспортный потенциал. Как отмечается в сообщении, агрохолдинг «Степь» подписал
             соглашение
             о сотрудничестве с турецкими партнерами,
             в рамках которого планируется провести модернизацию и расширение производственных мощностей, что позволит
             существенно
             нарастить объемы выпуска продукции и начать поставки в арабские
-        </p>
+        </div>
         <div class="post-card__tags">
             <a href="#" class="post-card__tag">смарт-лаб</a>
             <a href="#" class="post-card__tag">форекс</a>
@@ -1590,8 +1590,10 @@
         </li>
     </ul>
     <form class="comments__footer">
-        <div class="comments__add">
-            <textarea class="comments__textarea" name="comment" placeholder="Напишите комментарий..."></textarea>
+        <!-- при загрузке добавить класс _loading -->
+        <div class="comments__add _loading">
+            <!-- чтобы у textarea была адаптивная высота надо добавить ей класс .js-textarea-auto-height -->
+            <textarea class="comments__textarea js-textarea-auto-height" name="comment" placeholder="Напишите комментарий..." maxlength="1000"></textarea>
             <label class="comments__add-img">
                 <input type="file" class="comments__add-file visually-hidden">
             </label>

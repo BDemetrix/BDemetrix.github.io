@@ -132,3 +132,22 @@
     clip: rect(0 0 0 0);
     overflow: hidden;
 }
+
+
+._loading {
+    position: relative;
+    pointer-events: none;
+    overflow: visible !important;
+    
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: 5;
+        top: -2px;
+        right: -2px;
+        bottom: -2px;
+        left: -2px;
+        background: rgba(255, 255, 255, 0.7) no-repeat center/42px url("/images/preloader.gif");
+    }
+}
