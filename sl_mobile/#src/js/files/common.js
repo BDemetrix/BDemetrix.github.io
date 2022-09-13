@@ -409,7 +409,9 @@ if (textareaAutoHeight.length) {
     }
   })
 
+console.log(window);
   ['resize', 'orientationchange'].forEach(event => {
+    
     window.addEventListener(event, () => {
       textareaAutoHeight.forEach(textarea => {
         textarea.dispatchEvent(new Event('input'))
@@ -417,4 +419,21 @@ if (textareaAutoHeight.length) {
     });
   });
 }
+
+// фокус родителю поля ввода 
+const fieldFocus = document.querySelectorAll('.js-focus')
+if (fieldFocus.length) {
+  fieldFocus.forEach( field => {
+    console.log(field)
+    field.addEventListener('focus', function() {
+      this.parentElement.classList.add('_focus')
+      console.log('_focus')
+    });
+
+    field.addEventListener('blur', function () {
+      this.parentElement.classList.remove('_focus')
+    })
+  })
+}
+
 //=================

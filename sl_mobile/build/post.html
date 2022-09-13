@@ -1589,16 +1589,16 @@
             </ul>
         </li>
     </ul>
-    <form class="comments__footer">
-        <!-- при загрузке добавить класс _loading -->
-        <div class="comments__add _loading">
-            <!-- чтобы у textarea была адаптивная высота надо добавить ей класс .js-textarea-auto-height -->
-            <textarea class="comments__textarea js-textarea-auto-height" name="comment" placeholder="Напишите комментарий..." maxlength="1000"></textarea>
-            <label class="comments__add-img">
-                <input type="file" class="comments__add-file visually-hidden">
-            </label>
-        </div>
-        <button class="comments__submit-btn big-blue-btn" type="submit">Отправить</button>
+    <!-- при загрузке добавить класс _loading -->
+    <form class="comments__footer"> 
+        <!-- чтобы у textarea была адаптивная высота надо добавить ей класс .js-textarea-auto-height -->
+        <!-- чтобы родителю пол ввода присваивался класс _focus самому полю ввода присваивается класс js-focus -->
+        <textarea class="comments__textarea js-textarea-auto-height js-focus" name="comment"
+            placeholder="Напишите комментарий..." maxlength="1000" required></textarea>
+        <label class="comments__add-img">
+            <input type="file" class="comments__add-file visually-hidden">
+        </label>
+        <button class="comments__submit-btn" type="submit">Отправить</button>
     </form>
 </div>
 			</div>

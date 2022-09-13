@@ -3262,32 +3262,41 @@ textarea {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.comments__add {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-  margin-bottom: 8px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 9px;
   border: 2px solid #808080;
   border-radius: 8px;
-  overflow: hidden;
+  background: #f9f9f9;
+  -webkit-box-shadow: inset 0px 0px 6px rgb(117, 117, 117);
+          box-shadow: inset 0px 0px 6px rgb(117, 117, 117);
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.comments__footer:hover {
+  background: #fff;
+  -webkit-box-shadow: inset 0px 0px 6px rgb(117, 117, 117);
+          box-shadow: inset 0px 0px 6px rgb(117, 117, 117);
+}
+
+.comments__footer._focus {
+  border: 2px solid #414141;
+  background: #fff;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .comments__textarea {
   width: 100%;
   height: 80px;
-  padding: 9px 38px 9px 9px;
+  margin-bottom: 8px;
   font-size: 14px;
   line-height: 20px;
   color: inherit;
   resize: none;
-  border-radius: 8px;
+  background: transparent;
 }
 
 .comments__textarea::-webkit-input-placeholder {
@@ -3320,17 +3329,57 @@ textarea {
   line-height: 20px;
 }
 
+.comments__textarea:required ~ button {
+  pointer-events: auto;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.comments__textarea:invalid ~ button {
+  pointer-events: none;
+  opacity: 0.7;
+  cursor: default;
+}
+
 .comments__add-img {
   cursor: pointer;
-  position: absolute;
-  z-index: 3;
-  right: 2px;
-  bottom: 2px;
+  -ms-grid-column-align: start;
+      justify-self: start;
   display: block;
   width: 38px;
   height: 38px;
   border-radius: 8px;
-  background: #fff no-repeat center/22px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 22 22' fill='none'%3E%3Cpath d='M22 11C22 10.3925 21.5075 9.9 20.9 9.9C20.2925 9.9 19.8 10.3925 19.8 11H22ZM11 2.2C11.6075 2.2 12.1 1.70751 12.1 1.1C12.1 0.492487 11.6075 0 11 0V2.2ZM19.25 19.8H2.75V22H19.25V19.8ZM2.2 19.25V2.75H0V19.25H2.2ZM19.8 11V19.25H22V11H19.8ZM2.75 2.2H11V0H2.75V2.2ZM2.75 19.8C2.44625 19.8 2.2 19.5538 2.2 19.25H0C0 20.7688 1.23121 22 2.75 22V19.8ZM19.25 22C20.7688 22 22 20.7688 22 19.25H19.8C19.8 19.5538 19.5538 19.8 19.25 19.8V22ZM2.2 2.75C2.2 2.44625 2.44624 2.2 2.75 2.2V0C1.23122 0 0 1.23121 0 2.75H2.2Z' fill='%23808080'/%3E%3Cpath d='M1.1 17.05L6.9812 11.6589C7.39139 11.2829 8.01784 11.2724 8.44035 11.6346L15.4 17.6' stroke='%23808080' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M13.2 14.85L15.8254 12.2246C16.2125 11.8376 16.8253 11.794 17.2632 12.1225L20.9 14.85' stroke='%23808080' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M14.3 4.40002H20.9' stroke='%23808080' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M17.6 1.09998V7.69998' stroke='%23808080' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background: no-repeat center/22px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 22 22' fill='none'%3E%3Cpath d='M22 11C22 10.3925 21.5075 9.9 20.9 9.9C20.2925 9.9 19.8 10.3925 19.8 11H22ZM11 2.2C11.6075 2.2 12.1 1.70751 12.1 1.1C12.1 0.492487 11.6075 0 11 0V2.2ZM19.25 19.8H2.75V22H19.25V19.8ZM2.2 19.25V2.75H0V19.25H2.2ZM19.8 11V19.25H22V11H19.8ZM2.75 2.2H11V0H2.75V2.2ZM2.75 19.8C2.44625 19.8 2.2 19.5538 2.2 19.25H0C0 20.7688 1.23121 22 2.75 22V19.8ZM19.25 22C20.7688 22 22 20.7688 22 19.25H19.8C19.8 19.5538 19.5538 19.8 19.25 19.8V22ZM2.2 2.75C2.2 2.44625 2.44624 2.2 2.75 2.2V0C1.23122 0 0 1.23121 0 2.75H2.2Z' fill='%23808080'/%3E%3Cpath d='M1.1 17.05L6.9812 11.6589C7.39139 11.2829 8.01784 11.2724 8.44035 11.6346L15.4 17.6' stroke='%23808080' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M13.2 14.85L15.8254 12.2246C16.2125 11.8376 16.8253 11.794 17.2632 12.1225L20.9 14.85' stroke='%23808080' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M14.3 4.40002H20.9' stroke='%23808080' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M17.6 1.09998V7.69998' stroke='%23808080' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+.comments__submit-btn {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-self: flex-end;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  margin-left: auto;
+  padding: 10px 16px;
+  background: #479cd3;
+  -webkit-box-shadow: 0px 4px 4px rgba(117, 117, 117, 0.12);
+          box-shadow: 0px 4px 4px rgba(117, 117, 117, 0.12);
+  border-radius: 8px;
+  border: 0;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 1.5px;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .person {
