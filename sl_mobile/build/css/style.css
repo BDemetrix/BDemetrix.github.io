@@ -1593,7 +1593,7 @@ textarea {
 }
 
 .main__post-card {
-  margin-bottom: 10px;
+  margin-bottom: 25px;
   padding: 0 5px;
 }
 
@@ -4145,9 +4145,21 @@ body.loader:before {
             box-shadow: none;
   }
 
+  .post-card__menu-wrap {
+    top: 3px;
+    height: 34px;
+  }
+
   .post-card__title {
     font-size: 22px;
     color: #1f1f1f;
+  }
+
+  .post-card__title--blog,
+  .post-card__title--post {
+    font-size: 28px;
+    line-height: 34px;
+    font-weight: bold;
   }
 
   .post-card__text {

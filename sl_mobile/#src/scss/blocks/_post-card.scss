@@ -86,6 +86,11 @@
         position: absolute;
         right: 0;
         top: 0;
+
+        @media (min-width: $md3 + px) {
+            top: 3px;
+            height: 34px;
+        }
     }
     // .post-card__menu-item
     &__menu-item {
@@ -220,8 +225,15 @@
         }
 
         @media (min-width: $md3 + px) {
-            font-size: 22px;
+            font-size: 22px; 
             color: #1f1f1f;
+
+            &--blog,
+            &--post {
+                font-size: 28px;
+                line-height: 34px;
+                font-weight: bold;
+            }
         }
     }
     // .post-card__title-link
