@@ -150,7 +150,7 @@
         display: flex;
         flex-wrap: wrap;
         padding: 9px;
-        border: 2px solid #808080;
+        border: 1px solid #808080;
         border-radius: 8px;
         background: #f9f9f9;
         box-shadow: inset 0px 0px 6px  rgba(117, 117, 117, 1);
@@ -158,10 +158,11 @@
 
         &:hover {
             background: #fff;
+            border-color: #414141;
             box-shadow: inset 0px 0px 6px  rgba(117, 117, 117, 1);
         }
         &._focus {
-            border: 2px solid #414141;
+            border-color: #414141;
             background: #fff;
             box-shadow: none;
         }

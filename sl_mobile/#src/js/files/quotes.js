@@ -1,7 +1,10 @@
 let now = new Date();
 let slideDate = document.querySelector('.slide-content__date');
 
-slideDate.textContent = `${now.getDate()}.${(now.getMonth()) < 9 ? ('0' + (now.getMonth() + 1)) : (now.getMonth() + 1)}.${now.getFullYear()}`;
+if (slideDate) { 
+    slideDate.textContent = `${now.getDate()}.${(now.getMonth()) < 9 ? ('0' + (now.getMonth() + 1)) : (now.getMonth() + 1)}.${now.getFullYear()}`;
+}
+
 
 /**
  * создается слайдер из блока .categories-slider__body

@@ -3265,7 +3265,7 @@ textarea {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   padding: 9px;
-  border: 2px solid #808080;
+  border: 1px solid #808080;
   border-radius: 8px;
   background: #f9f9f9;
   -webkit-box-shadow: inset 0px 0px 6px rgb(117, 117, 117);
@@ -3277,12 +3277,13 @@ textarea {
 
 .comments__footer:hover {
   background: #fff;
+  border-color: #414141;
   -webkit-box-shadow: inset 0px 0px 6px rgb(117, 117, 117);
           box-shadow: inset 0px 0px 6px rgb(117, 117, 117);
 }
 
 .comments__footer._focus {
-  border: 2px solid #414141;
+  border-color: #414141;
   background: #fff;
   -webkit-box-shadow: none;
           box-shadow: none;
