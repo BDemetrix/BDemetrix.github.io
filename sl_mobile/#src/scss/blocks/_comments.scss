@@ -199,6 +199,10 @@
 				cursor: default;
 			}
 		}
+
+        &:focus::placeholder {
+            color: transparent;
+        }
     }
     // .comments__add-img
     &__add-img {

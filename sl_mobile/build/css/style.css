@@ -3359,6 +3359,26 @@ textarea {
   cursor: default;
 }
 
+.comments__textarea:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.comments__textarea:focus::-moz-placeholder {
+  color: transparent;
+}
+
+.comments__textarea:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+.comments__textarea:focus::-ms-input-placeholder {
+  color: transparent;
+}
+
+.comments__textarea:focus::placeholder {
+  color: transparent;
+}
+
 .comments__add-img {
   cursor: pointer;
   -ms-grid-column-align: start;
