@@ -1544,6 +1544,10 @@ textarea {
   border-radius: 8px 8px 0 0;
 }
 
+.main__post-feed {
+  padding-top: 5px;
+}
+
 .main__post-back-link {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -2409,6 +2413,7 @@ textarea {
 }
 
 .post-card__header {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2434,7 +2439,7 @@ textarea {
 }
 
 .post-card__header-inner--post {
-  width: calc(100% - 160px);
+  width: calc(100% - 80px);
 }
 
 .post-card__header-inner--blog {
@@ -2485,7 +2490,7 @@ textarea {
           align-items: center;
   position: absolute;
   right: 0;
-  top: 0;
+  top: 10px;
 }
 
 .post-card__menu-item {
@@ -2581,11 +2586,23 @@ textarea {
   color: #808080;
 }
 
+.post-card__body-head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 18px;
+}
+
 .post-card__date-label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 9px;
   font-size: 14px;
   line-height: 16px;
   color: #808080;
@@ -2601,8 +2618,7 @@ textarea {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: 5px;
-  margin-left: 24px;
+  margin: -9px 0 -9px 24px;
   width: 136px;
   height: 34px;
   font-weight: 600;
@@ -2613,6 +2629,7 @@ textarea {
   -webkit-box-shadow: 0px 2px 4px rgba(11, 84, 131, 0.3);
           box-shadow: 0px 2px 4px rgba(11, 84, 131, 0.3);
   border-radius: 6px;
+  white-space: nowrap;
   cursor: pointer;
 }
 
@@ -4145,18 +4162,7 @@ body.loader:before {
             box-shadow: none;
   }
 
-  .post-card__menu-wrap {
-    top: 3px;
-    height: 34px;
-  }
-
   .post-card__title {
-    font-size: 22px;
-    color: #1f1f1f;
-  }
-
-  .post-card__title--blog,
-  .post-card__title--post {
     font-size: 28px;
     line-height: 34px;
     font-weight: bold;
