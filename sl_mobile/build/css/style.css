@@ -4195,6 +4195,7 @@ body.loader:before {
   }
 
   .post-card__title {
+    color: #424242;
     font-size: 28px;
     line-height: 34px;
     font-weight: bold;
