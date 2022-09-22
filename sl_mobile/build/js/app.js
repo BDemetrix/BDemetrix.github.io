@@ -41,7 +41,6 @@ function blockOverflow() {
   if (!isMobile.any()) {
     bodyGlobal.style.paddingRight = scrollWidth + 'px';
   }
-
 };
 
 /**
@@ -326,40 +325,34 @@ for (let index = 0; index < tabs.length; index++) {
 // Обработка событий для контекстного меню .context-menu
 const popUpMenu = document.querySelectorAll('.context-menu');
 if (popUpMenu.length) {
-  popUpMenu.forEach(menu => {
-    const btn = menu.querySelector('button, a');
 
+  document.documentElement.addEventListener('click', function (e) {
+    var btn = e.target.closest('.context-menu > button, .context-menu > a');
     if (btn) {
-      btn.addEventListener('click', () => {
-        if (!menu.classList.contains('_open')) {
-          closeAllOpenedMenu();
-          popUpMenuCorrectPos(menu);
-        } else
-          popUpMenuCleartPos(menu);
-
+      var menu = e.target.closest('.context-menu');
+      if (menu) {
+        if (!menu.classList.contains('_open')) closeAllOpenedMenu();
+        popUpMenuCorrectPos(menu);
         menu.classList.toggle('_open');
-      });
-    }
-
-    setTimeout(() => {
-      popUpMenuCorrectPos(menu);
-    }, 10);
-  });
-
-  document.documentElement.addEventListener('click', (e) => {
-    if (!e.target.closest('.context-menu > button')) {
-      const popUpMenu = document.querySelector('.context-menu._open');
+      }
+    } else {
+      var popUpMenu = document.querySelector('.context-menu._open');
       if (popUpMenu) popUpMenu.classList.remove('_open');
     }
-  });
+
+  }, false);
+
 
   /**
    * если окно выходит за рамки окна браузера, корректируем позицию
    */
   function popUpMenuCorrectPos(popUpMenu) {
+    if (!popUpMenu) return;
     popUpMenuCleartPos(popUpMenu);
 
     const ul = popUpMenu.querySelector('ul');
+    if (!ul) return;
+
     let menuPosLeft = popUpMenu.getBoundingClientRect().left;
     let menuPosRight = popUpMenu.getBoundingClientRect().right;
     let ulPosLeft = ul.getBoundingClientRect().left - 5;
@@ -382,7 +375,7 @@ if (popUpMenu.length) {
 
   function popUpMenuCleartPos(popUpMenu) {
     const ul = popUpMenu.querySelector('ul');
-    ul.style.left = ul.style.right = '';
+    if (ul) ul.style.left = ul.style.right = '';
   }
 
   window.addEventListener('resize', () => {
@@ -409,7 +402,6 @@ if (textareaAutoHeight.length) {
     }
   })
 
-console.log(window);
   ['resize', 'orientationchange'].forEach(event => {
     
     window.addEventListener(event, () => {
@@ -424,10 +416,8 @@ console.log(window);
 const fieldFocus = document.querySelectorAll('.js-focus')
 if (fieldFocus.length) {
   fieldFocus.forEach( field => {
-    console.log(field)
     field.addEventListener('focus', function() {
       this.parentElement.classList.add('_focus')
-      console.log('_focus')
     });
 
     field.addEventListener('blur', function () {
@@ -495,14 +485,14 @@ if (searchInput) {
  * при клике на кнопку-иконку поиска в хедере (появляется при заданном брейкпоинте) фокус переносится в инпут
  */
 let searchIcon = document.querySelector('.query-search__icon');
-searchIcon.addEventListener('click', () => {
+if (searchIcon) searchIcon.addEventListener('click', () => {
   searchInput.focus();
 });
 /**
  * очистка поискового инпута при нажатии на стрелку вниз, расположеную в инпуте при фокусе
  */
 let arrowInputBtn = document.querySelector('.query-search__input-arrow');
-arrowInputBtn.addEventListener('click', () => {
+if (arrowInputBtn) arrowInputBtn.addEventListener('click', () => {
   //searchInput.blur();
   setTimeout(() => {
     searchInput.focus();

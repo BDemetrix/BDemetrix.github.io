@@ -56,14 +56,14 @@ if (searchInput) {
  * при клике на кнопку-иконку поиска в хедере (появляется при заданном брейкпоинте) фокус переносится в инпут
  */
 let searchIcon = document.querySelector('.query-search__icon');
-searchIcon.addEventListener('click', () => {
+if (searchIcon) searchIcon.addEventListener('click', () => {
   searchInput.focus();
 });
 /**
  * очистка поискового инпута при нажатии на стрелку вниз, расположеную в инпуте при фокусе
  */
 let arrowInputBtn = document.querySelector('.query-search__input-arrow');
-arrowInputBtn.addEventListener('click', () => {
+if (arrowInputBtn) arrowInputBtn.addEventListener('click', () => {
   //searchInput.blur();
   setTimeout(() => {
     searchInput.focus();
