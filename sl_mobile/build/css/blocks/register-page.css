@@ -381,6 +381,15 @@
   margin-bottom: 0;
 }
 
+.input-field .error {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 0 5px;
+  font-size: 11px;
+  color: #f95050;
+}
+
 @media (min-width: 479.98px) {
   .chat_login {
     -webkit-box-orient: horizontal;
