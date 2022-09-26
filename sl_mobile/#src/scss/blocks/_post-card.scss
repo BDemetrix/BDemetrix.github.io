@@ -284,6 +284,8 @@
             }
         }
 
+
+
         @media (min-width: $md3 + px) {
             font-size: 17px;
         }
@@ -318,6 +320,12 @@
             width: 100%;
             height: auto;
         }
+    }
+
+    // .post-card__table 
+    &__table {
+        max-width: 100%;
+        overflow-x: auto;
     }
     &__tags &__labels {
         display: flex;

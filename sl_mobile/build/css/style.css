@@ -2745,6 +2745,11 @@ textarea {
   height: auto;
 }
 
+.post-card__table {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
 .post-card__tags .post-card__labels {
   display: -webkit-box;
   display: -ms-flexbox;
