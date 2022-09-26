@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
  <head>
-	<title>БЛОГ</title>
+	<title>ПОСТ</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <link rel="stylesheet" href="css/style.css"> -->
@@ -645,411 +645,256 @@
 	</div>
 	
 </header>
-		<main class="main _mobile-container">
-			<a href="./" class="main__post-back-link">
-				<svg width="18" height="16">
-					<use xlink:href="images/icons/post-card/sprite.svg#arrow"></use>
-				</svg>
-				<span>личный блог</span>
-			</a>
-			<div class="post-page__info post-page__info--blog">
-				<div class="user-info">
-    <div class="user-info__menu context-menu">
-        <button class="user-info__menu-btn context-menu__btn">
-            <svg class="context-menu__svg" height="20" width="20">
-                <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
-            </svg>
-        </button>
-        <ul class="context-menu__list">
-            <li><button class="context-menu__item">Копировать URL</button></li>
-            <li><button class="context-menu__item">Пожаловться</button></li>
-        </ul>
-    </div>
-    <!-- Если есть контекстное меню (при точки), присваивается модификатор user-info__wrap--blog -->
-    <div class="user-info__wrap user-info__wrap--blog">
-            <div class="user-info__photo-wrap">
-                <div class="user-info__img-wrap">
-                    <img src="./images/icons/user-info/user.jpg" alt="Фото" class="user-info__img">
-                </div>
-                <div class="user-info__tg-link-wrap">
-                    <svg width="16" height="16">
-                        <use xlink:href="images/icons/user-info/sprite.svg#tg"></use>
-                    </svg>
-                    <a href="https://t.me/newssmartlab" class="user-info__tg-link" target="_blank">t.me/newssmartlab</a>
-                </div>
-            
-            </div>
-            <div class="user-info__box">
-                <div class="user-info__name">RomanAndreev</div>
-                <div class="user-info__address">
-                    <svg width="14" height="17">
-                        <use xlink:href="images/icons/user-info/sprite.svg#local"></use>
-                    </svg>
-                    <span>Санкт-Петербург</span>
-                </div>
-                <div class="user-info__inner">
-                    <div class="user-info__subscribers">
-                        <svg width="16" height="16">
-                            <use xlink:href="images/icons/user-info/sprite.svg#person"></use>
-                        </svg>
-                        <span>256</span>
-                    </div>
-                    <div class="user-info__rating">
-                        <svg width="16" height="16">
-                            <use xlink:href="images/icons/user-info/sprite.svg#rating"></use>
-                        </svg>
-                        <span>3 258</span>
-                    </div>
-                </div>
-                <div class="user-info__date">
-                    <svg width="16" height="16">
-                        <use xlink:href="images/icons/user-info/sprite.svg#sigma"></use>
-                    </svg>
-                    <span>с 17 мая 2012</span>
-                </div>
-                <button class="user-info__subscrib-btn">+ Подписаться</button>
-            </div>
-    </div>
-</div>
+		<main class="post-page _mobile-container">
+			<div class="post-page__banner">
+				<!-- <span style="background: url(./images/image.jpg);"></span> -->
+				<img src="./images/image.jpg" alt="Фото" class="post-page__banner-img">	
 			</div>
-			<div class="main__post-card">
+			<div class="post-page__post-card">
 				<!-- Используются стили из _post-card.scss -->
-<section class="post-card">
+<section class="post-card post-card--post post-card--premium">
     <div class="post-card__header">
-        <!-- Если есть контекстное меню (при точки), присваивается модификатор post-card__header-inner--blog -->
-        <div class="post-card__header-inner post-card__header-inner--blog">
+        <!-- Если есть кнопка подписки, присваивается модификатор post-card__header-inner--post -->
+        <div class="post-card__header-inner post-card__header-inner--post">
             <a href="#" class="post-card__photo-wrap">
                 <!-- Если аватар не загружен, то <img> вставлять на страницу не надо. Будет виден фон .post-card__photo-wrap  заданный в css-->
-                <img src="./images/icons/post-card/photo.jpg" alt="Фото" class="post-card__photo">
+                <!-- Если обводка для фото не нужна, присвоить модификатор post-card__photo--not-border -->
+                <img src="./images/icons/post-card/premium-ring.svg" alt="Фото"
+                    class="post-card__photo post-card__photo--not-border">
             </a>
             <div class="post-card__info">
                 <span class="post-card__name">
                     <!-- Если профиль подтвержден, добавляется модификатор post-card__name-link--approved и svg.post-card__approved -->
-                    <a href="#" class="post-card__name-link post-card__name-link--approved">RomanAndreev</a>
-                    <svg class="post-card__approved" width="20" height="20">
-                        <use xlink:href="images/icons/post-card/sprite.svg#approved"></use>
-                    </svg>
+                    <a href="#" class="post-card__name-link">MOZGOVIK</a>
                 </span>
-                <span class="post-card__date">сегодня в 21:28</span>
+                <a href="./blog.html" class="post-card__blog-link">блог компании</a>
             </div>
         </div>
-        <div class="post-card__menu post-card__menu--blog context-menu">
-            <button class="post-card__menu-btn context-menu__btn">
-                <svg class="context-menu__svg" height="20" width="20">
-                    <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
-                </svg>
-            </button>
-            <ul class="context-menu__list">
-                <li><button class="context-menu__item">Копировать URL</button></li>
-                <li><button class="context-menu__item">Пожаловться</button></li>
-            </ul>
+        <div class="post-card__menu-wrap">
+            <div class="post-card__menu post-card__menu--post context-menu">
+                <button class="post-card__menu-btn post-card__menu-btn--post context-menu__btn">
+                    <svg height="20" width="20">
+                        <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
+                    </svg>
+                </button>
+                <ul class="context-menu__list">
+                    <li>
+                        <button class="post-card__menu-item context-menu__item">
+                            <svg height="20" width="20">
+                                <use xlink:href="images/icons/post-card/sprite.svg#print"></use>
+                            </svg>
+                            Распечатать
+                        </button>
+                    </li>
+                    <li>
+                        <button class="post-card__menu-item context-menu__item">
+                            <svg height="20" width="20">
+                                <use xlink:href="images/icons/post-card/sprite.svg#edit"></use>
+                            </svg>
+                            Редактировать
+                        </button>
+                    </li>
+                    <li>
+                        <button class="post-card__menu-item context-menu__item">
+                            <svg height="20" width="20">
+                                <use xlink:href="images/icons/post-card/sprite.svg#del"></use>
+                            </svg>
+                            Удалить
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="post-card__menu context-menu">
+                <button class="post-card__menu-btn post-card__menu-btn--post context-menu__btn">
+                    <svg height="20" width="20">
+                        <use xlink:href="images/icons/post-card/sprite.svg#share"></use>
+                    </svg>
+                </button>
+                <ul class="context-menu__list">
+                    <li>
+                        <button class="post-card__menu-item context-menu__item">
+                            <svg height="20" width="20">
+                                <use xlink:href="images/icons/post-card/sprite.svg#chain"></use>
+                            </svg>
+                            Копировать ссылку
+                        </button>
+                    </li>
+                    <li>
+                        <button class="post-card__menu-item context-menu__item">
+                            <svg height="20" width="20">
+                                <use xlink:href="images/icons/post-card/sprite.svg#tab"></use>
+                            </svg>
+                            Добавить в закладки
+                        </button>
+                    </li>
+                    <li>
+                        <button class="post-card__menu-item context-menu__item">
+                            <svg height="20" width="20">
+                                <use xlink:href="images/icons/user-info/sprite.svg#vk"></use>
+                            </svg>
+                            ВКонтакте
+                        </button>
+                    </li>
+                    <li>
+                        <button class="post-card__menu-item context-menu__item">
+                            <svg height="20" width="20">
+                                <use xlink:href="images/icons/user-info/sprite.svg#tg"></use>
+                            </svg>
+                            Telegram
+                        </button>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
     <div class="post-card__body">
+        <div class="post-card__body-head">
+            <span class="post-card__date-label">сегодня в 21:58</span>
+        </div>
         <!-- Для полного поста присваивается модификатор post-card__title--post -->
-        <h3 class="post-card__title post-card__title--blog">Ситуация на текущий момент</h3>
-        <div class="post-card__text post-card__text--blog">
-            Многие из населения и почти 100% смартлабовцев мечтают жить рантье после 40 лет. С одним таким смердом, вернее с
-            женщиной 44 лет лет я недавно брал интервью...
-        </div>  
-        <div class="post-card__tags">
-            <a href="#" class="post-card__tag">смарт-лаб</a>
-            <a href="#" class="post-card__tag">форекс</a>
-            <a href="#" class="post-card__tag">юань</a> 
-            <a href="#" class="post-card__tag">форекс</a>
-            <a href="#" class="post-card__tag">юань</a>
+        <div class="post-card__title-wrap">
+            <h3 class="post-card__title post-card__title--post">Газпром не будет платить дивиденды три года?</h3>
+        </div>
+        <div class="post-card__text post-card__text--premium">
+            Сегодня в Ведомостях была опубликована любопытная статья, в которой говорится о том, что проект бюджета РФ
+            не включает в
+            себя большие поступления от дивидендов госкомпаний в 2023-2025 годах. Отсюда можно сделать косвенный вывод о
+            том, что
+            Газпром три года не будет платить дивиденды, а перечислять доходы напрямую в бюджет в виде повышенного НДПИ,
+            как это
+            случилось в этом году. Проект Основных направлений бюджетной политики доступен только журналистам
+            Ведомостей.
+            Означает ли это, что дивидендов Газпрома не стоит ждать три года?
         </div>
     </div>
-    <div class="post-card__footer">
-        <div class="post-card__btns-wrap  post-card__btns-wrap--left">
-            <span class="post-card__btns-count">1K</span>
-            <button class="post-card__btn" type="button">
+    <div class="post-card__subscribe-box subscribe-box">
+        <h3 class="subscribe-box__title">
+            Чтобы читать дальше,
+            оформите <br> подписку
+            <span>
                 <svg width="20" height="20">
-                    <use xlink:href="images/icons/post-card/sprite.svg#views"></use>
+                    <use xlink:href="images/icons/post-card/sprite.svg#premium-ring"></use>
                 </svg>
-            </button>
+                Premium
+            </span>
+
+        </h3>
+        <div class="subscribe-box__tarif-cards">
+            <div class="tarif-card">
+                <div class="tarif-card__body">
+                    <div class="tarif-card__title">
+                        На месяц</span>
+                    </div>
+                    <div class="tarif-card__inner">
+                        <span class="tarif-card__current-price">2,499 ₽</span>
+                        <span class="tarif-card__period"> / в месяц</span>
+                    </div>
+                    <button class="tarif-card__show-info _open">Что в подписке?</button>
+                    <a class="tarif-card__link" href="#"></a>
+                </div>
+                <div class="tarif-card__pop-up _open">
+                    <div class="tarif-card__pop-up-cover"></div>
+                    <div class="tarif-card__pop-up-body">
+                        <button class="tarif-card__pop-up-close">
+                            <svg width="14" height="14">
+                                <use xlink:href="images/icons/post-card/sprite.svg#close"></use>
+                            </svg>
+                        </button>
+
+                        <div class="tarif-card__pop-up-title">
+                            <svg class="tarif-card__pop-up-title-icon" width="45" height="45">
+                                <use xlink:href="images/icons/post-card/sprite.svg#premium-ring"></use>
+                            </svg>
+                            Premium на 1 год
+                        </div>
+                        <ul class="tarif-card__pop-up-list">
+                            <!-- По умобчанию у пункта зеленая галочка, для за замены на крестик присвоить модификатор tarif-card__pop-up-item--disabled -->
+                            <li>Доступ к закрытым материалам, включая аналитику от Mozgovik Research</li>
+                            <li>Прогнозы по российским акциям: рейтинг от Mozgovik Research</li>
+                            <li>Долгосрочная инвестиционная стратегия</li>
+                            <li>Инсайдерские мнения</li>
+                            <li>Авторитетные комментарии по текущей ситуации на рынке</li>
+                            <li>Объяснения какое влияние новости могут оказать на акции и другие активы</li>
+                            <li>Регулярная публикация инвестиционных портфелей участников команды с комментариями</li>
+                            <li>Бесплатный доступ ко всем платным видео (конференции, инвест идеи)</li>
+                            <li class="tarif-card__pop-up-item--disabled">Telegram - чат с нашей командой, где можно
+                                задать любой вопрос и оперативно получить
+                                ответы</li>
+                            <li class="tarif-card__pop-up-item--disabled">Возможность принять участие в отдельной
+                                конференции для годовых подписчиков</li>
+                            <li class="tarif-card__pop-up-item--disabled">Cкидка 50% на конференцию смартлаба</li>
+                            <li class="tarif-card__pop-up-item--disabled">Три месяца подписки в подарок!</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tarif-card">
+                <div class="tarif-card__body">
+                    <div class="tarif-card__title">
+                        На год + <span>3 месяца в подарок</span>
+                    </div>
+                    <div class="tarif-card__inner">
+                        <s class="tarif-card__old-price">2,499</s>
+                        <span class="tarif-card__current-price"> 1,333 ₽</span>
+                        <span class="tarif-card__period"> / в месяц</span>
+                    </div>
+                    <button class="tarif-card__show-info _open">Что в подписке?</button>
+                    <a class="tarif-card__link" href="#"></a>
+                </div>
+                <div class="tarif-card__pop-up _open">
+                    <div class="tarif-card__pop-up-cover"></div>
+                    <div class="tarif-card__pop-up-body">
+                        <button class="tarif-card__pop-up-close">
+                            <svg width="14" height="14">
+                                <use xlink:href="images/icons/post-card/sprite.svg#close"></use>
+                            </svg>
+                        </button>
+
+                        <div class="tarif-card__pop-up-title">
+                            <svg class="tarif-card__pop-up-title-icon" width="45" height="45">
+                                <use xlink:href="images/icons/post-card/sprite.svg#premium-ring"></use>
+                            </svg>
+                            Premium на 1 год
+                        </div>
+                        <ul class="tarif-card__pop-up-list">
+                            <!-- По умобчанию у пункта зеленая галочка, для за замены на крестик присвоить модификатор tarif-card__pop-up-item--disabled -->
+                            <li>Доступ к закрытым материалам, включая аналитику от Mozgovik Research</li>
+                            <li>Прогнозы по российским акциям: рейтинг от Mozgovik Research</li>
+                            <li>Долгосрочная инвестиционная стратегия</li>
+                            <li>Инсайдерские мнения</li>
+                            <li>Авторитетные комментарии по текущей ситуации на рынке</li>
+                            <li>Объяснения какое влияние новости могут оказать на акции и другие активы</li>
+                            <li>Регулярная публикация инвестиционных портфелей участников команды с комментариями</li>
+                            <li>Бесплатный доступ ко всем платным видео (конференции, инвест идеи)</li>
+                            <li>Telegram - чат с нашей командой, где можно задать любой вопрос и оперативно получить
+                                ответы</li>
+                            <li>Возможность принять участие в отдельной конференции для годовых подписчиков</li>
+                            <li>Cкидка 50% на конференцию смартлаба</li>
+                            <li>Три месяца подписки в подарок!</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="post-card__btns-wrap">
-            <button class="post-card__btn" type="button">
-                <svg width="19" height="18">
-                    <use xlink:href="images/icons/post-card/sprite.svg#star"></use>
-                </svg>
-            </button>
-            <span class="post-card__btns-count">4</span>
+        <div class="subscribe-box__link-wrap">
+            <button class="big-blue-btn" type="button">Подробнее</button>
+            <a href="#" class="">Есть Smart-Lab Premium? Войдите</a>
         </div>
-        <div class="post-card__btns-wrap">
-            <button class="post-card__btn" type="button">
-                <svg width="17" height="16">
-                    <use xlink:href="images/icons/post-card/sprite.svg#chat"></use>
-                </svg>
-            </button>
-            <span class="post-card__btns-count">306</span>
-        </div>
-        <div class="post-card__btns-wrap">
-            <button class="post-card__btn" type="button">
-                <svg width="18" height="17">
-                    <use xlink:href="images/icons/post-card/sprite.svg#heart"></use>
-                </svg>
-            </button>
-            <span class="post-card__btns-count">150</span>
+        <div class="subscribe-box__footer">
+            <div class="subscribe-box__footer-inner">
+                <div class="subscribe-box__info">
+                    <span>306</span> комментариев
+                </div>
+                <div class="subscribe-box__to-subscribe">
+                    Чтобы прочесть и оставлять комментарии, необходимо <a href="#">оформить подписку</a>
+                </div>
+            </div>
         </div>
     </div>
 </section> 
-			</div> 
-			<div class="main__post-card">
-				<!-- Используются стили из _post-card.scss -->
-<section class="post-card">
-    <div class="post-card__header">
-        <!-- Если есть контекстное меню (при точки), присваивается модификатор post-card__header-inner--blog -->
-        <div class="post-card__header-inner post-card__header-inner--blog">
-            <a href="#" class="post-card__photo-wrap">
-                <!-- Если аватар не загружен, то <img> вставлять на страницу не надо. Будет виден фон .post-card__photo-wrap  заданный в css-->
-                <img src="./images/icons/post-card/photo.jpg" alt="Фото" class="post-card__photo">
-            </a>
-            <div class="post-card__info">
-                <span class="post-card__name">
-                    <!-- Если профиль подтвержден, добавляется модификатор post-card__name-link--approved и svg.post-card__approved -->
-                    <a href="#" class="post-card__name-link post-card__name-link--approved">RomanAndreev</a>
-                    <svg class="post-card__approved" width="20" height="20">
-                        <use xlink:href="images/icons/post-card/sprite.svg#approved"></use>
-                    </svg>
-                </span>
-                <span class="post-card__date">сегодня в 21:28</span>
-            </div>
-        </div>
-        <div class="post-card__menu post-card__menu--blog context-menu">
-            <button class="post-card__menu-btn context-menu__btn">
-                <svg class="context-menu__svg" height="20" width="20">
-                    <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
-                </svg>
-            </button>
-            <ul class="context-menu__list">
-                <li><button class="context-menu__item">Копировать URL</button></li>
-                <li><button class="context-menu__item">Пожаловться</button></li>
-            </ul>
-        </div>
-    </div>
-    <div class="post-card__body">
-        <!-- Для полного поста присваивается модификатор post-card__title--post -->
-        <h3 class="post-card__title post-card__title--blog">Ситуация на текущий момент</h3>
-        <div class="post-card__text post-card__text--blog">
-            Многие из населения и почти 100% смартлабовцев мечтают жить рантье после 40 лет. С одним таким смердом, вернее с
-            женщиной 44 лет лет я недавно брал интервью...
-        </div>  
-        <div class="post-card__tags">
-            <a href="#" class="post-card__tag">смарт-лаб</a>
-            <a href="#" class="post-card__tag">форекс</a>
-            <a href="#" class="post-card__tag">юань</a> 
-            <a href="#" class="post-card__tag">форекс</a>
-            <a href="#" class="post-card__tag">юань</a>
-        </div>
-    </div>
-    <div class="post-card__footer">
-        <div class="post-card__btns-wrap  post-card__btns-wrap--left">
-            <span class="post-card__btns-count">1K</span>
-            <button class="post-card__btn" type="button">
-                <svg width="20" height="20">
-                    <use xlink:href="images/icons/post-card/sprite.svg#views"></use>
-                </svg>
-            </button>
-        </div>
-        <div class="post-card__btns-wrap">
-            <button class="post-card__btn" type="button">
-                <svg width="19" height="18">
-                    <use xlink:href="images/icons/post-card/sprite.svg#star"></use>
-                </svg>
-            </button>
-            <span class="post-card__btns-count">4</span>
-        </div>
-        <div class="post-card__btns-wrap">
-            <button class="post-card__btn" type="button">
-                <svg width="17" height="16">
-                    <use xlink:href="images/icons/post-card/sprite.svg#chat"></use>
-                </svg>
-            </button>
-            <span class="post-card__btns-count">306</span>
-        </div>
-        <div class="post-card__btns-wrap">
-            <button class="post-card__btn" type="button">
-                <svg width="18" height="17">
-                    <use xlink:href="images/icons/post-card/sprite.svg#heart"></use>
-                </svg>
-            </button>
-            <span class="post-card__btns-count">150</span>
-        </div>
-    </div>
-</section>
 			</div>
-			<div class="main__post-card">
-				<!-- Используются стили из _post-card.scss -->
-<section class="post-card">
-    <div class="post-card__header">
-        <!-- Если есть контекстное меню (при точки), присваивается модификатор post-card__header-inner--blog -->
-        <div class="post-card__header-inner post-card__header-inner--blog">
-            <a href="#" class="post-card__photo-wrap">
-                <!-- Если аватар не загружен, то <img> вставлять на страницу не надо. Будет виден фон .post-card__photo-wrap  заданный в css-->
-                <img src="./images/icons/post-card/photo.jpg" alt="Фото" class="post-card__photo">
-            </a>
-            <div class="post-card__info">
-                <span class="post-card__name">
-                    <!-- Если профиль подтвержден, добавляется модификатор post-card__name-link--approved и svg.post-card__approved -->
-                    <a href="#" class="post-card__name-link post-card__name-link--approved">RomanAndreev</a>
-                    <svg class="post-card__approved" width="20" height="20">
-                        <use xlink:href="images/icons/post-card/sprite.svg#approved"></use>
-                    </svg>
-                </span>
-                <span class="post-card__date">сегодня в 21:28</span>
-            </div>
-        </div>
-        <div class="post-card__menu post-card__menu--blog context-menu">
-            <button class="post-card__menu-btn context-menu__btn">
-                <svg class="context-menu__svg" height="20" width="20">
-                    <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
-                </svg>
-            </button>
-            <ul class="context-menu__list">
-                <li><button class="context-menu__item">Копировать URL</button></li>
-                <li><button class="context-menu__item">Пожаловться</button></li>
-            </ul>
-        </div>
-    </div>
-    <div class="post-card__body">
-        <!-- Для полного поста присваивается модификатор post-card__title--post -->
-        <h3 class="post-card__title post-card__title--blog">Ситуация на текущий момент</h3>
-        <div class="post-card__text post-card__text--blog">
-            Многие из населения и почти 100% смартлабовцев мечтают жить рантье после 40 лет. С одним таким смердом, вернее с
-            женщиной 44 лет лет я недавно брал интервью...
-        </div>  
-        <div class="post-card__tags">
-            <a href="#" class="post-card__tag">смарт-лаб</a>
-            <a href="#" class="post-card__tag">форекс</a>
-            <a href="#" class="post-card__tag">юань</a> 
-            <a href="#" class="post-card__tag">форекс</a>
-            <a href="#" class="post-card__tag">юань</a>
-        </div>
-    </div>
-    <div class="post-card__footer">
-        <div class="post-card__btns-wrap  post-card__btns-wrap--left">
-            <span class="post-card__btns-count">1K</span>
-            <button class="post-card__btn" type="button">
-                <svg width="20" height="20">
-                    <use xlink:href="images/icons/post-card/sprite.svg#views"></use>
-                </svg>
-            </button>
-        </div>
-        <div class="post-card__btns-wrap">
-            <button class="post-card__btn" type="button">
-                <svg width="19" height="18">
-                    <use xlink:href="images/icons/post-card/sprite.svg#star"></use>
-                </svg>
-            </button>
-            <span class="post-card__btns-count">4</span>
-        </div>
-        <div class="post-card__btns-wrap">
-            <button class="post-card__btn" type="button">
-                <svg width="17" height="16">
-                    <use xlink:href="images/icons/post-card/sprite.svg#chat"></use>
-                </svg>
-            </button>
-            <span class="post-card__btns-count">306</span>
-        </div>
-        <div class="post-card__btns-wrap">
-            <button class="post-card__btn" type="button">
-                <svg width="18" height="17">
-                    <use xlink:href="images/icons/post-card/sprite.svg#heart"></use>
-                </svg>
-            </button>
-            <span class="post-card__btns-count">150</span>
-        </div>
-    </div>
-</section>
-			</div>
-			<div class="main__post-card">
-				<!-- Используются стили из _post-card.scss -->
-<section class="post-card">
-    <div class="post-card__header">
-        <!-- Если есть контекстное меню (при точки), присваивается модификатор post-card__header-inner--blog -->
-        <div class="post-card__header-inner post-card__header-inner--blog">
-            <a href="#" class="post-card__photo-wrap">
-                <!-- Если аватар не загружен, то <img> вставлять на страницу не надо. Будет виден фон .post-card__photo-wrap  заданный в css-->
-                <img src="./images/icons/post-card/photo.jpg" alt="Фото" class="post-card__photo">
-            </a>
-            <div class="post-card__info">
-                <span class="post-card__name">
-                    <!-- Если профиль подтвержден, добавляется модификатор post-card__name-link--approved и svg.post-card__approved -->
-                    <a href="#" class="post-card__name-link post-card__name-link--approved">RomanAndreev</a>
-                    <svg class="post-card__approved" width="20" height="20">
-                        <use xlink:href="images/icons/post-card/sprite.svg#approved"></use>
-                    </svg>
-                </span>
-                <span class="post-card__date">сегодня в 21:28</span>
-            </div>
-        </div>
-        <div class="post-card__menu post-card__menu--blog context-menu">
-            <button class="post-card__menu-btn context-menu__btn">
-                <svg class="context-menu__svg" height="20" width="20">
-                    <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
-                </svg>
-            </button>
-            <ul class="context-menu__list">
-                <li><button class="context-menu__item">Копировать URL</button></li>
-                <li><button class="context-menu__item">Пожаловться</button></li>
-            </ul>
-        </div>
-    </div>
-    <div class="post-card__body">
-        <!-- Для полного поста присваивается модификатор post-card__title--post -->
-        <h3 class="post-card__title post-card__title--blog">Ситуация на текущий момент</h3>
-        <div class="post-card__text post-card__text--blog">
-            Многие из населения и почти 100% смартлабовцев мечтают жить рантье после 40 лет. С одним таким смердом, вернее с
-            женщиной 44 лет лет я недавно брал интервью...
-        </div>  
-        <div class="post-card__tags">
-            <a href="#" class="post-card__tag">смарт-лаб</a>
-            <a href="#" class="post-card__tag">форекс</a>
-            <a href="#" class="post-card__tag">юань</a> 
-            <a href="#" class="post-card__tag">форекс</a>
-            <a href="#" class="post-card__tag">юань</a>
-        </div>
-    </div>
-    <div class="post-card__footer">
-        <div class="post-card__btns-wrap  post-card__btns-wrap--left">
-            <span class="post-card__btns-count">1K</span>
-            <button class="post-card__btn" type="button">
-                <svg width="20" height="20">
-                    <use xlink:href="images/icons/post-card/sprite.svg#views"></use>
-                </svg>
-            </button>
-        </div>
-        <div class="post-card__btns-wrap">
-            <button class="post-card__btn" type="button">
-                <svg width="19" height="18">
-                    <use xlink:href="images/icons/post-card/sprite.svg#star"></use>
-                </svg>
-            </button>
-            <span class="post-card__btns-count">4</span>
-        </div>
-        <div class="post-card__btns-wrap">
-            <button class="post-card__btn" type="button">
-                <svg width="17" height="16">
-                    <use xlink:href="images/icons/post-card/sprite.svg#chat"></use>
-                </svg>
-            </button>
-            <span class="post-card__btns-count">306</span>
-        </div>
-        <div class="post-card__btns-wrap">
-            <button class="post-card__btn" type="button">
-                <svg width="18" height="17">
-                    <use xlink:href="images/icons/post-card/sprite.svg#heart"></use>
-                </svg>
-            </button>
-            <span class="post-card__btns-count">150</span>
-        </div>
-    </div>
-</section>
-			</div>
-			<button class="big-blue-btn main__next-btn" type="button">далее</button>
-			<footer class="footer @@Class">
+			<footer class="footer footer--premium">
 	<div class="footer__content">
 		<div class="footer__banners">
 			<div class="footer__banner ">

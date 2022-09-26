@@ -51,6 +51,7 @@ function unBlockOverflow() {
     bodyGlobal.style.overflow = ``;
     bodyGlobal.style.touchAction = ``;
     bodyGlobal.style.paddingRight = ``;
+    console.log('unBlockOverflow')
   }, 400)
 };
 

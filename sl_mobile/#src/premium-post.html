@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('_head.html',{
+"title":"ПОСТ",
+"stylesheet": "./css/style.css"
+})
+
+<body class="">
+	<div class="wrapper">
+		@@include('_header.html',{"Class": "_container"})
+		<main class="post-page _mobile-container">
+			<div class="post-page__banner">
+				<!-- <span style="background: url(./images/image.jpg);"></span> -->
+				<img src="./images/image.jpg" alt="Фото" class="post-page__banner-img">	
+			</div>
+			<div class="post-page__post-card">
+				@@include('_post-card--premium-post.html') 
+			</div>
+			@@include('_footer_mob.html',{'Class': 'footer--premium'})
+		</main>
+	</div>
+	@@include('_js.html',{})
+</body>
+
+</html>

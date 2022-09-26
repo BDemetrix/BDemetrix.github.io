@@ -3,6 +3,13 @@
   font-family: Roboto, Tahoma, "Open Sans", Verdana, sans-serif;
   margin-top: 30px;
 
+  &--premium {
+    margin-top: 0;
+    .footer__banners {
+      display: none;
+    }
+  }
+
 	// .footer__content
 	&__content {
 	}
