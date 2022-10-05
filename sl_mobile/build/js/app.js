@@ -427,6 +427,17 @@ if (fieldFocus.length) {
   })
 }
 
+// Стрелка прокрутки вверх
+let arrowToTop = document.querySelector('.arrow-to-top');
+if (arrowToTop) {
+  window.addEventListener('scroll', () => {
+    arrowToTop.classList.toggle('arrow-to-top--visible', window.scrollY > 250); 
+  });
+
+  arrowToTop.addEventListener('click', () => {
+    window.scrollTo(0, 0);
+  })
+}
 //=================
 // HEADER JS / begin ============================================================================
 let mainHeader = document.querySelector('header.header');

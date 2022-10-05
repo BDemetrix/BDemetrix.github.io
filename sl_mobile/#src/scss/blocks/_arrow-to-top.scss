@@ -1,0 +1,31 @@
+.arrow-to-top {
+    display: none;
+
+    @media (min-width: 1000px) {
+        display: block;
+        position: fixed;
+        z-index: -1;
+        bottom: 75px;
+        right: 75px;
+        background: none;
+        border: 0;
+        transition: all .4s ease;
+
+        &--visible {
+            z-index: 99;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        svg {
+            transition: all .4s ease;
+            fill-opacity: 0.2;
+        }
+
+        &:hover {
+            svg {
+                fill-opacity: 0.4;
+            }
+        }
+    }
+}

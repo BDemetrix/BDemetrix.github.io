@@ -2397,7 +2397,7 @@ textarea {
 .post-card {
   font-family: inherit;
   max-width: 100%;
-  padding: 14px 10px;
+  padding: 14px 10px 4px;
   background: #ffffff;
   -webkit-box-shadow: 0px 4px 4px rgba(117, 117, 117, 0.12);
           box-shadow: 0px 4px 4px rgba(117, 117, 117, 0.12);
@@ -2657,6 +2657,18 @@ textarea {
 
 .post-card__title-wrap {
   position: relative;
+  line-height: 34px;
+}
+
+.post-card__title-icon {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  padding-bottom: 3px;
+  vertical-align: middle;
 }
 
 .post-card__title {
@@ -2669,12 +2681,9 @@ textarea {
 }
 
 .post-card__title--blog,
-.post-card__title--post {
+.post-card__title--post,
+.post-card__title--premium {
   margin-bottom: 15px;
-}
-
-.post-card__title--post {
-  padding-right: 64px;
 }
 
 .post-card__title-link {
@@ -2809,7 +2818,7 @@ textarea {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  padding-top: 10px;
+  padding: 0 10px;
   border-top: 1px solid #e0e0e0;
 }
 
@@ -2820,7 +2829,7 @@ textarea {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-right: 28px;
+  margin-right: 16px;
 }
 
 .post-card__btns-wrap:last-child {
@@ -2833,6 +2842,7 @@ textarea {
 }
 
 .post-card__btns-count {
+  margin-left: -6px;
   font-size: 12px;
   line-height: 20px;
   color: #808080;
@@ -2848,8 +2858,8 @@ textarea {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 28px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
   background: none;
   border: 0;
 }
@@ -2977,7 +2987,7 @@ textarea {
 }
 
 .subscribe-box__to-subscribe a {
-  color: #013DB2;
+  color: #013db2;
 }
 
 .tarif-card {
@@ -3982,7 +3992,7 @@ textarea {
 }
 
 .footer__banner-best {
-  background: #459FCC;
+  background: #459fcc;
 }
 
 .footer__banner-best svg {
@@ -3998,7 +4008,7 @@ textarea {
 
 .footer__buttons {
   padding: 30px 15px;
-  background: #3F3F3F;
+  background: #3f3f3f;
 }
 
 .footer__app-box {
@@ -4012,6 +4022,16 @@ textarea {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-bottom: 30px;
+}
+
+.footer__app-btn {
+  width: 135px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.footer__app-img {
+  width: 100%;
 }
 
 .footer__social-box {
@@ -4048,7 +4068,7 @@ textarea {
 .footer__link {
   font-size: 14px;
   line-height: 135%;
-  color: #DADADA;
+  color: #dadada;
 }
 
 .footer__copy {
@@ -4059,7 +4079,7 @@ textarea {
   text-align: right;
   font-size: 12px;
   line-height: 135%;
-  color: #8C8C8B;
+  color: #8c8c8b;
 }
 
 .footer__bottom {
@@ -4111,58 +4131,6 @@ textarea {
           justify-content: center;
   margin-left: auto;
   margin-top: 20px;
-}
-
-.smart-app-btn,
-.gpay-app-btn {
-  width: 130px;
-  height: 40px;
-}
-
-.smart-app-btn__img,
-.gpay-app-btn__img {
-  position: relative;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.smart-app-btn__img img,
-.gpay-app-btn__img img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.smart-app-btn {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.smart-app-btn__img {
-  width: 40px;
-  height: 40px;
-  margin-right: 15px;
-}
-
-.smart-app-btn__text {
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 135%;
-  color: #fff;
-}
-
-.gpay-app-btn__img {
-  width: 100%;
-  height: 100%;
 }
 
 .telegram-btn,
@@ -4275,6 +4243,10 @@ textarea {
   font-weight: 500;
   background: #E22E2D;
   border-radius: 50%;
+}
+
+.arrow-to-top {
+  display: none;
 }
 
 .comments__answers {
@@ -4702,6 +4674,12 @@ body.loader:before {
             box-shadow: none;
   }
 
+  .post-card__title-icon {
+    width: 34px;
+    height: 34px;
+    padding-bottom: 6px;
+  }
+
   .post-card__title {
     color: #424242;
     font-size: 28px;
@@ -4917,6 +4895,38 @@ body.loader:before {
 
   .footer__social-box {
     margin: 14px 0 30px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .arrow-to-top {
+    display: block;
+    position: fixed;
+    z-index: -1;
+    bottom: 75px;
+    right: 75px;
+    background: none;
+    border: 0;
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+  }
+
+  .arrow-to-top--visible {
+    z-index: 99;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .arrow-to-top svg {
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    fill-opacity: 0.2;
+  }
+
+  .arrow-to-top:hover svg {
+    fill-opacity: 0.4;
   }
 }
 

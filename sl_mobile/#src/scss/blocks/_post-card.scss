@@ -1,7 +1,7 @@
 .post-card {
     font-family: inherit;
     max-width: 100%;
-    padding: 14px 10px;
+    padding: 14px 10px 4px;
     background: #ffffff;
     box-shadow: 0px 4px 4px rgba(117, 117, 117, 0.12);
     border-radius: 8px;
@@ -222,6 +222,23 @@
     // .post-card__title-wrap
     &__title-wrap {
         position: relative;
+        line-height: 34px;
+    }
+
+    // .post-card__title-icon
+    &__title-icon {
+        display: inline-flex;
+        width: 22px;
+        height: 22px;
+        margin: 0;
+        padding-bottom: 3px;
+        vertical-align: middle;
+
+        @media (min-width: $md3 + px) {
+            width: 34px;
+            height: 34px;
+            padding-bottom: 6px;
+        }
     }
 
     // .post-card__title
@@ -234,12 +251,13 @@
         color: #0b5483;
 
         &--blog,
-        &--post {
+        &--post,
+        &--premium {
             margin-bottom: 15px;
         }
 
-        &--post {
-            padding-right: 64px;
+        &--premium {
+            //display: inline-flex;
         }
 
         @media (min-width: $md3 + px) {
@@ -284,8 +302,6 @@
             }
         }
 
-
-
         @media (min-width: $md3 + px) {
             font-size: 17px;
         }
@@ -322,7 +338,7 @@
         }
     }
 
-    // .post-card__table 
+    // .post-card__table
     &__table {
         max-width: 100%;
         overflow-x: auto;
@@ -375,14 +391,14 @@
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        padding-top: 10px;
+        padding: 0 10px;
         border-top: 1px solid #e0e0e0;
     }
     // .post-card__btns-wrap
     &__btns-wrap {
         display: inline-flex;
         align-items: center;
-        margin-right: 28px;
+        margin-right: 16px;
 
         &:last-child {
             margin-right: 0;
@@ -396,6 +412,7 @@
 
     // .post-card__btns-count
     &__btns-count {
+        margin-left: -6px;
         font-size: 12px;
         line-height: 20px;
         color: #808080;
@@ -405,8 +422,8 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 28px;
-        height: 20px;
+        width: 40px;
+        height: 40px;
         background: none;
         border: 0;
     }
@@ -500,7 +517,7 @@
         background: #ffffff;
         border-radius: 8px 8px 0px 0px;
     }
-    // .subscribe-box__footer-inner 
+    // .subscribe-box__footer-inner
     &__footer-inner {
         max-width: 558px;
         margin: 0 auto;
@@ -521,7 +538,7 @@
         color: #312c26;
 
         a {
-            color: #013DB2;
+            color: #013db2;
         }
     }
 }
