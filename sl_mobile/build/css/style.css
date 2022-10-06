@@ -3205,11 +3205,11 @@ textarea {
   position: absolute;
   top: 0;
   left: 0;
-  background: no-repeat 0 -2px/100% url("/images/icons/post-card/check.svg");
+  background: no-repeat 0 -2px/100% url("../images/icons/post-card/check.svg");
 }
 
 .tarif-card__pop-up-list li.tarif-card__pop-up-item--disabled::before {
-  background: no-repeat 0 -2px/100% url("/images/icons/post-card/cross.svg");
+  background: no-repeat 0 -2px/100% url("../images/icons/post-card/cross.svg");
 }
 
 .company-box {
