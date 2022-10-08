@@ -3203,7 +3203,7 @@ textarea {
 }
 
 .tarif-card__pop-up-list li:last-child {
-  margin-bottom: 0;
+  margin-bottom: 10px;
 }
 
 .tarif-card__pop-up-list li::before {
