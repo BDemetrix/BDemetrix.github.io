@@ -475,7 +475,6 @@
         align-items: center;
         justify-content: space-evenly;
         flex-wrap: wrap;
-        padding: 0 5px;
     }
     // .subscribe-box__link-wrap
     &__link-wrap {
@@ -629,71 +628,18 @@
     }
     // .tarif-card__pop-up
     &__pop-up {
-        position: fixed;
-        z-index: -3;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-
-        &--open {
-            z-index: 999;
-            opacity: 1;
-            visibility: visible;
-        }
     }
-    // .tarif-card__pop-up-cover
-    &__pop-up-cover {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background: #000;
-        opacity: 0.5;
-    }
-    // .tarif-card__pop-up-body
-    &__pop-up-body {
-        position: relative;
-        z-index: 2;
-        max-height: 90%;
-        max-width: 620px;
-        height: 90%;
-        width: 90%;
+    
+    // .tarif-card__pop-up-content
+    &__pop-up-content {
+        width: 620px;
         padding: 20px 0 0;
-        background: #fff;
-        border-radius: 8px;
-    }
-    // .tarif-card__pop-up-close
-    &__pop-up-close {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 34px;
-        height: 34px;
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        background: #ffffff;
-        border: 0;
-        transition: all 0.3s ease;
-        border-radius: 8px;
-
-        &:hover {
-            background: #f0f0f0;
-        }
     }
     // .tarif-card__pop-up-title
     &__pop-up-title {
         display: flex;
         align-items: center;
-        padding: 0 20px;
+        padding-left: 20px;
         margin-bottom: 20px;
         font-weight: 700;
         font-size: 20px;
@@ -710,9 +656,6 @@
         font-size: 14px;
         line-height: 16px;
         color: #312c26;
-        height: calc(100% - 70px);
-        max-height: calc(100% - 70px);
-        overflow-y: auto;
 
         li {
             position: relative;

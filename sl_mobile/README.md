@@ -47,8 +47,8 @@ _js.html
 
 
 #### Общие классы для стилизации и обработки событий
-##### #src\scss\base\global.scss
-##### #src\js\files\common.js
+##### #src/scss/base/global.scss
+##### #src/js/files/common.js
 
 1) Для контекстных меню класс .context-menu для которого написаны правила, анимация и минимальный набор обработчиков js
 Для стандартного вида необходимо добавить классы .context-menu__list и другие
@@ -79,3 +79,22 @@ _js.html
 6) Чтобы у textarea была адаптивная высота надо добавить ей класс .js-textarea-auto-height
 
 7) Чтобы родителю пол ввода присваивался класс _focus самому полю ввода присваивается класс js-focus
+
+8) Модальное окно.
+Для унификации модальныхе окон следует создавать следующую структауру:
+```
+<div class="custom-pop-up any-class" id="tarif-card-pop-up--month">
+    <div class="custom-pop-up__body any-class__body">
+        <div class="custom-pop-up__cover"></div>
+        <div class="custom-pop-up__content any-class__content">
+            <button class="custom-pop-up__close"></button>
+            <!-- Контент поп-апа -->
+        </div>
+    </div>
+</div>
+```
+где к классу .custom-pop-up и его потомкам (по БЭМ) привязываются обработчки событий и основные стили из 
+scss/base/global.scss и js/files/common.js, 
+
+а класс .any-class - михс-класс и служит для для дополнительной стилизации.
+

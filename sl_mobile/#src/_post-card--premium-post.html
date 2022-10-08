@@ -142,42 +142,45 @@
                         <span class="tarif-card__current-price">2,499 ₽</span>
                         <span class="tarif-card__period"> / в месяц</span>
                     </div>
-                    <button class="tarif-card__show-info _open">Что в подписке?</button>
+                    <button class="tarif-card__show-info"  data-target-id="tarif-card-pop-up--month">Что в подписке?</button>
                     <a class="tarif-card__link" href="#"></a>
                 </div>
-                <div class="tarif-card__pop-up _open">
-                    <div class="tarif-card__pop-up-cover"></div>
-                    <div class="tarif-card__pop-up-body">
-                        <button class="tarif-card__pop-up-close">
-                            <svg width="14" height="14">
-                                <use xlink:href="images/icons/post-card/sprite.svg#close"></use>
-                            </svg>
-                        </button>
-
-                        <div class="tarif-card__pop-up-title">
-                            <svg class="tarif-card__pop-up-title-icon" width="45" height="45">
-                                <use xlink:href="images/icons/post-card/sprite.svg#premium-ring"></use>
-                            </svg>
-                            Premium на 1 год
-                        </div>
-                        <ul class="tarif-card__pop-up-list">
-                            <!-- По умобчанию у пункта зеленая галочка, для за замены на крестик присвоить модификатор tarif-card__pop-up-item--disabled -->
-                            <li>Доступ к закрытым материалам, включая аналитику от Mozgovik Research</li>
-                            <li>Прогнозы по российским акциям: рейтинг от Mozgovik Research</li>
-                            <li>Долгосрочная инвестиционная стратегия</li>
-                            <li>Инсайдерские мнения</li>
-                            <li>Авторитетные комментарии по текущей ситуации на рынке</li>
-                            <li>Объяснения какое влияние новости могут оказать на акции и другие активы</li>
-                            <li>Регулярная публикация инвестиционных портфелей участников команды с комментариями</li>
-                            <li>Бесплатный доступ ко всем платным видео (конференции, инвест идеи)</li>
-                            <li class="tarif-card__pop-up-item--disabled">Telegram - чат с нашей командой, где можно
-                                задать любой вопрос и оперативно получить
-                                ответы</li>
-                            <li class="tarif-card__pop-up-item--disabled">Возможность принять участие в отдельной
-                                конференции для годовых подписчиков</li>
-                            <li class="tarif-card__pop-up-item--disabled">Cкидка 50% на конференцию смартлаба</li>
-                            <li class="tarif-card__pop-up-item--disabled">Три месяца подписки в подарок!</li>
-                        </ul>
+                <!-- 
+                    custom-pop-up - кастомный поп-ап на весь экран содержащий кнопку закрыия custom-pop-up__close
+                    и затемняющуюся подложку custom-pop-up__cover клики на которые обрабатываются общим js.
+                    Открывается при добавлениикласса  _visible, закрывается при удалении.
+                    Переносится в конец <body> и позиционируется position: fixed;
+                -->
+                <div class="custom-pop-up tarif-card__pop-up" id="tarif-card-pop-up--month" >
+                    <div class="custom-pop-up__body tarif-card__pop-up-body">
+                        <div class="custom-pop-up__cover"></div>
+                        <div class="custom-pop-up__content tarif-card__pop-up-content">
+                            <button class="custom-pop-up__close"></button> 
+                            <div class="custom-pop-up__title tarif-card__pop-up-title">
+                                <svg class="tarif-card__pop-up-title-icon" width="45" height="45">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#premium-ring"></use>
+                                </svg>
+                                Premium на 1 месяц
+                            </div>
+                            <ul class="tarif-card__pop-up-list">
+                                <!-- По умобчанию у пункта зеленая галочка, для за замены на крестик присвоить модификатор tarif-card__pop-up-item--disabled -->
+                                <li>Доступ к закрытым материалам, включая аналитику от Mozgovik Research</li>
+                                <li>Прогнозы по российским акциям: рейтинг от Mozgovik Research</li>
+                                <li>Долгосрочная инвестиционная стратегия</li>
+                                <li>Инсайдерские мнения</li>
+                                <li>Авторитетные комментарии по текущей ситуации на рынке</li>
+                                <li>Объяснения какое влияние новости могут оказать на акции и другие активы</li>
+                                <li>Регулярная публикация инвестиционных портфелей участников команды с комментариями</li>
+                                <li>Бесплатный доступ ко всем платным видео (конференции, инвест идеи)</li>
+                                <li class="tarif-card__pop-up-item--disabled">Telegram - чат с нашей командой, где можно
+                                    задать любой вопрос и оперативно получить
+                                    ответы</li>
+                                <li class="tarif-card__pop-up-item--disabled">Возможность принять участие в отдельной
+                                    конференции для годовых подписчиков</li>
+                                <li class="tarif-card__pop-up-item--disabled">Cкидка 50% на конференцию смартлаба</li>
+                                <li class="tarif-card__pop-up-item--disabled">Три месяца подписки в подарок!</li>
+                            </ul>
+                        </div> 
                     </div>
                 </div>
             </div>
@@ -191,40 +194,45 @@
                         <span class="tarif-card__current-price"> 1,333 ₽</span>
                         <span class="tarif-card__period"> / в месяц</span>
                     </div>
-                    <button class="tarif-card__show-info _open">Что в подписке?</button>
+                    <button class="tarif-card__show-info" data-target-id="tarif-card-pop-up--year">Что в подписке?</button>
                     <a class="tarif-card__link" href="#"></a>
                 </div>
-                <div class="tarif-card__pop-up _open">
-                    <div class="tarif-card__pop-up-cover"></div>
-                    <div class="tarif-card__pop-up-body">
-                        <button class="tarif-card__pop-up-close">
-                            <svg width="14" height="14">
-                                <use xlink:href="images/icons/post-card/sprite.svg#close"></use>
-                            </svg>
-                        </button>
-
-                        <div class="tarif-card__pop-up-title">
-                            <svg class="tarif-card__pop-up-title-icon" width="45" height="45">
-                                <use xlink:href="images/icons/post-card/sprite.svg#premium-ring"></use>
-                            </svg>
-                            Premium на 1 год
+                <!-- 
+                    custom-pop-up - кастомный поп-ап на весь экран содержащий кнопку закрыия custom-pop-up__close
+                    и затемняющуюся подложку custom-pop-up__cover клики на которые обрабатываются общим js.
+                    Открывается при добавлениикласса опен  _visible, закрывается при удалении.
+                    Переносится в конец <body> и позиционируется position: fixed;
+                -->
+                <div class="custom-pop-up tarif-card__pop-up" id="tarif-card-pop-up--year">
+                    <div class="custom-pop-up__body tarif-card__pop-up-body">
+                        <div class="custom-pop-up__cover"></div>
+                        <div class="custom-pop-up__content tarif-card__pop-up-content">
+                            <button class="custom-pop-up__close"></button>
+                            <div class="custom-pop-up__title tarif-card__pop-up-title">
+                                <svg class="tarif-card__pop-up-title-icon" width="45" height="45">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#premium-ring"></use>
+                                </svg>
+                                Premium на 1 год
+                            </div>
+                            <ul class="tarif-card__pop-up-list">
+                                <!-- По умобчанию у пункта зеленая галочка, для за замены на крестик присвоить модификатор tarif-card__pop-up-item--disabled -->
+                                <li>Доступ к закрытым материалам, включая аналитику от Mozgovik Research</li>
+                                <li>Прогнозы по российским акциям: рейтинг от Mozgovik Research</li>
+                                <li>Долгосрочная инвестиционная стратегия</li>
+                                <li>Инсайдерские мнения</li>
+                                <li>Авторитетные комментарии по текущей ситуации на рынке</li>
+                                <li>Объяснения какое влияние новости могут оказать на акции и другие активы</li>
+                                <li>Регулярная публикация инвестиционных портфелей участников команды с комментариями</li>
+                                <li>Бесплатный доступ ко всем платным видео (конференции, инвест идеи)</li>
+                                <li_visible>Telegram - чат с нашей командой, где можно
+                                    задать любой вопрос и оперативно получить
+                                    ответы</li_visible>
+                                <li_visible>Возможность принять участие в отдельной
+                                    конференции для годовых подписчиков</li_visible>
+                                <li_visible>Cкидка 50% на конференцию смартлаба</li_visible>
+                                <li_visible>Три месяца подписки в подарок!</li_visible>
+                            </ul>
                         </div>
-                        <ul class="tarif-card__pop-up-list">
-                            <!-- По умобчанию у пункта зеленая галочка, для за замены на крестик присвоить модификатор tarif-card__pop-up-item--disabled -->
-                            <li>Доступ к закрытым материалам, включая аналитику от Mozgovik Research</li>
-                            <li>Прогнозы по российским акциям: рейтинг от Mozgovik Research</li>
-                            <li>Долгосрочная инвестиционная стратегия</li>
-                            <li>Инсайдерские мнения</li>
-                            <li>Авторитетные комментарии по текущей ситуации на рынке</li>
-                            <li>Объяснения какое влияние новости могут оказать на акции и другие активы</li>
-                            <li>Регулярная публикация инвестиционных портфелей участников команды с комментариями</li>
-                            <li>Бесплатный доступ ко всем платным видео (конференции, инвест идеи)</li>
-                            <li>Telegram - чат с нашей командой, где можно задать любой вопрос и оперативно получить
-                                ответы</li>
-                            <li>Возможность принять участие в отдельной конференции для годовых подписчиков</li>
-                            <li>Cкидка 50% на конференцию смартлаба</li>
-                            <li>Три месяца подписки в подарок!</li>
-                        </ul>
                     </div>
                 </div>
             </div>

@@ -254,8 +254,10 @@ function closeAllOpenedMenu() {
  */
 document.documentElement.addEventListener('click', (e) => {
   if (!e.target.closest('._open')) {
-    closeAllOpenedMenu();
-    unBlockOverflow();
+    setTimeout(() => {
+      closeAllOpenedMenu();
+      unBlockOverflow();
+    }, 10);
   }
 });
 
@@ -438,4 +440,19 @@ if (arrowToTop) {
     window.scrollTo(0, 0);
   })
 }
+
+// Обработчик закрытия кастомнного поп-апа .custom-pop-up
+let customPopUps = document.querySelectorAll('.custom-pop-up') 
+if (customPopUps && customPopUps.length) {
+ customPopUps.forEach(popUp => { document.body.append(popUp) })
+}
+let closeCustomPopUpsBtns = document.querySelectorAll('.custom-pop-up__close, .custom-pop-up__cover');
+if (closeCustomPopUpsBtns && closeCustomPopUpsBtns.length) {
+  closeCustomPopUpsBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.closest('.custom-pop-up').classList.remove('_visible');
+    })
+  })
+}
+
 //=================
