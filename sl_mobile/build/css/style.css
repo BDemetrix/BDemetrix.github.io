@@ -4526,6 +4526,7 @@ textarea {
   border: 1px solid #a5a5a5;
   border-radius: 5px;
   resize: none;
+  min-height: 34px;
   height: 34px;
   max-height: 254px;
   -webkit-transition: border 0.3s ease;
