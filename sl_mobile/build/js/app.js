@@ -396,12 +396,12 @@ if (textareaAutoHeight.length) {
   textareaAutoHeight.forEach(textarea => {
     textarea.addEventListener('input', function () {
       this.style.height = '';
-      this.style.height = this.scrollHeight + 'px';
+      this.style.height = this.scrollHeight + 2 + 'px';
     });
 
     // корректировка высоты при загрузке страницы 
     if (textarea.getBoundingClientRect().height < textarea.scrollHeight) {
-      textarea.style.height = textarea.scrollHeight  + 'px';
+      textarea.style.height = textarea.scrollHeight  + 2 + 'px';
     }
   })
 
@@ -448,6 +448,10 @@ if (closeCustomPopUpsBtns && closeCustomPopUpsBtns.length) {
   closeCustomPopUpsBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       btn.closest('.custom-pop-up').classList.remove('_open');
+      btn.dispatchEvent(new Event('close-custom-pop-up', {
+        "bubbles": true,
+        "cancelable": false
+      }))
     })
   })
 }
@@ -462,6 +466,26 @@ if (jsPopUpOpener) jsPopUpOpener.forEach(btn => {
     blockOverflow();
   })
 })
+
+// Переключение модификатора <select> с классом _select для отсллеживания открытого/закрытого состояния
+let targerSelects = document.querySelectorAll('select._select');
+if (targerSelects) {
+  targerSelects.forEach(select => {
+
+    select.addEventListener('click', () => {
+      select.classList.toggle('_select--opened');
+    });
+  });
+
+  document.documentElement.addEventListener('click', (e) => {
+    if (!e.target.closest('select._select')) {
+      targerSelects.forEach(select => {
+        select.classList.remove('_select--opened');
+      })
+    }
+  });
+}
+
 
 //=================
 // HEADER JS / begin ============================================================================
@@ -635,3 +659,12 @@ const forumsSlider = new Swiper('.forums-slider', {
         },
     }
 });
+{
+    const moderationPopUp = document.querySelector('#moderation-pop-up');
+    if (moderationPopUp) {
+        console.log(moderationPopUp)
+        window.addEventListener('close-custom-pop-up', () => {
+            moderationPopUp.querySelector('._spoller._active').click();
+        })
+    }
+}

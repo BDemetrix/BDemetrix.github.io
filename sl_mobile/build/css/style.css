@@ -4384,7 +4384,9 @@ textarea {
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  translate: scaleY(-1);
+  -webkit-transform: scaleY(-1);
+      -ms-transform: scaleY(-1);
+          transform: scaleY(-1);
 }
 
 .moderation-pop-up__settings {
@@ -4511,7 +4513,7 @@ textarea {
   border-color: #323232;
 }
 
-.moderation-settings__select:focus {
+.moderation-settings__select._select--opened {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M17 14L10 7L3 14' stroke='%23A5A5A5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 }
 
@@ -4523,9 +4525,12 @@ textarea {
   background: #ffffff;
   border: 1px solid #a5a5a5;
   border-radius: 5px;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  resize: none;
+  height: 34px;
+  max-height: 254px;
+  -webkit-transition: border 0.3s ease;
+  -o-transition: border 0.3s ease;
+  transition: border 0.3s ease;
 }
 
 .moderation-settings__check-row:not(:last-child) {
@@ -5493,5 +5498,10 @@ body.loader:before {
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
+  }
+
+  .moderation-settings__inner {
+    padding: 0;
+    border: 0;
   }
 }

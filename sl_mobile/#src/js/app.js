@@ -3,3 +3,4 @@
 @@include('files/quotes.js', {}) 
 @@include('files/sections-box.js', {})
 @@include('files/forums-slider.js', {})
+@@include('files/moderation-pop-up.js', {})
