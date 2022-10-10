@@ -323,7 +323,7 @@ picture {
   overflow-y: auto;
 }
 
-.custom-pop-up._visible {
+.custom-pop-up._open {
   z-index: 999;
   opacity: 1;
   visibility: visible;

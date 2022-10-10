@@ -447,7 +447,7 @@ let closeCustomPopUpsBtns = document.querySelectorAll('.custom-pop-up__close, .c
 if (closeCustomPopUpsBtns && closeCustomPopUpsBtns.length) {
   closeCustomPopUpsBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      btn.closest('.custom-pop-up').classList.remove('_visible');
+      btn.closest('.custom-pop-up').classList.remove('_open');
     })
   })
 }
@@ -457,7 +457,7 @@ const jsPopUpOpener = document.querySelectorAll('.js-pop-up-opener');
 if (jsPopUpOpener) jsPopUpOpener.forEach(btn => {
   const popUp = document.getElementById(btn.dataset.targetId);
   if (popUp) btn.addEventListener('click', () => {
-    popUp.classList.add('_visible');
+    popUp.classList.add('_open');
     btn.classList.add('_open');
     blockOverflow();
   })

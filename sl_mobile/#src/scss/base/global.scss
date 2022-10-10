@@ -118,7 +118,7 @@
     transition: all 0.3s ease;
     overflow-y: auto;
 
-    &._visible {
+    &._open {
         z-index: 999;
         opacity: 1;
         visibility: visible;
