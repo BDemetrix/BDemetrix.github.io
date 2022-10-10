@@ -83,7 +83,7 @@ _js.html
 8) Модальное окно.
 Для унификации модальных окон следует создавать следующую структауру:
 ```
-<div class="custom-pop-up any-class" id="tarif-card-pop-up--month">
+<div class="custom-pop-up any-class">
     <div class="custom-pop-up__body any-class__body">
         <div class="custom-pop-up__cover"></div>
         <div class="custom-pop-up__content any-class__content">
@@ -94,7 +94,17 @@ _js.html
 </div>
 ```
 где к классу .custom-pop-up и его потомкам (по БЭМ) привязываются обработчки событий и основные стили из 
-scss/base/global.scss и js/files/common.js, 
+scss/base/global.scss и js/files/common.js, Открывается при нажатии на кнопку с классом `js-pop-up-opener`
+А класс .any-class - михс-класс и служит для для дополнительной стилизации.
 
-а класс .any-class - михс-класс и служит для для дополнительной стилизации.
+9) кнопка с классом `js-pop-up-opener` открывает поп-ап с id, который указан в атрибуте `data-target-id` данной кнопки.
 
+10) Кастомный чекбокс .custom-checkbox в файле custom-checkbox.scss
+сруктура:
+```
+<label class="any-class custom-checkbox">
+	<input type="checkbox" class="custom-checkbox__input">
+	<span class="custom-checkbox__text">Контактные данные</span>
+</label>
+```
+где any-class - микс-класс для дополнительной стилизации

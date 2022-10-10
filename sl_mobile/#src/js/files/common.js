@@ -405,13 +405,10 @@ if (textareaAutoHeight.length) {
     }
   })
 
-  ['resize', 'orientationchange'].forEach(event => {
-    
-    window.addEventListener(event, () => {
-      textareaAutoHeight.forEach(textarea => {
-        textarea.dispatchEvent(new Event('input'))
-      })
-    });
+  window.addEventListener('resize', () => {
+    textareaAutoHeight.forEach(textarea => {
+      textarea.dispatchEvent(new Event('input'))
+    })
   });
 }
 
@@ -454,5 +451,16 @@ if (closeCustomPopUpsBtns && closeCustomPopUpsBtns.length) {
     })
   })
 }
+
+// кнопка с классом `js-pop-up-opener` открывает поп-ап с id, который указан в атрибуте `data-target-id` кнопки
+const jsPopUpOpener = document.querySelectorAll('.js-pop-up-opener');
+if (jsPopUpOpener) jsPopUpOpener.forEach(btn => {
+  const popUp = document.getElementById(btn.dataset.targetId);
+  if (popUp) btn.addEventListener('click', () => {
+    popUp.classList.add('_visible');
+    btn.classList.add('_open');
+    blockOverflow();
+  })
+})
 
 //=================
