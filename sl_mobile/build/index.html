@@ -2059,11 +2059,17 @@
 
             <div class="moderation-pop-up__inner">
                 <div class="moderation-pop-up__btns">
-                    <button class="moderation-pop-up__btn blue-btn" type="button">Редактировать</button>
-                    <button class="moderation-pop-up__btn blue-btn" type="button">Удалить</button>
-                    <button class="moderation-pop-up__btn blue-btn" type="button">На главную</button>
-                    <button class="moderation-pop-up__btn blue-btn" type="button">Убрать с главной</button>
-                    <button class="moderation-pop-up__to-smm blue-btn" type="button">В SMM</button>
+                    <div class="moderation-pop-up__btns-row">
+                        <button class="moderation-pop-up__btn blue-btn" type="button">Редактировать</button>
+                        <button class="moderation-pop-up__btn blue-btn" type="button">Удалить</button>
+                    </div> 
+                    <div class="moderation-pop-up__btns-row">
+                        <button class="moderation-pop-up__btn blue-btn" type="button">На главную</button>
+                        <button class="moderation-pop-up__btn blue-btn" type="button">Убрать с главной</button>
+                    </div>
+                    <div class="moderation-pop-up__btns-row">
+                        <button class="moderation-pop-up__to-smm blue-btn" type="button">В SMM</button>
+                    </div> 
                 </div>
                 <div class="moderation-pop-up__spollers _spollers _one">
                     <div class="moderation-pop-up__spollers-inner">
@@ -2087,7 +2093,7 @@
                                             Стили в custom-select.scss
                                             Для открытия добавляется модификатор .custom-select--opened
                                          -->
-                                        <div class="moderation-settings__select-wrap">
+                                        <div class="moderation-settings__col">
                                             <div class="custom-select">
                                                 <button class="custom-select__main-btn" value="Простить" name="#" type="button">Простить</button>
                                                 <div class="custom-select__list ">
@@ -2100,7 +2106,7 @@
                                     </div>
                                     <div class="moderation-settings__row">
                                         <label class="moderation-settings__title">Топик:</label>
-                                        <div class="moderation-settings__select-wrap">
+                                        <div class="moderation-settings__col">
                                             <div class="custom-select">
                                                 <button class="custom-select__main-btn" value="В оффтоп" name="#" type="button">В оффтоп</button>
                                                 <div class="custom-select__list ">
@@ -2114,7 +2120,7 @@
                                     </div>
                                     <div class="moderation-settings__row">
                                         <label class="moderation-settings__title">Причина:</label>
-                                        <div class="moderation-settings__select-wrap">
+                                        <div class="moderation-settings__col">
                                             <div class="custom-select">
                                                 <button class="custom-select__main-btn" value="Хамство" name="#" type="button">Хамство</button>
                                                 <div class="custom-select__list ">
@@ -2127,24 +2133,25 @@
                                     </div>
                                     <div class="moderation-settings__row">
                                         <label class="moderation-settings__title">Бан:</label>
-                                        <div class="moderation-settings__select-wrap">
-                                            <div class="moderation-settings__select-wrap">
-                                                <div class="custom-select">
-                                                    <button class="custom-select__main-btn" value="2 дня" name="#" type="button">2 дня</button>
-                                                    <div class="custom-select__list ">
-                                                        <button class="custom-select__option custom-select__option--active" value="2 дня"
-                                                            type="button">2 дня</button>
-                                                        <button class="custom-select__option" value="неделя" type="button">неделя</button>
-                                                        <button class="custom-select__option" value="месяц" type="button">месяц</button>
-                                                    </div>
+                                        <div class="moderation-settings__col">
+                                            <div class="custom-select">
+                                                <button class="custom-select__main-btn" value="2 дня" name="#" type="button">2 дня</button>
+                                                <div class="custom-select__list ">
+                                                    <button class="custom-select__option custom-select__option--active" value="2 дня"
+                                                        type="button">2 дня</button>
+                                                    <button class="custom-select__option" value="неделя" type="button">неделя</button>
+                                                    <button class="custom-select__option" value="месяц" type="button">месяц</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="moderation-settings__row">
-                                        <button class="moderation-pop-up__save-setting blue-btn" type="button">
-                                            Сохранить
-                                        </button>
+                                        <label class="moderation-settings__title"></label>
+                                        <div class="moderation-settings__col">
+                                            <button class="moderation-pop-up__save-setting blue-btn" type="button">
+                                                Сохранить
+                                            </button>
+                                        </div> 
                                     </div>
                                 </div>
                             </div>
