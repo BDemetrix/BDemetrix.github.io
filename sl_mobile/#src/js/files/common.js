@@ -1,7 +1,7 @@
 /**
  * Объект isMobile содержит результаты проверки типа и марки тачпада
  */
-var isMobile = {
+let isMobile = {
   Android: function () {
     return navigator.userAgent.match(/Android/i);
   },
@@ -253,12 +253,12 @@ function closeAllOpenedMenu() {
  * то закрываются все окна
  */
 document.documentElement.addEventListener('click', (e) => {
-  if (!e.target.closest('._open')) {
-    setTimeout(() => {
+  setTimeout(() => {
+    if (!e.target.closest('._open')) {
       closeAllOpenedMenu();
       unBlockOverflow();
-    }, 10);
-  }
+    }
+  }, 10);
 });
 
 /**
@@ -330,16 +330,16 @@ const popUpMenu = document.querySelectorAll('.context-menu');
 if (popUpMenu.length) {
 
   document.documentElement.addEventListener('click', function (e) {
-    var btn = e.target.closest('.context-menu > button, .context-menu > a');
+    let btn = e.target.closest('.context-menu > button, .context-menu > a');
     if (btn) {
-      var menu = e.target.closest('.context-menu');
+      let menu = e.target.closest('.context-menu');
       if (menu) {
         if (!menu.classList.contains('_open')) closeAllOpenedMenu();
         popUpMenuCorrectPos(menu);
         menu.classList.toggle('_open');
       }
     } else {
-      var popUpMenu = document.querySelector('.context-menu._open');
+      let popUpMenu = document.querySelector('.context-menu._open');
       if (popUpMenu) popUpMenu.classList.remove('_open');
     }
 
@@ -401,7 +401,7 @@ if (textareaAutoHeight.length) {
 
     // корректировка высоты при загрузке страницы 
     if (textarea.getBoundingClientRect().height < textarea.scrollHeight) {
-      textarea.style.height = textarea.scrollHeight  + 2 + 'px';
+      textarea.style.height = textarea.scrollHeight + 2 + 'px';
     }
   })
 
@@ -415,8 +415,8 @@ if (textareaAutoHeight.length) {
 // фокус родителю поля ввода 
 const fieldFocus = document.querySelectorAll('.js-focus')
 if (fieldFocus.length) {
-  fieldFocus.forEach( field => {
-    field.addEventListener('focus', function() {
+  fieldFocus.forEach(field => {
+    field.addEventListener('focus', function () {
       this.parentElement.classList.add('_focus')
     });
 
@@ -430,7 +430,7 @@ if (fieldFocus.length) {
 let arrowToTop = document.querySelector('.arrow-to-top');
 if (arrowToTop) {
   window.addEventListener('scroll', () => {
-    arrowToTop.classList.toggle('arrow-to-top--visible', window.scrollY > 250); 
+    arrowToTop.classList.toggle('arrow-to-top--visible', window.scrollY > 250);
   });
 
   arrowToTop.addEventListener('click', () => {
@@ -439,9 +439,11 @@ if (arrowToTop) {
 }
 
 // Обработчик закрытия кастомнного поп-апа .custom-pop-up
-let customPopUps = document.querySelectorAll('.custom-pop-up') 
+let customPopUps = document.querySelectorAll('.custom-pop-up')
 if (customPopUps && customPopUps.length) {
- customPopUps.forEach(popUp => { document.body.append(popUp) })
+  customPopUps.forEach(popUp => {
+    document.body.append(popUp)
+  })
 }
 let closeCustomPopUpsBtns = document.querySelectorAll('.custom-pop-up__close, .custom-pop-up__cover');
 if (closeCustomPopUpsBtns && closeCustomPopUpsBtns.length) {
@@ -466,25 +468,6 @@ if (jsPopUpOpener) jsPopUpOpener.forEach(btn => {
     blockOverflow();
   })
 })
-
-// Переключение модификатора <select> с классом _select для отсллеживания открытого/закрытого состояния
-let targerSelects = document.querySelectorAll('select._select');
-if (targerSelects) {
-  targerSelects.forEach(select => {
-
-    select.addEventListener('click', () => {
-      select.classList.toggle('_select--opened');
-    });
-  });
-
-  document.documentElement.addEventListener('click', (e) => {
-    if (!e.target.closest('select._select')) {
-      targerSelects.forEach(select => {
-        select.classList.remove('_select--opened');
-      })
-    }
-  });
-}
 
 
 //=================

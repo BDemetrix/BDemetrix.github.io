@@ -1,9 +1,9 @@
-{
+(function () {
     const moderationPopUp = document.querySelector('#moderation-pop-up');
     if (moderationPopUp) {
-        console.log(moderationPopUp)
         window.addEventListener('close-custom-pop-up', () => {
-            moderationPopUp.querySelector('._spoller._active').click();
+            const opened = moderationPopUp.querySelector('._spoller._active');
+            if (opened) opened.click();
         })
 
         const inputs = moderationPopUp.querySelectorAll('textarea, input');
@@ -14,10 +14,9 @@
                 entries.forEach(entry => {
                     if (!entry.isIntersecting) {
                         entry.element.scrollIntoView();
-                        console.log(entry)
                     }
                 })
-            }); 
+            });
 
             inputs.forEach(el => {
                 el.addEventListener('focus', () => {
@@ -27,5 +26,17 @@
                 })
             });
         }
+
+        // костыль для textarea в спойлере 
+        const textareaAutoHeight = moderationPopUp.querySelectorAll('.js-textarea-auto-height');
+        const spollers = moderationPopUp.querySelectorAll('._spoller');
+
+        if (spollers) spollers.forEach( btn => {
+            btn.addEventListener('click', () => {
+                textareaAutoHeight.forEach(textarea => {
+                    textarea.dispatchEvent(new Event('input'))
+                })
+            })
+        })
     }
-}
+}());

@@ -2079,42 +2079,66 @@
                                 <div class="moderation-settings__inner">
                                     <div class="moderation-settings__row">
                                         <label class="moderation-settings__title">Автора:</label>
+
+                                        <!-- 
+                                            Кастомный селект .custom-select
+                                            Атрибут name="#" есть только у главной кнопки, для реализации в рамках формы
+                                            Обработчик в файле custom-select.js
+                                            Стили в custom-select.scss
+                                            Для открытия добавляется модификатор .custom-select--opened
+                                         -->
                                         <div class="moderation-settings__select-wrap">
-                                            <select name="" id="" class="moderation-settings__select _select">
-                                                <option value="value1" selected>Простить</option>
-                                                <option value="value2">Предупредить</option>
-                                                <option value="value3">Забанить</option>
-                                            </select>
+                                            <div class="custom-select">
+                                                <button class="custom-select__main-btn" value="Простить" name="#" type="button">Простить</button>
+                                                <div class="custom-select__list ">
+                                                    <button class="custom-select__option custom-select__option--active" value="Простить" type="button">Простить</button>
+                                                    <button class="custom-select__option" value="Предупредить" type="button">Предупредить</button>
+                                                    <button class="custom-select__option" value="Забанить" type="button">Забанить</button>
+                                                </div>
+                                            </div> 
                                         </div>
                                     </div>
                                     <div class="moderation-settings__row">
                                         <label class="moderation-settings__title">Топик:</label>
                                         <div class="moderation-settings__select-wrap">
-                                            <select name="" id="" class="moderation-settings__select _select">
-                                                <option value="value1" selected>В оффтоп</option>
-                                                <option value="value2">Значение 2</option>
-                                                <option value="value3">Значение 3</option>
-                                            </select>
+                                            <div class="custom-select">
+                                                <button class="custom-select__main-btn" value="В оффтоп" name="#" type="button">В оффтоп</button>
+                                                <div class="custom-select__list ">
+                                                    <button class="custom-select__option custom-select__option--active" value="В оффтоп"
+                                                        type="button">В оффтоп</button>
+                                                    <button class="custom-select__option" value="Значение 2" type="button">Значение 2</button>
+                                                    <button class="custom-select__option" value="Значение 3" type="button">Значение 3</button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="moderation-settings__row">
                                         <label class="moderation-settings__title">Причина:</label>
                                         <div class="moderation-settings__select-wrap">
-                                            <select name="" id="" class="moderation-settings__select _select">
-                                                <option value="value1" selected>Хамство</option>
-                                                <option value="value2">Причина 2</option>
-                                                <option value="value3">Причина 3</option>
-                                            </select>
+                                            <div class="custom-select">
+                                                <button class="custom-select__main-btn" value="Хамство" name="#" type="button">Хамство</button>
+                                                <div class="custom-select__list ">
+                                                    <button class="custom-select__option custom-select__option--active" value="Хамство" type="button">Хамство</button>
+                                                    <button class="custom-select__option" value="Причина 2" type="button">Причина 2</button>
+                                                    <button class="custom-select__option" value="Причина 3" type="button">Причина 3</button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="moderation-settings__row">
                                         <label class="moderation-settings__title">Бан:</label>
                                         <div class="moderation-settings__select-wrap">
-                                            <select name="" id="" class="moderation-settings__select _select">
-                                                <option value="value1" selected>2 дня</option>
-                                                <option value="value2">неделя</option>
-                                                <option value="value3">месяц</option>
-                                            </select>
+                                            <div class="moderation-settings__select-wrap">
+                                                <div class="custom-select">
+                                                    <button class="custom-select__main-btn" value="2 дня" name="#" type="button">2 дня</button>
+                                                    <div class="custom-select__list ">
+                                                        <button class="custom-select__option custom-select__option--active" value="2 дня"
+                                                            type="button">2 дня</button>
+                                                        <button class="custom-select__option" value="Значение 2" type="button">неделя</button>
+                                                        <button class="custom-select__option" value="Значение 3" type="button">месяц</button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="moderation-settings__row">
@@ -2157,18 +2181,24 @@
                                         </div>
                                     </div>
                                     <div class="moderation-settings__row">
-                                        <select name="" id="" class="moderation-settings__select _select">
-                                            <option value="value1" selected>Россия</option>
-                                            <option value="value2">США</option>
-                                            <option value="value3">Евросоюз</option>
-                                        </select>
+                                        <div class="custom-select">
+                                            <button class="custom-select__main-btn" value="Россия" name="#" type="button">Россия</button>
+                                            <div class="custom-select__list ">
+                                                <button class="custom-select__option custom-select__option--active" value="Россия" type="button">Россия</button>
+                                                <button class="custom-select__option" value="США" type="button">США</button>
+                                                <button class="custom-select__option" value="Евросоюз" type="button">Евросоюз</button>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="moderation-settings__row">
-                                        <select name="" id="" class="moderation-settings__select _select">
-                                            <option value="value1" selected>Новость</option>
-                                            <option value="value2">Обзор</option>
-                                            <option value="value3">Статья</option>
-                                        </select>
+                                        <div class="custom-select">
+                                            <button class="custom-select__main-btn" value="Новость" name="#" type="button">Новость</button>
+                                            <div class="custom-select__list ">
+                                                <button class="custom-select__option custom-select__option--active" value="Новость" type="button">Новость</button>
+                                                <button class="custom-select__option" value="Обзор" type="button">Обзор</button>
+                                                <button class="custom-select__option" value="Статья" type="button">Статья</button>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="moderation-settings__row">
                                         <button class="moderation-pop-up__save-setting moderation-pop-up__save-setting--wide blue-btn" type="button">
@@ -2220,6 +2250,7 @@
         </div>
     </div>
 </div>
+
 	<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
 <!-- <script src="js/vendors.min.js"></script>
 <script src="js/app.min.js"></script> -->

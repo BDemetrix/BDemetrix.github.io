@@ -108,3 +108,21 @@ scss/base/global.scss и js/files/common.js, Открывается при на�
 </label>
 ```
 где any-class - микс-класс для дополнительной стилизации
+
+11) Кастомный селект .custom-select
+Атрибут name="#" есть только у главной кнопки, для реализации в рамках формы
+Обработчик в файле custom-select.js
+Стили в custom-select.scss
+Для открытия добавляется модификатор .custom-select--opened
+
+сруктура:
+```
+<div class="custom-select">
+    <button class="custom-select__main-btn" value="Значение 1" name="#" type="button">Значение 1</button>
+    <div class="custom-select__list ">
+        <button class="custom-select__option custom-select__option--active" value="Значение 1" type="button">Значение 1</button>
+        <button class="custom-select__option" value="Значение 2" type="button">Значение 2</button>
+        <button class="custom-select__option" value="Значение 3" type="button">Значение 3</button>
+    </div>
+</div>
+```
