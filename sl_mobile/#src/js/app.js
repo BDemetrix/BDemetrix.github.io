@@ -4,4 +4,4 @@
 @@include('files/sections-box.js', {})
 @@include('files/forums-slider.js', {})
 @@include('files/moderation-pop-up.js', {})
-@@include('files/custom-select.js', {})
+@@include('files/custom-select-dynamic-load.js', {})

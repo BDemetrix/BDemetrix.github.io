@@ -56,6 +56,11 @@
   border-color: #323232;
 }
 
+.custom-select__main-btn:disabled {
+  color: #ccc;
+  border: 1px solid #ccc;
+}
+
 .custom-select__list {
   width: 100%;
   position: absolute;

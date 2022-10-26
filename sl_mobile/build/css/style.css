@@ -396,12 +396,30 @@ picture {
   border-radius: 8px;
   border: 0;
   text-decoration: none;
+  text-transform: none;
   color: #ffffff;
   font-weight: 500;
   font-size: 14px;
   line-height: 40px;
   text-align: center;
   letter-spacing: 1.5px;
+}
+
+.big-blue-btn--active {
+  background: #176CA4;
+}
+
+.big-blue-btn:hover {
+  -webkit-box-shadow: 0px 4px 4px rgba(117, 117, 117, 0.3);
+          box-shadow: 0px 4px 4px rgba(117, 117, 117, 0.3);
+}
+
+.big-blue-btn:active {
+  background: #479cd3;
+}
+
+.big-blue-btn:disabled {
+  background: #ccc;
 }
 
 .blue-btn {
@@ -440,6 +458,10 @@ picture {
 
 .blue-btn:active {
   background: #479cd3;
+}
+
+.blue-btn:disabled {
+  background: #ccc;
 }
 
 .visually-hidden {
@@ -2501,7 +2523,7 @@ textarea {
   font-size: 14px;
   line-height: 14px;
   letter-spacing: 0.02em;
-  text-transform: uppercase;
+  text-transform: none;
   color: #929292;
   margin-right: 25px;
   padding-bottom: 12px;
@@ -2824,6 +2846,10 @@ textarea {
   line-height: 22px;
   color: #312c26;
   word-break: break-word;
+}
+
+.post-card__text p {
+  padding: 5px 0;
 }
 
 .post-card__text--blog {
@@ -4309,6 +4335,7 @@ textarea {
 .moderation-pop-up {
   font-family: Roboto, Tahoma, "Open Sans", Verdana, sans-serif;
   color: #323232;
+  /*  Дополнительные изменения от Владимира */
 }
 
 .moderation-pop-up__close {
@@ -4444,7 +4471,7 @@ textarea {
 
 .moderation-pop-up__comp-search {
   width: 100%;
-  margin: 14px 0 18px;
+  margin: 0px 0px 5px 0px;
   padding: 11px 15px;
   background: #ffffff;
   border: 1px solid #a5a5a5;
@@ -4463,6 +4490,49 @@ textarea {
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 12px;
+}
+
+.moderation-pop-up__comp-search-wrapper {
+  margin: 14px 0 18px;
+}
+
+.moderation-pop-up__comp-search-results {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  border-radius: 5px;
+  background: #fff;
+  -webkit-box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.moderation-pop-up__comp-search-results .autocomplete-suggestion {
+  cursor: pointer;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  white-space: nowrap;
+  background: none;
+  text-align: left;
+  line-height: inherit;
+  color: inherit;
+  font-size: inherit;
+  padding: 7px 14px 5px;
+  border: 0;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.moderation-pop-up__comp-search-results .autocomplete-suggestion.autocomplete-selected {
+  background: #f0f0f0;
+  color: #000;
+}
+
+.moderation-pop-up__save {
+  width: 100%;
 }
 
 .moderation-settings__wrap {
@@ -4675,6 +4745,11 @@ textarea {
   border-color: #323232;
 }
 
+.custom-select__main-btn:disabled {
+  color: #ccc;
+  border: 1px solid #ccc;
+}
+
 .custom-select__list {
   width: 100%;
   position: absolute;
@@ -4764,6 +4839,10 @@ body.loader:before {
 
 .templates {
   display: none;
+}
+
+.query-search__suggestions .autocomplete-suggestions strong {
+  color: #24c2ff;
 }
 
 #loginDialog * {

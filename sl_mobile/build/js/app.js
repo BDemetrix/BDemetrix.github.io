@@ -70,9 +70,8 @@ function toggleOverflow() {
  * при клике на заголовок спойлера, заголовку присваивается/удаляется класс _active
  * если у блока спойлеров есть класс _one, то то он является аккордеоном
  */
-function initSpollers() {
+function initSpollers(spollersArr) {
   const timeOut = 400;
-  let spollersArr = document.querySelectorAll("._spollers");
   if (spollersArr.length) {
     spollersArr.forEach(spollersBlock => {
       let spollersGo = true;
@@ -132,7 +131,7 @@ function clearSpollersStyle() {
   }
 }
 
-initSpollers(); // инициализируем споллеры
+initSpollers(document.querySelectorAll("._spollers")); // инициализируем споллеры
 window.addEventListener('resize', clearSpollersStyle);
 
 //SlideToggle
@@ -254,7 +253,9 @@ function closeAllOpenedMenu() {
  */
 document.documentElement.addEventListener('click', (e) => {
   setTimeout(() => {
-    if (!e.target.closest('._open')) {
+    // если не проверить, присоединен ли элемент в DOM, то при удалении элемента по клику
+    // происходит автоматическое закрытие меню
+    if (e.target.closest('body') && !e.target.closest('._open')) {
       closeAllOpenedMenu();
       unBlockOverflow();
     }
@@ -390,27 +391,26 @@ if (popUpMenu.length) {
 }
 
 // адаптивная высота textarea
+document.documentElement.addEventListener('input', function (e) {
+  if (!e.target.matches('.js-textarea-auto-height')) return;
+  e.target.style.height = '';
+  e.target.style.height = e.target.scrollHeight + 2 + 'px';
+
+}, true);
+
 const textareaAutoHeight = document.querySelectorAll('.js-textarea-auto-height');
-if (textareaAutoHeight.length) {
+textareaAutoHeight.forEach(textarea => {
+  if (textarea.getBoundingClientRect().height < textarea.scrollHeight) {
+    textarea.style.height = textarea.scrollHeight + 2 + 'px';
+  }
+});
 
+window.addEventListener('resize', function (e) {
+  const textareaAutoHeight = document.querySelectorAll('.js-textarea-auto-height');
   textareaAutoHeight.forEach(textarea => {
-    textarea.addEventListener('input', function () {
-      this.style.height = '';
-      this.style.height = this.scrollHeight + 2 + 'px';
-    });
-
-    // корректировка высоты при загрузке страницы 
-    if (textarea.getBoundingClientRect().height < textarea.scrollHeight) {
-      textarea.style.height = textarea.scrollHeight + 2 + 'px';
-    }
-  })
-
-  window.addEventListener('resize', () => {
-    textareaAutoHeight.forEach(textarea => {
-      textarea.dispatchEvent(new Event('input'))
-    })
+    textarea.dispatchEvent(new Event('input'))
   });
-}
+}, false);
 
 // фокус родителю поля ввода 
 const fieldFocus = document.querySelectorAll('.js-focus')
@@ -445,29 +445,24 @@ if (customPopUps && customPopUps.length) {
     document.body.append(popUp)
   })
 }
-let closeCustomPopUpsBtns = document.querySelectorAll('.custom-pop-up__close, .custom-pop-up__cover');
-if (closeCustomPopUpsBtns && closeCustomPopUpsBtns.length) {
-  closeCustomPopUpsBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      btn.closest('.custom-pop-up').classList.remove('_open');
-      btn.dispatchEvent(new Event('close-custom-pop-up', {
-        "bubbles": true,
-        "cancelable": false
-      }))
-    })
-  })
-}
 
-// кнопка с классом `js-pop-up-opener` открывает поп-ап с id, который указан в атрибуте `data-target-id` кнопки
-const jsPopUpOpener = document.querySelectorAll('.js-pop-up-opener');
-if (jsPopUpOpener) jsPopUpOpener.forEach(btn => {
-  const popUp = document.getElementById(btn.dataset.targetId);
-  if (popUp) btn.addEventListener('click', () => {
-    popUp.classList.add('_open');
-    btn.classList.add('_open');
-    blockOverflow();
-  })
-})
+
+document.documentElement.addEventListener('click', function (e) {
+  if (e.target.closest('.custom-pop-up__close, .custom-pop-up__cover')) {
+    e.target.closest('.custom-pop-up').classList.remove('_open');
+    e.target.dispatchEvent(new Event('close-custom-pop-up', {
+      'bubbles': true,
+      'cancelable': false
+    }));
+  } else if (nOpener = e.target.closest('.js-pop-up-opener')) {
+    var popUp = document.getElementById(nOpener.dataset.targetId);
+    if (popUp) {
+      popUp.classList.add('_open');
+      nOpener.classList.add('_open');
+      blockOverflow();
+    }
+  }
+}, false);
 
 
 //=================
@@ -642,122 +637,151 @@ const forumsSlider = new Swiper('.forums-slider', {
         },
     }
 });
+// Модальное окно модерации
 (function () {
-    const moderationPopUp = document.querySelector('#moderation-pop-up');
-    if (moderationPopUp) {
-        window.addEventListener('close-custom-pop-up', () => {
-            const opened = moderationPopUp.querySelector('._spoller._active');
-            if (opened) opened.click();
-        })
 
-        const inputs = moderationPopUp.querySelectorAll('textarea, input');
-        const support = (typeof window.IntersectionObserver === "function");
-
-        if (inputs && support) {
-            let observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting) {
-                        entry.element.scrollIntoView();
-                    }
-                })
-            });
-
-            inputs.forEach(el => {
-                el.addEventListener('focus', () => {
-                    setTimeout(() => {
-                        observer.observe(el)
-                    }, 100);
-                })
-            });
-        }
-
-        // костыль для textarea в спойлере 
-        const textareaAutoHeight = moderationPopUp.querySelectorAll('.js-textarea-auto-height');
-        const spollers = moderationPopUp.querySelectorAll('._spoller');
-
-        if (spollers) spollers.forEach( btn => {
-            btn.addEventListener('click', () => {
-                textareaAutoHeight.forEach(textarea => {
-                    textarea.dispatchEvent(new Event('input'))
-                })
+    const sModerationPopupSelector = '#moderation-pop-up';
+    if (typeof (IntersectionObserver) === 'function') {
+        let observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    entry.target.scrollIntoView();
+                }
             })
-        })
+        });
+
+        document.documentElement.addEventListener('focus', function (e) {
+            if (!e.target.closest(sModerationPopupSelector)) return;
+            if (!e.target.matches('textarea, input')) return;
+
+            setTimeout(() => {
+                observer.observe(e.target);
+            }, 100);
+
+        }, false);
     }
+
+    document.documentElement.addEventListener('click', function (e) {
+        if (!e.target.closest(sModerationPopupSelector)) return;
+        if (!e.target.matches('._spoller')) return;
+
+        var inputs = e.target.closest(sModerationPopupSelector).querySelectorAll('.js-textarea-auto-height');
+        inputs.forEach(textarea => {
+            textarea.dispatchEvent(new Event('input'))
+        });
+
+    }, false);
+
+    document.documentElement.addEventListener('close-custom-pop-up', function (e) {
+        if (!e.target.closest(sModerationPopupSelector)) return;
+
+        const opened = e.target.closest(sModerationPopupSelector).querySelector('._spoller._active');
+        if (opened) opened.click();
+
+    }, false);
+
 }());
-class CustomSelect{
-    constructor($el){
 
-        if (!$el || (typeof $el !== 'object')) {
-            console.log(this.$el);
-            throw `Некорректный аргумент класса CustomSelect". Ожидается объект DOM вместо ${this.$el}`;
-        }
+// Срипт для кастомного селекта
+(function () {
+    const sCustomSelector = '.custom-select';
 
-        this.$el = $el;
-        this._init();
+    function close(nExclude) {
+        document.querySelectorAll(sCustomSelector).forEach(function (nOther) {
+            if (nOther != nExclude) nOther.classList.remove('custom-select--opened');
+        });
     }
 
-    _init() {
-        this.$mainBtn = this.$el.querySelector('.custom-select__main-btn');
-        this.$options = this.$el.querySelectorAll('.custom-select__option');
-        this.active = this.$el.querySelector('.custom-select__option--active');
+    document.documentElement.addEventListener('click', function (e) {
+        const nSelect = e.target.closest(sCustomSelector);
+        if (!nSelect) return close(null);
 
-        for(const prop in this) {
-            if (!this[prop]) {
-                console.log(this);
-                throw `Ошибка инициализации CustomSelect, не установлено поле ${prop}`;
+        if (e.target.closest('.custom-select__main-btn')) {
+            nSelect.classList.toggle('custom-select--opened');
+            close(nSelect);
+
+        } else if (nOption = e.target.closest('.custom-select__option')) {
+            const nMainBtn = nSelect.querySelector('.custom-select__main-btn');
+            if (nMainBtn) nMainBtn.value = nOption.value; // defineProperty handler
+
+            nSelect.classList.remove('custom-select--opened');
+
+            nMainBtn.dispatchEvent(new Event('change', {
+                'bubbles': true,
+                'cancelable': false
+            }));
+        }
+    }, false);
+
+    document.documentElement.addEventListener('sync', function (e) {
+        if (!e.target.matches(sCustomSelector)) return;
+
+        const nSelect = e.target;
+        const nMainBtn = nSelect.querySelector('.custom-select__main-btn');
+        if (nMainBtn) {
+            const nActive = nSelect.querySelector('.custom-select__option--active');
+            if (nActive) {
+                nMainBtn.textContent = nActive.textContent;
+                nMainBtn.value = nActive.value;
+            } else {
+                const nOption = nSelect.querySelector('.custom-select__option[value="' + nMainBtn.value + '"]');
+                if (nOption) nOption.classList.add('custom-select__option--active');
             }
+
+            Object.defineProperty(nMainBtn, 'value', {
+                set: function (value) {
+                    this.setAttribute('value', value);
+                    const nActive = nSelect.querySelector('.custom-select__option--active');
+                    const nOption = nSelect.querySelector('.custom-select__option[value="' + this.value + '"]');
+
+                    if (nActive !== nOption) {
+                        if (nActive) nActive.classList.remove('custom-select__option--active');
+                        if (nOption) nOption.classList.add('custom-select__option--active');
+                        this.textContent = nOption ? nOption.textContent : '';
+                    }
+                },
+
+                get: function () {
+                    return this.getAttribute('value');
+                }
+            });
         }
 
-        this.$mainBtn.addEventListener('click', () => { 
-            this.$el.classList.toggle('custom-select--opened');
+    }, false);
+
+    document.querySelectorAll(sCustomSelector).forEach(function (nSelect) {
+        nSelect.dispatchEvent(new Event('sync', {
+            'bubbles': true,
+            'cancelable': false
+        }));
+    });
+
+
+    if (typeof (MutationObserver) !== 'function') return;
+    (new MutationObserver(function (mutations) {
+        mutations.forEach(function (mutation) {
+            mutation.addedNodes.forEach(function (node) {
+                if (node.matches && node.matches(sCustomSelector)) {
+                    node.dispatchEvent(new Event('sync', {
+                        'bubbles': true,
+                        'cancelable': false
+                    }));
+                } else if (node.querySelectorAll) {
+                    const nodes = node.querySelectorAll(sCustomSelector);
+                    if (nodes.length) {
+                        nodes.forEach(function (node) {
+                            node.dispatchEvent(new Event('sync', {
+                                'bubbles': true,
+                                'cancelable': false
+                            }));
+                        });
+                    }
+                }
+            });
         });
+    })).observe(document.documentElement, {
+        childList: true,
+        subtree: true
+    });
 
-        document.documentElement.addEventListener('click', (e) => {
-            if (e.target.closest('.custom-select__main-btn') != this.$mainBtn) {
-                this.$el.classList.remove('custom-select--opened');
-            }
-        })
-
-        this.$options.forEach(option => {
-            option.addEventListener('click', () => {
-                this._change(option);
-                this.$el.classList.remove('custom-select--opened');
-            }) 
-        });
-
-        this._sync();
-    }
-
-    _change(option) {
-        this.$mainBtn.textContent = this.$mainBtn.value = option.value;
-        this.active.classList.remove('custom-select__option--active');
-        option.classList.add('custom-select__option--active');
-        this.active = option;
-    }
-
-    _sync() {
-        const active = this.$el.querySelector('.custom-select__option--active');
-        if (active) {
-            this._change(active);
-            this.active = active;
-        } else {
-           option = Array.from(this.$options).filter(option => option.value === this.$mainBtn.value)[0];
-           option ? option.classList.add('custom-select__option--active') : null;
-        }
-    }
-}
-
-class CustomSelectAll {
-    constructor() {
-        this.$els = document.querySelectorAll('.custom-select');
-        console.log(this.$els)
-        if (!this.$els || !this.$els.length) {
-            throw ('Элементы с классом ".custom-select" на странице не найдены.'); 
-        }
-        this.$els.forEach(el => {
-            el = new CustomSelect(el)
-        });
-    }
-}
-
-const customSelectAll = new CustomSelectAll();
+}());

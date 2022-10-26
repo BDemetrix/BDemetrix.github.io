@@ -70,9 +70,8 @@ function toggleOverflow() {
  * при клике на заголовок спойлера, заголовку присваивается/удаляется класс _active
  * если у блока спойлеров есть класс _one, то то он является аккордеоном
  */
-function initSpollers() {
+function initSpollers(spollersArr) {
   const timeOut = 400;
-  let spollersArr = document.querySelectorAll("._spollers");
   if (spollersArr.length) {
     spollersArr.forEach(spollersBlock => {
       let spollersGo = true;
@@ -132,7 +131,7 @@ function clearSpollersStyle() {
   }
 }
 
-initSpollers(); // инициализируем споллеры
+initSpollers(document.querySelectorAll("._spollers")); // инициализируем споллеры
 window.addEventListener('resize', clearSpollersStyle);
 
 //SlideToggle
@@ -254,7 +253,9 @@ function closeAllOpenedMenu() {
  */
 document.documentElement.addEventListener('click', (e) => {
   setTimeout(() => {
-    if (!e.target.closest('._open')) {
+    // если не проверить, присоединен ли элемент в DOM, то при удалении элемента по клику
+    // происходит автоматическое закрытие меню
+    if (e.target.closest('body') && !e.target.closest('._open')) {
       closeAllOpenedMenu();
       unBlockOverflow();
     }
@@ -390,27 +391,26 @@ if (popUpMenu.length) {
 }
 
 // адаптивная высота textarea
+document.documentElement.addEventListener('input', function (e) {
+  if (!e.target.matches('.js-textarea-auto-height')) return;
+  e.target.style.height = '';
+  e.target.style.height = e.target.scrollHeight + 2 + 'px';
+
+}, true);
+
 const textareaAutoHeight = document.querySelectorAll('.js-textarea-auto-height');
-if (textareaAutoHeight.length) {
+textareaAutoHeight.forEach(textarea => {
+  if (textarea.getBoundingClientRect().height < textarea.scrollHeight) {
+    textarea.style.height = textarea.scrollHeight + 2 + 'px';
+  }
+});
 
+window.addEventListener('resize', function (e) {
+  const textareaAutoHeight = document.querySelectorAll('.js-textarea-auto-height');
   textareaAutoHeight.forEach(textarea => {
-    textarea.addEventListener('input', function () {
-      this.style.height = '';
-      this.style.height = this.scrollHeight + 2 + 'px';
-    });
-
-    // корректировка высоты при загрузке страницы 
-    if (textarea.getBoundingClientRect().height < textarea.scrollHeight) {
-      textarea.style.height = textarea.scrollHeight + 2 + 'px';
-    }
-  })
-
-  window.addEventListener('resize', () => {
-    textareaAutoHeight.forEach(textarea => {
-      textarea.dispatchEvent(new Event('input'))
-    })
+    textarea.dispatchEvent(new Event('input'))
   });
-}
+}, false);
 
 // фокус родителю поля ввода 
 const fieldFocus = document.querySelectorAll('.js-focus')
@@ -445,29 +445,24 @@ if (customPopUps && customPopUps.length) {
     document.body.append(popUp)
   })
 }
-let closeCustomPopUpsBtns = document.querySelectorAll('.custom-pop-up__close, .custom-pop-up__cover');
-if (closeCustomPopUpsBtns && closeCustomPopUpsBtns.length) {
-  closeCustomPopUpsBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      btn.closest('.custom-pop-up').classList.remove('_open');
-      btn.dispatchEvent(new Event('close-custom-pop-up', {
-        "bubbles": true,
-        "cancelable": false
-      }))
-    })
-  })
-}
 
-// кнопка с классом `js-pop-up-opener` открывает поп-ап с id, который указан в атрибуте `data-target-id` кнопки
-const jsPopUpOpener = document.querySelectorAll('.js-pop-up-opener');
-if (jsPopUpOpener) jsPopUpOpener.forEach(btn => {
-  const popUp = document.getElementById(btn.dataset.targetId);
-  if (popUp) btn.addEventListener('click', () => {
-    popUp.classList.add('_open');
-    btn.classList.add('_open');
-    blockOverflow();
-  })
-})
+
+document.documentElement.addEventListener('click', function (e) {
+  if (e.target.closest('.custom-pop-up__close, .custom-pop-up__cover')) {
+    e.target.closest('.custom-pop-up').classList.remove('_open');
+    e.target.dispatchEvent(new Event('close-custom-pop-up', {
+      'bubbles': true,
+      'cancelable': false
+    }));
+  } else if (nOpener = e.target.closest('.js-pop-up-opener')) {
+    var popUp = document.getElementById(nOpener.dataset.targetId);
+    if (popUp) {
+      popUp.classList.add('_open');
+      nOpener.classList.add('_open');
+      blockOverflow();
+    }
+  }
+}, false);
 
 
 //=================

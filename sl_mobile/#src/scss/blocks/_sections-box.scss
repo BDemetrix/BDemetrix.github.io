@@ -13,7 +13,7 @@
             font-size: 14px;
             line-height: 14px;
             letter-spacing: 0.02em;
-            text-transform: uppercase;
+            text-transform: none;
             color: #929292;
             margin-right: 25px;
             padding-bottom: 12px;
@@ -25,6 +25,8 @@
             border-color: #0b5483;
             color: #0b5483;
         }
+
+
 
         &:last-child a {
             margin-right: 0;

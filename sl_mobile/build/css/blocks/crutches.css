@@ -48,3 +48,7 @@ body.loader:before {
 .templates {
   display: none;
 }
+
+.query-search__suggestions .autocomplete-suggestions strong {
+  color: #24c2ff;
+}

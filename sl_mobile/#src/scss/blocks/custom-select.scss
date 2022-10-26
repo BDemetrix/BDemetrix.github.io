@@ -50,6 +50,11 @@
         &:hover {
             border-color: #323232;
         }
+
+        &:disabled {
+            color: #ccc;
+            border: 1px solid #ccc;
+        }
     }
     // .custom-select__list
     &__list {

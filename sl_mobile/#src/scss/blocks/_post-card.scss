@@ -283,6 +283,10 @@
         color: #312c26;
         word-break: break-word;
 
+        p {
+            padding: 5px 0;
+        }
+
         &--blog {
             margin-bottom: 15px;
         }
