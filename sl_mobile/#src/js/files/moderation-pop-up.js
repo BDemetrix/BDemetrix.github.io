@@ -41,4 +41,29 @@
 
     }, false);
 
+    document.documentElement.addEventListener('keyup', (e) => {
+        heightCorrection(e)
+    }, false);
+
+    document.documentElement.addEventListener('focusout', (e) => {
+        heightCorrection(e)
+    }, false);
+
+    function heightCorrection(e) {
+        if (!e.target.closest(sModerationPopupSelector)) return;
+        if (!e.target.matches('.moderation-pop-up__comp-search')) return;
+
+        const popUp = e.target.closest('.moderation-pop-up');
+        const popUpBody = popUp.querySelector('.moderation-pop-up__body');
+        const popUpContent = popUp.querySelector('.moderation-pop-up__content');
+
+        if (e.type === 'keyup') {
+            const paddingBottom = window.getComputedStyle(popUpBody).paddingBottom.slice(0, -2);
+            popUpContent.style.alignSelf = 'start';
+            popUpBody.style.height = +(paddingBottom) + popUp.scrollHeight + 'px';
+        } else if (e.type === 'focusout') { 
+            popUpContent.style.alignSelf = '';
+            popUpBody.style.height = '';
+        }
+    }
 }());
