@@ -21,17 +21,6 @@
     &--visible {
     }
 
-    // .system-messages__cover
-    &__cover {
-        position: fixed;
-        z-index: 3;
-        background: #000;
-        opacity: 0.5;
-
-        @media (min-width: $md3 + px) {
-            display: none;
-        }
-    }
     // .system-messages__item
     &__item {
         z-index: 5;

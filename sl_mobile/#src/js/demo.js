@@ -141,10 +141,11 @@ if (systemMessagesBox) {
   let timeout;
   let i;
   let height;
+  let msgInterval;
 
   if (items.length) {
-    const msgInterval = setInterval(() => {
-      timeout = 4000 + Math.floor(Math.random() * 2000);
+    msgInterval = setInterval(() => {
+      timeout = 4000 + Math.floor(Math.random() * 3000);
       i = Math.floor(Math.random() * items.length);
       height = items[i].querySelector('.system-messages__item-inner').offsetHeight + 'px';
 

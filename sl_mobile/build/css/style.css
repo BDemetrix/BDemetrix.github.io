@@ -448,7 +448,7 @@ picture {
 }
 
 .blue-btn--active {
-  background: #176CA4;
+  background: #518EB7;
 }
 
 .blue-btn:hover {
@@ -4089,7 +4089,7 @@ textarea {
   margin-bottom: 24px;
   text-align: center;
   color: #fff;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .footer__app-box {
@@ -4344,7 +4344,7 @@ textarea {
 
 .moderation-pop-up__title-wrap {
   padding: 17px 50px 17px 15px;
-  border-bottom: 1px solid #737373;
+  border-bottom: 1px solid #d4d4d4;
 }
 
 .moderation-pop-up__title {
@@ -4813,13 +4813,6 @@ textarea {
 .system-messages * {
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
-}
-
-.system-messages__cover {
-  position: fixed;
-  z-index: 3;
-  background: #000;
-  opacity: 0.5;
 }
 
 .system-messages__item {
@@ -5440,10 +5433,6 @@ body.loader:before {
             align-items: flex-end;
     width: auto;
   }
-
-  .system-messages__cover {
-    display: none;
-  }
 }
 
 @media (min-width: 810px) {
@@ -5771,8 +5760,8 @@ body.loader:before {
     height: 100%;
     padding: 0 25px;
     margin: 0 25px;
-    border-left: 1px solid #737373;
-    border-right: 1px solid #737373;
+    border-left: 1px solid #d4d4d4;
+    border-right: 1px solid #d4d4d4;
     -ms-flex-item-align: start;
         align-self: flex-start;
     -webkit-box-ordinal-group: 3;

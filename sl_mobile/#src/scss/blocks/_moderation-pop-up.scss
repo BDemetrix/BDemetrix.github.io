@@ -15,7 +15,7 @@
     // .moderation-pop-up__title-wrap
     &__title-wrap {
         padding: 17px 50px 17px 15px;
-        border-bottom: 1px solid #737373;
+        border-bottom: 1px solid #d4d4d4;
 
         @media (min-width: $md5 + px) {
             padding: 17px 50px 17px 25px;
@@ -135,8 +135,8 @@
             height: 100%;
             padding: 0 25px;
             margin: 0 25px;
-            border-left: 1px solid #737373;
-            border-right: 1px solid #737373;
+            border-left: 1px solid #d4d4d4;
+            border-right: 1px solid #d4d4d4;
             align-self: flex-start;
             order: 2;
         }
