@@ -8,8 +8,7 @@
   /**
    * код обрабатывает автозаполнение поискового инпута, используется плагин jQuery autocompleter
    */
-  let response = [
-    {
+  let response = [{
       "data": "https://smart-lab.ru/forum/%D0%90%D0%9E%20%C2%AB%D0%90%D1%82%D0%BE%D0%BC%D0%BD%D1%8B%D0%B9%20%D1%8D%D0%BD%D0%B5%D1%80%D0%B3%D0%BE%D0%BF%D1%80%D0%BE%D0%BC%D1%8B%D1%88%D0%BB%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BF%D0%BB%D0%B5%D0%BA%D1%81%C2%BB%20%28%D0%90%D1%82%D0%BE%D0%BC%D1%8D%D0%BD%D0%B5%D1%80%D0%B3%D0%BE%D0%BF%D1%80%D0%BE%D0%BC%29",
       "value": "АО «Атомный энергопромышленный комплекс» (Атомэнергопром)",
       "hilite": true
@@ -86,7 +85,7 @@
       //setGlobalCounter(nPopup.options.globalCounter);
       nTab.addClass('_active');
       nContent.find('.notify__block').removeClass('_active');
-      nContent.find('.notify__block[id="' + sTab + '"]').addClass('_active'); 
+      nContent.find('.notify__block[id="' + sTab + '"]').addClass('_active');
     }
   });
 
@@ -103,7 +102,7 @@
     });
   }
 
-  
+
   const commentWriteBox = document.querySelector('.comment__write-box');
   const commentTextarea = document.querySelector('.comment__textarea');
   const commentSelectImg = document.querySelector('.comment__select-img');
@@ -114,7 +113,7 @@
     commentTextarea.addEventListener('focus', () => {
       commentWriteBox.classList.add('_open');
     });
-    
+
 
     if (commentSelectImg && commentWriteImages) {
       commentSelectImg.addEventListener('click', () => {
@@ -134,3 +133,32 @@
 }());
 
 
+// Демонстрация системных сообщений
+const systemMessagesBox = document.querySelector('.system-messages'); // system-messages__item--visible
+if (systemMessagesBox) {
+  const items = systemMessagesBox.querySelectorAll('.system-messages__item');
+
+  let timeout;
+  let i;
+  let height;
+
+  if (items.length) {
+    const msgInterval = setInterval(() => {
+      timeout = 4000 + Math.floor(Math.random() * 2000);
+      i = Math.floor(Math.random() * items.length);
+      height = items[i].querySelector('.system-messages__item-inner').offsetHeight + 'px';
+
+      items[i].style.height = height;
+      items[i].classList.add('system-messages__item--visible');
+
+      setTimeout(() => {
+        items[i].style.height = '';
+        items[i].classList.remove('system-messages__item--visible')
+      }, timeout);
+    }, 3500);
+  }
+
+  setTimeout(() => {
+    clearInterval(msgInterval);
+  }, 30000);
+}

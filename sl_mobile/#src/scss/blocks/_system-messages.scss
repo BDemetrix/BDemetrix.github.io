@@ -1,0 +1,91 @@
+.system-messages {
+    position: fixed;
+    z-index: 999;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    color: #383838;
+    line-height: 20px;
+
+    * {box-sizing: content-box;}
+
+    @media (min-width: $md3 + px) {
+        right: 40px;
+        align-items: flex-end;
+        width: auto;
+    }
+
+    &--visible {
+    }
+
+    // .system-messages__cover
+    &__cover {
+        position: fixed;
+        z-index: 3;
+        background: #000;
+        opacity: 0.5;
+
+        @media (min-width: $md3 + px) {
+            display: none;
+        }
+    }
+    // .system-messages__item
+    &__item {
+        z-index: 5;
+        width: 360px;
+        max-width: calc(100% - 30px);  
+        padding: 0;
+        opacity: 0;
+        visibility: hidden;
+        height: 0;
+        transition: all .8s ease;
+
+        &--info .system-messages__item-inner {
+            border-color: #1b5e88;
+        }
+        &--success .system-messages__item-inner {
+            border-color: #69913b;
+        }
+        &--attention .system-messages__item-inner {
+            border-color: #fdae02;
+        }
+        &--error .system-messages__item-inner {
+            border-color: #c3342c;
+        }
+
+        &--visible {
+            opacity: 1;
+            visibility: visible;
+            height: auto;
+            padding: 10px 0 40px;
+        }
+
+        @media (min-width: 390px) {
+            max-width: none;
+        }
+    }
+    // .system-messages__item-inner 
+    &__item-inner  {
+        background: #fff;
+        padding: 20px 20px 20px 25px; 
+        border-left: 6px solid;
+        border-radius: 6px;
+        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
+    }
+    // .system-messages__title
+    &__title {
+        font-weight: 700;
+    }
+    // .system-messages__text
+    &__text {
+    }
+    // .system-messages__link
+    &__link {
+        color: inherit;
+        text-decoration: none;
+        font-weight: 700;
+    }
+}

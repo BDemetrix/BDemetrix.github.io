@@ -2046,6 +2046,54 @@
 </footer>
 		</main>
 	</div>
+	<aside class="system-messages">
+    <!-- 
+        .system-messages__item - тело сообщения 
+        Имеет четыре модификатора:
+        system-messages__item--info 
+        system-messages__item--success
+        system-messages__item--attention
+        system-messages__item--error
+
+        Для показа присвоить модификатор system-messages__item--visible
+
+        Контент помещается в .system-messages__item-inner
+    -->
+
+    <!-- Примеры сообщений  temglate-->
+    <div class="system-messages__item system-messages__item--info ">
+        <!-- .system-messages__cover - подложка, при клике на которую сообщение исчезает -->
+        <div class="system-messages__cover"></div>
+        <div class="system-messages__item-inner">
+            <div class="system-messages__text">
+                Ваш пост оценили 100 раз.
+            </div>
+        </div>
+    </div>
+    <div class="system-messages__item system-messages__item--success">
+        <div class="system-messages__item-inner">
+            <div class="system-messages__text">
+                Вы проголосовали за пост!
+            </div>
+        </div>
+    </div>
+    <div class="system-messages__item system-messages__item--attention">
+        <div class="system-messages__item-inner">
+            <div class="system-messages__text">
+                Чтобы писать комментарии, сначала вам необходимо
+                <a href="#" class="system-messages__link">зарегистрироваться</a>.
+            </div>
+        </div>
+    </div>
+    <div class="system-messages__item system-messages__item--error">
+        <div class="system-messages__item-inner">
+            <div class="system-messages__title">Внимание!</div>
+            <div class="system-messages__text">
+                Произошла ошибка, повторите позже.
+            </div>
+        </div>
+    </div>
+</aside>
 	<div class="custom-pop-up moderation-pop-up" id="moderation-pop-up"> 
     <div class="custom-pop-up__body moderation-pop-up__body">
         <div class="custom-pop-up__cover"></div>
@@ -2274,8 +2322,7 @@
                         <div class="moderation-pop-up__comp-search-wrapper">
                             <input type="text" class="moderation-pop-up__comp-search" placeholder="Найти"
                                 autocomplete="off">
-
-                            <div class="moderation-pop-up__comp-search-results"
+                            <!-- <div class="moderation-pop-up__comp-search-results"
                                 style="position: absolute; max-height: 300px; z-index: 9999; width: 308px;">
                                 <div class="autocomplete-suggestion" data-index="0">Газпром</div>
                                 <div class="autocomplete-suggestion" data-index="1">Сургутнефтегаз</div>
@@ -2289,7 +2336,7 @@
                                 <div class="autocomplete-suggestion" data-index="7">ГАЗ</div>
                                 <div class="autocomplete-suggestion" data-index="8">RUS еврооблигации РФ [обл]</div>
                                 <div class="autocomplete-suggestion" data-index="9">Гарант-Инвест [обл]</div>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="moderation-pop-up__companies-list">
                             <div class="moderation-pop-up__companies-item">

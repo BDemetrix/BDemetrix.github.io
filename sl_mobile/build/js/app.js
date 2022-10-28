@@ -705,7 +705,6 @@ const forumsSlider = new Swiper('.forums-slider', {
             popUpBody.style.height = '';
         }
     }
-
 }());
 
 // Срипт для кастомного селекта
