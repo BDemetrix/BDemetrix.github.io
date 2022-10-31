@@ -1,0 +1,6 @@
+// Файл стилей для демонстрации 
+// Эти правила не должены попадать в основную таблицу style.scss
+@import "./base/mixins";
+@import "./base/variables";
+
+@import "./blocks/_system-messages";
