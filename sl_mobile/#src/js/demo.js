@@ -163,3 +163,11 @@ if (systemMessagesBox) {
     clearInterval(msgInterval);
   }, 30000);
 }
+
+// Находит элементы с определенны свойством
+const all = document.querySelectorAll('*');
+all.forEach(el => {
+  if (window.getComputedStyle(el).overflow === 'hidden' && el.closest('.news-feed__section')) {
+    console.log(el)
+  }
+})

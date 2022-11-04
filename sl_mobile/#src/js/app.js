@@ -6,3 +6,4 @@
 @@include('files/moderation-pop-up.js', {})
 @@include('files/custom-select-dynamic-load.js', {})
 @@include('files/jBoxNotice.js', {})
+@@include('files/nf-filter.js', {})

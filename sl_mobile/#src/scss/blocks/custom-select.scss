@@ -19,8 +19,13 @@
 
         .custom-select__main-btn {
             transition: all 0.3s ease-in-out;
+            border-color: #323232;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M17 14L10 7L3 14' stroke='%23A5A5A5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
         }
+    }
+
+    &--focus {
+        border-color: #323232;
     }
 
     &__main-btn,
@@ -40,14 +45,17 @@
 
     // .custom-select__main-btn
     &__main-btn {
+        height: 100%;
         padding: 7px 30px 5px 14px;
         border: 1px solid #a5a5a5;
+        color: inherit;
         border-radius: 5px;
         background: #ffffff no-repeat center right 5px / 20px
             url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M3 7L10 14L17 7' stroke='%23A5A5A5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' /%3E%3C/svg%3E");
         transition: none;
 
-        &:hover {
+        &:hover,
+        &:focus {
             border-color: #323232;
         }
 
@@ -75,7 +83,8 @@
         border: 0; 
         transition: all 0.3s ease;
 
-        &:hover {
+        &:hover,
+        &:focus {
             background: #f0f0f0;
             color: #000;
         }

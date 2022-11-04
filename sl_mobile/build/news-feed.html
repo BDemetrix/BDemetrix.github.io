@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
  <head>
-	<title>БЛОГ</title>
+	<title>Новости</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	
@@ -19,8 +19,14 @@
 </head>
 
 <body class="">
-	<div class="wrapper">
-		<header class="header">
+    <!-- классы ._style-1 , ._style-2 и ._style-3 используются для стилизации двух видов шаблонов 
+		Например: при body._style-1 Логотип имеет один цвет, а при body._style-2 и ._style-3 - другой
+		._style-1 для smart-lab.ru
+		._style-2 для smart-lab.ru/q/
+		._style-3 для smart-lab.ru/forum/
+		-->
+    <div class="wrapper">
+        <header class="header">
 	<!-- 
 		* по классу ._active-el навешиваем обработчик события 'click' на каждый
 		* из этих елементов (кнопку/иконку), его родителю присваивается класс ._open 
@@ -647,411 +653,246 @@
 	</div>
 	
 </header>
-		<main class="main _mobile-container">
-			<a href="./" class="main__post-back-link">
-				<svg width="18" height="16">
-					<use xlink:href="images/icons/post-card/sprite.svg#arrow"></use>
-				</svg>
-				<span>личный блог</span>
-			</a>
-			<div class="post-page__info post-page__info--blog">
-				<div class="user-info">
-    <div class="user-info__menu context-menu">
-        <button class="user-info__menu-btn context-menu__btn">
-            <svg class="context-menu__svg" height="20" width="20">
-                <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
+        <main class="news-feed _mobile-container">
+            <div class="news-feed__header">
+                <div class="news-feed__section">
+                    <nav class="sections-box sections-box--news swiper">
+    <!-- Additional required wrapper -->
+    <ul class="sections-box__wrap swiper-wrapper">
+        <!-- Slides -->
+        <li class="sections-box__slide sections-box__slide--active swiper-slide"><a href="#">Все блоги</a></li>
+        <li class="sections-box__slide swiper-slide"><a href="#">Торговые сигналы</a></li>
+        <li class="sections-box__slide swiper-slide"><a href="#">Новости акций</a></li>
+        <li class="sections-box__slide swiper-slide"><a href="#">Раскрытие информации</a></li>
+        <li class="sections-box__slide sections-box__slide--premium swiper-slide"><a href="#">
+            <svg width="20" height="20">
+                <use xlink:href="images/icons/post-card/sprite.svg#premium-ring"></use>
             </svg>
-        </button>
-        <ul class="context-menu__list">
-            <li><button class="context-menu__item">Копировать URL</button></li>
-            <li><button class="context-menu__item">Пожаловться</button></li>
-        </ul>
-    </div>
-    <!-- Если есть контекстное меню (при точки), присваивается модификатор user-info__wrap--blog -->
-    <div class="user-info__wrap user-info__wrap--blog">
-            <div class="user-info__photo-wrap">
-                <div class="user-info__img-wrap">
-                    <img src="./images/icons/user-info/user.jpg" alt="Фото" class="user-info__img">
+            Premium
+        </a></li>
+    </ul>
+
+    <!-- If we need navigation buttons -->
+    <!-- <div class="sections-box__prev swiper-button-prev"></div>
+    <div class="sections-box__next swiper-button-next"></div> -->
+</nav>
                 </div>
-                <div class="user-info__tg-link-wrap">
-                    <svg width="16" height="16">
-                        <use xlink:href="images/icons/user-info/sprite.svg#tg"></use>
-                    </svg>
-                    <a href="https://t.me/newssmartlab" class="user-info__tg-link" target="_blank">t.me/newssmartlab</a>
-                </div>
-            
-            </div>
-            <div class="user-info__box">
-                <div class="user-info__name">RomanAndreev</div>
-                <div class="user-info__address">
-                    <svg width="14" height="17">
-                        <use xlink:href="images/icons/user-info/sprite.svg#local"></use>
-                    </svg>
-                    <span>Санкт-Петербург</span>
-                </div>
-                <div class="user-info__inner">
-                    <div class="user-info__subscribers">
-                        <svg width="16" height="16">
-                            <use xlink:href="images/icons/user-info/sprite.svg#person"></use>
-                        </svg>
-                        <span>256</span>
+                <div class="news-feed__filter nf-filter">
+                    <div class="nf-filter__head">
+                        <label class="nf-filter__autoupdate custom-checkbox"
+                            title="Включить автообновление 1 раз в минуту">
+                            <input type="checkbox" class="custom-checkbox__input" checked="" tabindex="0">
+                            <span class="custom-checkbox__text">Автообновление</span>
+                        </label>
+                        <button class="nf-filter__btn" type="button" tabindex="1">
+                            <svg width="24" height="24">
+                                <use xlink:href="images/icons/news-feed/sprite.svg#filter"></use>
+                            </svg>
+                        </button>
                     </div>
-                    <div class="user-info__rating">
-                        <svg width="16" height="16">
-                            <use xlink:href="images/icons/user-info/sprite.svg#rating"></use>
-                        </svg>
-                        <span>3 258</span>
+                    <div class="nf-filter__body">
+                        <div class="nf-filter__fields">
+                            <div class="nf-filter__search-wrap">
+                                <input class="nf-filter__search" type="text" name="serch" value="" id=""
+                                    autocomplete="off" placeholder="Поиск" title="Поиск новости" tabindex="2">
+                            </div>
+                            <input class="nf-filter__date" type="text" name="date" value="" id="all_date" route="/allblog/" autocomplete="off"
+                                placeholder="Выбрать дату" title="Посмотреть за выбраную дату" tabindex="3">
+
+                            <!-- Чтобы открыть надо присвоить модфикатор custom-select--opened -->
+                            <div class="nf-filter__select custom-select">
+                                <button class="custom-select__main-btn" value="По дате" name="#" type="button" tabindex="4">
+                                    По дате
+                                </button>
+                                <div class="custom-select__list ">
+                                    <button class="custom-select__option custom-select__option--active" value="По дате" type="button" tabindex="5">По дате</button>
+                                    <button class="custom-select__option" value="По лайкам" type="button" tabindex="6">По
+                                        лайкам</button>
+                                    <button class="custom-select__option" value="По пользе" type="button" tabindex="7">По
+                                        пользе</button>
+                                    <button class="custom-select__option" value="По комментам" type="button" tabindex="8">По
+                                        комментам</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="nf-filter__tags">
+                            <button class="nf-filter__tag fn-tag">
+                                Акции
+                            </button>
+                            <button class="nf-filter__tag fn-tag fn-tag--active">
+                                Опционы
+                            </button>
+                            <button class="nf-filter__tag fn-tag">
+                                Облигации
+                            </button>
+                            <button class="nf-filter__tag fn-tag">
+                                Forex
+                            </button>
+                            <button class="nf-filter__tag fn-tag">
+                                Трейдинг
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <div class="user-info__date">
-                    <svg width="16" height="16">
-                        <use xlink:href="images/icons/user-info/sprite.svg#sigma"></use>
-                    </svg>
-                    <span>с 17 мая 2012</span>
-                </div>
-                <button class="user-info__subscrib-btn">+ Подписаться</button>
             </div>
-    </div>
-</div>
-			</div>
-			<div class="main__post-card">
-				<!-- Используются стили из _post-card.scss -->
-<section class="post-card">
-    <div class="post-card__header">
-        <!-- Если есть контекстное меню (при точки), присваивается модификатор post-card__header-inner--blog -->
-        <div class="post-card__header-inner post-card__header-inner--blog">
-            <a href="#" class="post-card__photo-wrap">
-                <!-- Если аватар не загружен, то <img> вставлять на страницу не надо. Будет виден фон .post-card__photo-wrap  заданный в css-->
-                <img src="./images/icons/post-card/photo.jpg" alt="Фото" class="post-card__photo">
-            </a>
-            <div class="post-card__info">
-                <span class="post-card__name">
-                    <!-- Если профиль подтвержден, добавляется модификатор post-card__name-link--approved и svg.post-card__approved -->
-                    <a href="#" class="post-card__name-link post-card__name-link--approved">RomanAndreev</a>
-                    <svg class="post-card__approved" width="20" height="20">
-                        <use xlink:href="images/icons/post-card/sprite.svg#approved"></use>
-                    </svg>
-                </span>
-                <span class="post-card__date">сегодня в 21:28</span>
-            </div>
-        </div>
-        <div class="post-card__menu post-card__menu--blog context-menu">
-            <button class="post-card__menu-btn context-menu__btn">
-                <svg class="context-menu__svg" height="20" width="20">
-                    <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
-                </svg>
-            </button>
-            <ul class="context-menu__list">
-                <li><button class="context-menu__item">Копировать URL</button></li>
-                <li><button class="context-menu__item">Пожаловться</button></li>
+            <ul class="news-feed__list">
+                <li class="news-feed__items news-card">
+                    <div class="news-card__date">21:07</div>
+                    <p href="#" class="news-card__title">Минфин призывает вернуть отчётность эмитентов для
+                        восстановления доверия розничных инвесторов к фондовому рынку</p>
+                    <a href="#" class="news-card__author">
+                        RomanAndreev
+                        <svg width="14" height="14">
+                            <use xlink:href="images/icons/comments/sprite.svg#premium"></use>
+                        </svg>
+                    </a>
+                    <div class="news-card__info"></div>
+                    <!-- ссылка на новость -->
+                    <a href="#" class="news-card__link"></a>
+                </li>
+                <li class="news-feed__items news-card">
+                    <div class="news-card__date">21:07</div>
+                    <p href="#" class="news-card__title">МНЕНИЕ: Возврат Алроса к дивидентным выплатам крайне
+                        маловероятен</p>
+                    <a href="#" class="news-card__author">
+                        RomanAndreev
+                        <svg width="20" height="20">
+                            <use xlink:href="images/icons/comments/sprite.svg#approved"></use>
+                        </svg>
+                    </a>
+                    <div class="news-card__info"></div>
+                    <a href="#" class="news-card__link"></a>
+                </li> 
+                <li class="news-feed__items news-card">
+                    <div class="news-card__date">12:28</div>
+                    <p href="#" class="news-card__title">
+                        Совкомфлот ожидает высоких ставок фрахта на конец 2022 года
+                    </p>
+                    <a href="#" class="news-card__author">
+                        RomanAndreev
+                        <svg width="14" height="14">
+                            <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
+                        </svg>
+                    </a>
+                    <div class="news-card__info"></div>
+                    <a href="#" class="news-card__link"></a>
+                </li>
+                <li class="news-feed__items news-card">
+                    <div class="news-card__date">15:44</div>
+                    <p href="#" class="news-card__title">
+                        Почти 500 тысяч частных инвесторов пришли на Мосбиржу в сентябре
+                    </p>
+                    <a href="#" class="news-card__author">
+                        RomanAndreev
+                        <svg width="14" height="14">
+                            <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
+                        </svg>
+                    </a>
+                    <div class="news-card__info"></div>
+                    <a href="#" class="news-card__link"></a>
+                </li>
+                <li class="news-feed__items news-card">
+                    <div class="news-card__date">18:04</div>
+                    <p href="#" class="news-card__title">
+                        Производство алкогольных напитков в России выросло на 12 процентов
+                    </p>
+                    <a href="#" class="news-card__author">
+                        RomanAndreev
+                        <svg width="14" height="14">
+                            <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
+                        </svg>
+                    </a>
+                    <div class="news-card__info"></div>
+                    <a href="#" class="news-card__link"></a>
+                </li>
+                <li class="news-feed__items news-card">
+                    <div class="news-card__date">18:23</div>
+                    <p href="#" class="news-card__title">
+                        Цинк и медь дорожают после запрета LME на поставки с УГМК
+                    </p>
+                    <a href="#" class="news-card__author">
+                        RomanAndreev
+                        <svg width="14" height="14">
+                            <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
+                        </svg>
+                    </a>
+                    <div class="news-card__info"></div>
+                    <a href="#" class="news-card__link"></a>
+                </li>
+                <li class="news-feed__items news-card">
+                    <div class="news-card__date">20:53</div>
+                    <p href="#" class="news-card__title">
+                        Минфин призывает вернуть отчётность эмитентов для восстановления доверия розничных инвесторов к
+                        фондовому рынку
+                    </p>
+                    <a href="#" class="news-card__author">
+                        RomanAndreev
+                        <svg width="14" height="14">
+                            <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
+                        </svg>
+                    </a>
+                    <div class="news-card__info"></div>
+                    <a href="#" class="news-card__link"></a>
+                </li>
+                <li class="news-feed__items news-card">
+                    <div class="news-card__date">21:07</div>
+                    <p href="#" class="news-card__title">
+                        Доллар умеренно дешевеет к евро и иене
+                    </p>
+                    <a href="#" class="news-card__author">
+                        RomanAndreev
+                        <svg width="14" height="14">
+                            <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
+                        </svg>
+                    </a>
+                    <div class="news-card__info"></div>
+                    <a href="#" class="news-card__link"></a>
+                </li>
+                <li class="news-feed__items news-card">
+                    <div class="news-card__date">03/11</div>
+                    <p href="#" class="news-card__title">
+                        Продажи смартфонов в третьем квартале в России выросли в 1.5 раза
+                    </p>
+                    <a href="#" class="news-card__author">
+                        RomanAndreev
+                        <svg width="14" height="14">
+                            <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
+                        </svg>
+                    </a>
+                    <div class="news-card__info"></div>
+                    <a href="#" class="news-card__link"></a>
+                </li>
+                <li class="news-feed__items news-card">
+                    <div class="news-card__date">02/11</div>
+                    <p href="#" class="news-card__title">
+                        Объём сделок на “СПб Бирже” в сентябре откатился до минимума этого года
+                    </p>
+                    <a href="#" class="news-card__author">
+                        RomanAndreev
+                        <svg width="14" height="14">
+                            <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
+                        </svg>
+                    </a>
+                    <div class="news-card__info"></div>
+                    <a href="#" class="news-card__link"></a>
+                </li>
+                <li class="news-feed__items news-card">
+                    <div class="news-card__date">02/11</div>
+                    <p href="#" class="news-card__title">
+                        Выпуск нефтехимической продукции адаптировался - Ъ
+                    </p>
+                    <a href="#" class="news-card__author">
+                        RomanAndreev
+                        <svg width="14" height="14">
+                            <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
+                        </svg>
+                    </a>
+                    <div class="news-card__info"></div>
+                    <a href="#" class="news-card__link"></a>
+                </li>
+
             </ul>
-        </div>
-    </div>
-    <div class="post-card__body">
-        <!-- Для полного поста присваивается модификатор post-card__title--post -->
-        <h3 class="post-card__title post-card__title--blog">Ситуация на текущий момент</h3>
-        <div class="post-card__text post-card__text--blog">
-            Многие из населения и почти 100% смартлабовцев мечтают жить рантье после 40 лет. С одним таким смердом, вернее с
-            женщиной 44 лет лет я недавно брал интервью...
-        </div>  
-        <div class="post-card__tags">
-            <a href="#" class="post-card__tag">смарт-лаб</a>
-            <a href="#" class="post-card__tag">форекс</a>
-            <a href="#" class="post-card__tag">юань</a> 
-            <a href="#" class="post-card__tag">форекс</a>
-            <a href="#" class="post-card__tag">юань</a>
-        </div>
-    </div>
-    <div class="post-card__footer">
-        <div class="post-card__btns-wrap  post-card__btns-wrap--left">
-            <span class="post-card__btns-count">1K</span>
-            <button class="post-card__btn" type="button">
-                <svg width="20" height="20">
-                    <use xlink:href="images/icons/post-card/sprite.svg#views"></use>
-                </svg>
-            </button>
-        </div>
-        <div class="post-card__btns-wrap">
-            <button class="post-card__btn" type="button">
-                <svg width="19" height="18">
-                    <use xlink:href="images/icons/post-card/sprite.svg#star"></use>
-                </svg>
-            </button>
-            <span class="post-card__btns-count">4</span>
-        </div>
-        <div class="post-card__btns-wrap">
-            <button class="post-card__btn" type="button">
-                <svg width="17" height="16">
-                    <use xlink:href="images/icons/post-card/sprite.svg#chat"></use>
-                </svg>
-            </button>
-            <span class="post-card__btns-count">306</span>
-        </div>
-        <div class="post-card__btns-wrap">
-            <button class="post-card__btn" type="button">
-                <svg width="18" height="17">
-                    <use xlink:href="images/icons/post-card/sprite.svg#heart"></use>
-                </svg>
-            </button>
-            <span class="post-card__btns-count">150</span>
-        </div>
-    </div>
-</section> 
-			</div> 
-			<div class="main__post-card">
-				<!-- Используются стили из _post-card.scss -->
-<section class="post-card">
-    <div class="post-card__header">
-        <!-- Если есть контекстное меню (при точки), присваивается модификатор post-card__header-inner--blog -->
-        <div class="post-card__header-inner post-card__header-inner--blog">
-            <a href="#" class="post-card__photo-wrap">
-                <!-- Если аватар не загружен, то <img> вставлять на страницу не надо. Будет виден фон .post-card__photo-wrap  заданный в css-->
-                <img src="./images/icons/post-card/photo.jpg" alt="Фото" class="post-card__photo">
-            </a>
-            <div class="post-card__info">
-                <span class="post-card__name">
-                    <!-- Если профиль подтвержден, добавляется модификатор post-card__name-link--approved и svg.post-card__approved -->
-                    <a href="#" class="post-card__name-link post-card__name-link--approved">RomanAndreev</a>
-                    <svg class="post-card__approved" width="20" height="20">
-                        <use xlink:href="images/icons/post-card/sprite.svg#approved"></use>
-                    </svg>
-                </span>
-                <span class="post-card__date">сегодня в 21:28</span>
-            </div>
-        </div>
-        <div class="post-card__menu post-card__menu--blog context-menu">
-            <button class="post-card__menu-btn context-menu__btn">
-                <svg class="context-menu__svg" height="20" width="20">
-                    <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
-                </svg>
-            </button>
-            <ul class="context-menu__list">
-                <li><button class="context-menu__item">Копировать URL</button></li>
-                <li><button class="context-menu__item">Пожаловться</button></li>
-            </ul>
-        </div>
-    </div>
-    <div class="post-card__body">
-        <!-- Для полного поста присваивается модификатор post-card__title--post -->
-        <h3 class="post-card__title post-card__title--blog">Ситуация на текущий момент</h3>
-        <div class="post-card__text post-card__text--blog">
-            Многие из населения и почти 100% смартлабовцев мечтают жить рантье после 40 лет. С одним таким смердом, вернее с
-            женщиной 44 лет лет я недавно брал интервью...
-        </div>  
-        <div class="post-card__tags">
-            <a href="#" class="post-card__tag">смарт-лаб</a>
-            <a href="#" class="post-card__tag">форекс</a>
-            <a href="#" class="post-card__tag">юань</a> 
-            <a href="#" class="post-card__tag">форекс</a>
-            <a href="#" class="post-card__tag">юань</a>
-        </div>
-    </div>
-    <div class="post-card__footer">
-        <div class="post-card__btns-wrap  post-card__btns-wrap--left">
-            <span class="post-card__btns-count">1K</span>
-            <button class="post-card__btn" type="button">
-                <svg width="20" height="20">
-                    <use xlink:href="images/icons/post-card/sprite.svg#views"></use>
-                </svg>
-            </button>
-        </div>
-        <div class="post-card__btns-wrap">
-            <button class="post-card__btn" type="button">
-                <svg width="19" height="18">
-                    <use xlink:href="images/icons/post-card/sprite.svg#star"></use>
-                </svg>
-            </button>
-            <span class="post-card__btns-count">4</span>
-        </div>
-        <div class="post-card__btns-wrap">
-            <button class="post-card__btn" type="button">
-                <svg width="17" height="16">
-                    <use xlink:href="images/icons/post-card/sprite.svg#chat"></use>
-                </svg>
-            </button>
-            <span class="post-card__btns-count">306</span>
-        </div>
-        <div class="post-card__btns-wrap">
-            <button class="post-card__btn" type="button">
-                <svg width="18" height="17">
-                    <use xlink:href="images/icons/post-card/sprite.svg#heart"></use>
-                </svg>
-            </button>
-            <span class="post-card__btns-count">150</span>
-        </div>
-    </div>
-</section>
-			</div>
-			<div class="main__post-card">
-				<!-- Используются стили из _post-card.scss -->
-<section class="post-card">
-    <div class="post-card__header">
-        <!-- Если есть контекстное меню (при точки), присваивается модификатор post-card__header-inner--blog -->
-        <div class="post-card__header-inner post-card__header-inner--blog">
-            <a href="#" class="post-card__photo-wrap">
-                <!-- Если аватар не загружен, то <img> вставлять на страницу не надо. Будет виден фон .post-card__photo-wrap  заданный в css-->
-                <img src="./images/icons/post-card/photo.jpg" alt="Фото" class="post-card__photo">
-            </a>
-            <div class="post-card__info">
-                <span class="post-card__name">
-                    <!-- Если профиль подтвержден, добавляется модификатор post-card__name-link--approved и svg.post-card__approved -->
-                    <a href="#" class="post-card__name-link post-card__name-link--approved">RomanAndreev</a>
-                    <svg class="post-card__approved" width="20" height="20">
-                        <use xlink:href="images/icons/post-card/sprite.svg#approved"></use>
-                    </svg>
-                </span>
-                <span class="post-card__date">сегодня в 21:28</span>
-            </div>
-        </div>
-        <div class="post-card__menu post-card__menu--blog context-menu">
-            <button class="post-card__menu-btn context-menu__btn">
-                <svg class="context-menu__svg" height="20" width="20">
-                    <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
-                </svg>
-            </button>
-            <ul class="context-menu__list">
-                <li><button class="context-menu__item">Копировать URL</button></li>
-                <li><button class="context-menu__item">Пожаловться</button></li>
-            </ul>
-        </div>
-    </div>
-    <div class="post-card__body">
-        <!-- Для полного поста присваивается модификатор post-card__title--post -->
-        <h3 class="post-card__title post-card__title--blog">Ситуация на текущий момент</h3>
-        <div class="post-card__text post-card__text--blog">
-            Многие из населения и почти 100% смартлабовцев мечтают жить рантье после 40 лет. С одним таким смердом, вернее с
-            женщиной 44 лет лет я недавно брал интервью...
-        </div>  
-        <div class="post-card__tags">
-            <a href="#" class="post-card__tag">смарт-лаб</a>
-            <a href="#" class="post-card__tag">форекс</a>
-            <a href="#" class="post-card__tag">юань</a> 
-            <a href="#" class="post-card__tag">форекс</a>
-            <a href="#" class="post-card__tag">юань</a>
-        </div>
-    </div>
-    <div class="post-card__footer">
-        <div class="post-card__btns-wrap  post-card__btns-wrap--left">
-            <span class="post-card__btns-count">1K</span>
-            <button class="post-card__btn" type="button">
-                <svg width="20" height="20">
-                    <use xlink:href="images/icons/post-card/sprite.svg#views"></use>
-                </svg>
-            </button>
-        </div>
-        <div class="post-card__btns-wrap">
-            <button class="post-card__btn" type="button">
-                <svg width="19" height="18">
-                    <use xlink:href="images/icons/post-card/sprite.svg#star"></use>
-                </svg>
-            </button>
-            <span class="post-card__btns-count">4</span>
-        </div>
-        <div class="post-card__btns-wrap">
-            <button class="post-card__btn" type="button">
-                <svg width="17" height="16">
-                    <use xlink:href="images/icons/post-card/sprite.svg#chat"></use>
-                </svg>
-            </button>
-            <span class="post-card__btns-count">306</span>
-        </div>
-        <div class="post-card__btns-wrap">
-            <button class="post-card__btn" type="button">
-                <svg width="18" height="17">
-                    <use xlink:href="images/icons/post-card/sprite.svg#heart"></use>
-                </svg>
-            </button>
-            <span class="post-card__btns-count">150</span>
-        </div>
-    </div>
-</section>
-			</div>
-			<div class="main__post-card">
-				<!-- Используются стили из _post-card.scss -->
-<section class="post-card">
-    <div class="post-card__header">
-        <!-- Если есть контекстное меню (при точки), присваивается модификатор post-card__header-inner--blog -->
-        <div class="post-card__header-inner post-card__header-inner--blog">
-            <a href="#" class="post-card__photo-wrap">
-                <!-- Если аватар не загружен, то <img> вставлять на страницу не надо. Будет виден фон .post-card__photo-wrap  заданный в css-->
-                <img src="./images/icons/post-card/photo.jpg" alt="Фото" class="post-card__photo">
-            </a>
-            <div class="post-card__info">
-                <span class="post-card__name">
-                    <!-- Если профиль подтвержден, добавляется модификатор post-card__name-link--approved и svg.post-card__approved -->
-                    <a href="#" class="post-card__name-link post-card__name-link--approved">RomanAndreev</a>
-                    <svg class="post-card__approved" width="20" height="20">
-                        <use xlink:href="images/icons/post-card/sprite.svg#approved"></use>
-                    </svg>
-                </span>
-                <span class="post-card__date">сегодня в 21:28</span>
-            </div>
-        </div>
-        <div class="post-card__menu post-card__menu--blog context-menu">
-            <button class="post-card__menu-btn context-menu__btn">
-                <svg class="context-menu__svg" height="20" width="20">
-                    <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
-                </svg>
-            </button>
-            <ul class="context-menu__list">
-                <li><button class="context-menu__item">Копировать URL</button></li>
-                <li><button class="context-menu__item">Пожаловться</button></li>
-            </ul>
-        </div>
-    </div>
-    <div class="post-card__body">
-        <!-- Для полного поста присваивается модификатор post-card__title--post -->
-        <h3 class="post-card__title post-card__title--blog">Ситуация на текущий момент</h3>
-        <div class="post-card__text post-card__text--blog">
-            Многие из населения и почти 100% смартлабовцев мечтают жить рантье после 40 лет. С одним таким смердом, вернее с
-            женщиной 44 лет лет я недавно брал интервью...
-        </div>  
-        <div class="post-card__tags">
-            <a href="#" class="post-card__tag">смарт-лаб</a>
-            <a href="#" class="post-card__tag">форекс</a>
-            <a href="#" class="post-card__tag">юань</a> 
-            <a href="#" class="post-card__tag">форекс</a>
-            <a href="#" class="post-card__tag">юань</a>
-        </div>
-    </div>
-    <div class="post-card__footer">
-        <div class="post-card__btns-wrap  post-card__btns-wrap--left">
-            <span class="post-card__btns-count">1K</span>
-            <button class="post-card__btn" type="button">
-                <svg width="20" height="20">
-                    <use xlink:href="images/icons/post-card/sprite.svg#views"></use>
-                </svg>
-            </button>
-        </div>
-        <div class="post-card__btns-wrap">
-            <button class="post-card__btn" type="button">
-                <svg width="19" height="18">
-                    <use xlink:href="images/icons/post-card/sprite.svg#star"></use>
-                </svg>
-            </button>
-            <span class="post-card__btns-count">4</span>
-        </div>
-        <div class="post-card__btns-wrap">
-            <button class="post-card__btn" type="button">
-                <svg width="17" height="16">
-                    <use xlink:href="images/icons/post-card/sprite.svg#chat"></use>
-                </svg>
-            </button>
-            <span class="post-card__btns-count">306</span>
-        </div>
-        <div class="post-card__btns-wrap">
-            <button class="post-card__btn" type="button">
-                <svg width="18" height="17">
-                    <use xlink:href="images/icons/post-card/sprite.svg#heart"></use>
-                </svg>
-            </button>
-            <span class="post-card__btns-count">150</span>
-        </div>
-    </div>
-</section>
-			</div>
-			<button class="big-blue-btn main__next-btn" type="button">Далее</button>
-			<footer class="footer ">
+            <footer class="footer footer--news">
 	<div class="footer__content">
 		<div class="footer__banners">
 			<div class="footer__banner ">
@@ -1155,9 +996,9 @@
     </svg>
 </button>
 </footer>
-		</main>
-	</div>
-	<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+        </main>
+    </div>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
 <!-- <script src="js/vendors.min.js"></script>
 <script src="js/app.min.js"></script> -->
 <script src="./js/vendors.js"></script>

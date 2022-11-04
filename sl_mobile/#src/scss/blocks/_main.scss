@@ -76,7 +76,11 @@
 
 	// .main__sections-box
 	&__sections-box {
-		margin-top: 7px;
+		margin-top: 18px;
+		
+		&--main {
+			margin-top: 7px;
+		} 
 	}
 
 	// .main__post-card
