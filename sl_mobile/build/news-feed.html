@@ -696,21 +696,28 @@
                                 <input class="nf-filter__search" type="text" name="serch" value="" id=""
                                     autocomplete="off" placeholder="Поиск" title="Поиск новости" tabindex="2">
                             </div>
-                            <input class="nf-filter__date" type="text" name="date" value="" id="all_date" route="/allblog/" autocomplete="off"
-                                placeholder="Выбрать дату" title="Посмотреть за выбраную дату" tabindex="3">
-
+                            <div class="nf-filter__date-wrap">
+                                <input class="nf-filter__date datepicker" type="text" name="date" value="" id="all_date"
+                                    route="/allblog/" autocomplete="off" placeholder="Выбрать дату"
+                                    title="Посмотреть за выбраную дату" tabindex="3">
+                            </div>
                             <!-- Чтобы открыть надо присвоить модфикатор custom-select--opened -->
                             <div class="nf-filter__select custom-select">
-                                <button class="custom-select__main-btn" value="По дате" name="#" type="button" tabindex="4">
+                                <button class="custom-select__main-btn" value="По дате" name="#" type="button"
+                                    tabindex="4">
                                     По дате
                                 </button>
                                 <div class="custom-select__list ">
-                                    <button class="custom-select__option custom-select__option--active" value="По дате" type="button" tabindex="5">По дате</button>
-                                    <button class="custom-select__option" value="По лайкам" type="button" tabindex="6">По
+                                    <button class="custom-select__option custom-select__option--active" value="По дате"
+                                        type="button" tabindex="5">По дате</button>
+                                    <button class="custom-select__option" value="По лайкам" type="button"
+                                        tabindex="6">По
                                         лайкам</button>
-                                    <button class="custom-select__option" value="По пользе" type="button" tabindex="7">По
+                                    <button class="custom-select__option" value="По пользе" type="button"
+                                        tabindex="7">По
                                         пользе</button>
-                                    <button class="custom-select__option" value="По комментам" type="button" tabindex="8">По
+                                    <button class="custom-select__option" value="По комментам" type="button"
+                                        tabindex="8">По
                                         комментам</button>
                                 </div>
                             </div>
@@ -738,10 +745,20 @@
             <ul class="news-feed__list">
                 <li class="news-feed__items news-card">
                     <div class="news-card__date">21:07</div>
+                    <p href="#" class="news-card__title">Match Group прогнозирует слабый рост в 2022 из-за укрепления доллара и ухудшения экономической ситуации</p>
+                    <a href="#" class="news-card__author">
+                        <span>SUVE Capital Management</span>
+                    </a>
+                    <div class="news-card__info"></div>
+                    <!-- ссылка на новость -->
+                    <a href="https://smart-lab.ru/blog/851748.php" class="news-card__link"></a>
+                </li>
+                <li class="news-feed__items news-card">
+                    <div class="news-card__date">21:07</div>
                     <p href="#" class="news-card__title">Минфин призывает вернуть отчётность эмитентов для
                         восстановления доверия розничных инвесторов к фондовому рынку</p>
                     <a href="#" class="news-card__author">
-                        RomanAndreev
+                        <span>RomanAndreev</span>
                         <svg width="14" height="14">
                             <use xlink:href="images/icons/comments/sprite.svg#premium"></use>
                         </svg>
@@ -755,21 +772,21 @@
                     <p href="#" class="news-card__title">МНЕНИЕ: Возврат Алроса к дивидентным выплатам крайне
                         маловероятен</p>
                     <a href="#" class="news-card__author">
-                        RomanAndreev
+                        <span>RomanAndreev</span>
                         <svg width="20" height="20">
                             <use xlink:href="images/icons/comments/sprite.svg#approved"></use>
                         </svg>
                     </a>
                     <div class="news-card__info"></div>
                     <a href="#" class="news-card__link"></a>
-                </li> 
+                </li>
                 <li class="news-feed__items news-card">
                     <div class="news-card__date">12:28</div>
                     <p href="#" class="news-card__title">
                         Совкомфлот ожидает высоких ставок фрахта на конец 2022 года
                     </p>
                     <a href="#" class="news-card__author">
-                        RomanAndreev
+                        <span>RomanAndreev</span>
                         <svg width="14" height="14">
                             <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
                         </svg>
@@ -783,7 +800,7 @@
                         Почти 500 тысяч частных инвесторов пришли на Мосбиржу в сентябре
                     </p>
                     <a href="#" class="news-card__author">
-                        RomanAndreev
+                        <span>RomanAndreev</span>
                         <svg width="14" height="14">
                             <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
                         </svg>
@@ -797,7 +814,7 @@
                         Производство алкогольных напитков в России выросло на 12 процентов
                     </p>
                     <a href="#" class="news-card__author">
-                        RomanAndreev
+                        <span>RomanAndreev</span>
                         <svg width="14" height="14">
                             <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
                         </svg>
@@ -811,7 +828,7 @@
                         Цинк и медь дорожают после запрета LME на поставки с УГМК
                     </p>
                     <a href="#" class="news-card__author">
-                        RomanAndreev
+                        <span>RomanAndreev</span>
                         <svg width="14" height="14">
                             <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
                         </svg>
@@ -826,7 +843,7 @@
                         фондовому рынку
                     </p>
                     <a href="#" class="news-card__author">
-                        RomanAndreev
+                        <span>RomanAndreev</span>
                         <svg width="14" height="14">
                             <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
                         </svg>
@@ -840,7 +857,7 @@
                         Доллар умеренно дешевеет к евро и иене
                     </p>
                     <a href="#" class="news-card__author">
-                        RomanAndreev
+                        <span>RomanAndreev</span>
                         <svg width="14" height="14">
                             <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
                         </svg>
@@ -854,7 +871,7 @@
                         Продажи смартфонов в третьем квартале в России выросли в 1.5 раза
                     </p>
                     <a href="#" class="news-card__author">
-                        RomanAndreev
+                        <span>RomanAndreev</span>
                         <svg width="14" height="14">
                             <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
                         </svg>
@@ -868,7 +885,7 @@
                         Объём сделок на “СПб Бирже” в сентябре откатился до минимума этого года
                     </p>
                     <a href="#" class="news-card__author">
-                        RomanAndreev
+                        <span>RomanAndreev</span>
                         <svg width="14" height="14">
                             <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
                         </svg>
@@ -882,7 +899,7 @@
                         Выпуск нефтехимической продукции адаптировался - Ъ
                     </p>
                     <a href="#" class="news-card__author">
-                        RomanAndreev
+                        <span>RomanAndreev</span>
                         <svg width="14" height="14">
                             <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
                         </svg>

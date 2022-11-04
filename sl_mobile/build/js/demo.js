@@ -164,10 +164,14 @@ if (systemMessagesBox) {
   }, 30000);
 }
 
-// Находит элементы с определенны свойством
-const all = document.querySelectorAll('*');
+$('.datepicker').datepicker({
+  format: 'mm/dd/yyyy',
+});
+
+// Находит элементы с заданным свойством
+/* const all = document.querySelectorAll('*');
 all.forEach(el => {
   if (window.getComputedStyle(el).overflow === 'hidden' && el.closest('.news-feed__section')) {
     console.log(el)
   }
-})
+}) */

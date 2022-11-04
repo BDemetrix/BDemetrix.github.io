@@ -3,3 +3,5 @@
 @@include('libs/jquery.jBox.all.js', {})
 @@include('libs/simplebar.js', {})
 @@include('libs/swiper.min.js', {})
+@@include('libs/bootstrap-datepicker_1.9.0.min.js', {})
+
