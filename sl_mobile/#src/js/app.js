@@ -7,3 +7,4 @@
 @@include('files/custom-select-dynamic-load.js', {})
 @@include('files/jBoxNotice.js', {})
 @@include('files/nf-filter.js', {})
+@@include('files/bootstrap-datepicker-setup.js', {})
