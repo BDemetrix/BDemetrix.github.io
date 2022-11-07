@@ -3435,6 +3435,11 @@ textarea {
   padding: 5px 0;
 }
 
+.post-card__text ol,
+.post-card__text ul {
+  padding-left: 20px;
+}
+
 .post-card__text--blog {
   margin-bottom: 15px;
 }
@@ -5484,6 +5489,44 @@ textarea {
   margin: 0 5px 15px;
 }
 
+.nf-filter__search-wrap .autocomplete-suggestions {
+  width: 100%;
+  top: calc(100% + 5px);
+  background: #fff;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.nf-filter__search-wrap .autocomplete-suggestion {
+  cursor: pointer;
+  width: 100%;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  background: transparent;
+  text-align: left;
+  line-height: 20px !important;
+  color: inherit;
+  font-size: inherit;
+  padding: 7px 14px 5px;
+}
+
+.nf-filter__search-wrap .autocomplete-selected {
+  background: #f0f0f0;
+}
+
+.nf-filter__search-wrap .autocomplete-suggestions strong {
+  font-weight: normal;
+  color: #3399ff;
+}
+
 .nf-filter__search,
 .nf-filter__date {
   height: 44px;
@@ -5768,6 +5811,23 @@ body.loader:before {
 
 .query-search__suggestions .autocomplete-suggestions strong {
   color: #24c2ff;
+}
+
+.datepicker-orient-top {
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  -o-transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+  -webkit-transform: translate(0, 5px);
+      -ms-transform: translate(0, 5px);
+          transform: translate(0, 5px);
+}
+
+._touch .datepicker td,
+._touch .datepicker th {
+  width: 36px;
+  height: 36px;
 }
 
 #loginDialog * {

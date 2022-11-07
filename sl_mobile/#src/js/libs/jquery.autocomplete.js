@@ -1,10 +1,10 @@
 /**
-*  Ajax Autocomplete for jQuery, version %version%
-*  (c) 2017 Tomas Kirda
-*
-*  Ajax Autocomplete for jQuery is freely distributable under the terms of an MIT-style license.
-*  For details, see the web site: https://github.com/devbridge/jQuery-Autocomplete
-*/
+ *  Ajax Autocomplete for jQuery, version 1.4.11
+ *  (c) 2017 Tomas Kirda
+ *
+ *  Ajax Autocomplete for jQuery is freely distributable under the terms of an MIT-style license.
+ *  For details, see the web site: https://github.com/devbridge/jQuery-Autocomplete
+ */
 
 /*jslint  browser: true, white: true, single: true, this: true, multivar: true */
 /*global define, window, document, jQuery, exports, require */
@@ -34,7 +34,7 @@
         createNode: function (containerClass) {
           var div = document.createElement('div');
           div.className = containerClass;
-          //div.style.position = 'absolute';
+          div.style.position = 'absolute';
           div.style.display = 'none';
           return div;
         }
@@ -209,12 +209,24 @@
 
       $(window).on('resize.autocomplete', that.fixPositionCapture);
 
-      that.el.on('keydown.autocomplete', function (e) { that.onKeyPress(e); });
-      that.el.on('keyup.autocomplete', function (e) { that.onKeyUp(e); });
-      that.el.on('blur.autocomplete', function () { that.onBlur(); });
-      that.el.on('focus.autocomplete', function () { that.onFocus(); });
-      that.el.on('change.autocomplete', function (e) { that.onKeyUp(e); });
-      that.el.on('input.autocomplete', function (e) { that.onKeyUp(e); });
+      that.el.on('keydown.autocomplete', function (e) {
+        that.onKeyPress(e);
+      });
+      that.el.on('keyup.autocomplete', function (e) {
+        that.onKeyUp(e);
+      });
+      that.el.on('blur.autocomplete', function () {
+        that.onBlur();
+      });
+      that.el.on('focus.autocomplete', function () {
+        that.onFocus();
+      });
+      that.el.on('change.autocomplete', function (e) {
+        that.onKeyUp(e);
+      });
+      that.el.on('input.autocomplete', function (e) {
+        that.onKeyUp(e);
+      });
     },
 
     onFocus: function () {
@@ -318,7 +330,10 @@
         containerHeight = $container.outerHeight(),
         height = that.el.outerHeight(),
         offset = that.el.offset(),
-        styles = { 'top': offset.top, 'left': offset.left };
+        styles = {
+          'top': offset.top,
+          'left': offset.left
+        };
 
       if (orientation === 'auto') {
         var viewPortHeight = $(window).height(),
@@ -793,7 +808,10 @@
       // If suggestions is string array, convert them to supported format:
       if (suggestions.length && typeof suggestions[0] === 'string') {
         return $.map(suggestions, function (value) {
-          return { value: value, data: null };
+          return {
+            value: value,
+            data: null
+          };
         });
       }
 

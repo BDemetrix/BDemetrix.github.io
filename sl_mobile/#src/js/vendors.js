@@ -4,3 +4,4 @@
 @@include('libs/simplebar.js', {})
 @@include('libs/swiper.min.js', {})
 @@include('libs/bootstrap-datepicker.js', {})
+@@include('libs/jquery.autocomplete.js', {})

@@ -287,6 +287,11 @@
             padding: 5px 0;
         }
 
+        ol,
+        ul {
+            padding-left: 20px;
+        }
+
         &--blog {
             margin-bottom: 15px;
         }
@@ -633,7 +638,7 @@
     // .tarif-card__pop-up
     &__pop-up {
     }
-    
+
     // .tarif-card__pop-up-content
     &__pop-up-content {
         width: 620px;

@@ -52,3 +52,20 @@ body.loader:before {
 .query-search__suggestions .autocomplete-suggestions strong {
   color: #24c2ff;
 }
+
+.datepicker-orient-top {
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  -o-transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+  -webkit-transform: translate(0, 5px);
+      -ms-transform: translate(0, 5px);
+          transform: translate(0, 5px);
+}
+
+._touch .datepicker td,
+._touch .datepicker th {
+  width: 36px;
+  height: 36px;
+}

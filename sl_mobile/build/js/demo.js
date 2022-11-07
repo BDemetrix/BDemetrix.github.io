@@ -52,6 +52,7 @@
   ];
   var windowFeatures = "menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes,target=_blank";
 
+  // Автокомплит для хедера
   $('[autocompleter]').autocomplete({
     lookup: response,
     appendTo: '.query-search__suggestions',
@@ -69,8 +70,36 @@
       });
     },
   });
+
   // подключаем плагин для кастомного скролла
-  plugSimpleBar('.query-search__suggestions');
+  //plugSimpleBar('.query-search__suggestions');
+
+  // Автокомплит для ленты новостей nf-filter__search-wrap
+  $('#nf-filter-search').autocomplete({
+    lookup: response,
+    appendTo: '.nf-filter__search-wrap',
+    maxHeight: 'auto',
+    onSelect: function (suggestion) {
+      window.open(suggestion.data, "WindowName", windowFeatures);
+      this.value = '';
+    },
+    beforeRender: function (container, suggestions) {
+      container.css({
+        top: '100%',
+        opacity: 0
+      });
+      setTimeout(() => {
+        container.css({
+          top: '',
+          opacity: ''
+        });
+      }, 10); 
+    },
+  });
+
+
+
+
 
 
   var nContent = $('.notify');
@@ -164,9 +193,11 @@ if (systemMessagesBox) {
   }, 30000);
 }
 
+
 $('.datepicker').datepicker({
   format: 'mm/dd/yyyy',
 });
+
 
 // Находит элементы с заданным свойством
 /* const all = document.querySelectorAll('*');
