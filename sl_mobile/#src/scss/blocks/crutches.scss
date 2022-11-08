@@ -63,9 +63,19 @@ body.loader:before {
   color: #24c2ff;
 }
 
+@keyframes datepicker-slidein {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(0, 5px);
+  }
+}
+
 .datepicker-orient-top {
-  transition: transform 0.3s ease;
-  transform: translate(0, 5px);
+  animation-duration: .3s;
+  animation-name: datepicker-slidein;
+  animation-fill-mode: forwards;
 }
 // Для тачскринов
 ._touch {
