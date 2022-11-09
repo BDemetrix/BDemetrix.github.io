@@ -8,6 +8,8 @@
     }
     // .moderation-pop-up__body
     &__body {
+        align-items: start;
+        min-height: 101%;
     }
     // .moderation-pop-up__content
     &__content {
@@ -37,7 +39,7 @@
 
         @media (min-width: 1200px) {
             display: flex;
-            height: 418px;
+            min-height: 418px;
             width: 1080px;
             padding: 25px;
         }
@@ -195,6 +197,7 @@
 
     // .moderation-pop-up__comp-search-wrapper
     &__comp-search-wrapper {
+        position: relative;
         margin: 14px 0 18px;
     }
 
@@ -291,7 +294,7 @@
         resize: none;
         min-height: 34px;
         height: 34px;
-        max-height: 254px;
+        max-height: 176px;
         transition: border 0.3s ease;
     }
     // .moderation-settings__check-row

@@ -59,11 +59,7 @@ body.loader:before {
   display: none;
 }
 
-.query-search__suggestions .autocomplete-suggestions strong {
-  color: #24c2ff;
-}
-
-@keyframes datepicker-slidein {
+@keyframes menu-slide-down {
   from {
     transform: translate(0, 0);
   }
@@ -73,8 +69,8 @@ body.loader:before {
 }
 
 .datepicker-orient-top {
-  animation-duration: .3s;
-  animation-name: datepicker-slidein;
+  animation-duration: 0.3s;
+  animation-name: menu-slide-down;
   animation-fill-mode: forwards;
 }
 // Для тачскринов
@@ -83,5 +79,41 @@ body.loader:before {
   .datepicker th {
     width: 36px;
     height: 36px;
+  }
+}
+
+.nf-filter__search-wrap,
+.moderation-pop-up__comp-search-wrapper {
+  
+  .autocomplete-suggestions {
+    width: 100%;
+    top: calc(100% + 5px);
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px rgb(0, 0, 0, 0.25);
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+  }
+
+  .autocomplete-suggestion {
+    cursor: pointer;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    background: transparent;
+    text-align: left;
+    line-height: 20px !important;
+    color: inherit;
+    font-size: inherit;
+    padding: 7px 14px 5px;
+  }
+  .autocomplete-selected {
+    background: #f0f0f0;
+  }
+  .autocomplete-suggestions strong {
+    font-weight: normal;
+    color: #24c2ff;
   }
 }

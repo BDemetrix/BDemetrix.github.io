@@ -48,7 +48,16 @@
     {
       "data": "https://smart-lab.ru/crypto/trading%2C%20crypto%20fund%2C%20exchanges%20-%D1%87%D1%83%D0%B6%D0%BE%D0%B5%20%D0%BD%D0%B5%20%D0%BC%D0%BE%D1%91%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BD%D0%BE%D0%B5%2C%20%D0%BE%D1%82%20%D0%90.%D0%90%D0%BD%D1%82%D0%BE%D0%BD%D0%BE%D0%B2%D0%B0%2C%20%D0%90.%D0%A0%D0%B0%D0%B4%D1%87%D0%B5%D0%BD%D0%BA%D0%BE%20%D0%B8%20%D0%9C.%D0%96%D1%83%D1%85%D0%BE%D0%B2%D0%B8%D1%86%D0%BA%D0%BE%D0%B3%D0%BE",
       "value": "trading, crypto fund, exchanges -чужое не моё, интересное, от А.Антонова, А.Радченко и М.Жуховицкого [cry]"
-    }
+    }, {
+      "data": "https://smart-lab.ru/bonds/I-TECO",
+      "value": "Ай-Теко [обл]"
+    }, {
+      "data": "https://smart-lab.ru/trading/%D0%90%D0%9E%20%22%D0%97%D0%B0%D0%B2%D0%BE%D0%B4%20%D0%9A%D0%BE%D0%BF%D0%B8%D1%80%22",
+      "value": "АО \"Завод Копир\" [trd]"
+    }, {
+      "data": "https://smart-lab.ru/bonds/AO-IA-VTB-2014",
+      "value": "АО ИА ВТБ 2014 [обл]"
+    },
   ];
   var windowFeatures = "menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes,target=_blank";
 
@@ -72,8 +81,20 @@
   });
 
   // подключаем плагин для кастомного скролла
-  //plugSimpleBar('.query-search__suggestions');
+  plugSimpleBar('.query-search__suggestions');
 
+  function menuSlideDown(container) {
+    container.css({
+      top: '100%',
+      opacity: 0
+    });
+    setTimeout(() => {
+      container.css({
+        top: '',
+        opacity: ''
+      });
+    }, 10);
+  }
   // Автокомплит для ленты новостей nf-filter__search-wrap
   $('#nf-filter-search').autocomplete({
     lookup: response,
@@ -84,22 +105,24 @@
       this.value = '';
     },
     beforeRender: function (container, suggestions) {
-      container.css({
-        top: '100%',
-        opacity: 0
-      });
-      setTimeout(() => {
-        container.css({
-          top: '',
-          opacity: ''
-        });
-      }, 10); 
+      menuSlideDown(container);
     },
   });
 
 
-
-
+// Автокомплит для ленты новостей moderation-pop-up__comp-search
+$('.moderation-pop-up__comp-search').autocomplete({
+  lookup: response,
+  appendTo: '.moderation-pop-up__comp-search-wrapper',
+  maxHeight: '300',
+  onSelect: function (suggestion) {
+    window.open(suggestion.data, "WindowName", windowFeatures);
+    this.value = '';
+  },
+  beforeRender: function (container, suggestions) {
+   menuSlideDown(container);
+  },
+});
 
 
   var nContent = $('.notify');

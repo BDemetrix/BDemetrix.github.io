@@ -688,9 +688,11 @@ const forumsSlider = new Swiper('.forums-slider', {
         heightCorrection(e)
     }, false);
 
-    document.documentElement.addEventListener('focusout', (e) => {
-        heightCorrection(e)
-    }, false);
+    const popUpBody = document.querySelector('.moderation-pop-up__body');
+    var bodyPaddingBottom = 0;
+    if (popUpBody) {
+        bodyPaddingBottom = +(window.getComputedStyle(popUpBody).paddingBottom.slice(0, -2));
+    }
 
     function heightCorrection(e) {
         if (!e.target.closest(sModerationPopupSelector)) return;
@@ -698,16 +700,9 @@ const forumsSlider = new Swiper('.forums-slider', {
 
         const popUp = e.target.closest('.moderation-pop-up');
         const popUpBody = popUp.querySelector('.moderation-pop-up__body');
-        const popUpContent = popUp.querySelector('.moderation-pop-up__content');
 
-        if (e.type === 'keyup') {
-            const paddingBottom = window.getComputedStyle(popUpBody).paddingBottom.slice(0, -2);
-            popUpContent.style.alignSelf = 'start';
-            popUpBody.style.height = +(paddingBottom) + popUp.scrollHeight + 'px';
-        } else if (e.type === 'focusout') { 
-            popUpContent.style.alignSelf = '';
-            popUpBody.style.height = '';
-        }
+        popUpBody.style.height = popUp.scrollHeight + bodyPaddingBottom + 'px';
+        bodyPaddingBottom = 0;
     }
 }());
 

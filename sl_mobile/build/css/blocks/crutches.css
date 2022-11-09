@@ -49,11 +49,7 @@ body.loader:before {
   display: none;
 }
 
-.query-search__suggestions .autocomplete-suggestions strong {
-  color: #24c2ff;
-}
-
-@-webkit-keyframes datepicker-slidein {
+@-webkit-keyframes menu-slide-down {
   from {
     -webkit-transform: translate(0, 0);
             transform: translate(0, 0);
@@ -65,7 +61,7 @@ body.loader:before {
   }
 }
 
-@keyframes datepicker-slidein {
+@keyframes menu-slide-down {
   from {
     -webkit-transform: translate(0, 0);
             transform: translate(0, 0);
@@ -80,8 +76,8 @@ body.loader:before {
 .datepicker-orient-top {
   -webkit-animation-duration: 0.3s;
           animation-duration: 0.3s;
-  -webkit-animation-name: datepicker-slidein;
-          animation-name: datepicker-slidein;
+  -webkit-animation-name: menu-slide-down;
+          animation-name: menu-slide-down;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
@@ -90,4 +86,46 @@ body.loader:before {
 ._touch .datepicker th {
   width: 36px;
   height: 36px;
+}
+
+.nf-filter__search-wrap .autocomplete-suggestions,
+.moderation-pop-up__comp-search-wrapper .autocomplete-suggestions {
+  width: 100%;
+  top: calc(100% + 5px);
+  background: #fff;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.nf-filter__search-wrap .autocomplete-suggestion,
+.moderation-pop-up__comp-search-wrapper .autocomplete-suggestion {
+  cursor: pointer;
+  width: 100%;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  background: transparent;
+  text-align: left;
+  line-height: 20px !important;
+  color: inherit;
+  font-size: inherit;
+  padding: 7px 14px 5px;
+}
+
+.nf-filter__search-wrap .autocomplete-selected,
+.moderation-pop-up__comp-search-wrapper .autocomplete-selected {
+  background: #f0f0f0;
+}
+
+.nf-filter__search-wrap .autocomplete-suggestions strong,
+.moderation-pop-up__comp-search-wrapper .autocomplete-suggestions strong {
+  font-weight: normal;
+  color: #24c2ff;
 }
