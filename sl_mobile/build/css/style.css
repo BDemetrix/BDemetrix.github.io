@@ -3402,11 +3402,11 @@ textarea {
 
 .post-card__title {
   margin: 0 0 7px;
-  font-weight: 500;
-  font-size: 19px;
-  line-height: 22px;
   letter-spacing: 0.0125em;
   color: #0b5483;
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 22px;
 }
 
 .post-card__title--blog,
@@ -5677,6 +5677,11 @@ textarea {
   -webkit-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+  /* @media (min-width: 600px) {
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+  } */
 }
 
 .news-card:hover {
@@ -5684,17 +5689,24 @@ textarea {
 }
 
 .news-card__date {
-  width: 40px;
+  width: 50px;
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 40px;
-          flex: 0 0 40px;
+      -ms-flex: 0 0 50px;
+          flex: 0 0 50px;
   -webkit-box-ordinal-group: 4;
       -ms-flex-order: 3;
           order: 3;
   font-size: 12px;
   line-height: 20px;
-  text-align: left;
+  text-align: right;
   color: #808080;
+  /* @media (min-width: 600px) {
+      width: 40px;
+      flex: 0 0 40px;
+      order: 0;
+      margin-right: 10px;
+      text-align: left;
+  } */
 }
 
 .news-card__title {
@@ -5712,6 +5724,10 @@ textarea {
   letter-spacing: 0.0125em;
   text-transform: none;
   color: #383838;
+  /* @media (min-width: 600px) {
+      width: auto;
+      margin: 0 20px 0 0;
+  } */
 }
 
 .news-card__author,
@@ -5746,6 +5762,11 @@ textarea {
   -o-text-overflow: ellipsis;
      text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.news-card__author:hover {
+  color: #2987C5;
+  font-weight: 600;
 }
 
 .news-card__link {
@@ -6182,29 +6203,6 @@ body.loader:before {
 
   .nf-filter__select {
     width: calc(25% - 10px);
-  }
-
-  .news-card {
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
-    -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap;
-  }
-
-  .news-card__date {
-    -webkit-box-ordinal-group: 1;
-        -ms-flex-order: 0;
-            order: 0;
-    margin-right: 10px;
-  }
-
-  .news-card__title {
-    width: auto;
-    margin: 0 20px 0 0;
   }
 }
 
