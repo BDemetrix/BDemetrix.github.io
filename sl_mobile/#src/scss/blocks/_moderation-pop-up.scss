@@ -294,8 +294,12 @@
         resize: none;
         min-height: 34px;
         height: 34px;
-        max-height: 176px;
+        max-height: 256px;
         transition: border 0.3s ease;
+
+        @media (min-width: 1200px) {
+            max-height: 176px;
+        }
     }
     // .moderation-settings__check-row
     &__check-row {

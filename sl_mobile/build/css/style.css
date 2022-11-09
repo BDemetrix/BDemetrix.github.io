@@ -5184,7 +5184,7 @@ textarea {
   resize: none;
   min-height: 34px;
   height: 34px;
-  max-height: 176px;
+  max-height: 256px;
   -webkit-transition: border 0.3s ease;
   -o-transition: border 0.3s ease;
   transition: border 0.3s ease;
@@ -6783,5 +6783,9 @@ body.loader:before {
   .moderation-settings__inner {
     padding: 0;
     border: 0;
+  }
+
+  .moderation-settings__heading {
+    max-height: 176px;
   }
 }
