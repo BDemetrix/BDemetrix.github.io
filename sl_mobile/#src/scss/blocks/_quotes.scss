@@ -80,6 +80,10 @@ $red-color: #da0c00;
 	}
 }
 .slide-content {
+
+	&--pt {
+		padding-top: 1em;
+	}
 	// .slide-content__inner
 	&__inner {
 	}
@@ -177,7 +181,7 @@ $red-color: #da0c00;
 		}
 
 		@media (min-width: $md3 + px) {
-			width: 82%;
+			width: 92%;
 		}
 	}
 	// .quote-leaders__name
@@ -195,14 +199,15 @@ $red-color: #da0c00;
 			top: 0;
 			right: 0;
 			bottom: 0;
-			width: 10px;
-			background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #fff 60%, #fff 100%);
+			width: 20px;
+			background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #fff 80%, #fff 100%);
 		}
 	}
 	// .quote-leaders__price {
 	&__price {
 		display: none;
-		max-width: 6em;
+		width: 6em;
+		flex: 0 0 6em;
 		text-align: right;
 
 		@media (min-width: $md3 + px) {
@@ -238,7 +243,7 @@ $red-color: #da0c00;
 }
 
 .world-indices {
-	padding-top: 1em;
+	
 	// .world-indices__row
 	&__row {
 		display: flex;

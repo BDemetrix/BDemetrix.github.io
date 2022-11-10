@@ -564,8 +564,8 @@ if (categoriesSliderBbody) {
 
     categoriesSlider = new Swiper(categoriesSliderBbody, {
         slidesPerView: 'auto',
-        /* centeredSlides: true,
-        centeredSlidesBounds: true, */
+        //centeredSlides: true,
+        //centeredSlidesBounds: true,
         spaceBetween: 32,
         /* freeMode: {
             enabled: true,
