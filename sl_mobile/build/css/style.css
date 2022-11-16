@@ -3943,6 +3943,11 @@ textarea {
 
 .post-page__banner {
   width: 100%;
+  min-height: 250px;
+}
+
+.post-page__banner--bottom {
+  margin-bottom: 1em;
 }
 
 .post-page__banner-img {
@@ -6355,7 +6360,7 @@ body.loader:before {
 
   .post-page__banner {
     position: relative;
-    height: 250px;
+    min-height: 250px;
     text-align: center;
     overflow: hidden;
     /*  span {

@@ -3,8 +3,8 @@
 
     &--round {
         margin-top: 10px;
-        border-radius: 8px 8px 0 0; 
-        overflow: hidden; 
+        border-radius: 8px 8px 0 0;
+        overflow: hidden;
     }
 
     @media (min-width: $md3 + px) {
@@ -15,10 +15,15 @@
     // .post-page__banner
     &__banner {
         width: 100%;
+        min-height: 250px;
+
+        &--bottom {
+          margin-bottom: 1em;
+        }
 
         @media (min-width: $md3 + px) {
             position: relative;
-            height: 250px;
+            min-height: 250px;
             text-align: center;
             overflow: hidden;
 
