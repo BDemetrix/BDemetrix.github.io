@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('_head.html',{
+"title":"Добавление поста",
+"stylesheet": "./css/style.css"
+})
+
+<body class="">
+	<!-- классы ._style-1 , ._style-2 и ._style-3 используются для стилизации двух видов шаблонов 
+		Например: при body._style-1 Логотип имеет один цвет, а при body._style-2 и ._style-3 - другой
+		._style-1 для smart-lab.ru
+		._style-2 для smart-lab.ru/q/
+		._style-3 для smart-lab.ru/forum/
+		-->
+	<div class="wrapper">
+		@@include('_header.html',{"Class": "_container"})
+		<main class="add-post _mobile-container">
+			<form class="add-post__form">
+				<div class="add-post__link-wrap">
+					<a href="/" class="add-post__link">Редактировать в десктопе</a>
+				</div>
+
+				<textarea class="add-post__title js-textarea-auto-height js-focus" name="topic_title"
+					placeholder="Заголовок поста" maxlength="1000" required=""></textarea>
+
+				<div class="add-post__select custom-select">
+					<button class="add-post__select-main-btn custom-select__main-btn" value="Общая лента" name="#" type="button" tabindex="4">Общая лента</button>
+					<div class="custom-select__list ">
+						<button class="custom-select__option" value="Общая лента" type="button" tabindex="6">Общая лента</button>
+						<button class="custom-select__option" value="Новости рынков" type="button" tabindex="6">Новости рынков</button>
+						<button class="custom-select__option" value="ОФФТОП" type="button" tabindex="6">ОФФТОП</button>
+						<button class="custom-select__option" value="Копипаст" type="button" tabindex="6">Копипаст</button>
+						<button class="custom-select__option" value="Ответы на вопросы" type="button" tabindex="6">Ответы на вопросы</button>
+						<button class="custom-select__option" value="Торговые сигналы!" type="button" tabindex="6">Торговые сигналы!</button>
+						<button class="custom-select__option" value="Рецензии на книги" type="button" tabindex="6">Рецензии на книги</button>
+					</div>
+
+				</div>
+
+				<div class="add-post__text add-form">
+					<!-- чтобы у textarea была адаптивная высота надо добавить ей класс .js-textarea-auto-height -->
+					<!-- чтобы родителю пол ввода присваивался класс _focus самому полю ввода присваивается класс js-focus -->
+					<textarea class="add-post__textarea add-form__textarea js-textarea-auto-height js-focus" name="comment"
+						placeholder="Введите текст..." maxlength="1000" required=""></textarea>
+					<label class="add-form__add-img">
+						<input type="file" class="add-form__add-file visually-hidden">
+					</label>
+					<button class="add-form__submit-btn" type="submit">Отправить</button>
+				</div>
+			</form>
+			@@include('_footer_mob.html',{'Class': 'footer--mt-none'})
+		</main>
+	</div>
+	@@include('_js.html',{})
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+.telegram-btn,
+.vk-btn,
+.instagram-btn,
+.youtube-btn,
+.facebook-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+}
+.telegram-btn svg,
+.vk-btn svg,
+.instagram-btn svg,
+.youtube-btn svg,
+.facebook-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: #fff;
+}
+
+.telegram-btn {
+  background: #459FCC;
+}
+
+.vk-btn {
+  background: #527493;
+}
+
+.instagram-btn {
+  background: #C14A97;
+}
+
+.youtube-btn {
+  background: #CA4322;
+}
+
+.facebook-btn {
+  background: #405C94;
+}

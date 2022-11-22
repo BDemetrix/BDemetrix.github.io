@@ -126,3 +126,19 @@ scss/base/global.scss и js/files/common.js, Открывается при на�
     </div>
 </div>
 ```
+
+12) Форма для добавления комментариев или постов .add-form
+Стили в _add-form.scss
+структура:
+```
+<form class="add-form">
+	<!-- чтобы у textarea была адаптивная высота надо добавить ей класс .js-textarea-auto-height -->
+	<!-- чтобы родителю пол ввода присваивался класс _focus самому полю ввода присваивается класс js-focus -->
+	<textarea class="add-form__textarea js-textarea-auto-height js-focus" name="comment"
+		placeholder="Напишите комментарий..." maxlength="1000" required=""></textarea>
+	<label class="add-form__add-img">
+		<input type="file" class="add-form__add-file visually-hidden">
+	</label>
+	<button class="add-form__submit-btn" type="submit">Отправить</button>
+</form>
+```

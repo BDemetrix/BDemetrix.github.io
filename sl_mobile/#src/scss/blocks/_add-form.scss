@@ -1,0 +1,93 @@
+.add-form {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 14px;
+    border: 1px solid #A5A5A5;
+    border-radius: 5px;
+    background: #fff;
+    color: #383838;
+    transition: all 0.3s ease;
+
+    &:hover ,
+    &._focus {
+        border-color: #323232;
+    }
+
+    // .add-form__textarea
+    &__textarea {
+        width: 100%;
+        height: 80px;
+        margin-bottom: 8px;
+        font-size: 14px;
+        line-height: 20px;
+        color: inherit;
+        resize: none;
+        background: transparent;
+
+        &::placeholder { 
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        &:required {
+            // not empty
+            & ~ button {
+                pointer-events: auto;
+                opacity: 1;
+                cursor: pointer;
+            }
+        }
+        &:invalid {
+            & ~ button {
+                pointer-events: none;
+                opacity: 0.7;
+                cursor: default;
+            }
+        }
+
+        &:focus::placeholder {
+            color: transparent;
+        }
+    }
+    // .add-form__add-img
+    &__add-img {
+        cursor: pointer;
+        justify-self: start;
+        display: block;
+        width: 38px;
+        height: 38px;
+        border-radius: 8px;
+        background: no-repeat center / 22px
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 22 22' fill='none'%3E%3Cpath d='M22 11C22 10.3925 21.5075 9.9 20.9 9.9C20.2925 9.9 19.8 10.3925 19.8 11H22ZM11 2.2C11.6075 2.2 12.1 1.70751 12.1 1.1C12.1 0.492487 11.6075 0 11 0V2.2ZM19.25 19.8H2.75V22H19.25V19.8ZM2.2 19.25V2.75H0V19.25H2.2ZM19.8 11V19.25H22V11H19.8ZM2.75 2.2H11V0H2.75V2.2ZM2.75 19.8C2.44625 19.8 2.2 19.5538 2.2 19.25H0C0 20.7688 1.23121 22 2.75 22V19.8ZM19.25 22C20.7688 22 22 20.7688 22 19.25H19.8C19.8 19.5538 19.5538 19.8 19.25 19.8V22ZM2.2 2.75C2.2 2.44625 2.44624 2.2 2.75 2.2V0C1.23122 0 0 1.23121 0 2.75H2.2Z' fill='%23808080'/%3E%3Cpath d='M1.1 17.05L6.9812 11.6589C7.39139 11.2829 8.01784 11.2724 8.44035 11.6346L15.4 17.6' stroke='%23808080' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M13.2 14.85L15.8254 12.2246C16.2125 11.8376 16.8253 11.794 17.2632 12.1225L20.9 14.85' stroke='%23808080' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M14.3 4.40002H20.9' stroke='%23808080' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M17.6 1.09998V7.69998' stroke='%23808080' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    }
+    // .add-form__add-file
+    &__add-file {
+    }
+    // .add-form__submit-btn
+    &__submit-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-self: flex-end;
+        flex: 0 0 auto;
+        margin-left: auto;
+        padding: 10px 16px;
+        background: $blue-btn;
+        box-shadow: 0px 4px 4px rgba(117, 117, 117, 0.12);
+        border-radius: 8px;
+        border: 0;
+        text-transform: uppercase;
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 20px;
+        text-align: center;
+        letter-spacing: 1.5px;
+        transition: all 0.3s ease;
+
+        &:disabled {
+            pointer-events: none;
+            opacity: 0.7;
+            cursor: default;
+        }
+    }
+}

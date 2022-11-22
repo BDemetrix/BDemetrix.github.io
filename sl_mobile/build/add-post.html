@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="ru">
+ <head>
+	<title>Добавление поста</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	
+	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="css/demo.css">
+
+	<link rel="preload" href="fonts/Tahoma-short-Bold.woff" as="font"> 
+	<link rel="preload" href="fonts/Tahoma-short-Bold.woff2" as="font">
+	<link rel="preload" href="fonts/Tahoma-short.woff" as="font">
+	<link rel="preload" href="fonts/Tahoma-short.woff2" as="font">
+	<!-- <link rel="shortcut icon" href="favicon.ico"> -->
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body class="">
+	<!-- классы ._style-1 , ._style-2 и ._style-3 используются для стилизации двух видов шаблонов 
+		Например: при body._style-1 Логотип имеет один цвет, а при body._style-2 и ._style-3 - другой
+		._style-1 для smart-lab.ru
+		._style-2 для smart-lab.ru/q/
+		._style-3 для smart-lab.ru/forum/
+		-->
+	<div class="wrapper">
+		<header class="header">
+	<!-- 
+		* по классу ._active-el навешиваем обработчик события 'click' на каждый
+		* из этих елементов (кнопку/иконку), его родителю присваивается класс ._open 
+	-->
+	<div class="header__content _container">
+		<div class="header__menu menu">
+  <div id="main-menu-btn" class="menu__icon _active-el">
+    <div class="icon-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <nav class="menu__body">
+    <!-- 
+      * Блоку спойлеров добавяется класс _spollers
+      * элементам, при клике на которые раскрывается список, добавляется класс _spoller
+      * раскрвающийся список должен быть соседним и следующим за блоком _spoller
+      * data-spoller-maxwidth - ширина экрана меньше которой работает спойлер
+      * при клике на заголовок спойлера, заголовку присваивается/удаляется класс _active
+      * если у блока спойлеров есть класс _one, то то он является аккордеоном 
+    -->
+    <ul class="menu__list _spollers _one" data-spoller-maxwidth="1170">
+      <li class="menu__item menu__item--feeds"> <!-- Ленты -->
+        <div class="menu__item-title _spoller">
+          <span>Ленты</span>
+          <svg>
+            <use xlink:href="./images/symbol/sprite.svg#ic_spoller_arrow"></use>
+          </svg>
+        </div>
+        <ul class="menu__sub-list">
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/allblog/" class="menu__link menu__link--bold">Все блоги</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/allnews/" class="menu__link">Новости</a></li>
+          <li class="menu__sub-item"><a href="https://smart-lab.ru/friends/dr-mart/" class="menu__link">Лента друзей</a>
+          </li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/allnews/" class="menu__link">Поток</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/top/" class="menu__link">Топ-24</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/blog/tradesignals/" class="menu__link">Торговые
+              сигналы</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/vopros/" class="menu__link">Ответы на вопросы</a></li>
+          <li class="menu__sub-item"><a href="https://smart-lab.ru/blog/disclosure/?utm_source=main_menu"
+              class="menu__link">Раскр. информации</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/blog/offtop" class="menu__link">Оффтоп</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/comments/" class="menu__link">Лента комментариев</a>
+          </li>
+        </ul>
+      </li>
+      <li class="menu__item menu__item--forum"> <!-- Форумы -->
+        <div class="menu__item-title _spoller">
+          <span>Форумы</span>
+          <svg>
+            <use xlink:href="./images/symbol/sprite.svg#ic_spoller_arrow"></use>
+          </svg>
+        </div>
+        <ul class="menu__sub-list">
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/forum/" class="menu__link menu__link--bold">Форум акций</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/bonds/" class="menu__link">Облигации</a></li>
+          <li class="menu__sub-item"><a href="https://smart-lab.ru/trading/?utm_source=main_menu" class="menu__link">Общий
+              форум</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/algotrading/" class="menu__link">Алготрейдинг</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/options/" class="menu__link">Опционы</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/forex/" class="menu__link">Forex</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/banki/" class="menu__link">Банки</a></li>
+          <li class="menu__sub-item menu__sub-item--mb"><a href="http://smart-lab.ru/brokers/" class="menu__link">Брокеры</a></li>
+          <li class="menu__sub-item menu__sub-item--border"><a href="http://smart-lab.ru/comments/" class="menu__link">Лента
+              форума</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/chat/" class="menu__link">Форум в виде чата</a></li>
+        </ul>
+      </li>
+      <li class="menu__item menu__item--quotes"> <!-- Котировки -->
+        <div class="menu__item-title _spoller">
+          <span>Котировки</span>
+          <svg>
+            <use xlink:href="./images/symbol/sprite.svg#ic_spoller_arrow"></use>
+          </svg>
+        </div>
+        <ul class="menu__sub-list">
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/q/shares/" class="menu__link menu__link--bold">Московская биржа</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/q/shares/" class="menu__link">Карта рынка</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/q/shares/" class="menu__link">СПб Биржа</a></li>
+          <li class="menu__sub-item"><a href="https://smart-lab.ru/q/ofz/?utm_source=main_menu" class="menu__link">ОФЗ</a>
+          </li>
+          <li class="menu__sub-item"><a href="https://smart-lab.ru/q/bonds/" class="menu__link">Корпоратив. бонды</a>
+          </li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/q/futures/" class="menu__link">Фьючерсы</a></li>
+          <li class="menu__sub-item"><a href="https://smart-lab.ru/q/world-quotes/?utm_source=main_menu"
+              class="menu__link">Мировые рынки</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/g" class="menu__link">Графики онлайн</a></li>
+          <li class="menu__sub-item menu__sub-item--mb"><a href="http://smart-lab.ru/q/adr/" class="menu__link">АДР / ГДР</a></li>
+          <li class="menu__sub-item menu__sub-item--border"><a href="https://smart-lab.ru/q/watchlist/?utm_source=main_menu"
+              class="menu__link">Мой watchlist</a></li>
+        </ul>
+      </li>
+      <li class="menu__item menu__item--stocks"> <!-- Акции -->
+        <div class="menu__item-title _spoller">
+          <span>Акции</span>
+          <svg>
+            <use xlink:href="./images/symbol/sprite.svg#ic_spoller_arrow"></use>
+          </svg>
+        </div>
+        <ul class="menu__sub-list">
+          <li class="menu__sub-item"><a href="https://smart-lab.ru/q/shares_fundamental/?utm_source=main_menu"
+              class="menu__link menu__link--bold">Фундаментал. анализ</a></li>
+          <li class="menu__sub-item"><a href="https://smart-lab.ru/dividends/?utm_source=main_menu"
+              class="menu__link">Дивиденды</a></li>
+          <li class="menu__sub-item"><a href="https://smart-lab.ru/q/shares_fundamental3/?utm_source=main_menu"
+              class="menu__link">Отчеты РСБУ/МСФО</a></li>
+          <li class="menu__sub-item"><a href="https://smart-lab.ru/calendar/stocks/?utm_source=main_menu"
+              class="menu__link">Календарь акций</a></li>
+          <li class="menu__sub-item menu__sub-item--mb"><a href="https://smart-lab.ru/calendar/stocks/?utm_source=main_menu"
+              class="menu__link">Показатели за 10 лет</a></li>
+          <li class="menu__sub-item menu__sub-item--border"><a href="https://smart-lab.ru/q/portfolio/timmartynov/?utm_source=main_menu"
+              class="menu__link">Мой портфель</a></li>
+        </ul>
+      </li>
+      <li class="menu__item  menu__item--comb">
+        <ul class="menu__comb-list">
+          <li class="menu__comb-item ">
+            <!-- Участники -->
+            <div class="menu__item-title _spoller">
+              <span>Участники</span>
+              <svg>
+                <use xlink:href="./images/symbol/sprite.svg#ic_spoller_arrow"></use>
+              </svg>
+            </div>
+            <ul class="menu__sub-list">
+              <li class="menu__sub-item"><a href="http://smart-lab.ru/people/" class="menu__link">Люди</a></li>
+              <li class="menu__sub-item"><a href="http://smart-lab.ru/company/" class="menu__link">Компании</a></li>
+            </ul>
+          </li>
+          <li class="menu__comb-item">
+            <!-- Информация -->
+            <div class="menu__item-title menu__item-title--f-size _spoller">
+              <span>Информация</span>
+              <svg>
+                <use xlink:href="./images/symbol/sprite.svg#ic_spoller_arrow"></use>
+              </svg>
+            </div>
+            <ul class="menu__sub-list">
+              <li class="menu__sub-item"><a href="http://smart-lab.ru/finansoviy-slovar/"
+                  class="menu__link">Энциклопедия</a></li>
+              <li class="menu__sub-item"><a href="http://smart-lab.ru/tradingreads/" class="menu__link">лучшие статьи</a>
+              </li>
+            </ul>
+          </li>
+          <li class="menu__comb-item">
+            <!-- Книги -->
+            <div class="menu__item-title menu__item-title--f-size _spoller">
+              <span>Книги</span> 
+              <svg>
+                <use xlink:href="./images/symbol/sprite.svg#ic_spoller_arrow"></use>
+              </svg>
+            </div>
+            <ul class="menu__sub-list">
+              <li class="menu__sub-item"><a href="http://smart-lab.ru/books/" class="menu__link">Каталог книг</a></li>
+              <li class="menu__sub-item"><a href="http://smart-lab.ru/books/top/" class="menu__link">Топ-100 книг</a></li>
+              <li class="menu__sub-item"><a href="http://smart-lab.ru/blog/reviews/" class="menu__link">Все рецензии</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+		<div class="header__logo">
+			<a href="./" class="main-logo">
+				<h5 class="main-logo__title">
+					<div class="main-logo__title-main">
+						SMART-LAB
+					</div>
+					<div class="main-logo__title-motto">Мы делаем деньги на бирже</div>
+				</h5>
+			</a>
+		</div>
+		<div class="header__search">
+			<div class="header__search-query query-search">
+				<!-- 
+				    * Класс _active-el добавляется кнопке открывающей/закрывающей Pop-Up  
+				    * и нужен для синхконизации всплывающих окон между собой
+				    * при клике на элемен содержащий класс _active-el его родителю присваивается сласс _open
+				  -->
+				<div class="query-search__icon _active-el">
+					<svg>
+							<use xlink:href="./images/symbol/sprite.svg#search"></use>
+					</svg>
+				</div>
+				<div class="query-search__body">
+					<form class="query-search__form" action="">
+						<div class="query-search__input-wrap">
+							<!-- такой порядок элементов в этом блоке и параметр required в инпуте нужен, 
+								чтобы кнопка query-search__btn становилась активной, а стрелка query-search__input-arrow появлялась
+								только при условии что инпут не пустой (правило задано в стилях)
+							 -->
+							<input class="query-search__input" type="text" autocomplete="off" name="form[]"
+								autocompleter="forum/ajaxsearch/" required>
+							<button class="query-search__btn" type="submit">
+								<svg>
+									<use xlink:href="./images/symbol/sprite.svg#search"></use>
+								</svg>
+							</button>
+							<div class="query-search__input-arrow" title="варианты поиска">
+								<svg>
+									<use xlink:href="./images/symbol/sprite.svg#triangle-arrow"></use>
+								</svg>
+							</div>
+						</div>
+						
+						<div class="query-search__suggestions">
+							<!-- isert .autocomplete-suggestions -->
+						</div>
+					</form>
+					<div class="alphabet header__search-alphabet">
+  <!-- 
+    * Класс _active-el добавляется кнопке открывающей/закрывающей Pop-Up  
+    * и нужен для синхконизации всплывающих окон между собой
+    * при клике на элемен содержащий класс _active-el его родителю присваивается сласс _open
+  -->
+  <div class="alphabet__icon _active-el" title="алфавитный каталог">
+    <span>A...</span>
+  </div>
+  <div class="alphabet__body">
+    <ul class="alphabet__list">
+      <li class="alphabet__item"><a href="/forum/letter/А/" title="Показать все компании на букву &quot;А&quot;">А</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Б/" title="Показать все компании на букву &quot;Б&quot;">Б</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/В/" title="Показать все компании на букву &quot;В&quot;">В</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Г/" title="Показать все компании на букву &quot;Г&quot;">Г</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Д/" title="Показать все компании на букву &quot;Д&quot;">Д</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Е/" title="Показать все компании на букву &quot;Е&quot;">Е</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Ж/" title="Показать все компании на букву &quot;Ж&quot;">Ж</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/З/" title="Показать все компании на букву &quot;З&quot;">З</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/И/" title="Показать все компании на букву &quot;И&quot;">И</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/К/" title="Показать все компании на букву &quot;К&quot;">К</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Л/" title="Показать все компании на букву &quot;Л&quot;">Л</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/М/" title="Показать все компании на букву &quot;М&quot;">М</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Н/" title="Показать все компании на букву &quot;Н&quot;">Н</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/О/" title="Показать все компании на букву &quot;О&quot;">О</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/П/" title="Показать все компании на букву &quot;П&quot;">П</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Р/" title="Показать все компании на букву &quot;Р&quot;">Р</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/С/" title="Показать все компании на букву &quot;С&quot;">С</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Т/" title="Показать все компании на букву &quot;Т&quot;">Т</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/У/" title="Показать все компании на букву &quot;У&quot;">У</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Ф/" title="Показать все компании на букву &quot;Ф&quot;">Ф</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Х/" title="Показать все компании на букву &quot;Х&quot;">Х</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Ц/" title="Показать все компании на букву &quot;Ц&quot;">Ц</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Ч/" title="Показать все компании на букву &quot;Ч&quot;">Ч</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Ш/" title="Показать все компании на букву &quot;Ш&quot;">Ш</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Щ/" title="Показать все компании на букву &quot;Щ&quot;">Щ</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Э/" title="Показать все компании на букву &quot;Э&quot;">Э</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Ю/" title="Показать все компании на букву &quot;Ю&quot;">Ю</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Я/" title="Показать все компании на букву &quot;Я&quot;">Я</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/A/" title="Показать все компании на букву &quot;A&quot;">A</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/B/" title="Показать все компании на букву &quot;B&quot;">B</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/C/" title="Показать все компании на букву &quot;C&quot;">C</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/D/" title="Показать все компании на букву &quot;D&quot;">D</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/E/" title="Показать все компании на букву &quot;E&quot;">E</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/F/" title="Показать все компании на букву &quot;F&quot;">F</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/G/" title="Показать все компании на букву &quot;G&quot;">G</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/H/" title="Показать все компании на букву &quot;H&quot;">H</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/I/" title="Показать все компании на букву &quot;I&quot;">I</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/J/" title="Показать все компании на букву &quot;J&quot;">J</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/K/" title="Показать все компании на букву &quot;K&quot;">K</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/L/" title="Показать все компании на букву &quot;L&quot;">L</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/M/" title="Показать все компании на букву &quot;M&quot;">M</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/N/" title="Показать все компании на букву &quot;N&quot;">N</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/O/" title="Показать все компании на букву &quot;O&quot;">O</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/P/" title="Показать все компании на букву &quot;P&quot;">P</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Q/" title="Показать все компании на букву &quot;Q&quot;">Q</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/R/" title="Показать все компании на букву &quot;R&quot;">R</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/S/" title="Показать все компании на букву &quot;S&quot;">S</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/T/" title="Показать все компании на букву &quot;T&quot;">T</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/U/" title="Показать все компании на букву &quot;U&quot;">U</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/V/" title="Показать все компании на букву &quot;V&quot;">V</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/W/" title="Показать все компании на букву &quot;W&quot;">W</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/X/" title="Показать все компании на букву &quot;X&quot;">X</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Y/" title="Показать все компании на букву &quot;Y&quot;">Y</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Z/" title="Показать все компании на букву &quot;Z&quot;">Z</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/last/" title="Последние добавленные компании">....</a></li>
+    </ul>
+  </div>
+</div>
+				</div>
+			</div>
+		</div>
+		<!-- 
+			* Блоки header__message, header__notify, header__usermenu вставляются на страницу
+			* только для залогиненых пользователей для незалогиненых вставляется блок header__login
+			* пример в файлах _unregistered-header.html и unregistered.html
+		-->
+		<div class="header__message">
+			<!-- 
+			    * Класс _active-el добавляется кнопке открывающей/закрывающей Pop-Up  
+			    * и нужен для синхконизации всплывающих окон между собой
+			    * при клике на элемен содержащий класс _active-el его родителю присваивается сласс _open
+			  -->
+			<div class="header__message-icon _active-el">
+				<svg>
+					<use xlink:href="./images/symbol/sprite.svg#message"></use>
+				</svg>
+				<div class="notify-label">1</div>
+			</div>
+		</div>
+		<div class="header__notify notify">
+			<!-- 
+			    * Класс _active-el добавляется кнопке открывающей/закрывающей Pop-Up  
+			    * и нужен для синхконизации всплывающих окон между собой
+			    * при клике на элемен содержащий класс _active-el его родителю присваивается сласс _open
+			  -->
+			<div class="notify__icon _active-el" id="notify-icon" tab="blog">
+				<svg class="">
+					<use xlink:href="./images/symbol/sprite.svg#notification"></use>
+				</svg>
+				<div class="notify-label">1</div>
+			</div>
+			<div class="notify__body" id="notify-body">
+				<!--  -->
+				<div class="notify__inner" id="notify-inner" tab="reply">
+					<div class="notify__settings">
+						<a href="#">
+							<svg>
+									<use xlink:href="./images/symbol/sprite.svg#settings"></use>
+							</svg>
+						</a>
+					</div>
+					<div class="notify__content">
+						<nav class="notify__nav">
+							<div class="notify__nav-item _active" tab="blog" title="Новые посты">
+								<img src="./images/icons/notify/notifies_news.png" alt="writing">
+								<div class="notify-label"><span>2</span></div>
+							</div>
+							<div class="notify__nav-item _empty" tab="reply" title="Ответы в блоге">
+								<img src="./images/icons/notify/notifies_replyes.png" alt="reply">
+								<div class="notify-label"><span>0</span></div>
+							</div>
+							<div class="notify__nav-item _empty" tab="forum" title="Ответы в форуме">
+								<img src="./images/icons/notify/notifies_replyes_forum.png" alt="chat">
+								<div class="notify-label"><span>0</span></div>
+							</div>
+							<div class="notify__nav-item _empty" tab="likes" title="Кто и где вам поставил плюс">
+								<img src="./images/icons/notify/notifies_likes.png" alt="like">
+								<div class="notify-label"><span>0</span></div>
+							</div>
+						</nav>
+						<div class="notify__blocks">
+							<div id="blog" class="notify__block _active">
+
+								<div class="notify__more">
+									<a href="#">Ваша лента подписок</a>
+								</div>
+							
+								<div class="notify__massage notify-note" link="#"
+									title="Изучил годовой отчет Мать и Дитя за 2020 год. Интересные моменты.">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="#"><img src="./images/icons/avatar_48x48.jpg">
+										</a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Тимофей Мартынов</a></span>&nbsp;написал пост: <span
+											class="notify-note__comment">Изучил годовой отчет Мать и Дитя за 2020 год. Интересные моменты.</span><br><span class="notify-note__time">1
+											час</span>
+									</div>
+								</div>
+							
+								<div class="notify__massage notify-note" link="#"
+									title="Поступили в продажу билеты на конференцию частных инвесторов смартлаба 26 июня">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="#"><img src="./images/icons/avatar_48x48.jpg"></a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Тимофей Мартынов</a></span>&nbsp;написал пост: <span
+											class="notify-note__comment">Поступили в продажу билеты на конференцию частных инвесторов смартлаба 26
+											июня</span><br><span class="notify-note__time"> 4 час</span>
+									</div>
+								</div>
+							
+								<div class="notify__massage notify-note" link="#"
+									title="10 лет спекуляций: наблюдения и выводы. Как правильно выводить крипту. Причины боли в трейдинге">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="#"><img src="./images/icons/avatar_48x48.jpg"></a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Тимофей Мартынов</a></span>&nbsp;написал пост: <span
+											class="notify-note__comment">10 лет спекуляций: наблюдения и выводы. Как правильно выводить крипту. Причины боли в
+											трейдинге</span><br><span class="notify-note__time">25 апреля 2021, 23:02</span>
+									</div>
+								</div>
+							
+								<div class="notify__massage notify-note" link="#" title="Горизонт планирования бизнеса">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="#"><img src="./images/icons/avatar_48x48.jpg"></a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Тимофей Мартынов</a></span>&nbsp;написал пост: <span
+											class="notify-note__comment">Горизонт планирования бизнеса</span><br><span class="notify-note__time">24 апреля 2021, 23:35</span>
+									</div>
+								</div>
+							
+								<div class="notify__massage notify-note" link="#" title="Кого позвать выступить на конфу смартлаба в СПб?">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="#"><img src="./images/icons/avatar_48x48.jpg"></a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Тимофей Мартынов</a></span>&nbsp;написал пост: <span
+											class="notify-note__comment">Кого позвать выступить на конфу смартлаба в СПб?</span><br><span class="notify-note__time">24 апреля
+											2021, 13:29</span>
+									</div>
+								</div>
+							
+								<div class="notify__massage notify-note" link="#"
+									title="Как уберечь дом от пожара и не сгореть в собственном доме?">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="#"><img src="./images/icons/avatar_48x48.jpg"></a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Тимофей Мартынов</a></span>&nbsp;написал пост: <span
+											class="notify-note__comment">Как уберечь дом от пожара и не сгореть в собственном доме?</span><br><span class="notify-note__time">24
+											апреля 2021, 09:50</span>
+									</div>
+								</div>
+
+							</div>
+							<div id="reply" class="notify__block">
+								<div class="notify__more">
+									<a href="#">Смотреть все ответы</a>
+								</div>
+								<p>Нет ответов :(</p>
+							</div>
+							<div id="forum" class="notify__block">
+								
+								<div class="notify__more">
+									<a href="#">Смотреть все ответы</a>
+								</div>
+
+								<div class="notify__massage notify-note" link="#" title="
+											timmartynov, passed">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="#"><img src="./images/icons/avatar_48x48.jpg"></a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Prigl</a></span>&nbsp;ответил: <span class="notify-note__comment">
+											timmartynov, passed</span><br><span class="notify-note__time">13 ноября 2018, 13:49</span>
+									</div>
+								</div>
+							
+								<div class="notify__massage notify-note" link="#" title="timmartynov, согласен, должно быть больше)">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="#"><img src="./images/icons/avatar_48x48.jpg"></a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Владимир С</a></span>&nbsp;ответил: <span
+											class="notify-note__comment">
+											timmartynov, согласен, должно быть больше)</span><br><span class="notify-note__time">30 сентября 2018, 10:25</span>
+									</div>
+								</div>
+							
+								<div class="notify__massage notify-note" link="#" title="
+											timmartynov,">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="#"><img src="./images/icons/avatar_48x48.jpg"></a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Тимофей Мартынов</a></span>&nbsp;ответил: <span
+											class="notify-note__comment">
+											timmartynov,</span><br><span class="notify-note__time">17 мая 2018, 12:51</span>
+									</div>
+								</div>
+							
+								<div class="notify__massage notify-note" link="#" title="
+											timmartynov, еще раз">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="#"><img src="./images/icons/avatar_48x48.jpg"></a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Тимофей Мартынов</a></span>&nbsp;ответил: <span
+											class="notify-note__comment">
+											timmartynov, еще раз</span><br><span class="notify-note__time">11 мая 2018, 12:14</span>
+									</div>
+								</div>
+							
+								<div class="notify__massage notify-note" link="#" title="timmartynov, говори.">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="/profile/Papyrus_bonus/"><img src="./images/icons/avatar_48x48.jpg"></a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Papyrus_bonus</a></span>&nbsp;ответил: <span
+											class="notify-note__comment">
+											timmartynov, говори.</span><br><span class="notify-note__time">11 мая 2018, 12:02</span>
+									</div>
+								</div>
+							
+								<div class="notify__massage notify-note" link="#" title="timmartynov, вроде работает!">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="#"><img src="./images/icons/avatar_48x48.jpg"></a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Тимофей Мартынов</a></span>&nbsp;ответил: <span
+											class="notify-note__comment">
+											timmartynov, вроде работает!</span><br><span class="notify-note__time">06 марта 2018, 12:08</span>
+									</div>
+								</div>
+								
+							</div>
+							<div id="likes" class="notify__block">
+								<div class="notify__more">
+									<a href="#">Смотреть все лайки</a>
+								</div>
+								<p>Нет лайков :(</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--  -->
+			</div>
+		</div>
+		<div class="header__usermenu usermenu">
+			<!-- 
+			    * Класс _active-el добавляется кнопке открывающей/закрывающей Pop-Up  
+			    * и нужен для синхконизации всплывающих окон между собой
+			    * при клике на элемен содержащий класс _active-el его родителю присваивается сласс _open
+			  -->
+			<div class="usermenu__icon _active-el">
+				<div class="usermenu__avatar">
+					<img src="./images/icons/usermenu/avatar_48x48.jpg" alt="avatar">
+				</div>
+				<div class="usermenu__icon-arrow"></div>
+			</div>
+			<div class="usermenu__body">
+				<a href="#">
+						<img src="./images/icons/usermenu/profile.png"> Мой профиль
+				</a>
+				<a href="#">
+						<img src="./images/icons/usermenu/settings.png"> Настройки
+				</a>
+				<div class="usermenu__body-line"></div>
+				<a href="#">
+						<img src="./images/icons/usermenu/favourites.png"> Избранное
+				</a>
+				<a href="#">
+						<img src="./images/icons/usermenu/portfolio.png"> Мой портфель
+				</a>
+				<a href="#">
+						<img src="./images/icons/usermenu/watchlist.png"> Watchlist
+				</a>
+				<a href="#">
+						<img src="./images/icons/usermenu/links.png"> Сохраненные ссылки
+				</a>
+				<!-- <a href="#">
+						<img src="./images/icons/usermenu/account.png"> Статистика счета
+				</a> -->		
+				<div class="usermenu__body-line"></div>					
+				<!-- <span>Подписчиков: 9</span> -->
+				<!-- <a href="#">Счет: 500₽</a> -->
+				<!-- <a href="#">Рейтинг 5</a> -->
+				<a href="#">Выйти</a>
+			</div>
+		</div>
+	</div>
+	
+</header>
+		<main class="add-post _mobile-container">
+			<form class="add-post__form">
+				<div class="add-post__link-wrap">
+					<a href="/" class="add-post__link">Редактировать в десктопе</a>
+				</div>
+
+				<textarea class="add-post__title js-textarea-auto-height js-focus" name="topic_title"
+					placeholder="Заголовок поста" maxlength="1000" required=""></textarea>
+
+				<div class="add-post__select custom-select">
+					<button class="add-post__select-main-btn custom-select__main-btn" value="Общая лента" name="#" type="button" tabindex="4">Общая лента</button>
+					<div class="custom-select__list ">
+						<button class="custom-select__option" value="Общая лента" type="button" tabindex="6">Общая лента</button>
+						<button class="custom-select__option" value="Новости рынков" type="button" tabindex="6">Новости рынков</button>
+						<button class="custom-select__option" value="ОФФТОП" type="button" tabindex="6">ОФФТОП</button>
+						<button class="custom-select__option" value="Копипаст" type="button" tabindex="6">Копипаст</button>
+						<button class="custom-select__option" value="Ответы на вопросы" type="button" tabindex="6">Ответы на вопросы</button>
+						<button class="custom-select__option" value="Торговые сигналы!" type="button" tabindex="6">Торговые сигналы!</button>
+						<button class="custom-select__option" value="Рецензии на книги" type="button" tabindex="6">Рецензии на книги</button>
+					</div>
+
+				</div>
+
+				<div class="add-post__text add-form">
+					<!-- чтобы у textarea была адаптивная высота надо добавить ей класс .js-textarea-auto-height -->
+					<!-- чтобы родителю пол ввода присваивался класс _focus самому полю ввода присваивается класс js-focus -->
+					<textarea class="add-post__textarea add-form__textarea js-textarea-auto-height js-focus" name="comment"
+						placeholder="Введите текст..." maxlength="1000" required=""></textarea>
+					<label class="add-form__add-img">
+						<input type="file" class="add-form__add-file visually-hidden">
+					</label>
+					<button class="add-form__submit-btn" type="submit">Отправить</button>
+				</div>
+			</form>
+			<footer class="footer footer--mt-none">
+	<div class="footer__content">
+		<div class="footer__banners">
+			<div class="footer__banner ">
+				<a href="#" class="footer__banner-best">
+					<svg>
+						<use xlink:href="images/icons/footer/sprite.svg#telegram"></use>
+					</svg>
+					<span>Лучшее со Смартлаба</span>
+				</a>
+			</div>
+			<div class="footer__banner">
+				<a href="#" class="footer__banner-choice">
+					Выбери стабильного брокера
+				</a>
+			</div>
+		</div>
+		<div class="footer__buttons">
+			<div class="footer__app-box">
+				<div class="footer__app-title">Установите приложение Смартлаба:</div>
+				<a href="https://play.google.com/store/apps/details?id=ru.smartlab" class="footer__app-btn">
+					<img class="footer__app-img" src="images/icons/footer/gp.png" alt="Cкачать c App Store" title="Cкачать c App Store" target="_blank">
+				</a>
+				<a href="https://apps.apple.com/ru/app/smartlab/id1602002316" class="footer__app-btn" title="Cкачать c Google Pay" target="_blank">
+					<img class="footer__app-img" src="images/icons/footer/as.png" alt="Cкачать c Google Pay">
+				</a>
+			</div>
+
+			<div class="footer__social-box">
+				<div class="footer__social-item">
+					<a href="#" class="telegram-btn">
+						<svg>
+							<use xlink:href="images/icons/footer/sprite.svg#telegram"></use>
+						</svg>
+					</a>
+				</div>
+				<div class="footer__social-item">
+					<a href="#" class="vk-btn">
+						<svg>
+							<use xlink:href="images/icons/footer/sprite.svg#vk"></use>
+						</svg>
+					</a>
+				</div>
+				<!-- 				<div class="footer__social-item">
+					<a href="#" class="instagram-btn">
+						<svg>
+							<use xlink:href="images/icons/footer/sprite.svg#instagram"></use>
+						</svg>
+					</a>
+				</div> -->
+				<div class="footer__social-item">
+					<a href="#" class="youtube-btn">
+						<svg>
+							<use xlink:href="images/icons/footer/sprite.svg#youtube"></use>
+						</svg>
+					</a>
+				</div>
+				<!-- 				<div class="footer__social-item">
+					<a href="#" class="facebook-btn">
+						<svg>
+							<use xlink:href="images/icons/footer/sprite.svg#facebook"></use>
+						</svg>
+					</a>
+				</div> -->
+			</div>
+
+			<ul class="footer__link-box">
+				<li class="footer__links-item"><a href="#" class="footer__link">О смартлабе</a></li>
+				<li class="footer__links-item"><a href="#" class="footer__link">Реклама</a></li>
+				<li class="footer__links-item"><a href="#" class="footer__link">Полная версия</a></li>
+			</ul>
+
+			<div class="footer__bottom">
+				<div class="footer__moex">
+					<a href="https://www.moex.com/" target="_blank" class="i">
+						<img
+							src="https://smart-lab.ru/uploads/2021/images/01/15/47/2021/12/17/avatar_c6f6bc_140x140.webp">
+					</a>
+					<div class="footer__moex-text">
+						<a href="https://www.moex.com/" target="_blank"> Московская Биржа</a> является спонсором ресурса
+						smart-lab.ru
+					</div>
+				</div>
+				<div class="footer__counter">
+					<a class="footer__counter-link" id="footer__counter" href="//www.liveinternet.ru/click"
+						target="_blank"><img id="licnt497C" width="88" height="31" style="border:0"
+							title="LiveInternet: показано число просмотров за 24 часа, посетителей за 24 часа и за сегодня"
+							src="//counter.yadro.ru/hit?t18.3;rhttps%3A//trello.com/;s1366*768*24;uhttps%3A//smart-lab.ru/forum/GAZP;h%u0424%u043E%u0440%u0443%u043C%20%u0430%u043A%u0446%u0438%u0438%20%u0413%u0430%u0437%u043F%u0440%u043E%u043C%20%28GAZP%29;0.5047278326930724"
+							alt="">
+					</a>
+				</div>
+			</div>
+			<!-- <div class="footer__copy">
+				<div class="footer__copy-txt">©Все права защищены</div>
+			</div> -->
+		</div>
+	</div>
+	<button class="arrow-to-top" title="Наверх">
+    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none">
+        <circle cx="25" cy="25" r="25" fill="black"/>
+        <path d="M17 28L25 19.6418L33 28" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+</button>
+</footer>
+		</main>
+	</div>
+	<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+<!-- <script src="js/vendors.min.js"></script>
+<script src="js/app.min.js"></script> -->
+<script src="./js/vendors.js"></script>
+<script src="./js/app.js"></script>
+
+<!-- demo.js предназначен исключительно для демонстрации некоторых свойств вёрстки -->
+<script src="./js/demo.js"></script>
+
+</body>
+
+</html>
