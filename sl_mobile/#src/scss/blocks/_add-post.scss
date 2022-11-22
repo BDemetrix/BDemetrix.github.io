@@ -23,10 +23,16 @@
     // .add-post__link
     &__link {
         display: inline-block;
-        margin: 15px;
+        margin: 13px;
         font-size: 14px;
-        line-height: 16px;
+        line-height: 19px;
         color: #0a5991;
+        border-bottom: 1px solid transparent;
+
+        &:hover {
+            border-color: #0a5991;
+        }
+
     }
 
     // .add-post__title
@@ -55,7 +61,7 @@
 
         &::placeholder {
             color: inherit;
-            transition: color 0.3s ease;
+            transition: color 0.2s ease;
         }
     }
     // .add-post__select

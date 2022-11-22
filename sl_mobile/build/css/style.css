@@ -5450,33 +5450,33 @@ textarea {
 
 .add-form__textarea::-webkit-input-placeholder {
   color: inherit;
-  -webkit-transition: color 0.3s ease;
-  transition: color 0.3s ease;
+  -webkit-transition: color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .add-form__textarea::-moz-placeholder {
   color: inherit;
-  -moz-transition: color 0.3s ease;
-  transition: color 0.3s ease;
+  -moz-transition: color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .add-form__textarea:-ms-input-placeholder {
   color: inherit;
-  -ms-transition: color 0.3s ease;
-  transition: color 0.3s ease;
+  -ms-transition: color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .add-form__textarea::-ms-input-placeholder {
   color: inherit;
-  -ms-transition: color 0.3s ease;
-  transition: color 0.3s ease;
+  -ms-transition: color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .add-form__textarea::placeholder {
   color: inherit;
-  -webkit-transition: color 0.3s ease;
-  -o-transition: color 0.3s ease;
-  transition: color 0.3s ease;
+  -webkit-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .add-form__textarea:required ~ button {
@@ -5579,10 +5579,15 @@ textarea {
 
 .add-post__link {
   display: inline-block;
-  margin: 15px;
+  margin: 13px;
   font-size: 14px;
-  line-height: 16px;
+  line-height: 19px;
   color: #0a5991;
+  border-bottom: 1px solid transparent;
+}
+
+.add-post__link:hover {
+  border-color: #0a5991;
 }
 
 .add-post__title {
@@ -5629,33 +5634,33 @@ textarea {
 
 .add-post__title::-webkit-input-placeholder {
   color: inherit;
-  -webkit-transition: color 0.3s ease;
-  transition: color 0.3s ease;
+  -webkit-transition: color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .add-post__title::-moz-placeholder {
   color: inherit;
-  -moz-transition: color 0.3s ease;
-  transition: color 0.3s ease;
+  -moz-transition: color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .add-post__title:-ms-input-placeholder {
   color: inherit;
-  -ms-transition: color 0.3s ease;
-  transition: color 0.3s ease;
+  -ms-transition: color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .add-post__title::-ms-input-placeholder {
   color: inherit;
-  -ms-transition: color 0.3s ease;
-  transition: color 0.3s ease;
+  -ms-transition: color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .add-post__title::placeholder {
   color: inherit;
-  -webkit-transition: color 0.3s ease;
-  -o-transition: color 0.3s ease;
-  transition: color 0.3s ease;
+  -webkit-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .add-post__select {
