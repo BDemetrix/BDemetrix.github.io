@@ -62,7 +62,7 @@
   var windowFeatures = "menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes,target=_blank";
 
   // Автокомплит для хедера
-  $('[autocompleter]').autocomplete({
+  $('.query-search__input').autocomplete({
     lookup: response,
     appendTo: '.query-search__suggestions',
     maxHeight: 'auto',
@@ -74,14 +74,14 @@
     beforeRender: function (container, suggestions) {
       $.each(suggestions, function (i, v) {
         if (('hilite' in v) && (v['hilite'])) {
-          container.find('.autocomplete-suggestion[data-index="' + i + '"]').addClass('hilite');
+          container.find('.query-search__suggestions .autocomplete-suggestion[data-index="' + i + '"]').addClass('hilite');
         }
       });
     },
   });
 
   // подключаем плагин для кастомного скролла
-  plugSimpleBar('.query-search__suggestions');
+  //plugSimpleBar('.query-search__suggestions');
 
   function menuSlideDown(container) {
     container.css({

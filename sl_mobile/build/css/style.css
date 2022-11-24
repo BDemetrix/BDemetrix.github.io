@@ -1740,6 +1740,10 @@ picture {
   padding-top: 31px;
 }
 
+.query-search__suggestions .autocomplete-suggestions {
+  border-radius: 6px;
+}
+
 .query-search__suggestions .simplebar-content-wrapper {
   border-radius: 5px;
 }
