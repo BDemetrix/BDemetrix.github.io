@@ -2,7 +2,7 @@
     display: none;
 
     @media (min-width: 1000px) {
-        display: block;
+        display: flex;
         position: fixed;
         z-index: -1;
         bottom: 75px;
@@ -27,6 +27,11 @@
             svg {
                 fill-opacity: 0.4;
             }
+        }
+
+        @media (min-width: 1500px) {
+            left: auto;
+            right: calc((100vw - 768px - 600px)/4 + 300px - 25px);
         }
     }
 }

@@ -880,18 +880,12 @@ function jBoxNotice(color, title, message) {
 }(jQuery));
 
 (function () {
-    const sidebar = document.querySelector('.js-right-sidebar');
-    const sidebarToggleBtn = document.querySelector('.js-right-sidebar-toggle-btn');
-    const wrapper = document.querySelector('.wrapper');
+    const sidebar = document.querySelector('.js-slide-sidebar');
+    const sidebarToggleBtn = document.querySelector('.js-slide-sidebar-toggle-btn');
 
-    if (!sidebar || !sidebarToggleBtn || !wrapper) return;
+    if (!sidebar || !sidebarToggleBtn) return;
 
     sidebarToggleBtn.addEventListener('click', () => {
-        /* wrapper.style.overflow = 'hidden';
-        setTimeout(() => {
-            wrapper.style.overflow = 'visible';
-        }, 400); */
-        sidebar.classList.toggle('right-sidebar--opened');
+        sidebar.classList.toggle('slide-sidebar--opened');
     })
-
 }());

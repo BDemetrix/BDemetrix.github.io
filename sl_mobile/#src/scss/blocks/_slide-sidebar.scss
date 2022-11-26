@@ -1,4 +1,4 @@
-.right-sidebar {
+.slide-sidebar {
     $delta: 60px;
 
     position: absolute;
@@ -7,11 +7,11 @@
     right: 0;
     height: calc(100% - 60px);
     width: 0;
-    padding: 15px 0;
+    padding: 15px 0 0;
     background: #f1f1f1;
     border-left: 1px solid rgba(11, 84, 131, 0.34);
     border-right: 0px solid rgba(11, 84, 131, 0.34);
-    transition: all 0.4s ease;
+    transition: all .4s ease;
 
     &,
     * {
@@ -35,7 +35,7 @@
 
     &--opened {
         width: calc(100vw - $delta);
-        padding: 15px;
+        padding: 15px 15px 0;
         border-right-width: 1px;
         box-shadow: -4px 0px 11px 4px rgb(117, 117, 117, 25%);
 
@@ -44,13 +44,13 @@
             width: $delta;
         }
 
-        .right-sidebar__banner,
-        .right-sidebar__content {
+        .slide-sidebar__banner,
+        .slide-sidebar__content {
             width: calc(100vw - $delta - 30px);
             transition: all 0.4s ease;
         }
 
-        .right-sidebar__btn {
+        .slide-sidebar__btn {
             right: calc(100vw - $delta - 1px);
             svg {
                 transform: scaleX(1);
@@ -65,12 +65,12 @@
                 display: none;
             }
 
-            .right-sidebar__banner,
-            .right-sidebar__content {
+            .slide-sidebar__banner,
+            .slide-sidebar__content {
                 width: 300px;
             }
 
-            .right-sidebar__btn {
+            .slide-sidebar__btn {
                 right: 329px;
                 svg {
                     transform: scaleX(1);
@@ -85,18 +85,18 @@
         &,
         &--opened {
             width: 300px;
-            padding: 15px 0;
+            padding: 15px 0 0;
             background: none;
             border: none;
             box-shadow: none;
 
-            .right-sidebar__banner,
-            .right-sidebar__content {
+            .slide-sidebar__banner,
+            .slide-sidebar__content {
                 width: 300px;
             }
         }
 
-        .right-sidebar__btn {
+        .slide-sidebar__btn {
             display: none;
         }
     }
@@ -104,12 +104,12 @@
     &__banner,
     &__content {
         transition: all 0.4s ease;
-        //opacity: 0;
         overflow: hidden;
     }
 
-    // .right-sidebar__banner
+    // .slide-sidebar__banner
     &__banner {
+        max-width: 100%;
         width: 100%;
         height: auto;
         margin-bottom: 15px;
@@ -122,11 +122,11 @@
         text-transform: uppercase;
     }
 
-    // .right-sidebar__inner
+    // .slide-sidebar__inner 
     &__inner {
         position: sticky;
         top: 15px;
-        height: calc(100vh - 30px);
+        height: calc(100vh - 15px);
         overflow-y: auto;
 
         /* Работает в Chrome, Edge и Safari */
@@ -137,11 +137,11 @@
         scrollbar-width: none;
     }
 
-    // .right-sidebar__content
+    // .slide-sidebar__content
     &__content {
     }
 
-    // .right-sidebar__btn
+    // .slide-sidebar__btn
     &__btn {
         position: fixed;
         z-index: 999;
