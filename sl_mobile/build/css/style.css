@@ -6075,11 +6075,12 @@ textarea {
   z-index: 9;
   top: 60px;
   right: 0;
-  height: 100%;
+  height: calc(100% - 60px);
   width: 0;
   padding: 15px 0;
   background: #f1f1f1;
   border-left: 1px solid rgba(11, 84, 131, 0.34);
+  border-right: 0px solid rgba(11, 84, 131, 0.34);
   -webkit-transition: all 0.4s ease;
   -o-transition: all 0.4s ease;
   transition: all 0.4s ease;
@@ -6109,13 +6110,14 @@ textarea {
 .right-sidebar--opened {
   width: calc(100vw - 60px);
   padding: 15px;
+  border-right-width: 1px;
   -webkit-box-shadow: -4px 0px 11px 4px rgba(117, 117, 117, 0.25);
           box-shadow: -4px 0px 11px 4px rgba(117, 117, 117, 0.25);
-  border-left: 1px solid rgba(11, 84, 131, 0.34);
-  /* &::before {
-      opacity: 0.5;
-      width: $delta;
-  } */
+}
+
+.right-sidebar--opened::before {
+  opacity: 0.5;
+  width: 60px;
 }
 
 .right-sidebar--opened .right-sidebar__banner,
@@ -6866,7 +6868,7 @@ body.loader:before {
   }
 
   .right-sidebar--opened .right-sidebar__btn {
-    right: 330px;
+    right: 329px;
   }
 
   .right-sidebar--opened .right-sidebar__btn svg {
@@ -7219,7 +7221,7 @@ body.loader:before {
     position: fixed;
     z-index: -1;
     bottom: 75px;
-    right: 75px;
+    left: 75px;
     background: none;
     border: 0;
     -webkit-transition: all 0.4s ease;
@@ -7448,12 +7450,25 @@ body.loader:before {
 }
 
 @media (min-width: 1500px) {
+  .right-sidebar {
+    width: 300px;
+  }
+
   .right-sidebar,
   .right-sidebar--opened {
-    width: 330px;
+    width: 300px;
+    padding: 15px 0;
     background: none;
     border: none;
-    overflow: visible;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+
+  .right-sidebar .right-sidebar__banner,
+  .right-sidebar .right-sidebar__content,
+  .right-sidebar--opened .right-sidebar__banner,
+  .right-sidebar--opened .right-sidebar__content {
+    width: 300px;
   }
 
   .right-sidebar .right-sidebar__btn {

@@ -46,13 +46,13 @@ function blockOverflow() {
 /**
  * функции для разблокировки скролла при закрытии модального окна
  */
-function unBlockOverflow() {
+function unBlockOverflow(time = 400) {
   setTimeout(() => {
     bodyGlobal.style.overflow = ``;
     bodyGlobal.style.touchAction = ``;
     bodyGlobal.style.paddingRight = ``;
     console.log('unBlockOverflow')
-  }, 400)
+  }, time)
 };
 
 function toggleOverflow() {
