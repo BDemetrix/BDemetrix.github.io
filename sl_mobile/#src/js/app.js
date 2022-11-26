@@ -8,3 +8,4 @@
 @@include('files/jBoxNotice.js', {})
 @@include('files/nf-filter.js', {})
 @@include('files/bootstrap-datepicker-setup.js', {})
+@@include('files/right-sidebar.js', {})

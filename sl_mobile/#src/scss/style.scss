@@ -50,6 +50,7 @@ picture {
 
 //<ОБОЛОЧКА>===========================================================================================================
 .wrapper {
+	position: relative;
 	width: 100%;
 	background: #f1f1f1;
 }
@@ -102,6 +103,8 @@ picture {
 @import "./blocks/_add-form";
 @import "./blocks/_add-post";
 @import "./blocks/_news-feed";
+@import "./blocks/_right-sidebar";
+@import "./blocks/_last-changes";
 
 
 // Костыли для совместимости 

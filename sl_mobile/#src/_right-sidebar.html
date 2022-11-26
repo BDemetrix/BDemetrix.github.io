@@ -1,0 +1,19 @@
+<!-- Для того что бы откарыть присвоить модификатор right-sidebar--opened -->
+<aside class="right-sidebar js-right-sidebar">
+    <div class="right-sidebar__banner">Реклама</div>
+    <div class="right-sidebar__inner">
+        <div class="right-sidebar__content"> 
+            <!-- для уменошения кол-ва оберток можно добавлять микс-класс {"Class": "right-sidebar__content"} -->
+            @@include('_last-changes.html',{ }) 
+        </div>
+    </div>
+    <button class="right-sidebar__btn js-right-sidebar-toggle-btn">
+        <svg width="14" height="14">
+            <use xlink:href="images/icons/comments/sprite.svg#chevron-double"></use>
+        </svg>
+        <span>форумы</span>
+        <svg width="14" height="14">
+            <use xlink:href="images/icons/comments/sprite.svg#chevron-double"></use>
+        </svg>
+    </button>
+</aside>
