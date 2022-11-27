@@ -1,12 +1,4 @@
-.last-changes {
-    $delta: 60px;
-    min-width: calc(100vw - $delta - 30px);
-    width: calc(100vw - $delta - 30px);
-
-    @media (min-width: $md4 + px) {
-        min-width: 300px;
-        width: 300px;
-    }
+.last-changes { 
 
     // .last-changes__title
     &__title {

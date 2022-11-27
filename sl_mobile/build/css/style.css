@@ -6182,11 +6182,19 @@ textarea {
   width: 0;
 }
 
+.slide-sidebar__content-inner {
+  min-width: calc(100vw - 60px - 30px);
+  width: calc(100vw - 60px - 30px);
+}
+
 .slide-sidebar__btn {
   position: fixed;
   z-index: 999;
-  top: calc(50vh - 75px);
+  top: 50vh;
   right: 0;
+  -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+          transform: translate(0, -50%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6200,7 +6208,6 @@ textarea {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 150px;
   width: 40px;
   padding: 10px;
   color: #479cd3;
@@ -6216,9 +6223,6 @@ textarea {
 }
 
 .slide-sidebar__btn span {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 14px;
-          flex: 0 0 14px;
   margin: 14px 0;
   line-height: 20px;
   font-size: 16px;
@@ -6227,6 +6231,7 @@ textarea {
   -webkit-writing-mode: vertical-rl;
       -ms-writing-mode: tb-rl;
           writing-mode: vertical-rl;
+  white-space: nowrap;
 }
 
 .slide-sidebar__btn svg {
@@ -6237,11 +6242,6 @@ textarea {
   -webkit-transition: all 0.4s ease;
   -o-transition: all 0.4s ease;
   transition: all 0.4s ease;
-}
-
-.last-changes {
-  min-width: calc(100vw - 60px - 30px);
-  width: calc(100vw - 60px - 30px);
 }
 
 .last-changes__title {
@@ -6881,7 +6881,7 @@ body.loader:before {
     transition: all 0.4s ease;
   }
 
-  .last-changes {
+  .slide-sidebar__content-inner {
     min-width: 300px;
     width: 300px;
   }
