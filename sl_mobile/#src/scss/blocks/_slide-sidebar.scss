@@ -1,6 +1,6 @@
 .slide-sidebar {
     $delta: 60px;
-    $time: 0.4s;
+    $time: .4s;
 
     position: absolute;
     z-index: 9;
@@ -46,12 +46,13 @@
         }
 
         .slide-sidebar__banner,
+        .slide-sidebar__title,
         .slide-sidebar__content {
-            width: calc(100vw - $delta - 30px);
+            width: calc(100vw - $delta - 32px);
             transition: all $time ease;
         }
 
-        .slide-sidebar__btn {
+        .slide-sidebar__slide-btn {
             right: calc(100vw - $delta - 1px);
             svg {
                 transform: scaleX(1);
@@ -67,42 +68,56 @@
             }
 
             .slide-sidebar__banner,
+            .slide-sidebar__title,
             .slide-sidebar__content {
-                width: 300px;
+                width: 298px;
             }
 
-            .slide-sidebar__btn {
+            .slide-sidebar__slide-btn {
                 right: 329px;
                 svg {
-                    transform: scaleX(1);
+                    transform: scaleX(1) rotate(-90deg);
                     transition: all $time ease;
                 }
             }
         }
+
+        @media (min-width: 1530px) {
+
+            .slide-sidebar__banner,
+            .slide-sidebar__title,
+            .slide-sidebar__content {
+                width: 300px;
+            }
+        }
     }
 
-    @media (min-width: 1500px) {
-        width: 300px;
+    @media (min-width: 1530px) {
+        width: 315px;
+        padding: 15px 15px 0 0;
+
         &,
         &--opened {
-            width: 300px;
-            padding: 15px 0 0;
+            width: 315px;
+            padding: 15px 15px 0 0;
             background: none;
             border: none;
             box-shadow: none;
 
             .slide-sidebar__banner,
+            .slide-sidebar__title,
             .slide-sidebar__content {
                 width: 300px;
             }
         }
 
-        .slide-sidebar__btn {
+        .slide-sidebar__slide-btn {
             display: none;
         }
     }
 
     &__banner,
+    &__title, 
     &__content {
         transition: all $time ease;
         overflow: hidden;
@@ -114,21 +129,46 @@
         width: 100%;
         height: auto;
         margin-bottom: 15px;
-        // стили для демотстрации
-        background: rgb(174, 247, 241);
-        height: 600px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-transform: uppercase;
+    }
+
+    // .slide-sidebar__title-wrap
+    &__title-wrap {
+        position: sticky;
+        top: 15px;
+        margin: 0 0 20px;
+        overflow: hidden;
+    }
+
+    // .slide-sidebar__title
+    &__title {
+        display: block;  
+        line-height: 24px;
+        letter-spacing: 0.0125em;
+        white-space: nowrap;
+    }
+
+	// .slide-sidebar__title-text
+    &__title-text {
+        margin: 0;
+        font-weight: 500;
+        font-size: 20px;
+        color: #424242;
+    }
+
+	// .slide-sidebar__title-hint
+    &__title-hint {
+        font-size: 15px;
+        color: #929292;
+        font-weight: 400;
     }
 
     // .slide-sidebar__inner
     &__inner {
         position: sticky;
-        top: 15px;
-        height: calc(100vh - 15px);
+        top: 83px;
+        height: calc(100vh - 98px);
         overflow-y: auto;
+        overflow-x: hidden;
 
         /* Работает в Chrome, Edge и Safari */
         &::-webkit-scrollbar {
@@ -136,6 +176,10 @@
         }
         /* Работает в Firefox */
         scrollbar-width: none;
+
+        &--radius {
+            border-radius: 10px;
+        }
     }
 
     // .slide-sidebar__content
@@ -143,18 +187,36 @@
     }
 
     // .slide-sidebar__content-inner
+    &__title,
     &__content-inner {
-        min-width: calc(100vw - $delta - 30px);
-        width: calc(100vw - $delta - 30px);
+        min-width: calc(100vw - $delta - 32px);
+        width: calc(100vw - $delta - 32px);
 
         @media (min-width: $md4 + px) {
+            min-width: 298px;
+            width: 298px;
+        }
+
+        @media (min-width: 1530px) {
             min-width: 300px;
             width: 300px;
         }
     }
 
+    // .slide-sidebar__item 
+    &__item {
+        margin: 0 0 20px; 
+    }
+
     // .slide-sidebar__btn
     &__btn {
+        border-radius: 10px;
+        height: 44px;
+        width: 100%;
+    }
+
+    // .slide-sidebar__slide-btn
+    &__slide-btn {
         position: fixed;
         z-index: 999;
         top: 50vh;
@@ -164,9 +226,8 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        // height: 150px;
         width: 40px;
-        padding: 10px;
+        padding: 10px 10px 13px; 
         color: $blue-btn;
         background: #fff;
         border: solid rgba(11, 84, 131, 0.34);
@@ -176,11 +237,11 @@
         transition: all $time ease;
 
         span {
-            margin: 14px 0;
             line-height: 20px;
             font-size: 16px;
             font-weight: 500;
             letter-spacing: 0.0125em;
+            transform: rotate(180deg);
             //word-break: break-all;
             writing-mode: vertical-rl;
             white-space: nowrap;
@@ -188,10 +249,12 @@
         }
 
         svg {
-            //fill: $blue-btn;
+            margin-bottom: 8px;
+            fill: $blue-btn;
             stroke: $blue-btn;
-            transform: scaleX(-1);
+            transform: scaleX(-1) rotate(-90deg);
             transition: all $time ease;
         }
     }
 }
+
