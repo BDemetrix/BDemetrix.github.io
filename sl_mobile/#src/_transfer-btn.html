@@ -1,0 +1,24 @@
+<!-- Для кнопки "Старая версия" добавить модиикатор transfer-btn--to-new -->
+<button class="transfer-btn transfer-btn--to-old">Старая версия</button>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const transferBtnToNew = document.querySelector('.transfer-btn--to-old');
+        if (!transferBtnToNew) return;
+        
+        const top = 70;
+        const delta = 10
+        const getTop = () => {
+            const y = top - window.scrollY;
+            return y - delta >= 0 ? y + 'px' : delta + 'px'
+        }
+
+        console.log(getTop())
+        transferBtnToNew.style.top = getTop();
+
+        window.addEventListener('scroll', () => {
+            console.log(getTop())
+            transferBtnToNew.style.top = getTop();
+        })
+    })
+</script>

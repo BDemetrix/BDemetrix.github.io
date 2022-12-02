@@ -53,6 +53,9 @@ button::-moz-focus-inner {
 	padding: 0;
 	border: 0;
 }
+a {
+    word-break: break-all;
+}
 a,
 a:visited {
 	text-decoration: none;

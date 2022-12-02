@@ -1,0 +1,38 @@
+.transfer-btn {
+    position: fixed;
+    z-index: 0;
+    top: 10px;
+    left: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 135px;
+    height: 34px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #ffffff;
+    line-height: 20px;
+    background: $blue-btn;
+    box-shadow: 0px 2px 4px rgba(11, 84, 131, 0.3);
+    border-radius: 6px;
+    white-space: nowrap;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+
+    &--to-new {
+        @media (min-width: 1414px) {
+            z-index: 3;
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &--to-old {
+        @media (min-width: 1100px) {
+            z-index: 3;
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
