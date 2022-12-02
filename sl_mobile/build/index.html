@@ -2512,11 +2512,9 @@
             return y - delta >= 0 ? y + 'px' : delta + 'px'
         }
 
-        console.log(getTop())
         transferBtnToNew.style.top = getTop();
 
         window.addEventListener('scroll', () => {
-            console.log(getTop())
             transferBtnToNew.style.top = getTop();
         })
     })
