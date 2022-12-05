@@ -129,6 +129,12 @@
         width: 100%;
         height: auto;
         margin-bottom: 15px;
+
+        div,
+        iframe {
+            max-width: 300px;
+            margin: 0 auto;
+        }
     }
 
     // .slide-sidebar__title-wrap

@@ -6162,6 +6162,12 @@ textarea {
   margin-bottom: 15px;
 }
 
+.slide-sidebar__banner div,
+.slide-sidebar__banner iframe {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
 .slide-sidebar__title-wrap {
   position: sticky;
   top: 15px;
@@ -7526,6 +7532,10 @@ body.loader:before {
 }
 
 @media (min-width: 1530px) {
+  .main__forums-slider {
+    display: none;
+  }
+
   .slide-sidebar--opened .slide-sidebar__banner,
   .slide-sidebar--opened .slide-sidebar__title,
   .slide-sidebar--opened .slide-sidebar__content {
