@@ -125,6 +125,7 @@
 
     // .slide-sidebar__banner
     &__banner {
+        display: none;
         max-width: 100%;
         width: 100%;
         height: auto;
@@ -134,6 +135,10 @@
         iframe {
             max-width: 300px;
             margin: 0 auto;
+        }
+
+        @media (min-width: $md3 + px) {
+            display: block;
         }
     }
 
@@ -225,10 +230,9 @@
     &__slide-btn {
         position: fixed;
         z-index: 999;
-        top: 50vh;
+        bottom: 20px;
         right: 0;
-        transform: translate(0, -50%);
-        display: flex;
+        display: inline-flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -260,6 +264,12 @@
             stroke: $blue-btn;
             transform: scaleX(-1) rotate(-90deg);
             transition: all $time ease;
+        }
+
+        @media (min-width: $md3 + px) {
+            top: 50vh;
+            bottom: auto;
+            transform: translate(0, -50%);
         }
     }
 }

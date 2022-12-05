@@ -6156,6 +6156,7 @@ textarea {
 }
 
 .slide-sidebar__banner {
+  display: none;
   max-width: 100%;
   width: 100%;
   height: auto;
@@ -6233,14 +6234,11 @@ textarea {
 .slide-sidebar__slide-btn {
   position: fixed;
   z-index: 999;
-  top: 50vh;
+  bottom: 20px;
   right: 0;
-  -webkit-transform: translate(0, -50%);
-      -ms-transform: translate(0, -50%);
-          transform: translate(0, -50%);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -6425,7 +6423,7 @@ textarea {
 }
 
 .short-comment__link {
-  display: none;
+  display: block;
   border-radius: 10px;
   position: absolute;
   z-index: 2;
@@ -7155,6 +7153,18 @@ body.loader:before {
 
   .fn-tag {
     padding: 4px 13px;
+  }
+
+  .slide-sidebar__banner {
+    display: block;
+  }
+
+  .slide-sidebar__slide-btn {
+    top: 50vh;
+    bottom: auto;
+    -webkit-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+            transform: translate(0, -50%);
   }
 }
 
