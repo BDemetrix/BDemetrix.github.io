@@ -3420,7 +3420,7 @@ textarea {
   color: #0b5483;
   font-weight: 800;
   font-size: 22px;
-  line-height: 28px;
+  line-height: 130%;
 }
 
 .post-card__title--blog,
@@ -3440,7 +3440,7 @@ textarea {
   width: 100%;
   margin-bottom: 24px;
   font-size: 14px;
-  line-height: 22px;
+  line-height: 150%;
   color: #312c26;
   word-break: break-word;
 }
@@ -7041,7 +7041,6 @@ body.loader:before {
   .post-card__title {
     color: #424242;
     font-size: 28px;
-    line-height: 34px;
     font-weight: bold;
   }
 
