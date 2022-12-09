@@ -3086,10 +3086,6 @@ textarea {
           user-select: none;
 }
 
-.sections-box--news {
-  padding-top: 4px;
-}
-
 .sections-box--news .sections-box__item a {
   text-transform: uppercase;
   font-weight: 400;
@@ -3137,6 +3133,8 @@ textarea {
   padding: 14px 0;
   text-decoration: none;
   color: #585858;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .sections-box__item a:hover,
@@ -3166,15 +3164,18 @@ textarea {
 .sections-box__item--premium a svg {
   position: absolute;
   left: 0;
-  top: 12px;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+          transform: translate(0, -50%);
 }
 
-.sections-box__item._active a {
+.sections-box__item--active a {
   color: #000;
   pointer-events: none;
 }
 
-.sections-box__item._active a::before {
+.sections-box__item--active a::before {
   content: "";
 }
 

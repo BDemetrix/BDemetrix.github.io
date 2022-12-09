@@ -10,7 +10,7 @@
     user-select: none;
 
     &--news {
-        padding-top: 4px;
+       //padding-top: 4px;
 
         .sections-box__item {
             a {
@@ -71,7 +71,8 @@
             padding: 14px 0;
             text-decoration: none;
             color: #585858;
-            //font-weight: 500;
+            font-size: 14px;
+            font-weight: 500;
 
             &:hover,
             &:active {
@@ -101,12 +102,13 @@
                 svg {
                     position: absolute;
                     left: 0;
-                    top: 12px;
+                    top: 50%;
+                    transform: translate(0, -50%);
                 }
             }
         }
 
-        &._active {
+        &--active {
             a {
                 color: #000;
                 pointer-events: none;
