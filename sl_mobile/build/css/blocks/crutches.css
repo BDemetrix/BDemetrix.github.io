@@ -23,10 +23,6 @@
   background: #008243;
 }
 
-.post-card__btns-count + .post-card__btn {
-  display: none;
-}
-
 body.loader {
   overflow: hidden;
 }

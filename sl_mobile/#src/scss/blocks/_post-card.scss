@@ -401,14 +401,19 @@
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        padding: 0 10px;
         border-top: 1px solid #e0e0e0;
     }
-    // .post-card__btns-wrap
-    &__btns-wrap {
+
+    // .post-card__btn
+    &__btn {
         display: inline-flex;
         align-items: center;
+        justify-content: center;
+        min-width: 40px;
+        height: 40px;
         margin-right: 16px;
+        background: none;
+        border: 0;
 
         &:last-child {
             margin-right: 0;
@@ -417,25 +422,24 @@
         &--left {
             justify-self: flex-start;
             margin-right: auto;
+            pointer-events: none;
+        }
+
+        &--simple {
+            margin-right: 20px;
+        }
+
+        svg {
+            flex-shrink: 0;
         }
     }
 
-    // .post-card__btns-count
+        // .post-card__btns-count
     &__btns-count {
-        margin-left: -6px;
+        margin: 0 6px;
         font-size: 12px;
         line-height: 20px;
         color: #808080;
-    }
-    // .post-card__btn
-    &__btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        background: none;
-        border: 0;
     }
 
     // .post-card__link

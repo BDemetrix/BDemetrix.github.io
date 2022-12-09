@@ -385,45 +385,46 @@
         </div>
     </div>
     <div class="post-card__footer">
-        <div class="post-card__btns-wrap  post-card__btns-wrap--left">
-            <span class="post-card__btns-count">1K</span>
-            <button class="post-card__btn" type="button">
-                <svg width="20" height="20">
-                    <use xlink:href="images/icons/post-card/sprite.svg#views"></use>
-                </svg>
-            </button>
-        </div>
-        <div class="post-card__btns-wrap">
-            <!-- кнопка с классом `js-pop-up-opener` открывает поп-ап с id, который указан в атрибуте `data-target-id` кнопки -->
-            <button class="post-card__btn js-pop-up-opener" type="button" data-target-id="moderation-pop-up">
-                <svg width="20" height="20">
-                    <use xlink:href="images/icons/post-card/sprite.svg#moderation"></use>
-                </svg>
-            </button>
-        </div>
-        <div class="post-card__btns-wrap">
-            <button class="post-card__btn" type="button">
-                <svg width="19" height="18">
-                    <use xlink:href="images/icons/post-card/sprite.svg#star"></use>
-                </svg>
-            </button>
-            <span class="post-card__btns-count">4</span>
-        </div>
-        <div class="post-card__btns-wrap">
-            <button class="post-card__btn" type="button">
-                <svg width="17" height="16">
-                    <use xlink:href="images/icons/post-card/sprite.svg#chat"></use>
-                </svg>
-            </button>
-            <span class="post-card__btns-count">306</span>
-        </div>
-        <div class="post-card__btns-wrap">
-            <button class="post-card__btn" type="button">
-                <svg width="18" height="17">
-                    <use xlink:href="images/icons/post-card/sprite.svg#heart"></use>
-                </svg>
-            </button>
+        <button class="post-card__btn post-card__btn--left" type="button">
+            <span class="post-card__btns-count">3K</span>
+            <svg width="20" height="20">
+                <use xlink:href="images/icons/post-card/sprite.svg#views"></use>
+            </svg>
+        </button>
+        <!-- кнопка с классом `js-pop-up-opener` открывает поп-ап с id, который указан в атрибуте `data-target-id` кнопки -->
+        <button class="post-card__btn post-card__btn--simple js-pop-up-opener" type="button"
+            data-target-id="moderation-pop-up">
+            <svg width="20" height="20">
+                <use xlink:href="images/icons/post-card/sprite.svg#moderation"></use>
+            </svg>
+        </button>
+        <button class="post-card__btn" type="button">
+            <!--
+                    Варианты 
+                     <use xlink:href="images/icons/post-card/sprite.svg#star"></use>
+                     <use xlink:href="images/icons/post-card/sprite.svg#star-gold"></use>
+                -->
+            <svg width="19" height="18">
+                <use xlink:href="images/icons/post-card/sprite.svg#star"></use>
+            </svg>
+            <span class="post-card__btns-count">69</span>
+        </button>
+        <button class="post-card__btn" type="button">
+            <svg width="17" height="16">
+                <use xlink:href="images/icons/post-card/sprite.svg#chat"></use>
+            </svg>
+            <span class="post-card__btns-count">36</span>
+        </button>
+        <button class="post-card__btn " type="button">
+            <!--
+                    Варианты 
+                     <use xlink:href="images/icons/post-card/sprite.svg#heart"></use>
+                     <use xlink:href="images/icons/post-card/sprite.svg#heart-red"></use>
+                -->
+            <svg width="18" height="17">
+                <use xlink:href="images/icons/post-card/sprite.svg#heart"></use>
+            </svg>
             <span class="post-card__btns-count">150</span>
-        </div>
+        </button>
     </div>
 </section>

@@ -3703,34 +3703,7 @@ textarea {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  padding: 0 10px;
   border-top: 1px solid #e0e0e0;
-}
-
-.post-card__btns-wrap {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-right: 16px;
-}
-
-.post-card__btns-wrap:last-child {
-  margin-right: 0;
-}
-
-.post-card__btns-wrap--left {
-  justify-self: flex-start;
-  margin-right: auto;
-}
-
-.post-card__btns-count {
-  margin-left: -6px;
-  font-size: 12px;
-  line-height: 20px;
-  color: #808080;
 }
 
 .post-card__btn {
@@ -3743,10 +3716,37 @@ textarea {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 40px;
+  min-width: 40px;
   height: 40px;
+  margin-right: 16px;
   background: none;
   border: 0;
+}
+
+.post-card__btn:last-child {
+  margin-right: 0;
+}
+
+.post-card__btn--left {
+  justify-self: flex-start;
+  margin-right: auto;
+  pointer-events: none;
+}
+
+.post-card__btn--simple {
+  margin-right: 20px;
+}
+
+.post-card__btn svg {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.post-card__btns-count {
+  margin: 0 6px;
+  font-size: 12px;
+  line-height: 20px;
+  color: #808080;
 }
 
 .post-card__link {
@@ -6623,10 +6623,6 @@ textarea {
 .post-card__subscribe.favorited,
 .user-info__subscrib-btn.favorited {
   background: #008243;
-}
-
-.post-card__btns-count + .post-card__btn {
-  display: none;
 }
 
 body.loader {
