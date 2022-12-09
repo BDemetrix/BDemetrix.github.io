@@ -76,9 +76,10 @@ picture {
 //<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
 @import "./plugins/simplebar";
 @import "./plugins/bootstrap-datepicker";
+//@import "./plugins/swiper";
 
 //@import "./plugins/jBox.all";  // Может испортить верстку
-@import "./blocks/_custom-swiper";
+@import "./blocks/_custom-swiper"; // Минимальные и необходимые стили для слайдера swiper
 @import "./blocks/_header";
 @import "./blocks/_main";
 @import "./blocks/_search-block";

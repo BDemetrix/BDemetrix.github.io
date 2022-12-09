@@ -76,10 +76,12 @@
 
 	// .main__sections-box
 	&__sections-box {
-		margin-top: 18px;
+		width: 100%;
+		margin-top: 4px;
+		padding: 0 8px;
 		
 		&--main {
-			margin-top: 7px;
+			margin-top: -7px;
 		} 
 	}
 

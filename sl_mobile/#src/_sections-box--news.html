@@ -1,20 +1,32 @@
-<nav class="sections-box sections-box--news swiper">
-    <!-- Additional required wrapper -->
-    <ul class="sections-box__wrap swiper-wrapper">
-        <!-- Slides -->
-        <li class="sections-box__slide sections-box__slide--active swiper-slide"><a href="#">Все блоги</a></li>
-        <li class="sections-box__slide swiper-slide"><a href="#">Торговые сигналы</a></li>
-        <li class="sections-box__slide swiper-slide"><a href="#">Новости акций</a></li>
-        <li class="sections-box__slide swiper-slide"><a href="#">Раскрытие информации</a></li>
-        <li class="sections-box__slide sections-box__slide--premium swiper-slide"><a href="#">
-            <svg width="20" height="20">
-                <use xlink:href="images/icons/post-card/sprite.svg#premium-ring"></use>
-            </svg>
-            Premium
-        </a></li>
-    </ul>
+<!-- 
+  * Класс _loading для того, чтобы стили не прыгали, пока слайдер не подключился
+  * Элементу li с текущей ссылкой присваивается класс _active по которому она меняет свой стиль и становится не активной 
+-->
+<nav class="sections-box sections-box--news _loading">
+    <div class="sections-box__swiper swiper">
+        <ul class="sections-box__list swiper-wrapper">
+            <!-- Slides -->
+            <li class="sections-box__item _active swiper-slide"><a href="#">Все блоги</a></li>
+            <li class="sections-box__item swiper-slide"><a href="#">Торговые сигналы</a></li>
+            <li class="sections-box__item swiper-slide"><a href="#">Новости акций</a></li>
+            <li class="sections-box__item swiper-slide"><a href="#">Раскрытие информации</a></li>
+            <li class="sections-box__item sections-box__item--premium swiper-slide"><a href="#">
+                    <svg width="20" height="20">
+                        <use xlink:href="images/icons/post-card/sprite.svg#premium-ring"></use>
+                    </svg>
+                    Premium
+                </a></li>
+        </ul>
+    </div>
 
-    <!-- If we need navigation buttons -->
-    <!-- <div class="sections-box__prev swiper-button-prev"></div>
-    <div class="sections-box__next swiper-button-next"></div> -->
+    <div class="sections-box__prev">
+        <svg>
+            <use xlink:href="images/symbol/sprite.svg#ic_spoller_arrow"></use>
+        </svg>
+    </div>
+    <div class="sections-box__next">
+        <svg>
+            <use xlink:href="images/symbol/sprite.svg#ic_spoller_arrow"></use>
+        </svg>
+    </div>
 </nav>
