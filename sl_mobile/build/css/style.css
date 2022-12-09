@@ -3730,7 +3730,6 @@ textarea {
 .post-card__btn--left {
   justify-self: flex-start;
   margin-right: auto;
-  pointer-events: none;
 }
 
 .post-card__btn--simple {
