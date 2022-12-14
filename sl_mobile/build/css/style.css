@@ -4844,11 +4844,11 @@ textarea {
   margin-top: 30px;
 }
 
-.footer--premium {
+.footer--no-banners {
   margin-top: 0;
 }
 
-.footer--premium .footer__banners {
+.footer--no-banners .footer__banners {
   display: none;
 }
 
@@ -6700,6 +6700,7 @@ textarea {
       -ms-flex-pack: center;
           justify-content: center;
   min-height: calc(100vh - 80px);
+  margin-bottom: 10px;
   padding: 40px 10px;
   background: #fff;
   border-radius: 8px 8px;
