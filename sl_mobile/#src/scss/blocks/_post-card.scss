@@ -247,7 +247,8 @@
     &__title {
         margin: 0 0 7px;
         letter-spacing: 0.0125em;
-        color: #0b5483;
+        //color: #0b5483;
+        color: #312c26;
         font-weight: 800;
         font-size: 22px;
         line-height: 130%;
@@ -263,7 +264,7 @@
         }
 
         @media (min-width: $md3 + px) {
-            color: #424242;
+            //color: #424242;
             font-size: 28px;
             font-weight: bold;
         }

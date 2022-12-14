@@ -2,62 +2,70 @@
 <html lang="ru">
 @@include('_head.html',{
 "title":"ВХОД",
-"stylesheet": "./css/blocks/register-page.min.css"
+"stylesheet": "./css/style.css"
 })
 
-<body class="login register-page">
-    <div class="register-page__wrap">
-        <div class="register-page__logo">
-            <a href="/">
-                Smart-Lab.ru
-            </a>
-        </div>
-    
-        <form class="register-page__form" autocomplete="off" action="/login/" method="POST">
-            <h4 class="register-page__form-title">Авторизация</h4>
-            <!-- Если поле input-field заполнено с ошибкой, ему добавляется класс has-error -->
-            <div class="input-field">
-                <div>
-                    <label for="input_login">Логин или эл. почта</label>
-                    <a href="/registration/">Регистрация</a>
-                </div>
-                <input type="text" name="login" id="input_login" placeholder="Ваш логин или EMail" tabindex="1">
+<body class="">
+    <!-- классы ._style-1 , ._style-2 и ._style-3 используются для стилизации двух видов шаблонов 
+		Например: при body._style-1 Логотип имеет один цвет, а при body._style-2 и ._style-3 - другой
+		._style-1 для smart-lab.ru
+		._style-2 для smart-lab.ru/q/
+		._style-3 для smart-lab.ru/forum/
+		-->
+    <div class="wrapper">
+        @@include('_header.html',{"Class": "_container"})
+        <main class="main _mobile-container">
+            <div class="login">
+                <form class="login__form" autocomplete="off" action="/login/" method="POST">
+                    <h2 class="login__title">Вход</h2>
+                    <!-- Класс input-wrapper и custom-input - общая для всех страниц стилизация инпутов. Смотри README -->
+                    <div class="login__row input-wrapper input-wrapper--left">
+                        <input type="text" class="custom-input" placeholder="Логин или Email">
+                        <svg width="20" height="20">
+                            <use xlink:href="images/icons/login/sprite.svg#user"></use>
+                        </svg>
+                    </div>
+                    <div class="login__row input-wrapper input-wrapper--left">
+                        <input type="password" class="custom-input" placeholder="Пароль">
+                        <svg width="20" height="20">
+                            <use xlink:href="images/icons/login/sprite.svg#password"></use>
+                        </svg>
+                    </div>
+
+
+                    <div class="login__row">
+                        <label class="login__remember custom-checkbox">
+                            <input type="checkbox" class="custom-checkbox__input" checked>
+                            <span class="custom-checkbox__text">Запомнить</span>
+                        </label>
+                        <a href="/login/reminder/" class="login__remind">Напомнить пароль</a> 
+                    </div>
+                    <button class="login__submit blue-btn" type="submit">Войти</button>
+                    <div class="login__row">
+                        <div class="login__to-registration">
+                            Нет аккаунта? 
+                           <a href="/registration/">Зарегистрироваться</a>
+                        </div>
+                    </div>
+                    <div class="login__row social-login">
+                        <div class="social-login__title">Войти через:</div>
+                        <div class="social-login__btns">
+                            <a href="/" class="social-login__btn social-login__btn--vk">
+                                <svg width="26" height="14">
+                                    <use xlink:href="images/icons/login/sprite.svg#vk"></use>
+                                </svg> 
+                                ВК
+                            </a>
+                            <a href="/" class="social-login__btn social-login__btn--google">
+                                <svg width="31" height="30">
+                                    <use xlink:href="images/icons/login/sprite.svg#google"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="input-field">
-                <div>
-                    <label for="input_password">Пароль</label>
-                    <a href="/login/reminder/">Напомнить пароль</a>
-                </div>
-                <input type="password" name="password" id="input_password" placeholder="Ваш пароль" tabindex="2">
-            </div>
-            <div class="input-field input-field__checkbox ">
-                <input type="checkbox" name="remember" id="input_remember" checked="" tabindex="3">
-                <label for="input_remember">Запомнить меня</label>
-            </div>
-            <h4 class="register-page__form-title register-page__form-title--social">через Соцсети:</h4>
-            <div class="chat_login">
-                <a class="chat_login__item chat_login__item--vk">
-                    <svg width="40" height="40">
-                        <use xlink:href="./images/icons/login/sprite.svg#vk"></use>
-                    </svg>
-                    <span>ВКонтакте</span>
-                </a>
-                <a class="chat_login__item chat_login__item--fb">
-                    <svg width="40" height="40">
-                        <use xlink:href="./images/icons/login/sprite.svg#fb"></use>
-                    </svg>
-                    <span>Facebook</span>
-                </a>
-                <a class="chat_login__item chat_login__item--gl">
-                    <svg width="28" height="28">
-                        <use xlink:href="./images/icons/login/sprite.svg#google"></use>
-                    </svg>
-                    <span>Google</span>
-                </a>
-            </div>
-            <div class="input-field input-field__button">
-                <button type="submit" name="submit_login" tabindex="4" value="1">Войти</button>
-            </div>
-        </form>
+            @@include('_footer_mob.html',{'Class': 'footer--mt-none'})
+        </main>
     </div>
-</body> 
+</body>

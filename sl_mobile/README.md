@@ -142,3 +142,5 @@ scss/base/global.scss и js/files/common.js, Открывается при на�
 	<button class="add-form__submit-btn" type="submit">Отправить</button>
 </form>
 ```
+
+13)  Класс input-wrapper и custom-input - общая для всех страниц стилизация инпутов
