@@ -4882,6 +4882,10 @@ textarea {
   margin: 0;
 }
 
+.footer__banner a {
+  word-break: keep-all;
+}
+
 .footer__banner-best,
 .footer__banner-choice {
   display: -webkit-box;

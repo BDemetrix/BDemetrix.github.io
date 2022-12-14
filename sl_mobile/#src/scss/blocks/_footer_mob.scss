@@ -38,6 +38,9 @@
     &:last-child {
       margin: 0;
     }
+    a {
+      word-break: keep-all;
+    }
     @media (min-width: $md3 + px) {
       margin: 0;
     }
