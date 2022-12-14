@@ -143,4 +143,19 @@ scss/base/global.scss и js/files/common.js, Открывается при на�
 </form>
 ```
 
-13)  Класс input-wrapper и custom-input - общая для всех страниц стилизация инпутов
+13)  Класс input-wrapper и custom-input - общая для всех страниц стилизация инпутов 
+Стили в base/global.scss
+
+структура:
+```
+<div class="any-class input-wrapper input-wrapper--left">
+    <input type="text" class="custom-input" placeholder="Логин или Email">
+    <svg width="20" height="20">
+        <use xlink:href="images/icons/login/sprite.svg#user"></use>
+    </svg>
+</div>
+```
+где any-class - микс-класс для дополнительной стилизации для изменения стилей конкретного инпута (отступы, цвет...),
+модификаторы:
+input-wrapper--left - иконка слева
+input-wrapper--right - иконка справа
