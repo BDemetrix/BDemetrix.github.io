@@ -58,15 +58,21 @@
         white-space: nowrap;
         transition: all $t * 0.5 ease;
 
+        &:first-child {
+            a {
+                margin-left: 0;
+            }
+        }
+
         &:last-child {
             a {
-                margin-right: 0;
+                margin-right: 40px;
             }
         }
 
         a {
             position: relative;
-            margin-right: 40px;
+            margin-left: 40px;
             display: inline-block;
             padding: 14px 0;
             text-decoration: none;
@@ -136,7 +142,7 @@
             position: absolute;
             top: 0;
             bottom: 0;
-            width: 200%;
+            width: 45px;
         }
 
         svg {

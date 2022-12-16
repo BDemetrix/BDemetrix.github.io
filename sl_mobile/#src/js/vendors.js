@@ -2,6 +2,6 @@
 @@include('libs/jquery.autocomplete.js', {})
 @@include('libs/jquery.jBox.all.js', {})
 @@include('libs/simplebar.js', {})
-@@include('libs/swiper.min.js', {})
+@@include('libs/swiper-bundle.min.js', {})
 @@include('libs/bootstrap-datepicker.js', {})
 @@include('libs/jquery.autocomplete.js', {})

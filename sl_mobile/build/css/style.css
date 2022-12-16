@@ -3212,13 +3212,17 @@ textarea {
   transition: all 0.15s ease;
 }
 
+.sections-box__item:first-child a {
+  margin-left: 0;
+}
+
 .sections-box__item:last-child a {
-  margin-right: 0;
+  margin-right: 40px;
 }
 
 .sections-box__item a {
   position: relative;
-  margin-right: 40px;
+  margin-left: 40px;
   display: inline-block;
   padding: 14px 0;
   text-decoration: none;
@@ -3294,7 +3298,7 @@ textarea {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 200%;
+  width: 45px;
 }
 
 .sections-box__prev svg,
