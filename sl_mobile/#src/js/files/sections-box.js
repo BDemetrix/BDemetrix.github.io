@@ -5,10 +5,7 @@ if (selectorLinks) {
     selectorLinks.parentElement.classList.remove('_loading');
     const sectionsItems = Array.from(selectorLinks.querySelectorAll('.sections-box__item'));
     const activeIndex = sectionsItems.findIndex(item => item.classList.contains('sections-box__item--active'));
-    console.log(sectionsItems);
-    console.log({
-        activeIndex
-    })
+
     const selectorLinksSlider = new Swiper(selectorLinks, {
         slidesPerView: 'auto',
         watchOverflow: true,
@@ -29,6 +26,7 @@ if (selectorLinks) {
 
     sectionsItems.forEach((item, i, arr) => {
         item.addEventListener('click', () => {
+            console.log("sectionsItems.click")
             arr.forEach(el => {
                 el.classList.remove('sections-box__item--active')
             });
