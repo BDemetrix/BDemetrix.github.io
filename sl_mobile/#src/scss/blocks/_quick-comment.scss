@@ -1,0 +1,115 @@
+.quick-comment {
+    $t: 0.4s;
+    position: fixed;
+    z-index: 999;
+    bottom: 0;
+
+    &--visible {
+        .quick-comment__btn { 
+            opacity: 0;
+            visibility: hidden;
+            transition: all .2*$t ease;
+        }
+        .quick-comment__cover {
+            opacity: 0.65;
+            visibility: visible;
+            height: 100%;
+            transition: all .3*$t ease;
+        }
+        .quick-comment__body {
+            transform: translate(0, 0);
+        }
+    }
+
+    @media (min-width: $md3 + px) {
+        display: none;
+    }
+
+    &__btn,
+    &__cover,
+    &__body {
+        position: fixed;
+    }
+
+    &__cover,
+    &__body,
+    &__send {
+        transition: all $t ease;
+    }
+
+    &__btn,
+    &__send {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    // .quick-comment__btn
+    &__btn {
+        right: 15px;
+        bottom: 15px;
+        width: 58px;
+        height: 58px;
+        background: #479cd3;
+        border-radius: 50%;
+        transition: all $t ease 2*$t;
+    }
+    // .quick-comment__cover
+    &__cover {
+        right: 0;
+        left: 0;
+        bottom: 0;
+        height: 0;
+        opacity: 0;
+        visibility: hidden;
+        background: #000;
+        opacity: 0;
+    }
+    // .quick-comment__body
+    &__body {
+        display: flex;
+        width: 100%;
+        bottom: 0;
+        padding: 10px 40px 10px 10px;
+        transform: translate(0, 110%);
+        background: #fff;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.6);
+    }
+    // .quick-comment__text
+    &__text {
+        display: flex;
+        width: 100%;
+        height: 20px;
+        font-size: 14px;
+        line-height: 20px;
+        color: inherit;
+        resize: none;
+        max-height: 50vh;
+
+        &:required {
+            // not empty
+            & ~ .quick-comment__send {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+        &:invalid {
+            & ~ .quick-comment__send {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+    }
+    // .quick-comment__send
+    &__send {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 40px;
+        height: 40px;
+        margin: 0;
+        padding: 0;
+        background: #fff;
+    }
+}

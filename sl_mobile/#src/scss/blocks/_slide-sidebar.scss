@@ -34,6 +34,12 @@
         transition: all $time ease;
     }
 
+    &--not-on-mobile {
+        @media (max-width: $md3 + px) {
+            display: none;
+        }
+    }
+
     &--opened {
         width: calc(100vw - $delta);
         padding: 15px 15px 0;
