@@ -931,11 +931,12 @@ function jBoxNotice(color, title, message) {
     });
 
     cover.addEventListener('click', () => {
-        quickComment.classList.remove('quick-comment--visible');
+        quickComment.classList.remove('quick-comment--visible', '_open');
+        unBlockOverflow();
     });
 
     send.addEventListener('click', () => {
-        quickComment.classList.remove('quick-comment--visible');
+        quickComment.classList.remove('quick-comment--visible', '_open');
         const text = quickComment.querySelector('.quick-comment__text');
         text.value = '';
         text.style.height = '';
