@@ -630,7 +630,6 @@ if (selectorLinks) {
 
     sectionsItems.forEach((item, i, arr) => {
         item.addEventListener('click', () => {
-            console.log("sectionsItems.click")
             arr.forEach(el => {
                 el.classList.remove('sections-box__item--active')
             });
