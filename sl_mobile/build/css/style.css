@@ -2373,7 +2373,7 @@ textarea {
 }
 
 .main__apps-box {
-  margin-top: 32px;
+  padding: 8px 0;
 }
 
 .main__sections-box {
@@ -2806,10 +2806,11 @@ textarea {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 20%;
-  max-width: 78px;
-  padding: 0 10px;
-  margin-bottom: 32px;
+  width: 25%;
+  max-width: 92px;
+  padding: 0 17px;
+  margin-bottom: 20px;
+  color: #1a5d88;
 }
 
 .apps-box__icon {
@@ -2829,8 +2830,8 @@ textarea {
 .apps-box__title {
   font-size: 14px;
   line-height: 14px;
-  color: #1a5d88;
-  width: 100%;
+  width: calc(100% + 20px);
+  margin: 0 -10px;
   overflow: hidden;
   -o-text-overflow: ellipsis;
      text-overflow: ellipsis;
@@ -7270,13 +7271,13 @@ body.loader:before {
 
 @media (min-width: 392px) {
   .apps-box__item {
-    width: 16.6666666667%;
+    width: 20%;
   }
 }
 
 @media (min-width: 470px) {
   .apps-box__item {
-    width: 14.2857142857%;
+    width: 16.6666666667%;
   }
 }
 
@@ -7343,7 +7344,7 @@ body.loader:before {
 
 @media (min-width: 548px) {
   .apps-box__item {
-    width: 12.5%;
+    width: 14.2857142857%;
   }
 }
 
@@ -7465,7 +7466,7 @@ body.loader:before {
 
 @media (min-width: 626px) {
   .apps-box__item {
-    width: 11.1111111111%;
+    width: 12.5%;
   }
 }
 
@@ -7477,7 +7478,7 @@ body.loader:before {
 
 @media (min-width: 704px) {
   .apps-box__item {
-    width: 10%;
+    width: 11.1111111111%;
   }
 }
 
@@ -7503,6 +7504,10 @@ body.loader:before {
 
   .main__quotes {
     margin-top: 13px;
+  }
+
+  .main__apps-box {
+    padding: 18px 0 0;
   }
 
   .slide-content__tabs-link {

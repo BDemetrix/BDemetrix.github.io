@@ -70,8 +70,11 @@
 
 	// .main__apps-box
 	&__apps-box {
-		margin-top: 32px;
-		//padding: 0 12px;
+		padding: 8px 0;
+
+		@media (min-width: $md3 + px) {
+			padding: 18px 0 0;
+		}
 	}
 
 	// .main__sections-box
