@@ -61,7 +61,7 @@
         .slide-sidebar__slide-btn {
             right: calc(100vw - $delta - 1px);
             svg {
-                transform: scaleX(1);
+                transform: scaleX(1) rotate(-90deg);
                 transition: all $time ease;
             }
         }

@@ -1,3 +1,14 @@
+#### Ссылки на страницы проекта
+1) https://bdemetrix.github.io/sl_mobile/build/
+2) https://bdemetrix.github.io/sl_mobile/build/post.html
+3) https://bdemetrix.github.io/sl_mobile/build/premium-post.html
+4) https://bdemetrix.github.io/sl_mobile/build/blog.html
+5) https://bdemetrix.github.io/sl_mobile/build/news-feed.html
+6) https://bdemetrix.github.io/sl_mobile/build/add-post.html
+7) https://bdemetrix.github.io/sl_mobile/build/login.html
+8) https://bdemetrix.github.io/sl_mobile/build/registration.html
+
+
 #### Исходники в #src:
 
 ./#src/style.scss

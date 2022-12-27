@@ -6370,9 +6370,9 @@ textarea {
 }
 
 .slide-sidebar--opened .slide-sidebar__slide-btn svg {
-  -webkit-transform: scaleX(1);
-      -ms-transform: scaleX(1);
-          transform: scaleX(1);
+  -webkit-transform: scaleX(1) rotate(-90deg);
+      -ms-transform: scaleX(1) rotate(-90deg);
+          transform: scaleX(1) rotate(-90deg);
   -webkit-transition: all 0.4s ease;
   -o-transition: all 0.4s ease;
   transition: all 0.4s ease;
