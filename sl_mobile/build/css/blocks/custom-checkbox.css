@@ -153,3 +153,8 @@
 .custom-checkbox--switch__input:checked:disabled + span::before {
   background: #999999;
 }
+
+.custom-checkbox--switch span,
+.custom-checkbox--switch__text {
+  padding-top: 2px;
+}

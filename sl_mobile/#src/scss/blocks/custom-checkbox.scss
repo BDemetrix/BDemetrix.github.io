@@ -131,5 +131,10 @@
                 }
             }
         }
+
+        span,
+        &__text {
+            padding-top: 2px;
+        }
     }
 }

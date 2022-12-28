@@ -5609,6 +5609,11 @@ textarea {
   background: #999999;
 }
 
+.custom-checkbox--switch span,
+.custom-checkbox--switch__text {
+  padding-top: 2px;
+}
+
 .custom-select {
   font-family: Roboto, Tahoma, "Open Sans", Verdana, sans-serif;
   position: relative;
