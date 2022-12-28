@@ -21,7 +21,12 @@
                 </div>
                 <div class="news-feed__filter nf-filter">
                     <div class="nf-filter__head">
-                        <label class="nf-filter__autoupdate custom-checkbox"
+                        <!-- Для отображени чекбокса в вида тумблера присваивается модификатор custom-checkbox--switch -->
+                        <label class="nf-filter__checkbox custom-checkbox custom-checkbox--switch" title="Включить автообновление 1 раз в минуту">
+                            <input type="checkbox" class="custom-checkbox__input" checked="" tabindex="0">
+                            <span class="custom-checkbox__text">В виде ленты</span>
+                        </label>
+                        <label class="nf-filter__checkbox custom-checkbox"
                             title="Включить автообновление 1 раз в минуту">
                             <input type="checkbox" class="custom-checkbox__input" checked="" tabindex="0">
                             <span class="custom-checkbox__text">Автообновление</span>
