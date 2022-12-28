@@ -510,13 +510,15 @@
 		color: $icon-color;
 		background: $search-input-bg;
 		border: 0px;
-		padding: 10px 0 15px;
+		padding: 10px 0 10px;
 		//transform: translate(0, -2px);
 	}
 	.autocomplete-suggestion {
 		position: relative;
 		padding: 10px 15px;
 		white-space: nowrap;
+		line-height: 20px;
+		margin-bottom: 2px;
 		overflow: hidden;
 
 		&::after {

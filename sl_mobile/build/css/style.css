@@ -1872,13 +1872,15 @@ picture {
   color: #d4d4d4;
   background: #1f1f1f;
   border: 0px;
-  padding: 10px 0 15px;
+  padding: 10px 0 10px;
 }
 
 .query-search .autocomplete-suggestion {
   position: relative;
   padding: 10px 15px;
   white-space: nowrap;
+  line-height: 20px;
+  margin-bottom: 2px;
   overflow: hidden;
 }
 
