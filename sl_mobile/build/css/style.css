@@ -2195,7 +2195,9 @@ picture {
 }
 
 .usermenu__icon:hover .usermenu__icon-arrow {
-  opacity: 1;
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .usermenu__avatar {
@@ -2219,11 +2221,7 @@ picture {
   position: absolute;
   display: block;
   right: 0px;
-  top: calc(50% - 3px);
-  border-top: 6px solid #fff;
-  opacity: 0.5;
-  border-right: 6px solid transparent;
-  border-left: 6px solid transparent;
+  top: calc(50% - 10px);
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
@@ -3698,6 +3696,11 @@ textarea {
   background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#f1f1f1));
   background: -o-linear-gradient(top, transparent, #f1f1f1);
   background: linear-gradient(to bottom, transparent, #f1f1f1);
+}
+
+.post-card__text-more {
+  color: #479cd3;
+  font-weight: 600;
 }
 
 .post-card__video {
@@ -6214,11 +6217,12 @@ textarea {
 .news-card__date {
   width: 50px;
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 50px;
-          flex: 0 0 50px;
+      -ms-flex: 0 0 140px;
+          flex: 0 0 140px;
   -webkit-box-ordinal-group: 4;
       -ms-flex-order: 3;
           order: 3;
+  margin-left: auto;
   font-size: 12px;
   line-height: 20px;
   text-align: right;

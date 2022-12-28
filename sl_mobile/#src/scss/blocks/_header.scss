@@ -812,8 +812,7 @@
 				//box-shadow: 2px 2px 2px #fff;
 			}
 			.usermenu__icon-arrow {
-				opacity: 1;
-				//transform: scale(1.2);
+				transform: scale(1.1);
 			}
 		}
 		@media (min-width: $md5 + px) {
@@ -846,11 +845,7 @@
 		position: absolute;
 		display: block;
 		right: 0px;
-		top: calc(50% - 3px);
-		border-top: 6px solid #fff;
-		opacity: 0.5;
-		border-right: 6px solid transparent;
-		border-left: 6px solid transparent;
+		top: calc(50% - 10px);
 		transition: all $t ease;
 
 		@media (min-width: $md5 + px) {

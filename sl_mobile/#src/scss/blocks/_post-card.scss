@@ -317,6 +317,11 @@
             font-size: 17px;
         }
     }
+    // .post-card__text-more
+    &__text-more {
+        color: #479cd3;
+        font-weight: 600;
+    }
     // .post-card__video
     &__video {
         position: relative;
@@ -434,7 +439,7 @@
         }
     }
 
-        // .post-card__btns-count
+    // .post-card__btns-count
     &__btns-count {
         margin: 0 6px;
         font-size: 12px;

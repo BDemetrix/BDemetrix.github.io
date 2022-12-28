@@ -259,8 +259,9 @@
     // .news-card__date
     &__date {
         width: 50px;
-        flex: 0 0 50px;
+        flex: 0 0 140px;
         order: 3;
+        margin-left: auto;
         font-size: 12px;
         line-height: 20px;
         text-align: right;
