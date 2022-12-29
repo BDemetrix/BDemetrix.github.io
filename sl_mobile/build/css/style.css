@@ -3328,9 +3328,9 @@ textarea {
 .sections-box__prev::before {
   left: 0;
   border-radius: 0 30px 30px 0;
-  background: -webkit-gradient(linear, left top, right top, from(#fbfbfb), color-stop(35%, #fbfbfb), to(transparent));
-  background: -o-linear-gradient(left, #fbfbfb 0%, #fbfbfb 35%, transparent 100%);
-  background: linear-gradient(to right, #fbfbfb 0%, #fbfbfb 35%, transparent 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#fff), color-stop(35%, #fff), to(transparent));
+  background: -o-linear-gradient(left, #fff 0%, #fff 35%, transparent 100%);
+  background: linear-gradient(to right, #fff 0%, #fff 35%, transparent 100%);
 }
 
 .sections-box__prev svg {
@@ -3348,9 +3348,9 @@ textarea {
 .sections-box__next::before {
   right: -1px;
   border-radius: 30px 0 0 30px;
-  background: -webkit-gradient(linear, right top, left top, from(#fbfbfb), color-stop(35%, #fbfbfb), to(transparent));
-  background: -o-linear-gradient(right, #fbfbfb 0%, #fbfbfb 35%, transparent 100%);
-  background: linear-gradient(to left, #fbfbfb 0%, #fbfbfb 35%, transparent 100%);
+  background: -webkit-gradient(linear, right top, left top, from(#fff), color-stop(35%, #fff), to(transparent));
+  background: -o-linear-gradient(right, #fff 0%, #fff 35%, transparent 100%);
+  background: linear-gradient(to left, #fff 0%, #fff 35%, transparent 100%);
 }
 
 .sections-box__next svg {
@@ -5556,8 +5556,10 @@ textarea {
   width: 40px;
   height: 20px;
   border-radius: 10px;
-  border: 2px solid #2987C5;
-  background: #fff;
+  background: #E6E6E6;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .custom-checkbox--switch input + span::after,
@@ -5569,11 +5571,12 @@ textarea {
   width: 16px;
   height: 16px;
   border-radius: 9px;
-  background: #2987C5;
-  border: 2px solid #fff;
-  -webkit-transition: left 0.3s ease, width 0.3s ease, height 0.3s ease;
-  -o-transition: left 0.3s ease, width 0.3s ease, height 0.3s ease;
-  transition: left 0.3s ease, width 0.3s ease, height 0.3s ease;
+  background: #fff;
+  -webkit-box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+  -webkit-transition: left 0.3s ease;
+  -o-transition: left 0.3s ease;
+  transition: left 0.3s ease;
 }
 
 .custom-checkbox--switch input:checked + span::before,
@@ -5583,14 +5586,16 @@ textarea {
 
 .custom-checkbox--switch input:checked + span::after,
 .custom-checkbox--switch__input:checked + span::after {
-  background: #fff;
   left: -26px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .custom-checkbox--switch input:disabled + span,
 .custom-checkbox--switch input:checked:disabled + span,
 .custom-checkbox--switch__input:disabled + span,
 .custom-checkbox--switch__input:checked:disabled + span {
+  opacity: 0.8;
   cursor: default;
 }
 
@@ -5598,15 +5603,15 @@ textarea {
 .custom-checkbox--switch input:checked:disabled + span::before,
 .custom-checkbox--switch__input:disabled + span::before,
 .custom-checkbox--switch__input:checked:disabled + span::before {
-  border-color: #999999;
-  background: #fff;
+  background: #E6E6E6;
 }
 
-.custom-checkbox--switch input:disabled + span::before,
-.custom-checkbox--switch input:checked:disabled + span::before,
-.custom-checkbox--switch__input:disabled + span::before,
-.custom-checkbox--switch__input:checked:disabled + span::before {
-  background: #999999;
+.custom-checkbox--switch input:disabled + span::after,
+.custom-checkbox--switch input:checked:disabled + span::after,
+.custom-checkbox--switch__input:disabled + span::after,
+.custom-checkbox--switch__input:checked:disabled + span::after {
+  -webkit-box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
 }
 
 .custom-checkbox--switch span,
@@ -6039,8 +6044,12 @@ textarea {
 }
 
 .nf-filter__checkbox {
-  margin: 10px 15px 10px 0;
+  margin: 10px 20px 10px 0;
   white-space: nowrap;
+}
+
+.nf-filter__checkbox--autoupdate {
+  display: none;
 }
 
 .nf-filter__btn {
@@ -7352,6 +7361,14 @@ body.loader:before {
 @media (min-width: 392px) {
   .apps-box__item {
     width: 20%;
+  }
+}
+
+@media (min-width: 420px) {
+  .nf-filter__checkbox--autoupdate {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
   }
 }
 

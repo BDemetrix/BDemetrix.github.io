@@ -101,8 +101,10 @@
   width: 40px;
   height: 20px;
   border-radius: 10px;
-  border: 2px solid #2987C5;
-  background: #fff;
+  background: #E6E6E6;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .custom-checkbox--switch input + span::after,
@@ -114,11 +116,12 @@
   width: 16px;
   height: 16px;
   border-radius: 9px;
-  background: #2987C5;
-  border: 2px solid #fff;
-  -webkit-transition: left 0.3s ease, width 0.3s ease, height 0.3s ease;
-  -o-transition: left 0.3s ease, width 0.3s ease, height 0.3s ease;
-  transition: left 0.3s ease, width 0.3s ease, height 0.3s ease;
+  background: #fff;
+  -webkit-box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+  -webkit-transition: left 0.3s ease;
+  -o-transition: left 0.3s ease;
+  transition: left 0.3s ease;
 }
 
 .custom-checkbox--switch input:checked + span::before,
@@ -128,14 +131,16 @@
 
 .custom-checkbox--switch input:checked + span::after,
 .custom-checkbox--switch__input:checked + span::after {
-  background: #fff;
   left: -26px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .custom-checkbox--switch input:disabled + span,
 .custom-checkbox--switch input:checked:disabled + span,
 .custom-checkbox--switch__input:disabled + span,
 .custom-checkbox--switch__input:checked:disabled + span {
+  opacity: 0.8;
   cursor: default;
 }
 
@@ -143,15 +148,15 @@
 .custom-checkbox--switch input:checked:disabled + span::before,
 .custom-checkbox--switch__input:disabled + span::before,
 .custom-checkbox--switch__input:checked:disabled + span::before {
-  border-color: #999999;
-  background: #fff;
+  background: #E6E6E6;
 }
 
-.custom-checkbox--switch input:disabled + span::before,
-.custom-checkbox--switch input:checked:disabled + span::before,
-.custom-checkbox--switch__input:disabled + span::before,
-.custom-checkbox--switch__input:checked:disabled + span::before {
-  background: #999999;
+.custom-checkbox--switch input:disabled + span::after,
+.custom-checkbox--switch input:checked:disabled + span::after,
+.custom-checkbox--switch__input:disabled + span::after,
+.custom-checkbox--switch__input:checked:disabled + span::after {
+  -webkit-box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
 }
 
 .custom-checkbox--switch span,
