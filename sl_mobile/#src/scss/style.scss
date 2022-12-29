@@ -70,7 +70,7 @@ picture {
 
 .right-panel ._mobile-container {
 	@media (min-width: 1220px) {
-		margin-left: calc((100vw - 768px - 300px)/2);
+		margin-left: calc((100vw - 768px - 320px)/2);
 	}
 
 	@media (min-width: 1530px) {

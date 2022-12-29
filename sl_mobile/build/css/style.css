@@ -8153,11 +8153,11 @@ body.loader:before {
 
 @media (min-width: 1220px) {
   .right-panel ._mobile-container {
-    margin-left: calc((100vw - 768px - 300px) / 2);
+    margin-left: calc((100vw - 768px - 320px) / 2);
   }
 
   .right-panel .arrow-to-top {
-    left: calc((100vw - 768px - 300px) / 4 - 24px);
+    left: calc((100vw - 768px - 320px) / 4 - 24px);
   }
 
   .slide-sidebar--opened .slide-sidebar__banner,
@@ -8201,7 +8201,7 @@ body.loader:before {
   }
 
   .right-panel .transfer-btn {
-    left: calc((100vw - 768px - 300px) / 4 - 24px);
+    left: calc((100vw - 768px - 320px) / 4 - 24px);
   }
 }
 
