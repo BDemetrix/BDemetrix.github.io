@@ -1,13 +1,15 @@
 .arrow-to-top {
     display: none;
 
-    @media (min-width: 1000px) {
+    @media (min-width: 920px) {
         display: flex;
         position: fixed;
         z-index: -1;
-        bottom: 75px;
+        //bottom: 75px;
+        bottom: 10px;
         //right: 75px;
-        left: 75px;
+        //left: 75px;
+        left: calc((100vw - 768px)/4 - 30px);
         background: none;
         border: 0;
         transition: all .4s ease;
@@ -30,8 +32,20 @@
         }
 
         @media (min-width: 1530px) {
-            left: auto;
-            right: calc((100vw - 768px - 630px)/4 + 315px - 25px);
+            // left: auto;
+            // right: calc((100vw - 768px - 630px)/4 + 315px - 25px);
         }
+    }
+}
+
+// Если на странице есть правая колонка, то body добавлется класс right-panel 
+.right-panel .arrow-to-top {
+
+    @media (min-width: 1220px) {
+        left: calc((100vw - 768px - 300px)/4 - 24px);
+    }
+    
+    @media (min-width: 1530px) {
+       left: calc((100vw - 768px)/4 - 24px); 
     }
 }

@@ -18,12 +18,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body class="">
+<body class="right-panel">
 	<!-- классы ._style-1 , ._style-2 и ._style-3 используются для стилизации двух видов шаблонов 
 		Например: при body._style-1 Логотип имеет один цвет, а при body._style-2 и ._style-3 - другой
 		._style-1 для smart-lab.ru
 		._style-2 для smart-lab.ru/q/
 		._style-3 для smart-lab.ru/forum/
+
+		Если на странице есть правая колонка, то body добавлется класс right-panel
 		-->
 	<div class="wrapper">
 		<header class="header">
@@ -2495,13 +2497,25 @@
     </div>
 </div>
 	<!-- Для кнопки "Старая версия" добавить модиикатор transfer-btn--to-new -->
-<a href="https://smart-lab.ru/" class="transfer-btn transfer-btn--to-old">Старая версия</a>
+<a href="https://smart-lab.ru/" class="transfer-btn transfer-btn--to-old">
+    <span class="transfer-btn__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
+            <path
+                d="M9.97229 3.18971C10.3534 3.18971 10.6623 2.88077 10.6623 2.49971C10.6623 2.11863 10.3534 1.80971 9.97229 1.80971H4.68581C3.03446 1.80971 1.6958 3.14838 1.6958 4.79971V18.2002C1.6958 19.8516 3.03446 21.1903 4.68579 21.1903H9.97229C10.3534 21.1903 10.6623 20.8813 10.6623 20.5003C10.6623 20.1192 10.3534 19.8103 9.97229 19.8103H4.68579C3.79663 19.8103 3.07579 19.0895 3.07579 18.2002L3.07581 4.79971C3.07581 3.91053 3.79663 3.18971 4.68581 3.18971H9.97229Z"
+                fill="white" />
+            <path
+                d="M16.5651 6.1737C16.2956 5.90424 15.8587 5.90424 15.5892 6.1737C15.3198 6.44317 15.3198 6.88003 15.5892 7.1495L19.0048 10.5651H6.43939C6.05833 10.5651 5.74939 10.874 5.74939 11.2551C5.74939 11.6362 6.05833 11.9451 6.43939 11.9451H18.9572L15.5894 15.3129C15.3199 15.5824 15.3199 16.0193 15.5894 16.2887C15.8588 16.5582 16.2957 16.5582 16.5652 16.2887L21.102 11.752C21.2367 11.6172 21.3041 11.4405 21.3041 11.2639L21.3041 11.2551C21.3041 11.2448 21.3039 11.2346 21.3034 11.2244C21.3104 11.0392 21.2432 10.8518 21.1018 10.7105L16.5651 6.1737Z"
+                fill="white" />
+        </svg>
+    </span>
+    <span class="transfer-btn__text">Новый<br>дизайн</span>
+</a>
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const transferBtnToNew = document.querySelector('.transfer-btn--to-old');
         if (!transferBtnToNew) return;
-        
+
         const top = 70;
         const delta = 10
         const getTop = () => {

@@ -1,6 +1,7 @@
 .slide-sidebar {
     $delta: 60px;
     $time: .4s;
+    $convolutions-breakpoint: 1220px; // Ширина при которой сворачивается панель (была 1530px)
 
     position: absolute;
     z-index: 9;
@@ -88,7 +89,7 @@
             }
         }
 
-        @media (min-width: 1530px) {
+        @media (min-width: $convolutions-breakpoint) {
 
             .slide-sidebar__banner,
             .slide-sidebar__title,
@@ -98,7 +99,7 @@
         }
     }
 
-    @media (min-width: 1530px) {
+    @media (min-width: $convolutions-breakpoint) {
         width: 315px;
         padding: 15px 15px 0 0;
 
@@ -219,7 +220,7 @@
             width: 298px;
         }
 
-        @media (min-width: 1530px) {
+        @media (min-width: $convolutions-breakpoint) {
             min-width: 300px;
             width: 300px;
         }
@@ -277,11 +278,10 @@
             transition: all $time ease;
         }
 
-        @media (min-width: $md3 + px) {
+        @media (min-width: 880px) {
             top: 50vh;
             bottom: auto;
             transform: translate(0, -50%);
         }
     }
 }
-
