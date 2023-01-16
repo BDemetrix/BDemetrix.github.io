@@ -223,17 +223,17 @@ class PsyTestsManager {
     }
 
     _getDate() {
-        const date = new Date();
-        const year = date.getFullYear();
+        let date = new Date();
+        let year = date.getFullYear();
         let month = date.getMonth() + 1;
         month = month < 10 ? '0' + month : month;
-        const day = date.getDate();
+        let day = date.getDate();
         day = day < 10 ? '0' + day : day;
         let hours = date.getHours();
         hours = hours < 10 ? '0' + hours : hours;
-        const minutes = date.getMinutes();
+        let minutes = date.getMinutes();
         minutes = minutes < 10 ? '0' + minutes : minutes;
-        const seconds = date.getSeconds();
+        let seconds = date.getSeconds();
         seconds = seconds < 10 ? '0' + seconds : seconds;
         return `${day}.${month}.${year} ${hours}.${minutes}.${seconds}`;
     }
