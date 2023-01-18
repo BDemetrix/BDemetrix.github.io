@@ -2,12 +2,7 @@
     position: fixed;
     z-index: 0;
     top: 10px;
-    //left: 26px;
-    left: calc((100vw - 768px)/4 - 24px);
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
+    left: calc((100vw - 768px) / 4 - 24px);
     opacity: 0;
     visibility: hidden;
 
@@ -27,12 +22,44 @@
         }
     }
 
+    // .transfer-btn__big
+    &__big {
+        display: none;
+
+        @media (min-width: 1400px) {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 135px;
+            height: 34px;
+            font-weight: 500;
+            font-size: 14px;
+            color: #ffffff;
+            line-height: 20px;
+            background: #479cd3;
+            -webkit-box-shadow: 0px 2px 4px rgb(11 84 131 / 30%);
+            box-shadow: 0px 2px 4px rgb(11 84 131 / 30%);
+            border-radius: 6px;
+            white-space: nowrap;
+        }
+    }
+    // .transfer-btn__small
+    &__small {
+        display: inline-flex;
+        align-items: center;
+        flex-direction: column;
+
+        @media (min-width: 1400px) {
+            display: none;
+        }
+    }
+
     // .transfer-btn__icon
     &__icon {
         display: flex;
-        padding: 8px;
+        padding: 10px;
         background: $blue-btn;
-        box-shadow: 0px 1.27185px 2.54369px rgba(11, 84, 131, 0.3);
+        box-shadow: 0px 1.5px 2.5px rgba(11, 84, 131, 0.3);
         border-radius: 8px;
     }
     // .transfer-btn__text
@@ -46,14 +73,13 @@
     }
 }
 
-// Если на странице есть правая колонка, то body добавлется класс right-panel 
+// Если на странице есть правая колонка, то body добавлется класс right-panel
 .right-panel .transfer-btn {
-
     @media (min-width: 1220px) {
-        left: calc((100vw - 768px - 320px)/4 - 24px);
+        left: calc((100vw - 768px - 320px) / 4 - 20px);
     }
-    
-    @media (min-width: 1530px) {
-       left: calc((100vw - 768px)/4 - 24px); 
+
+    @media (min-width: 1400px) {
+        left: 10px;
     }
 }

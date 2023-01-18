@@ -5,11 +5,8 @@
         display: flex;
         position: fixed;
         z-index: -1;
-        //bottom: 75px;
-        bottom: 10px;
-        //right: 75px;
-        //left: 75px;
-        left: calc((100vw - 768px)/4 - 30px);
+        bottom: 50px;
+        left: calc((100vw - 768px)/4 - 25px);
         background: none;
         border: 0;
         transition: all .4s ease;
@@ -30,11 +27,6 @@
                 fill-opacity: 0.4;
             }
         }
-
-        @media (min-width: 1530px) {
-            // left: auto;
-            // right: calc((100vw - 768px - 630px)/4 + 315px - 25px);
-        }
     }
 }
 
@@ -42,10 +34,10 @@
 .right-panel .arrow-to-top {
 
     @media (min-width: 1220px) {
-        left: calc((100vw - 768px - 320px)/4 - 24px);
+        left: calc((100vw - 768px - 320px)/4 - 25px);
     }
     
-    @media (min-width: 1530px) {
-       left: calc((100vw - 768px)/4 - 24px); 
+    @media (min-width: 1400px) { 
+       left: 50px;
     }
 }
