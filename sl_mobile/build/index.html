@@ -2519,7 +2519,7 @@
         const top = 70;
         const delta = 10
         const getTop = () => {
-            const y = top - window.scrollY;
+            const y = top - window.pageYOffset;
             return y - delta >= 0 ? y + 'px' : delta + 'px'
         }
 

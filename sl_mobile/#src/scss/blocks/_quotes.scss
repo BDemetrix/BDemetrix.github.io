@@ -216,8 +216,9 @@ $red-color: #da0c00;
 	}
 	// .quote-leaders__trend
 	&__trend {
-		flex: 0 0 2em;
-		width: 2em;
+		display: none;
+		/* flex: 0 0 2em;
+		width: 2em; */
 
 		/* @media (min-width: $md3 + px) {
 			flex: 0 0 1em;
@@ -226,17 +227,16 @@ $red-color: #da0c00;
 	}
 	// .quote-leaders__value
 	&__value {
-		// .quote-leaders__value--grw
+		
+		flex: 0 0 4.5em;
+		width: 4.5em;
 		text-align: right;
+
 		&--grw {
-			flex: 0 0 2.8em;
-			width: 2.8em;
 			color: $green-color;
 		}
-		// .quote-leaders__value--dec
+
 		&--dec {
-			flex: 0 0 3.3em;
-			width: 3.3em;
 			color: $red-color;
 		}
 	}

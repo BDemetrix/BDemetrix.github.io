@@ -3023,10 +3023,9 @@ textarea {
 }
 
 .quote-leaders__trend {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 2em;
-          flex: 0 0 2em;
-  width: 2em;
+  display: none;
+  /* flex: 0 0 2em;
+  width: 2em; */
   /* @media (min-width: $md3 + px) {
   	flex: 0 0 1em;
   	width: 1em;
@@ -3034,22 +3033,18 @@ textarea {
 }
 
 .quote-leaders__value {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 4.5em;
+          flex: 0 0 4.5em;
+  width: 4.5em;
   text-align: right;
 }
 
 .quote-leaders__value--grw {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 2.8em;
-          flex: 0 0 2.8em;
-  width: 2.8em;
   color: #008002;
 }
 
 .quote-leaders__value--dec {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 3.3em;
-          flex: 0 0 3.3em;
-  width: 3.3em;
   color: #da0c00;
 }
 
