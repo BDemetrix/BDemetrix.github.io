@@ -252,7 +252,7 @@ picture {
   display: block;
   width: 100%;
   line-height: 20px;
-  padding: 6px 12px;
+  padding: 10px 12px;
   background: none;
   text-align: left;
   font-size: inherit;
@@ -4485,7 +4485,7 @@ textarea {
 .comments__filter-item--active::before {
   content: "";
   position: absolute;
-  top: 6px;
+  top: 9px;
   left: 6px;
   width: 20px;
   height: 20px;
