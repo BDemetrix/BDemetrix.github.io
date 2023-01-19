@@ -3658,11 +3658,11 @@ textarea {
 
 .post-card__text {
   width: 100%;
-  margin-bottom: 24px;
   font-size: 14px;
   line-height: 150%;
   color: #312c26;
   word-break: break-word;
+  text-align: justify;
 }
 
 .post-card__text p {
@@ -3695,9 +3695,19 @@ textarea {
   background: linear-gradient(to bottom, transparent, #f1f1f1);
 }
 
+.post-card__text-stopper {
+  display: inline-block;
+  width: 6.45em;
+}
+
 .post-card__text-more {
+  display: block;
   color: #479cd3;
   font-weight: 500;
+  text-align: right;
+  -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+          transform: translateY(-100%);
 }
 
 .post-card__video {

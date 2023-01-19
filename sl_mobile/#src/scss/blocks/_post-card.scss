@@ -279,11 +279,12 @@
     // .post-card__text
     &__text {
         width: 100%;
-        margin-bottom: 24px;
+        //margin-bottom: 24px;
         font-size: 14px;
         line-height: 150%;
         color: #312c26;
         word-break: break-word;
+        text-align: justify;
 
         p {
             padding: 5px 0;
@@ -317,10 +318,18 @@
             font-size: 17px;
         }
     }
+    // .post-card__text-stopper Х
+    &__text-stopper {  
+        display: inline-block;
+        width: 6.45em;    
+    }
     // .post-card__text-more
     &__text-more {
+        display: block;
         color: #479cd3;
         font-weight: 500;
+        text-align: right;
+        transform: translateY(-100%);
     }
     // .post-card__video
     &__video {
