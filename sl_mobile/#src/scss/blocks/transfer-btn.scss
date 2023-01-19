@@ -1,3 +1,4 @@
+$blue-btn: #479cd3;
 .transfer-btn {
     position: fixed;
     z-index: 0;
@@ -7,10 +8,36 @@
     visibility: hidden;
 
     &--to-new {
-        @media (min-width: 1414px) {
+        
+        @media (min-width: 1180px) {
+            left: 50px;
+            top: auto;
+            bottom: 50px;
             z-index: 3;
             opacity: 1;
             visibility: visible;
+
+            .transfer-btn__small {
+                display: inline-flex;
+            }
+        }
+
+        @media (min-width: 1420px) {
+            left: 10px;
+            bottom: auto;
+
+            .transfer-btn__big {
+                display: inline-flex;
+            }
+            .transfer-btn__small {
+                display: none;
+            }
+        }
+    }
+
+    &--with-top-banner { 
+        @media (min-width: 1420px) {
+            top: 48px;
         }
     }
 
@@ -20,38 +47,39 @@
             opacity: 1;
             visibility: visible;
         }
+
+        @media (min-width: 1400px) {
+            .transfer-btn__big {
+                display: inline-flex;
+            }
+            .transfer-btn__small {
+                display: none;
+            }
+        }
     }
 
     // .transfer-btn__big
     &__big {
         display: none;
-
-        @media (min-width: 1400px) {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 135px;
-            height: 34px;
-            font-weight: 500;
-            font-size: 14px;
-            color: #ffffff;
-            line-height: 20px;
-            background: #479cd3;
-            -webkit-box-shadow: 0px 2px 4px rgb(11 84 131 / 30%);
-            box-shadow: 0px 2px 4px rgb(11 84 131 / 30%);
-            border-radius: 6px;
-            white-space: nowrap;
-        }
+        align-items: center;
+        justify-content: center;
+        width: 135px;
+        height: 34px;
+        font-weight: 500;
+        font-size: 14px;
+        color: #ffffff;
+        line-height: 20px;
+        background: #479cd3;
+        -webkit-box-shadow: 0px 2px 4px rgb(11 84 131 / 30%);
+        box-shadow: 0px 2px 4px rgb(11 84 131 / 30%);
+        border-radius: 6px;
+        white-space: nowrap;
     }
     // .transfer-btn__small
     &__small {
         display: inline-flex;
         align-items: center;
         flex-direction: column;
-
-        @media (min-width: 1400px) {
-            display: none;
-        }
     }
 
     // .transfer-btn__icon

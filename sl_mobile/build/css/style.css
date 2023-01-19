@@ -6774,6 +6774,23 @@ textarea {
 
 .transfer-btn__big {
   display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 135px;
+  height: 34px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #ffffff;
+  line-height: 20px;
+  background: #479cd3;
+  -webkit-box-shadow: 0px 2px 4px rgba(11, 84, 131, 0.3);
+  box-shadow: 0px 2px 4px rgba(11, 84, 131, 0.3);
+  border-radius: 6px;
+  white-space: nowrap;
 }
 
 .transfer-btn__small {
@@ -8094,6 +8111,23 @@ body.loader:before {
   }
 }
 
+@media (min-width: 1180px) {
+  .transfer-btn--to-new {
+    left: 50px;
+    top: auto;
+    bottom: 50px;
+    z-index: 3;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .transfer-btn--to-new .transfer-btn__small {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+  }
+}
+
 @media (min-width: 1200px) {
   .moderation-pop-up__inner {
     display: -webkit-box;
@@ -8221,30 +8255,13 @@ body.loader:before {
     left: 50px;
   }
 
-  .transfer-btn__big {
+  .transfer-btn--to-old .transfer-btn__big {
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    width: 135px;
-    height: 34px;
-    font-weight: 500;
-    font-size: 14px;
-    color: #ffffff;
-    line-height: 20px;
-    background: #479cd3;
-    -webkit-box-shadow: 0px 2px 4px rgba(11, 84, 131, 0.3);
-    box-shadow: 0px 2px 4px rgba(11, 84, 131, 0.3);
-    border-radius: 6px;
-    white-space: nowrap;
   }
 
-  .transfer-btn__small {
+  .transfer-btn--to-old .transfer-btn__small {
     display: none;
   }
 
@@ -8253,11 +8270,24 @@ body.loader:before {
   }
 }
 
-@media (min-width: 1414px) {
+@media (min-width: 1420px) {
   .transfer-btn--to-new {
-    z-index: 3;
-    opacity: 1;
-    visibility: visible;
+    left: 10px;
+    bottom: auto;
+  }
+
+  .transfer-btn--to-new .transfer-btn__big {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+  }
+
+  .transfer-btn--to-new .transfer-btn__small {
+    display: none;
+  }
+
+  .transfer-btn--with-top-banner {
+    top: 48px;
   }
 }
 

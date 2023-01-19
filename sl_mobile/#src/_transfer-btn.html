@@ -15,8 +15,7 @@
         </span>
         <span class="transfer-btn__text">Старый<br>дизайн</span>
     </div>
-
-</a>
+</a> 
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -37,3 +36,52 @@
         })
     })
 </script>
+
+
+
+
+
+
+<!-- 
+    Для кнопки "Старая версия" добавить модиикатор transfer-btn--to-new 
+    При появлении баннера в самом верху страницы присвоить модификатор transfer-btn--with-top-banner
+    Стили общие
+-->
+
+<!-- <a href="https://smart-lab.ru/" class="transfer-btn transfer-btn--to-new transfer-btn--with-top-banner">
+
+    <div class="transfer-btn__big">
+        Новая версия
+    </div>
+
+    <div class="transfer-btn__small">
+        <span class="transfer-btn__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                <path
+                    d="M20.3298 8.40067L12.4894 15.416C12.4162 15.4815 12.3256 15.5244 12.2285 15.5395C12.1315 15.5546 12.0322 15.5413 11.9425 15.5011C11.8529 15.4609 11.7768 15.3956 11.7235 15.3131C11.6701 15.2305 11.6418 15.1343 11.642 15.036V11.5453H11.3233C6.90315 11.5216 3.005 14.9919 1.61861 20.1347C1.58523 20.2462 1.51486 20.3431 1.41909 20.4093C1.32332 20.4755 1.20788 20.507 1.0918 20.4987C0.975714 20.4904 0.865923 20.4428 0.780526 20.3636C0.69513 20.2845 0.639226 20.1786 0.622034 20.0634C0.540221 19.3881 0.49947 18.7084 0.500005 18.028C0.500005 10.6023 5.48965 4.55718 11.642 4.49612V1.00543C11.6433 0.907774 11.6724 0.812521 11.726 0.730902C11.7796 0.649282 11.8554 0.5847 11.9445 0.544767C12.0336 0.504837 12.1322 0.49122 12.2287 0.505524C12.3253 0.519827 12.4157 0.561453 12.4894 0.625496L20.3298 7.64079C20.3833 7.68853 20.4262 7.74706 20.4555 7.81254C20.4848 7.87802 20.5 7.94897 20.5 8.02073C20.5 8.09249 20.4848 8.16344 20.4555 8.22892C20.4262 8.2944 20.3833 8.35293 20.3298 8.40067Z"
+                    fill="white" />
+            </svg>
+        </span>
+        <span class="transfer-btn__text">Новый<br>дизайн</span>
+    </div>
+</a>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const transferBtnToNew = document.querySelector('.transfer-btn--with-top-banner');
+        if (!transferBtnToNew || window.innerWidth <= 1420) return;
+
+        const top = 48;
+        const delta = 10
+        const getTop = () => {
+            const y = top - window.pageYOffset;
+            return y - delta >= 0 ? y + 'px' : delta + 'px'
+        }
+
+        transferBtnToNew.style.top = getTop();
+
+        window.addEventListener('scroll', () => {
+            transferBtnToNew.style.top = getTop();
+        })
+    })
+</script> -->
