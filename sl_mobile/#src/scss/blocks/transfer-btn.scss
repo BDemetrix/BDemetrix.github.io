@@ -8,7 +8,6 @@ $blue-btn: #479cd3;
     visibility: hidden;
 
     &--to-new {
-        
         @media (min-width: 1180px) {
             left: 50px;
             top: auto;
@@ -35,7 +34,7 @@ $blue-btn: #479cd3;
         }
     }
 
-    &--with-top-banner { 
+    &--with-top-banner {
         @media (min-width: 1420px) {
             top: 48px;
         }
@@ -48,9 +47,9 @@ $blue-btn: #479cd3;
             visibility: visible;
         }
 
-        @media (min-width: 1400px) {
+        @media (min-width: 1080px) {
             left: 10px;
-            
+
             .transfer-btn__big {
                 display: inline-flex;
             }
@@ -105,11 +104,31 @@ $blue-btn: #479cd3;
 
 // Если на странице есть правая колонка, то body добавлется класс right-panel
 .right-panel .transfer-btn {
-    @media (min-width: 1220px) {
-        left: calc((100vw - 768px - 320px) / 4 - 20px);
-    }
+    &--to-old {
+        .transfer-btn__big {
+            display: none;
+        }
+        .transfer-btn__small {
+            display: inline-flex;
+        }
 
-    @media (min-width: 1400px) {
-        left: 10px;
+        @media (min-width: 1080px) {
+            left: calc((100vw - 768px) / 4 - 24px);
+        }
+
+        @media (min-width: 1220px) {
+            left: calc((100vw - 768px - 320px) / 4 - 20px);
+        }
+
+        @media (min-width: 1400px) {
+            left: 10px;
+
+            .transfer-btn__big {
+                display: inline-flex;
+            }
+            .transfer-btn__small {
+                display: none;
+            }
+        }
     }
 }
