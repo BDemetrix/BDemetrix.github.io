@@ -93,6 +93,10 @@
 }
 
 @media (min-width: 1400px) {
+  .transfer-btn--to-old {
+    left: 10px;
+  }
+
   .transfer-btn--to-old .transfer-btn__big {
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;

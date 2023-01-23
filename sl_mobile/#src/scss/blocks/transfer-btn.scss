@@ -49,6 +49,8 @@ $blue-btn: #479cd3;
         }
 
         @media (min-width: 1400px) {
+            left: 10px;
+            
             .transfer-btn__big {
                 display: inline-flex;
             }
