@@ -909,12 +909,14 @@ function jBoxNotice(color, title, message) {
 
 (function () {
     const sidebar = document.querySelector('.js-slide-sidebar');
-    const sidebarToggleBtn = document.querySelector('.js-slide-sidebar-toggle-btn');
+    const sidebarToggleBtns = document.querySelectorAll('.js-slide-sidebar-toggle-btn');
 
-    if (!sidebar || !sidebarToggleBtn) return;
+    if (!sidebar || !sidebarToggleBtns.length) return;
 
-    sidebarToggleBtn.addEventListener('click', () => {
-        sidebar.classList.toggle('slide-sidebar--opened');
+    sidebarToggleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            sidebar.classList.toggle('slide-sidebar--opened');
+        })
     })
 }());
 (function () {

@@ -30,7 +30,6 @@
         left: -$delta;
         width: 0;
 
-        background: #000;
         opacity: 0;
         transition: all $time ease;
     }
@@ -61,10 +60,18 @@
 
         .slide-sidebar__slide-btn {
             right: calc(100vw - $delta - 1px);
+            opacity: 1;
+
             svg {
                 transform: scaleX(1) rotate(-90deg);
                 transition: all $time ease;
             }
+        }
+
+        .slide-sidebar__fix-btn  {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5*$time ease;
         }
 
         @media (min-width: $md4 + px) {
@@ -248,14 +255,16 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 40px;
-        padding: 10px 10px 13px; 
+        //width: 40px;
+        //padding: 10px 10px 13px; 
+        padding: 15px 2px;
         color: $blue-btn;
-        background: #fff;
+        background: #f1f1f1;
         border: solid rgba(11, 84, 131, 0.34);
         border-width: 1px 0 1px 1px;
         border-radius: 8px 0 0 8px;
-        box-shadow: -4px 0px 11px 4px rgb(117, 117, 117, 25%);
+        //box-shadow: -4px 0px 11px 4px rgb(117, 117, 117, 25%);
+        opacity: 0;
         transition: all $time ease;
 
         span {
@@ -271,17 +280,33 @@
         }
 
         svg {
-            margin-bottom: 8px;
+            //margin-bottom: 8px;
             fill: $blue-btn;
             stroke: $blue-btn;
             transform: scaleX(-1) rotate(-90deg);
             transition: all $time ease;
         }
 
-        @media (min-width: 880px) {
+        /* @media (min-width: 880px) {
             top: 50vh;
             bottom: auto;
             transform: translate(0, -50%);
+        } */
+    }
+
+    // .slide-sidebar__fix-btn 
+    &__fix-btn {
+        display: flex;
+        position: fixed;
+        z-index: 99;
+        bottom: 15px;
+        right: 15px;
+        border-radius: 50%;
+        background: none;
+        transition: all $time ease 0.5*$time;
+
+        @media (min-width: $convolutions-breakpoint) {
+            display: none;
         }
     }
 }
