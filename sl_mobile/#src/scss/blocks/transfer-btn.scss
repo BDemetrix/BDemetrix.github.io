@@ -2,18 +2,17 @@ $blue-btn: #479cd3;
 .transfer-btn {
     position: fixed;
     z-index: 0;
-    top: 10px;
-    left: calc((100vw - 768px) / 4 - 24px);
     opacity: 0;
-    visibility: hidden;
+    visibility: hidden; 
 
-    &--to-new {
+    &--to-new { 
+
         @media (min-width: 1180px) {
             left: 50px;
             top: auto;
             bottom: 50px;
-            z-index: 3;
-            opacity: 1;
+            z-index: 99999;
+            //opacity: 1;
             visibility: visible;
 
             .transfer-btn__small {
@@ -22,6 +21,7 @@ $blue-btn: #479cd3;
         }
 
         @media (min-width: 1420px) {
+            top: 10px;
             left: 10px;
             bottom: auto;
 
@@ -34,16 +34,13 @@ $blue-btn: #479cd3;
         }
     }
 
-    &--with-top-banner {
-        @media (min-width: 1420px) {
-            top: 48px;
-        }
-    }
-
     &--to-old {
+        top: 70px;
+        left: calc((100vw - 768px) / 4 - 24px);
+
         @media (min-width: 920px) {
             z-index: 3;
-            opacity: 1;
+            //opacity: 1;
             visibility: visible;
         }
 

@@ -15,6 +15,9 @@
 		Если на странице есть правая колонка, то body добавлется класс .right-panel
 		-->
 	<div class="wrapper">
+		<div class="js-banner-above-header" style="padding: 16px; text-align: center;" onclick="this.remove()">
+			[x] БАННЕР
+		</div>
 		@@include('_header.html',{"Class": "_container"})
 		<main class="main _mobile-container">
 			<div class="main__top-content">
@@ -64,8 +67,8 @@
 		@@include('_slide-sidebar.html',{'Class': ''})
 	</div>
 	<!-- @@include('_system-messages.html',{}) -->
-	@@include('_moderation-pop-up.html',{})
 	@@include('_transfer-btn.html')
+	@@include('_moderation-pop-up.html',{})
 	@@include('_js.html',{})
 </body>
 

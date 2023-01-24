@@ -828,9 +828,11 @@
 </footer>
         </main>
     </div>
-    <!-- Для кнопки "Старая версия" добавить модиикатор transfer-btn--to-new -->
+    <!-- 
+        Для кнопки "Старая версия" добавить модиикатор transfer-btn--to-new 
+        Если на странице есть правая колонка, то body добавлется класс .right-panel
+-->
 <a href="https://smart-lab.ru/" class="transfer-btn transfer-btn--to-old">
-
     <div class="transfer-btn__big">
         Старый дизайн
     </div>
@@ -849,20 +851,40 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        const transferBtnToNew = document.querySelector('.transfer-btn--to-old');
-        if (!transferBtnToNew) return;
+        const transferBtnToOld = document.querySelector('.transfer-btn--to-old');
+        if (!transferBtnToOld) return;
 
+
+        const banner = document.querySelector('.js-banner-above-header');
+        if (banner) {
+            transferBtnToOld.dataset.bannerHeight = banner.offsetHeight;
+        } else {
+            transferBtnToOld.dataset.bannerHeight = '0';
+        }
+        
         const top = 70;
         const delta = 10
         const getTop = () => {
-            const y = top - window.pageYOffset;
+            const addH = +transferBtnToOld.dataset.bannerHeight;
+            const y = top + addH - window.pageYOffset;
             return y - delta >= 0 ? y + 'px' : delta + 'px'
         }
-
-        transferBtnToNew.style.top = getTop();
+        
+        transferBtnToOld.style.top = getTop();
+        transferBtnToOld.style.opacity = '1';
 
         window.addEventListener('scroll', () => {
-            transferBtnToNew.style.top = getTop();
+            transferBtnToOld.style.top = getTop();
+        })
+
+        banner.addEventListener('click', () => {
+            setTimeout(() => {
+                const banner = document.querySelector('.js-banner-above-header');
+                if (!banner) {
+                    transferBtnToOld.dataset.bannerHeight = '0';
+                    transferBtnToOld.style.top = getTop();
+                }
+            }, 300);
         })
     })
 </script>
@@ -873,10 +895,9 @@
 
 
 <!-- 
+    Это Кнопка для перехода на новую версию
     Для кнопки "Старая версия" добавить модиикатор transfer-btn--to-new 
-    При появлении баннера в самом верху страницы присвоить модификатор transfer-btn--with-top-banner
-    Если на странице есть правая колонка, то body добавлется класс .right-panel
-    Стили общие
+    Стили общие sl_mobile\#src\scss\blocks\transfer-btn.scss
 -->
 
 <!-- <a href="https://smart-lab.ru/" class="transfer-btn transfer-btn--to-new transfer-btn--with-top-banner">
@@ -899,20 +920,57 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        const transferBtnToNew = document.querySelector('.transfer-btn--with-top-banner');
-        if (!transferBtnToNew || window.innerWidth <= 1420) return;
+        const transferBtnToNew = document.querySelector('.transfer-btn--to-new');
+        if (!transferBtnToNew) return;
+        
+        const banner = document.querySelector('.js-banner-above-header');
+        if (banner) {
+            transferBtnToNew.dataset.bannerHeight = banner.offsetHeight;
+        } else {
+            transferBtnToNew.dataset.bannerHeight = '0';
+        }
 
-        const top = 48;
+        const top = 10;
         const delta = 10
         const getTop = () => {
-            const y = top - window.pageYOffset;
+            const addH = +transferBtnToNew.dataset.bannerHeight;
+            const y = top + addH - window.pageYOffset;
             return y - delta >= 0 ? y + 'px' : delta + 'px'
         }
 
-        transferBtnToNew.style.top = getTop();
-
         window.addEventListener('scroll', () => {
+            if (window.innerWidth <= 1420) return;
             transferBtnToNew.style.top = getTop();
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth <= 1420) {
+                transferBtnToNew.style.top = '';
+                return;
+            }
+            transferBtnToNew.style.top = getTop();
+        });
+
+        transferBtnToNew.style.opacity = '1';
+        if (window.innerWidth <= 1420) {
+            transferBtnToNew.style.top = '';
+        } else {
+            transferBtnToNew.style.top = getTop();
+        };
+        
+        
+        banner.addEventListener('click', () => {
+            setTimeout(() => {
+                const banner = document.querySelector('.js-banner-above-header');
+                if (!banner) {
+                    transferBtnToNew.dataset.bannerHeight = '0';
+                    if (window.innerWidth <= 1420) {
+                        transferBtnToNew.style.top = '';
+                    } else {
+                        transferBtnToNew.style.top = getTop();
+                    };
+                }
+            }, 300);
         })
     })
 </script> -->

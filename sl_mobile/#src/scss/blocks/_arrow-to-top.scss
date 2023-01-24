@@ -36,6 +36,9 @@
 
 // Если на странице есть правая колонка, то body добавлется класс right-panel 
 .right-panel .arrow-to-top {
+    @media (min-width: 1080px) {
+        left: calc((100vw - 768px)/4 - 25px);
+    }
 
     @media (min-width: 1220px) {
         left: calc((100vw - 768px - 320px)/4 - 25px);

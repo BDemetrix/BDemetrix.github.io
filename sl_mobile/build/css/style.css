@@ -6792,10 +6792,13 @@ textarea {
 .transfer-btn {
   position: fixed;
   z-index: 0;
-  top: 10px;
-  left: calc((100vw - 768px) / 4 - 24px);
   opacity: 0;
   visibility: hidden;
+}
+
+.transfer-btn--to-old {
+  top: 70px;
+  left: calc((100vw - 768px) / 4 - 24px);
 }
 
 .transfer-btn__big {
@@ -7957,7 +7960,6 @@ body.loader:before {
 
   .transfer-btn--to-old {
     z-index: 3;
-    opacity: 1;
     visibility: visible;
   }
 }
@@ -8006,6 +8008,10 @@ body.loader:before {
 @media (min-width: 1080px) {
   .arrow-to-top {
     left: 50px;
+  }
+
+  .right-panel .arrow-to-top {
+    left: calc((100vw - 768px) / 4 - 25px);
   }
 
   .transfer-btn--to-old {
@@ -8166,8 +8172,7 @@ body.loader:before {
     left: 50px;
     top: auto;
     bottom: 50px;
-    z-index: 3;
-    opacity: 1;
+    z-index: 99999;
     visibility: visible;
   }
 
@@ -8326,6 +8331,7 @@ body.loader:before {
 
 @media (min-width: 1420px) {
   .transfer-btn--to-new {
+    top: 10px;
     left: 10px;
     bottom: auto;
   }
@@ -8338,10 +8344,6 @@ body.loader:before {
 
   .transfer-btn--to-new .transfer-btn__small {
     display: none;
-  }
-
-  .transfer-btn--with-top-banner {
-    top: 48px;
   }
 }
 
