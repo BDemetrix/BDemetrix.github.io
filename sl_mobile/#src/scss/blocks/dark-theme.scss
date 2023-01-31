@@ -1,0 +1,106 @@
+// Темная тема. Класс .dark-theme добавляется body
+$body-bg: #202225;
+$container-bg: #1f1f1f;
+$element-bg: #2a2c30;
+
+.dark-theme {
+    .wrapper {
+        background: $body-bg;
+    }
+
+    .main,
+    .add-pos,
+    .news-feed,
+    .post-page {
+        background-color: $container-bg;
+        box-shadow: none;
+    }
+
+    .main {
+        &__top-content {
+            background-color: $element-bg;
+        }
+    }
+
+    .notify {
+        // НЕОБХОДИМО ОТДЕЛЬНО ДОРАБОТАТЬ
+        &__blocks,
+        &__nav-item._active,
+        &__nav-item:hover {
+            background-color: $element-bg;
+        }
+    }
+
+    .login,
+    .add-form,
+    .news-card,
+    .short-comment,
+    .subscribe-box__footer,
+    .system-messages__item-inner {
+        background-color: $element-bg;
+        box-shadow: none;
+    }
+
+    .add-post {
+        &__form,
+        &__title {
+            background-color: $element-bg;
+        }
+    }
+
+    .post-card {
+        &__photo {
+            background-color: $element-bg;
+        }
+    }
+    
+    .comments {
+        &,
+        &__footer:hover,
+        &__footer._focus {
+            background-color: $element-bg;
+        }
+    }
+
+    .custom-input,
+    .context-menu__list {
+        background-color: $element-bg;
+    }
+
+    .custom-pop-up {
+        &__content,
+        &__close {
+            background-color: $element-bg;
+        }
+    }
+
+    .moderation-pop-up {
+        &__comp-search,
+        &__comp-search-results,
+        &__heading {
+            background-color: $element-bg;
+        }
+    }
+
+    .news-feed {
+        &__section {
+            background-color: $element-bg;
+        }
+    }
+    
+    .news-card {
+    }
+
+    .nf-filter {  
+        &__head,
+        &__date,
+        &__search-wrap.autocomplete-suggestions {
+            background-color: $element-bg;
+        }
+        &__search {
+            background-color: $element-bg;
+        }
+    }
+
+
+}

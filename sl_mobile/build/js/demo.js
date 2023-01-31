@@ -4,6 +4,9 @@
 
 (function () {
 
+  // Костыль для проверки темной темы
+  if (location.search.match('dark-theme')) document.body.classList.add('dark-theme');
+
   // jQuary Header search  ==========
   /**
    * код обрабатывает автозаполнение поискового инпута, используется плагин jQuery autocompleter
