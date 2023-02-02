@@ -875,7 +875,7 @@
 		transition: transform $t linear, opacity $t * 0.8 linear;
 
 		a,
-		span {
+		&>span {
 			display: flex;
 			align-items: center;
 			max-width: calc(100vw - 50px);
@@ -903,6 +903,25 @@
 	&__body-line {
 		margin: 3px 15px;
 		border-bottom: 1px solid #949494;
+	}
+	// .usermenu__body-switch
+	&__body-switch {
+		position: relative;
+		display: block;
+		width: 100%;
+		padding: 10px 12px 10px 60px !important;
+		user-select: none;
+
+		&:hover {
+			background-color: #ce5209;
+			color: #ffffff;
+		}
+
+		/* &__text {
+			position: relative;
+			padding: 0 !important;
+		} */
+
 	}
 	&._open {
 		.usermenu__body {

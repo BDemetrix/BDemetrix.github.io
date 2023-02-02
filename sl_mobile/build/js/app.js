@@ -544,6 +544,19 @@ if (arrowInputBtn) arrowInputBtn.addEventListener('click', () => {
 
 let notifySimpleBar = plugSimpleBar('#notify-body');
 
+const darkTheme = document.querySelector('.js-dark-theme');
+if (darkTheme) {
+
+  const isDarkTheme = !!window.localStorage.getItem('darkTheme');
+  darkTheme.checked = isDarkTheme;
+  document.body.classList.toggle('dark-theme', isDarkTheme);
+
+  darkTheme.addEventListener('change', () => {
+    document.body.classList.toggle('dark-theme');
+    window.localStorage.setItem('darkTheme', darkTheme.checked ? '1' : '')
+  });
+}
+
 // HEADER JS / end ============================================================================
 let now = new Date();
 let slideDate = document.querySelector('.slide-content__date');

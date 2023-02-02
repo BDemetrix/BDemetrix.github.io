@@ -429,6 +429,7 @@
         margin-right: 16px;
         background: none;
         border: 0;
+        color: #808080;
 
         &:last-child {
             margin-right: 0;
@@ -445,6 +446,7 @@
 
         svg {
             flex-shrink: 0;
+            fill: #fff;
         }
     }
 
@@ -453,7 +455,6 @@
         margin: 0 6px;
         font-size: 12px;
         line-height: 20px;
-        color: #808080;
     }
 
     // .post-card__link

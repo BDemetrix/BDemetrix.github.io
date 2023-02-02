@@ -10,7 +10,11 @@
     user-select: none;
 
     &--news {
-       //padding-top: 4px;
+        //padding-top: 4px;
+
+        .sections-box__swiper {
+            border-bottom: none;
+        }
 
         .sections-box__item {
             a {
@@ -41,10 +45,10 @@
         }
     }
 
-    // .sections-__swiper
+    // ..sections-box__swiper
     &__swiper {
         position: relative;
-        border-bottom: 1px solid $disabled-color;
+        //border-bottom: 1px solid $disabled-color;
     }
 
     // .sections-box__list
@@ -142,7 +146,7 @@
             display: inline-block;
             position: absolute;
             top: 0;
-            bottom: 0;
+            bottom: -1px;
             width: 45px;
         }
 
