@@ -33,7 +33,7 @@ if (isMobile.any()) {
 const bodyGlobal = document.querySelector('body');
 const scrollWidth = window.innerWidth - document.documentElement.clientWidth; // ширина скролл-бара окна
 /**
- * функции для блокировки скролла при открытии модального окна
+ * функции для блокировки скролла при открытии модального окна 
  */
 function blockOverflow() {
   bodyGlobal.style.overflow = `hidden`;
