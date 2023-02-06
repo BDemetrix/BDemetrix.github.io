@@ -571,7 +571,7 @@ class BecksSuicidalScale {
     }
 }
  
-window.addEventListener("DOMContentLoaded", () => {
+//window.addEventListener("DOMContentLoaded", () => {
 
 (function () {
     const burgerMenu = document.querySelector('.js-burger-menu');
@@ -659,4 +659,4 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 }());
 
-});
+//});
