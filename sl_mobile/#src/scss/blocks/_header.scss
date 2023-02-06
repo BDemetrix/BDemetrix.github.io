@@ -914,14 +914,14 @@
 
 		&:hover {
 			background-color: #ce5209;
-			color: #ffffff;
+			.custom-checkbox__text {
+				color: #ffffff !important;
+			}
 		}
 
-		/* &__text {
-			position: relative;
-			padding: 0 !important;
-		} */
-
+		.custom-checkbox__text{
+			color: $icon-color;
+		}
 	}
 	&._open {
 		.usermenu__body {
@@ -942,7 +942,7 @@
 		padding: 5px 0px 5px;
 		font-size: 16px;
 		a,
-		span {
+		&>span {
 			padding: 15px 25px;
 		}
 		img {

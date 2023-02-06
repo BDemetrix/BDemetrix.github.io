@@ -2297,15 +2297,18 @@ picture {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  /* &__text {
-  	position: relative;
-  	padding: 0 !important;
-  } */
 }
 
 .usermenu__body-switch:hover {
   background-color: #ce5209;
-  color: #ffffff;
+}
+
+.usermenu__body-switch:hover .custom-checkbox__text {
+  color: #ffffff !important;
+}
+
+.usermenu__body-switch .custom-checkbox__text {
+  color: #d4d4d4;
 }
 
 .usermenu._open .usermenu__body {
@@ -2326,7 +2329,7 @@ picture {
 }
 
 ._touch .usermenu__body a,
-._touch .usermenu__body span {
+._touch .usermenu__body > span {
   padding: 15px 25px;
 }
 
@@ -5737,7 +5740,7 @@ textarea {
 }
 
 .custom-select__option {
-  padding: 7px 14px 5px;
+  padding: 10px 14px 8px;
   border: 0;
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
@@ -7224,9 +7227,68 @@ textarea {
   color: #e9e9e9;
 }
 
-.dark-theme .add-post__form,
-.dark-theme .add-post__title {
+.dark-theme .add-post {
+  background: none;
+}
+
+.dark-theme .add-post__form {
   background-color: #2a2c30;
+}
+
+.dark-theme .add-post .custom-select__main-btn,
+.dark-theme .add-post__select .custom-select__list,
+.dark-theme .add-post__title,
+.dark-theme .add-post__textarea,
+.dark-theme .add-post__text {
+  background-color: #1f1f1f;
+  color: #e9e9e9;
+  border-color: #323232;
+}
+
+.dark-theme .add-post .custom-select__main-btn:hover,
+.dark-theme .add-post .custom-select__main-btn:focus,
+.dark-theme .add-post__select .custom-select__list:hover,
+.dark-theme .add-post__select .custom-select__list:focus,
+.dark-theme .add-post__title:hover,
+.dark-theme .add-post__title:focus,
+.dark-theme .add-post__textarea:hover,
+.dark-theme .add-post__textarea:focus,
+.dark-theme .add-post__text:hover,
+.dark-theme .add-post__text:focus {
+  border-color: #a5a5a5;
+}
+
+.dark-theme .add-post .custom-select__main-btn::-webkit-input-placeholder, .dark-theme .add-post__select .custom-select__list::-webkit-input-placeholder, .dark-theme .add-post__title::-webkit-input-placeholder, .dark-theme .add-post__textarea::-webkit-input-placeholder, .dark-theme .add-post__text::-webkit-input-placeholder {
+  color: #adb7c0;
+}
+
+.dark-theme .add-post .custom-select__main-btn::-moz-placeholder, .dark-theme .add-post__select .custom-select__list::-moz-placeholder, .dark-theme .add-post__title::-moz-placeholder, .dark-theme .add-post__textarea::-moz-placeholder, .dark-theme .add-post__text::-moz-placeholder {
+  color: #adb7c0;
+}
+
+.dark-theme .add-post .custom-select__main-btn:-ms-input-placeholder, .dark-theme .add-post__select .custom-select__list:-ms-input-placeholder, .dark-theme .add-post__title:-ms-input-placeholder, .dark-theme .add-post__textarea:-ms-input-placeholder, .dark-theme .add-post__text:-ms-input-placeholder {
+  color: #adb7c0;
+}
+
+.dark-theme .add-post .custom-select__main-btn::-ms-input-placeholder, .dark-theme .add-post__select .custom-select__list::-ms-input-placeholder, .dark-theme .add-post__title::-ms-input-placeholder, .dark-theme .add-post__textarea::-ms-input-placeholder, .dark-theme .add-post__text::-ms-input-placeholder {
+  color: #adb7c0;
+}
+
+.dark-theme .add-post .custom-select__main-btn::placeholder,
+.dark-theme .add-post__select .custom-select__list::placeholder,
+.dark-theme .add-post__title::placeholder,
+.dark-theme .add-post__textarea::placeholder,
+.dark-theme .add-post__text::placeholder {
+  color: #adb7c0;
+}
+
+.dark-theme .add-post .custom-select__main-btn {
+  color: #adb7c0;
+}
+
+.dark-theme .add-post__select .custom-select__option:hover,
+.dark-theme .add-post__select .custom-select__option:focus {
+  background: #2a2c30;
 }
 
 .dark-theme .post-card {
@@ -7280,6 +7342,10 @@ textarea {
 
 .dark-theme .context-menu__item {
   color: #e9e9e9 !important;
+}
+
+.dark-theme .context-menu__item svg {
+  fill: #e9e9e9;
 }
 
 .dark-theme .context-menu__item:hover {
@@ -7613,7 +7679,7 @@ textarea {
 }
 
 .dark-theme .moderation-pop-up__comp-search-wrapper .autocomplete-suggestions {
-  background: #2a2c30;
+  background: #1f1f1f;
 }
 
 .dark-theme .moderation-pop-up__comp-search-wrapper .autocomplete-suggestion {
@@ -7626,6 +7692,23 @@ textarea {
 
 .dark-theme .moderation-pop-up__comp-search-wrapper .autocomplete-suggestions strong {
   color: #24c2ff;
+}
+
+.dark-theme .quick-comment__body,
+.dark-theme .quick-comment__text,
+.dark-theme .quick-comment__send {
+  background-color: #1f1f1f;
+}
+
+.dark-theme .slide-sidebar,
+.dark-theme .slide-sidebar__slide-btn {
+  background-color: #1f1f1f;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.dark-theme .footer__banners {
+  background-color: #1f1f1f;
 }
 
 .comments__answers {

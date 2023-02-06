@@ -86,7 +86,7 @@
 }
 
 .custom-select__option {
-  padding: 7px 14px 5px;
+  padding: 10px 14px 8px;
   border: 0;
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;

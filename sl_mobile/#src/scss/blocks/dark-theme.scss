@@ -1,3 +1,4 @@
+@import "../base/variables";
 // Темная тема. Класс .dark-theme добавляется body
 $body-bg: #202225;
 $container-bg: #1f1f1f;
@@ -68,10 +69,42 @@ $disabled-color: #e2e2e2;
     }
 
     .add-post {
-        &__form,
-        &__title {
+        background: none;
+        &__form {
             background-color: $element-bg;
         }
+
+        .custom-select__main-btn,
+        &__select .custom-select__list,
+        &__title,
+        &__textarea,
+        &__text {
+            background-color: $container-bg;
+            color: $text-color;
+
+            border-color: #323232;
+            &:hover,
+            &:focus {
+                border-color: #a5a5a5;
+            }
+            
+            &::placeholder {
+                color: #adb7c0;
+            }
+        }
+
+        .custom-select__main-btn {
+            color: #adb7c0; 
+        }
+
+        &__select .custom-select__option {
+            &:hover,
+            &:focus {
+                background: $element-bg;
+            }
+        }
+
+
     }
 
     .post-card {
@@ -137,6 +170,10 @@ $disabled-color: #e2e2e2;
 
         &__item {
             color: $text-color !important;
+
+            svg {
+                fill: $text-color;
+            }
             &:hover {
                 background: $element-bg;
             }
@@ -418,7 +455,7 @@ $disabled-color: #e2e2e2;
         &__comp-search-wrapper {
             color: $text-color;
             .autocomplete-suggestions {
-                background: $element-bg;
+                background: $container-bg;
             }
 
             .autocomplete-suggestion {
@@ -431,5 +468,26 @@ $disabled-color: #e2e2e2;
                 color: #24c2ff;
             }
         }
+    }
+
+    .quick-comment {
+        &__body,
+        &__text,
+        &__send {
+            background-color: $container-bg;
+        }
+    }
+
+    .slide-sidebar {
+        
+        &,
+        &__slide-btn {
+            background-color: $container-bg;
+            box-shadow: none;
+        }
+    }
+
+    .footer__banners {
+        background-color: $container-bg;
     }
 }

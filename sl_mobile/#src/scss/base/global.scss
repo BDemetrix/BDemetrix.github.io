@@ -68,6 +68,10 @@
         text-align: left;
         font-size: inherit;
 
+        svg {
+            //fill: #000;
+        }
+
         &:hover {
             background: #e2e2e2;
         }
