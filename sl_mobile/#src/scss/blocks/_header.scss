@@ -911,6 +911,8 @@
 		width: 100%;
 		padding: 10px 12px 10px 60px !important;
 		user-select: none;
+		opacity: 0;
+		visibility: hidden;
 
 		&:hover {
 			background-color: #ce5209;
@@ -922,10 +924,18 @@
 		.custom-checkbox__text{
 			color: $icon-color;
 		}
+		.custom-checkbox__input + span::before {
+			background: #949494;
+		}
 	}
 	&._open {
 		.usermenu__body {
 			transform: translate(0, 0);
+			opacity: 1;
+			visibility: visible;
+		}
+
+		.usermenu__body-switch {
 			opacity: 1;
 			visibility: visible;
 		}
