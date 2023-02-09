@@ -626,8 +626,8 @@ if (selectorLinks) {
     const selectorLinksSlider = new Swiper(selectorLinks, {
         slidesPerView: 'auto',
         watchOverflow: true,
-        //observer: true,
-        //resizeObserver: true,
+        observer: true,
+        resizeObserver: true,
         freeMode: {
             enabled: false,
             //sticky: true,
@@ -648,6 +648,11 @@ if (selectorLinks) {
             });
             item.classList.add('sections-box__item--active');
             selectorLinksSlider.slideTo(i);
+            const a = item.querySelector('a');
+            if (selectorLinksSlider.isLocked && a) {
+                console.log('selectorLinksSlider.isLocked = ', selectorLinksSlider.isLocked)
+                window.location = a.href;
+            };
         })
     })
 }
