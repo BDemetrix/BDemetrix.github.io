@@ -2861,8 +2861,8 @@ textarea {
 .apps-box__title {
   font-size: 14px;
   line-height: 14px;
-  width: calc(100% + 20px);
-  margin: 0 -10px;
+  width: calc(100% + 30px);
+  margin: 0 -15px;
   overflow: hidden;
   -o-text-overflow: ellipsis;
      text-overflow: ellipsis;
