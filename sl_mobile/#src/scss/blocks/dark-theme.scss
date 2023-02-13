@@ -218,6 +218,10 @@ $disabled-color: #e2e2e2;
                 }
             }
         }
+
+        &__tg-link-wrap svg{
+            fill: $link-color;
+        }
     }
 
     .context-menu {

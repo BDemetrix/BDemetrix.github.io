@@ -234,6 +234,10 @@
   color: #479cd3;
 }
 
+.dark-theme .user-info__tg-link-wrap svg {
+  fill: #479cd3;
+}
+
 .dark-theme .context-menu__list {
   background-color: #202225;
 }

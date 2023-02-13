@@ -4363,6 +4363,7 @@ textarea {
 
 .user-info__tg-link-wrap svg {
   margin-right: 5px;
+  fill: #479cd3;
 }
 
 .user-info__tg-link {
@@ -7431,6 +7432,10 @@ textarea {
 
 .dark-theme .user-info__name {
   color: #479cd3;
+}
+
+.dark-theme .user-info__tg-link-wrap svg {
+  fill: #479cd3;
 }
 
 .dark-theme .context-menu__list {
