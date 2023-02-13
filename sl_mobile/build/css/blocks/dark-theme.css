@@ -214,6 +214,10 @@
   fill: #adb7c0;
 }
 
+.dark-theme .post-card__menu-item--blue svg {
+  fill: #479cd3 !important;
+}
+
 .dark-theme .comments,
 .dark-theme .comments__footer,
 .dark-theme .comments__footer:hover,

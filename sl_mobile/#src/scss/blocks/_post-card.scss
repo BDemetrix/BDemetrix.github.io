@@ -25,7 +25,7 @@
 
     &--post {
         border-radius: 0 0 8px 8px;
-        
+
         .post-card__text {
             margin-bottom: 1em;
         }
@@ -130,7 +130,12 @@
             margin-right: 8px;
             fill: #312c26;
         }
+
+        &--blue svg {
+            fill: #0B5483 !important;
+        }
     }
+
     // .post-card__photo-wrap
     &__photo-wrap {
         margin-right: 10px;
@@ -314,7 +319,9 @@
         }
 
         a {
-            &, &:active, &:visited {
+            &,
+            &:active,
+            &:visited {
                 color: #479cd3;
                 word-break: break-word;
             }
@@ -344,9 +351,9 @@
         }
     }
     // .post-card__text-stopper Х
-    &__text-stopper {  
+    &__text-stopper {
         display: inline-block;
-        width: 6.45em;    
+        width: 6.45em;
     }
     // .post-card__text-more
     &__text-more {
@@ -392,7 +399,6 @@
     &__table {
         max-width: 100%;
         overflow-x: auto;
-
     }
     &__tags &__labels {
         display: flex;

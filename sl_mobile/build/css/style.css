@@ -3538,6 +3538,10 @@ textarea {
   fill: #312c26;
 }
 
+.post-card__menu-item--blue svg {
+  fill: #0B5483 !important;
+}
+
 .post-card__photo-wrap {
   margin-right: 10px;
   display: -webkit-inline-box;
@@ -7412,6 +7416,10 @@ textarea {
 
 .dark-theme .post-card__menu-btn svg {
   fill: #adb7c0;
+}
+
+.dark-theme .post-card__menu-item--blue svg {
+  fill: #479cd3 !important;
 }
 
 .dark-theme .comments,

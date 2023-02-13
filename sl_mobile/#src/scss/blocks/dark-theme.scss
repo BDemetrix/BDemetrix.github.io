@@ -120,11 +120,13 @@ $disabled-color: #e2e2e2;
         }
 
         &__link {
-            &, &:visited, &:active{
+            &,
+            &:visited,
+            &:active {
                 color: $link-color;
-            } 
+            }
             &:hover {
-                border-color: $link-color; 
+                border-color: $link-color;
             }
         }
 
@@ -186,6 +188,12 @@ $disabled-color: #e2e2e2;
                 fill: $date-color;
             }
         }
+
+        &__menu-item {
+            &--blue svg{
+                fill: $link-color !important;
+            }
+        }
     }
 
     .comments {
@@ -219,7 +227,7 @@ $disabled-color: #e2e2e2;
             }
         }
 
-        &__tg-link-wrap svg{
+        &__tg-link-wrap svg {
             fill: $link-color;
         }
     }
