@@ -112,6 +112,19 @@
     },
   });
 
+  $('.search-block__input').autocomplete({
+    lookup: response,
+    appendTo: '.search-block__form',
+    maxHeight: 'auto',
+    onSelect: function (suggestion) {
+      window.open(suggestion.data, "WindowName", windowFeatures);
+      this.value = '';
+    },
+    beforeRender: function (container, suggestions) {
+      menuSlideDown(container);
+    },
+  });
+
 
 // Автокомплит для ленты новостей moderation-pop-up__comp-search
 $('.moderation-pop-up__comp-search').autocomplete({

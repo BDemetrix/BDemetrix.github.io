@@ -17,6 +17,12 @@
         height: auto;
     }
 
+    &--prev {
+        .post-card__text {
+            text-align: justify;
+        }
+    }
+
     &--post {
         border-radius: 0 0 8px 8px;
         
@@ -297,7 +303,6 @@
         line-height: 150%;
         color: #312c26;
         word-break: break-word;
-        text-align: justify;
 
         p {
             padding: 5px 0;
