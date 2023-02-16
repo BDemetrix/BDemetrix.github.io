@@ -6211,8 +6211,7 @@ textarea {
 }
 
 .nf-filter__search-wrap .autocomplete-suggestions strong {
-  font-weight: normal;
-  color: #24c2ff;
+  font-weight: 700;
 }
 
 .nf-filter__search,
@@ -7996,8 +7995,7 @@ body.loader:before {
 .search-block .autocomplete-suggestions strong,
 .nf-filter__search-wrap .autocomplete-suggestions strong,
 .moderation-pop-up__comp-search-wrapper .autocomplete-suggestions strong {
-  font-weight: normal;
-  color: #24c2ff;
+  font-weight: 700;
 }
 
 #loginDialog * {
