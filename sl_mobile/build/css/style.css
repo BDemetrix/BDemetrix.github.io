@@ -3415,8 +3415,10 @@ textarea {
   height: auto;
 }
 
-.post-card--prev .post-card__text {
-  text-align: justify;
+.post-card--prev {
+  /* .post-card__text {
+      text-align: justify;
+  } */
 }
 
 .post-card--post {
