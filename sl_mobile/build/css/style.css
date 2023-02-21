@@ -7211,6 +7211,7 @@ textarea {
   margin-bottom: 15px;
   border-radius: 8px;
   text-align: center;
+  background: #fff;
 }
 
 .not-found,
