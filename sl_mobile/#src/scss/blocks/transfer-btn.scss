@@ -39,7 +39,7 @@ $blue-btn: #479cd3;
         left: calc((100vw - 768px) / 4 - 24px);
 
         @media (min-width: 920px) {
-            z-index: 3;
+            z-index: 11;
             //opacity: 1;
             visibility: visible;
         }

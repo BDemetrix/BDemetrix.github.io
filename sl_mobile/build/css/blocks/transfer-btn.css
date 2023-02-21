@@ -76,7 +76,7 @@
 
 @media (min-width: 920px) {
   .transfer-btn--to-old {
-    z-index: 3;
+    z-index: 11;
     visibility: visible;
   }
 }
