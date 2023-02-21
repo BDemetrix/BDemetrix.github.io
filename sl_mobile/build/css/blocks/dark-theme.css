@@ -669,7 +669,7 @@
 }
 
 .dark-theme .not-found__img {
-  background-image: url("../../images/404-light.png");
+  background-image: url("../images/404-light.png");
 }
 
 .dark-theme .not-found__title,

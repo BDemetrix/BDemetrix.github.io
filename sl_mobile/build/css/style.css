@@ -7229,7 +7229,7 @@ textarea {
   position: relative;
   width: 100%;
   padding-bottom: 45.62%;
-  background: no-repeat center/100% url("../../images/404-dark.png");
+  background: no-repeat center/100% url("../images/404-dark.png");
 }
 
 .not-found__img img {
@@ -8013,7 +8013,7 @@ textarea {
 }
 
 .dark-theme .not-found__img {
-  background-image: url("../../images/404-light.png");
+  background-image: url("../images/404-light.png");
 }
 
 .dark-theme .not-found__title,
