@@ -1,0 +1,95 @@
+$bp: 430px;
+
+.not-found {
+	padding: 10px 15px 40px;
+	margin-bottom: 15px;
+	border-radius: 8px;
+	text-align: center;
+
+	@media (min-width: $bp) {
+		padding: 30px 15px 40px;
+	}
+
+	&,
+	* {
+		box-sizing: border-box;
+	}
+
+	// .not-found__img-wrap
+	&__img-wrap {
+		max-width: 445px;
+		width: 100%;
+		margin: 0 auto 30px;
+
+		@media (min-width: $bp) {
+			margin: 0 auto 100px;
+		}
+	}
+	// .not-found__img
+	&__img {
+		position: relative;
+		width: 100%;
+		padding-bottom: 45.62%;
+		background: no-repeat center / 100% url("../../images/404-dark.png");
+
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+	// .not-found__title
+	&__title {
+		margin: 0 0 30px;
+		font-weight: 500;
+		font-size: 24px;
+		line-height: 1.2;
+		text-align: center;
+		letter-spacing: 0.0125em;
+		color: #383838;
+
+		@media (min-width: $bp) {
+			font-size: 32px;
+		}
+	}
+	// .not-found__text
+	&__text {
+		max-width: 484px;
+		margin: 0 auto 30px;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 22px;
+		text-align: center;
+		letter-spacing: 0.0125em;
+		color: #808080;
+
+		@media (min-width: $bp) {
+			font-size: 19px;
+		}
+	}
+	// .not-found__link
+	&__link {
+		display: inline-flex;
+		margin: 0 auto;
+		padding: 10px 40px;
+		background: #1a5d88;
+		border-radius: 8px;
+		font-weight: 500;
+		letter-spacing: 0.0125em;
+		font-size: 14px;
+		line-height: 20px;
+		color: #ffffff;
+		text-decoration: none;
+	}
+
+	// .not-found__brokers-links
+	&__brokers-links {
+		margin-top: 30px;
+
+		@media (min-width: $bp) {
+			margin-top: 100px;
+		}
+	}
+}

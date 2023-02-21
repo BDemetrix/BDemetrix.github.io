@@ -52,6 +52,7 @@ picture {
 .wrapper {
 	position: relative;
 	width: 100%;
+	min-height: 100%;
 	background: #f1f1f1;
 }
 //</ОБОЛОЧКА>===========================================================================================================
@@ -120,6 +121,12 @@ picture {
 @import "./blocks/transfer-btn";
 @import "./blocks/_login";
 @import "./blocks/_quick-comment";
+@import "./blocks/_not-found";
+@import "./blocks/_brokers-links";
+
+
+
+// стили для темной темы должны подклячаться в конце
 @import "./blocks/dark-theme";
 
 

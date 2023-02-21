@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('_head.html',{
+"title":"Страница не найдена",
+"stylesheet": "./css/style.css"
+})
+
+<body class="">
+	<!-- классы ._style-1 , ._style-2 и ._style-3 используются для стилизации двух видов шаблонов 
+		Например: при body._style-1 Логотип имеет один цвет, а при body._style-2 и ._style-3 - другой
+		._style-1 для smart-lab.ru
+		._style-2 для smart-lab.ru/q/
+		._style-3 для smart-lab.ru/forum/
+
+		Если на странице есть правая колонка, то body добавлется класс .right-panel
+		Для темной темы добавляется класс .dark-theme 
+		(для демонстрации верстки добавлен скрипт, который при добавления параметра ?dark-theme к url меняет тему)
+		-->
+	<div class="wrapper">
+		@@include('_header.html',{"Class": "_container"})
+		<main class="main _mobile-container">
+			<div class="main__not-found not-found">
+				<div class="not-found__img-wrap">
+					<div class="not-found__img"></div>
+				</div> 
+				<div class="not-found__title">
+					Страница не&nbsp;найдена
+				</div>
+				<div class="not-found__text">
+					К сожалению, такой страницы не&nbsp;существует.<br>
+					Вероятно, она была удалена или её&nbsp;здесь никогда не&nbsp;было.
+				</div>
+				<a href="/" class="not-found__link">
+					На главную
+				</a>
+
+				@@include('_brokers-links.html',{'Class': 'not-found__brokers-links'})
+			</div>
+			
+			@@include('_footer_mob.html',{'Class': 'footer--no-banners'})
+		</main>
+	</div>
+	@@include('_js.html',{})
+</body>
+
+</html>
