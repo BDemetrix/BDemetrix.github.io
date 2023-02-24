@@ -703,7 +703,8 @@
                 <div class="news-feed__filter nf-filter">
                     <div class="nf-filter__head">
                         <!-- Для отображени чекбокса в вида тумблера присваивается модификатор custom-checkbox--switch -->
-                        <label class="nf-filter__checkbox custom-checkbox custom-checkbox--switch" title="Включить автообновление 1 раз в минуту">
+                        <label class="nf-filter__checkbox custom-checkbox custom-checkbox--switch"
+                            title="Включить автообновление 1 раз в минуту">
                             <input type="checkbox" class="custom-checkbox__input" checked="" tabindex="0">
                             <span class="custom-checkbox__text">В виде ленты</span>
                         </label>
@@ -770,172 +771,153 @@
                     </div>
                 </div>
             </div>
-            <div class="news-feed__list">
-                <div class="news-feed__items news-card">
-                    <div class="news-card__date">21:07</div>
-                    <p href="#" class="news-card__title">Match Group прогнозирует слабый рост в 2022 из-за укрепления доллара и ухудшения экономической ситуации</p>
-                    <a href="#" class="news-card__author">
-                        <span>SUVE Capital Management</span>
+            <ul class="news-feed__list js-news-feed-list">
+                <li class="news-feed__item">
+                    <a class="news-card" href="https://smart-lab.ru/blog/851748.php">
+                        <div class="news-card__date">21:07</div>
+                        <p class="news-card__title">Match Group прогнозирует слабый рост в 2022 из-за
+                            укрепления доллара и ухудшения экономической ситуации</p>
+                        <span data-href="https://smart-lab.ru/profile/suve/"
+                            class="news-card__author js-news-card-author">
+                            <span>SUVE Capital Management</span>
+                            
+                        </span>
+                        <div class="news-card__info"></div>
                     </a>
-                    <div class="news-card__info"></div>
-                    <!-- ссылка на новость -->
-                    <a href="https://smart-lab.ru/blog/851748.php" class="news-card__link"></a>
-                </div>
-                <div class="news-feed__items news-card">
-                    <div class="news-card__date">21:07</div>
-                    <p href="#" class="news-card__title">Минфин призывает вернуть отчётность эмитентов для
-                        восстановления доверия розничных инвесторов к фондовому рынку</p>
-                    <a href="#" class="news-card__author">
-                        <span>RomanAndreev</span>
-                        <svg width="14" height="14">
-                            <use xlink:href="images/icons/comments/sprite.svg#premium"></use>
-                        </svg>
+                </li>
+                <li class="news-feed__item">
+                    <a class="news-card" href="https://smart-lab.ru/mobile/topic/881071/">
+                        <div class="news-card__date">Сегодня в 14:13</div>
+                        <p class="news-card__title">США повысят пошлины на ввоз металлов, минералов и химпродукции из РФ
+                        </p>
+                        <span data-href="https://smart-lab.ru/profile/editor2/"
+                            class="news-card__author js-news-card-author">
+                            <span>Редактор Боб</span>
+                        </span>
+                        <div class="news-card__info"></div>
                     </a>
-                    <div class="news-card__info"></div>
-                    <!-- ссылка на новость -->
-                    <a href="#" class="news-card__link"></a>
-                </div>
-                <div class="news-feed__items news-card">
-                    <div class="news-card__date">21:07</div>
-                    <p href="#" class="news-card__title">МНЕНИЕ: Возврат Алроса к дивидентным выплатам крайне
-                        маловероятен</p>
-                    <a href="#" class="news-card__author">
-                        <span>RomanAndreev</span>
-                        <svg width="20" height="20">
-                            <use xlink:href="images/icons/comments/sprite.svg#approved"></use>
-                        </svg>
+                </li>
+                <li class="news-feed__item">
+                    <a class="news-card" href="https://smart-lab.ru/mobile/topic/881062/">
+                        <div class="news-card__date">Сегодня в 13:39</div>
+                        <p class="news-card__title">📉АЛРОСА падает на 1,3% после того как ЕС согласовал санкции против
+                            российских
+                            алмазов</p>
+                        <span data-href="https://smart-lab.ru/profile/dr-mart/"
+                            class="news-card__author js-news-card-author">
+                            <span>Тимофей Мартынов</span>
+                            <svg width="20" height="20">
+                                <use xlink:href="images/icons/comments/sprite.svg#approved"></use>
+                            </svg>
+                        </span>
+                        <div class="news-card__info"></div>
                     </a>
-                    <div class="news-card__info"></div>
-                    <a href="#" class="news-card__link"></a>
-                </div>
-                <div class="news-feed__items news-card">
-                    <div class="news-card__date">12:28</div>
-                    <p href="#" class="news-card__title">
-                        Совкомфлот ожидает высоких ставок фрахта на конец 2022 года
-                    </p>
-                    <a href="#" class="news-card__author">
-                        <span>RomanAndreev</span>
-                        <svg width="14" height="14">
-                            <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
-                        </svg>
+                </li>
+                <li class="news-feed__item">
+                    <a class="news-card" href="https://smart-lab.ru/mobile/topic/880995/">
+                        <div class="news-card__date">Сегодня в 09:56</div>
+                        <p class="news-card__title">Минэкономики Германии не против запрета на поставки российского газа в ЕС -
+            вице-канцлер Хабек
+                        </p>
+                        <span data-href="https://smart-lab.ru/profile/zhmakr/" class="news-card__author js-news-card-author">
+                            <span>Роман Жмак</span>
+                        </span>
+                        <div class="news-card__info"></div>
                     </a>
-                    <div class="news-card__info"></div>
-                    <a href="#" class="news-card__link"></a>
-                </div>
-                <div class="news-feed__items news-card">
-                    <div class="news-card__date">15:44</div>
-                    <p href="#" class="news-card__title">
-                        Почти 500 тысяч частных инвесторов пришли на Мосбиржу в сентябре
-                    </p>
-                    <a href="#" class="news-card__author">
-                        <span>RomanAndreev</span>
-                        <svg width="14" height="14">
-                            <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
-                        </svg>
+                </li>
+                <li class="news-feed__item">
+                    <a class="news-card" href="https://smart-lab.ru/mobile/topic/880836/">
+                        <div class="news-card__date">Вчера в 09:39</div>
+                        <p class="news-card__title">G7 работает над механизмом контроля за санкциями против России - Bloomberg
+                        </p>
+                        <span data-href="https://smart-lab.ru/profile/zhmakr/" class="news-card__author js-news-card-author">
+                            <span>Роман Жмак</span>
+                        </span>
+                        <div class="news-card__info"></div>
                     </a>
-                    <div class="news-card__info"></div>
-                    <a href="#" class="news-card__link"></a>
-                </div>
-                <div class="news-feed__items news-card">
-                    <div class="news-card__date">18:04</div>
-                    <p href="#" class="news-card__title">
-                        Производство алкогольных напитков в России выросло на 12 процентов
-                    </p>
-                    <a href="#" class="news-card__author">
-                        <span>RomanAndreev</span>
-                        <svg width="14" height="14">
-                            <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
-                        </svg>
+                </li>
+                <li class="news-feed__item">
+                    <a class="news-card" href="https://smart-lab.ru/mobile/topic/880790/">
+                        <div class="news-card__date">22 февраля 2023, 22:29</div>
+                        <p class="news-card__title">Титов сообщил, что "Абрау-Дюрсо" только начинает работать на рынке КНР</p>
+                        <span data-href="https://smart-lab.ru/profile/editor2/" class="news-card__author js-news-card-author">
+                            <span>Редактор Боб</span>
+                        </span>
+                        <div class="news-card__info"></div>
                     </a>
-                    <div class="news-card__info"></div>
-                    <a href="#" class="news-card__link"></a>
-                </div>
-                <div class="news-feed__items news-card">
-                    <div class="news-card__date">18:23</div>
-                    <p href="#" class="news-card__title">
-                        Цинк и медь дорожают после запрета LME на поставки с УГМК
-                    </p>
-                    <a href="#" class="news-card__author">
-                        <span>RomanAndreev</span>
-                        <svg width="14" height="14">
-                            <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
-                        </svg>
+                </li>
+                <li class="news-feed__item">
+                    <a class="news-card" href="https://smart-lab.ru/mobile/topic/880787/">
+                        <div class="news-card__date">22 февраля 2023, 22:27</div>
+                        <p class="news-card__title">⚡️ Мосбиржа прекратит торги акциями и облигациями OR Group (Обувь России)</p>
+                        <span data-href="https://smart-lab.ru/profile/vasssilio/" class="news-card__author js-news-card-author">
+                            <span>Василий Баранов</span>
+                        </span>
+                        <div class="news-card__info"></div>
                     </a>
-                    <div class="news-card__info"></div>
-                    <a href="#" class="news-card__link"></a>
-                </div>
-                <div class="news-feed__items news-card">
-                    <div class="news-card__date">20:53</div>
-                    <p href="#" class="news-card__title">
-                        Минфин призывает вернуть отчётность эмитентов для восстановления доверия розничных инвесторов к
-                        фондовому рынку
-                    </p>
-                    <a href="#" class="news-card__author">
-                        <span>RomanAndreev</span>
-                        <svg width="14" height="14">
-                            <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
-                        </svg>
+                </li>
+                <li class="news-feed__item">
+                    <a class="news-card" href="https://smart-lab.ru/mobile/topic/880777/">
+                        <div class="news-card__date">22 февраля 2023, 21:04</div>
+                        <p class="news-card__title">Квартальные результаты Baidu оказались лучше ожиданий и консенсус-прогнозов - Синара</p>
+                        <span data-href="https://smart-lab.ru/profile/stanislava/" class="news-card__author js-news-card-author">
+                            <span>stanislava</span>
+                        </span>
+                        <div class="news-card__info"></div>
                     </a>
-                    <div class="news-card__info"></div>
-                    <a href="#" class="news-card__link"></a>
-                </div>
-                <div class="news-feed__items news-card">
-                    <div class="news-card__date">21:07</div>
-                    <p href="#" class="news-card__title">
-                        Доллар умеренно дешевеет к евро и иене
-                    </p>
-                    <a href="#" class="news-card__author">
-                        <span>RomanAndreev</span>
-                        <svg width="14" height="14">
-                            <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
-                        </svg>
+                </li>
+                <li class="news-feed__item">
+                    <a class="news-card" href="https://smart-lab.ru/mobile/topic/880560/">
+                        <div class="news-card__date">22 февраля 2023, 10:45</div>
+                        <p class="news-card__title">МТС закрыла сделку по приобретению 67% в капитале рекламного агентства Buzzoola
+                        </p>
+                        <span data-href="https://smart-lab.ru/profile/Buterbrod2018/" class="news-card__author js-news-card-author">
+                            <span>Все Верно</span>
+                            <svg width="14" height="14">
+                                <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
+                            </svg>
+                        </span>
+                        <div class="news-card__info"></div>
                     </a>
-                    <div class="news-card__info"></div>
-                    <a href="#" class="news-card__link"></a>
-                </div>
-                <div class="news-feed__items news-card">
-                    <div class="news-card__date">03/11</div>
-                    <p href="#" class="news-card__title">
-                        Продажи смартфонов в третьем квартале в России выросли в 1.5 раза
-                    </p>
-                    <a href="#" class="news-card__author">
-                        <span>RomanAndreev</span>
-                        <svg width="14" height="14">
-                            <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
-                        </svg>
+                </li>
+                <li class="news-feed__item">
+                    <a class="news-card" href="https://smart-lab.ru/mobile/topic/880553/">
+                        <div class="news-card__date">22 февраля 2023, 10:34</div>
+                        <p class="news-card__title">Доллар уверенно снижается котировки опустились ниже 74.5 рублей
+                        </p>
+                        <span data-href="https://smart-lab.ru/profile/romanranniy/" class="news-card__author js-news-card-author">
+                            <span>Роман Ранний</span>
+                            <svg width="14" height="14">
+                                <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
+                            </svg>
+                        </span>
+                        <div class="news-card__info"></div>
                     </a>
-                    <div class="news-card__info"></div>
-                    <a href="#" class="news-card__link"></a>
-                </div>
-                <div class="news-feed__items news-card">
-                    <div class="news-card__date">02/11</div>
-                    <p href="#" class="news-card__title">
-                        Объём сделок на “СПб Бирже” в сентябре откатился до минимума этого года
-                    </p>
-                    <a href="#" class="news-card__author">
-                        <span>RomanAndreev</span>
-                        <svg width="14" height="14">
-                            <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
-                        </svg>
+                </li>
+                <li class="news-feed__item">
+                    <a class="news-card" href="https://smart-lab.ru/mobile/topic/880777/">
+                        <div class="news-card__date">22 февраля 2023, 21:04</div>
+                        <p class="news-card__title">Квартальные результаты Baidu оказались лучше ожиданий и консенсус-прогнозов - Синара
+                        </p>
+                        <span data-href="https://smart-lab.ru/profile/stanislava/" class="news-card__author js-news-card-author">
+                            <span>stanislava</span>
+                        </span>
+                        <div class="news-card__info"></div>
                     </a>
-                    <div class="news-card__info"></div>
-                    <a href="#" class="news-card__link"></a>
-                </div>
-                <div class="news-feed__items news-card">
-                    <div class="news-card__date">02/11</div>
-                    <p href="#" class="news-card__title">
-                        Выпуск нефтехимической продукции адаптировался - Ъ
-                    </p>
-                    <a href="#" class="news-card__author">
-                        <span>RomanAndreev</span>
-                        <svg width="14" height="14">
-                            <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
-                        </svg>
+                </li>
+                <li class="news-feed__item">
+                    <a class="news-card" href="https://smart-lab.ru/mobile/topic/880777/">
+                        <div class="news-card__date">22 февраля 2023, 21:04</div>
+                        <p class="news-card__title">Квартальные результаты Baidu оказались лучше ожиданий и консенсус-прогнозов - Синара
+                        </p>
+                        <span data-href="https://smart-lab.ru/profile/stanislava/" class="news-card__author js-news-card-author">
+                            <span>stanislava</span>
+                        </span>
+                        <div class="news-card__info"></div>
                     </a>
-                    <div class="news-card__info"></div>
-                    <a href="#" class="news-card__link"></a>
-                </div>
-            </div>
+                </li>
+
+            </ul>
             <footer class="footer footer--news">
 	<div class="footer__content">
 		<div class="footer__banners">
@@ -1091,7 +1073,7 @@
             transferBtnToOld.style.top = getTop();
         })
 
-        banner.addEventListener('click', () => {
+        if (banner) banner.addEventListener('click', () => {
             setTimeout(() => {
                 const banner = document.querySelector('.js-banner-above-header');
                 if (!banner) {
@@ -1173,7 +1155,7 @@
         };
         
         
-        banner.addEventListener('click', () => {
+        if (banner) banner.addEventListener('click', () => {
             setTimeout(() => {
                 const banner = document.querySelector('.js-banner-above-header');
                 if (!banner) {

@@ -30,8 +30,8 @@
         list-style: none;
         margin-bottom: -10px;
     }
-    // .news-feed__items
-    &__items {
+    // .news-feed__item
+    &__item {
         margin: 10px 5px;
     }
 }
@@ -268,6 +268,12 @@
         border-color: #a5a5a5;
     }
 
+    &:visited {
+        .news-card__title {
+            color: #939393;
+        }
+    }
+
     /* @media (min-width: 600px) {
         align-items: center;
         justify-content: flex-start;
@@ -351,16 +357,5 @@
     }
     // .news-card__info
     &__info {
-    }
-
-    // .news-card__link
-    &__link {
-        position: absolute;
-        z-index: 2;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        border-radius: 8px;
     }
 }

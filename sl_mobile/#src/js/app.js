@@ -7,6 +7,7 @@
 @@include('files/custom-select-dynamic-load.js', {})
 @@include('files/jBoxNotice.js', {})
 @@include('files/nf-filter.js', {})
+@@include('files/news.js', {})
 @@include('files/bootstrap-datepicker-setup.js', {})
 @@include('files/slide-sidebar.js', {})
 @@include('files/quick-comment.js', {})

@@ -908,6 +908,17 @@ function jBoxNotice(color, title, message) {
         _slideToggle(filterBody, 300);
     })
 }());
+(function () {
+    if (!document.querySelector('.js-news-feed-list')) return;
+
+    document.documentElement.addEventListener('click', e => {
+        const newsAuthor = e.target.closest('.js-news-card-author');
+        if (!newsAuthor) return;
+
+        e.preventDefault();
+        window.location.href = newsAuthor.dataset.href;
+    })
+}());
 ;(function($){
 	$.fn.datepicker.dates['ru'] = {
 		days: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"],

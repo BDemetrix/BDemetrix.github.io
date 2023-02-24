@@ -47,7 +47,7 @@
             transferBtnToOld.style.top = getTop();
         })
 
-        banner.addEventListener('click', () => {
+        if (banner) banner.addEventListener('click', () => {
             setTimeout(() => {
                 const banner = document.querySelector('.js-banner-above-header');
                 if (!banner) {
@@ -129,7 +129,7 @@
         };
         
         
-        banner.addEventListener('click', () => {
+        if (banner) banner.addEventListener('click', () => {
             setTimeout(() => {
                 const banner = document.querySelector('.js-banner-above-header');
                 if (!banner) {

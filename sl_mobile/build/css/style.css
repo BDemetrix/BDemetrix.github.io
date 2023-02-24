@@ -6091,7 +6091,7 @@ textarea {
   margin-bottom: -10px;
 }
 
-.news-feed__items {
+.news-feed__item {
   margin: 10px 5px;
 }
 
@@ -6378,6 +6378,10 @@ textarea {
   border-color: #a5a5a5;
 }
 
+.news-card:visited .news-card__title {
+  color: #939393;
+}
+
 .news-card__date {
   width: 50px;
   -webkit-box-flex: 0;
@@ -6458,16 +6462,6 @@ textarea {
 .news-card__author:hover {
   color: #2987C5;
   font-weight: 600;
-}
-
-.news-card__link {
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border-radius: 8px;
 }
 
 .slide-sidebar {
