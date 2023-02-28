@@ -1,3 +1,5 @@
+// скрипт для перехода на страницу автора новости и отмену перехода к самой новости (в ленте новостей)
+
 (function () {
     if (!document.querySelector('.js-news-feed-list')) return;
 

@@ -1,0 +1,15 @@
+.donate-btn {
+    display: flex;
+    margin: 20px auto;
+    padding: 7px 14px;
+    background: #ffdf39;
+    box-shadow: 0px 2px 4px rgba(255, 223, 57, 0.25);
+    border-radius: 6px;
+    border: 0;
+    color: #000;
+    line-height: 20px;
+
+    svg {
+        margin-left: 5px;
+    }
+}
