@@ -86,7 +86,7 @@ body.loader:before {
 
 .search-block .autocomplete-suggestions,
 .nf-filter__search-wrap .autocomplete-suggestions,
-.moderation-pop-up__comp-search-wrapper .autocomplete-suggestions {
+.moderation-pop-up__search-wrapper .autocomplete-suggestions {
   width: 100%;
   top: calc(100% + 5px);
   background: #fff;
@@ -102,7 +102,7 @@ body.loader:before {
 
 .search-block .autocomplete-suggestion,
 .nf-filter__search-wrap .autocomplete-suggestion,
-.moderation-pop-up__comp-search-wrapper .autocomplete-suggestion {
+.moderation-pop-up__search-wrapper .autocomplete-suggestion {
   cursor: pointer;
   width: 100%;
   -o-text-overflow: ellipsis;
@@ -119,12 +119,12 @@ body.loader:before {
 
 .search-block .autocomplete-selected,
 .nf-filter__search-wrap .autocomplete-selected,
-.moderation-pop-up__comp-search-wrapper .autocomplete-selected {
+.moderation-pop-up__search-wrapper .autocomplete-selected {
   background: #f0f0f0;
 }
 
 .search-block .autocomplete-suggestions strong,
 .nf-filter__search-wrap .autocomplete-suggestions strong,
-.moderation-pop-up__comp-search-wrapper .autocomplete-suggestions strong {
+.moderation-pop-up__search-wrapper .autocomplete-suggestions strong {
   font-weight: 700;
 }

@@ -742,7 +742,7 @@ const forumsSlider = new Swiper('.forums-slider', {
 
     function heightCorrection(e) {
         if (!e.target.closest(sModerationPopupSelector)) return;
-        if (!e.target.matches('.moderation-pop-up__comp-search')) return;
+        if (!e.target.matches('.moderation-pop-up__search')) return;
 
         const popUp = e.target.closest('.moderation-pop-up');
         const popUpBody = popUp.querySelector('.moderation-pop-up__body');

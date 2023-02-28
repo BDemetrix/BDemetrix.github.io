@@ -31,6 +31,7 @@
     }
     // .moderation-pop-up__inner
     &__inner {
+        position: relative;
         padding: 18px 15px;
 
         @media (min-width: $md5 + px) {
@@ -44,6 +45,11 @@
             padding: 25px;
         }
     }
+    // .moderation-pop-up__left-col
+    &__left-col {
+        display: flex;
+        flex-direction: column;
+    }
     // .moderation-pop-up__btns
     &__btns {
         display: flex;
@@ -53,10 +59,10 @@
         margin: 0 -10px;
 
         @media (min-width: 1200px) {
-            flex: 0 0 330px;
+            flex: 0 0 auto;
             align-items: flex-start;
             align-self: flex-start;
-            order: 1;
+            //order: 1;
         }
     }
     // .moderation-pop-up__btns-row
@@ -87,8 +93,14 @@
         padding: 74px 0 0;
 
         @media (min-width: 1200px) {
-            flex: 0 0 310px;
-            order: 3;
+            // flex: 0 0 310px; 
+            // order: 3;
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            width: 310px;
+
+
         }
     }
     // .moderation-pop-up__spollers-inner
@@ -143,16 +155,27 @@
             order: 2;
         }
     }
+    // .moderation-pop-up__extra-tags
+    &__extra-tags {
+        max-width: 310px;
+    }
     // .moderation-pop-up__tags
     &__tags {
-        max-width: 310px;
+        max-width: 310px; 
+        margin-bottom: 20px;
+    }
+    // .moderation-pop-up__extra-tags-inner
+    &__extra-tags-inner {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 7.5px -7.5px 20px;
     }
     // .moderation-pop-up__tags-inner
     &__tags-inner {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
-        margin: 7.5px -7.5px 20px;
+        margin: 14px 0 7px;
     }
     // .moderation-pop-up__tag
     &__tag {
@@ -167,11 +190,12 @@
     }
     // .moderation-pop-up__companies
     &__companies {
+        max-width: 310px;
     }
-    // .moderation-pop-up__comp-search
-    &__comp-search {
+    // .moderation-pop-up__search
+    &__search {
         width: 100%;
-        margin: 0px 0px 5px 0px;
+        margin: 0px 0px 0px 0px;
         padding: 11px 15px;
         background: #ffffff;
         border: 1px solid #a5a5a5;
@@ -184,25 +208,17 @@
             color: #a5a5a5;
         }
     }
-    // .moderation-pop-up__companies-list
-    &__companies-list {
-    }
-    // .moderation-pop-up__companies-item
-    &__companies-item {
-        display: flex;
-        margin-bottom: 12px;
-    }
 
     /*  Дополнительные изменения от Владимира */
 
-    // .moderation-pop-up__comp-search-wrapper
-    &__comp-search-wrapper {
+    // .moderation-pop-up__search-wrapper
+    &__search-wrapper {
         position: relative;
         margin: 14px 0 18px;
     }
 
-    // .moderation-pop-up__comp-search-results
-    &__comp-search-results {
+    // .moderation-pop-up__search-results
+    &__search-results {
         opacity: 1;
         visibility: visible;
         transition: all 0.3s ease-in-out;

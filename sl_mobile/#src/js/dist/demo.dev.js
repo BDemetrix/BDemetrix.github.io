@@ -96,11 +96,11 @@
     beforeRender: function beforeRender(container, suggestions) {
       menuSlideDown(container);
     }
-  }); // Автокомплит для ленты новостей moderation-pop-up__comp-search
+  }); // Автокомплит для ленты новостей moderation-pop-up__search
 
-  $('.moderation-pop-up__comp-search').autocomplete({
+  $('.moderation-pop-up__search').autocomplete({
     lookup: response,
-    appendTo: '.moderation-pop-up__comp-search-wrapper',
+    appendTo: '.moderation-pop-up__search-wrapper',
     maxHeight: '300',
     onSelect: function onSelect(suggestion) {
       window.open(suggestion.data, "WindowName", windowFeatures);

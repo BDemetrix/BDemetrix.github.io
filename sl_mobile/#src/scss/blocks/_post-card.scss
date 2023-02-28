@@ -414,35 +414,6 @@
         margin-bottom: 18px;
     }
 
-    &__tag,
-    &__label {
-        display: inline-flex;
-        margin: 0 7px 7px 0;
-        padding: 3px 13px 4px;
-        max-width: 100%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        border-radius: 5px;
-        font-size: 12px;
-        line-height: 14px;
-    }
-    // .post-card__tag
-    &__tag {
-        color: #808080;
-        background: #f1f1f1;
-    }
-
-    // .post-card__label
-    &__label {
-        color: #ffffff;
-        background: #abc8db;
-
-        svg {
-            fill: #ffffff;
-            margin-right: 8px;
-        }
-    }
     // .post-card__footer
     &__footer {
         display: flex;

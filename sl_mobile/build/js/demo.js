@@ -126,10 +126,10 @@
   });
 
 
-// Автокомплит для ленты новостей moderation-pop-up__comp-search
-$('.moderation-pop-up__comp-search').autocomplete({
+// Автокомплит для ленты новостей moderation-pop-up__search
+$('#tag-search-wrapper input').autocomplete({
   lookup: response,
-  appendTo: '.moderation-pop-up__comp-search-wrapper',
+  appendTo: '#tag-search-wrapper',
   maxHeight: '300',
   onSelect: function (suggestion) {
     window.open(suggestion.data, "WindowName", windowFeatures);
@@ -137,6 +137,19 @@ $('.moderation-pop-up__comp-search').autocomplete({
   },
   beforeRender: function (container, suggestions) {
    menuSlideDown(container);
+  },
+});
+
+$('#comp-search-wrapper input').autocomplete({
+  lookup: response,
+  appendTo: '#comp-search-wrapper',
+  maxHeight: '300',
+  onSelect: function (suggestion) {
+    window.open(suggestion.data, "WindowName", windowFeatures);
+    this.value = '';
+  },
+  beforeRender: function (container, suggestions) {
+    menuSlideDown(container);
   },
 });
 
