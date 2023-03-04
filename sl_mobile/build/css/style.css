@@ -3984,6 +3984,43 @@ textarea {
   margin: 0 -10px;
 }
 
+.post-card__lock-text {
+  margin: 0 0 16px;
+}
+
+.lock-card {
+  padding: 15px;
+  background: #F1F1F1;
+  border: 1px solid #CCCCCC;
+  border-radius: 8px;
+  color: #312C26;
+  text-align: left;
+}
+
+.lock-card__title {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  line-height: 20px;
+  margin-bottom: 4px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.lock-card__title svg {
+  margin: -2px 0.25em;
+  fill: #312C26;
+}
+
+.lock-card__text {
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.lock-card__link {
+  color: #013db2;
+}
+
 .subscribe-box {
   background: #f1f1f1;
   padding-top: 60px;
@@ -4069,30 +4106,6 @@ textarea {
   line-height: 20px;
   background: #ffffff;
   border-radius: 8px 8px 0px 0px;
-}
-
-.subscribe-box__footer-inner {
-  max-width: 558px;
-  margin: 0 auto;
-}
-
-.subscribe-box__info {
-  padding: 20px 0;
-  letter-spacing: 0.02em;
-  color: #808080;
-  font-weight: 600;
-}
-
-.subscribe-box__to-subscribe {
-  padding: 15px;
-  background: #f1f1f1;
-  border: 0.5px solid #cccccc;
-  border-radius: 8px;
-  color: #312c26;
-}
-
-.subscribe-box__to-subscribe a {
-  color: #013db2;
 }
 
 .tarif-card {
@@ -4552,6 +4565,10 @@ textarea {
   background: #ffffff;
 }
 
+.comments--lock {
+  padding-bottom: 40px;
+}
+
 .comments__header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4970,6 +4987,34 @@ textarea {
 
 .person__menu {
   font-size: 14px;
+}
+
+.lock-comments {
+  max-width: 558px;
+  margin: 0 auto;
+  line-height: 20px;
+}
+
+.lock-comments__info {
+  padding: 20px 0;
+  letter-spacing: 0.02em;
+  color: #808080;
+  font-weight: 600;
+}
+
+.lock-comments__card {
+  padding: 15px;
+  background: #f1f1f1;
+  border: 0.5px solid #cccccc;
+  border-radius: 8px;
+  color: #312c26;
+  font-size: 16px;
+  text-align: left;
+}
+
+.lock-comments__card span {
+  color: #013db2;
+  word-break: normal;
 }
 
 .footer {
@@ -6455,6 +6500,10 @@ textarea {
   color: #939393;
 }
 
+.news-card:visited .news-card__title svg {
+  fill: #939393;
+}
+
 .news-card__date {
   width: 50px;
   -webkit-box-flex: 0;
@@ -6496,6 +6545,11 @@ textarea {
       width: auto;
       margin: 0 20px 0 0;
   } */
+}
+
+.news-card__title svg {
+  margin-bottom: -1px;
+  fill: #383838;
 }
 
 .news-card__author,
@@ -7356,6 +7410,7 @@ textarea {
   border: 0;
   color: #000;
   line-height: 20px;
+  font-size: 14px;
 }
 
 .donate-btn svg {
@@ -7467,8 +7522,7 @@ textarea {
 .dark-theme .news-card,
 .dark-theme .short-comment,
 .dark-theme .system-messages__item-inner,
-.dark-theme .tarif-card__body,
-.dark-theme .subscribe-box__to-subscribe {
+.dark-theme .tarif-card__body {
   background-color: #2a2c30;
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -7487,7 +7541,6 @@ textarea {
 .dark-theme .tarif-card__pop-up-title,
 .dark-theme .tarif-card__pop-up-list,
 .dark-theme .tarif-card__body,
-.dark-theme .subscribe-box__to-subscribe,
 .dark-theme .company-box__title {
   color: #e9e9e9;
 }
@@ -7693,6 +7746,10 @@ textarea {
 
 .dark-theme .news-card__title {
   color: #e9e9e9;
+}
+
+.dark-theme .news-card__title svg {
+  fill: #e9e9e9;
 }
 
 .dark-theme .news-card__date,
@@ -8119,6 +8176,22 @@ textarea {
 .dark-theme .donate-btn {
   -webkit-box-shadow: none;
           box-shadow: none;
+}
+
+.dark-theme .lock-comments__card {
+  border-color: #c1cbd6;
+  background-color: #2a2c30;
+  color: #e9e9e9;
+}
+
+.dark-theme .lock-card {
+  border-color: #c1cbd6;
+  background-color: #2a2c30;
+  color: #e9e9e9;
+}
+
+.dark-theme .lock-card__title svg {
+  fill: #e9e9e9;
 }
 
 .comments__answers {

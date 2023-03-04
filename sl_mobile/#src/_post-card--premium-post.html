@@ -265,14 +265,9 @@
             <a href="#" class="">Есть Smart-Lab Premium? Войдите</a>
         </div>
         <div class="subscribe-box__footer">
-            <div class="subscribe-box__footer-inner">
-                <div class="subscribe-box__info">
-                    <span>306</span> комментариев
-                </div>
-                <div class="subscribe-box__to-subscribe">
-                    Чтобы прочесть и оставлять комментарии, необходимо <a href="#">оформить подписку</a>
-                </div>
-            </div>
+            @@include('_lock-comments.html',{
+            'innerHTML': 'Чтобы прочесть и оставлять комментарии, необходимо <span>оформить подписку</span>'
+            })
         </div>
     </div>
 </section>
