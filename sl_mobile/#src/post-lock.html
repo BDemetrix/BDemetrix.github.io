@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('_head.html',{
+"title":"Закрытый ПОСТ",
+"stylesheet": "./css/style.css"
+})
+
+<body class="right-panel">
+	<div class="wrapper">
+		@@include('_header.html',{"Class": "_container"})
+		<!-- Если баннер отсутствует, то присваивается модификатор post-page--round -->
+		<main class="post-page _mobile-container">
+			<div class="post-page__banner">
+				<!-- <span style="background: url(./images/image.jpg);"></span> -->
+				<img src="./images/image.jpg" alt="Фото" class="post-page__banner-img">
+			</div>
+			<div class="post-page__post-card">
+				@@include('_post-card--post-lock.html')
+			</div>
+			<div class="post-page__info">
+				@@include('_user-info.html',{})
+			</div>
+			<div class="post-page__comments">
+				<div class="comments comments--lock">
+					@@include('_lock-comments.html',{
+					'innerHTML': 'Чтобы прочесть и оставлять комментарии, необходимо <span>подписаться на&nbsp;автора</span>'
+					})
+				</div>
+
+			</div>
+			@@include('_footer_mob.html',{'Class': 'footer--mt-none'})
+		</main>
+		@@include('_slide-sidebar.html',{'Class': 'slide-sidebar--not-on-mobile'})
+	</div>
+	@@include('_moderation-pop-up.html',{})
+	@@include('_quick-comment.html',{})
+	@@include('_js.html',{})
+</body>
+
+</html>

@@ -46,6 +46,10 @@
         }
     }
 
+    &--lock {
+        
+    }
+
     @media (min-width: $md3 + px) {
         box-shadow: none;
     }
@@ -475,7 +479,44 @@
     &__subscribe-box {
         margin: 0 -10px;
     }
+
+    // .post-card__lock-text 
+    &__lock-text {
+        margin: 0 0 16px;
+    }
 }
+
+.lock-card {
+    padding: 15px;
+    background: #F1F1F1;
+    border: 1px solid #CCCCCC;
+    border-radius: 8px;  
+    color: #312C26;
+    text-align: left;
+
+	// .lock-card__title
+	&__title {
+        display: inline-flex;
+        line-height: 20px;
+        margin-bottom: 4px;
+        font-size: 16px;
+        font-weight: 600;
+        svg {
+            margin: -2px 0.25em;
+            fill: #312C26;
+        }
+	}
+	// .lock-card__text
+	&__text {
+        font-size: 14px;
+        line-height: 17px;
+	}
+	// .lock-card__link
+	&__link {
+        color: #013db2; //#0A51BC;
+	}
+}
+
 
 .subscribe-box {
     background: #f1f1f1;
@@ -547,30 +588,6 @@
         line-height: 20px;
         background: #ffffff;
         border-radius: 8px 8px 0px 0px;
-    }
-    // .subscribe-box__footer-inner
-    &__footer-inner {
-        max-width: 558px;
-        margin: 0 auto;
-    }
-    // .subscribe-box__info
-    &__info {
-        padding: 20px 0;
-        letter-spacing: 0.02em;
-        color: #808080;
-        font-weight: 600;
-    }
-    // .subscribe-box__to-subscribe
-    &__to-subscribe {
-        padding: 15px;
-        background: #f1f1f1;
-        border: 0.5px solid #cccccc;
-        border-radius: 8px;
-        color: #312c26;
-
-        a {
-            color: #013db2;
-        }
     }
 }
 

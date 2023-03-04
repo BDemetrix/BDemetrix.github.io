@@ -1,0 +1,28 @@
+.lock-comments {
+    max-width: 558px;
+    margin: 0 auto;
+    line-height: 20px;
+
+	// .lock-comments__info
+	&__info {
+        padding: 20px 0;
+        letter-spacing: 0.02em;
+        color: #808080;
+        font-weight: 600;
+	}
+	// .lock-comments__card
+	&__card {
+        padding: 15px;
+        background: #f1f1f1;
+        border: 0.5px solid #cccccc;
+        border-radius: 8px;
+        color: #312c26;
+        font-size: 16px;
+        text-align: left;
+
+        span {
+            color: #013db2;
+            word-break: normal
+        }
+	}
+}

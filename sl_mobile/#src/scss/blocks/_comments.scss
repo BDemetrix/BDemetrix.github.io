@@ -3,6 +3,10 @@
     color: #312c26;
     background: #ffffff;
 
+    &--lock {
+        padding-bottom: 40px;
+    }
+
     // .comments__header
     &__header {
         display: flex;

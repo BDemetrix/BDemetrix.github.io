@@ -271,6 +271,10 @@
     &:visited {
         .news-card__title {
             color: #939393;
+
+            svg {
+                fill: #939393;
+            }
         }
     }
 
@@ -321,6 +325,11 @@
             width: auto;
             margin: 0 20px 0 0;
         } */
+
+        svg {
+            margin-bottom: -1px;
+            fill: #383838;
+        }
     }
 
     &__author,

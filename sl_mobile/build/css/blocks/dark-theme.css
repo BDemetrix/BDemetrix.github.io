@@ -38,8 +38,7 @@
 .dark-theme .news-card,
 .dark-theme .short-comment,
 .dark-theme .system-messages__item-inner,
-.dark-theme .tarif-card__body,
-.dark-theme .subscribe-box__to-subscribe {
+.dark-theme .tarif-card__body {
   background-color: #2a2c30;
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -58,7 +57,6 @@
 .dark-theme .tarif-card__pop-up-title,
 .dark-theme .tarif-card__pop-up-list,
 .dark-theme .tarif-card__body,
-.dark-theme .subscribe-box__to-subscribe,
 .dark-theme .company-box__title {
   color: #e9e9e9;
 }
@@ -264,6 +262,10 @@
 
 .dark-theme .news-card__title {
   color: #e9e9e9;
+}
+
+.dark-theme .news-card__title svg {
+  fill: #e9e9e9;
 }
 
 .dark-theme .news-card__date,
@@ -690,6 +692,22 @@
 .dark-theme .donate-btn {
   -webkit-box-shadow: none;
           box-shadow: none;
+}
+
+.dark-theme .lock-comments__card {
+  border-color: #c1cbd6;
+  background-color: #2a2c30;
+  color: #e9e9e9;
+}
+
+.dark-theme .lock-card {
+  border-color: #c1cbd6;
+  background-color: #2a2c30;
+  color: #e9e9e9;
+}
+
+.dark-theme .lock-card__title svg {
+  fill: #e9e9e9;
 }
 
 @media (min-width: 767.98px) {
