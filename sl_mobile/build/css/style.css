@@ -3625,7 +3625,7 @@ textarea {
 }
 
 .post-card__menu-item--blue svg {
-  fill: #0B5483 !important;
+  fill: #0b5483 !important;
 }
 
 .post-card__photo-wrap {
@@ -3818,6 +3818,10 @@ textarea {
   padding-left: 20px;
 }
 
+.post-card__text ul li {
+  list-style: disc;
+}
+
 .post-card__text a,
 .post-card__text a:active,
 .post-card__text a:visited {
@@ -3990,10 +3994,10 @@ textarea {
 
 .lock-card {
   padding: 15px;
-  background: #F1F1F1;
-  border: 1px solid #CCCCCC;
+  background: #f1f1f1;
+  border: 1px solid #cccccc;
   border-radius: 8px;
-  color: #312C26;
+  color: #312c26;
   text-align: left;
 }
 
@@ -4009,7 +4013,7 @@ textarea {
 
 .lock-card__title svg {
   margin: -2px 0.25em;
-  fill: #312C26;
+  fill: #312c26;
 }
 
 .lock-card__text {

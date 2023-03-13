@@ -47,7 +47,6 @@
     }
 
     &--lock {
-        
     }
 
     @media (min-width: $md3 + px) {
@@ -136,7 +135,7 @@
         }
 
         &--blue svg {
-            fill: #0B5483 !important;
+            fill: #0b5483 !important;
         }
     }
 
@@ -322,6 +321,10 @@
             padding-left: 20px;
         }
 
+        ul li {
+            list-style: disc;
+        }
+
         a {
             &,
             &:active,
@@ -480,7 +483,7 @@
         margin: 0 -10px;
     }
 
-    // .post-card__lock-text 
+    // .post-card__lock-text
     &__lock-text {
         margin: 0 0 16px;
     }
@@ -488,14 +491,14 @@
 
 .lock-card {
     padding: 15px;
-    background: #F1F1F1;
-    border: 1px solid #CCCCCC;
-    border-radius: 8px;  
-    color: #312C26;
+    background: #f1f1f1;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    color: #312c26;
     text-align: left;
 
-	// .lock-card__title
-	&__title {
+    // .lock-card__title
+    &__title {
         display: inline-flex;
         line-height: 20px;
         margin-bottom: 4px;
@@ -503,20 +506,19 @@
         font-weight: 600;
         svg {
             margin: -2px 0.25em;
-            fill: #312C26;
+            fill: #312c26;
         }
-	}
-	// .lock-card__text
-	&__text {
+    }
+    // .lock-card__text
+    &__text {
         font-size: 14px;
         line-height: 17px;
-	}
-	// .lock-card__link
-	&__link {
+    }
+    // .lock-card__link
+    &__link {
         color: #013db2; //#0A51BC;
-	}
+    }
 }
-
 
 .subscribe-box {
     background: #f1f1f1;
