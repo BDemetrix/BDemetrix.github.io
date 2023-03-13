@@ -5358,6 +5358,20 @@ textarea {
   display: none;
 }
 
+/* .right-panel .arrow-to-top {
+    @media (min-width: 1080px) {
+        left: calc((100vw - 768px)/4 - 25px);
+    }
+
+    @media (min-width: 1220px) {
+        left: calc((100vw - 768px - 320px)/4 - 25px);
+    }
+
+    @media (min-width: 1400px) { 
+       left: 50px;
+    }
+} */
+
 .moderation-pop-up {
   font-family: Roboto, Tahoma, "Open Sans", Verdana, sans-serif;
   color: #323232;
@@ -9029,7 +9043,7 @@ body.loader:before {
     position: fixed;
     z-index: -1;
     bottom: 50px;
-    left: calc((100vw - 768px) / 4 - 25px);
+    left: calc(50vw + 384px + 15px);
     background: none;
     border: 0;
     -webkit-transition: all 0.4s ease;
@@ -9102,12 +9116,8 @@ body.loader:before {
 }
 
 @media (min-width: 1080px) {
-  .arrow-to-top {
-    left: 50px;
-  }
-
   .right-panel .arrow-to-top {
-    left: calc((100vw - 768px) / 4 - 25px);
+    left: calc((100vw - 768px) / 2 - 65px);
   }
 
   .transfer-btn--to-old {
@@ -9401,11 +9411,13 @@ body.loader:before {
   }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1230px) {
   .right-panel .arrow-to-top {
-    left: 50px;
+    left: calc((100vw - 768px - 320px) / 2 + 768px + 15px);
   }
+}
 
+@media (min-width: 1400px) {
   .right-panel .transfer-btn--to-old {
     left: 10px;
   }
@@ -9446,6 +9458,14 @@ body.loader:before {
 
   .main__forums-slider {
     display: none;
+  }
+
+  .right-panel .arrow-to-top {
+    left: calc((100vw - 768px) / 2 + 768px + ((100vw - 768px) / 2 - 300px - 50px) / 3);
+  }
+
+  .right-panel .arrow-to-top {
+    left: calc((100vw - 768px) / 2 + 768px + 15px);
   }
 }
 
