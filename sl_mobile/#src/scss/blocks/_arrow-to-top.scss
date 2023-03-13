@@ -6,7 +6,8 @@
         position: fixed;
         z-index: -1;
         bottom: 50px;
-        left: calc((100vw - 768px)/4 - 25px);
+        //left: calc((100vw - 768px)/4 - 25px);
+        left: calc(50vw + 768px/2 + 15px);
         background: none;
         border: 0;
         transition: all .4s ease;
@@ -30,12 +31,36 @@
     }
 
     @media (min-width: 1080px) {
-        left: 50px;
+        //left: 50px;
     }
 }
 
 // Если на странице есть правая колонка, то body добавлется класс right-panel 
 .right-panel .arrow-to-top {
+    @media (min-width: 1080px) {
+        //left: calc((100vw - 768px)/4 - 25px);
+        left: calc((100vw - 768px)/2 - 65px);
+    }
+
+    @media (min-width: 1220px) {
+        left: calc((100vw - 768px - 320px)/4 - 25px);
+    }
+    
+    @media (min-width: 1230px) { 
+       left: calc((100vw - 768px - 320px)/2 + 768px + 15px);
+    }
+
+    @media (min-width: 1530px) { 
+        $left-field: calc((100vw - 768px)/2);
+        left: calc($left-field + 768px + (($left-field - 300px - 50px)/3));
+    }
+
+    @media (min-width: 1530px) { 
+        $left-field: calc((100vw - 768px)/2);
+        left: calc($left-field + 768px + 15px);
+    }
+}
+/* .right-panel .arrow-to-top {
     @media (min-width: 1080px) {
         left: calc((100vw - 768px)/4 - 25px);
     }
@@ -47,4 +72,5 @@
     @media (min-width: 1400px) { 
        left: 50px;
     }
-}
+} */
+
