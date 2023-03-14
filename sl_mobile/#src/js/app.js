@@ -11,3 +11,4 @@
 @@include('files/bootstrap-datepicker-setup.js', {})
 @@include('files/slide-sidebar.js', {})
 @@include('files/quick-comment.js', {})
+@@include('files/lower-banner.js', {})
