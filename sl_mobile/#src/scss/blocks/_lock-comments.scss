@@ -1,5 +1,5 @@
 .lock-comments {
-    max-width: 558px;
+    //max-width: 558px;
     margin: 0 auto;
     line-height: 20px;
 
@@ -12,6 +12,8 @@
 	}
 	// .lock-comments__card
 	&__card {
+        display: block;
+        width: 100%;
         padding: 15px;
         background: #f1f1f1;
         border: 0.5px solid #cccccc;
