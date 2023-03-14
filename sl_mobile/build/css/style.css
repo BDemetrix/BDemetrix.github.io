@@ -4994,7 +4994,6 @@ textarea {
 }
 
 .lock-comments {
-  max-width: 558px;
   margin: 0 auto;
   line-height: 20px;
 }
@@ -5007,6 +5006,8 @@ textarea {
 }
 
 .lock-comments__card {
+  display: block;
+  width: 100%;
   padding: 15px;
   background: #f1f1f1;
   border: 0.5px solid #cccccc;
@@ -9043,7 +9044,7 @@ body.loader:before {
     position: fixed;
     z-index: -1;
     bottom: 50px;
-    left: calc(50vw + 384px + 15px);
+    left: calc((100vw - 768px) / 2 - 65px);
     background: none;
     border: 0;
     -webkit-transition: all 0.4s ease;
