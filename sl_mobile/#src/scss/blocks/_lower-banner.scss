@@ -1,0 +1,59 @@
+.lower-banner {
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    @media (min-width: $md3 + px) {
+        display: none;
+    }
+
+    // .lower-banner__close
+    &__close {
+        position: absolute;
+        right: 10px;
+        bottom: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 25px;
+        height: 20px;
+        background: rgba(108, 108, 108, 0.5);
+        border-radius: 6px 6px 0px 0px;
+
+        svg {
+            fill: #fff;
+        }
+    }
+    // .lower-banner__link
+    &__link {
+        display: block;
+        width: 100%;
+        height: 50px;
+    }
+    // .lower-banner__img
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+// этот класс добавляется body из скрипта, если на стр. есть блок lower-banner
+@media (max-width: $md3 + px) {
+    .with-lower-banner {
+        .footer {
+            padding-bottom: 50px;
+        }
+
+        .slide-sidebar__fix-btn,
+        .quick-comment__btn {
+            display: none;
+        }
+
+        .arrow-to-top {
+            bottom: 75px;
+        }
+    }
+}
