@@ -809,9 +809,12 @@
 
 		&:hover {
 			//background: linear-gradient(to bottom, #2d2d2d, #868686);
-			.usermenu__avatar img {
+			.usermenu__avatar-img {
 				transform: scale(1.2);
 				//box-shadow: 2px 2px 2px #fff;
+			}
+			.usermenu__avatar-icon {
+				transform: scale(1.2) translateY(25%);
 			}
 			.usermenu__icon-arrow {
 				transform: scale(1.1);
@@ -826,21 +829,33 @@
 	}
 	// .usermenu__avatar
 	&__avatar {
+		position: relative;
 		width: 30px;
 		height: 30px;
 		border-radius: 50%;
-		overflow: hidden;
 
-		img {
-			max-width: 100%;
-			height: auto;
-			object-fit: cover;
-			transition: all $t ease;
-		}
 		@media (min-width: $md5 + px) {
 			width: 40px;
 			height: 40px;
 		}
+	}
+	// .usermenu__avatar-img 
+	&__avatar-img {
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+		object-fit: cover;
+		transition: all $t ease;
+	}
+	// .usermenu__avatar-icon 
+	&__avatar-icon {
+		position: absolute;
+		bottom: -2px;
+		right: -2px;
+		z-index: 2;
+		width: 15px;
+		height: 14px;
+		transition: all $t ease;
 	}
 	// .usermenu__icon-arrow
 	&__icon-arrow {

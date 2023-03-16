@@ -2275,10 +2275,16 @@ picture {
   cursor: pointer;
 }
 
-.usermenu__icon:hover .usermenu__avatar img {
+.usermenu__icon:hover .usermenu__avatar-img {
   -webkit-transform: scale(1.2);
       -ms-transform: scale(1.2);
           transform: scale(1.2);
+}
+
+.usermenu__icon:hover .usermenu__avatar-icon {
+  -webkit-transform: scale(1.2) translateY(25%);
+      -ms-transform: scale(1.2) translateY(25%);
+          transform: scale(1.2) translateY(25%);
 }
 
 .usermenu__icon:hover .usermenu__icon-arrow {
@@ -2288,17 +2294,30 @@ picture {
 }
 
 .usermenu__avatar {
+  position: relative;
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  overflow: hidden;
 }
 
-.usermenu__avatar img {
-  max-width: 100%;
-  height: auto;
+.usermenu__avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
   -o-object-fit: cover;
      object-fit: cover;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.usermenu__avatar-icon {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  z-index: 2;
+  width: 15px;
+  height: 14px;
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
