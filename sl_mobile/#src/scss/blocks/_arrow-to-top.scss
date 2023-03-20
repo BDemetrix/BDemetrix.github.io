@@ -53,10 +53,15 @@
 
     @media (min-width: 1530px) { 
         $left-field: calc((100vw - 768px)/2);
-        left: calc($left-field + 768px + (($left-field - 300px - 50px)/3));
+        left: calc($left-field - 65px);
     }
 
-    @media (min-width: 1530px) { 
+/*     @media (min-width: 1600px) { 
+        $left-field: calc((100vw - 768px)/2);
+        left: calc($left-field + 768px + (($left-field - 300px - 50px)/3));
+    } */
+
+    @media (min-width: 1600px) { 
         $left-field: calc((100vw - 768px)/2);
         left: calc($left-field + 768px + 15px);
     }

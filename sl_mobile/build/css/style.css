@@ -5431,6 +5431,13 @@ textarea {
   display: none;
 }
 
+.right-panel .arrow-to-top {
+  /*     @media (min-width: 1600px) { 
+          $left-field: calc((100vw - 768px)/2);
+          left: calc($left-field + 768px + (($left-field - 300px - 50px)/3));
+      } */
+}
+
 /* .right-panel .arrow-to-top {
     @media (min-width: 1080px) {
         left: calc((100vw - 768px)/4 - 25px);
@@ -9717,9 +9724,11 @@ body.loader:before {
   }
 
   .right-panel .arrow-to-top {
-    left: calc((100vw - 768px) / 2 + 768px + ((100vw - 768px) / 2 - 300px - 50px) / 3);
+    left: calc((100vw - 768px) / 2 - 65px);
   }
+}
 
+@media (min-width: 1600px) {
   .right-panel .arrow-to-top {
     left: calc((100vw - 768px) / 2 + 768px + 15px);
   }
