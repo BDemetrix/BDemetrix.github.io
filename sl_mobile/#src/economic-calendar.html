@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('_head.html',{
+"title":"Экономический календарь",
+"stylesheet": "./css/style.css"
+})
+<!-- 
+    * Используются стили совместно с лентой новостей news-feed.html 
+    * Для элементов специфических для Экономическоно колендаря используется модификатор &--ec
+-->
+
+<body class="">
+    <!-- классы ._style-1 , ._style-2 и ._style-3 используются для стилизации двух видов шаблонов 
+		Например: при body._style-1 Логотип имеет один цвет, а при body._style-2 и ._style-3 - другой
+		._style-1 для smart-lab.ru
+		._style-2 для smart-lab.ru/q/
+		._style-3 для smart-lab.ru/forum/
+		-->
+    <div class="wrapper">
+        @@include('_header.html',{"Class": "_container"})
+        <main class="news-feed _mobile-container">
+            <div class="news-feed__header">
+                <div class="news-feed__section">
+                    @@include('_sections-box--ec.html',{})
+                </div>
+                <form class="news-feed__filter nf-filter">
+                    <div class="nf-filter__head">
+                        <div class="nf-filter__title">Экономический календарь</div>
+                        <button class="nf-filter__btn js-nf-filter-btn" type="button" tabindex="1">
+                            <svg width="24" height="24">
+                                <use xlink:href="images/icons/news-feed/sprite.svg#filter"></use>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="nf-filter__body js-nf-filter-body">
+                        <div class="nf-filter__fields nf-filter__fields--right">
+                            <div class="nf-filter__select nf-filter__select--ec custom-select">
+                                <button class="custom-select__main-btn" value="Все подряд" name="#" type="button"
+                                    tabindex="4">
+                                    Все подряд
+                                </button>
+                                <div class="custom-select__list ">
+                                    <button class="custom-select__option custom-select__option--active"
+                                        value="Все подряд" type="button">Все подряд</button>
+                                    <button class="custom-select__option" value="Дивиденды"
+                                        type="button">Дивиденды</button>
+                                    <button class="custom-select__option" value="Акции - отчет" type="button">Акции -
+                                        отчет</button>
+                                    <button class="custom-select__option" value="Экономика"
+                                        type="button">Экономика</button>
+                                    <button class="custom-select__option" value="Эк.события"
+                                        type="button">Эк.события</button>
+                                    <button class="custom-select__option" value="Центробанки"
+                                        type="button">Центробанки</button>
+                                    <button class="custom-select__option" value="Правительство"
+                                        type="button">Правительство</button>
+                                    <button class="custom-select__option" value="Семинар" type="button">Семинар</button>
+                                    <button class="custom-select__option" value="Собрания акционеров"
+                                        type="button">Собрания акционеров</button>
+                                    <button class="custom-select__option" value="Акции - другое" type="button">Акции -
+                                        другое</button>
+                                    <button class="custom-select__option" value="Акции - совет дир." type="button">Акции
+                                        - совет дир.</button>
+                                    <button class="custom-select__option" value="Акции - IPO" type="button">Акции -
+                                        IPO</button>
+                                    <button class="custom-select__option" value="Тусовки" type="button">Тусовки</button>
+                                </div>
+                            </div>
+                            <div class="nf-filter__select nf-filter__select--ec custom-select">
+                                <button class="custom-select__main-btn" value="Все страны" name="#" type="button"
+                                    tabindex="4">
+                                    Все страны
+                                </button>
+                                <div class="custom-select__list ">
+                                    <button class="custom-select__option custom-select__option--active"
+                                        value="Все страны" type="button">Все страны</button>
+                                    <button class="custom-select__option" value="Россия" type="button">Россия</button>
+                                    <button class="custom-select__option" value="США" type="button">США</button>
+                                    <button class="custom-select__option" value="Великобритания"
+                                        type="button">Великобритания</button>
+                                    <button class="custom-select__option" value="Германия"
+                                        type="button">Германия</button>
+                                    <button class="custom-select__option" value="Франция" type="button">Франция</button>
+                                    <button class="custom-select__option" value="Италия" type="button">Италия</button>
+                                    <button class="custom-select__option" value="Бельгия" type="button">Бельгия</button>
+                                    <button class="custom-select__option" value="Нидерланды"
+                                        type="button">Нидерланды</button>
+                                    <button class="custom-select__option" value="Дания" type="button">Дания</button>
+                                    <button class="custom-select__option" value="Канада" type="button">Канада</button>
+                                    <button class="custom-select__option" value="Япония" type="button">Япония</button>
+                                    <button class="custom-select__option" value="Китай" type="button">Китай</button>
+                                    <button class="custom-select__option" value="Гонконг" type="button">Гонконг</button>
+                                    <button class="custom-select__option" value="Австралия"
+                                        type="button">Австралия</button>
+                                    <button class="custom-select__option" value="Южная корея" type="button">Южная
+                                        корея</button>
+                                    <button class="custom-select__option" value="Тайвань" type="button">Тайвань</button>
+                                    <button class="custom-select__option" value="Бразилия"
+                                        type="button">Бразилия</button>
+                                    <button class="custom-select__option" value="Швейцария"
+                                        type="button">Швейцария</button>
+                                    <button class="custom-select__option" value="Ирландия"
+                                        type="button">Ирландия</button>
+                                    <button class="custom-select__option" value="Финляндия"
+                                        type="button">Финляндия</button>
+                                    <button class="custom-select__option" value="Израиль" type="button">Израиль</button>
+                                    <button class="custom-select__option" value="Люксембург"
+                                        type="button">Люксембург</button>
+                                    <button class="custom-select__option" value="Индия" type="button">Индия</button>
+                                    <button class="custom-select__option" value="Казахстан"
+                                        type="button">Казахстан</button>
+                                    <button class="custom-select__option" value="Евросоюз"
+                                        type="button">Евросоюз</button>
+                                    <button class="custom-select__option" value="Другое" type="button">Другое</button>
+                                </div>
+                            </div>
+
+                            <div
+                                class="nf-filter__date-wrap nf-filter__date-wrap--ec input-wrapper input-wrapper--left">
+                                <input class="nf-filter__date custom-input datepicker" id="date_from" placeholder="с"
+                                    autocomplete="off" type="text" name="from" value="">
+                                <svg width="20" height="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#calendar"></use>
+                                </svg>
+                            </div>
+                            <div
+                                class="nf-filter__date-wrap nf-filter__date-wrap--ec input-wrapper input-wrapper--left">
+                                <input class="nf-filter__date custom-input datepicker" id="date_to" placeholder="по"
+                                    autocomplete="off" type="text" name="to" value="">
+                                <svg width="20" height="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#calendar"></use>
+                                </svg>
+                            </div>
+
+                            <!-- Добавить кнопки -->
+                            <button class="nf-filter__submit blue-btn" type="submit" name="apply_filter">Найти</button>
+                            <button class="nf-filter__reset white-btn" type="button"
+                                onclick="javascript:document.location.href='/calendar/';">Сброс</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="news-feed__list">
+                <div class="news-feed__mark-item">14 февраля</div>
+
+                <a class="news-feed__item news-card" href="#">
+                    <div class="news-card__date news-card__date--ec">
+                        <span class="news-card__time news-card__time--green">15:00</span>
+                        14.02.2023
+                    </div>
+                    <img src="./images/icons/news-feed/flag_rf.png" alt="Флаг" class="news-card__flag">
+                    <p class="news-card__title news-card__title--ec">
+                        Match Group прогнозирует слабый рост в 2022 из-за
+                        укрепления доллара и ухудшения экономической ситуации</p>
+                </a>
+
+
+
+                <div class="news-feed__mark-item">20 марта</div>
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/forum/ENRU">
+                    <div class="news-card__date news-card__date--ec">
+                        20.03.2023
+                    </div>
+                    <img src="./images/icons/news-feed/flag_rf.png" alt="Флаг" class="news-card__flag">
+                    <p class="news-card__title news-card__title--ec">ENRU: Окончание периода действия оферты ЛУКОЙЛа по
+                        покупке
+                        акций ЭЛ5-Энерго по 0,48 руб.</p>
+                </a>
+
+                <div class="news-feed__mark-item">21 марта</div>
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/forum/FLOT">
+                    <div class="news-card__date news-card__date--ec">
+                        21.03.2023
+                    </div>
+                    <img src="./images/icons/news-feed/flag_rf.png" alt="Флаг" class="news-card__flag">
+                    <p class="news-card__title news-card__title--ec">FLOT: Публикация решения Совета директоров по
+                        дивидендам за
+                        2022г.</p>
+                </a>
+
+                <div class="news-feed__mark-item">23 марта</div>
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/forum/RASP">
+                    <div class="news-card__date news-card__date--ec">
+                        <span class="news-card__time news-card__time--green">16:00</span>
+                        23.03.2023
+                    </div>
+                    <img src="./images/icons/news-feed/flag_rf.png" alt="Флаг" class="news-card__flag">
+                    <p class="news-card__title news-card__title--ec">Распадская - конференц-звонок по результатам за
+                        2022 год.</p>
+                </a> 
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/forum/UNKL">
+                    <div class="news-card__date news-card__date--ec">
+                        23.03.2023
+                    </div>
+                    <img src="./images/icons/news-feed/flag_rf.png" alt="Флаг" class="news-card__flag">
+                    <p class="news-card__title news-card__title--ec">UNKL: СД решит по дивидендам</p>
+                </a>
+
+                <div class="news-feed__mark-item">24 марта</div>
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/forum/PHOR">
+                    <div class="news-card__date news-card__date--ec">
+                        24.03.2023
+                    </div>
+                    <img src="./images/icons/news-feed/flag_rf.png" alt="Флаг" class="news-card__flag">
+                    <p class="news-card__title news-card__title--ec">PHOR: ГОСА, Распределение прибыли</p>
+                </a>
+
+                <div class="news-feed__mark-item">27 марта</div>
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/forum/GLTR">
+                    <div class="news-card__date news-card__date--ec">
+                        <span class="news-card__time news-card__time--green">10:00</span>
+                        27.03.2023
+                    </div>
+                    <img src="./images/icons/news-feed/flag_rf.png" alt="Флаг" class="news-card__flag">
+                    <p class="news-card__title news-card__title--ec">GLTR: Публикация финансовых и операционных
+                        результатов за 2022
+                        год</p>
+                </a> 
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/forum/RUAL">
+                    <div class="news-card__date news-card__date--ec">
+                        27.03.2023
+                    </div>
+                    <img src="./images/icons/news-feed/flag_rf.png" alt="Флаг" class="news-card__flag">
+                    <p class="news-card__title news-card__title--ec">RUAL: Внеочередное собрание акционеров</p>
+                </a> 
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/forum/RUAL">
+                    <div class="news-card__date news-card__date--ec">
+                        27.03.2023
+                    </div>
+                    <img src="./images/icons/news-feed/flag_rf.png" alt="Флаг" class="news-card__flag">
+                    <p class="news-card__title news-card__title--ec">RUAL: Собрание акционеров (вопрос о внесении
+                        изменений в устав
+                        компании)</p>
+                </a>
+
+                <div class="news-feed__mark-item">29 марта</div>
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/forum/LENT">
+                    <div class="news-card__date news-card__date--ec">
+                        29.03.2023
+                    </div>
+                    <img src="./images/icons/news-feed/flag_rf.png" alt="Флаг" class="news-card__flag">
+                    <p class="news-card__title news-card__title--ec">Лента опубликует финансовые результаты по МСФО за
+                        IV квартал
+                        2022 г.</p>
+                </a>
+
+                <div class="news-feed__mark-item">31 марта</div>
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/forum/AGRO">
+                    <div class="news-card__date news-card__date--ec">
+                        31.03.2023
+                    </div>
+                    <img src="./images/icons/news-feed/flag_rf.png" alt="Флаг" class="news-card__flag">
+                    <p class="news-card__title news-card__title--ec">Собрание акционеров Русагро</p>
+                </a> 
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/forum/PHOR">
+                    <div class="news-card__date news-card__date--ec">
+                        31.03.2023
+                    </div>
+                    <img src="./images/icons/news-feed/flag_rf.png" alt="Флаг" class="news-card__flag">
+                    <p class="news-card__title news-card__title--ec">PHOR: последний день с дивидендом 465 руб</p>
+                </a>
+
+                <div class="news-feed__mark-item">3 апреля</div>
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/forum/MDMG">
+                    <div class="news-card__date news-card__date--ec">
+                        03.04.2023
+                    </div>
+                    <img src="./images/icons/news-feed/flag_rf.png" alt="Флаг" class="news-card__flag">
+                    <p class="news-card__title news-card__title--ec">MDMG: MD Medical - финансовые результаты 2022 г.
+                    </p>
+                </a>
+
+                <div class="news-feed__mark-item">3 апреля</div>
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/forum/MOEX">
+                    <div class="news-card__date news-card__date--ec">
+                        04.04.2023
+                    </div>
+                    <img src="./images/icons/news-feed/flag_rf.png" alt="Флаг" class="news-card__flag">
+                    <p class="news-card__title news-card__title--ec">Московская биржа отчитается об оборотах за март</p>
+                </a> 
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/forum/PHOR">
+                    <div class="news-card__date news-card__date--ec">
+                        04.04.2023
+                    </div>
+                    <img src="./images/icons/news-feed/flag_rf.png" alt="Флаг" class="news-card__flag">
+                    <p class="news-card__title news-card__title--ec">PHOR: закрытие реестра по дивидендам 465 руб</p>
+                </a>
+
+                <div class="news-feed__mark-item">6 апреля</div>
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/forum/POSI">
+                    <div class="news-card__date news-card__date--ec">
+                        06.04.2023
+                    </div>
+                    <img src="./images/icons/news-feed/flag_rf.png" alt="Флаг" class="news-card__flag">
+                    <p class="news-card__title news-card__title--ec">Positive Technologies - конференц звонок по
+                        результатам МСФО за
+                        2022 г.</p>
+                </a>
+
+                <div class="news-feed__mark-item">10 апреля</div>
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/forum/GLPR">
+                    <div class="news-card__date news-card__date--ec">
+                        10.04.2023
+                    </div>
+                    <img src="./images/icons/news-feed/flag_rf.png" alt="Флаг" class="news-card__flag">
+                    <p class="news-card__title news-card__title--ec">GLPR: Ожидаемая дата прекращения листинга LSE</p>
+                </a>
+
+                <div class="news-feed__mark-item">11 апреля</div>
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/forum/GLPR">
+                    <div class="news-card__date news-card__date--ec">
+                        11.04.2023
+                    </div>
+                    <img src="./images/icons/news-feed/flag_rf.png" alt="Флаг" class="news-card__flag">
+                    <p class="news-card__title news-card__title--ec">GLPR: Ожидаемая дата прекращения листинга LSE</p>
+                </a>
+
+                <div class="news-feed__mark-item">12 апреля</div>
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/forum/POSI">
+                    <div class="news-card__date news-card__date--ec">
+                        12.04.2023
+                    </div>
+                    <img src="./images/icons/news-feed/flag_rf.png" alt="Флаг" class="news-card__flag">
+                    <p class="news-card__title news-card__title--ec">POSI: последний день с дивидендом 37,87 руб</p>
+                </a>
+
+                <div class="news-feed__mark-item">13 апреля</div>
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/forum/NKNC">
+                    <div class="news-card__date news-card__date--ec">
+                        13.04.2023
+                    </div>
+                    <img src="./images/icons/news-feed/flag_rf.png" alt="Флаг" class="news-card__flag">
+                    <p class="news-card__title news-card__title--ec">NKNC: ВОСА</p>
+                </a>
+
+                <div class="news-feed__mark-item">14 апреля</div>
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/forum/OKEY">
+                    <div class="news-card__date news-card__date--ec">
+                        14.04.2023
+                    </div>
+                    <img src="./images/icons/news-feed/flag_rf.png" alt="Флаг" class="news-card__flag">
+                    <p class="news-card__title news-card__title--ec">OKEY: O'key: Финансовая отчетность по МСФО за 2022
+                        год</p>
+                </a>
+
+                <div class="news-feed__mark-item">15 апреля</div>
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/forum/TTLK">
+                    <div class="news-card__date news-card__date--ec">
+                        15.04.2023
+                    </div>
+                    <img src="./images/icons/news-feed/flag_rf.png" alt="Флаг" class="news-card__flag">
+                    <p class="news-card__title news-card__title--ec">TTLK: последний день с дивидендом 0,05085 руб</p>
+                </a>
+
+                <div class="news-feed__mark-item">16 апреля</div>
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/forum/POSI">
+                    <div class="news-card__date news-card__date--ec">
+                        16.04.2023
+                    </div>
+                    <img src="./images/icons/news-feed/flag_rf.png" alt="Флаг" class="news-card__flag">
+                    <p class="news-card__title news-card__title--ec">POSI: закрытие реестра по дивидендам 37,87 руб</p>
+                </a>
+
+                <div class="news-feed__mark-item">18 апреля</div>
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/forum/FIVE">
+                    <div class="news-card__date news-card__date--ec">
+                        18.04.2023
+                    </div>
+                    <img src="./images/icons/news-feed/flag_rf.png" alt="Флаг" class="news-card__flag">
+                    <p class="news-card__title news-card__title--ec">FIVE: Публикация операционных результатов за 1 кв.
+                        2023г.</p>
+                </a> 
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/forum/TTLK">
+                    <div class="news-card__date news-card__date--ec">
+                        18.04.2023
+                    </div>
+                    <img src="./images/icons/news-feed/flag_rf.png" alt="Флаг" class="news-card__flag">
+                    <p class="news-card__title news-card__title--ec">TTLK: закрытие реестра по дивидендам 0,05085 руб
+                    </p>
+                </a>
+
+                <div class="news-feed__mark-item">21 апреля</div>
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/forum/TGKA">
+                    <div class="news-card__date news-card__date--ec">
+                        21.04.2023
+                    </div>
+                    <img src="./images/icons/news-feed/flag_rf.png" alt="Флаг" class="news-card__flag">
+                    <p class="news-card__title news-card__title--ec">TGKA: Результаты операционной деятельности за I
+                        квартал 2023
+                        года</p>
+                </a> 
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/forum/GMKN">
+                    <div class="news-card__date news-card__date--ec">
+                        21.04.2023
+                    </div>
+                    <img src="./images/icons/news-feed/flag_rf.png" alt="Флаг" class="news-card__flag">
+                    <p class="news-card__title news-card__title--ec">GMKN: Итоги производственной деятельности за 1 кв.
+                        2023 г.</p>
+                </a>
+
+                <div class="news-feed__mark-item">24 апреля</div>
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/forum/HYDR">
+                    <div class="news-card__date news-card__date--ec">
+                        24.04.2023
+                    </div>
+                    <img src="./images/icons/news-feed/flag_rf.png" alt="Флаг" class="news-card__flag">
+                    <p class="news-card__title news-card__title--ec">HYDR: Операционные результаты за 1 квартал 2023
+                        года</p>
+                </a> 
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/forum/AGRO">
+                    <div class="news-card__date news-card__date--ec">
+                        24.04.2023
+                    </div>
+                    <img src="./images/icons/news-feed/flag_rf.png" alt="Флаг" class="news-card__flag">
+                    <p class="news-card__title news-card__title--ec">РусАгро опубликует операционные результаты за I
+                        квартал 2023 г.
+                    </p>
+                </a> 
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/forum/BELU">
+                    <div class="news-card__date news-card__date--ec">
+                        24.04.2023
+                    </div>
+                    <img src="./images/icons/news-feed/flag_rf.png" alt="Флаг" class="news-card__flag">
+                    <p class="news-card__title news-card__title--ec">BELU: последний день с дивидендом 400 руб</p>
+                </a>
+
+                <div class="news-feed__mark-item">26 апреля</div>
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/forum/BELU">
+                    <div class="news-card__date news-card__date--ec">
+                        26.04.2023
+                    </div>
+                    <img src="./images/icons/news-feed/flag_rf.png" alt="Флаг" class="news-card__flag">
+                    <p class="news-card__title news-card__title--ec">BELU: закрытие реестра по дивидендам 400 руб</p>
+                </a>
+            </div>
+            @@include('_footer_mob.html',{'Class': 'footer--news'})
+        </main>
+    </div>
+    @@include('_transfer-btn.html')
+    @@include('_js.html',{})
+
+    <!-- Исключительно для автозаполнения списка  -->
+    <!--     <script>
+        const title = [
+            "ENRU: Окончание периода действия оферты ЛУКОЙЛа по покупке акций ЭЛ5-Энерго по 0,48 руб.",
+            "FLOT: Публикация решения Совета директоров  по дивидендам за 2022г.",
+            "Распадская - конференц-звонок по результатам за 2022 год.",
+            "UNKL: СД решит по дивидендам",
+            "PHOR: ГОСА, Распределение прибыли",
+            "GLTR: Публикация финансовых и операционных результатов за 2022 год",
+            "RUAL: Внеочередное собрание акционеров",
+            "RUAL: Собрание акционеров (вопрос о внесении изменений в устав компании)",
+            "Лента опубликует финансовые результаты по МСФО за IV квартал 2022 г.",
+            "Собрание акционеров Русагро",
+            "PHOR: последний день с дивидендом 465 руб",
+            "MDMG: MD Medical - финансовые результаты 2022 г.",
+            "Московская биржа отчитается об оборотах за март",
+            "PHOR: закрытие реестра по дивидендам 465 руб",
+            "Positive Technologies - конференц звонок по результатам МСФО за 2022 г.",
+            "GLPR: Ожидаемая дата прекращения листинга LSE",
+            "GLPR: Ожидаемая дата прекращения листинга LSE",
+            "POSI: последний день с дивидендом 37,87 руб",
+            "NKNC: ВОСА",
+            "OKEY: O'key: Финансовая отчетность по МСФО за 2022 год",
+            "TTLK: последний день с дивидендом 0,05085 руб",
+            "POSI: закрытие реестра по дивидендам 37,87 руб",
+            "FIVE: Публикация операционных результатов за 1 кв. 2023г.",
+            "TTLK: закрытие реестра по дивидендам 0,05085 руб",
+            "TGKA: Результаты операционной деятельности за I квартал 2023 года",
+            "GMKN: Итоги производственной деятельности за 1 кв. 2023 г.",
+            "HYDR: Операционные результаты за 1 квартал 2023 года",
+            "РусАгро опубликует операционные результаты за I квартал 2023 г.",
+            "BELU: последний день с дивидендом 400 руб",
+            "BELU: закрытие реестра по дивидендам 400 руб",
+        ]
+
+        const href = [
+            "https://smart-lab.ru/forum/ENRU",
+            "https://smart-lab.ru/forum/FLOT",
+            "https://smart-lab.ru/forum/RASP",
+            "https://smart-lab.ru/forum/UNKL",
+            "https://smart-lab.ru/forum/PHOR",
+            "https://smart-lab.ru/forum/GLTR",
+            "https://smart-lab.ru/forum/RUAL",
+            "https://smart-lab.ru/forum/RUAL",
+            "https://smart-lab.ru/forum/LENT",
+            "https://smart-lab.ru/forum/AGRO",
+            "https://smart-lab.ru/forum/PHOR",
+            "https://smart-lab.ru/forum/MDMG",
+            "https://smart-lab.ru/forum/MOEX",
+            "https://smart-lab.ru/forum/PHOR",
+            "https://smart-lab.ru/forum/POSI",
+            "https://smart-lab.ru/forum/GLPR",
+            "https://smart-lab.ru/forum/GLPR",
+            "https://smart-lab.ru/forum/POSI",
+            "https://smart-lab.ru/forum/NKNC",
+            "https://smart-lab.ru/forum/OKEY",
+            "https://smart-lab.ru/forum/TTLK",
+            "https://smart-lab.ru/forum/POSI",
+            "https://smart-lab.ru/forum/FIVE",
+            "https://smart-lab.ru/forum/TTLK",
+            "https://smart-lab.ru/forum/TGKA",
+            "https://smart-lab.ru/forum/GMKN",
+            "https://smart-lab.ru/forum/HYDR",
+            "https://smart-lab.ru/forum/AGRO",
+            "https://smart-lab.ru/forum/BELU",
+            "https://smart-lab.ru/forum/BELU",
+        ]
+
+        const date = [
+            "20.03.2023",
+            "21.03.2023",
+            "23.03.2023 16: 00",
+            "23.03.2023",
+            "24.03.2023",
+            "27.03.2023 10: 00",
+            "27.03.2023",
+            "27.03.2023",
+            "29.03.2023",
+            "31.03.2023",
+            "31.03.2023",
+            "03.04.2023",
+            "04.04.2023",
+            "04.04.2023",
+            "06.04.2023",
+            "10.04.2023",
+            "11.04.2023",
+            "12.04.2023",
+            "13.04.2023",
+            "14.04.2023",
+            "15.04.2023",
+            "16.04.2023",
+            "18.04.2023",
+            "18.04.2023",
+            "21.04.2023",
+            "21.04.2023",
+            "24.04.2023",
+            "24.04.2023",
+            "24.04.2023",
+            "26.04.2023 ",
+        ]
+
+        const length = Math.min(title.length, href.length, date.length);
+        let inner = '';
+        for (let i = 0; i < title.length; i++) {
+            inner += `
+            <a class="news-feed__item news-card" href="${href[i]}">
+                <div class="news-card__date news-card__date--ec"> 
+                    ${date[i]}
+                </div>
+                <img src="./images/icons/news-feed/flag_rf.png" alt="Флаг" class="news-card__flag">
+                <p class="news-card__title news-card__title--ec">${title[i]}</p>
+            </a>
+            `
+        }
+
+        const list = document.querySelector('.news-feed__list')
+        console.log(list)
+        list.innerHTML += inner
+
+    </script> -->
+</body>
+
+</html>

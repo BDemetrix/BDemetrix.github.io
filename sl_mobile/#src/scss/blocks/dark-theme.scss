@@ -296,6 +296,10 @@ $disabled-color: #e2e2e2;
             background-color: $element-bg;
         }
 
+        &__title {
+            color: $text-color;
+        }
+
         &__btn {
             color: $text-color;
 
@@ -516,7 +520,7 @@ $disabled-color: #e2e2e2;
         }
     }
 
-    .custom-input {
+    .custom-input:not(.nf-filter__date) {
         background-color: $container-bg;
         color: $text-color;
 
@@ -652,6 +656,25 @@ $disabled-color: #e2e2e2;
             svg {
                 fill: $text-color;
             }
+        }
+    }
+
+    .blue-btn {
+        &:hover {
+            box-shadow: none;
+        }
+    }
+
+    .white-btn {
+        background: $element-bg;
+        border-color: $border-color;
+        color: $text-color;
+
+        &:hover {
+            background-color: lighten($element-bg, .95);
+        }
+        &:active {
+            background-color: lighten($element-bg, .9);
         }
     }
 }

@@ -4,7 +4,9 @@
 "title":"Новости",
 "stylesheet": "./css/style.css"
 })
-
+<!-- 
+    * Используются стили совместно с Экономическим колендарем economic-calendar.html
+-->
 <body class="">
     <!-- классы ._style-1 , ._style-2 и ._style-3 используются для стилизации двух видов шаблонов 
 		Например: при body._style-1 Логотип имеет один цвет, а при body._style-2 и ._style-3 - другой
@@ -32,13 +34,13 @@
                             <input type="checkbox" class="custom-checkbox__input" checked="" tabindex="0">
                             <span class="custom-checkbox__text">Автообновление</span>
                         </label>
-                        <button class="nf-filter__btn" type="button" tabindex="1">
+                        <button class="nf-filter__btn js-nf-filter-btn" type="button" tabindex="1">
                             <svg width="24" height="24">
                                 <use xlink:href="images/icons/news-feed/sprite.svg#filter"></use>
                             </svg>
                         </button>
                     </div>
-                    <div class="nf-filter__body">
+                    <div class="nf-filter__body js-nf-filter-body">
                         <div class="nf-filter__fields">
                             <div class="nf-filter__search-wrap">
                                 <input class="nf-filter__search" type="text" name="serch" value="" id="nf-filter-search"

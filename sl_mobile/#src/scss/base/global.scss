@@ -249,6 +249,36 @@
     }
 }
 
+.white-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px;
+    color: #383838;
+    background: #ffffff;
+    border: 1px solid #a5a5a5;
+    border-radius: 5px;
+    font-size: 14px;
+    line-height: 20px;
+    transition: all 0.3s ease;
+
+    &:hover {
+        // box-shadow: 0px 4px 4px rgba(117, 117, 117, 0.3);
+        color: #000;
+        background-color: #f0f0f0;
+        border-color: #000;
+    }
+
+    &:active {
+        background-color: #fafafa;
+    }
+
+    &:disabled {
+        background: #ccc;
+        border-color: #ccc;
+    }
+}
+
 // для скрытия элементов
 .visually-hidden {
     position: absolute;
@@ -400,7 +430,7 @@
 // Лейблы в постах и в окне модерации
 .post-label {
     color: #ffffff;
-    background: #80ACC9; //#abc8db;
+    background: #80acc9; //#abc8db;
 
     svg {
         fill: #ffffff;
