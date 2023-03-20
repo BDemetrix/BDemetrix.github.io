@@ -3907,7 +3907,7 @@ textarea {
 
 .post-card__text--premium {
   position: relative;
-  margin-bottom: 0;
+  margin-bottom: 0 !important;
 }
 
 .post-card__text--premium::after {
@@ -5432,6 +5432,7 @@ textarea {
 }
 
 .right-panel .arrow-to-top {
+  left: calc((100vw - 768px) / 2 - 65px);
   /*     @media (min-width: 1600px) { 
           $left-field: calc((100vw - 768px)/2);
           left: calc($left-field + 768px + (($left-field - 300px - 50px)/3));
@@ -9306,7 +9307,7 @@ body.loader:before {
     position: fixed;
     z-index: -1;
     bottom: 50px;
-    left: calc((100vw - 768px) / 2 - 65px);
+    left: calc(50vw + 384px + 15px);
     background: none;
     border: 0;
     -webkit-transition: all 0.4s ease;
