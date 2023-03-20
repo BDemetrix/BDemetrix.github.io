@@ -1,0 +1,36 @@
+<!-- 
+  * Для страницы "Экономический календарь" economic-calendar.html
+  * Класс _loading для того, чтобы стили не прыгали, пока слайдер не подключился
+  * Элементу li с текущей ссылкой присваивается класс sections-box__item--active по которому она меняет свой стиль и становится не активной 
+-->
+<nav class="sections-box sections-box--ec _loading">
+    <div class="sections-box__swiper swiper">
+        <ul class="sections-box__list swiper-wrapper">
+            <!-- Slides -->
+            <li class="sections-box__item sections-box__item--active swiper-slide"><a href="/">Экономический</a></li>
+            <li class="sections-box__item swiper-slide"><a href="/">Акции</a></li>
+            <li class="sections-box__item swiper-slide"><a href="/">Облигации</a></li>
+            <li class="sections-box__item swiper-slide"><a href="/">мой календарь</a></li>
+            <li class="sections-box__item sections-box__item--add-btn swiper-slide">
+                <a href="/" title="Добавить новое событие">
+                    &nbsp;
+                    <svg width="21" height="21">
+                        <use xlink:href="images/icons/news-feed/sprite.svg#add-btn"></use>
+                    </svg>
+                    &nbsp;
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="sections-box__prev">
+        <svg>
+            <use xlink:href="images/symbol/sprite.svg#ic_spoller_arrow"></use>
+        </svg>
+    </div>
+    <div class="sections-box__next">
+        <svg>
+            <use xlink:href="images/symbol/sprite.svg#ic_spoller_arrow"></use>
+        </svg>
+    </div>
+</nav>

@@ -9,7 +9,8 @@
     font-size: 14px;
     user-select: none;
 
-    &--news {
+    &--news,
+    &--ec {
         //padding-top: 4px;
 
         .sections-box__swiper {
@@ -104,7 +105,8 @@
             }
         }
 
-        &--premium {
+        &--premium,
+        &--add-btn {
             a {
                 position: relative;
                 padding-left: 25px;
@@ -115,6 +117,17 @@
                     top: 50%;
                     transform: translate(0, -50%);
                 }
+            }
+        }
+
+        &--add-btn {
+            a svg {
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            
+            &.sections-box__item--active a svg {
+                stroke-width: 2px;
             }
         }
 
