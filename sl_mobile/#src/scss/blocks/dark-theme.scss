@@ -649,13 +649,16 @@ $disabled-color: #e2e2e2;
 
     .lock-card {
         border-color: $border-color;
-        background-color: $element-bg;
+        background-color: $body-bg;
         color: $text-color;
 
         &__title {
             svg {
                 fill: $text-color;
             }
+        }
+        &__link {
+            color: $link-color;
         }
     }
 

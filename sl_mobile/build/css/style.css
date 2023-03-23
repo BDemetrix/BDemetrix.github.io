@@ -4094,7 +4094,7 @@ textarea {
 }
 
 .lock-card__link {
-  color: #013db2;
+  color: #0A51BC;
 }
 
 .subscribe-box {
@@ -8406,12 +8406,16 @@ textarea {
 
 .dark-theme .lock-card {
   border-color: #c1cbd6;
-  background-color: #2a2c30;
+  background-color: #202225;
   color: #e9e9e9;
 }
 
 .dark-theme .lock-card__title svg {
   fill: #e9e9e9;
+}
+
+.dark-theme .lock-card__link {
+  color: #479cd3;
 }
 
 .dark-theme .blue-btn:hover {
