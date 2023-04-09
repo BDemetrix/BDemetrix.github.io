@@ -1153,6 +1153,7 @@ setTimeout(() => {
   }
 
 }());
+// скрипт для левой боковой панели
 (function () {
 
   plugSimpleBar('.company-bar__body');
@@ -1187,6 +1188,7 @@ setTimeout(() => {
   }
 
 }());
+// скрипт для боковой панели с сообщениями
 (function () {
 
   setTimeout(() => {

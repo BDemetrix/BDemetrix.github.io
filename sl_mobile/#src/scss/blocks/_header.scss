@@ -10,6 +10,25 @@
 	svg {
 		user-select: none;
 	}
+	&--with-navbar {
+		font-family: Tahoma, "Open Sans", Verdana, Roboto, sans-serif;
+		.header__content {
+			position: relative;
+			z-index: 3;
+			height: 50px;
+		}
+		.menu__body {
+			top: 50px;
+		}
+
+		.query-search__body {
+			height: 70px;
+
+			@media (min-width: $md2-1 + px) {
+				height: auto;
+			}
+		}
+	}
 	// .header__content
 	&__content {
 		display: flex;

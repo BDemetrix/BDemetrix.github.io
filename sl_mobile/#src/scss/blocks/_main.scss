@@ -3,6 +3,16 @@
 	background: #f5f5f5;
 	border-radius: 8px 8px 0 0;
 
+	&--quotes {
+		margin-top: 0;
+		background: none;
+		box-shadow: none;
+		border-radius: 0;
+		background: #e5e5e5;
+
+		* {box-sizing: border-box}
+	}
+
 	@media (min-width: $md3 + px) {
 		//background: #f1f1f1;
 		box-shadow: 0px 4px 11px 4px rgb(117, 117, 117, 0.12);
@@ -61,10 +71,20 @@
 
 	// .main__quotes
 	&__quotes {
-		margin: 20px 0 0;
+	}
+
+	// .main__selectors
+	&__selectors {
+		max-width: 100%;
+		width: 100%;
+		padding: 0 5px;
+
+		.selector-links{
+			padding: 0 10px;
+		}
 
 		@media (min-width: $md3 + px) {
-			margin-top: 13px;
+			padding: 0 10px;
 		}
 	}
 
@@ -116,6 +136,11 @@
 	// .main__not-found 
 	&__not-found {
 
+	}
+
+	// .main__table
+	&__table {
+		padding: 0 5px 20px;
 	}
 	
 }

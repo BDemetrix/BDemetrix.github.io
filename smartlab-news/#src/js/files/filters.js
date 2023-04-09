@@ -238,7 +238,6 @@ filtersBodyRangeSliderObjs.forEach( obj => plugNoUiSlider(obj));
  */
 
 // Доработка sumoSelects
-
 AdvancedSumoSelect();
 
 function AdvancedSumoSelect () {

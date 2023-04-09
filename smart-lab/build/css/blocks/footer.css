@@ -1,6 +1,81 @@
 .footer {
   background-color: #2d2d2d;
-  padding-bottom: 50px;
+  padding: 50px 0;
+}
+
+.footer__banners {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 30px 15px;
+}
+
+.footer__banner {
+  margin-bottom: 15px;
+}
+
+.footer__banner:last-child {
+  margin: 0;
+}
+
+.footer__banner-best,
+.footer__banner-choice {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 10px;
+  width: 290px;
+  min-height: 50px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.footer__banner-best {
+  background: #459FCC;
+}
+
+.footer__banner-best svg {
+  margin-right: 7px;
+  width: 1em;
+  height: 1em;
+  fill: #fff;
+}
+
+.footer__banner-choice {
+  background: #d14029;
+}
+
+.footer__app-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 20px;
 }
 
 .footer__list {
@@ -85,6 +160,7 @@
       -ms-flex-pack: center;
           justify-content: center;
   margin: 20px 0 30px;
+  padding: 0 20px;
 }
 
 .footer__social-item {
@@ -95,6 +171,46 @@
   margin-right: 0;
 }
 
+.footer__bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 0 20px 40px;
+}
+
+.footer__moex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fff;
+  margin-right: auto;
+  width: 100%;
+}
+
+.footer__moex img {
+  width: 32px;
+  height: 32px;
+}
+
+.footer__moex-text {
+  margin-left: 0.5em;
+}
+
+.footer__moex-text a {
+  color: #4eadff;
+}
+
 .footer__counter {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -102,10 +218,33 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-left: auto;
+  margin-top: 20px;
 }
 
-.footer__counter-link {
-  margin-bottom: 30px;
+.smart-app-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.smart-app-btn__img {
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+}
+
+.smart-app-btn__text {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 135%;
+  color: #fff;
 }
 
 @media (min-width: 364.98px) {
@@ -118,9 +257,44 @@
   }
 }
 
+@media (min-width: 567.98px) {
+  .footer__app-box {
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+}
+
+@media (min-width: 767.98px) {
+  .footer__banners {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+
+  .footer__banner {
+    margin: 0;
+  }
+
+  .footer__moex {
+    width: auto;
+  }
+
+  .footer__counter {
+    margin: 0;
+  }
+}
+
 @media (min-width: 991.98px) {
   .footer {
     padding-bottom: 0;
+  }
+
+  .footer__banners {
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
   }
 
   .footer__list {

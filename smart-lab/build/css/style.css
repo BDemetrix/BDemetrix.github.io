@@ -6655,10 +6655,12 @@ textarea {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding-top: 14px;
+  padding-bottom: 14px;
 }
 
 .qn-menu__title {
-  margin: 24px 40px 24px 0px;
+  margin: 9px 40px 9px 0px;
   padding: 0px 0px 0px 0px;
   font-size: 20px;
   line-height: 22px;
@@ -6670,6 +6672,7 @@ textarea {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin: 16px 0;
 }
 
 .qn-menu__filter .qn-filters {

@@ -1,0 +1,489 @@
+.trades-table {
+  position: relative;
+  opacity: 1;
+  -webkit-transition: opacity .3s linear;
+  -o-transition: opacity .3s linear;
+  transition: opacity .3s linear;
+  margin: 0 auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-collapse: collapse;
+  text-align: center;
+  color: #666;
+  font-size: 12px;
+  border-radius: 5px;
+}
+
+.trades-table table._hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.trades-table._loading {
+  overflow: hidden;
+}
+
+.trades-table._loading::before {
+  display: block;
+  content: "";
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 30px;
+  right: 50%;
+  -webkit-transform: translate(50%, 0);
+      -ms-transform: translate(50%, 0);
+          transform: translate(50%, 0);
+  background: url("../images/icons/flex-table/loading.gif") center/100% no-repeat;
+}
+
+.trades-table * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.trades-table .flex-table__inner {
+  -webkit-box-shadow: 0 1px 2px #d1d1d1;
+          box-shadow: 0 1px 2px #d1d1d1;
+}
+
+.trades-table .up {
+  color: #3d9400;
+}
+
+.trades-table .down {
+  color: #f11212;
+}
+
+.trades-table a.charticon,
+.trades-table a.charticon2 {
+  display: inline-block;
+  border: none;
+  width: 21px;
+  height: 18px;
+  padding: 0;
+  margin: 0;
+  vertical-align: top;
+}
+
+.trades-table a.charticon {
+  background: url(../images/icons/flex-table/chart-icon-small.png) no-repeat;
+}
+
+.trades-table a.charticon2 {
+  background: url(../images/icons/flex-table/chart2-icon-small.png) no-repeat;
+}
+
+.trades-table .flex-table__ad-text {
+  top: -4px;
+  height: calc(100% + 8px);
+  padding: 4px 0;
+  background: #fafafa;
+  color: #0012ff;
+  font-weight: bold;
+}
+
+.trades-table .flex-table__ad-text a {
+  display: inline-block;
+  color: #0012ff;
+  font-weight: bold;
+  line-height: 19px;
+  vertical-align: bottom;
+  width: 100%;
+  height: 100%;
+}
+
+.trades-table .flex-table__ad-text:hover {
+  background: #f2f2f2;
+  background: -moz-linear-gradient(top, #f2f2f2, #f0f0f0);
+}
+
+.trades-table .flex-table__inner {
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+}
+
+.trades-table .flex-table__l-table {
+  table-layout: fixed;
+  max-width: 95px;
+}
+
+.trades-table .flex-table__l-table * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.trades-table .flex-table__l-table .flex-table__ad td {
+  border-right: 1px solid transparent;
+  padding: 4px 0;
+}
+
+.trades-table .flex-table__l-table tr td {
+  height: 28px;
+}
+
+.trades-table .flex-table__l-table td a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #666;
+}
+
+.trades-table .flex-table__l-table thead tr th {
+  max-height: 55px;
+  height: 55px;
+}
+
+.trades-table .flex-table__l-table tr th:first-child,
+.trades-table .flex-table__l-table tr td:first-child {
+  width: 33px;
+  padding: 4px 4px 4px 10px;
+  text-align: left;
+  border-left: 0;
+  display: none;
+}
+
+.trades-table .flex-table__l-table tr:first-child th:first-child {
+  border-top-left-radius: 4px;
+}
+
+.trades-table .flex-table__l-table tr:last-child td:first-child {
+  border-bottom-left-radius: 4px;
+}
+
+.trades-table .flex-table__l-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.trades-table .flex-table__r-table {
+  table-layout: fixed;
+}
+
+.trades-table .flex-table__r-table .flex-table__ad td {
+  border-left: 1px solid transparent;
+  padding: 4px 0;
+}
+
+.trades-table .flex-table__r-table .flex-table__ad td:hover {
+  background: #fafafa;
+}
+
+.trades-table .flex-table__r-table tr td {
+  height: 28px;
+}
+
+.trades-table .flex-table__r-table tr:last-child td:last-child {
+  border-bottom-right-radius: 4px;
+}
+
+.trades-table .flex-table__r-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.trades-table .flex-table__r-header-table {
+  table-layout: fixed;
+}
+
+.trades-table .flex-table__r-header-table * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.trades-table .flex-table__r-header-table thead tr th {
+  height: 54px;
+}
+
+.trades-table .flex-table__r-header-table tr:first-child th:last-child {
+  border-top-right-radius: 4px;
+}
+
+.trades-table .flex-table__r-header-table,
+.trades-table .flex-table__r-table {
+  width: 1010px;
+}
+
+.trades-table .flex-table__r-header-table tr th:nth-child(5),
+.trades-table .flex-table__r-header-table tr td:nth-child(5),
+.trades-table .flex-table__r-header-table tr th:nth-child(4),
+.trades-table .flex-table__r-header-table tr td:nth-child(4),
+.trades-table .flex-table__r-header-table tr th:nth-child(3),
+.trades-table .flex-table__r-header-table tr td:nth-child(3),
+.trades-table .flex-table__r-table tr th:nth-child(5),
+.trades-table .flex-table__r-table tr td:nth-child(5),
+.trades-table .flex-table__r-table tr th:nth-child(4),
+.trades-table .flex-table__r-table tr td:nth-child(4),
+.trades-table .flex-table__r-table tr th:nth-child(3),
+.trades-table .flex-table__r-table tr td:nth-child(3) {
+  display: none;
+}
+
+.trades-table .flex-table__r-side::before {
+  left: 0;
+  background: -webkit-gradient(linear, left top, right top, from(#e0e0e0), to(transparent));
+  background: -o-linear-gradient(left, #e0e0e0, transparent);
+  background: linear-gradient(to right, #e0e0e0, transparent);
+}
+
+.trades-table .flex-table__r-side::after {
+  right: 0;
+  background: -webkit-gradient(linear, right top, left top, from(#e0e0e0), to(transparent));
+  background: -o-linear-gradient(right, #e0e0e0, transparent);
+  background: linear-gradient(to left, #e0e0e0, transparent);
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.trades-table table {
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.trades-table th {
+  border-top: 0;
+  background: #ededed;
+  padding: 4px;
+}
+
+.trades-table th a {
+  text-decoration: none;
+  color: #666;
+  font-weight: normal;
+  font-size: 10px;
+}
+
+.trades-table td {
+  white-space: nowrap;
+  height: 28px;
+  padding: 4px;
+}
+
+.trades-table tr td {
+  padding: 4px;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  border-left: 1px solid #e0e0e0;
+  background: #fafafa;
+  background: -moz-linear-gradient(top, #ededed, #ebebeb);
+}
+
+.trades-table ._hover td,
+.trades-table tr:hover td {
+  background: #f2f2f2;
+  background: -moz-linear-gradient(top, #f2f2f2, #f0f0f0);
+}
+
+.trades-table__n {
+  width: 33px;
+  padding: 4px 4px 4px 10px;
+  text-align: left;
+}
+
+.trades-table__time {
+  width: 66px;
+}
+
+.trades-table__name {
+  width: 88px;
+  height: 54px;
+  overflow: hidden;
+}
+
+.trades-table__ticker {
+  width: 50px;
+  height: 54px;
+}
+
+.trades-table__chartrow {
+  width: 30px;
+}
+
+.trades-table__price {
+  width: 67px;
+}
+
+.trades-table__change-per {
+  width: 62px;
+}
+
+.trades-table__volume {
+  width: 75px;
+}
+
+.trades-table__week {
+  width: 61px;
+}
+
+.trades-table__month {
+  width: 51px;
+}
+
+.trades-table__first {
+  width: 59px;
+}
+
+.trades-table__year {
+  width: 61px;
+}
+
+.trades-table__rub {
+  width: 71px;
+}
+
+.trades-table__usd {
+  width: 71px;
+}
+
+.trades-table__change-vol {
+  width: 71px;
+}
+
+.trades-table__change-pos {
+  width: 76px;
+}
+
+.trades-table__add-case {
+  width: 64px;
+}
+
+.trades-table__add-list {
+  width: 64px;
+}
+
+.trades-table#trades-table-fixed {
+  max-width: 500px;
+  height: 300px;
+  background: #fafafa;
+  -webkit-box-shadow: 0 1px 2px #d1d1d1;
+          box-shadow: 0 1px 2px #d1d1d1;
+}
+
+.trades-table#trades-table-fixed .flex-table__inner {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  margin-bottom: -11px;
+}
+
+.trades-table#trades-table-fixed > .simplebar-track.simplebar-vertical {
+  top: 55px;
+}
+
+.trades-table#trades-table-fixed > .simplebar-track.simplebar-horizontal {
+  display: none;
+}
+
+@media (min-width: 991.98px) {
+  .trades-table .flex-table__l-table {
+    max-width: 125px;
+  }
+
+  .trades-table .flex-table__l-table tr th:first-child,
+  .trades-table .flex-table__l-table tr td:first-child {
+    display: table-cell;
+  }
+
+  .trades-table .flex-table__r-header-table,
+  .trades-table .flex-table__r-table {
+    width: 1100px;
+  }
+
+  .trades-table .flex-table__r-header-table tr th:nth-child(5),
+  .trades-table .flex-table__r-header-table tr td:nth-child(5),
+  .trades-table .flex-table__r-header-table tr th:nth-child(4),
+  .trades-table .flex-table__r-header-table tr td:nth-child(4),
+  .trades-table .flex-table__r-header-table tr th:nth-child(3),
+  .trades-table .flex-table__r-header-table tr td:nth-child(3),
+  .trades-table .flex-table__r-table tr th:nth-child(5),
+  .trades-table .flex-table__r-table tr td:nth-child(5),
+  .trades-table .flex-table__r-table tr th:nth-child(4),
+  .trades-table .flex-table__r-table tr td:nth-child(4),
+  .trades-table .flex-table__r-table tr th:nth-child(3),
+  .trades-table .flex-table__r-table tr td:nth-child(3) {
+    display: table-cell;
+  }
+
+  .trades-table__ticker {
+    width: 70px;
+  }
+}
+/* 
+@media (min-width: 1250px) {
+
+  .trades-table .flex-table__r-header-table,
+  .trades-table .flex-table__r-table {
+    width: calc( 88vw - 10px );
+  }
+
+  .trades-table__n {
+    width: 30%;
+  }
+
+  .trades-table__name {
+    width: 70%;
+  }
+
+  .trades-table__ticker {
+    width: 5.7%;
+  }
+
+  .trades-table__chartrow {
+    width: 2.4%;
+  }
+
+  .trades-table__price {
+    width: 5.6%;
+  }
+
+  .trades-table__change-per {
+    width: 5.2%;
+  }
+
+  .trades-table__volume {
+    width: 6.1%;
+  }
+
+  .trades-table__time {
+    width: 5.4%;
+  }
+
+  .trades-table__week {
+    width: 5.0%;
+  }
+
+  .trades-table__month {
+    width: 5.0%;
+  }  
+  
+  .trades-table__year {
+    width: 5.0%;
+  }
+
+  .trades-table__first {
+    width: 5.0%;
+  }
+
+  .trades-table__rub {
+    width: 5.5%;
+  }
+
+  .trades-table__usd {
+    width: 5.5%;
+  }
+
+  .trades-table__change-vol {
+    width: 5.5%;
+  }
+
+  .trades-table__change-pos {
+    width: 6.0%;
+  }
+
+  .trades-table__add-case {
+    width: 5.0%;
+  }
+
+  .trades-table__add-list {
+    width: 5.0%;
+  }
+} */

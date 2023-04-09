@@ -88,16 +88,18 @@ picture {
 //<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
 @import "./plugins/simplebar";
 @import "./plugins/bootstrap-datepicker";
-//@import "./plugins/swiper-bundle.min.css";
-
-//@import "./plugins/jBox.all";  // Может испортить верстку
+@import "./plugins/sumoselect";
+@import "./plugins/nouislider";
+@import "./plugins/flex-table";
+@import "./plugins/jBox.all";  // Может испортить верстку
+//@import "./plugins/swiper-bundle.min.css"; // Подключен минимальный наботр правил _custom-swiper
 @import "./blocks/_custom-swiper"; // Минимальные и необходимые стили для слайдера swiper
 @import "./blocks/_header";
 @import "./blocks/_main";
 @import "./blocks/_search-block";
 @import "./blocks/_menu";
 @import "./blocks/_alphabet";
-//@import "./blocks/_navbar"; // Планируется использваование этого блока на других страницах
+@import "./blocks/_navbar"; 
 @import "./blocks/_apps-box";
 @import "./blocks/_quotes";
 @import "./blocks/_sections-box";
@@ -127,6 +129,14 @@ picture {
 @import "./blocks/_donate-btn";
 @import "./blocks/_brokers-links";
 @import "./blocks/_lower-banner";
+
+// стили страницы котировок (дизайн страницы кардинально отличается от новой версии)
+@import "./blocks/_quotes-menu";
+@import "./blocks/_selector-links";
+@import "./blocks/_buy-shares";
+@import "./blocks/_trades-table";
+@import "./blocks/_qn-filters";
+//@import "./plugins/datepicker-new";
 
 
 
