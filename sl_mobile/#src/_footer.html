@@ -1,0 +1,167 @@
+<footer class="footer">
+	<!-- 
+	  * Блоку спойлеров добавяется класс _spollers
+	  * элементам, при клике на которые раскрывается список, добавляется класс _spoller
+	  * раскрвающийся список должен быть соседним и следующим за блоком _spoller
+	  * data-spoller-maxwidth - ширина экрана меньше которой работает спойлер
+	  * при клике на заголовок спойлера, заголовку присваивается/удаляется класс _active
+	  * если у блока спойлеров есть класс _one, то то он является аккордеоном 
+	-->
+	<div class="footer__banners">
+		<div class="footer__banner ">
+			<a href="#" class="footer__banner-best">
+				<svg>
+						<use xlink:href="images/symbol/sprite.svg#telegram"></use>
+				</svg>
+				<span>Лучшее со Смартлаба</span>
+			</a>
+		</div>
+		<div class="footer__banner">
+			<a href="#" class="footer__banner-choice">
+				Выбери стабильного брокера 
+			</a>
+		</div>
+	</div>
+	<div class="footer__app-box">
+		<div class="footer__app-title">Установите приложение Смартлаба:</div>
+		<a href="https://play.google.com/store/apps/details?id=ru.smartlab" class="footer__app-btn">
+			<img class="footer__app-img" src="images/icons/footer/gp.png" alt="Cкачать c App Store"
+				title="Cкачать c App Store" target="_blank">
+		</a>
+		<a href="https://apps.apple.com/ru/app/smartlab/id1602002316" class="footer__app-btn"
+			title="Cкачать c Google Pay" target="_blank">
+			<img class="footer__app-img" src="images/icons/footer/as.png" alt="Cкачать c Google Pay">
+		</a>
+	</div>
+	<ul class="footer__list _one _spollers" data-spoller-maxwidth="991.98">
+		<li class="footer__item">
+			<div class="footer__item-title _spoller">
+				<span>Блоги</span>
+				<svg>
+					<use xlink:href="images/symbol/sprite.svg#ic_spoller_arrow"></use>
+				</svg>
+			</div>
+			<ul class="footer__sub-list">
+				<li class="footer__sub-item"><a class="footer__link" href="/allblog/?utm_source=footer">Лента всех блогов</a></li>
+				<li class="footer__sub-item"><a class="footer__link" href="/favtop/?utm_source=footer">Самые полезные</a></li>
+				<li class="footer__sub-item"><a class="footer__link" href="/top/topic/24h/by_comments/?utm_source=footer">Самые комментируемые</a></li>
+				<li class="footer__sub-item"><a class="footer__link" href="/news/?utm_source=footer">Новости</a></li>
+				<li class="footer__sub-item"><a class="footer__link" href="/blog/tradesignals/?utm_source=footer">Торговые сигналы</a></li>
+				<li class="footer__sub-item"><a class="footer__link" href="/vopros/?utm_source=footer">Ответы на вопросы</a></li>
+				<li class="footer__sub-item"><a class="footer__link" href="/blog/reviews/?utm_source=footer">Книжные рецензии</a></li>
+				<li class="footer__sub-item"><a class="footer__link" href="/company/?utm_source=footer">Корпоративные</a></li>
+			</ul>
+		</li>
+		<li class="footer__item">
+			<div class="footer__item-title _spoller">
+				<span>Форумы</span>
+				<svg>
+					<use xlink:href="images/symbol/sprite.svg#ic_spoller_arrow"></use>
+				</svg>
+			</div>
+			<ul class="footer__sub-list">
+				<li class="footer__sub-item"><a class="footer__link" href="/forums/?utm_source=footer">Лента всех форумов</a></li>
+				<li class="footer__sub-item"><a class="footer__link" href="/trading/?utm_source=footer">Общие темы</a></li>
+				<li class="footer__sub-item"><a class="footer__link" href="/forum/?utm_source=footer">Форум акций</a></li>
+				<li class="footer__sub-item"><a class="footer__link" href="/algotrading/?utm_source=footer">Форум алготрейдинг</a></li>
+				<li class="footer__sub-item"><a class="footer__link" href="/options/?utm_source=footer">Форум опционы</a></li>
+				<li class="footer__sub-item"><a class="footer__link" href="/crypto/?utm_source=footer">Форум криптовалют</a></li>
+				<li class="footer__sub-item"><a class="footer__link" href="/forex/?utm_source=footer">Форум Forex</a></li>
+				<li class="footer__sub-item"><a class="footer__link" href="/brokers-rating/?utm_source=footer">Рейтинг брокеров</a></li>
+			</ul>
+		</li>
+		<li class="footer__item">
+			<div class="footer__item-title _spoller">
+				<span>Акции</span>
+				<svg>
+					<use xlink:href="images/symbol/sprite.svg#ic_spoller_arrow"></use>
+				</svg>
+			</div>
+			<ul class="footer__sub-list">
+				<li class="footer__sub-item"><a class="footer__link" href="/q/map/?utm_source=footer">Карта рынка</a></li>
+				<li class="footer__sub-item"><a class="footer__link" href="/q/shares/?utm_source=footer">Котировки</a></li>
+				<li class="footer__sub-item"><a class="footer__link" href="/q/shares_fundamental/?utm_source=footer">Фундаментальный анализ</a></li>
+				<li class="footer__sub-item"><a class="footer__link" href="/q/shares_fundamental/?utm_source=footer">Отчеты компаний</a></li>
+				<li class="footer__sub-item"><a class="footer__link" href="/dividends/?utm_source=footer">Дивиденды</a></li>
+				<li class="footer__sub-item"><a class="footer__link" href="/q/portfolio/?utm_source=footer">Мой портфель</a></li>
+				<li class="footer__sub-item"><a class="footer__link" href="/forum/sectors/?utm_source=footer">Все компании</a></li>
+				<li class="footer__sub-item"><a class="footer__link" href="/calendar/stocks/?utm_source=footer">Календарь акций</a></li>
+			</ul>
+		</li>
+		<li class="footer__item">
+			<div class="footer__item-title _spoller">
+				<span>Смартлаб</span>
+				<svg>
+					<use xlink:href="images/symbol/sprite.svg#ic_spoller_arrow"></use>
+				</svg>
+			</div>
+			<ul class="footer__sub-list">
+				<li class="footer__sub-item"><a class="footer__link" href="/page/values/?utm_source=footer">Ценности смартлаба</a></li>
+				<li class="footer__sub-item"><a class="footer__link" href="/page/privacy/?utm_source=footer">Политика Конфиденциальности</a></li>
+				<li class="footer__sub-item"><a class="footer__link" href="/page/sitemap/?utm_source=footer">Карта сайта</a></li>
+				<li class="footer__sub-item"><a class="footer__link" href="/blog/mytrading/7053.php?utm_source=footer">Реклама</a></li>
+				<li class="footer__sub-item"><a class="footer__link" href="/page/contact/?utm_source=footer">Контакты</a></li>
+				<li class="footer__sub-item"><a class="footer__link" href="/blog/mytrading/5161.php?utm_source=footer">Правила</a></li>
+				<li class="footer__sub-item"><a class="footer__link" href="/page/help/?utm_source=footer">Помощь</a></li>
+				<li class="footer__sub-item"><a class="footer__link" href="/trading/%D0%97%D0%B0%D0%B4%D0%B0%D0%B9%20%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81%20%D0%A2%D0%B8%D0%BC%D0%BE%D1%84%D0%B5%D1%8E%20%D0%9C%D0%B0%D1%80%D1%82%D1%8B%D0%BD%D0%BE%D0%B2%D1%83?utm_source=footer">Обратная связь</a></li>
+			</ul>
+		</li>
+	</ul>
+
+	<ul class="footer__social-box">
+		<li class="footer__social-item">
+			<a href="#" class="telegram-btn">
+				<svg>
+					<use xlink:href="images/icons/footer/sprite.svg#telegram"></use>
+				</svg>
+			</a>
+		</li>
+		<li class="footer__social-item">
+			<a href="#" class="vk-btn">
+				<svg>
+					<use xlink:href="images/icons/footer/sprite.svg#vk"></use>
+				</svg>
+			</a>
+		</li>
+<!-- 		<li class="footer__social-item">
+			<a href="#" class="instagram-btn">
+				<svg>
+					<use xlink:href="images/symbol/sprite.svg#instagram"></use>
+				</svg>
+			</a>
+		</li> -->
+		<li class="footer__social-item">
+			<a href="#" class="youtube-btn">
+				<svg>
+					<use xlink:href="images/icons/footer/sprite.svg#youtube"></use>
+				</svg>
+			</a>
+		</li>
+<!-- 		<li class="footer__social-item">
+			<a href="#" class="facebook-btn">
+				<svg>
+					<use xlink:href="images/symbol/sprite.svg#facebook"></use>
+				</svg>
+			</a>
+		</li> -->
+	</ul>
+
+	<div class="footer__bottom">
+		<div class="footer__moex">
+			<a href="https://www.moex.com/" target="_blank" class="i">
+				<img src="https://smart-lab.ru/uploads/2021/images/01/15/47/2021/12/17/avatar_c6f6bc_140x140.webp">
+			</a>
+			<div class="footer__moex-text">
+				<a href="https://www.moex.com/" target="_blank"> Московская Биржа</a> является спонсором ресурса smart-lab.ru
+			</div>
+		</div>
+		<div class="footer__counter">
+			<a class="footer__counter-link" id="footer__counter" href="//www.liveinternet.ru/click" target="_blank"><img id="licnt497C" width="88" height="31"
+			style="border:0" title="LiveInternet: показано число просмотров за 24 часа, посетителей за 24 часа и за сегодня"
+			src="//counter.yadro.ru/hit?t18.3;rhttps%3A//trello.com/;s1366*768*24;uhttps%3A//smart-lab.ru/forum/GAZP;h%u0424%u043E%u0440%u0443%u043C%20%u0430%u043A%u0446%u0438%u0438%20%u0413%u0430%u0437%u043F%u0440%u043E%u043C%20%28GAZP%29;0.5047278326930724"
+			alt="">
+			</a>
+		</div>
+	</div>
+
+</footer>
