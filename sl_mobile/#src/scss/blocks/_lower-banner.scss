@@ -43,7 +43,7 @@
 // этот класс добавляется body из скрипта, если на стр. есть блок lower-banner
 @media (max-width: $md3 + px) {
     .with-lower-banner {
-        .footer {
+        .footer-mob {
             padding-bottom: 50px;
         }
 

@@ -16,17 +16,13 @@
   if (qnMenuBtnFilter && qnFilters && qnFiltersClose) {
 
     qnMenuBtnFilter.addEventListener('click', (e) => {
-      //e.stopPropagation();
       const parent = qnMenuBtnFilter.parentElement;
       parent.classList.add('_opened');
-      //blockOverflow();
     });
 
     qnFilters.addEventListener('click', (e) => {
-      //e.stopPropagation();
       if (!e.target.closest('.qn-filters__content') || e.target.closest('.qn-filters__close')) {
         qnFilters.closest('._opened').classList.remove('_opened');
-        //unBlockOverflow()
       }
     });
   }
