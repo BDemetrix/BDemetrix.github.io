@@ -257,7 +257,7 @@ if (systemMessagesBox) {
 
 
 $('.datepicker').datepicker({
-  format: 'mm/dd/yyyy',
+  format: 'dd.mm.yyyy',
 });
 
 

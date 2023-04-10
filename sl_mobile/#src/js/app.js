@@ -11,3 +11,9 @@
 @@include('files/bootstrap-datepicker-setup.js', {})
 @@include('files/slide-sidebar.js', {})
 @@include('files/quick-comment.js', {})
+
+// скрипты для страницы котировок
+@@include('files/selector-links.js', {})
+@@include('files/navbar.js', {})
+@@include('files/trades-table.js', {})
+@@include('files/qn-filters.js', {})
