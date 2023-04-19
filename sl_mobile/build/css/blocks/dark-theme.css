@@ -260,6 +260,10 @@
   background-color: #2a2c30;
 }
 
+.dark-theme .news-feed__empty {
+  color: #e9e9e9;
+}
+
 .dark-theme .news-card__title {
   color: #e9e9e9;
 }
@@ -388,6 +392,10 @@
 
 .dark-theme .fn-tag--active {
   background-color: #202225;
+}
+
+.dark-theme .fn-tag--company {
+  color: #e9e9e9;
 }
 
 .dark-theme .custom-select__main-btn {

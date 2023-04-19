@@ -255,6 +255,9 @@ $disabled-color: #e2e2e2;
         &__section {
             background-color: $element-bg;
         }
+        &__empty {
+            color: $text-color;
+        }
     }
 
     .news-card {
@@ -363,6 +366,10 @@ $disabled-color: #e2e2e2;
 
         &--active {
             background-color: $body-bg;
+        }
+        
+        &--company {
+            color: $text-color;
         }
     }
 
