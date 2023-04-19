@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('_head.html',{
+"title":"Экономический календарь",
+"stylesheet": "./css/style.css"
+})
+<!-- 
+    * Используются стили совместно с лентой новостей news-feed.html 
+    * Для элементов специфических для Экономическоно колендаря используется модификатор &--ec
+-->
+
+<body class="">
+    <!-- классы ._style-1 , ._style-2 и ._style-3 используются для стилизации двух видов шаблонов 
+		Например: при body._style-1 Логотип имеет один цвет, а при body._style-2 и ._style-3 - другой
+		._style-1 для smart-lab.ru
+		._style-2 для smart-lab.ru/q/
+		._style-3 для smart-lab.ru/forum/
+		-->
+    <div class="wrapper">
+        @@include('_header.html',{"Class": "_container"})
+        <main class="news-feed _mobile-container">
+            <div class="news-feed__header">
+                <div class="news-feed__section">
+                    @@include('_sections-box--ec.html',{})
+                </div>
+                <form class="news-feed__filter nf-filter">
+                    <div class="nf-filter__head">
+                        <div class="nf-filter__title">Экономический календарь</div>
+                        <button class="nf-filter__btn js-nf-filter-btn" type="button" tabindex="1">
+                            <svg width="24" height="24">
+                                <use xlink:href="images/icons/news-feed/sprite.svg#filter"></use>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="nf-filter__body js-nf-filter-body">
+                        <div class="nf-filter__fields nf-filter__fields--right">
+                            <div class="nf-filter__select nf-filter__select--ec custom-select">
+                                <button class="custom-select__main-btn" value="Все подряд" name="#" type="button"
+                                    tabindex="4">
+                                    Все подряд
+                                </button>
+                                <div class="custom-select__list ">
+                                    <button class="custom-select__option custom-select__option--active"
+                                        value="Все подряд" type="button">Все подряд</button>
+                                    <button class="custom-select__option" value="Дивиденды"
+                                        type="button">Дивиденды</button>
+                                    <button class="custom-select__option" value="Акции - отчет" type="button">Акции -
+                                        отчет</button>
+                                    <button class="custom-select__option" value="Экономика"
+                                        type="button">Экономика</button>
+                                    <button class="custom-select__option" value="Эк.события"
+                                        type="button">Эк.события</button>
+                                    <button class="custom-select__option" value="Центробанки"
+                                        type="button">Центробанки</button>
+                                    <button class="custom-select__option" value="Правительство"
+                                        type="button">Правительство</button>
+                                    <button class="custom-select__option" value="Семинар" type="button">Семинар</button>
+                                    <button class="custom-select__option" value="Собрания акционеров"
+                                        type="button">Собрания акционеров</button>
+                                    <button class="custom-select__option" value="Акции - другое" type="button">Акции -
+                                        другое</button>
+                                    <button class="custom-select__option" value="Акции - совет дир." type="button">Акции
+                                        - совет дир.</button>
+                                    <button class="custom-select__option" value="Акции - IPO" type="button">Акции -
+                                        IPO</button>
+                                    <button class="custom-select__option" value="Тусовки" type="button">Тусовки</button>
+                                </div>
+                            </div>
+                            <div class="nf-filter__select nf-filter__select--ec custom-select">
+                                <button class="custom-select__main-btn" value="Все страны" name="#" type="button"
+                                    tabindex="4">
+                                    Все страны
+                                </button>
+                                <div class="custom-select__list ">
+                                    <button class="custom-select__option custom-select__option--active"
+                                        value="Все страны" type="button">Все страны</button>
+                                    <button class="custom-select__option" value="Россия" type="button">Россия</button>
+                                    <button class="custom-select__option" value="США" type="button">США</button>
+                                    <button class="custom-select__option" value="Великобритания"
+                                        type="button">Великобритания</button>
+                                    <button class="custom-select__option" value="Германия"
+                                        type="button">Германия</button>
+                                    <button class="custom-select__option" value="Франция" type="button">Франция</button>
+                                    <button class="custom-select__option" value="Италия" type="button">Италия</button>
+                                    <button class="custom-select__option" value="Бельгия" type="button">Бельгия</button>
+                                    <button class="custom-select__option" value="Нидерланды"
+                                        type="button">Нидерланды</button>
+                                    <button class="custom-select__option" value="Дания" type="button">Дания</button>
+                                    <button class="custom-select__option" value="Канада" type="button">Канада</button>
+                                    <button class="custom-select__option" value="Япония" type="button">Япония</button>
+                                    <button class="custom-select__option" value="Китай" type="button">Китай</button>
+                                    <button class="custom-select__option" value="Гонконг" type="button">Гонконг</button>
+                                    <button class="custom-select__option" value="Австралия"
+                                        type="button">Австралия</button>
+                                    <button class="custom-select__option" value="Южная корея" type="button">Южная
+                                        корея</button>
+                                    <button class="custom-select__option" value="Тайвань" type="button">Тайвань</button>
+                                    <button class="custom-select__option" value="Бразилия"
+                                        type="button">Бразилия</button>
+                                    <button class="custom-select__option" value="Швейцария"
+                                        type="button">Швейцария</button>
+                                    <button class="custom-select__option" value="Ирландия"
+                                        type="button">Ирландия</button>
+                                    <button class="custom-select__option" value="Финляндия"
+                                        type="button">Финляндия</button>
+                                    <button class="custom-select__option" value="Израиль" type="button">Израиль</button>
+                                    <button class="custom-select__option" value="Люксембург"
+                                        type="button">Люксембург</button>
+                                    <button class="custom-select__option" value="Индия" type="button">Индия</button>
+                                    <button class="custom-select__option" value="Казахстан"
+                                        type="button">Казахстан</button>
+                                    <button class="custom-select__option" value="Евросоюз"
+                                        type="button">Евросоюз</button>
+                                    <button class="custom-select__option" value="Другое" type="button">Другое</button>
+                                </div>
+                            </div>
+
+                            <div
+                                class="nf-filter__date-wrap nf-filter__date-wrap--ec input-wrapper input-wrapper--left">
+                                <input class="nf-filter__date custom-input datepicker" id="date_from" placeholder="с"
+                                    autocomplete="off" type="text" name="from" value="">
+                                <svg width="20" height="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#calendar"></use>
+                                </svg>
+                            </div>
+                            <div
+                                class="nf-filter__date-wrap nf-filter__date-wrap--ec input-wrapper input-wrapper--left">
+                                <input class="nf-filter__date custom-input datepicker" id="date_to" placeholder="по"
+                                    autocomplete="off" type="text" name="to" value="">
+                                <svg width="20" height="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#calendar"></use>
+                                </svg>
+                            </div>
+
+                            <!-- Добавить кнопки -->
+                            <button class="nf-filter__submit blue-btn" type="submit" name="apply_filter">Найти</button>
+                            <button class="nf-filter__reset white-btn" type="button"
+                                onclick="javascript:document.location.href='/calendar/';">Сброс</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="news-feed__list news-feed__list--empty">
+                <div class="news-feed__empty">
+                    <div class="news-feed__empty-title">Событий нет</div>
+                    <div class="news-feed__empty-text">Попробуйте изменить настройки фильтра</div>
+                </div>
+                
+            </div>
+            @@include('_footer_mob.html',{'Class': 'footer-mob--news'})
+        </main>
+    </div>
+    @@include('_transfer-btn.html')
+    @@include('_js.html',{})
+
+</body>
+
+</html>
