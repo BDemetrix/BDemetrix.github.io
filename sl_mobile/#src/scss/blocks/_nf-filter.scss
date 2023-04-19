@@ -236,6 +236,10 @@
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
+
+        &--companies {
+            margin-top: 14px;
+        }
     }
 
     // .nf-filter__tag
