@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
  <head>
-	<title>БЛОГ</title>
+	<title>БЛОГ КОМПАНИИ</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	
@@ -659,72 +659,34 @@
 	
 </header>
 		<main class="main _mobile-container">
-			<a href="./" class="main__post-back-link">
-				<svg width="18" height="16">
-					<use xlink:href="images/icons/post-card/sprite.svg#arrow"></use>
-				</svg>
-				<span>личный блог</span>
-			</a>
-			<div class="post-page__info post-page__info--blog">
-				<div class="user-info">
-    <div class="user-info__menu context-menu">
-        <button class="user-info__menu-btn context-menu__btn">
-            <svg class="context-menu__svg" height="20" width="20">
-                <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
-            </svg>
+
+			<div class="post-head js-post-head">
+  <img src="./images/card@2x.png" alt="Изобращжение блога" class="post-head__img">
+  <div class="post-head__menu context-menu js-post-head-menu">
+    <button class="post-card__menu-btn post-card__menu-btn--head context-menu__btn">
+      Изменить изображение
+    </button>
+    <ul class="context-menu__list">
+      <li>
+        <button class="post-card__menu-item context-menu__item">
+          <svg height="20" width="20">
+            <use xlink:href="images/icons/post-card/sprite.svg#upload"></use>
+          </svg>
+          Загрузить
         </button>
-        <ul class="context-menu__list">
-            <li><button class="context-menu__item">Копировать URL</button></li>
-            <li><button class="context-menu__item">Пожаловться</button></li>
-        </ul>
-    </div>
-    <!-- Если есть контекстное меню (при точки), присваивается модификатор user-info__wrap--blog -->
-    <div class="user-info__wrap user-info__wrap--blog">
-            <div class="user-info__photo-wrap">
-                <div class="user-info__img-wrap">
-                    <img src="./images/icons/user-info/user.jpg" alt="Фото" class="user-info__img">
-                </div>
-                <div class="user-info__tg-link-wrap">
-                    <svg width="16" height="16">
-                        <use xlink:href="images/icons/user-info/sprite.svg#tg"></use>
-                    </svg>
-                    <a href="https://t.me/newssmartlab" class="user-info__tg-link" target="_blank">t.me/newssmartlab</a>
-                </div>
-            
-            </div>
-            <div class="user-info__box">
-                <div class="user-info__name">RomanAndreev</div>
-                <div class="user-info__address">
-                    <svg width="14" height="17">
-                        <use xlink:href="images/icons/user-info/sprite.svg#local"></use>
-                    </svg>
-                    <span>Санкт-Петербург</span>
-                </div>
-                <div class="user-info__inner">
-                    <div class="user-info__subscribers">
-                        <svg width="16" height="16">
-                            <use xlink:href="images/icons/user-info/sprite.svg#person"></use>
-                        </svg>
-                        <span>256</span>
-                    </div>
-                    <div class="user-info__rating">
-                        <svg width="16" height="16">
-                            <use xlink:href="images/icons/user-info/sprite.svg#rating"></use>
-                        </svg>
-                        <span>3 258</span>
-                    </div>
-                </div>
-                <div class="user-info__date">
-                    <svg width="16" height="16">
-                        <use xlink:href="images/icons/user-info/sprite.svg#sigma"></use>
-                    </svg>
-                    <span>с 17 мая 2012</span>
-                </div>
-                <button class="user-info__subscrib-btn">+ Подписаться</button>
-            </div>
-    </div>
+      </li>
+      <li>
+        <button class="post-card__menu-item context-menu__item">
+          <svg height="20" width="20">
+            <use xlink:href="images/icons/post-card/sprite.svg#del"></use>
+          </svg>
+          Удалить
+        </button>
+      </li>
+    </ul>
+  </div>
 </div>
-			</div>
+
 			<div class="main__post-card">
 				<!-- Используются стили из _post-card.scss -->
 <section class="post-card">

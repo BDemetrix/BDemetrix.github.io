@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
  <head>
-	<title>ПОСТ</title>
+	<title>ПОСТ КОМПАНИИ</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	
@@ -659,11 +659,35 @@
 	
 </header>
 		<!-- Если баннер отсутствует, то присваивается модификатор post-page--round -->
-		<main class="post-page _mobile-container">
-			<div class="post-page__banner">
-				<!-- <span style="background: url(./images/image.jpg);"></span> -->
-				<img src="./images/image.jpg" alt="Фото" class="post-page__banner-img">	
-			</div>
+		<main class="post-page post-page--round _mobile-container">
+
+			<div class="post-head js-post-head">
+  <img src="./images/card-def@2x.png" alt="Изобращжение блога" class="post-head__img">
+  <div class="post-head__menu context-menu js-post-head-menu">
+    <button class="post-card__menu-btn post-card__menu-btn--head context-menu__btn">
+      Изменить изображение
+    </button>
+    <ul class="context-menu__list">
+      <li>
+        <button class="post-card__menu-item context-menu__item">
+          <svg height="20" width="20">
+            <use xlink:href="images/icons/post-card/sprite.svg#upload"></use>
+          </svg>
+          Загрузить
+        </button>
+      </li>
+      <li>
+        <button class="post-card__menu-item context-menu__item">
+          <svg height="20" width="20">
+            <use xlink:href="images/icons/post-card/sprite.svg#del"></use>
+          </svg>
+          Удалить
+        </button>
+      </li>
+    </ul>
+  </div>
+</div> 
+
 			<div class="post-page__post-card">
 				<!-- Используются стили из _post-card.scss -->
 <section class="post-card post-card--post">
