@@ -6746,6 +6746,21 @@ textarea {
   height: 22px;
 }
 
+.post-card__menu-btn--head {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: auto;
+  height: auto;
+  padding: 8px 16px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 22px;
+  color: #ffffff;
+}
+
 .post-card__menu-btn svg {
   fill: #808080;
 }
@@ -7175,7 +7190,7 @@ textarea {
 }
 
 .lock-card__link {
-  color: #0A51BC;
+  color: #0a51bc;
 }
 
 .subscribe-box {
@@ -7409,6 +7424,39 @@ textarea {
 
 .tarif-card__pop-up-list li.tarif-card__pop-up-item--disabled::before {
   background: no-repeat 0 -2px/100% url("../images/icons/post-card/cross.svg");
+}
+
+.post-head {
+  position: relative;
+  width: 100%;
+  margin: 0 0 calc(10px + 15 * ((100vw - 360px) / 407.98));
+}
+
+.post-head:hover .post-head__menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.post-head__img {
+  width: 100%;
+}
+
+.post-head__menu {
+  position: absolute;
+  z-index: 3;
+  top: calc(5px + 15 * ((100vw - 360px) / 407.98));
+  right: calc(5px + 15 * ((100vw - 360px) / 407.98));
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.post-head__menu .context-menu__list {
+  padding: 8px 0;
+  top: calc(100% + 5px);
+  border-radius: 8px;
 }
 
 .company-box {
@@ -14037,6 +14085,15 @@ body.loader:before {
 
   .post-card__text {
     font-size: 17px;
+  }
+
+  .post-head {
+    margin: 0 0 25px;
+  }
+
+  .post-head__menu {
+    top: 20px;
+    right: 20px;
   }
 
   .post-page {

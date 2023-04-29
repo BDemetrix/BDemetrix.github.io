@@ -1,0 +1,2590 @@
+<!DOCTYPE html>
+<html lang="ru">
+ <head>
+	<title>ПОСТ</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	
+	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="css/demo.css">
+
+	<link rel="preload" href="fonts/Tahoma-short-Bold.woff" as="font"> 
+	<link rel="preload" href="fonts/Tahoma-short-Bold.woff2" as="font">
+	<link rel="preload" href="fonts/Tahoma-short.woff" as="font">
+	<link rel="preload" href="fonts/Tahoma-short.woff2" as="font">
+	<!-- <link rel="shortcut icon" href="favicon.ico"> -->
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body class="right-panel">
+	<div class="wrapper">
+		<header class="header">
+	<!-- 
+		* по классу ._active-el навешиваем обработчик события 'click' на каждый
+		* из этих елементов (кнопку/иконку), его родителю присваивается класс ._open 
+	-->
+	<div class="header__content _container">
+		<div class="header__menu menu">
+  <div id="main-menu-btn" class="menu__icon _active-el">
+    <div class="icon-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <nav class="menu__body">
+    <!-- 
+      * Блоку спойлеров добавяется класс _spollers
+      * элементам, при клике на которые раскрывается список, добавляется класс _spoller
+      * раскрвающийся список должен быть соседним и следующим за блоком _spoller
+      * data-spoller-maxwidth - ширина экрана меньше которой работает спойлер
+      * при клике на заголовок спойлера, заголовку присваивается/удаляется класс _active
+      * если у блока спойлеров есть класс _one, то то он является аккордеоном 
+    -->
+    <ul class="menu__list _spollers _one" data-spoller-maxwidth="1170">
+      <li class="menu__item menu__item--feeds"> <!-- Ленты -->
+        <div class="menu__item-title _spoller">
+          <span>Ленты</span>
+          <svg>
+            <use xlink:href="./images/symbol/sprite.svg#ic_spoller_arrow"></use>
+          </svg>
+        </div>
+        <ul class="menu__sub-list">
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/allblog/" class="menu__link menu__link--bold">Все блоги</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/allnews/" class="menu__link">Новости</a></li>
+          <li class="menu__sub-item"><a href="https://smart-lab.ru/friends/dr-mart/" class="menu__link">Лента друзей</a>
+          </li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/allnews/" class="menu__link">Поток</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/top/" class="menu__link">Топ-24</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/blog/tradesignals/" class="menu__link">Торговые
+              сигналы</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/vopros/" class="menu__link">Ответы на вопросы</a></li>
+          <li class="menu__sub-item"><a href="https://smart-lab.ru/blog/disclosure/?utm_source=main_menu"
+              class="menu__link">Раскр. информации</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/blog/offtop" class="menu__link">Оффтоп</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/comments/" class="menu__link">Лента комментариев</a>
+          </li>
+        </ul>
+      </li>
+      <li class="menu__item menu__item--forum"> <!-- Форумы -->
+        <div class="menu__item-title _spoller">
+          <span>Форумы</span>
+          <svg>
+            <use xlink:href="./images/symbol/sprite.svg#ic_spoller_arrow"></use>
+          </svg>
+        </div>
+        <ul class="menu__sub-list">
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/forum/" class="menu__link menu__link--bold">Форум акций</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/bonds/" class="menu__link">Облигации</a></li>
+          <li class="menu__sub-item"><a href="https://smart-lab.ru/trading/?utm_source=main_menu" class="menu__link">Общий
+              форум</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/algotrading/" class="menu__link">Алготрейдинг</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/options/" class="menu__link">Опционы</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/forex/" class="menu__link">Forex</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/banki/" class="menu__link">Банки</a></li>
+          <li class="menu__sub-item menu__sub-item--mb"><a href="http://smart-lab.ru/brokers/" class="menu__link">Брокеры</a></li>
+          <li class="menu__sub-item menu__sub-item--border"><a href="http://smart-lab.ru/comments/" class="menu__link">Лента
+              форума</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/chat/" class="menu__link">Форум в виде чата</a></li>
+        </ul>
+      </li>
+      <li class="menu__item menu__item--quotes"> <!-- Котировки -->
+        <div class="menu__item-title _spoller">
+          <span>Котировки</span>
+          <svg>
+            <use xlink:href="./images/symbol/sprite.svg#ic_spoller_arrow"></use>
+          </svg>
+        </div>
+        <ul class="menu__sub-list">
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/q/shares/" class="menu__link menu__link--bold">Московская биржа</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/q/shares/" class="menu__link">Карта рынка</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/q/shares/" class="menu__link">СПб Биржа</a></li>
+          <li class="menu__sub-item"><a href="https://smart-lab.ru/q/ofz/?utm_source=main_menu" class="menu__link">ОФЗ</a>
+          </li>
+          <li class="menu__sub-item"><a href="https://smart-lab.ru/q/bonds/" class="menu__link">Корпоратив. бонды</a>
+          </li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/q/futures/" class="menu__link">Фьючерсы</a></li>
+          <li class="menu__sub-item"><a href="https://smart-lab.ru/q/world-quotes/?utm_source=main_menu"
+              class="menu__link">Мировые рынки</a></li>
+          <li class="menu__sub-item"><a href="http://smart-lab.ru/g" class="menu__link">Графики онлайн</a></li>
+          <li class="menu__sub-item menu__sub-item--mb"><a href="http://smart-lab.ru/q/adr/" class="menu__link">АДР / ГДР</a></li>
+          <li class="menu__sub-item menu__sub-item--border"><a href="https://smart-lab.ru/q/watchlist/?utm_source=main_menu"
+              class="menu__link">Мой watchlist</a></li>
+        </ul>
+      </li>
+      <li class="menu__item menu__item--stocks"> <!-- Акции -->
+        <div class="menu__item-title _spoller">
+          <span>Акции</span>
+          <svg>
+            <use xlink:href="./images/symbol/sprite.svg#ic_spoller_arrow"></use>
+          </svg>
+        </div>
+        <ul class="menu__sub-list">
+          <li class="menu__sub-item"><a href="https://smart-lab.ru/q/shares_fundamental/?utm_source=main_menu"
+              class="menu__link menu__link--bold">Фундаментал. анализ</a></li>
+          <li class="menu__sub-item"><a href="https://smart-lab.ru/dividends/?utm_source=main_menu"
+              class="menu__link">Дивиденды</a></li>
+          <li class="menu__sub-item"><a href="https://smart-lab.ru/q/shares_fundamental3/?utm_source=main_menu"
+              class="menu__link">Отчеты РСБУ/МСФО</a></li>
+          <li class="menu__sub-item"><a href="https://smart-lab.ru/calendar/stocks/?utm_source=main_menu"
+              class="menu__link">Календарь акций</a></li>
+          <li class="menu__sub-item menu__sub-item--mb"><a href="https://smart-lab.ru/calendar/stocks/?utm_source=main_menu"
+              class="menu__link">Показатели за 10 лет</a></li>
+          <li class="menu__sub-item menu__sub-item--border"><a href="https://smart-lab.ru/q/portfolio/timmartynov/?utm_source=main_menu"
+              class="menu__link">Мой портфель</a></li>
+        </ul>
+      </li>
+      <li class="menu__item  menu__item--comb">
+        <ul class="menu__comb-list">
+          <li class="menu__comb-item ">
+            <!-- Участники -->
+            <div class="menu__item-title _spoller">
+              <span>Участники</span>
+              <svg>
+                <use xlink:href="./images/symbol/sprite.svg#ic_spoller_arrow"></use>
+              </svg>
+            </div>
+            <ul class="menu__sub-list">
+              <li class="menu__sub-item"><a href="http://smart-lab.ru/people/" class="menu__link">Люди</a></li>
+              <li class="menu__sub-item"><a href="http://smart-lab.ru/company/" class="menu__link">Компании</a></li>
+            </ul>
+          </li>
+          <li class="menu__comb-item">
+            <!-- Информация -->
+            <div class="menu__item-title menu__item-title--f-size _spoller">
+              <span>Информация</span>
+              <svg>
+                <use xlink:href="./images/symbol/sprite.svg#ic_spoller_arrow"></use>
+              </svg>
+            </div>
+            <ul class="menu__sub-list">
+              <li class="menu__sub-item"><a href="http://smart-lab.ru/finansoviy-slovar/"
+                  class="menu__link">Энциклопедия</a></li>
+              <li class="menu__sub-item"><a href="http://smart-lab.ru/tradingreads/" class="menu__link">лучшие статьи</a>
+              </li>
+            </ul>
+          </li>
+          <li class="menu__comb-item">
+            <!-- Книги -->
+            <div class="menu__item-title menu__item-title--f-size _spoller">
+              <span>Книги</span> 
+              <svg>
+                <use xlink:href="./images/symbol/sprite.svg#ic_spoller_arrow"></use>
+              </svg>
+            </div>
+            <ul class="menu__sub-list">
+              <li class="menu__sub-item"><a href="http://smart-lab.ru/books/" class="menu__link">Каталог книг</a></li>
+              <li class="menu__sub-item"><a href="http://smart-lab.ru/books/top/" class="menu__link">Топ-100 книг</a></li>
+              <li class="menu__sub-item"><a href="http://smart-lab.ru/blog/reviews/" class="menu__link">Все рецензии</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+		<div class="header__logo">
+			<a href="./" class="main-logo">
+				<h5 class="main-logo__title">
+					<div class="main-logo__title-main">
+						SMART-LAB
+					</div>
+					<div class="main-logo__title-motto">Мы делаем деньги на бирже</div>
+				</h5>
+			</a>
+		</div>
+		<div class="header__search">
+			<div class="header__search-query query-search">
+				<!-- 
+				    * Класс _active-el добавляется кнопке открывающей/закрывающей Pop-Up  
+				    * и нужен для синхконизации всплывающих окон между собой
+				    * при клике на элемен содержащий класс _active-el его родителю присваивается сласс _open
+				  -->
+				<div class="query-search__icon _active-el">
+					<svg>
+						<use xlink:href="./images/symbol/sprite.svg#search"></use>
+					</svg>
+				</div>
+				<div class="query-search__body">
+					<form class="query-search__form" action="/">
+						<div class="query-search__input-wrap">
+							<!-- такой порядок элементов в этом блоке и параметр required в инпуте нужен, 
+								чтобы кнопка query-search__btn становилась активной, а стрелка query-search__input-arrow появлялась
+								только при условии что инпут не пустой (правило задано в стилях)
+							 -->
+							<input class="query-search__input" type="text" autocomplete="off" name="form[]"
+								autocompleter="forum/ajaxsearch/" required>
+							<button class="query-search__btn" type="submit">
+								<svg>
+									<use xlink:href="./images/symbol/sprite.svg#search"></use>
+								</svg>
+							</button>
+							<div class="query-search__input-arrow" title="варианты поиска">
+								<svg>
+									<use xlink:href="./images/symbol/sprite.svg#triangle-arrow"></use>
+								</svg>
+							</div>
+						</div>
+						
+						<div class="query-search__suggestions">
+							<!-- isert .autocomplete-suggestions -->
+						</div>
+					</form>
+					<div class="alphabet header__search-alphabet">
+  <!-- 
+    * Класс _active-el добавляется кнопке открывающей/закрывающей Pop-Up  
+    * и нужен для синхконизации всплывающих окон между собой
+    * при клике на элемен содержащий класс _active-el его родителю присваивается сласс _open
+  -->
+  <div class="alphabet__icon _active-el" title="алфавитный каталог">
+    <span>A...</span>
+  </div>
+  <div class="alphabet__body">
+    <ul class="alphabet__list">
+      <li class="alphabet__item"><a href="/forum/letter/А/" title="Показать все компании на букву &quot;А&quot;">А</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Б/" title="Показать все компании на букву &quot;Б&quot;">Б</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/В/" title="Показать все компании на букву &quot;В&quot;">В</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Г/" title="Показать все компании на букву &quot;Г&quot;">Г</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Д/" title="Показать все компании на букву &quot;Д&quot;">Д</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Е/" title="Показать все компании на букву &quot;Е&quot;">Е</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Ж/" title="Показать все компании на букву &quot;Ж&quot;">Ж</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/З/" title="Показать все компании на букву &quot;З&quot;">З</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/И/" title="Показать все компании на букву &quot;И&quot;">И</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/К/" title="Показать все компании на букву &quot;К&quot;">К</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Л/" title="Показать все компании на букву &quot;Л&quot;">Л</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/М/" title="Показать все компании на букву &quot;М&quot;">М</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Н/" title="Показать все компании на букву &quot;Н&quot;">Н</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/О/" title="Показать все компании на букву &quot;О&quot;">О</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/П/" title="Показать все компании на букву &quot;П&quot;">П</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Р/" title="Показать все компании на букву &quot;Р&quot;">Р</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/С/" title="Показать все компании на букву &quot;С&quot;">С</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Т/" title="Показать все компании на букву &quot;Т&quot;">Т</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/У/" title="Показать все компании на букву &quot;У&quot;">У</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Ф/" title="Показать все компании на букву &quot;Ф&quot;">Ф</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Х/" title="Показать все компании на букву &quot;Х&quot;">Х</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Ц/" title="Показать все компании на букву &quot;Ц&quot;">Ц</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Ч/" title="Показать все компании на букву &quot;Ч&quot;">Ч</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Ш/" title="Показать все компании на букву &quot;Ш&quot;">Ш</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Щ/" title="Показать все компании на букву &quot;Щ&quot;">Щ</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Э/" title="Показать все компании на букву &quot;Э&quot;">Э</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Ю/" title="Показать все компании на букву &quot;Ю&quot;">Ю</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Я/" title="Показать все компании на букву &quot;Я&quot;">Я</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/A/" title="Показать все компании на букву &quot;A&quot;">A</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/B/" title="Показать все компании на букву &quot;B&quot;">B</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/C/" title="Показать все компании на букву &quot;C&quot;">C</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/D/" title="Показать все компании на букву &quot;D&quot;">D</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/E/" title="Показать все компании на букву &quot;E&quot;">E</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/F/" title="Показать все компании на букву &quot;F&quot;">F</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/G/" title="Показать все компании на букву &quot;G&quot;">G</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/H/" title="Показать все компании на букву &quot;H&quot;">H</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/I/" title="Показать все компании на букву &quot;I&quot;">I</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/J/" title="Показать все компании на букву &quot;J&quot;">J</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/K/" title="Показать все компании на букву &quot;K&quot;">K</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/L/" title="Показать все компании на букву &quot;L&quot;">L</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/M/" title="Показать все компании на букву &quot;M&quot;">M</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/N/" title="Показать все компании на букву &quot;N&quot;">N</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/O/" title="Показать все компании на букву &quot;O&quot;">O</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/P/" title="Показать все компании на букву &quot;P&quot;">P</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Q/" title="Показать все компании на букву &quot;Q&quot;">Q</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/R/" title="Показать все компании на букву &quot;R&quot;">R</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/S/" title="Показать все компании на букву &quot;S&quot;">S</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/T/" title="Показать все компании на букву &quot;T&quot;">T</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/U/" title="Показать все компании на букву &quot;U&quot;">U</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/V/" title="Показать все компании на букву &quot;V&quot;">V</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/W/" title="Показать все компании на букву &quot;W&quot;">W</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/X/" title="Показать все компании на букву &quot;X&quot;">X</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Y/" title="Показать все компании на букву &quot;Y&quot;">Y</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/letter/Z/" title="Показать все компании на букву &quot;Z&quot;">Z</a>
+      </li>
+      <li class="alphabet__item"><a href="/forum/last/" title="Последние добавленные компании">....</a></li>
+    </ul>
+  </div>
+</div>
+				</div>
+			</div>
+		</div>
+		<!-- 
+			* Блоки header__message, header__notify, header__usermenu вставляются на страницу
+			* только для залогиненых пользователей для незалогиненых вставляется блок header__login
+			* пример в файлах _unregistered-header.html и unregistered.html
+		-->
+		<div class="header__message">
+			<!-- 
+			    * Класс _active-el добавляется кнопке открывающей/закрывающей Pop-Up  
+			    * и нужен для синхконизации всплывающих окон между собой
+			    * при клике на элемен содержащий класс _active-el его родителю присваивается сласс _open
+			  -->
+			<div class="header__message-icon _active-el">
+				<svg>
+					<use xlink:href="./images/symbol/sprite.svg#message"></use>
+				</svg>
+				<div class="notify-label">1</div>
+			</div>
+		</div>
+		<div class="header__notify notify">
+			<!-- 
+			    * Класс _active-el добавляется кнопке открывающей/закрывающей Pop-Up  
+			    * и нужен для синхконизации всплывающих окон между собой
+			    * при клике на элемен содержащий класс _active-el его родителю присваивается сласс _open
+			  -->
+			<div class="notify__icon _active-el" id="notify-icon" tab="blog">
+				<svg class="">
+					<use xlink:href="./images/symbol/sprite.svg#notification"></use>
+				</svg>
+				<div class="notify-label">1</div>
+			</div>
+			<div class="notify__body" id="notify-body">
+				<!--  -->
+				<div class="notify__inner" id="notify-inner" tab="reply">
+					<div class="notify__settings">
+						<a href="#">
+							<svg>
+									<use xlink:href="./images/symbol/sprite.svg#settings"></use>
+							</svg>
+						</a>
+					</div>
+					<div class="notify__content">
+						<nav class="notify__nav">
+							<div class="notify__nav-item _active" tab="blog" title="Новые посты">
+								<img src="./images/icons/notify/notifies_news.png" alt="writing">
+								<div class="notify-label"><span>2</span></div>
+							</div>
+							<div class="notify__nav-item _empty" tab="reply" title="Ответы в блоге">
+								<img src="./images/icons/notify/notifies_replyes.png" alt="reply">
+								<div class="notify-label"><span>0</span></div>
+							</div>
+							<div class="notify__nav-item _empty" tab="forum" title="Ответы в форуме">
+								<img src="./images/icons/notify/notifies_replyes_forum.png" alt="chat">
+								<div class="notify-label"><span>0</span></div>
+							</div>
+							<div class="notify__nav-item _empty" tab="likes" title="Кто и где вам поставил плюс">
+								<img src="./images/icons/notify/notifies_likes.png" alt="like">
+								<div class="notify-label"><span>0</span></div>
+							</div>
+						</nav>
+						<div class="notify__blocks">
+							<div id="blog" class="notify__block _active">
+
+								<div class="notify__more">
+									<a href="#">Ваша лента подписок</a>
+								</div>
+							
+								<div class="notify__massage notify-note" link="#"
+									title="Изучил годовой отчет Мать и Дитя за 2020 год. Интересные моменты.">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="#"><img src="./images/icons/avatar_48x48.jpg">
+										</a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Тимофей Мартынов</a></span>&nbsp;написал пост: <span
+											class="notify-note__comment">Изучил годовой отчет Мать и Дитя за 2020 год. Интересные моменты.</span><br><span class="notify-note__time">1
+											час</span>
+									</div>
+								</div>
+							
+								<div class="notify__massage notify-note" link="#"
+									title="Поступили в продажу билеты на конференцию частных инвесторов смартлаба 26 июня">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="#"><img src="./images/icons/avatar_48x48.jpg"></a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Тимофей Мартынов</a></span>&nbsp;написал пост: <span
+											class="notify-note__comment">Поступили в продажу билеты на конференцию частных инвесторов смартлаба 26
+											июня</span><br><span class="notify-note__time"> 4 час</span>
+									</div>
+								</div>
+							
+								<div class="notify__massage notify-note" link="#"
+									title="10 лет спекуляций: наблюдения и выводы. Как правильно выводить крипту. Причины боли в трейдинге">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="#"><img src="./images/icons/avatar_48x48.jpg"></a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Тимофей Мартынов</a></span>&nbsp;написал пост: <span
+											class="notify-note__comment">10 лет спекуляций: наблюдения и выводы. Как правильно выводить крипту. Причины боли в
+											трейдинге</span><br><span class="notify-note__time">25 апреля 2021, 23:02</span>
+									</div>
+								</div>
+							
+								<div class="notify__massage notify-note" link="#" title="Горизонт планирования бизнеса">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="#"><img src="./images/icons/avatar_48x48.jpg"></a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Тимофей Мартынов</a></span>&nbsp;написал пост: <span
+											class="notify-note__comment">Горизонт планирования бизнеса</span><br><span class="notify-note__time">24 апреля 2021, 23:35</span>
+									</div>
+								</div>
+							
+								<div class="notify__massage notify-note" link="#" title="Кого позвать выступить на конфу смартлаба в СПб?">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="#"><img src="./images/icons/avatar_48x48.jpg"></a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Тимофей Мартынов</a></span>&nbsp;написал пост: <span
+											class="notify-note__comment">Кого позвать выступить на конфу смартлаба в СПб?</span><br><span class="notify-note__time">24 апреля
+											2021, 13:29</span>
+									</div>
+								</div>
+							
+								<div class="notify__massage notify-note" link="#"
+									title="Как уберечь дом от пожара и не сгореть в собственном доме?">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="#"><img src="./images/icons/avatar_48x48.jpg"></a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Тимофей Мартынов</a></span>&nbsp;написал пост: <span
+											class="notify-note__comment">Как уберечь дом от пожара и не сгореть в собственном доме?</span><br><span class="notify-note__time">24
+											апреля 2021, 09:50</span>
+									</div>
+								</div>
+
+							</div>
+							<div id="reply" class="notify__block">
+								<div class="notify__more">
+									<a href="#">Смотреть все ответы</a>
+								</div>
+								<p>Нет ответов :(</p>
+							</div>
+							<div id="forum" class="notify__block">
+								
+								<div class="notify__more">
+									<a href="#">Смотреть все ответы</a>
+								</div>
+
+								<div class="notify__massage notify-note" link="#" title="
+											timmartynov, passed">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="#"><img src="./images/icons/avatar_48x48.jpg"></a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Prigl</a></span>&nbsp;ответил: <span class="notify-note__comment">
+											timmartynov, passed</span><br><span class="notify-note__time">13 ноября 2018, 13:49</span>
+									</div>
+								</div>
+							
+								<div class="notify__massage notify-note" link="#" title="timmartynov, согласен, должно быть больше)">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="#"><img src="./images/icons/avatar_48x48.jpg"></a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Владимир С</a></span>&nbsp;ответил: <span
+											class="notify-note__comment">
+											timmartynov, согласен, должно быть больше)</span><br><span class="notify-note__time">30 сентября 2018, 10:25</span>
+									</div>
+								</div>
+							
+								<div class="notify__massage notify-note" link="#" title="
+											timmartynov,">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="#"><img src="./images/icons/avatar_48x48.jpg"></a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Тимофей Мартынов</a></span>&nbsp;ответил: <span
+											class="notify-note__comment">
+											timmartynov,</span><br><span class="notify-note__time">17 мая 2018, 12:51</span>
+									</div>
+								</div>
+							
+								<div class="notify__massage notify-note" link="#" title="
+											timmartynov, еще раз">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="#"><img src="./images/icons/avatar_48x48.jpg"></a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Тимофей Мартынов</a></span>&nbsp;ответил: <span
+											class="notify-note__comment">
+											timmartynov, еще раз</span><br><span class="notify-note__time">11 мая 2018, 12:14</span>
+									</div>
+								</div>
+							
+								<div class="notify__massage notify-note" link="#" title="timmartynov, говори.">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="/profile/Papyrus_bonus/"><img src="./images/icons/avatar_48x48.jpg"></a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Papyrus_bonus</a></span>&nbsp;ответил: <span
+											class="notify-note__comment">
+											timmartynov, говори.</span><br><span class="notify-note__time">11 мая 2018, 12:02</span>
+									</div>
+								</div>
+							
+								<div class="notify__massage notify-note" link="#" title="timmartynov, вроде работает!">
+									<div class="notify-note__avatar">
+										<a class="notify-note__user" href="#"><img src="./images/icons/avatar_48x48.jpg"></a>
+									</div>
+							
+									<div class="notify-note__text">
+										<span class="notify-note__nick"><a href="#">Тимофей Мартынов</a></span>&nbsp;ответил: <span
+											class="notify-note__comment">
+											timmartynov, вроде работает!</span><br><span class="notify-note__time">06 марта 2018, 12:08</span>
+									</div>
+								</div>
+								
+							</div>
+							<div id="likes" class="notify__block">
+								<div class="notify__more">
+									<a href="#">Смотреть все лайки</a>
+								</div>
+								<p>Нет лайков :(</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--  -->
+			</div>
+		</div>
+		<div class="header__usermenu usermenu">
+			<!-- 
+			    * Класс _active-el добавляется кнопке открывающей/закрывающей Pop-Up  
+			    * и нужен для синхконизации всплывающих окон между собой
+			    * при клике на элемен содержащий класс _active-el его родителю присваивается сласс _open
+			  -->
+			<div class="usermenu__icon _active-el">
+				<div class="usermenu__avatar">
+					<img class="usermenu__avatar-img" src="./images/icons/usermenu/avatar_48x48.jpg" alt="avatar">
+					<!-- Иконка .usermenu__avatar-icon добавляется в шаблоне по условию только для премиум пользователей -->
+					<img class="usermenu__avatar-icon" src="./images/icons/usermenu/usermenu_avatar_icon.png" alt="иконка" >
+				</div>
+				<div class="usermenu__icon-arrow">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+						<path d="M5 8L10 13L15 8" stroke="#8F8F8F" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" />
+					</svg>
+				</div>
+			</div>
+			<div class="usermenu__body">
+				<a href="#">
+						<img src="./images/icons/usermenu/profile.png"> Мой профиль
+				</a>
+				<a href="#">
+						<img src="./images/icons/usermenu/settings.png"> Настройки
+				</a>
+				<div class="usermenu__body-line"></div>
+				<a href="#">
+						<img src="./images/icons/usermenu/favourites.png"> Избранное
+				</a>
+				<a href="#">
+						<img src="./images/icons/usermenu/portfolio.png"> Мой портфель
+				</a>
+				<a href="#">
+						<img src="./images/icons/usermenu/watchlist.png"> Watchlist
+				</a>
+				<a href="#">
+						<img src="./images/icons/usermenu/links.png"> Сохраненные ссылки
+				</a>
+				<!-- <a href="#">
+						<img src="./images/icons/usermenu/account.png"> Статистика счета
+				</a> -->		
+				<div class="usermenu__body-line"></div>
+					<label class="usermenu__body-switch custom-checkbox custom-checkbox--switch" title="Поменть тему">
+						<input type="checkbox" class="custom-checkbox__input js-dark-theme">
+						<span class="custom-checkbox__text">Тёмная тема</span>
+					</label>
+				<div class="usermenu__body-line"></div>					
+				<!-- <span>Подписчиков: 9</span> -->
+				<!-- <a href="#">Счет: 500₽</a> -->
+				<!-- <a href="#">Рейтинг 5</a> -->
+				<a href="#">Выйти</a>
+			</div>
+		</div>
+	</div>
+	
+</header>
+		<!-- Если баннер отсутствует, то присваивается модификатор post-page--round -->
+		<main class="post-page _mobile-container">
+			<div class="post-page__banner">
+				<!-- <span style="background: url(./images/image.jpg);"></span> -->
+				<img src="./images/image.jpg" alt="Фото" class="post-page__banner-img">	
+			</div>
+			<div class="post-page__post-card">
+				<!-- Используются стили из _post-card.scss -->
+<section class="post-card post-card--post">
+    <div class="post-card__header">
+        <!-- Если есть кнопка подписки, присваивается модификатор post-card__header-inner--post -->
+        <div class="post-card__header-inner post-card__header-inner--post">
+            <a href="#" class="post-card__photo-wrap">
+                <!-- Если аватар не загружен, то <img> вставлять на страницу не надо. Будет виден фон .post-card__photo-wrap  заданный в css-->
+                <img src="./images/icons/post-card/photo.jpg" alt="Фото" class="post-card__photo">
+            </a>
+            <div class="post-card__info">
+                <span class="post-card__name">
+                    <!-- Если профиль подтвержден, добавляется модификатор post-card__name-link--approved и svg.post-card__approved -->
+                    <a href="#" class="post-card__name-link post-card__name-link--approved">RomanAndreev</a>
+                    <svg class="post-card__approved" width="20" height="20">
+                        <use xlink:href="images/icons/post-card/sprite.svg#approved"></use>
+                    </svg>
+                </span>
+                <a href="./blog.html" class="post-card__blog-link">личный блог</a>
+            </div>
+        </div>
+        <div class="post-card__menu-wrap">
+            <div class="post-card__menu post-card__menu--post context-menu">
+                <button class="post-card__menu-btn post-card__menu-btn--post context-menu__btn">
+                    <svg height="20" width="20">
+                        <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
+                    </svg>
+                </button>
+                <ul class="context-menu__list">
+                    <li>
+                        <button class="post-card__menu-item context-menu__item">
+                            <svg height="20" width="20">
+                                <use xlink:href="images/icons/post-card/sprite.svg#reload"></use>
+                            </svg>
+                            Старая версия
+                        </button>
+                    </li>
+                    <li>
+                        <button class="post-card__menu-item context-menu__item">
+                            <svg height="20" width="20">
+                                <use xlink:href="images/icons/post-card/sprite.svg#print"></use>
+                            </svg>
+                            Распечатать
+                        </button>
+                    </li>
+                    <li>
+                        <button class="post-card__menu-item context-menu__item">
+                            <svg height="20" width="20">
+                                <use xlink:href="images/icons/post-card/sprite.svg#edit"></use>
+                            </svg>
+                            Редактировать
+                        </button>
+                    </li>
+                    <li>
+                        <button class="post-card__menu-item context-menu__item">
+                            <svg height="20" width="20">
+                                <use xlink:href="images/icons/post-card/sprite.svg#del"></use>
+                            </svg>
+                            Удалить
+                        </button>
+                    </li>
+                    <li>
+                        <button class="post-card__menu-item context-menu__item">
+                            <svg height="20" width="20">
+                                <use xlink:href="images/icons/post-card/sprite.svg#alert"></use>
+                            </svg>
+                            Пожаловаться
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="post-card__menu context-menu">
+                <button class="post-card__menu-btn post-card__menu-btn--post context-menu__btn">
+                    <svg height="20" width="20">
+                        <use xlink:href="images/icons/post-card/sprite.svg#share"></use>
+                    </svg>
+                </button>
+                <ul class="context-menu__list">
+                    <li>
+                        <button class="post-card__menu-item context-menu__item">
+                            <svg height="20" width="20">
+                                <use xlink:href="images/icons/post-card/sprite.svg#chain"></use>
+                            </svg>
+                            Копировать ссылку
+                        </button>
+                    </li>
+                    <li>
+                        <button class="post-card__menu-item context-menu__item">
+                            <svg height="20" width="20">
+                                <use xlink:href="images/icons/post-card/sprite.svg#tab"></use>
+                            </svg>
+                            Добавить в закладки
+                        </button>
+                    </li>
+                    <li>
+                        <button class="post-card__menu-item post-card__menu-item--blue context-menu__item">
+                            <svg height="20" width="20">
+                                <use xlink:href="images/icons/user-info/sprite.svg#vk"></use>
+                            </svg>
+                            ВКонтакте
+                        </button>
+                    </li>
+                    <li>
+                        <button class="post-card__menu-item post-card__menu-item--blue context-menu__item">
+                            <svg height="20" width="20">
+                                <use xlink:href="images/icons/user-info/sprite.svg#tg"></use>
+                            </svg>
+                            Telegram
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="post-card__body">
+        <div class="post-card__body-head">
+            <span class="post-card__date-label">сегодня в 21:28</span>
+            <button class="post-card__subscribe">+&nbsp;Подписаться</button>
+        </div>
+        <!-- Для полного поста присваивается модификатор post-card__title--post -->
+        <div class="post-card__title-wrap">
+            <h1 class="post-card__title post-card__title--post">Агрохолдинг "Степь" запустил производство муки</h1>
+
+
+        </div>
+        <div class="post-card__text">
+            Агрохолдинг «Степь» расширяет продуктовую линейку и запускает новое направление бизнеса — производство муки.
+            Выпуск муки
+            высшего и первого сортов начался на производственных площадках компании в городе Сальске Ростовской области
+        </div>
+        <div class="post-card__text">
+            Проект также имеет высокий экспортный потенциал. Как отмечается в сообщении, агрохолдинг «Степь» подписал
+            соглашение
+            о сотрудничестве с турецкими партнерами,
+            в рамках которого планируется провести модернизацию и расширение производственных мощностей, что позволит
+            существенно
+            нарастить объемы выпуска продукции и начать поставки в арабские
+
+            <br>
+            <br>
+            <strong>Дивидендный календарь</strong>
+            <p>Представленные в таблице ниже величины дивидендных выплат являются прогнозными. Цены на инструменты
+                указаны по
+                состоянию на закрытие торгов23 сентября 2022 г.<br>
+                <span><br>
+                </span>
+            </p>
+            <div class="post-card__table">
+                <table width="655" border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                        <tr>
+                            <td width="114">
+                                <p>Акция</p>
+                            </td>
+                            <td width="105">
+                                <p>Последняя дата для покупки</p>
+                            </td>
+                            <td width="105">
+                                <p>Цена</p>
+                            </td>
+                            <td width="105">
+                                <p>Ожидаемый дивиденд, руб./акция</p>
+                            </td>
+                            <td width="114">
+                                <p>Доходность, %</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="114">
+                                <p>НПО Наука ао прош.года</p>
+                            </td>
+                            <td width="105">
+                                <p>28.09.2022</p>
+                            </td>
+                            <td width="105">
+                                <p>183,6</p>
+                            </td>
+                            <td width="105">
+                                <p>5,93</p>
+                            </td>
+                            <td width="114">
+                                <p>3,23</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="114">
+                                <p>ФосАгро ао, 2021 и 1П2022</p>
+                            </td>
+                            <td width="105">
+                                <p>29.09.2022</p>
+                            </td>
+                            <td width="105">
+                                <p>7188</p>
+                            </td>
+                            <td width="105">
+                                <p>780</p>
+                            </td>
+                            <td width="114">
+                                <p>10,85%</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="114">
+                                <p>КуйбышевАзот, ао</p>
+                            </td>
+                            <td width="105">
+                                <p>29.09.2022</p>
+                            </td>
+                            <td width="105">
+                                <p>400,2</p>
+                            </td>
+                            <td width="105">
+                                <p>15</p>
+                            </td>
+                            <td width="114">
+                                <p>3,75%</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="114">
+                                <p>КуйбышевАзот, ап</p>
+                            </td>
+                            <td width="105">
+                                <p>29.09.2022</p>
+                            </td>
+                            <td width="105">
+                                <p>409</p>
+                            </td>
+                            <td width="105">
+                                <p>15</p>
+                            </td>
+                            <td width="114">
+                                <p>3,67%</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="114">
+                                <p>Новатэк ао, 1П2022</p>
+                            </td>
+                            <td width="105">
+                                <p>05.10.2022</p>
+                            </td>
+                            <td width="105">
+                                <p>950,8</p>
+                            </td>
+                            <td width="105">
+                                <p>45</p>
+                            </td>
+                            <td width="114">
+                                <p>4,73%</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="114">
+                                <p>Татнефть ао, 1П2022</p>
+                            </td>
+                            <td width="105">
+                                <p>07.10.2022</p>
+                            </td>
+                            <td width="105">
+                                <p>381,3</p>
+                            </td>
+                            <td width="105">
+                                <p>32,71</p>
+                            </td>
+                            <td width="114">
+                                <p>8,58%</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="114">
+                                <p>Татнефть ап, 1П2022</p>
+                            </td>
+                            <td width="105">
+                                <p>07.10.2022</p>
+                            </td>
+                            <td width="105">
+                                <p>370,1</p>
+                            </td>
+                            <td width="105">
+                                <p>32,71</p>
+                            </td>
+                            <td width="114">
+                                <p>8,84%</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="114">
+                                <p>Самолет ао, 1П2022</p>
+                            </td>
+                            <td width="105">
+                                <p>10.10.2022</p>
+                            </td>
+                            <td width="105">
+                                <p>2453</p>
+                            </td>
+                            <td width="105">
+                                <p>41</p>
+                            </td>
+                            <td width="114">
+                                <p>1,67%</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="114">
+                                <p>Белуга ао, 1П2022</p>
+                            </td>
+                            <td width="105">
+                                <p>11.10.2022</p>
+                            </td>
+                            <td width="105">
+                                <p>2628</p>
+                            </td>
+                            <td width="105">
+                                <p>150</p>
+                            </td>
+                            <td width="114">
+                                <p>5,71%</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="114">
+                                <p>Газпром ао, 1П2022</p>
+                            </td>
+                            <td width="105">
+                                <p>07.10.2022</p>
+                            </td>
+                            <td width="105">
+                                <p>224,84</p>
+                            </td>
+                            <td width="105">
+                                <p>51,03</p>
+                            </td>
+                            <td width="114">
+                                <p>22,7%</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="114">
+                                <p>ММЦБ ао 1П 2022</p>
+                            </td>
+                            <td width="105">
+                                <p>13.10.2022</p>
+                            </td>
+                            <td width="105">
+                                <p>768,5</p>
+                            </td>
+                            <td width="105">
+                                <p>53</p>
+                            </td>
+                            <td width="114">
+                                <p>6,9%</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="post-card__tags">
+            <a href="#" class="post-tag">смарт-лаб</a>
+            <a href="#" class="post-tag">форекс</a>
+            <a href="#" class="post-tag">юань</a>
+            <a href="#" class="post-tag">форекс</a>
+            <a href="#" class="post-tag">юань</a>
+        </div>
+        <div class="post-card__labels">
+            <a href="#" class="post-label">
+                <svg width="14" height="14">
+                    <use xlink:href="images/icons/post-card/sprite.svg#mass"></use>
+                </svg>
+                Детский Мир
+            </a>
+            <a href="#" class="post-label">
+                <svg width="14" height="14">
+                    <use xlink:href="images/icons/post-card/sprite.svg#mass"></use>
+                </svg>
+                Русская Аквакультура
+            </a>
+            <a href="#" class="post-label">
+                <svg width="14" height="14">
+                    <use xlink:href="images/icons/post-card/sprite.svg#mass"></use>
+                </svg>
+                Русская Аквакультура
+            </a>
+        </div>
+    </div>
+    <div class="post-card__footer">
+        <button class="post-card__btn post-card__btn--left" type="button">
+            <span class="post-card__btns-count">3K</span>
+            <svg width="20" height="20">
+                <use xlink:href="images/icons/post-card/sprite.svg#views"></use>
+            </svg>
+        </button>
+        <!-- кнопка с классом `js-pop-up-opener` открывает поп-ап с id, который указан в атрибуте `data-target-id` кнопки -->
+        <button class="post-card__btn post-card__btn--simple js-pop-up-opener" type="button"
+            data-target-id="moderation-pop-up">
+            <svg width="20" height="20">
+                <use xlink:href="images/icons/post-card/sprite.svg#moderation"></use>
+            </svg>
+        </button>
+        <button class="post-card__btn" type="button">
+            <!--
+                    Варианты 
+                     <use xlink:href="images/icons/post-card/sprite.svg#star"></use>
+                     <use xlink:href="images/icons/post-card/sprite.svg#star-gold"></use>
+                -->
+            <svg width="19" height="18">
+                <use xlink:href="images/icons/post-card/sprite.svg#star"></use>
+            </svg>
+            <span class="post-card__btns-count">69</span>
+        </button>
+        <button class="post-card__btn" type="button">
+            <svg width="17" height="16">
+                <use xlink:href="images/icons/post-card/sprite.svg#chat"></use>
+            </svg>
+            <span class="post-card__btns-count">36</span>
+        </button>
+        <button class="post-card__btn " type="button">
+            <!--
+                    Варианты 
+                     <use xlink:href="images/icons/post-card/sprite.svg#heart"></use>
+                     <use xlink:href="images/icons/post-card/sprite.svg#heart-red"></use>
+                -->
+            <svg width="18" height="17">
+                <use xlink:href="images/icons/post-card/sprite.svg#heart"></use>
+            </svg>
+            <span class="post-card__btns-count">150</span>
+        </button>
+    </div>
+    <button class="donate-btn">
+    <span>
+        Поддержать автора
+    </span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <g clip-path="url(#clip0_1096_5300)">
+            <path d="M0 12.3438V17.6172H2.34375L2.92969 16.6177V12.9228L2.34375 12.3438H0Z" fill="#474F54" />
+            <path
+                d="M19.686 14.3782C19.1541 13.4623 17.9214 13.2305 16.9954 13.7447L13.5156 15.6223L13.0813 15.8594H7.07031V14.6875H12.9297V14.1016C12.9297 13.1307 12.1427 12.3438 11.1719 12.3438H9.0507C8.61355 11.9804 7.46512 11.1719 5.89844 11.1719C5.40133 11.1719 4.17703 11.2414 2.34375 12.3438V17.6172L11.2548 19.375L13.5156 18.2198L20 14.9267C20 14.9267 19.6896 14.3845 19.686 14.3782Z"
+                fill="#474F54" />
+            <path
+                d="M19.686 14.3782C19.1541 13.4623 17.9214 13.2305 16.9954 13.7447L13.5156 15.6223V18.2199L20 14.9267C20 14.9267 19.6896 14.3845 19.686 14.3782Z"
+                fill="#474F54" />
+            <g clip-path="url(#clip1_1096_5300)">
+                <path
+                    d="M19 5.5C19 8.53757 16.5376 11 13.5 11C11.8987 11 10.4573 10.3158 9.45222 9.22361C9.18743 8.93598 8.95393 8.62105 8.75563 8.28412C8.27545 7.46743 8 6.51582 8 5.5C8 2.46243 10.4624 0 13.5 0C14.516 0 15.4677 0.275449 16.2841 0.755857C16.6211 0.954004 16.936 1.18752 17.2234 1.45245C18.3155 2.45704 19 3.89871 19 5.5Z"
+                    fill="#474F54" />
+                <path
+                    d="M19.0001 5.5C19.0001 8.4691 16.6476 10.8886 13.7048 10.9962C10.762 10.8886 8.40955 8.4691 8.40955 5.5C8.40955 2.5309 10.762 0.111345 13.7048 0.0038147C16.6476 0.111345 19.0001 2.5309 19.0001 5.5Z"
+                    fill="#474F54" />
+                <path
+                    d="M17.2235 1.45245L9.45233 9.22361C9.18754 8.93599 8.95403 8.62106 8.75574 8.28412L16.2842 0.755859C16.6212 0.954006 16.9361 1.18752 17.2235 1.45245ZM18.6207 3.48925L11.4891 10.6208C10.9883 10.4238 10.5191 10.1542 10.0966 9.82076L17.8209 2.09651C18.1544 2.51898 18.4239 2.98826 18.6207 3.48925Z"
+                    fill="#474F54" />
+                <path
+                    d="M17.7739 5.5C17.7739 7.86029 15.8603 9.77384 13.5 9.77384C12.678 9.77384 11.9102 9.54172 11.2585 9.13943C10.9752 8.9646 10.7133 8.75734 10.478 8.52186C10.305 8.34905 10.1471 8.16174 10.0061 7.96198C9.81017 7.68461 9.64814 7.38481 9.52342 7.06896C9.33754 6.59866 9.23293 6.08727 9.22665 5.55253C9.2262 5.53502 9.2262 5.51751 9.2262 5.5C9.2262 3.13972 11.1395 1.22617 13.5 1.22617C13.5175 1.22617 13.5353 1.22617 13.5528 1.22661C14.0875 1.2329 14.5987 1.33774 15.069 1.52339C15.3848 1.6482 15.6846 1.81023 15.962 2.00604C16.162 2.14747 16.3493 2.30529 16.5219 2.47792C16.7574 2.71318 16.9647 2.97514 17.1395 3.25847C17.5417 3.91017 17.7739 4.67792 17.7739 5.5Z"
+                    fill="#474F54" />
+                <path
+                    d="M16.5219 2.47792L10.478 8.52186C10.305 8.34905 10.1471 8.16174 10.0061 7.96198C9.81017 7.68461 9.64814 7.38481 9.52342 7.06896C9.33754 6.59866 9.23293 6.08727 9.22665 5.55253C9.2262 5.53502 9.2262 5.51751 9.2262 5.5C9.2262 3.13972 11.1395 1.22617 13.5 1.22617C13.5175 1.22617 13.5353 1.22617 13.5528 1.22661C14.0875 1.2329 14.5987 1.33774 15.069 1.52339C15.3848 1.6482 15.6846 1.81023 15.962 2.00604C16.162 2.14747 16.3493 2.30529 16.5219 2.47792Z"
+                    fill="#474F54" />
+                <path
+                    d="M17.7737 5.5C17.7737 7.86029 15.8602 9.77384 13.4999 9.77384C13.4188 9.77384 13.3385 9.77159 13.2585 9.7671C15.5066 9.64206 17.2908 7.77925 17.2908 5.5C17.2908 3.22076 15.5066 1.35794 13.2585 1.2329C13.3385 1.22841 13.4188 1.22617 13.4999 1.22617C15.8602 1.22617 17.7737 3.13972 17.7737 5.5Z"
+                    fill="#474F54" />
+                <path
+                    d="M13.7202 6.42179C14.8388 6.42179 15.7489 5.51169 15.7489 4.39306C15.7489 3.27442 14.8388 2.36432 13.7202 2.36432H11.4822C11.2342 2.36432 11.0332 2.56533 11.0332 2.8133V5.52383H10.7274C10.4795 5.52383 10.2784 5.72484 10.2784 5.97281C10.2784 6.22078 10.4795 6.42179 10.7274 6.42179H11.0332V6.93819H10.7274C10.4795 6.93819 10.2784 7.13919 10.2784 7.38717C10.2784 7.63514 10.4795 7.83614 10.7274 7.83614H11.0332V8.29496C11.0332 8.54293 11.2342 8.74394 11.4822 8.74394C11.7302 8.74394 11.9312 8.54293 11.9312 8.29496V7.83614H13.5016C13.7496 7.83614 13.9506 7.63514 13.9506 7.38717C13.9506 7.13919 13.7496 6.93819 13.5016 6.93819H11.9312V6.42179H13.7202ZM11.9312 3.26228H13.7202C14.3437 3.26228 14.851 3.76953 14.851 4.39306C14.851 5.01655 14.3437 5.52383 13.7202 5.52383H11.9312V3.26228Z"
+                    fill="#474F54" />
+                <path
+                    d="M14.2815 6.42179C15.4001 6.42179 16.3102 5.51169 16.3102 4.39306C16.3102 3.27442 15.4001 2.36432 14.2815 2.36432H12.0435C11.7955 2.36432 11.5945 2.56533 11.5945 2.8133V5.52383H11.2887C11.0407 5.52383 10.8397 5.72484 10.8397 5.97281C10.8397 6.22078 11.0407 6.42179 11.2887 6.42179H11.5945V6.93819H11.2887C11.0407 6.93819 10.8397 7.13919 10.8397 7.38717C10.8397 7.63514 11.0407 7.83614 11.2887 7.83614H11.5945V8.29496C11.5945 8.54293 11.7955 8.74394 12.0435 8.74394C12.2915 8.74394 12.4925 8.54293 12.4925 8.29496V7.83614H14.0629C14.3108 7.83614 14.5119 7.63514 14.5119 7.38717C14.5119 7.13919 14.3108 6.93819 14.0629 6.93819H12.4925V6.42179H14.2815ZM12.4925 3.26228H14.2815C14.905 3.26228 15.4122 3.76953 15.4122 4.39306C15.4122 5.01655 14.905 5.52383 14.2815 5.52383H12.4925V3.26228Z"
+                    fill="#FCE300" />
+            </g>
+        </g>
+        <defs>
+            <clipPath id="clip0_1096_5300">
+                <rect width="20" height="20" fill="white" />
+            </clipPath>
+            <clipPath id="clip1_1096_5300">
+                <rect width="11" height="11" fill="white" transform="translate(8)" />
+            </clipPath>
+        </defs>
+    </svg>
+</button>
+</section> 
+			</div>
+			<div class="post-page__info">
+				<div class="user-info">
+    <div class="user-info__wrap">
+        <div class="user-info__photo-wrap">
+            <div class="user-info__img-wrap">
+                <img src="./images/icons/user-info/user.jpg" alt="Фото" class="user-info__img">
+            </div>
+            <div class="user-info__tg-link-wrap">
+                <svg width="16" height="16">
+                    <use xlink:href="images/icons/user-info/sprite.svg#tg"></use>
+                </svg>
+                <a href="https://t.me/newssmartlab" class="user-info__tg-link" target="_blank">t.me/newssmartlab</a>
+            </div>
+
+        </div>
+        <div class="user-info__box">
+            <div class="user-info__name">RomanAndreev</div>
+            <div class="user-info__address">
+                <svg width="14" height="17">
+                    <use xlink:href="images/icons/user-info/sprite.svg#local"></use>
+                </svg>
+                <span>Санкт-Петербург</span>
+            </div>
+            <div class="user-info__inner">
+                <div class="user-info__subscribers">
+                    <svg width="16" height="16">
+                        <use xlink:href="images/icons/user-info/sprite.svg#person"></use>
+                    </svg>
+                    <span>256</span>
+                </div>
+                <div class="user-info__rating">
+                    <svg width="16" height="16">
+                        <use xlink:href="images/icons/user-info/sprite.svg#rating"></use>
+                    </svg>
+                    <span>3 258</span>
+                </div>
+            </div>
+            <div class="user-info__date">
+                <svg width="16" height="16">
+                    <use xlink:href="images/icons/user-info/sprite.svg#sigma"></use>
+                </svg>
+                <span>с 17 мая 2012</span>
+            </div>
+            <button class="user-info__subscrib-btn">+ Подписаться</button>
+        </div>
+    </div>
+</div>
+			</div>
+			<div class="post-page__comments">
+				<div class="comments">
+    <div class="comments__header">
+        <div class="comments__title">
+            3 Комментария
+        </div>
+        <div class="comments__filter person__menu context-menu">
+            <button class="comments__filter-btn context-menu__btn">
+                <span>Сначала старые</span>
+                <svg class="context-menu__svg" height="20" width="20">
+                    <use xlink:href="images/icons/comments/sprite.svg#drop"></use>
+                </svg>
+            </button>
+            <ul class="context-menu__list">
+                <li><button class="comments__filter-item context-menu__item">Сначала новые</button></li>
+                <li><button class="comments__filter-item comments__filter-item--active context-menu__item">Сначала
+                        старые</button></li>
+                <li><button class="comments__filter-item context-menu__item">Сначала популярные</button></li>
+            </ul>
+        </div>
+    </div>
+    <ul class="comments__list">
+        <li class="comments__item">
+            <div class="comments__content">
+                <div class="comments__person person">
+                    <a href="#" class="person__avatar-link" title="Перейти к профилю Виктор Петров">
+                        <!-- Если картинки нет (img отсутствует), то виден фон елемената .person__avatar-link -->
+                        <img src="./images/icons/comments/user.jpg" alt="Фото" class="person__avatar">
+                    </a>
+                    <div class="person__info">
+                        <div class="person__name">
+                            <a href="#" class="person__name-link" title="Перейти к профилю Виктор Петров">
+                                Виктор Петров
+                            </a>
+                            <div class="person__label">
+                                <!-- 
+                                    Возможные варианты:
+                                    <svg width="20" height="20">
+                                        <use xlink:href="images/icons/comments/sprite.svg#approved"></use>
+                                    </svg>
+                                    <svg width="14" height="14">
+                                        <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
+                                    </svg>
+                                    <svg width="14" height="14">
+                                        <use xlink:href="images/icons/comments/sprite.svg#premium"></use>
+                                    </svg>
+                                 -->
+                                <svg width="20" height="20">
+                                    <use xlink:href="images/icons/comments/sprite.svg#approved"></use>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="person__date">
+                            сегоддня в 13:33
+                        </div>
+                    </div>
+                    <div class="person__menu context-menu">
+                        <button class="context-menu__btn">
+                            <svg class="context-menu__svg" height="20" width="20">
+                                <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
+                            </svg>
+                        </button>
+                        <ul class="context-menu__list">
+                            <li><button class="context-menu__item">Копировать URL</button></li>
+                            <li><button class="context-menu__item">Копировать текст</button></li>
+                            <li><button class="context-menu__item">Пожаловться</button></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="comments__text">Агрохолдинг «Степь» расширяет продуктовую линейку и запускает новое
+                    направление бизнеса — производство муки. Выпуск муки
+                    высшего и первого сортов начался на производственных площадках компании в городе Сальске Ростовской
+                    области
+                </div>
+                <div class="comments__actions">
+                    <button class="comments__reply" title="Ответить" type="button">
+                        <svg width="20" height="20">
+                            <use xlink:href="images/icons/comments/sprite.svg#reply-arrow"></use>
+                        </svg>
+                    </button>
+                    <button class="comments__like" type="button" title="Поставить лайк">
+                        <svg width="24" height="24">
+                            <use xlink:href="images/icons/comments/sprite.svg#liked"></use>
+                        </svg>
+                    </button>
+                    <a href="#" class="comments__fan" rel="nofollow" title="Трейдеры, которые оценили комментарий">3</a>
+                    <button class="comments__dislike" type="button" title="Поставить дизлайк">
+                        <svg width="24" height="24">
+                            <use xlink:href="images/icons/comments/sprite.svg#disliked"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <ul class="comments__answers">
+                <li class="comments__item">
+                    <div class="comments__content">
+                        <div class="comments__person person">
+                            <a href="#" class="person__avatar-link" title="Перейти к профилю Виктор Петров">
+                                <img src="./images/icons/comments/user.jpg" alt="Фото" class="person__avatar">
+                            </a>
+                            <div class="person__info">
+                                <div class="person__name">
+                                    <a href="#" class="person__name-link" title="Перейти к профилю Виктор Петров">
+                                        Виктор Петров
+                                    </a>
+                                    <div class="person__label">
+                                        <svg width="14" height="14">
+                                            <use xlink:href="images/icons/comments/sprite.svg#premium"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="person__date">
+                                    сегоддня в 13:33
+                                </div>
+                            </div>
+                            <div class="person__menu context-menu">
+                                <button class="context-menu__btn">
+                                    <svg class="context-menu__svg" height="20" width="20">
+                                        <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
+                                    </svg>
+                                </button>
+                                <ul class="context-menu__list">
+                                    <li><button class="context-menu__item">Копировать URL</button></li>
+                                    <li><button class="context-menu__item">Копировать текст</button></li>
+                                    <li><button class="context-menu__item">Пожаловться</button></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="comments__text">новое направление бизнеса — производство муки. Выпуск муки
+                            высшего и первого сортов начался на производственных площадках компании в городе Сальске
+                            Ростовской области</div>
+                        <div class="comments__actions">
+                            <button class="comments__reply" title="Ответить" type="button">
+                                <svg width="20" height="20">
+                                    <use xlink:href="images/icons/comments/sprite.svg#reply-arrow"></use>
+                                </svg>
+                            </button>
+                            <button class="comments__like" type="button" title="Поставить лайк">
+                                <svg width="24" height="24">
+                                    <use xlink:href="images/icons/comments/sprite.svg#like"></use>
+                                </svg>
+                            </button>
+                            <a href="#" class="comments__fan" rel="nofollow"
+                                title="Трейдеры, которые оценили комментарий">3</a>
+                            <button class="comments__dislike" type="button" title="Поставить дизлайк">
+                                <svg width="24" height="24">
+                                    <use xlink:href="images/icons/comments/sprite.svg#dislike"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li class="comments__item">
+            <div class="comments__content">
+                <div class="comments__person person">
+                    <a href="#" class="person__avatar-link" title="Перейти к профилю Виктор Петров">
+                        <!-- Если картинки нет (img отсутствует), то виден фон елемената .person__avatar-link -->
+                        <!-- <img src="./images/icons/comments/user.jpg" alt="Фото" class="person__avatar"> -->
+                    </a>
+                    <div class="person__info">
+                        <div class="person__name">
+                            <a href="#" class="person__name-link" title="Перейти к профилю Виктор Петров">
+                                Виктор Петров
+                            </a>
+                            <div class="person__label">
+                                <svg width="14" height="14">
+                                    <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="person__date">
+                            сегоддня в 13:33
+                        </div>
+                    </div>
+                    <div class="person__menu context-menu">
+                        <button class="context-menu__btn">
+                            <svg class="context-menu__svg" height="20" width="20">
+                                <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
+                            </svg>
+                        </button>
+                        <ul class="context-menu__list">
+                            <li><button class="context-menu__item">Копировать URL</button></li>
+                            <li><button class="context-menu__item">Копировать текст</button></li>
+                            <li><button class="context-menu__item">Пожаловться</button></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="comments__text">Агрохолдинг «Степь» расширяет продуктовую линейку и запускает новое
+                    направление бизнеса — производство муки. Выпуск муки
+                    высшего и первого сортов начался на производственных площадках компании в городе Сальске Ростовской
+                    области
+                </div>
+                <div class="comments__actions">
+                    <button class="comments__reply" title="Ответить" type="button">
+                        <svg width="20" height="20">
+                            <use xlink:href="images/icons/comments/sprite.svg#reply-arrow"></use>
+                        </svg>
+                    </button>
+                    <button class="comments__like" type="button" title="Поставить лайк">
+                        <svg width="24" height="24">
+                            <use xlink:href="images/icons/comments/sprite.svg#like"></use>
+                        </svg>
+                    </button>
+                    <a href="#" class="comments__fan" rel="nofollow" title="Трейдеры, которые оценили комментарий">3</a>
+                    <button class="comments__dislike" type="button" title="Поставить дизлайк">
+                        <svg width="24" height="24">
+                            <use xlink:href="images/icons/comments/sprite.svg#dislike"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <ul class="comments__answers">
+                <li class="comments__item">
+                    <div class="comments__content">
+                        <div class="comments__person person">
+                            <a href="#" class="person__avatar-link" title="Перейти к профилю Виктор Петров">
+                                <img src="./images/icons/comments/user.jpg" alt="Фото" class="person__avatar">
+                            </a>
+                            <div class="person__info">
+                                <div class="person__name">
+                                    <a href="#" class="person__name-link" title="Перейти к профилю Виктор Петров">
+                                        Виктор Петров
+                                    </a>
+                                    <div class="person__label">
+                                        <svg width="14" height="14">
+                                            <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="person__date">
+                                    сегоддня в 13:33
+                                </div>
+                            </div>
+                            <div class="person__menu context-menu">
+                                <button class="context-menu__btn">
+                                    <svg class="context-menu__svg" height="20" width="20">
+                                        <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
+                                    </svg>
+                                </button>
+                                <ul class="context-menu__list">
+                                    <li><button class="context-menu__item">Копировать URL</button></li>
+                                    <li><button class="context-menu__item">Копировать текст</button></li>
+                                    <li><button class="context-menu__item">Пожаловться</button></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="comments__text">новое направление бизнеса — производство муки. Выпуск муки
+                            высшего и первого сортов начался на производственных площадках компании в городе Сальске
+                            Ростовской области</div>
+                        <div class="comments__actions">
+                            <button class="comments__reply" title="Ответить" type="button">
+                                <svg width="20" height="20">
+                                    <use xlink:href="images/icons/comments/sprite.svg#reply-arrow"></use>
+                                </svg>
+                            </button>
+                            <button class="comments__like" type="button" title="Поставить лайк">
+                                <svg width="24" height="24">
+                                    <use xlink:href="images/icons/comments/sprite.svg#like"></use>
+                                </svg>
+                            </button>
+                            <a href="#" class="comments__fan" rel="nofollow"
+                                title="Трейдеры, которые оценили комментарий">3</a>
+                            <button class="comments__dislike" type="button" title="Поставить дизлайк">
+                                <svg width="24" height="24">
+                                    <use xlink:href="images/icons/comments/sprite.svg#dislike"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                <li class="comments__item">
+                    <div class="comments__content">
+                        <div class="comments__person person">
+                            <a href="#" class="person__avatar-link" title="Перейти к профилю Виктор Петров">
+                                <!-- <img src="./images/icons/comments/user.jpg" alt="Фото" class="person__avatar"> -->
+                            </a>
+                            <div class="person__info">
+                                <div class="person__name">
+                                    <a href="#" class="person__name-link" title="Перейти к профилю Виктор Петров">
+                                        Виктор Петров
+                                    </a>
+                                    <div class="person__label">
+                                        <svg width="14" height="14">
+                                            <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="person__date">
+                                    сегоддня в 13:33
+                                </div>
+                            </div>
+                            <div class="person__menu context-menu">
+                                <button class="context-menu__btn">
+                                    <svg class="context-menu__svg" height="20" width="20">
+                                        <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
+                                    </svg>
+                                </button>
+                                <ul class="context-menu__list">
+                                    <li><button class="context-menu__item">Копировать URL</button></li>
+                                    <li><button class="context-menu__item">Копировать текст</button></li>
+                                    <li><button class="context-menu__item">Пожаловться</button></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="comments__text">новое направление бизнеса — производство муки. Выпуск муки
+                            высшего и первого сортов начался на производственных площадках компании в городе Сальске
+                            Ростовской области
+                        </div>
+                        <div class="comments__actions">
+                            <button class="comments__reply" title="Ответить" type="button">
+                                <svg width="20" height="20">
+                                    <use xlink:href="images/icons/comments/sprite.svg#reply-arrow"></use>
+                                </svg>
+                            </button>
+                            <button class="comments__like" type="button" title="Поставить лайк">
+                                <svg width="24" height="24">
+                                    <use xlink:href="images/icons/comments/sprite.svg#like"></use>
+                                </svg>
+                            </button>
+                            <a href="#" class="comments__fan" rel="nofollow"
+                                title="Трейдеры, которые оценили комментарий">3</a>
+                            <button class="comments__dislike" type="button" title="Поставить дизлайк">
+                                <svg width="24" height="24">
+                                    <use xlink:href="images/icons/comments/sprite.svg#dislike"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                <li class="comments__item">
+                    <div class="comments__content">
+                        <div class="comments__person person">
+                            <a href="#" class="person__avatar-link" title="Перейти к профилю Виктор Петров">
+                                <img src="./images/icons/comments/user.jpg" alt="Фото" class="person__avatar">
+                            </a>
+                            <div class="person__info">
+                                <div class="person__name">
+                                    <a href="#" class="person__name-link" title="Перейти к профилю Виктор Петров">
+                                        Виктор Петров
+                                    </a>
+                                    <div class="person__label">
+                                        <svg width="14" height="14">
+                                            <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="person__date">
+                                    сегоддня в 13:33
+                                </div>
+                            </div>
+                            <div class="person__menu context-menu">
+                                <button class="context-menu__btn">
+                                    <svg class="context-menu__svg" height="20" width="20">
+                                        <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
+                                    </svg>
+                                </button>
+                                <ul class="context-menu__list">
+                                    <li><button class="context-menu__item">Копировать URL</button></li>
+                                    <li><button class="context-menu__item">Копировать текст</button></li>
+                                    <li><button class="context-menu__item">Пожаловться</button></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="comments__text">новое направление бизнеса — производство муки. Выпуск муки
+                            высшего и первого сортов начался на производственных площадках компании в городе Сальске
+                            Ростовской области
+                        </div>
+                        <div class="comments__actions">
+                            <button class="comments__reply" title="Ответить" type="button">
+                                <svg width="20" height="20">
+                                    <use xlink:href="images/icons/comments/sprite.svg#reply-arrow"></use>
+                                </svg>
+                            </button>
+                            <button class="comments__like" type="button" title="Поставить лайк">
+                                <svg width="24" height="24">
+                                    <use xlink:href="images/icons/comments/sprite.svg#like"></use>
+                                </svg>
+                            </button>
+                            <a href="#" class="comments__fan" rel="nofollow"
+                                title="Трейдеры, которые оценили комментарий">3</a>
+                            <button class="comments__dislike" type="button" title="Поставить дизлайк">
+                                <svg width="24" height="24">
+                                    <use xlink:href="images/icons/comments/sprite.svg#dislike"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li class="comments__item">
+            <div class="comments__content">
+                <div class="comments__person person">
+                    <a href="#" class="person__avatar-link" title="Перейти к профилю Виктор Петров">
+                        <!-- Если картинки нет (img отсутствует), то виден фон елемената .person__avatar-link -->
+                        <img src="./images/icons/comments/user.jpg" alt="Фото" class="person__avatar">
+                    </a>
+                    <div class="person__info">
+                        <div class="person__name">
+                            <a href="#" class="person__name-link" title="Перейти к профилю Виктор Петров">
+                                Виктор Петров
+                            </a>
+                            <div class="person__label">
+                                <svg width="14" height="14">
+                                    <use xlink:href="images/icons/comments/sprite.svg#star"></use>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="person__date">
+                            сегоддня в 13:33
+                        </div>
+                    </div>
+                    <div class="person__menu context-menu">
+                        <button class="context-menu__btn">
+                            <svg class="context-menu__svg" height="20" width="20">
+                                <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
+                            </svg>
+                        </button>
+                        <ul class="context-menu__list">
+                            <li><button class="context-menu__item">Копировать URL</button></li>
+                            <li><button class="context-menu__item">Копировать текст</button></li>
+                            <li><button class="context-menu__item">Пожаловться</button></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="comments__text">
+                    <p>
+                        Агрохолдинг «Степь» расширяет продуктовую линейку и запускает новое
+                        направление
+                        бизнеса — производство муки. Выпуск муки
+                        высшего и первого сортов начался на производственных площадках компании в городе Сальске
+                        Ростовской
+                        области
+                    </p>
+                    <p>
+                        Выпуск муки
+                        высшего и первого сортов начался на производственных площадках компании в городе Сальске
+                        Ростовской
+                        области
+                    </p>
+                </div>
+                <div class="comments__actions">
+                    <button class="comments__reply" title="Ответить" type="button">
+                        <svg width="20" height="20">
+                            <use xlink:href="images/icons/comments/sprite.svg#reply-arrow"></use>
+                        </svg>
+                    </button>
+                    <button class="comments__like" type="button" title="Поставить лайк">
+                        <svg width="24" height="24">
+                            <use xlink:href="images/icons/comments/sprite.svg#like"></use>
+                        </svg>
+                    </button>
+                    <a href="#" class="comments__fan" rel="nofollow" title="Трейдеры, которые оценили комментарий">3</a>
+                    <button class="comments__dislike" type="button" title="Поставить дизлайк">
+                        <svg width="24" height="24">
+                            <use xlink:href="images/icons/comments/sprite.svg#dislike"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <ul class="comments__answers">
+                <li class="comments__item">
+                    <div class="comments__content">
+                        <div class="comments__person person">
+                            <a href="#" class="person__avatar-link" title="Перейти к профилю Виктор Петров">
+                                <img src="./images/icons/comments/user.jpg" alt="Фото" class="person__avatar">
+                            </a>
+                            <div class="person__info">
+                                <div class="person__name">
+                                    <a href="#" class="person__name-link" title="Перейти к профилю Виктор Петров">
+                                        Виктор Петров
+                                    </a>
+                                    <div class="person__label">
+                                        <svg width="14" height="14">
+                                            <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="person__date">
+                                    сегоддня в 13:33
+                                </div>
+                            </div>
+                            <div class="person__menu context-menu">
+                                <button class="context-menu__btn">
+                                    <svg class="context-menu__svg" height="20" width="20">
+                                        <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
+                                    </svg>
+                                </button>
+                                <ul class="context-menu__list">
+                                    <li><button class="context-menu__item">Копировать URL</button></li>
+                                    <li><button class="context-menu__item">Копировать текст</button></li>
+                                    <li><button class="context-menu__item">Пожаловться</button></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="comments__text">новое направление бизнеса — производство муки. Выпуск муки
+                            высшего и первого сортов начался на производственных площадках компании в городе Сальске
+                            Ростовской
+                            области</div>
+                        <div class="comments__actions">
+                            <button class="comments__reply" title="Ответить" type="button">
+                                <svg width="20" height="20">
+                                    <use xlink:href="images/icons/comments/sprite.svg#reply-arrow"></use>
+                                </svg>
+                            </button>
+                            <button class="comments__like" type="button" title="Поставить лайк">
+                                <svg width="24" height="24">
+                                    <use xlink:href="images/icons/comments/sprite.svg#like"></use>
+                                </svg>
+                            </button>
+                            <a href="#" class="comments__fan" rel="nofollow"
+                                title="Трейдеры, которые оценили комментарий">3</a>
+                            <button class="comments__dislike" type="button" title="Поставить дизлайк">
+                                <svg width="24" height="24">
+                                    <use xlink:href="images/icons/comments/sprite.svg#dislike"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                <li class="comments__item">
+                    <div class="comments__content">
+                        <div class="comments__person person">
+                            <a href="#" class="person__avatar-link" title="Перейти к профилю Виктор Петров">
+                                <!-- <img src="./images/icons/comments/user.jpg" alt="Фото" class="person__avatar"> -->
+                            </a>
+                            <div class="person__info">
+                                <div class="person__name">
+                                    <a href="#" class="person__name-link" title="Перейти к профилю Виктор Петров">
+                                        Виктор Петров
+                                    </a>
+                                    <div class="person__label">
+                                        <svg width="14" height="14">
+                                            <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="person__date">
+                                    сегоддня в 13:33
+                                </div>
+                            </div>
+                            <div class="person__menu context-menu">
+                                <button class="context-menu__btn">
+                                    <svg class="context-menu__svg" height="20" width="20">
+                                        <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
+                                    </svg>
+                                </button>
+                                <ul class="context-menu__list">
+                                    <li><button class="context-menu__item">Копировать URL</button></li>
+                                    <li><button class="context-menu__item">Копировать текст</button></li>
+                                    <li><button class="context-menu__item">Пожаловться</button></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="comments__text">новое направление бизнеса — производство муки. Выпуск муки
+                            высшего и первого сортов начался на производственных площадках компании в городе Сальске
+                            Ростовской
+                            области
+                        </div>
+                        <div class="comments__actions">
+                            <button class="comments__reply" title="Ответить" type="button">
+                                <svg width="20" height="20">
+                                    <use xlink:href="images/icons/comments/sprite.svg#reply-arrow"></use>
+                                </svg>
+                            </button>
+                            <button class="comments__like" type="button" title="Поставить лайк">
+                                <svg width="24" height="24">
+                                    <use xlink:href="images/icons/comments/sprite.svg#like"></use>
+                                </svg>
+                            </button>
+                            <a href="#" class="comments__fan" rel="nofollow"
+                                title="Трейдеры, которые оценили комментарий">3</a>
+                            <button class="comments__dislike" type="button" title="Поставить дизлайк">
+                                <svg width="24" height="24">
+                                    <use xlink:href="images/icons/comments/sprite.svg#dislike"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li class="comments__item">
+            <div class="comments__content">
+                <div class="comments__person person">
+                    <a href="#" class="person__avatar-link" title="Перейти к профилю Виктор Петров">
+                        <!-- Если картинки нет (img отсутствует), то виден фон елемената .person__avatar-link -->
+                        <img src="./images/icons/comments/user.jpg" alt="Фото" class="person__avatar">
+                    </a>
+                    <div class="person__info">
+                        <div class="person__name">
+                            <a href="#" class="person__name-link" title="Перейти к профилю Виктор Петров">
+                                Виктор Петров
+                            </a>
+                            <div class="person__label">
+                                <svg width="14" height="14">
+                                    <use xlink:href="images/icons/comments/sprite.svg#star"></use>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="person__date">
+                            сегоддня в 13:33
+                        </div>
+                    </div>
+                    <div class="person__menu context-menu">
+                        <button class="context-menu__btn">
+                            <svg class="context-menu__svg" height="20" width="20">
+                                <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
+                            </svg>
+                        </button>
+                        <ul class="context-menu__list">
+                            <li><button class="context-menu__item">Копировать URL</button></li>
+                            <li><button class="context-menu__item">Копировать текст</button></li>
+                            <li><button class="context-menu__item">Пожаловться</button></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="comments__text">Агрохолдинг «Степь» расширяет продуктовую линейку и запускает новое
+                    направление
+                    бизнеса — производство муки. Выпуск муки
+                    высшего и первого сортов начался на производственных площадках компании в городе Сальске Ростовской
+                    области
+                </div>
+                <div class="comments__actions">
+                    <button class="comments__reply" title="Ответить" type="button">
+                        <svg width="20" height="20">
+                            <use xlink:href="images/icons/comments/sprite.svg#reply-arrow"></use>
+                        </svg>
+                    </button>
+                    <button class="comments__like" type="button" title="Поставить лайк">
+                        <svg width="24" height="24">
+                            <use xlink:href="images/icons/comments/sprite.svg#like"></use>
+                        </svg>
+                    </button>
+                    <a href="#" class="comments__fan" rel="nofollow" title="Трейдеры, которые оценили комментарий">3</a>
+                    <button class="comments__dislike" type="button" title="Поставить дизлайк">
+                        <svg width="24" height="24">
+                            <use xlink:href="images/icons/comments/sprite.svg#dislike"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <ul class="comments__answers">
+                <li class="comments__item">
+                    <div class="comments__content">
+                        <div class="comments__person person">
+                            <a href="#" class="person__avatar-link" title="Перейти к профилю Виктор Петров">
+                                <img src="./images/icons/comments/user.jpg" alt="Фото" class="person__avatar">
+                            </a>
+                            <div class="person__info">
+                                <div class="person__name">
+                                    <a href="#" class="person__name-link" title="Перейти к профилю Виктор Петров">
+                                        Виктор Петров
+                                    </a>
+                                    <div class="person__label">
+                                        <svg width="14" height="14">
+                                            <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="person__date">
+                                    сегоддня в 13:33
+                                </div>
+                            </div>
+                            <div class="person__menu context-menu">
+                                <button class="context-menu__btn">
+                                    <svg class="context-menu__svg" height="20" width="20">
+                                        <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
+                                    </svg>
+                                </button>
+                                <ul class="context-menu__list">
+                                    <li><button class="context-menu__item">Копировать URL</button></li>
+                                    <li><button class="context-menu__item">Копировать текст</button></li>
+                                    <li><button class="context-menu__item">Пожаловться</button></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="comments__text">новое направление бизнеса — производство муки. Выпуск муки
+                            высшего и первого сортов начался на производственных площадках компании в городе Сальске
+                            Ростовской
+                            области</div>
+                        <div class="comments__actions">
+                            <button class="comments__reply" title="Ответить" type="button">
+                                <svg width="20" height="20">
+                                    <use xlink:href="images/icons/comments/sprite.svg#reply-arrow"></use>
+                                </svg>
+                            </button>
+                            <button class="comments__like" type="button" title="Поставить лайк">
+                                <svg width="24" height="24">
+                                    <use xlink:href="images/icons/comments/sprite.svg#like"></use>
+                                </svg>
+                            </button>
+                            <a href="#" class="comments__fan" rel="nofollow"
+                                title="Трейдеры, которые оценили комментарий">3</a>
+                            <button class="comments__dislike" type="button" title="Поставить дизлайк">
+                                <svg width="24" height="24">
+                                    <use xlink:href="images/icons/comments/sprite.svg#dislike"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <!-- при загрузке добавить класс _loading -->
+    <form class="comments__footer"> 
+        <!-- чтобы у textarea была адаптивная высота надо добавить ей класс .js-textarea-auto-height -->
+        <!-- чтобы родителю пол ввода присваивался класс _focus самому полю ввода присваивается класс js-focus -->
+        <textarea class="comments__textarea js-textarea-auto-height js-focus" name="comment"
+            placeholder="Напишите комментарий..." maxlength="1000" required></textarea>
+        <label class="comments__add-img">
+            <input type="file" class="comments__add-file visually-hidden">
+        </label>
+        <button class="comments__submit-btn" type="submit">Отправить</button>
+    </form>
+</div>
+			</div>
+			<footer class="footer-mob ">
+	<div class="footer-mob__content">
+		<div class="footer-mob__banners">
+			<div class="footer-mob__banner ">
+				<a href="#" class="footer-mob__banner-best">
+					<svg>
+						<use xlink:href="images/icons/footer/sprite.svg#telegram"></use>
+					</svg>
+					<span>Лучшее со Смартлаба</span>
+				</a>
+			</div>
+			<div class="footer-mob__banner">
+				<a href="#" class="footer-mob__banner-choice">
+					Выбери стабильного брокера
+				</a>
+			</div>
+		</div>
+		<div class="footer-mob__buttons">
+			<div class="footer-mob__app-box">
+				<div class="footer-mob__app-title">Установите приложение Смартлаба:</div>
+				<a href="https://play.google.com/store/apps/details?id=ru.smartlab" class="footer-mob__app-btn">
+					<img class="footer-mob__app-img" src="images/icons/footer/gp.png" alt="Cкачать c App Store" title="Cкачать c App Store" target="_blank">
+				</a>
+				<a href="https://apps.apple.com/ru/app/smartlab/id1602002316" class="footer-mob__app-btn" title="Cкачать c Google Pay" target="_blank">
+					<img class="footer-mob__app-img" src="images/icons/footer/as.png" alt="Cкачать c Google Pay">
+				</a>
+			</div>
+
+			<div class="footer-mob__social-box">
+				<div class="footer-mob__social-item">
+					<a href="#" class="telegram-btn">
+						<svg>
+							<use xlink:href="images/icons/footer/sprite.svg#telegram"></use>
+						</svg>
+					</a>
+				</div>
+				<div class="footer-mob__social-item">
+					<a href="#" class="vk-btn">
+						<svg>
+							<use xlink:href="images/icons/footer/sprite.svg#vk"></use>
+						</svg>
+					</a>
+				</div>
+				<!-- 				<div class="footer-mob__social-item">
+					<a href="#" class="instagram-btn">
+						<svg>
+							<use xlink:href="images/icons/footer/sprite.svg#instagram"></use>
+						</svg>
+					</a>
+				</div> -->
+				<div class="footer-mob__social-item">
+					<a href="#" class="youtube-btn">
+						<svg>
+							<use xlink:href="images/icons/footer/sprite.svg#youtube"></use>
+						</svg>
+					</a>
+				</div>
+				<!-- 				<div class="footer-mob__social-item">
+					<a href="#" class="facebook-btn">
+						<svg>
+							<use xlink:href="images/icons/footer/sprite.svg#facebook"></use>
+						</svg>
+					</a>
+				</div> -->
+			</div>
+
+			<ul class="footer-mob__link-box">
+				<li class="footer-mob__links-item"><a href="#" class="footer-mob__link">О смартлабе</a></li>
+				<li class="footer-mob__links-item"><a href="#" class="footer-mob__link">Реклама</a></li>
+				<li class="footer-mob__links-item"><a href="#" class="footer-mob__link">Полная версия</a></li>
+			</ul>
+
+			<div class="footer-mob__bottom">
+				<div class="footer-mob__moex">
+					<a href="https://www.moex.com/" target="_blank" class="i">
+						<img
+							src="https://smart-lab.ru/uploads/2021/images/01/15/47/2021/12/17/avatar_c6f6bc_140x140.webp">
+					</a>
+					<div class="footer-mob__moex-text">
+						<a href="https://www.moex.com/" target="_blank"> Московская Биржа</a> является спонсором ресурса
+						smart-lab.ru
+					</div>
+				</div>
+				<div class="footer-mob__counter">
+					<a class="footer-mob__counter-link" id="footer-mob__counter" href="//www.liveinternet.ru/click"
+						target="_blank"><img id="licnt497C" width="88" height="31" style="border:0"
+							title="LiveInternet: показано число просмотров за 24 часа, посетителей за 24 часа и за сегодня"
+							src="//counter.yadro.ru/hit?t18.3;rhttps%3A//trello.com/;s1366*768*24;uhttps%3A//smart-lab.ru/forum/GAZP;h%u0424%u043E%u0440%u0443%u043C%20%u0430%u043A%u0446%u0438%u0438%20%u0413%u0430%u0437%u043F%u0440%u043E%u043C%20%28GAZP%29;0.5047278326930724"
+							alt="">
+					</a>
+				</div>
+			</div>
+			<!-- <div class="footer-mob__copy">
+				<div class="footer-mob__copy-txt">©Все права защищены</div>
+			</div> -->
+		</div>
+	</div>
+	<button class="arrow-to-top" title="Наверх">
+    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none">
+        <circle cx="25" cy="25" r="25" fill="black"/>
+        <path d="M17 28L25 19.6418L33 28" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+</button> 
+</footer>
+		</main>
+		<!-- 
+    Для того что бы откарыть присвоить модификатор slide-sidebar--opened
+    Чтобы эта панель скрывалась на "мобилбных" (при ширине < ) добавлется модификатор slide-sidebar--not-on-mobile
+-->
+<section class="slide-sidebar js-slide-sidebar slide-sidebar--not-on-mobile">
+    <div class="slide-sidebar__banner">
+        <aside class="slide-sidebar__banner-content">
+            <!-- Блок для демонстрации -->
+            <div style="max-width: 100%;
+                width: 100%;
+                background: rgb(174, 247, 241);
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-transform: uppercase;">
+                Реклама
+            </div>
+        </aside> 
+    </div>
+    <h3 class="slide-sidebar__title-wrap">
+        <a class="slide-sidebar__title" href="/" title="Активные форумы">
+            <div class="slide-sidebar__title-text">Активные форумы</div>
+            <div class="slide-sidebar__title-hint">Что сейчас обсуждают</div>
+        </a>
+    </h3>
+    <div class="slide-sidebar__inner slide-sidebar__inner--radius">
+        <div class="slide-sidebar__content">
+            <div class="slide-sidebar__content-inner">
+                <section class="slide-sidebar__item short-comment">
+                    <div class="short-comment__info">
+                        <div class="short-comment__column">
+                            <a href="#" class="short-comment__logo">
+                                <img src="./images/short-comment/sber.jpg" alt="Лого компании">
+                            </a>
+                            <div class="short-comment__inner">
+                                <a href="#" class="short-comment__company">Сбербанк</a>
+                                <a href="#" class="short-comment__author">Дюша Метелкин</a>
+                            </div>
+                        </div>
+                        <div class="short-comment__column">
+                            <div class="short-comment__inner">
+                                <div class="short-comment__time">13.07</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="short-comment__text">
+                        <span>
+                            B.Well, ну да, Первый корабль отправился без всякого согласования с Россией. UPD: на РБК
+                            написали
+                            что
+                            уже
+                            два сухогруза
+                            вышли
+                        </span>
+                    </div>
+                    <a href="#" class="short-comment__link"></a>
+                </section>
+
+                <section class="slide-sidebar__item short-comment">
+                    <div class="short-comment__info">
+                        <div class="short-comment__column">
+                            <a href="#" class="short-comment__logo">
+                                <img src="./images/short-comment/rosneft.jpg" alt="Лого компании">
+                            </a>
+                            <div class="short-comment__inner">
+                                <a href="#" class="short-comment__company">Роснефть</a>
+                                <a href="#" class="short-comment__author">Denis</a>
+                            </div>
+                        </div>
+                        <div class="short-comment__column">
+                            <div class="short-comment__inner">
+                                <div class="short-comment__time">13.07</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="short-comment__text">
+                        <span>
+                            Николай, то есть завтра резко наверх?))
+                        </span>
+                    </div>
+                    <a href="#" class="short-comment__link"></a>
+                </section>
+
+                <section class="slide-sidebar__item short-comment">
+                    <div class="short-comment__info">
+                        <div class="short-comment__column">
+                            <a href="#" class="short-comment__logo">
+                                <img src="./images/short-comment/segezha.jpg" alt="Лого компании">
+                            </a>
+                            <div class="short-comment__inner">
+                                <a href="#" class="short-comment__company">Сегежа групп</a>
+                                <a href="#" class="short-comment__author">Артём</a>
+                            </div>
+                        </div>
+                        <div class="short-comment__column">
+                            <div class="short-comment__inner">
+                                <div class="short-comment__time">13.07</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="short-comment__text">
+                        <span>
+                            Акции Сегежа самые недооцененные, я думаю у них Супер Рост будет, Все Сигналы на это
+                            указывают!!!
+                        </span>
+                    </div>
+                    <a href="#" class="short-comment__link"></a>
+                </section>
+
+                <section class="slide-sidebar__item short-comment">
+                    <div class="short-comment__info">
+                        <div class="short-comment__column">
+                            <a href="#" class="short-comment__logo">
+                                <img src="./images/short-comment/must.jpg" alt="Лого компании">
+                            </a>
+                            <div class="short-comment__inner">
+                                <a href="#" class="short-comment__company">MUST</a>
+                                <a href="#" class="short-comment__author">MUST</a>
+                            </div>
+                        </div>
+                        <div class="short-comment__column">
+                            <div class="short-comment__inner">
+                                <div class="short-comment__time">13.07</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="short-comment__text">
+                        <span>
+                            Размещение должно продолжаться Брокер «Альфа Инвестиции» продлил период приёма заявок на
+                            приобретение...
+                        </span>
+                    </div>
+                    <a href="#" class="short-comment__link"></a>
+                </section>
+
+                <section class="slide-sidebar__item short-comment">
+                    <div class="short-comment__info">
+                        <div class="short-comment__column">
+                            <a href="#" class="short-comment__logo">
+                                <img src="./images/short-comment/rosneft.jpg" alt="Лого компании">
+                            </a>
+                            <div class="short-comment__inner">
+                                <a href="#" class="short-comment__company">Роснефть</a>
+                                <a href="#" class="short-comment__author">Denis</a>
+                            </div>
+                        </div>
+                        <div class="short-comment__column">
+                            <div class="short-comment__inner">
+                                <div class="short-comment__time">13.07</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="short-comment__text">
+                        <span>
+                            Николай, то есть завтра резко наверх?))
+                        </span>
+                    </div>
+                    <a href="#" class="short-comment__link"></a>
+                </section>
+
+                <section class="slide-sidebar__item short-comment">
+                    <div class="short-comment__info">
+                        <div class="short-comment__column">
+                            <a href="#" class="short-comment__logo">
+                                <img src="./images/short-comment/sber.jpg" alt="Лого компании">
+                            </a>
+                            <div class="short-comment__inner">
+                                <a href="#" class="short-comment__company">Сбербанк</a>
+                                <a href="#" class="short-comment__author">Дюша Метелкин</a>
+                            </div>
+                        </div>
+                        <div class="short-comment__column">
+                            <div class="short-comment__inner">
+                                <div class="short-comment__time">13.07</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="short-comment__text">
+                        <span>
+                            B.Well, ну да, Первый корабль отправился без всякого согласования с Россией. UPD: на РБК
+                            написали
+                            что
+                            уже
+                            два сухогруза
+                            вышли
+                        </span>
+                    </div>
+                    <a href="#" class="short-comment__link"></a>
+                </section>
+
+                <button class="slide-sidebar__btn blue-btn" type="button">
+                    Все форумы
+                </button>
+            </div>
+        </div>
+    </div>
+    <button class="slide-sidebar__slide-btn js-slide-sidebar-toggle-btn">
+        <svg width="20" height="20">
+            <use xlink:href="images/icons/post-card/sprite.svg#shevron"></use>
+        </svg>
+    </button>
+    <button class="slide-sidebar__fix-btn js-slide-sidebar-toggle-btn">
+        <svg  width="58" height="58">
+            <use xlink:href="images/icons/post-card/sprite.svg#forum"></use>
+        </svg>
+    </button>
+    <!-- Подложка для прикрытия остального контента. При нажатии на .slide-sidebar__cover панель сворачивается -->
+    <div class="slide-sidebar__cover js-slide-sidebar-toggle-btn"></div>
+</section>
+	</div>
+	<div class="custom-pop-up moderation-pop-up" id="moderation-pop-up">
+    <div class="custom-pop-up__body moderation-pop-up__body">
+        <div class="custom-pop-up__cover"></div>
+        <div class="custom-pop-up__content moderation-pop-up__content">
+            <button class="custom-pop-up__close moderation-pop-up__close" type="button"></button>
+            <div class="moderation-pop-up__title-wrap">
+                <div class="moderation-pop-up__title">
+                    Модерация
+                </div>
+            </div>
+
+            <div class="moderation-pop-up__inner">
+                <div class="moderation-pop-up__left-col">
+                    <div class="moderation-pop-up__btns">
+                        <div class="moderation-pop-up__btns-row">
+                            <button class="moderation-pop-up__btn blue-btn" type="button">Редактировать</button>
+                            <button class="moderation-pop-up__btn blue-btn" type="button">Удалить</button>
+                        </div>
+                        <div class="moderation-pop-up__btns-row">
+                            <button class="moderation-pop-up__btn blue-btn" type="button">На главную</button>
+                            <button class="moderation-pop-up__btn blue-btn" type="button">Убрать с&nbsp;главной</button>
+                        </div>
+                        <div class="moderation-pop-up__btns-row">
+                            <button class="moderation-pop-up__to-smm blue-btn" type="button">В SMM</button>
+                        </div>
+                    </div>
+
+                    <div class="moderation-pop-up__spollers _spollers _one">
+                        <div class="moderation-pop-up__spollers-inner">
+                            <button
+                                class="moderation-pop-up__spoller moderation-pop-up__spoller--left blue-btn _spoller"
+                                type="button">
+                                Оффтоп
+                                <svg width="19" height="18">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#shevron"></use>
+                                </svg>
+                            </button>
+                            <div class="moderation-pop-up__settings moderation-settings">
+                                <div class="moderation-settings__wrap">
+                                    <div class="moderation-settings__inner">
+                                        <div class="moderation-settings__row">
+                                            <label class="moderation-settings__title">Автора:</label>
+
+                                            <!-- 
+                                                        Кастомный селект .custom-select
+                                                        Атрибут name="#" есть только у главной кнопки, для реализации в рамках формы
+                                                        Обработчик в файле custom-select.js
+                                                        Стили в custom-select.scss
+                                                        Для открытия добавляется модификатор .custom-select--opened
+                                                     -->
+                                            <div class="moderation-settings__col">
+                                                <div class="custom-select">
+                                                    <button class="custom-select__main-btn" value="Простить" name="#"
+                                                        type="button">Простить</button>
+                                                    <div class="custom-select__list ">
+                                                        <button
+                                                            class="custom-select__option custom-select__option--active"
+                                                            value="Простить" type="button">Простить</button>
+                                                        <button class="custom-select__option" value="Предупредить"
+                                                            type="button">Предупредить</button>
+                                                        <button class="custom-select__option" value="Забанить"
+                                                            type="button">Забанить</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="moderation-settings__row">
+                                            <label class="moderation-settings__title">Топик:</label>
+                                            <div class="moderation-settings__col">
+                                                <div class="custom-select">
+                                                    <button class="custom-select__main-btn" value="В оффтоп" name="#"
+                                                        type="button">В
+                                                        оффтоп</button>
+                                                    <div class="custom-select__list ">
+                                                        <button
+                                                            class="custom-select__option custom-select__option--active"
+                                                            value="В оффтоп" type="button">В оффтоп</button>
+                                                        <button class="custom-select__option" value="Значение 2"
+                                                            type="button">Значение
+                                                            2</button>
+                                                        <button class="custom-select__option" value="Значение 3"
+                                                            type="button">Значение
+                                                            3</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="moderation-settings__row">
+                                            <label class="moderation-settings__title">Причина:</label>
+                                            <div class="moderation-settings__col">
+                                                <div class="custom-select">
+                                                    <button class="custom-select__main-btn" value="Хамство" name="#"
+                                                        type="button">Хамство</button>
+                                                    <div class="custom-select__list ">
+                                                        <button
+                                                            class="custom-select__option custom-select__option--active"
+                                                            value="Хамство" type="button">Хамство</button>
+                                                        <button class="custom-select__option" value="Причина 2"
+                                                            type="button">Причина
+                                                            2</button>
+                                                        <button class="custom-select__option" value="Причина 3"
+                                                            type="button">Причина
+                                                            3</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="moderation-settings__row">
+                                            <label class="moderation-settings__title">Бан:</label>
+                                            <div class="moderation-settings__col">
+                                                <div class="custom-select">
+                                                    <button class="custom-select__main-btn" value="2 дня" name="#"
+                                                        type="button">2
+                                                        дня</button>
+                                                    <div class="custom-select__list ">
+                                                        <button
+                                                            class="custom-select__option custom-select__option--active"
+                                                            value="2 дня" type="button">2 дня</button>
+                                                        <button class="custom-select__option" value="неделя"
+                                                            type="button">неделя</button>
+                                                        <button class="custom-select__option" value="месяц"
+                                                            type="button">месяц</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="moderation-settings__row">
+                                            <label class="moderation-settings__title"></label>
+                                            <div class="moderation-settings__col">
+                                                <button class="moderation-pop-up__save-setting blue-btn" type="button">
+                                                    Сохранить
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="moderation-pop-up__spollers-inner">
+                            <button
+                                class="moderation-pop-up__spoller moderation-pop-up__spoller--rigth blue-btn _spoller"
+                                type="button">
+                                SL.news
+                                <svg width="19" height="18">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#shevron"></use>
+                                </svg>
+                            </button>
+                            <div class="moderation-pop-up__settings moderation-settings">
+                                <div class="moderation-settings__wrap">
+                                    <div class="moderation-settings__inner">
+                                        <div class="moderation-settings__row">
+                                            <label class="moderation-settings__title">Заголовок:</label>
+                                            <textarea class="moderation-settings__heading js-textarea-auto-height"
+                                                maxlength="300" type="text"
+                                                name="#">Что интересного рассказал Потанин?</textarea>
+                                        </div>
+                                        <div class="moderation-settings__row">
+                                            <div class="moderation-settings__check-row">
+                                                <label class="custom-checkbox">
+                                                    <input type="checkbox" class="custom-checkbox__input">
+                                                    <span class="custom-checkbox__text">Публикация в новостнике</span>
+                                                </label>
+                                            </div>
+                                            <div class="moderation-settings__check-row">
+                                                <label class="custom-checkbox">
+                                                    <input type="checkbox" class="custom-checkbox__input">
+                                                    <span class="custom-checkbox__text">Красной строкой</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="moderation-settings__row">
+                                            <div class="custom-select">
+                                                <button class="custom-select__main-btn" value="Россия" name="#"
+                                                    type="button">Россия</button>
+                                                <div class="custom-select__list ">
+                                                    <button class="custom-select__option custom-select__option--active"
+                                                        value="Россия" type="button">Россия</button>
+                                                    <button class="custom-select__option" value="США"
+                                                        type="button">США</button>
+                                                    <button class="custom-select__option" value="Евросоюз"
+                                                        type="button">Евросоюз</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="moderation-settings__row">
+                                            <div class="custom-select">
+                                                <button class="custom-select__main-btn" value="Новость" name="#"
+                                                    type="button">Новость</button>
+                                                <div class="custom-select__list ">
+                                                    <button class="custom-select__option custom-select__option--active"
+                                                        value="Новость" type="button">Новость</button>
+                                                    <button class="custom-select__option" value="Обзор"
+                                                        type="button">Обзор</button>
+                                                    <button class="custom-select__option" value="Статья"
+                                                        type="button">Статья</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="moderation-settings__row">
+                                            <button
+                                                class="moderation-pop-up__save-setting moderation-pop-up__save-setting--wide blue-btn"
+                                                type="button">
+                                                Сохранить
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="moderation-pop-up__extra-tags">
+                        <div class="moderation-pop-up__title">Экстра-теги:</div>
+                        <div class="moderation-pop-up__extra-tags-inner">
+                            <div class="moderation-pop-up__tag"><button class="blue-btn blue-btn--active"
+                                    type="button">STK</button></div>
+                            <div class="moderation-pop-up__tag"><button class="blue-btn" type="button">BND</button>
+                            </div>
+                            <div class="moderation-pop-up__tag"><button class="blue-btn" type="button">OPT</button>
+                            </div>
+                            <div class="moderation-pop-up__tag"><button class="blue-btn" type="button">ALG</button>
+                            </div>
+                            <div class="moderation-pop-up__tag"><button class="blue-btn" type="button">BNK</button>
+                            </div>
+                            <div class="moderation-pop-up__tag"><button class="blue-btn" type="button">BRK</button>
+                            </div>
+                            <div class="moderation-pop-up__tag"><button class="blue-btn" type="button">SFT</button>
+                            </div>
+                            <div class="moderation-pop-up__tag"><button class="blue-btn" type="button">TRD</button>
+                            </div>
+                            <div class="moderation-pop-up__tag"><button class="blue-btn" type="button">FX</button>
+                            </div>
+                            <div class="moderation-pop-up__tag"><button class="blue-btn" type="button">CRY</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="moderation-pop-up__column">
+                    <div class="moderation-pop-up__tags">
+                        <div class="moderation-pop-up__title">Tеги:</div>
+                        <div class="moderation-pop-up__tags-inner">
+                            <span class="post-tag post-tag--with-btn">
+                                инвесторам
+                                <button class="post-tag__btn" type="button"></button>
+                            </span>
+                            <span class="post-tag post-tag--with-btn">
+                                инвестиции
+                                <button class="post-tag__btn" type="button"></button>
+                            </span>
+                            <span class="post-tag post-tag--with-btn">
+                                дивиденды
+                                <button class="post-tag__btn" type="button"></button>
+                            </span>
+                        </div>
+                        <div class="moderation-pop-up__search-wrapper" id="tag-search-wrapper">
+                            <input type="text" class="moderation-pop-up__search" placeholder="Поиск" autocomplete="off">
+                        </div>
+                        <div class="moderation-pop-up__tags-inner">
+                            <span class="post-label post-label--with-btn post-label--active">
+                                дивиденды
+                                <button class="post-label__btn" type="button"></button>
+                            </span>
+                            <span class="post-label">
+                                отчеты МСФО
+                                <button class="post-label__btn" type="button"></button>
+                            </span>
+                            <span class="post-label">
+                                отчеты РСБУ
+                                <button class="post-label__btn" type="button"></button>
+                            </span>
+                            <span class="post-label">
+                                операционные результаты
+                                <button class="post-label__btn" type="button"></button>
+                            </span>
+                            <span class="post-label">
+                                технический анализ
+                                <button class="post-label__btn" type="button"></button>
+                            </span>
+                            <span class="post-label">
+                                прогноз по акциям
+                                <button class="post-label__btn" type="button"></button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="moderation-pop-up__companies">
+                        <div class="moderation-pop-up__title">Привязать форум:</div>
+                        <div class="moderation-pop-up__search-wrapper" id="comp-search-wrapper">
+                            <input type="text" class="moderation-pop-up__search" placeholder="Поиск" autocomplete="off">
+                        </div>
+                        <div class="moderation-pop-up__tags-inner">
+                            <span class="post-label post-label--with-btn">
+                                <svg width="14" height="14">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#mass"></use>
+                                </svg>
+                                ГМК Норникель
+                                <button class="post-label__btn" type="button"></button>
+                            </span>
+                            <span class="post-label post-label--with-btn">
+                                <svg width="14" height="14">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#mass"></use>
+                                </svg>
+                                Росбанк
+                                <button class="post-label__btn" type="button"></button>
+                            </span>
+                            <span class="post-label post-label--with-btn">
+                                <svg width="14" height="14">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#mass"></use>
+                                </svg>
+                                Северсталь
+                                <button class="post-label__btn" type="button"></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+	<!-- При нажатии на кнопку присваивается модификатор quick-comment--visible -->
+<aside class="quick-comment">
+    <button class="quick-comment__btn _active-el" type="button" aria-label="Написать комментарий" title="Написать комментарий" type="button">
+        <svg width="28" height="28">
+            <use xlink:href="images/icons/post-card/sprite.svg#chat_ic"></use>
+        </svg>
+    </button>
+    <button class="quick-comment__cover" aria-label="Закрыть" type="button"></button>
+    <form class="quick-comment__body">
+        <textarea class="quick-comment__text js-textarea-auto-height" name="#" placeholder="Введите текст комментария" required></textarea>
+        <button class="quick-comment__send" type="button">
+            <svg width="28" height="28">
+                <use xlink:href="images/icons/post-card/sprite.svg#send"></use>
+            </svg>
+        </button>
+    </form>
+</aside>
+	<div class="lower-banner">
+    <button class="lower-banner__close" type="button">
+        <svg width="12" height="12">
+            <use xlink:href="images/icons/post-card/sprite.svg#close"></use>
+        </svg>
+    </button>
+    <a href="/" class="lower-banner__link" target="_blank">
+        <img class="lower-banner__img" src="./images/lower-banners/banner-2.png" alt="Баннер">
+    </a>
+</div>
+	<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+<!-- <script src="js/vendors.min.js"></script>
+<script src="js/app.min.js"></script> -->
+<script src="./js/vendors.js"></script>
+<script src="./js/app.js"></script>
+
+<!-- demo.js предназначен исключительно для демонстрации некоторых свойств вёрстки -->
+<script src="./js/demo.js"></script>
+
+</body>
+
+</html>

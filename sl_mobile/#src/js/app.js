@@ -11,6 +11,7 @@
 @@include('files/bootstrap-datepicker-setup.js', {})
 @@include('files/slide-sidebar.js', {})
 @@include('files/quick-comment.js', {})
+@@include('files/post-head.js', {})
 
 // скрипты для страницы котировок
 @@include('files/selector-links.js', {})

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('_head.html',{
+"title":"БЛОГ КОМПАНИИ",
+"stylesheet": "./css/style.css"
+})
+
+<body class="">
+	<div class="wrapper">
+		@@include('_header.html',{"Class": "_container"})
+		<main class="main _mobile-container">
+
+			@@include('_post-head.html',{'fileName': './images/card@2x.png'})
+
+			<div class="main__post-card">
+				@@include('_post-card--blog.html') 
+			</div> 
+			<div class="main__post-card">
+				@@include('_post-card--blog.html')
+			</div>
+			<div class="main__post-card">
+				@@include('_post-card--blog.html')
+			</div>
+			<div class="main__post-card">
+				@@include('_post-card--blog.html')
+			</div>
+			<button class="big-blue-btn main__next-btn" type="button">Далее</button>
+			@@include('_footer_mob.html',{'Class': ''})
+		</main>
+	</div>
+	@@include('_js.html',{})
+</body>
+
+</html>
