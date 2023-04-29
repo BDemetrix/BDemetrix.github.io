@@ -111,6 +111,19 @@
             height: 22px;
         }
 
+        &--head {
+            display: inline-flex;
+            width: auto;
+            height: auto;
+            padding: 8px 16px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 22px;
+            color: #ffffff;
+        }
+
         svg {
             fill: #808080;
         }
@@ -516,7 +529,7 @@
     }
     // .lock-card__link
     &__link {
-        color: #0A51BC;
+        color: #0a51bc;
     }
 }
 

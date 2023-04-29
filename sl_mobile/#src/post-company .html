@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('_head.html',{
+"title":"ПОСТ КОМПАНИИ",
+"stylesheet": "./css/style.css"
+})
+
+<body class="right-panel">
+	<div class="wrapper">
+		@@include('_header.html',{"Class": "_container"})
+		<!-- Если баннер отсутствует, то присваивается модификатор post-page--round -->
+		<main class="post-page post-page--round _mobile-container">
+
+			@@include('_post-head.html',{'fileName': './images/card-def@2x.png'}) 
+
+			<div class="post-page__post-card">
+				@@include('_post-card--post.html') 
+			</div>
+			<div class="post-page__info">
+				@@include('_user-info.html',{})
+			</div>
+			<div class="post-page__comments">
+				@@include('_comments.html',{})
+			</div>
+			@@include('_footer_mob.html',{'Class': ''})
+		</main>
+		@@include('_slide-sidebar.html',{'Class': 'slide-sidebar--not-on-mobile'})
+	</div>
+	@@include('_moderation-pop-up.html',{})
+	@@include('_quick-comment.html',{})
+	@@include('_lower-banner.html',{'fileName': 'banner-2.png'})
+	@@include('_js.html',{})
+</body>
+
+</html>

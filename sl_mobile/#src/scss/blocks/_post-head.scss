@@ -1,0 +1,43 @@
+.post-head {
+  position: relative;
+  width: 100%;
+  margin: 0 0 adaptiv-value($md3, 25, 360, 10);
+
+  @media (min-width: $md3 + px) {
+    margin: 0 0 25px;
+  }
+
+  &:hover {
+    .post-head__menu {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  // .post-head__img
+  &__img {
+    width: 100%;
+  }
+
+  // .post-head__menu
+  &__menu {
+    position: absolute;
+    z-index: 3;
+    top: adaptiv-value($md3, 20, 360, 5);
+    right: adaptiv-value($md3, 20, 360, 5);
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+
+    @media (min-width: $md3 + px) {
+      top: 20px;
+      right: 20px;
+    }
+
+    .context-menu__list {
+      padding: 8px 0;
+      top: calc(100% + 5px);
+      border-radius: 8px;
+    }
+  }
+}
