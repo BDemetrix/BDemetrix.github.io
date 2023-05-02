@@ -7,6 +7,12 @@
 6) https://bdemetrix.github.io/sl_mobile/build/add-post.html
 7) https://bdemetrix.github.io/sl_mobile/build/login.html
 8) https://bdemetrix.github.io/sl_mobile/build/registration.html
+9) https://bdemetrix.github.io/sl_mobile/build/economic-calendar.html
+10) https://bdemetrix.github.io/sl_mobile/build/economic-calendar--empty.html
+11) https://bdemetrix.github.io/sl_mobile/build/post-lock.html
+12) https://bdemetrix.github.io/sl_mobile/build/post-company.html
+13) https://bdemetrix.github.io/sl_mobile/build/blog-company.html
+
 
 
 #### Исходники в #src:
