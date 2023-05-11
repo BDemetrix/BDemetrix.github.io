@@ -1102,6 +1102,41 @@
 </section>
 			</div>
 			<button class="big-blue-btn main__next-btn" type="button">Далее</button>
+
+			<div class="pager " id="pager">
+  <!-- 
+    Ссылкам со стрелками присваивается модификатор .pager__link--arrow 
+    Не активным ссылкам присваивается .pager__link--disabled
+  -->
+  <a href="#" class="pager__link pager__link--arrow pager__link--disabled">
+    <svg  width="16" height="15">
+      <use xlink:href="images/icons/pager/sprite.svg#first"></use>
+    </svg>
+  </a>
+  <a href="#" class="pager__link pager__link pager__link--arrow pager__link--disabled">
+    <svg  width="16" height="15">
+      <use xlink:href="images/icons/pager/sprite.svg#prev"></use>
+    </svg>
+  </a>
+
+  <div class="pager__pages">
+      <!-- Активной (текущей) ссылке присваивается модификатор pager__link--active -->
+      <a href="#" class="pager__link pager__link--active">1</a>
+      <a href="#" class="pager__link ">2</a>
+      <a href="#" class="pager__link ">3</a>
+  </div> 
+
+  <a href="#" class="pager__link pager__link--arrow">
+    <svg  width="16" height="15">
+      <use xlink:href="images/icons/pager/sprite.svg#next"></use>
+    </svg>
+  </a>
+  <a href="#" class="pager__link pager__link--arrow">
+    <svg  width="16" height="15">
+      <use xlink:href="images/icons/pager/sprite.svg#last"></use>
+    </svg>
+  </a>
+</div>
 			<footer class="footer-mob ">
 	<div class="footer-mob__content">
 		<div class="footer-mob__banners">
