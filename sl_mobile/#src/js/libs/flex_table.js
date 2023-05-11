@@ -223,13 +223,18 @@ class FlexTable {
         }
         if (tds.length == 1) {
           const marketHTML = `<td style="overflow: visible;"><div class="flex-table__ad-wrap"><div class="flex-table__ad-text">${tds[0].innerHTML}</div></div></td>`;
+          const link = tds[0].querySelector('a');
+          if (link) {
+            link.innerHTML = '&nbsp';
+            link.style.cssText = 'display: block; width: 100%; height: 100%;';
+          }
           newRightTBodyTr.innerHTML = marketHTML;
           newRightTBodyTr.className = 'flex-table__ad';
           this.inner.rightTBody.append(newRightTBodyTr);
 
           for (let i = 0; i < col; i++) {
             let td = document.createElement('td');
-            td.innerHTML = '&nbsp';
+            td.innerHTML = link.outerHTML;
             newLeftTBodyTr.append(td);
           }
           newLeftTBodyTr.className = 'flex-table__ad';

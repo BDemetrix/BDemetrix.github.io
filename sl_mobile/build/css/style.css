@@ -2587,7 +2587,6 @@ picture {
 
 .flex-table__r-header-wrap {
   position: absolute;
-  z-index: 2;
   top: 0;
   left: 0;
   height: 100%;
@@ -2595,6 +2594,7 @@ picture {
 
 .flex-table__r-header-inner {
   position: sticky;
+  z-index: 3;
   top: 0;
   overflow: hidden;
 }
@@ -11477,7 +11477,8 @@ textarea {
 }
 
 .trades-table a.charticon,
-.trades-table a.charticon2 {
+.trades-table a.charticon2,
+.trades-table a.charticon3 {
   display: inline-block;
   border: none;
   width: 21px;
@@ -11493,6 +11494,10 @@ textarea {
 
 .trades-table a.charticon2 {
   background: url(../images/icons/flex-table/chart2-icon-small.png) no-repeat;
+}
+
+.trades-table a.charticon3 {
+  background: url(../images/icons/flex-table/chart3-icon-small.png) no-repeat;
 }
 
 .trades-table .flex-table__ad-text {
@@ -11535,7 +11540,8 @@ textarea {
 }
 
 .trades-table .flex-table__l-table .flex-table__ad td {
-  border-right: 1px solid transparent;
+  border-right: 0;
+  border-left: 0;
   padding: 4px 0;
 }
 
@@ -11610,7 +11616,7 @@ textarea {
 }
 
 .trades-table .flex-table__r-header-table thead tr th {
-  height: 54px;
+  height: 55px;
 }
 
 .trades-table .flex-table__r-header-table tr:first-child th:last-child {
@@ -11682,7 +11688,6 @@ textarea {
   overflow: hidden;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  border-top: 1px solid #e0e0e0;
   border-bottom: 1px solid #e0e0e0;
   border-left: 1px solid #e0e0e0;
   background: #fafafa;
@@ -11690,6 +11695,7 @@ textarea {
 }
 
 .trades-table ._hover td,
+.trades-table .flex-table__ad._hover td .flex-table__ad-text,
 .trades-table tr:hover td {
   background: #f2f2f2;
   background: -moz-linear-gradient(top, #f2f2f2, #f0f0f0);

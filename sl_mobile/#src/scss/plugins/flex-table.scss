@@ -121,7 +121,7 @@
 
 .flex-table__r-header-wrap {
   position: absolute;
-  z-index: 2;
+  // z-index: 2;
   top: 0;
   left: 0;
   height: 100%;
@@ -131,6 +131,7 @@
 .flex-table__r-header-inner {
   position: -webkit-sticky;
   position: sticky;
+  z-index: 3;
   top: 0;
   overflow: hidden;
 }
