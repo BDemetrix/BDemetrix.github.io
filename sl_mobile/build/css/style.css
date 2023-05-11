@@ -11098,7 +11098,7 @@ textarea {
       -ms-flex-align: center;
           align-items: center;
   margin-left: 16px;
-  padding: 9px 24px;
+  padding: 9px 22px;
   border-radius: 5px;
   white-space: nowrap;
   font-size: 14px;
@@ -11110,10 +11110,18 @@ textarea {
 }
 
 .qn-menu__btn svg {
-  margin-right: 10px;
+  margin-right: 0px;
   width: 18px;
   height: 18px;
   fill: #fff;
+}
+
+.qn-menu__btn span {
+  display: none;
+}
+
+.qn-menu__btn:last-child {
+  margin-right: 0;
 }
 
 .qn-menu__btn:disabled {
@@ -11127,13 +11135,16 @@ textarea {
   fill: #E2E2E2;
 }
 
+.qn-menu__btn:hover {
+  background: transparent;
+}
+
 .qn-menu__btn--filter {
   background: #4F91CD;
   border: 1px solid #4F91CD;
 }
 
 .qn-menu__btn--filter:hover {
-  background: transparent;
   border-color: #4F91CD;
   color: #4F91CD;
 }
@@ -11146,6 +11157,20 @@ textarea {
   background: #4F91CD;
   border: 1px solid #4F91CD;
   color: #fff;
+}
+
+.qn-menu__btn--calc {
+  background: #444444;
+  border: 1px solid #444444;
+}
+
+.qn-menu__btn--calc:hover {
+  border-color: #444444;
+  color: #444444;
+}
+
+.qn-menu__btn--calc:hover svg {
+  fill: #444444;
 }
 
 .selector-links {
@@ -11331,7 +11356,7 @@ textarea {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 9px 24px;
+  padding: 9px 22px;
   border-radius: 5px;
   white-space: nowrap;
   font-size: 14px;
@@ -13907,14 +13932,6 @@ body.loader:before {
   .moderation-pop-up__inner {
     padding: 18px 25px;
   }
-
-  .qn-menu__btn {
-    margin-right: 24px;
-  }
-
-  .qn-menu__btn:last-child {
-    margin-right: 0;
-  }
 }
 
 @media (min-width: 500px) {
@@ -14062,6 +14079,14 @@ body.loader:before {
 
   .nf-filter__select:not(.nf-filter__select--ec) {
     width: calc(25% - 10px);
+  }
+
+  .qn-menu__btn span {
+    display: block;
+  }
+
+  .qn-menu__btn svg {
+    margin-right: 10px;
   }
 }
 

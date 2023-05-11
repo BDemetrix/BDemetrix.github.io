@@ -235,7 +235,7 @@
 		display: flex;
 		align-items: center;
 		margin-left: 16px;
-		padding: 9px 24px;
+		padding: 9px 22px;
 		border-radius: 5px;
 		white-space: nowrap;
 		font-size: 14px;
@@ -244,10 +244,18 @@
 		transition: all $t*0.5 ease-in-out;
 
 		svg {
-			margin-right: 10px;
+			margin-right: 0px;
 			width: 18px;
 			height: 18px;
 			fill: #fff;
+		}
+
+		span {
+			display: none;
+		}
+
+		&:last-child {
+			margin-right: 0;
 		}
 
 		&:disabled {
@@ -258,13 +266,15 @@
 			svg {fill: $disabled-color;}
 		}
 
-		// .qn-menu__btn--filter
+		&:hover {
+			background: transparent;
+		}
+
 		&--filter {
 			background: #4F91CD;
 			border: 1px solid #4F91CD;
 
 			&:hover {
-				background: transparent;
 				border-color: #4F91CD;
 				color: #4F91CD;
 
@@ -279,11 +289,27 @@
 			}
 		}
 
-		@media (min-width: $md5 + px) {
-			margin-right: 24px;
+		&--calc {
+			background: #444444;
+			border: 1px solid #444444;
 
-			&:last-child {
-				margin-right: 0;
+			&:hover {
+				border-color: #444444;
+				color: #444444;
+
+				svg {
+					fill: #444444;
+				}
+			}
+		}
+
+		@media (min-width: 600px) {
+			span {
+				display: block;
+			}
+
+			svg {
+				margin-right: 10px;
 			}
 		}
 	}	
