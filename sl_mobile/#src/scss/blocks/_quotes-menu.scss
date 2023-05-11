@@ -18,7 +18,7 @@
 		align-items: flex-start;
 		font-size: 16px;
 		line-height: 22px;
-		color: #DADADA;
+		color: #dadada;
 		font-weight: 700;
 
 		&._active {
@@ -43,11 +43,11 @@
 	&__mob-tabs {
 		list-style: none;
 		position: absolute;
-    z-index: 2;
+		z-index: 2;
 		top: 50%;
-    transform: translateY(-50%);
+		transform: translateY(-50%);
 		right: 0;
-		display: inline-flex; 
+		display: inline-flex;
 
 		li {
 			display: inline-flex;
@@ -91,7 +91,7 @@
 				margin-right: 0;
 			}
 		}
-		
+
 		@media (min-width: $md3 + px) {
 			display: inline-flex;
 			padding: 0;
@@ -106,13 +106,13 @@
 		}
 
 		&._active a {
-			color: #FFFFFF;
+			color: #ffffff;
 			font-weight: 700;
 
-			svg	{
-				background: #FFFFFF;
-				border-color: #FFFFFF;
-				fill: #4F91CD;
+			svg {
+				background: #ffffff;
+				border-color: #ffffff;
+				fill: #4f91cd;
 			}
 		}
 	}
@@ -124,45 +124,45 @@
 		font-size: 16px;
 		line-height: 20px;
 		text-decoration: none;
-		color: #DADADA;
+		color: #dadada;
 
-		svg	{
+		svg {
 			width: 24px;
 			height: 24px;
-      		fill: #DADADA;
+			fill: #dadada;
 		}
 
 		&:hover {
-			color: #FFFFFF;
+			color: #ffffff;
 
-			svg	{
-				border-color: #FFFFFF;
-				fill: #FFFFFF;
+			svg {
+				border-color: #ffffff;
+				fill: #ffffff;
 			}
 		}
 
 		&:active {
-			color: #FFFFFF;
-			
-			svg	{
-				border-color: #FFFFFF;
-				fill: #4F91CD;
+			color: #ffffff;
+
+			svg {
+				border-color: #ffffff;
+				fill: #4f91cd;
 			}
 		}
 
 		&:disabled {
 			color: #585858;
 			pointer-events: none;
-			svg	{
+			svg {
 				border-color: #585858;
 				fill: #585858;
 			}
 		}
 
 		@media (min-width: $md3 + px) {
-			margin-right: adaptiv-value($md2,85,$md3,50); 
+			margin-right: adaptiv-value($md2, 85, $md3, 50);
 
-			svg	{
+			svg {
 				width: 28px;
 				height: 28px;
 			}
@@ -171,7 +171,6 @@
 		@media (min-width: $md2 + px) {
 			margin-right: 85px;
 		}
-
 	}
 	// .qn-menu__selectors
 	&__selectors {
@@ -209,6 +208,8 @@
 	// .qn-menu__actions
 	&__actions {
 		display: flex;
+		align-items: flex-start;
+		flex-wrap: wrap;
 		margin: 16px 0;
 	}
 	// .qn-menu__buy-shares
@@ -216,24 +217,23 @@
 	}
 	// .qn-menu__filter
 	&__filter {
-
 		.qn-filters {
-      opacity: 0;
-      visibility: hidden;
-    }
+			opacity: 0;
+			visibility: hidden;
+		}
 
 		&._opened {
-
-      .qn-filters { 
-        opacity: 1;
-        visibility: visible;
-      }
-    }
+			.qn-filters {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
 	}
 	// .qn-menu__btn
 	&__btn {
 		display: flex;
 		align-items: center;
+		max-height: 40px;
 		margin-left: 16px;
 		padding: 9px 22px;
 		border-radius: 5px;
@@ -241,7 +241,7 @@
 		font-size: 14px;
 		line-height: 20px;
 		color: #fff;
-		transition: all $t*0.5 ease-in-out;
+		transition: all $t * 0.5 ease-in-out;
 
 		svg {
 			margin-right: 0px;
@@ -254,16 +254,14 @@
 			display: none;
 		}
 
-		&:last-child {
-			margin-right: 0;
-		}
-
 		&:disabled {
 			background: transparent;
-			border-color:  $disabled-color;
+			border-color: $disabled-color;
 			color: $disabled-color;
 			pointer-events: none;
-			svg {fill: $disabled-color;}
+			svg {
+				fill: $disabled-color;
+			}
 		}
 
 		&:hover {
@@ -271,20 +269,20 @@
 		}
 
 		&--filter {
-			background: #4F91CD;
-			border: 1px solid #4F91CD;
+			background: #4f91cd;
+			border: 1px solid #4f91cd;
 
 			&:hover {
-				border-color: #4F91CD;
-				color: #4F91CD;
+				border-color: #4f91cd;
+				color: #4f91cd;
 
 				svg {
-					fill: #4F91CD;
+					fill: #4f91cd;
 				}
 			}
 			&:active {
-				background: #4F91CD;
-				border: 1px solid #4F91CD;
+				background: #4f91cd;
+				border: 1px solid #4f91cd;
 				color: #fff;
 			}
 		}
@@ -292,6 +290,7 @@
 		&--calc {
 			background: #444444;
 			border: 1px solid #444444;
+			margin-right: 16px;
 
 			&:hover {
 				border-color: #444444;
@@ -312,6 +311,22 @@
 				margin-right: 10px;
 			}
 		}
-	}	
-}
+	}
+	// .qn-menu__link
+	&__link {
+		display: inline-block;
+		margin: 10px 0 0;
+		font-size: 14px;
+		line-height: 20px;
+		color: #606060;
+		text-decoration: underline;
 
+		span {
+			white-space: nowrap;
+		}
+
+		@media (min-width: $md3 + px) { 
+				white-space: nowrap;
+		}
+	}
+}

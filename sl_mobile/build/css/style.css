@@ -10909,7 +10909,7 @@ textarea {
           align-items: flex-start;
   font-size: 16px;
   line-height: 22px;
-  color: #DADADA;
+  color: #dadada;
   font-weight: 700;
 }
 
@@ -10979,14 +10979,14 @@ textarea {
 }
 
 .qn-menu__tab._active a {
-  color: #FFFFFF;
+  color: #ffffff;
   font-weight: 700;
 }
 
 .qn-menu__tab._active a svg {
-  background: #FFFFFF;
-  border-color: #FFFFFF;
-  fill: #4F91CD;
+  background: #ffffff;
+  border-color: #ffffff;
+  fill: #4f91cd;
 }
 
 .qn-menu__tab-link {
@@ -10998,31 +10998,31 @@ textarea {
   font-size: 16px;
   line-height: 20px;
   text-decoration: none;
-  color: #DADADA;
+  color: #dadada;
 }
 
 .qn-menu__tab-link svg {
   width: 24px;
   height: 24px;
-  fill: #DADADA;
+  fill: #dadada;
 }
 
 .qn-menu__tab-link:hover {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .qn-menu__tab-link:hover svg {
-  border-color: #FFFFFF;
-  fill: #FFFFFF;
+  border-color: #ffffff;
+  fill: #ffffff;
 }
 
 .qn-menu__tab-link:active {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .qn-menu__tab-link:active svg {
-  border-color: #FFFFFF;
-  fill: #4F91CD;
+  border-color: #ffffff;
+  fill: #4f91cd;
 }
 
 .qn-menu__tab-link:disabled {
@@ -11077,6 +11077,11 @@ textarea {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   margin: 16px 0;
 }
 
@@ -11097,6 +11102,7 @@ textarea {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  max-height: 40px;
   margin-left: 16px;
   padding: 9px 22px;
   border-radius: 5px;
@@ -11120,10 +11126,6 @@ textarea {
   display: none;
 }
 
-.qn-menu__btn:last-child {
-  margin-right: 0;
-}
-
 .qn-menu__btn:disabled {
   background: transparent;
   border-color: #E2E2E2;
@@ -11140,28 +11142,29 @@ textarea {
 }
 
 .qn-menu__btn--filter {
-  background: #4F91CD;
-  border: 1px solid #4F91CD;
+  background: #4f91cd;
+  border: 1px solid #4f91cd;
 }
 
 .qn-menu__btn--filter:hover {
-  border-color: #4F91CD;
-  color: #4F91CD;
+  border-color: #4f91cd;
+  color: #4f91cd;
 }
 
 .qn-menu__btn--filter:hover svg {
-  fill: #4F91CD;
+  fill: #4f91cd;
 }
 
 .qn-menu__btn--filter:active {
-  background: #4F91CD;
-  border: 1px solid #4F91CD;
+  background: #4f91cd;
+  border: 1px solid #4f91cd;
   color: #fff;
 }
 
 .qn-menu__btn--calc {
   background: #444444;
   border: 1px solid #444444;
+  margin-right: 16px;
 }
 
 .qn-menu__btn--calc:hover {
@@ -11171,6 +11174,19 @@ textarea {
 
 .qn-menu__btn--calc:hover svg {
   fill: #444444;
+}
+
+.qn-menu__link {
+  display: inline-block;
+  margin: 10px 0 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: #606060;
+  text-decoration: underline;
+}
+
+.qn-menu__link span {
+  white-space: nowrap;
 }
 
 .selector-links {
@@ -14389,6 +14405,10 @@ body.loader:before {
   .qn-menu__tab-link svg {
     width: 28px;
     height: 28px;
+  }
+
+  .qn-menu__link {
+    white-space: nowrap;
   }
 
   .selector-links {
