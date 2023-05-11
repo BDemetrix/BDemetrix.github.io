@@ -12754,7 +12754,7 @@ textarea {
   text-decoration: none;
   color: #424242;
   font-size: 13px;
-  line-height: 16px;
+  line-height: 100%;
   font-weight: 600;
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
