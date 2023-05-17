@@ -32,6 +32,13 @@ $disabled-color: #e2e2e2;
         &__top-content {
             background-color: $element-bg;
         }
+        &__head-title {
+            color: $text-color;
+        }
+        &__head,
+        &__item {
+            background: $element-bg;
+        }
     }
 
     /* .notify {
@@ -367,7 +374,7 @@ $disabled-color: #e2e2e2;
         &--active {
             background-color: $body-bg;
         }
-        
+
         &--company {
             color: $text-color;
         }
@@ -681,10 +688,21 @@ $disabled-color: #e2e2e2;
         color: $text-color;
 
         &:hover {
-            background-color: lighten($element-bg, .95);
+            background-color: lighten($element-bg, 0.95);
         }
         &:active {
-            background-color: lighten($element-bg, .9);
+            background-color: lighten($element-bg, 0.9);
+        }
+    }
+
+    .person {
+        &__subscribers {
+            color: #adb7c0;
+        }
+        &--people {
+            .person__name-link {
+                color: $text-color;
+            }
         }
     }
 }

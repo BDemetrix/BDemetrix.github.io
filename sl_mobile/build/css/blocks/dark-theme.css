@@ -33,6 +33,15 @@
   background-color: #2a2c30;
 }
 
+.dark-theme .main__head-title {
+  color: #e9e9e9;
+}
+
+.dark-theme .main__head,
+.dark-theme .main__item {
+  background: #2a2c30;
+}
+
 .dark-theme .login,
 .dark-theme .add-form,
 .dark-theme .news-card,
@@ -743,6 +752,14 @@
 
 .dark-theme .white-btn:active {
   background-color: #2c2e32;
+}
+
+.dark-theme .person__subscribers {
+  color: #adb7c0;
+}
+
+.dark-theme .person--people .person__name-link {
+  color: #e9e9e9;
 }
 
 @media (min-width: 767.98px) {
