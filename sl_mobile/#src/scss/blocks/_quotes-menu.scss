@@ -214,6 +214,7 @@
 	}
 	// .qn-menu__buy-shares
 	&__buy-shares {
+		margin-right: 16px;
 	}
 	// .qn-menu__filter
 	&__filter {
@@ -234,7 +235,7 @@
 		display: flex;
 		align-items: center;
 		max-height: 40px;
-		margin-left: 16px;
+		margin-right: 16px;
 		padding: 9px 22px;
 		border-radius: 5px;
 		white-space: nowrap;
@@ -290,7 +291,6 @@
 		&--calc {
 			background: #444444;
 			border: 1px solid #444444;
-			margin-right: 16px;
 
 			&:hover {
 				border-color: #444444;

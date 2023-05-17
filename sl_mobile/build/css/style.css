@@ -11085,6 +11085,10 @@ textarea {
   margin: 16px 0;
 }
 
+.qn-menu__buy-shares {
+  margin-right: 16px;
+}
+
 .qn-menu__filter .qn-filters {
   opacity: 0;
   visibility: hidden;
@@ -11103,7 +11107,7 @@ textarea {
       -ms-flex-align: center;
           align-items: center;
   max-height: 40px;
-  margin-left: 16px;
+  margin-right: 16px;
   padding: 9px 22px;
   border-radius: 5px;
   white-space: nowrap;
@@ -11164,7 +11168,6 @@ textarea {
 .qn-menu__btn--calc {
   background: #444444;
   border: 1px solid #444444;
-  margin-right: 16px;
 }
 
 .qn-menu__btn--calc:hover {
@@ -11921,6 +11924,19 @@ textarea {
     width: 5.0%;
   }
 } */
+
+.sorting-column::after {
+  display: inline-block;
+  margin-left: 1em;
+}
+
+.sorting-column--up::after {
+  content: "↑";
+}
+
+.sorting-column--down::after {
+  content: "↓";
+}
 
 .qn-filters {
   font-family: Tahoma, "Open Sans", Verdana, sans-serif;

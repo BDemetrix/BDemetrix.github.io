@@ -494,3 +494,23 @@
     width: 5.0%;
   }
 } */
+
+// класс для текста/ссылки заголовков колонок, которые сортируюьтся 
+.sorting-column {
+  &::after {
+    display: inline-block;
+    margin-left: 1em;
+  }
+  
+  &--up { 
+    &::after {
+      content: '↑';
+    }
+  }
+
+  &--down {
+    &::after {
+      content: '↓';
+    }
+  }
+}
