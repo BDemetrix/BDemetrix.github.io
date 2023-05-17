@@ -12,6 +12,7 @@
 11) https://bdemetrix.github.io/sl_mobile/build/post-lock.html
 12) https://bdemetrix.github.io/sl_mobile/build/post-company.html
 13) https://bdemetrix.github.io/sl_mobile/build/blog-company.html
+14) https://bdemetrix.github.io/sl_mobile/build/people.htm
 
 
 
