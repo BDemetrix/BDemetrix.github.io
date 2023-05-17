@@ -1,10 +1,11 @@
 .user-info {
     font-family: inherit;
     position: relative;
+    text-align: center;
 
-    @media (min-width: $md3 + px) {
-        text-align: center;
-    }
+    /* @media (min-width: $md3 + px) {
+        text-align: left;
+    } */
 
     // .user-info__menu
     &__menu {
@@ -28,7 +29,7 @@
     &__wrap {
         position: relative;
         flex-shrink: 0;
-        display: flex;
+        display: inline-flex;
         max-width: 100%;
         padding: 22px 15px 28px;
         overflow: hidden;
@@ -38,7 +39,6 @@
         }
 
         @media (min-width: $md3 + px) {
-            display: inline-flex;
             &::after {
                 content: "";
                 position: absolute;
@@ -70,9 +70,9 @@
         max-width: 150px;
         margin-right: 25px;
 
-        @media (min-width: $md3 + px) {
+        /* @media (min-width: $md3 + px) {
             margin-right: 100px;
-        }
+        } */
     }
     // .user-info__img-wrap
     &__img-wrap {

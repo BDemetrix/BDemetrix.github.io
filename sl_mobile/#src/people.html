@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('_head.html',{
+"title":"Список всех инвесторов и трейдеров на смартлабе",
+"stylesheet": "./css/style.css"
+})
+
+<body class="right-panel">
+  <div class="wrapper">
+    @@include('_header.html',{"Class": "_container"})
+    <main class="main _mobile-container">
+      <div class="main__head">
+        <h1 class="main__head-title">Все авторы</h1>
+        <div class="main__head-menu custom-select custom-select--no-border custom-select--blue custom-select--big">
+          <button class="custom-select__main-btn" value="По рейтингу" name="#" type="button" tabindex="4">По рейтингу</button>
+          <div class="custom-select__list ">
+            <button class="custom-select__option custom-select__option--active" value="По рейтингу" type="button"
+              tabindex="5">
+              По рейтингу
+            </button>
+            <button class="custom-select__option" value="По друзьямм" type="button" tabindex="6">
+              По друзьям
+            </button>
+            <button class="custom-select__option" value="Кто онлайн" type="button" tabindex="7">
+              Кто онлайн
+            </button>
+            <button class="custom-select__option" value="В моем городе" type="button" tabindex="8">
+              В моем городе
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="main__list">
+        @@include('_person--people.html',{
+        'MixClass': 'main__item',
+        'avatar': './images/people/Ellipse 7.png',
+        'name': 'Тимофей Мартынов',
+        'btnMod': 'check',
+        'btnText': 'Подписан'
+        })
+
+        @@include('_person--people.html',{
+        'MixClass': 'main__item',
+        'avatar': './images/people/Ellipse 7-1.png',
+        'name': 'Виктор Петров',
+        'btnMod': 'plus',
+        'btnText': '+&nbsp;Подписаться'
+        })
+
+        @@include('_person--people.html',{
+        'MixClass': 'main__item',
+        'avatar': './images/people/Ellipse 7-2.png',
+        'name': '$100',
+        'btnMod': 'check',
+        'btnText': 'Подписан'
+        })
+
+        @@include('_person--people.html',{
+        'MixClass': 'main__item',
+        'avatar': './images/people/Ellipse 7-3.png',
+        'name': 'RomanAndreev',
+        'btnMod': 'check',
+        'btnText': 'Подписан'
+        })
+
+        @@include('_person--people.html',{
+        'MixClass': 'main__item',
+        'avatar': './images/people/Ellipse 7-4.png',
+        'name': 'EdvardGrey',
+        'btnMod': 'plus',
+        'btnText': '+&nbsp;Подписаться'
+        })
+
+        @@include('_person--people.html',{
+        'MixClass': 'main__item',
+        'avatar': './images/people/Ellipse 7-5.png',
+        'name': 'Серый Кардинал',
+        'btnMod': 'plus',
+        'btnText': '+&nbsp;Подписаться'
+        })
+
+        @@include('_person--people.html',{
+        'MixClass': 'main__item',
+        'avatar': './images/people/Ellipse 7-6.png',
+        'name': 'Роман Ранний',
+        'btnMod': 'plus',
+        'btnText': '+&nbsp;Подписаться'
+        })
+
+        
+        
+        
+        
+        
+        
+        
+
+      </div>
+      <button class="big-blue-btn main__next-btn" type="button">Далее</button>
+      @@include('_footer_mob.html',{'Class': 'footer-mob--mt-none'})
+    </main>
+    @@include('_slide-sidebar.html',{'Class': ''})
+  </div>
+  @@include('_js.html',{})
+</body>
+
+</html>
