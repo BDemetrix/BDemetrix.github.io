@@ -12,7 +12,8 @@
 11) https://bdemetrix.github.io/sl_mobile/build/post-lock.html
 12) https://bdemetrix.github.io/sl_mobile/build/post-company.html
 13) https://bdemetrix.github.io/sl_mobile/build/blog-company.html
-14) https://bdemetrix.github.io/sl_mobile/build/people.htm
+14) https://bdemetrix.github.io/sl_mobile/build/people.html
+15) https://bdemetrix.github.io/sl_mobile/build/bonds.html
 
 
 
@@ -190,3 +191,7 @@ input-wrapper--right - иконка справа
 16) lock-comments - блок показывается если комментарии закрыты
 
 17) lock-card - блок для замены блока с текстом в закрытых постах (или другой закрытой информации, ктебующей подписки или регистрации)
+
+18) .custom-card для стилиизации блоков с фоном, закругленными углами и тенью 
+
+19) .custom-scrollbar - класс для стилизации полосы прокрутки

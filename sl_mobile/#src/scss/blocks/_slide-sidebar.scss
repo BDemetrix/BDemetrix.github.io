@@ -20,20 +20,20 @@
         box-sizing: border-box;
     }
 
-    // .slide-sidebar__cover
-    &__cover {
-        position: absolute;
-        z-index: -1;
+    // для страницы /bonds.html
+    &--bonds {
+        top: 270px;
+        height: calc(100% - 270px);
 
-        top: 0;
-        bottom: 0;
-        left: -$delta;
-        width: 0;
+        @media (max-width: 1710px) {
+            display: none;
+        }
 
-        // opacity: 0;
-        //transition: all $time ease;
+        .slide-sidebar__banner {
+            display: none;
+        }
     }
-
+ 
     &--not-on-mobile {
         @media (max-width: $md3 + px) {
             display: none;
@@ -131,6 +131,20 @@
         .slide-sidebar__slide-btn {
             display: none;
         }
+    }
+
+    // .slide-sidebar__cover
+    &__cover {
+        position: absolute;
+        z-index: -1;
+
+        top: 0;
+        bottom: 0;
+        left: -$delta;
+        width: 0;
+
+        // opacity: 0;
+        //transition: all $time ease;
     }
 
     &__banner,

@@ -1,0 +1,44 @@
+.quotes-simple-table {
+  display: flex;
+  flex-direction: column;
+  background: #FAFAFA;
+  color: #666666;
+
+	// .quotes-simple-table__row
+	&__row {
+    display: flex;
+    flex-shrink: 0;
+    border-bottom: 1px solid #E5E5E5;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+	}
+	// .quotes-simple-table__item
+	&__item {
+    display: flex;
+    align-items: center;
+    flex: 0 0 50%;
+    width: 50%;
+    padding: 10px;
+    border-right: 1px solid #E5E5E5;
+    word-break: break-word;
+
+    &:first-child {
+    }
+    &:last-child {
+      justify-content: center;
+      text-align: center;
+      border-right: 0;
+    }
+
+    &--green {
+      font-weight: 700;
+      color: #008000;
+    }
+
+    &--bold {
+      font-weight: 700;
+    }
+	}
+}

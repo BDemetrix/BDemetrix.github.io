@@ -79,6 +79,19 @@ picture {
 	}
 }
 
+// Контейнер для страницы котировок 
+._quotes-container {
+	max-width: 1244px;
+	margin: 0 auto; 
+	padding: 0 10px;
+}
+
+.right-panel ._quotes-container {
+	@media (min-width: 1710px) {
+		margin-left: calc((100vw - 1224px - 320px)/2);
+	}
+}
+
 //</ОСНОВНАЯ СЕТКА>===========================================================================================================
 
 //<ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
@@ -138,6 +151,10 @@ picture {
 @import "./blocks/_buy-shares";
 @import "./blocks/_trades-table";
 @import "./blocks/_qn-filters";
+@import "./blocks/_quotes-body";
+@import "./blocks/_quotes-info-list";
+@import "./blocks/_quotes-simple-table";
+@import "./blocks/_custom-table";
 @import "./blocks/_footer";
 @import "./blocks/_pager";
 //@import "./plugins/datepicker-new";

@@ -200,21 +200,45 @@
 		font-weight: 700;
 		white-space: nowrap;
 
+		&--wrap {
+			white-space: normal;
+		}
+
 		@media (min-width: $md4 + px) {
 			font-size: 24px;
 			line-height: 30px;
 		}
 	}
+	// qn-menu__actions-wrap
+	&__actions-wrap {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		flex: 1 1 auto;
+		max-width: 100%;
+		flex-wrap: wrap;
+
+		@media (min-width: $md4 + px) {
+			flex-wrap: nowrap;
+		}
+	}
 	// .qn-menu__actions
 	&__actions {
 		display: flex;
+		flex: 1 1 auto;
+		max-width: 100%;
 		align-items: flex-start;
 		flex-wrap: wrap;
-		margin: 16px 0;
+		margin: 16px 0 0;
+
+		// костыль для контекстного меню
+		.context-menu__list {
+			top: calc(100% - 11px);
+		}
 	}
 	// .qn-menu__buy-shares
 	&__buy-shares {
-		margin-right: 16px;
+		margin: 0px 16px 16px 0;
 	}
 	// .qn-menu__filter
 	&__filter {
@@ -235,7 +259,7 @@
 		display: flex;
 		align-items: center;
 		max-height: 40px;
-		margin-right: 16px;
+		margin: 0 16px 16px 0;
 		padding: 9px 22px;
 		border-radius: 5px;
 		white-space: nowrap;
@@ -266,9 +290,10 @@
 		}
 
 		&:hover {
-			background: transparent;
+			// не мкнять background: ;
 		}
 
+		&--simple,
 		&--filter {
 			background: #4f91cd;
 			border: 1px solid #4f91cd;
@@ -276,6 +301,7 @@
 			&:hover {
 				border-color: #4f91cd;
 				color: #4f91cd;
+				background: transparent;
 
 				svg {
 					fill: #4f91cd;
@@ -295,10 +321,28 @@
 			&:hover {
 				border-color: #444444;
 				color: #444444;
+				background: transparent;
 
 				svg {
 					fill: #444444;
 				}
+			}
+		}
+
+		&--primer {
+			align-self: flex-start;
+			margin: 0 0 16px 0;
+			color: #444444;
+			background: #ffe600;
+			border: 1px solid #ffe600;
+			font-weight: 600;
+
+			&:hover {
+				background: transparent;
+			}
+
+			@media (min-width: $md4 + px) {
+				margin: 16px 0 16px auto;
 			}
 		}
 
@@ -325,8 +369,8 @@
 			white-space: nowrap;
 		}
 
-		@media (min-width: $md3 + px) { 
-				white-space: nowrap;
+		@media (min-width: $md3 + px) {
+			white-space: nowrap;
 		}
 	}
 }

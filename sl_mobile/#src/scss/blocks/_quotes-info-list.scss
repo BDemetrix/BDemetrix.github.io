@@ -1,0 +1,29 @@
+.quotes-info-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: -15px -7px;
+
+    @media (min-width: 700px) {
+      justify-content: start;
+    }
+
+		// .quotes-info-list__item
+		&__item {
+      flex: 0 0 100%;
+      width: 100%;
+      max-width: 400px;
+      padding: 15px 7px;
+
+      @media (min-width: 700px) {
+        max-width: none;
+        flex: 0 0 50%;
+        width: 50%;
+      }
+
+      @media (min-width: 1020px) {
+        flex: 0 0 33.33%;
+        width: 33.33%;
+      }
+		}
+}
