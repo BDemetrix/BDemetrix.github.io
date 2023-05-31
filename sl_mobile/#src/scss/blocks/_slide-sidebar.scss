@@ -1,13 +1,14 @@
 .slide-sidebar {
     $delta: 60px;
     $time: 0.4s;
-    $convolutions-breakpoint: 1220px; // Ширина при которой сворачивается панель (была 1530px)
+    $convolutions-breakpoint: 1220px; // Ширина при которой сворачивается панель
+    $wide-convolutions-breakpoint: 1696px; // для (страницы /bonds.html) по модификатору &--wide равна ($widecontainer + $spaceBetweenCol*2 + $panelWidth)
 
     position: absolute;
-    z-index: 9;
-    top: 60px;
+    z-index: 99;
+    top: 0;
     right: 0;
-    height: calc(100% - 60px);
+    height: 100%;
     width: 0;
     padding: 15px 0 0;
     background: #f1f1f1;
@@ -20,20 +21,6 @@
         box-sizing: border-box;
     }
 
-    // для страницы /bonds.html
-    &--bonds {
-        top: 270px;
-        height: calc(100% - 270px);
-
-        @media (max-width: 1710px) {
-            display: none;
-        }
-
-        .slide-sidebar__banner {
-            display: none;
-        }
-    }
- 
     &--not-on-mobile {
         @media (max-width: $md3 + px) {
             display: none;
@@ -108,28 +95,75 @@
         }
     }
 
-    @media (min-width: $convolutions-breakpoint) {
-        width: 315px;
-        padding: 15px 15px 0 0;
-
-        &,
-        &--opened {
+    // для мобильного контейнера
+    &--mob {
+        @media (min-width: $convolutions-breakpoint) {
+            top: 60px;
             width: 315px;
+            height: calc(100% - 60px);
             padding: 15px 15px 0 0;
-            background: none;
-            border: none;
-            box-shadow: none;
 
-            .slide-sidebar__banner,
-            .slide-sidebar__title,
-            .slide-sidebar__content {
-                width: 300px;
+            &,
+            &--opened {
+                width: 315px;
+                padding: 15px 15px 0 0;
+                background: none;
+                border: none;
+                box-shadow: none;
+
+                .slide-sidebar__banner,
+                .slide-sidebar__title,
+                .slide-sidebar__content {
+                    width: 300px;
+                }
+            }
+
+            .slide-sidebar__cover,
+            .slide-sidebar__slide-btn {
+                display: none;
+            }
+
+            .slide-sidebar__fix-btn {
+                display: none;
             }
         }
+    }
 
-        .slide-sidebar__cover,
-        .slide-sidebar__slide-btn {
+    // для страницы /bonds.html
+    &--wide {
+        .slide-sidebar__banner {
             display: none;
+        }
+
+        @media (min-width: $wide-convolutions-breakpoint) {
+            width: 315px;
+            top: 270px;
+            height: calc(100% - 270px);
+            padding: 15px 15px 0 0;
+
+            &,
+            &--opened {
+                width: 315px;
+                padding: 15px 15px 0 0;
+                background: none;
+                border: none;
+                box-shadow: none;
+
+                .slide-sidebar__banner,
+                .slide-sidebar__title,
+                .slide-sidebar__content {
+                    width: 300px;
+                }
+            }
+
+            .slide-sidebar__cover,
+            .slide-sidebar__slide-btn {
+                display: none;
+            }
+
+            .slide-sidebar__fix-btn {
+                display: none;
+            }
         }
     }
 
@@ -322,9 +356,5 @@
         overflow: hidden;
         background: none;
         transition: all $time ease 0.5 * $time;
-
-        @media (min-width: $convolutions-breakpoint) {
-            display: none;
-        }
     }
 }

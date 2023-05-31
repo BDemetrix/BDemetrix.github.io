@@ -18,7 +18,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body class="_style-2 right-panel">
+<body class="_style-2 right-panel-wide">
+  <!-- 
+    right-panel-wide добавляется если есть правая панель при широкой центральной колонке _wide-container
+    right-panel добавляется если есть правая панель при узкой центральной колонке _mobile-container
+  -->
   <!-- классы ._style-1 , ._style-2 и ._style-3 используются для стилизации двух видов шаблонов 
 		Например: при body._style-1 Логотип имеет один цвет, а при body._style-2 и ._style-3 - другой
 		._style-1 для smart-lab.ru
@@ -948,7 +952,7 @@
     </div> 
   </div>
 </div>
-      <div class="main__quotes quotes-body _quotes-container">
+      <div class="main__quotes quotes-body _wide-container">
         <!-- .custom-card для стилиизации блоков с фоном, закругленными углами и тенью  -->
         <div class="quotes-body__info custom-card">
           <p>
@@ -2267,7 +2271,7 @@
     Для того что бы откарыть присвоить модификатор slide-sidebar--opened
     Чтобы эта панель скрывалась на "мобилбных" (при ширине < ) добавлется модификатор slide-sidebar--not-on-mobile
 -->
-<section class="slide-sidebar js-slide-sidebar slide-sidebar--not-on-mobile slide-sidebar--bonds">
+<section class="slide-sidebar js-slide-sidebar slide-sidebar--not-on-mobile slide-sidebar--wide">
     <div class="slide-sidebar__banner">
         <aside class="slide-sidebar__banner-content">
             <!-- Блок для демонстрации -->

@@ -338,7 +338,8 @@
 			font-weight: 600;
 
 			&:hover {
-				background: transparent;
+				background: #EFD700;
+				border-color: #EFD700;
 			}
 
 			@media (min-width: $md4 + px) {

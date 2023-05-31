@@ -30,8 +30,8 @@
   // .quotes-body__scroll-x-table 
   &__scroll-x-table {
     overflow: auto;
-    border-radius: 10px;
-
+    // border-radius: 10px 0 0 10px;
+    padding-bottom: 8px;
   }
   // .quotes-body__chart
   &__chart {

@@ -7,10 +7,10 @@
         z-index: -1;
         bottom: 50px;
         //left: calc((100vw - 768px)/4 - 25px);
-        left: calc(50vw + 768px/2 + 15px);
+        left: calc(50vw + 768px / 2 + 15px);
         background: none;
         border: 0;
-        transition: all .4s ease;
+        transition: all 0.4s ease;
 
         &--visible {
             z-index: 99;
@@ -19,7 +19,7 @@
         }
 
         svg {
-            transition: all .4s ease;
+            transition: all 0.4s ease;
             fill-opacity: 0.2;
         }
 
@@ -35,38 +35,64 @@
     }
 }
 
-// Если на странице есть правая колонка, то body добавлется класс right-panel 
+// .right-panel-wide добавляется если есть правая панель при широкой центральной колонке _wide-container
+// .right-panel добавляется если есть правая панель при узкой центральной колонке _mobile-container
 .right-panel .arrow-to-top {
-    left: calc((100vw - 768px)/2 - 65px);
+    left: calc((100vw - 768px) / 2 - 65px);
 
     @media (min-width: 1080px) {
         //left: calc((100vw - 768px)/4 - 25px);
-        left: calc((100vw - 768px)/2 - 65px);
+        left: calc((100vw - 768px) / 2 - 65px);
     }
 
     @media (min-width: 1220px) {
-        left: calc((100vw - 768px - 320px)/4 - 25px);
-    }
-    
-    @media (min-width: 1230px) { 
-       left: calc((100vw - 768px - 320px)/2 + 768px + 15px);
+        left: calc((100vw - 768px - 320px) / 4 - 25px);
     }
 
-    @media (min-width: 1530px) { 
-        $left-field: calc((100vw - 768px)/2);
+    @media (min-width: 1230px) {
+        left: calc((100vw - 768px - 320px) / 2 + 768px + 15px);
+    }
+
+    @media (min-width: 1530px) {
+        $left-field: calc((100vw - 768px) / 2);
         left: calc($left-field - 65px);
     }
 
-/*     @media (min-width: 1600px) { 
+    /*     @media (min-width: 1600px) { 
         $left-field: calc((100vw - 768px)/2);
         left: calc($left-field + 768px + (($left-field - 300px - 50px)/3));
     } */
 
-    @media (min-width: 1600px) { 
-        $left-field: calc((100vw - 768px)/2);
+    @media (min-width: 1600px) {
+        $left-field: calc((100vw - 768px) / 2);
         left: calc($left-field + 768px + 15px);
     }
 }
+
+.right-panel-wide .arrow-to-top {
+
+    bottom: 15px;
+    left: 15px;
+
+    @media (min-width: calc(($widecontainer + $spaceBetweenCol*2 + $panelWidth)*1px)) {
+        left: calc((100vw - $widecontainer * 1px - $panelWidth * 1px) / 4 - 25px);
+    }
+
+    @media (min-width: calc(($widecontainer + $spaceBetweenCol*2 + $panelWidth + 10)*1px)) {
+        left: calc((100vw - $widecontainer * 1px - $panelWidth * 1px) / 2 + $widecontainer * 1px + 15px);
+    }
+
+    @media (min-width: calc(($widecontainer + $spaceBetweenCol*2 + $panelWidth*2)*1px)) {
+        $left-field: calc((100vw - $widecontainer * 1px) / 2);
+        left: calc($left-field - 65px);
+    }
+
+    @media (min-width: calc(($widecontainer + $spaceBetweenCol*2 + $panelWidth*2 + 70)*1px)) {
+        $left-field: calc((100vw - $widecontainer * 1px) / 2);
+        left: calc($left-field + $widecontainer * 1px + 15px);
+    }
+}
+
 /* .right-panel .arrow-to-top {
     @media (min-width: 1080px) {
         left: calc((100vw - 768px)/4 - 25px);
@@ -80,4 +106,3 @@
        left: 50px;
     }
 } */
-

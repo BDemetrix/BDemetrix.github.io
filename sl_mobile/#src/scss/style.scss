@@ -14,7 +14,7 @@
 //</Иконочные шрифты>==========================================================================================
 
 //<Шрифт по умолчанию>==========================================================================================
-$fontFamily: Roboto, Arial,  Verdana, sans-serif;
+$fontFamily: Roboto, Arial, Verdana, sans-serif;
 //</Шрифт по умолчанию>==========================================================================================
 
 //</ШРИФТЫ>=======================================================================================================
@@ -39,12 +39,12 @@ body {
 		overflow: hidden;
 	}
 }
-html._lock  {
+html._lock {
 	overflow: hidden;
 }
 picture {
-    line-height: 0;
-    font-size: 0;
+	line-height: 0;
+	font-size: 0;
 }
 //</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
 
@@ -64,31 +64,49 @@ picture {
 	margin: 0 auto;
 }
 
+$spaceBetweenCol: 66; // расстоние мехду колонками
+$panelWidth: 320; // ширина правой панели
+$mobileContainer: 768;
 ._mobile-container {
-	max-width: 768px;
-	margin: 0 auto; 
+	max-width: $mobileContainer + px;
+	margin: 0 auto;
 }
 
 .right-panel ._mobile-container {
-	@media (min-width: 1220px) {
-		margin-left: calc((100vw - 768px - 320px)/2);
+	@media (min-width: calc(($mobileContainer + $spaceBetweenCol*2 + $panelWidth)*1px)) {
+		margin-left: calc((100vw - $mobileContainer * 1px - $panelWidth * 1px) / 2);
 	}
 
-	@media (min-width: 1530px) {
-		margin-left: auto; 
+	@media (min-width: calc(($mobileContainer + $spaceBetweenCol*2 + $panelWidth*2)*1px)) {
+		//1530px
+		margin-left: auto;
 	}
 }
 
-// Контейнер для страницы котировок 
-._quotes-container {
-	max-width: 1244px;
-	margin: 0 auto; 
+$widecontainer: 1244;
+// Контейнер для страницы котировок
+._wide-container {
+	max-width: $widecontainer + px;
+	margin: 0 auto;
 	padding: 0 10px;
 }
 
-.right-panel ._quotes-container {
-	@media (min-width: 1710px) {
-		margin-left: calc((100vw - 1224px - 320px)/2);
+.right-panel-wide {
+	._wide-container {
+		@media (min-width: calc(($widecontainer + $spaceBetweenCol*2 + $panelWidth)*1px)) {
+			margin-left: calc((100vw - $widecontainer * 1px - $panelWidth * 1px) / 2);
+		}
+
+		@media (min-width: calc(($widecontainer + $spaceBetweenCol*2 + $panelWidth*2)*1px)) {
+			margin-left: auto;
+		}
+	}
+
+	@media (min-width: calc(($widecontainer + $spaceBetweenCol*2 + $panelWidth)*1px)) {
+		// костыль для контейнера с кнопками на стр. котировок
+		.qn-menu__actions-wrap {
+			max-width: calc(100vw - $panelWidth * 1px - 30px) !important;
+		}
 	}
 }
 
@@ -104,7 +122,7 @@ picture {
 @import "./plugins/sumoselect";
 @import "./plugins/nouislider";
 @import "./plugins/flex-table";
-@import "./plugins/jBox.all";  // Может испортить верстку
+@import "./plugins/jBox.all"; // Может испортить верстку
 //@import "./plugins/swiper-bundle.min.css"; // Подключен минимальный наботр правил _custom-swiper
 @import "./blocks/_custom-swiper"; // Минимальные и необходимые стили для слайдера swiper
 @import "./blocks/_header";
@@ -112,7 +130,7 @@ picture {
 @import "./blocks/_search-block";
 @import "./blocks/_menu";
 @import "./blocks/_alphabet";
-@import "./blocks/_navbar"; 
+@import "./blocks/_navbar";
 @import "./blocks/_apps-box";
 @import "./blocks/_quotes";
 @import "./blocks/_sections-box";
@@ -159,16 +177,12 @@ picture {
 @import "./blocks/_pager";
 //@import "./plugins/datepicker-new";
 
-
-
 // стили для темной темы должны подклячаться в конце
 @import "./blocks/dark-theme";
 
-
-// Костыли для совместимости 
-@import "./blocks/crutches"; 
+// Костыли для совместимости
+@import "./blocks/crutches";
 @import "./blocks/style.more.login";
-
 
 //</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
 
