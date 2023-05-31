@@ -10501,6 +10501,32 @@ textarea {
   letter-spacing: 0.0125em;
 }
 
+.short-comment--wide-company .short-comment__info {
+  position: relative;
+}
+
+.short-comment--wide-company .short-comment__column:first-child {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  width: 100%;
+}
+
+.short-comment--wide-company .short-comment__column:first-child .short-comment__inner {
+  width: calc(100% - 50px);
+}
+
+.short-comment--wide-company .short-comment__column:first-child .short-comment__author {
+  width: calc(100% - 55px);
+}
+
+.short-comment--wide-company .short-comment__column:last-child {
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  bottom: 0;
+}
+
 .short-comment__info {
   width: 100%;
   display: -webkit-box;

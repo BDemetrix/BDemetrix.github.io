@@ -6,6 +6,35 @@
     border-radius: 10px;
     letter-spacing: 0.0125em;
 
+    &--wide-company {
+        .short-comment__info {
+            position: relative;
+        }
+
+        .short-comment__column {
+            &:first-child {
+                flex: 0 0 100%;
+                width: 100%;
+
+                .short-comment__inner {
+                    width: calc(100% - 50px);
+                }
+
+                .short-comment__author {
+                    width: calc(100% - 55px);
+                }
+            }
+
+            &:last-child {
+                position: absolute;
+                z-index: 3;
+                right: 0;
+                bottom: 0;
+
+            }
+        }
+    }
+
     // .short-comment__info
     &__info {
         width: 100%;
