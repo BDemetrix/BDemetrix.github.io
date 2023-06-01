@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('_head.html',{
+"title":"Фьючерс",
+"stylesheet": "./css/style.css"
+})
+
+<body class="_style-2">
+  <!-- 
+    right-panel-wide добавляется если есть правая панель при широкой центральной колонке _wide-container
+    right-panel добавляется если есть правая панель при узкой центральной колонке _mobile-container
+  -->
+  <!-- классы ._style-1 , ._style-2 и ._style-3 используются для стилизации двух видов шаблонов 
+		Например: при body._style-1 Логотип имеет один цвет, а при body._style-2 и ._style-3 - другой
+		._style-1 для smart-lab.ru
+		._style-2 для smart-lab.ru/q/
+		._style-3 для smart-lab.ru/forum/
+		-->
+  <div class="wrapper">
+    @@include('_header--navbar.html',{"Class": "_container", "ModClass": "header--with-navbar"})
+    <main class="main main--quotes">
+      @@include('_quotes-menu--futures.html', {
+      "MixClass": "",
+      })
+      <div class="main__quotes quotes-body _wide-container">
+        <!-- .custom-card для стилиизации блоков с фоном, закругленными углами и тенью  -->
+        <div class="quotes-body__info custom-card">
+          <p>
+            Курс: китайский юань – российский рубль
+          </p>
+        </div>
+        <div class="quotes-body__block">
+          <section class="quotes-info-list">
+            <article class="quotes-info-list__item">
+              <div class="quotes-simple-table custom-card">
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Поcледняя цена</div>
+                  <div class="quotes-simple-table__item">79 664</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Изм за день, %</div>
+                  <div class="quotes-simple-table__item quotes-simple-table__item--green">+6,13%</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Цена контракта</div>
+                  <div class="quotes-simple-table__item">79 664 ₽</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Гарантийное обеспечение, ₽ (?)</div>
+                  <div class="quotes-simple-table__item">12 352 ₽</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Максимальное плечо</div>
+                  <div class="quotes-simple-table__item">6</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">&nbsp;</div>
+                  <div class="quotes-simple-table__item quotes-simple-table__item--bold">&nbsp;</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Объем сегодня, млн руб</div>
+                  <div class="quotes-simple-table__item">38 449</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Объем контрактов, сегодня</div>
+                  <div class="quotes-simple-table__item">483 285</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Число сделок, сегодня</div>
+                  <div class="quotes-simple-table__item">86 741</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">&nbsp;</div>
+                  <div class="quotes-simple-table__item">&nbsp;</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Открытый интерес (?)</div>
+                  <div class="quotes-simple-table__item">3 931 686</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Изм. ОИ за день</div>
+                  <div class="quotes-simple-table__item quotes-simple-table__item--red">-58 632</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="quotes-info-list__item">
+              <div class="quotes-simple-table custom-card">
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Дата экспирации</div>
+                  <div class="quotes-simple-table__item">15.06.2023</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Последний день обращения</div>
+                  <div class="quotes-simple-table__item">15.06.2023</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">&nbsp;</div>
+                  <div class="quotes-simple-table__item">&nbsp;</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Дата торгов</div>
+                  <div class="quotes-simple-table__item">16.05.2023</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Время последней сделки</div>
+                  <div class="quotes-simple-table__item">11:18:58</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Время обновления</div>
+                  <div class="quotes-simple-table__item">10:46:05</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">&nbsp;</div>
+                  <div class="quotes-simple-table__item">&nbsp;</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Число баз.актива в контракте</div>
+                  <div class="quotes-simple-table__item">1000</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Шаг цены</div>
+                  <div class="quotes-simple-table__item">1</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Стоимость шага цены</div>
+                  <div class="quotes-simple-table__item">1 ₽</div>
+                </div> 
+              </div>
+            </article>
+
+            <article class="quotes-info-list__item">
+              <div class="quotes-simple-table custom-card">
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Тикер фьючерса</div>
+                  <div class="quotes-simple-table__item">SiM3</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Имя фьючерса</div>
+                  <div class="quotes-simple-table__item">Si-6.23</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Полное название фьючерса</div>
+                  <div class="quotes-simple-table__item">Фьючерсный контракт Si-6.23</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">&nbsp;</div>
+                  <div class="quotes-simple-table__item">&nbsp;</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Планка сверху (?)</div>
+                  <div class="quotes-simple-table__item">165 208</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Планка снизу (?)</div>
+                  <div class="quotes-simple-table__item">6 760</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">&nbsp;</div>
+                  <div class="quotes-simple-table__item">&nbsp;</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Максимум дня</div>
+                  <div class="quotes-simple-table__item">79 970</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Минимум дня</div>
+                  <div class="quotes-simple-table__item">79 037</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">&nbsp;</div>
+                  <div class="quotes-simple-table__item">&nbsp;</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Тек. расчетная цена</div>
+                  <div class="quotes-simple-table__item">79 421</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Изм. расчетной цены</div>
+                  <div class="quotes-simple-table__item">+447</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Изм. расчетной цены,%</div>
+                  <div class="quotes-simple-table__item">+0,56%</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Цена пред.дня</div>
+                  <div class="quotes-simple-table__item">79 224</div>
+                </div>
+              </div>
+            </article>
+          </section>
+        </div>
+
+        
+        <div class="quotes-body__block">
+          <div class="quotes-body__block-title">
+            График фьючерса CRM3 (CNY-6.23)
+          </div>
+          <div class="quotes-body__chart quotes-body__chart--for-abs">
+            <div class="quotes-body__chart-inner quotes-body__chart-inner--abs">
+              <!-- Место для графика -->
+              <!-- <img src="./images/chart.png" alt=""> -->
+
+                <!-- TradingView Widget BEGIN -->
+                <script type="text/javascript" src="https://d33t3vvu2t2yu5.cloudfront.net/tv.js"></script>
+                <script type="text/javascript">
+                  new TradingView.widget({
+                    "customer": "smartlab",
+                    "autosize": true,
+                    "symbol": "MOEX:CRM2023",
+                    "interval": "60",
+                    "timezone": "Europe/Moscow",
+                    "theme": "White",
+                    "style": "1",
+                    "locale": "ru",
+                    "toolbar_bg": "#656565",
+                    "withdateranges": true,
+                    "hide_side_toolbar": false,
+                    "allow_symbol_change": true,
+                    "hideideas": true,
+                    "referral_id": "1339"
+                  }); 
+                </script>
+                <div id="tradingview_4b1bd-wrapper"
+                  style="position: relative;box-sizing: content-box;width: 100%;height: 100%;margin: 0 auto !important;padding: 0 !important;font-family: -apple-system, BlinkMacSystemFont, 'Trebuchet MS', Roboto, Ubuntu, sans-serif;">
+                  <div style="width: 100%;height: 100%;background: transparent;padding: 0 !important;">
+                    <iframe id="tradingview_4b1bd"
+                      src="https://s.tradingview.com/smartlab/widgetembed/?frameElementId=tradingview_4b1bd&amp;symbol=MOEX%3ACRM2023&amp;interval=60&amp;hidesidetoolbar=0&amp;symboledit=1&amp;saveimage=1&amp;toolbarbg=656565&amp;studies=%5B%5D&amp;hideideas=1&amp;theme=White&amp;style=1&amp;timezone=Europe%2FMoscow&amp;withdateranges=1&amp;studies_overrides=%7B%7D&amp;overrides=%7B%7D&amp;enabled_features=%5B%5D&amp;disabled_features=%5B%5D&amp;locale=ru&amp;referral_id=1339&amp;utm_source=smart-lab.ru&amp;utm_medium=widget&amp;utm_campaign=chart&amp;utm_term=MOEX%3ACRM2023#%7B%22page-uri%22%3A%22smart-lab.ru%2Fq%2Ffutures%2FCRM3%2F%22%7D"
+                      style="width: 100%; height: 100%; margin: 0 !important; padding: 0 !important;" frameborder="0"
+                      allowtransparency="true" scrolling="no" allowfullscreen="">
+                    </iframe>
+                  </div>
+                </div>
+                <!-- TradingView Widget END -->
+              
+
+            </div> 
+          </div>
+        </div>
+      </div>
+    </main>
+    @@include('_footer.html',{'Class': 'footer--mt-50'})
+  </div>
+  @@include('_js.html',{})
+</body>
+
+</html>

@@ -27,7 +27,7 @@
     font-size: 16px;
     color: #000000;
   }
-  // .quotes-body__scroll-x-table 
+  // .quotes-body__scroll-x-table
   &__scroll-x-table {
     overflow: auto;
     // border-radius: 10px 0 0 10px;
@@ -35,20 +35,34 @@
   }
   // .quotes-body__chart
   &__chart {
-    &>div {
+    & > div {
       width: 100%;
     }
-    &>div>svg,
+    & > div > svg,
     .highcharts-root {
       width: 100%;
       height: auto;
     }
+
+    &--for-abs {
+      position: relative;
+      padding-bottom: 46.5%;
+    }
   }
-  // .quotes-body__chart-inner 
+  // .quotes-body__chart-inner
   &__chart-inner {
     width: 100%;
     img {
       width: 100%;
+    }
+
+    &--abs {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      overflow: hidden;
     }
   }
 }
