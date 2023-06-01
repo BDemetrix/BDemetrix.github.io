@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('_head.html',{
+"title":"Облигации",
+"stylesheet": "./css/style.css"
+})
+
+<body class="_style-2">
+  <!-- 
+    right-panel-wide добавляется если есть правая панель при широкой центральной колонке _wide-container
+    right-panel добавляется если есть правая панель при узкой центральной колонке _mobile-container
+  -->
+  <!-- классы ._style-1 , ._style-2 и ._style-3 используются для стилизации двух видов шаблонов 
+		Например: при body._style-1 Логотип имеет один цвет, а при body._style-2 и ._style-3 - другой
+		._style-1 для smart-lab.ru
+		._style-2 для smart-lab.ru/q/
+		._style-3 для smart-lab.ru/forum/
+		-->
+  <div class="wrapper">
+    @@include('_header--navbar.html',{"Class": "_container", "ModClass": "header--with-navbar"})
+    <main class="main main--quotes main--pb-50">
+      @@include('_quotes-menu--etf.html', {
+      "MixClass": ""
+      })
+      <div class="main__quotes quotes-body _wide-container">
+        <!-- .custom-card для стилиизации блоков с фоном, закругленными углами и тенью  -->
+        <div class="quotes-body__block">
+          <section class="quotes-info-list">
+            <article class="quotes-info-list__item">
+              <div class="quotes-simple-table custom-card">
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Код ценной бумаги</div>
+                  <div class="quotes-simple-table__item">TMOS</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Полное наименование</div>
+                  <div class="quotes-simple-table__item">БПИФ ТИНЬКОФФ ИНДЕКС МОСБИРЖИ</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Краткое наименование</div>
+                  <div class="quotes-simple-table__item">TMOS ETF</div> 
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Регистрационный номер</div>
+                  <div class="quotes-simple-table__item">4100</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Код ISIN</div>
+                  <div class="quotes-simple-table__item">RU000A101X76</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Режим торгов</div>
+                  <div class="quotes-simple-table__item">Т+: ETF - безадрес.</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Сектор </div>
+                  <div class="quotes-simple-table__item">-</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Группа инструментов</div>
+                  <div class="quotes-simple-table__item">IFTF</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Рынок</div>
+                  <div class="quotes-simple-table__item">FNDT</div>
+                </div> 
+              </div>
+            </article>
+
+            <article class="quotes-info-list__item">
+              <div class="quotes-simple-table custom-card">
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Цена последней сделки</div>
+                  <div class="quotes-simple-table__item">5.176            </div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Изм за день, %</div>
+                  <div class="quotes-simple-table__item quotes-simple-table__item--green">+0.23%            </div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Объем торгов сегодня</div>
+                  <div class="quotes-simple-table__item">91318987            </div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Цена на покупку (BID), руб</div>
+                  <div class="quotes-simple-table__item">5.174            </div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">&nbsp;</div>
+                  <div class="quotes-simple-table__item">&nbsp;</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Цена на продажу (OFFER), руб</div>
+                  <div class="quotes-simple-table__item">5.176            </div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Последняя цена пред. дня</div>
+                  <div class="quotes-simple-table__item">5.164            </div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Цена закрытия пред. дня</div>
+                  <div class="quotes-simple-table__item">5.158            </div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Признаваемая котир. пред. дня</div>
+                  <div class="quotes-simple-table__item">4.186            </div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Валюта</div>
+                  <div class="quotes-simple-table__item">SUR</div>
+                </div> 
+              </div>
+            </article>
+          
+            <article class="quotes-info-list__item">
+              <div class="quotes-simple-table custom-card">
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Номинал</div>
+                  <div class="quotes-simple-table__item">0</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Мин. шаг цены</div>
+                  <div class="quotes-simple-table__item">0.002</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Валюта номинала</div>
+                  <div class="quotes-simple-table__item">SUR</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Размер лота</div>
+                  <div class="quotes-simple-table__item">1</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Объем выпуска, шт</div>
+                  <div class="quotes-simple-table__item">0</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">&nbsp;</div>
+                  <div class="quotes-simple-table__item">&nbsp;</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Тип ценной бумаги</div>
+                  <div class="quotes-simple-table__item">J</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Уровень листинга</div>
+                  <div class="quotes-simple-table__item">1</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Дата последних торгов</div>
+                  <div class="quotes-simple-table__item">2023-05-19</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Дата расчетов сделки</div>
+                  <div class="quotes-simple-table__item">2023-05-24</div>
+                </div>
+              </div>
+            </article> 
+          </section>
+        </div>
+
+      </div>
+    </main>
+    @@include('_footer.html',{'Class': ''})
+  </div>
+  @@include('_js.html',{})
+</body>
+
+</html>

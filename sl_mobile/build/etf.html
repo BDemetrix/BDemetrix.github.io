@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
  <head>
-	<title>Фьючерс</title>
+	<title>Облигации</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	
@@ -754,7 +754,7 @@
     <div class="qn-menu__tabs-control _spoller _container">
       <span>Котировки</span>
       <svg class="qn-menu__tabs-control_arrow">
-          <use xlink:href="images/symbol/sprite.svg#ic_spoller_arrow"></use>
+        <use xlink:href="images/symbol/sprite.svg#ic_spoller_arrow"></use>
       </svg>
       <!-- qn-menu__mob-tabs появляется толоко при разнрешении меньше 767.98 -->
       <div class="qn-menu__mob-tabs">
@@ -875,11 +875,13 @@
 </div>
   </div>
   <div class="qn-menu__box _container">
-    <h1 class="qn-menu__title qn-menu__title--wrap">Фьючерс CRM3 (CNY-6.23) = цена, котировки, график, характеристики</h1>
-    <div class="qn-menu__actions">
-      <!-- Класс _active-el нужен для синхронизации закрытия всех меню -->
+    <h1 class="qn-menu__title qn-menu__title--wrap">БПИФ ТИНЬКОФФ ИНДЕКС МОСБИРЖИ (TMOS) Цена, Информация</h1>
+    <!-- Дополнительная обертка .qn-menu__actions-wrap добавляется если надо, чтоб одна из кнопок оставалась справа -->
+    <div class="qn-menu__actions-wrap">
+      <div class="qn-menu__actions">
+        <!-- Класс _active-el нужен для синхронизации закрытия всех меню -->
 <div class="qn-menu__buy-shares buy-shares context-menu">
-  <button class="buy-shares__btn">Купить фьючерсы</button>
+  <button class="buy-shares__btn">Купить ETF</button>
   <ul class="buy-shares__popup">
     <li>
       <a class="buy-shares__link" href="https://www.finam.ru/services/promo00096/?AgencyBAckofficeID=1&amp;agent=17FDE70F-5D0A-4DE9-809E-A9F5334CE8DD" target="_blank" rel="nofollow"> 
@@ -918,118 +920,74 @@
     </li>
   </ul>
 </div>
-      <button class="qn-menu__btn qn-menu__btn--calc">
-        <svg>
-          <use xlink:href="images/symbol/sprite.svg#ic_calculator"></use>
-        </svg>
-        <span>Калькулятор фьючерсов</span>
-      </button>
-    </div>
+        <a href="#" class="qn-menu__btn qn-menu__btn--simple">
+          Обсудить на форуме Тинькофф iMOEX
+        </a>
+
+        <div class="context-menu">
+          <button class="qn-menu__btn qn-menu__btn--simple context-menu__btn">
+            +&nbsp;в&nbsp;Портфель
+          </button>
+          <ul class="context-menu__list">
+            <li><button class="context-menu__item">+&nbsp;Новый&nbsp;Портфель</button></li>
+            <li><button class="context-menu__item">Основной</button></li>
+          </ul>
+        </div>
+
+        <div class="context-menu">
+          <button class="qn-menu__btn qn-menu__btn--simple context-menu__btn">
+            +&nbsp;в&nbsp;Список
+          </button>
+          <ul class="context-menu__list">
+            <li><button class="context-menu__item">+&nbsp;Новый&nbsp;Список</button></li>
+            <li><button class="context-menu__item">Основной</button></li>
+          </ul>
+        </div> 
+      </div>
+    </div> 
   </div>
 </div>
       <div class="main__quotes quotes-body _wide-container">
         <!-- .custom-card для стилиизации блоков с фоном, закругленными углами и тенью  -->
-        <div class="quotes-body__info custom-card">
-          <p>
-            Курс: китайский юань – российский рубль
-          </p>
-        </div>
         <div class="quotes-body__block">
           <section class="quotes-info-list">
             <article class="quotes-info-list__item">
               <div class="quotes-simple-table custom-card">
                 <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Поcледняя цена</div>
-                  <div class="quotes-simple-table__item">79 664</div>
+                  <div class="quotes-simple-table__item">Код ценной бумаги</div>
+                  <div class="quotes-simple-table__item">TMOS</div>
                 </div>
                 <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Изм за день, %</div>
-                  <div class="quotes-simple-table__item quotes-simple-table__item--green">+6,13%</div>
+                  <div class="quotes-simple-table__item">Полное наименование</div>
+                  <div class="quotes-simple-table__item">БПИФ ТИНЬКОФФ ИНДЕКС МОСБИРЖИ</div>
                 </div>
                 <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Цена контракта</div>
-                  <div class="quotes-simple-table__item">79 664 ₽</div>
+                  <div class="quotes-simple-table__item">Краткое наименование</div>
+                  <div class="quotes-simple-table__item">TMOS ETF</div> 
                 </div>
                 <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Гарантийное обеспечение, ₽ (?)</div>
-                  <div class="quotes-simple-table__item">12 352 ₽</div>
+                  <div class="quotes-simple-table__item">Регистрационный номер</div>
+                  <div class="quotes-simple-table__item">4100</div>
                 </div>
                 <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Максимальное плечо</div>
-                  <div class="quotes-simple-table__item">6</div>
+                  <div class="quotes-simple-table__item">Код ISIN</div>
+                  <div class="quotes-simple-table__item">RU000A101X76</div>
                 </div>
                 <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">&nbsp;</div>
-                  <div class="quotes-simple-table__item quotes-simple-table__item--bold">&nbsp;</div>
+                  <div class="quotes-simple-table__item">Режим торгов</div>
+                  <div class="quotes-simple-table__item">Т+: ETF - безадрес.</div>
                 </div>
                 <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Объем сегодня, млн руб</div>
-                  <div class="quotes-simple-table__item">38 449</div>
+                  <div class="quotes-simple-table__item">Сектор </div>
+                  <div class="quotes-simple-table__item">-</div>
                 </div>
                 <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Объем контрактов, сегодня</div>
-                  <div class="quotes-simple-table__item">483 285</div>
+                  <div class="quotes-simple-table__item">Группа инструментов</div>
+                  <div class="quotes-simple-table__item">IFTF</div>
                 </div>
                 <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Число сделок, сегодня</div>
-                  <div class="quotes-simple-table__item">86 741</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">&nbsp;</div>
-                  <div class="quotes-simple-table__item">&nbsp;</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Открытый интерес (?)</div>
-                  <div class="quotes-simple-table__item">3 931 686</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Изм. ОИ за день</div>
-                  <div class="quotes-simple-table__item quotes-simple-table__item--red">-58 632</div>
-                </div>
-              </div>
-            </article>
-
-            <article class="quotes-info-list__item">
-              <div class="quotes-simple-table custom-card">
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Дата экспирации</div>
-                  <div class="quotes-simple-table__item">15.06.2023</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Последний день обращения</div>
-                  <div class="quotes-simple-table__item">15.06.2023</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">&nbsp;</div>
-                  <div class="quotes-simple-table__item">&nbsp;</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Дата торгов</div>
-                  <div class="quotes-simple-table__item">16.05.2023</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Время последней сделки</div>
-                  <div class="quotes-simple-table__item">11:18:58</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Время обновления</div>
-                  <div class="quotes-simple-table__item">10:46:05</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">&nbsp;</div>
-                  <div class="quotes-simple-table__item">&nbsp;</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Число баз.актива в контракте</div>
-                  <div class="quotes-simple-table__item">1000</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Шаг цены</div>
-                  <div class="quotes-simple-table__item">1</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Стоимость шага цены</div>
-                  <div class="quotes-simple-table__item">1 ₽</div>
+                  <div class="quotes-simple-table__item">Рынок</div>
+                  <div class="quotes-simple-table__item">FNDT</div>
                 </div> 
               </div>
             </article>
@@ -1037,112 +995,95 @@
             <article class="quotes-info-list__item">
               <div class="quotes-simple-table custom-card">
                 <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Тикер фьючерса</div>
-                  <div class="quotes-simple-table__item">SiM3</div>
+                  <div class="quotes-simple-table__item">Цена последней сделки</div>
+                  <div class="quotes-simple-table__item">5.176            </div>
                 </div>
                 <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Имя фьючерса</div>
-                  <div class="quotes-simple-table__item">Si-6.23</div>
+                  <div class="quotes-simple-table__item">Изм за день, %</div>
+                  <div class="quotes-simple-table__item quotes-simple-table__item--green">+0.23%            </div>
                 </div>
                 <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Полное название фьючерса</div>
-                  <div class="quotes-simple-table__item">Фьючерсный контракт Si-6.23</div>
+                  <div class="quotes-simple-table__item">Объем торгов сегодня</div>
+                  <div class="quotes-simple-table__item">91318987            </div>
                 </div>
                 <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">&nbsp;</div>
-                  <div class="quotes-simple-table__item">&nbsp;</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Планка сверху (?)</div>
-                  <div class="quotes-simple-table__item">165 208</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Планка снизу (?)</div>
-                  <div class="quotes-simple-table__item">6 760</div>
+                  <div class="quotes-simple-table__item">Цена на покупку (BID), руб</div>
+                  <div class="quotes-simple-table__item">5.174            </div>
                 </div>
                 <div class="quotes-simple-table__row">
                   <div class="quotes-simple-table__item">&nbsp;</div>
                   <div class="quotes-simple-table__item">&nbsp;</div>
                 </div>
                 <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Максимум дня</div>
-                  <div class="quotes-simple-table__item">79 970</div>
+                  <div class="quotes-simple-table__item">Цена на продажу (OFFER), руб</div>
+                  <div class="quotes-simple-table__item">5.176            </div>
                 </div>
                 <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Минимум дня</div>
-                  <div class="quotes-simple-table__item">79 037</div>
+                  <div class="quotes-simple-table__item">Последняя цена пред. дня</div>
+                  <div class="quotes-simple-table__item">5.164            </div>
                 </div>
                 <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">&nbsp;</div>
-                  <div class="quotes-simple-table__item">&nbsp;</div>
+                  <div class="quotes-simple-table__item">Цена закрытия пред. дня</div>
+                  <div class="quotes-simple-table__item">5.158            </div>
                 </div>
                 <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Тек. расчетная цена</div>
-                  <div class="quotes-simple-table__item">79 421</div>
+                  <div class="quotes-simple-table__item">Признаваемая котир. пред. дня</div>
+                  <div class="quotes-simple-table__item">4.186            </div>
                 </div>
                 <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Изм. расчетной цены</div>
-                  <div class="quotes-simple-table__item">+447</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Изм. расчетной цены,%</div>
-                  <div class="quotes-simple-table__item">+0,56%</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Цена пред.дня</div>
-                  <div class="quotes-simple-table__item">79 224</div>
-                </div>
+                  <div class="quotes-simple-table__item">Валюта</div>
+                  <div class="quotes-simple-table__item">SUR</div>
+                </div> 
               </div>
             </article>
+          
+            <article class="quotes-info-list__item">
+              <div class="quotes-simple-table custom-card">
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Номинал</div>
+                  <div class="quotes-simple-table__item">0</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Мин. шаг цены</div>
+                  <div class="quotes-simple-table__item">0.002</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Валюта номинала</div>
+                  <div class="quotes-simple-table__item">SUR</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Размер лота</div>
+                  <div class="quotes-simple-table__item">1</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Объем выпуска, шт</div>
+                  <div class="quotes-simple-table__item">0</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">&nbsp;</div>
+                  <div class="quotes-simple-table__item">&nbsp;</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Тип ценной бумаги</div>
+                  <div class="quotes-simple-table__item">J</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Уровень листинга</div>
+                  <div class="quotes-simple-table__item">1</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Дата последних торгов</div>
+                  <div class="quotes-simple-table__item">2023-05-19</div>
+                </div>
+                <div class="quotes-simple-table__row">
+                  <div class="quotes-simple-table__item">Дата расчетов сделки</div>
+                  <div class="quotes-simple-table__item">2023-05-24</div>
+                </div>
+              </div>
+            </article> 
           </section>
         </div>
 
-        
-        <div class="quotes-body__block">
-          <div class="quotes-body__block-title">
-            График фьючерса CRM3 (CNY-6.23)
-          </div>
-          <div class="quotes-body__chart quotes-body__chart--for-abs">
-            <div class="quotes-body__chart-inner quotes-body__chart-inner--abs">
-              <!-- Место для графика -->
-              <!-- <img src="./images/chart.png" alt=""> -->
-
-                <!-- TradingView Widget BEGIN -->
-                <script type="text/javascript" src="https://d33t3vvu2t2yu5.cloudfront.net/tv.js"></script>
-                <script type="text/javascript">
-                  new TradingView.widget({
-                    "customer": "smartlab",
-                    "autosize": true,
-                    "symbol": "MOEX:CRM2023",
-                    "interval": "60",
-                    "timezone": "Europe/Moscow",
-                    "theme": "White",
-                    "style": "1",
-                    "locale": "ru",
-                    "toolbar_bg": "#656565",
-                    "withdateranges": true,
-                    "hide_side_toolbar": false,
-                    "allow_symbol_change": true,
-                    "hideideas": true,
-                    "referral_id": "1339"
-                  }); 
-                </script>
-                <div id="tradingview_4b1bd-wrapper"
-                  style="position: relative;box-sizing: content-box;width: 100%;height: 100%;margin: 0 auto !important;padding: 0 !important;font-family: -apple-system, BlinkMacSystemFont, 'Trebuchet MS', Roboto, Ubuntu, sans-serif;">
-                  <div style="width: 100%;height: 100%;background: transparent;padding: 0 !important;">
-                    <iframe id="tradingview_4b1bd"
-                      src="https://s.tradingview.com/smartlab/widgetembed/?frameElementId=tradingview_4b1bd&amp;symbol=MOEX%3ACRM2023&amp;interval=60&amp;hidesidetoolbar=0&amp;symboledit=1&amp;saveimage=1&amp;toolbarbg=656565&amp;studies=%5B%5D&amp;hideideas=1&amp;theme=White&amp;style=1&amp;timezone=Europe%2FMoscow&amp;withdateranges=1&amp;studies_overrides=%7B%7D&amp;overrides=%7B%7D&amp;enabled_features=%5B%5D&amp;disabled_features=%5B%5D&amp;locale=ru&amp;referral_id=1339&amp;utm_source=smart-lab.ru&amp;utm_medium=widget&amp;utm_campaign=chart&amp;utm_term=MOEX%3ACRM2023#%7B%22page-uri%22%3A%22smart-lab.ru%2Fq%2Ffutures%2FCRM3%2F%22%7D"
-                      style="width: 100%; height: 100%; margin: 0 !important; padding: 0 !important;" frameborder="0"
-                      allowtransparency="true" scrolling="no" allowfullscreen="">
-                    </iframe>
-                  </div>
-                </div>
-                <!-- TradingView Widget END -->
-              
-
-            </div> 
-          </div>
-        </div>
       </div>
     </main>
     <footer class="footer ">

@@ -5336,6 +5336,10 @@ textarea {
           box-sizing: border-box;
 }
 
+.main--pb-50 {
+  padding-bottom: 50px;
+}
+
 .main__head {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -13117,10 +13121,6 @@ textarea {
   	&__banner-choice {
       background: #d14029;
   	} */
-}
-
-.footer--mt-50 {
-  margin-top: 50px;
 }
 
 .footer__app-title {
