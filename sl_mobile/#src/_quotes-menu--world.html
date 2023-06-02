@@ -1,0 +1,84 @@
+<!-- Доловое английское сокращение QN (quotation) — котировка -->
+<div class="@@MixClass qn-menu">
+  <!-- 
+  	  * Блоку .qn-menu__tabs-wrap является блоком спойлеров спойлеров (добавяется класс _spollers)
+      * но содержит всего один спойлер qn-menu__tabs-control (заголовок спойлера), который становится активным при 
+      * ширине экрана ментше data-spoller-maxwidth и раскрывает и закрывает список .qn-menu__tabs
+      *
+      * При сборке страницы на сервере
+      * в списке .qn-menu__tabs элементу li.qn-menu__tab соответствующему текущей открытой стр.(ссылке)
+      * должен быть добавлен класс _active (этот элемент скрывается), а содержимое соответствующей ссылки 
+      * .qn-menu__tab-link должно быть продублировано в елементе .qn-menu__tabs-control
+      * Эти действия нужны только для страниц использующих данное меню
+      * Например элементу li со ссылкой https://smart-lab.ru/q/watchlist/ добавлять _active 
+      * и дублировать содержимое не нужно, т.к. она ведет на страницу с другим дизайном
+  	-->
+  <div class="qn-menu__tabs-wrap _spollers" data-spoller-maxwidth="767.98">
+    <div class="qn-menu__tabs-control _spoller _container">
+      <span>Котировки</span>
+      <svg class="qn-menu__tabs-control_arrow">
+        <use xlink:href="images/symbol/sprite.svg#ic_spoller_arrow"></use>
+      </svg>
+      <!-- qn-menu__mob-tabs появляется толоко при разнрешении меньше 767.98 -->
+      <div class="qn-menu__mob-tabs">
+        <li>
+          <a class="qn-menu__tab-link" href="https://smart-lab.ru/q/portfolio/">
+            <svg>
+              <use class="use-portfolio" xlink:href="images/symbol/sprite.svg#ic_portfolio"></use>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a class="qn-menu__tab-link" href="https://smart-lab.ru/q/watchlist/">
+            <svg>
+              <use xlink:href="images/symbol/sprite.svg#ic_watchlist"></use>
+            </svg>
+          </a>
+        </li>
+      </div>
+    </div>
+    <ul class="qn-menu__tabs _container">
+      <li class="qn-menu__tab _active">
+        <a class="qn-menu__tab-link" href="https://smart-lab.ru/q/shares/">Котировки</a>
+      </li>
+      <li class="qn-menu__tab">
+        <a class="qn-menu__tab-link" href="https://smart-lab.ru/dividends/">Дивиденды</a>
+      </li>
+      <li class="qn-menu__tab">
+        <a class="qn-menu__tab-link" href="https://smart-lab.ru/q/shares_fundamental/">Фундаментал</a>
+      </li>
+      <li class="qn-menu__tab">
+        <a class="qn-menu__tab-link" href="https://smart-lab.ru/q/map/">Карта рынка</a>
+      </li>
+      <!-- 
+        * Элемент qn-menu__tab--pc скрывается при  разрешении меньше 767.98
+       -->
+      <li class="qn-menu__tab qn-menu__tab--pc">
+        <a class="qn-menu__tab-link" href="https://smart-lab.ru/q/portfolio/">
+          <svg>
+            <use class="use-portfolio" xlink:href="images/symbol/sprite.svg#ic_portfolio"></use>
+          </svg>
+        </a>
+      </li>
+      <li class="qn-menu__tab qn-menu__tab--pc">
+        <a class="qn-menu__tab-link" href="https://smart-lab.ru/q/watchlist/">
+          <svg>
+            <use xlink:href="images/symbol/sprite.svg#ic_watchlist"></use>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="qn-menu__selectors  _container">
+    @@include('_selector-links.html',{})
+  </div>
+  <div class="qn-menu__box _container">
+    <h1 class="qn-menu__title qn-menu__title--wrap">Котировки мировых рынков</h1>
+    <!-- Дополнительная обертка .qn-menu__actions-wrap добавляется если надо, чтоб одна из кнопок оставалась справа -->
+    <div class="qn-menu__actions-wrap">
+      <div class="qn-menu__actions">
+        @@include('_buy-shares.html',{"MixClass": "qn-menu__buy-shares", "Text": "Купить акции"})
+      </div>
+    </div> 
+  </div>
+</div>

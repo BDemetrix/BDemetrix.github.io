@@ -3,6 +3,38 @@
   line-height: 12px;
   color: #666666;
 
+  &--gen-head {
+    tr th {
+      border-radius: 10px 10px 0 0;
+      background: #ededed;
+    }
+  }
+
+  &--fixed {
+    width: 100%;
+
+    .custom-table__tbody {
+      tr td {
+        padding: 8px;
+      }
+    }
+
+    .custom-table__thead,
+    .custom-table__tbody {
+      tr td:first-child {
+        white-space: normal;
+      }
+    }
+  }
+
+  .up {
+    color: #008000;
+  }
+
+  .down {
+    color: #f11212;
+  }
+
   &__thead,
   &__tbody {
     text-align: center;
@@ -12,8 +44,8 @@
   // .custom-table__thead
   &__thead {
     font-weight: 500;
-    font-size: 10px; 
-    
+    font-size: 10px;
+
     tr th {
       padding: 10px 14px;
     }

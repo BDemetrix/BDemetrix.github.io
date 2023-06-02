@@ -718,32 +718,32 @@ picture {
   /* ползунок скроллбара */
   /* Стрелки */
   /*  &::-webkit-scrollbar-button:vertical:start:decrement {
-       background: linear-gradient(120deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
-           linear-gradient(240deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
-           linear-gradient(0deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
-       background-color: #f6f8f4;
-   }
+      background: linear-gradient(120deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+          linear-gradient(240deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+          linear-gradient(0deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+      background-color: #f6f8f4;
+  }
 
-   &::-webkit-scrollbar-button:vertical:end:increment {
-       background: linear-gradient(300deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
-           linear-gradient(60deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
-           linear-gradient(180deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
-       background-color: #f6f8f4;
-   }
+  &::-webkit-scrollbar-button:vertical:end:increment {
+      background: linear-gradient(300deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+          linear-gradient(60deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+          linear-gradient(180deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+      background-color: #f6f8f4;
+  }
 
-   &::-webkit-scrollbar-button:horizontal:start:decrement {
-       background: linear-gradient(30deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
-           linear-gradient(150deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
-           linear-gradient(270deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
-       background-color: #f6f8f4;
-   }
+  &::-webkit-scrollbar-button:horizontal:start:decrement {
+      background: linear-gradient(30deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+          linear-gradient(150deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+          linear-gradient(270deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+      background-color: #f6f8f4;
+  }
 
-   &::-webkit-scrollbar-button:horizontal:end:increment {
-       background: linear-gradient(210deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
-           linear-gradient(330deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
-           linear-gradient(90deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
-       background-color: #f6f8f4;
-   } */
+  &::-webkit-scrollbar-button:horizontal:end:increment {
+      background: linear-gradient(210deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+          linear-gradient(330deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+          linear-gradient(90deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+      background-color: #f6f8f4;
+  } */
   /* Работает в Firefox */
 }
 
@@ -769,6 +769,36 @@ picture {
 .custom-scrollbar * {
   scrollbar-width: thin;
   scrollbar-color: #f9f9fd #ced4da;
+}
+
+.trades-table a.charticon,
+.trades-table a.charticon2,
+.trades-table a.charticon3,
+.custom-table a.charticon,
+.custom-table a.charticon2,
+.custom-table a.charticon3 {
+  display: inline-block;
+  border: none;
+  width: 21px;
+  height: 18px;
+  padding: 0;
+  margin: 0;
+  vertical-align: top;
+}
+
+.trades-table a.charticon,
+.custom-table a.charticon {
+  background: url(../images/icons/flex-table/chart-icon-small.png) no-repeat;
+}
+
+.trades-table a.charticon2,
+.custom-table a.charticon2 {
+  background: url(../images/icons/flex-table/chart2-icon-small.png) no-repeat;
+}
+
+.trades-table a.charticon3,
+.custom-table a.charticon3 {
+  background: url(../images/icons/flex-table/chart3-icon-small.png) no-repeat;
 }
 
 [data-simplebar] {
@@ -11904,7 +11934,7 @@ textarea {
   color: #f11212;
 }
 
-.trades-table a.charticon,
+/* .trades-table a.charticon,
 .trades-table a.charticon2,
 .trades-table a.charticon3 {
   display: inline-block;
@@ -11926,7 +11956,7 @@ textarea {
 
 .trades-table a.charticon3 {
   background: url(../images/icons/flex-table/chart3-icon-small.png) no-repeat;
-}
+} */
 
 .trades-table .flex-table__ad-text {
   top: -4px;
@@ -13027,6 +13057,32 @@ textarea {
   border-collapse: collapse;
   line-height: 12px;
   color: #666666;
+}
+
+.custom-table--gen-head tr th {
+  border-radius: 10px 10px 0 0;
+  background: #ededed;
+}
+
+.custom-table--fixed {
+  width: 100%;
+}
+
+.custom-table--fixed .custom-table__tbody tr td {
+  padding: 8px;
+}
+
+.custom-table--fixed .custom-table__thead tr td:first-child,
+.custom-table--fixed .custom-table__tbody tr td:first-child {
+  white-space: normal;
+}
+
+.custom-table .up {
+  color: #008000;
+}
+
+.custom-table .down {
+  color: #f11212;
 }
 
 .custom-table__thead,

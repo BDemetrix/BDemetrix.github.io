@@ -459,7 +459,7 @@
     }
 
     /* Стрелки */
-   /*  &::-webkit-scrollbar-button:vertical:start:decrement {
+    /*  &::-webkit-scrollbar-button:vertical:start:decrement {
         background: linear-gradient(120deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
             linear-gradient(240deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
             linear-gradient(0deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
@@ -491,5 +491,33 @@
     * {
         scrollbar-width: thin;
         scrollbar-color: #f9f9fd #ced4da;
+    }
+}
+
+// Для таблиц с котировками
+.trades-table,
+.custom-table {
+    a.charticon,
+    a.charticon2,
+    a.charticon3 {
+        display: inline-block;
+        border: none;
+        width: 21px;
+        height: 18px;
+        padding: 0;
+        margin: 0;
+        vertical-align: top;
+    }
+
+    a.charticon {
+        background: url(../images/icons/flex-table/chart-icon-small.png) no-repeat;
+    }
+
+    a.charticon2 {
+        background: url(../images/icons/flex-table/chart2-icon-small.png) no-repeat;
+    }
+
+    a.charticon3 {
+        background: url(../images/icons/flex-table/chart3-icon-small.png) no-repeat;
     }
 }

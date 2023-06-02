@@ -55,7 +55,8 @@
   color: #f11212;
 }
 
-.trades-table a.charticon,
+// Вынесено в глобальную таблицу
+/* .trades-table a.charticon,
 .trades-table a.charticon2,
 .trades-table a.charticon3 {
   display: inline-block;
@@ -77,7 +78,7 @@
 
 .trades-table a.charticon3 {
   background: url(../images/icons/flex-table/chart3-icon-small.png) no-repeat;
-}
+} */
 
 .trades-table .flex-table__ad-text {
   top: -4px;

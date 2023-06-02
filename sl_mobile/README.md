@@ -15,9 +15,9 @@
 14) https://bdemetrix.github.io/sl_mobile/build/people.html
 15) https://bdemetrix.github.io/sl_mobile/build/bonds.html
 16) https://bdemetrix.github.io/sl_mobile/build/futures.html
-17) https://bdemetrix.github.io/sl_mobile/build/etf.html
-18) https://bdemetrix.github.io/sl_mobile/build/pif.html
-
+17) https://bdemetrix.github.io/sl_mobile/build/etf.html  
+18) https://bdemetrix.github.io/sl_mobile/build/pif.html  
+19) https://bdemetrix.github.io/sl_mobile/build/world-quotes.html  
 
 #### Исходники в #src:
 

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('_head.html',{
+"title":"Котировки мировых рынков",
+"stylesheet": "./css/style.css"
+})
+
+<body class="_style-2">
+  <!-- 
+    right-panel-wide добавляется если есть правая панель при широкой центральной колонке _wide-container
+    right-panel добавляется если есть правая панель при узкой центральной колонке _mobile-container
+  -->
+  <!-- классы ._style-1 , ._style-2 и ._style-3 используются для стилизации двух видов шаблонов 
+		Например: при body._style-1 Логотип имеет один цвет, а при body._style-2 и ._style-3 - другой
+		._style-1 для smart-lab.ru
+		._style-2 для smart-lab.ru/q/
+		._style-3 для smart-lab.ru/forum/
+		-->
+  <div class="wrapper">
+    @@include('_header--navbar.html',{"Class": "_container", "ModClass": "header--with-navbar"})
+    <main class="main main--quotes  main--pb-50">
+      @@include('_quotes-menu--world.html', {
+      "MixClass": ""
+      })
+      <div class="main__quotes quotes-body _wide-container">
+        <!-- .custom-card для стилиизации блоков с фоном, закругленными углами и тенью  -->
+        <div class="quotes-body__block">
+          <section class="quotes-info-list">
+            <article class="quotes-info-list__item">
+              <table id="wrld" class="custom-table custom-table--gen-head custom-table--fixed custom-card">
+                <thead class="custom-table__thead">
+                  <tr>
+                    <th colspan="5">
+                      <h3>Котировки сырья</h3>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="custom-table__tbody">
+                  <tr tkr="CURRENCYCOM.OIL_BRENT" accuracy="2">
+                    <td>Нефть Brent</td>
+                    <td><a class="charticon" href="/gr/CURRENCYCOM.OIL_BRENT"></a></td>
+                    <td>75.49</td>
+                    <td class="up">1.63%</td>
+                  </tr>
+                  <tr tkr="TVC.USOIL" accuracy="2">
+                    <td>Нефть WTI</td>
+                    <td><a class="charticon" href="/gr/TVC.USOIL"></a></td>
+                    <td>71.29</td>
+                    <td class="up">1.70%</td>
+                  </tr>
+                  <tr tkr="PEPPERSTONE.NATGAS" accuracy="2">
+                    <td>Нат. газ США</td>
+                    <td><a class="charticon" href="/gr/PEPPERSTONE.NATGAS"></a></td>
+                    <td>2.18</td>
+                    <td class="up">1.02%</td>
+                  </tr>
+                  <tr tkr="FX_IDC.XAUUSD" accuracy="1">
+                    <td>Золото</td>
+                    <td><a class="charticon" href="/gr/FX_IDC.XAUUSD"></a></td>
+                    <td>1 995.9</td>
+                    <td class="up">0.02%</td>
+                  </tr>
+                  <tr tkr="OANDA.XPTUSD" accuracy="1">
+                    <td>Платина</td>
+                    <td><a class="charticon" href="/gr/OANDA.XPTUSD"></a></td>
+                    <td>1 018.0</td>
+                    <td class="up">0.78%</td>
+                  </tr>
+                  <tr tkr="FX_IDC.XAGUSD" accuracy="1">
+                    <td>Серебро</td>
+                    <td><a class="charticon" href="/gr/FX_IDC.XAGUSD"></a></td>
+                    <td>24.1</td>
+                    <td class="up">0.33%</td>
+                  </tr>
+                  <tr tkr="TVC.PALLADIUM" accuracy="1">
+                    <td>Палладий</td>
+                    <td><a class="charticon" href="/gr/TVC.PALLADIUM"></a></td>
+                    <td>1 397.0</td>
+                    <td class="up">0.45%</td>
+                  </tr>
+                  <tr tkr="COMEX.HG1!" accuracy="1">
+                    <td>Медь</td>
+                    <td><a class="charticon" href="/gr/COMEX.HG1!"></a></td>
+                    <td>3.8</td>
+                    <td class="up">1.60%</td>
+                  </tr>
+                  <tr tkr="PEPPERSTONE.WHEAT" accuracy="1">
+                    <td>Пшеница в США</td>
+                    <td><a class="charticon" href="/gr/PEPPERSTONE.WHEAT"></a></td>
+                    <td>0.0</td>
+                    <td class="down">0.00%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="quotes-info-list__item">
+              <table id="wrld" class="custom-table custom-table--gen-head custom-table--fixed custom-card">
+                <thead class="custom-table__thead">
+                  <tr>
+                    <th colspan="5">
+                      <h3>Котировки индексов</h3>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="custom-table__tbody">
+                  <tr tkr="CME_MINI_DL.ES1!" accuracy="1">
+                    <td>Фьючерс S&amp;P500</td>
+                    <td><a class="charticon" href="/gr/CME_MINI_DL.ES1!"></a></td>
+                    <td>4 221.0</td>
+                    <td class="up">0.99%</td>
+                  </tr>
+                  <tr tkr="OANDA.DE30EUR" accuracy="1">
+                    <td>Германия DAX</td>
+                    <td><a class="charticon" href="/gr/OANDA.DE30EUR"></a></td>
+                    <td>16 016.8</td>
+                    <td class="up">1.03%</td>
+                  </tr>
+                  <tr tkr="TVC.UKX" accuracy="1">
+                    <td>Англия FTSE100</td>
+                    <td><a class="charticon" href="/gr/TVC.UKX"></a></td>
+                    <td>7 557.8</td>
+                    <td class="up">0.90%</td>
+                  </tr>
+                  <tr tkr="TVC.CAC40" accuracy="1">
+                    <td>Франция CAC40</td>
+                    <td><a class="charticon" href="/gr/TVC.CAC40"></a></td>
+                    <td>7 223.4</td>
+                    <td class="up">1.20%</td>
+                  </tr>
+                  <tr tkr="OANDA.EU50EUR" accuracy="1">
+                    <td>Европа Stoxx50</td>
+                    <td><a class="charticon" href="/gr/OANDA.EU50EUR"></a></td>
+                    <td>4 303.6</td>
+                    <td class="up">1.08%</td>
+                  </tr>
+                  <tr tkr="OANDA.JP225USD" accuracy="1">
+                    <td>Япония Nikkei</td>
+                    <td><a class="charticon" href="/gr/OANDA.JP225USD"></a></td>
+                    <td>31 524.2</td>
+                    <td class="up">1.21%</td>
+                  </tr>
+                  <tr tkr="HSI.HSI" accuracy="1">
+                    <td>Фьючерс Китай А50</td>
+                    <td><a class="charticon" href="/gr/HSI.HSI"></a></td>
+                    <td>18 949.9</td>
+                    <td class="up">4.02%</td>
+                  </tr>
+                  <tr tkr="MOEX.IMOEX" accuracy="1">
+                    <td>Индекс ММВБ</td>
+                    <td><a class="charticon" href="/gr/MOEX.IMOEX"></a></td>
+                    <td>2706.37</td>
+                    <td class="down">-0.56%</td>
+                  </tr>
+                  <tr tkr="MOEX.RGBI" accuracy="1">
+                    <td>Индекс RGBI</td>
+                    <td><a class="charticon" href="/gr/MOEX.RGBI"></a></td>
+                    <td>129.63</td>
+                    <td class="down">0%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="quotes-info-list__item">
+              <table id="wrld" class="custom-table custom-table--gen-head custom-table--fixed custom-card">
+                <thead class="custom-table__thead">
+                  <tr>
+                    <th colspan="5">
+                      <h3>Котировки Forex</h3>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="custom-table__tbody">
+                  <tr tkr="TVC.DXY" accuracy="4">
+                    <td>Индекс доллара</td>
+                    <td><a class="charticon" href="/gr/TVC.DXY"></a></td>
+                    <td>0.0000</td>
+                    <td class="down">0.00%</td>
+                  </tr>
+                  <tr tkr="FX_IDC.USDRUB" accuracy="2">
+                    <td>USD/RUB</td>
+                    <td><a class="charticon" href="/gr/FX_IDC.USDRUB"></a></td>
+                    <td>80.80</td>
+                    <td class="down">-0.22%</td>
+                  </tr>
+                  <tr tkr="FX.EURUSD" accuracy="4">
+                    <td>EUR/USD</td>
+                    <td><a class="charticon" href="/gr/FX.EURUSD"></a></td>
+                    <td>1.0771</td>
+                    <td class="up">0.06%</td>
+                  </tr>
+                  <tr tkr="FX_IDC.GBPUSD" accuracy="4">
+                    <td>GBP/USD</td>
+                    <td><a class="charticon" href="/gr/FX_IDC.GBPUSD"></a></td>
+                    <td>1.2539</td>
+                    <td class="up">0.06%</td>
+                  </tr>
+                  <tr tkr="FX_IDC.USDJPY" accuracy="4">
+                    <td>USD/JPY</td>
+                    <td><a class="charticon" href="/gr/FX_IDC.USDJPY"></a></td>
+                    <td>138.7890</td>
+                    <td class="down">-0.01%</td>
+                  </tr>
+                  <tr tkr="FX_IDC.USDCAD" accuracy="4">
+                    <td>USD/CAD</td>
+                    <td><a class="charticon" href="/gr/FX_IDC.USDCAD"></a></td>
+                    <td>1.3415</td>
+                    <td class="down">-0.23%</td>
+                  </tr>
+                  <tr tkr="FX_IDC.AUDUSD" accuracy="4">
+                    <td>AUD/USD</td>
+                    <td><a class="charticon" href="/gr/FX_IDC.AUDUSD"></a></td>
+                    <td>0.6635</td>
+                    <td class="up">0.88%</td>
+                  </tr>
+                  <tr tkr="FX_IDC.USDCHF" accuracy="4">
+                    <td>USD/CHF</td>
+                    <td><a class="charticon" href="/gr/FX_IDC.USDCHF"></a></td>
+                    <td>0.9054</td>
+                    <td class="up">0.01%</td>
+                  </tr>
+                  <tr tkr="FX_IDC.EURCHF" accuracy="4">
+                    <td>EUR/CHF</td>
+                    <td><a class="charticon" href="/gr/FX_IDC.EURCHF"></a></td>
+                    <td>0.9752</td>
+                    <td class="up">0.07%</td>
+                  </tr>
+                  <tr tkr="FX_IDC.USDTRY" accuracy="4">
+                    <td>USD/TRY</td>
+                    <td><a class="charticon" href="/gr/FX_IDC.USDTRY"></a></td>
+                    <td>20.8780</td>
+                    <td class="down">-0.05%</td>
+                  </tr>
+                  <tr tkr="FX_IDC.USDUAH" accuracy="4">
+                    <td>USD/UAH</td>
+                    <td><a class="charticon" href="/gr/FX_IDC.USDUAH"></a></td>
+                    <td>36.5680</td>
+                    <td class="down">0.00%</td>
+                  </tr>
+                  <tr tkr="FX_IDC.GBPJPY" accuracy="4">
+                    <td>GBP/JPY</td>
+                    <td><a class="charticon" href="/gr/FX_IDC.GBPJPY"></a></td>
+                    <td>174.0300</td>
+                    <td class="up">0.13%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </article>
+          </section>
+        </div>
+
+      </div>
+    </main>
+    @@include('_footer.html',{'Class': ''})
+  </div>
+  @@include('_js.html',{})
+</body>
+
+</html>
