@@ -13075,6 +13075,7 @@ textarea {
 .custom-table--fixed .custom-table__thead tr td:first-child,
 .custom-table--fixed .custom-table__tbody tr td:first-child {
   white-space: normal;
+  text-align: left;
 }
 
 .custom-table .up {
