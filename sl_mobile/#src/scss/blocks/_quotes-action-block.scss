@@ -1,0 +1,41 @@
+.quotes-action-block {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 100vw;
+
+	// .quotes-action-block__col
+	&__col {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 100%;
+	}
+	// .quotes-action-block__item
+	&__item {
+
+    &--title {
+      margin: 8px 12px 8px 0;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 18px;
+    }
+    &--select {
+      width: 340px;
+      max-width: 100%;
+      
+      @media (min-width: $md4 + px) {
+        margin-right: 20px;    
+      }
+    }
+    &--checkbox {
+      margin: 8px 16px 8px 0;
+    }
+	}
+}
+.custom-select {
+
+}
+.custom-checkbox {
+
+}

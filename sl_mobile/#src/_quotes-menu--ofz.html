@@ -17,7 +17,7 @@
     <div class="qn-menu__tabs-control _spoller _container">
       <span>Котировки</span>
       <svg class="qn-menu__tabs-control_arrow">
-        <use xlink:href="images/symbol/sprite.svg#ic_spoller_arrow"></use>
+          <use xlink:href="images/symbol/sprite.svg#ic_spoller_arrow"></use>
       </svg>
       <!-- qn-menu__mob-tabs появляется толоко при разнрешении меньше 767.98 -->
       <div class="qn-menu__mob-tabs">
@@ -73,12 +73,18 @@
     @@include('_selector-links.html',{})
   </div>
   <div class="qn-menu__box _container">
-    <h1 class="qn-menu__title qn-menu__title--wrap">Котировки гособлигаций ОФЗ, Московская биржа</h1>
-    <!-- Дополнительная обертка .qn-menu__actions-wrap добавляется если надо, чтоб одна из кнопок оставалась справа -->
-    <div class="qn-menu__actions-wrap">
-      <div class="qn-menu__actions">
-        @@include('_buy-shares.html',{"MixClass": "qn-menu__buy-shares", "Text": "Купить акции"})
+    <h1 class="qn-menu__title">Котировки акций ММВБ</h1>
+    <div class="qn-menu__actions">
+      @@include('_buy-shares.html',{"MixClass": "qn-menu__buy-shares", "Text": "Купить облигации"})
+      <div class="qn-menu__filter">
+        <button class="qn-menu__btn qn-menu__btn--filter">
+          <svg>
+            <use xlink:href="images/symbol/sprite.svg#ic_filter"></use>
+          </svg>
+          <span>Фильтры</span>
+        </button>
+        @@include('_qn-filters.html', {"Class": "_active-el"})
       </div>
-    </div> 
+    </div>
   </div>
 </div>

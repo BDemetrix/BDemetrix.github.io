@@ -18,6 +18,7 @@
 17) https://bdemetrix.github.io/sl_mobile/build/etf.html  
 18) https://bdemetrix.github.io/sl_mobile/build/pif.html  
 19) https://bdemetrix.github.io/sl_mobile/build/world-quotes.html  
+20) https://bdemetrix.github.io/sl_mobile/build/ofz.html  
 
 #### Исходники в #src:
 

@@ -12909,6 +12909,10 @@ textarea {
   line-height: 1.3;
 }
 
+.quotes-body__info--mb-small {
+  margin-bottom: 15px;
+}
+
 .quotes-body__info p {
   margin: 0 0 1em;
 }
@@ -12917,8 +12921,45 @@ textarea {
   margin: 0;
 }
 
+.quotes-body__hint {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  width: 100%;
+  margin: 15px 0 30px;
+}
+
+.quotes-body__hint-content {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 6px 10px 6px 6px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.quotes-body__hint-icon {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 16px;
+          flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+}
+
 .quotes-body__block {
   margin: 0 0 50px;
+}
+
+.quotes-body__block--mb-small {
+  margin-bottom: 15px;
 }
 
 .quotes-body__block:last-of-type {
@@ -12945,6 +12986,7 @@ textarea {
 .quotes-body__chart .highcharts-root {
   width: 100%;
   height: auto;
+  border-radius: 4px;
 }
 
 .quotes-body__chart--for-abs {
@@ -12967,6 +13009,46 @@ textarea {
   bottom: 0;
   left: 0;
   overflow: hidden;
+}
+
+.quotes-action-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  max-width: 100vw;
+}
+
+.quotes-action-block__col {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.quotes-action-block__item--title {
+  margin: 8px 12px 8px 0;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.quotes-action-block__item--select {
+  width: 340px;
+  max-width: 100%;
+}
+
+.quotes-action-block__item--checkbox {
+  margin: 8px 16px 8px 0;
 }
 
 .quotes-info-list {
@@ -14756,6 +14838,10 @@ body.loader:before {
 
   .qn-menu__btn--primer {
     margin: 16px 0 16px auto;
+  }
+
+  .quotes-action-block__item--select {
+    margin-right: 20px;
   }
 }
 

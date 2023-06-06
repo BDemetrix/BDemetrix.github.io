@@ -5,6 +5,10 @@
     padding: 15px;
     line-height: 1.3;
 
+    &--mb-small {
+      margin-bottom: 15px;
+    }
+
     p {
       margin: 0 0 1em;
       &:last-child {
@@ -12,9 +16,36 @@
       }
     }
   }
+  // .quotes-body__hint
+  &__hint {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    margin: 15px 0 30px ;
+  }
+  // .quotes-body__hint-content 
+  &__hint-content {
+    display: inline-flex;
+    align-items: center; 
+    padding: 6px 10px 6px 6px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  // .quotes-body__hint-icon
+  &__hint-icon {
+    flex: 0 0 16px;
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+  }
   // .quotes-body__block
   &__block {
     margin: 0 0 50px;
+
+    &--mb-small {
+      margin-bottom: 15px;
+    }
 
     &:last-of-type {
       margin-bottom: 0;
@@ -34,7 +65,8 @@
     padding-bottom: 8px;
   }
   // .quotes-body__chart
-  &__chart {
+  &__chart {  
+
     & > div {
       width: 100%;
     }
@@ -42,6 +74,7 @@
     .highcharts-root {
       width: 100%;
       height: auto;
+      border-radius: 4px;
     }
 
     &--for-abs {
