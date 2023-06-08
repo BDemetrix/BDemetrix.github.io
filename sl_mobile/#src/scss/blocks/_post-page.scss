@@ -7,9 +7,19 @@
         overflow: hidden;
     }
 
+    &--head {
+        margin-top: 0;
+        border-radius: 0;
+    }
+
     @media (min-width: $md3 + px) {
         background: #f1f1f1;
         box-shadow: 0px 4px 11px 4px rgb(117, 117, 117, 0.12);
+
+        &--head {
+            margin-top: 10px;
+            border-radius: 8px 8px 0 0;
+        }
     }
 
     // .post-page__banner
@@ -18,7 +28,7 @@
         min-height: 250px;
 
         &--bottom {
-          margin-bottom: 1em;
+            margin-bottom: 1em;
         }
 
         @media (min-width: $md3 + px) {

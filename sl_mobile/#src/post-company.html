@@ -8,8 +8,11 @@
 <body class="right-panel">
 	<div class="wrapper">
 		@@include('_header.html',{"Class": "_container"})
-		<!-- Если баннер отсутствует, то присваивается модификатор post-page--round -->
-		<main class="post-page post-page--round _mobile-container">
+		<!-- 
+			Если баннер отсутствует, то присваивается модификатор post-page--round, 
+			но если есть шапка поста _post-head.html добавляетс модификато post-page--head
+		-->
+		<main class="post-page post-page--head _mobile-container">
 
 			@@include('_post-head.html',{'fileName': './images/card-def@2x.png'}) 
 

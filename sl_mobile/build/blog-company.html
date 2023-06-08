@@ -658,13 +658,19 @@
 	</div>
 	
 </header>
-		<main class="main _mobile-container">
+		<!-- если есть шапка поста _post-head.html добавляетс модификато post-page--head -->
+		<main class="main main--head _mobile-container">
 
 			<div class="post-head js-post-head">
   <img src="./images/card@2x.png" alt="Изобращжение блога" class="post-head__img">
   <div class="post-head__menu context-menu js-post-head-menu">
     <button class="post-card__menu-btn post-card__menu-btn--head context-menu__btn">
-      Изменить изображение
+      <span>
+        Изменить изображение
+      </span>
+      <svg height="20" width="20">
+        <use xlink:href="images/icons/post-card/sprite.svg#edit"></use>
+      </svg>
     </button>
     <ul class="context-menu__list">
       <li>

@@ -1,4 +1,6 @@
 .quotes-body {
+  min-height: calc(100vh - 330px);
+  
   // .quotes-body__info
   &__info {
     margin: 0 0 35px;

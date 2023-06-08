@@ -5366,6 +5366,11 @@ textarea {
           box-sizing: border-box;
 }
 
+.main--head {
+  margin-top: 0;
+  border-radius: 0;
+}
+
 .main--pb-50 {
   padding-bottom: 50px;
 }
@@ -6915,6 +6920,14 @@ textarea {
   color: #ffffff;
 }
 
+.post-card__menu-btn--head svg {
+  display: none;
+}
+
+.post-card__menu-btn--head span {
+  display: inline;
+}
+
 .post-card__menu-btn svg {
   fill: #808080;
 }
@@ -7126,7 +7139,7 @@ textarea {
 .post-card__text {
   width: 100%;
   margin-bottom: -0.5em;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 150%;
   color: #312c26;
   word-break: break-word;
@@ -7289,6 +7302,10 @@ textarea {
   -ms-flex-negative: 0;
       flex-shrink: 0;
   fill: #fff;
+}
+
+.post-card__btn:disabled {
+  pointer-events: none;
 }
 
 .post-card__btns-count {
@@ -7581,6 +7598,21 @@ textarea {
   background: no-repeat 0 -2px/100% url("../images/icons/post-card/cross.svg");
 }
 
+._touch .post-card__menu-btn--head {
+  padding: 8px;
+}
+
+._touch .post-card__menu-btn--head svg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  fill: #ffffff !important;
+}
+
+._touch .post-card__menu-btn--head span {
+  display: none;
+}
+
 .post-head {
   position: relative;
   width: 100%;
@@ -7612,6 +7644,11 @@ textarea {
   padding: 8px 0;
   top: calc(100% + 5px);
   border-radius: 8px;
+}
+
+._touch .post-head__menu {
+  opacity: 1;
+  visibility: visible;
 }
 
 .company-box {
@@ -7675,6 +7712,11 @@ textarea {
   margin-top: 10px;
   border-radius: 8px 8px 0 0;
   overflow: hidden;
+}
+
+.post-page--head {
+  margin-top: 0;
+  border-radius: 0;
 }
 
 .post-page__banner {
@@ -12903,6 +12945,10 @@ textarea {
   opacity: 0.25;
 }
 
+.quotes-body {
+  min-height: calc(100vh - 330px);
+}
+
 .quotes-body__info {
   margin: 0 0 35px;
   padding: 15px;
@@ -14928,6 +14974,11 @@ body.loader:before {
             box-shadow: 0px 4px 11px 4px rgba(117, 117, 117, 0.12);
   }
 
+  .main--head {
+    margin-top: 10px;
+    border-radius: 8px 8px 0 0;
+  }
+
   .main__head {
     margin: 0 0 10px;
   }
@@ -15011,6 +15062,11 @@ body.loader:before {
     background: #f1f1f1;
     -webkit-box-shadow: 0px 4px 11px 4px rgba(117, 117, 117, 0.12);
             box-shadow: 0px 4px 11px 4px rgba(117, 117, 117, 0.12);
+  }
+
+  .post-page--head {
+    margin-top: 10px;
+    border-radius: 8px 8px 0 0;
   }
 
   .post-page__banner {

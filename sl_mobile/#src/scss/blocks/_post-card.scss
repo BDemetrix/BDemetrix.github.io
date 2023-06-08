@@ -112,6 +112,7 @@
         }
 
         &--head {
+            //
             display: inline-flex;
             width: auto;
             height: auto;
@@ -122,6 +123,14 @@
             font-size: 14px;
             line-height: 22px;
             color: #ffffff;
+
+            // Для тачскринов (body._touch) эти правила переопределяются 
+            svg {
+                display: none;
+            }
+            span {
+                display: inline;
+            }
         }
 
         svg {
@@ -314,14 +323,14 @@
         font-size: inherit;
         font-weight: inherit;
         color: inherit;
-        text-decoration: none; 
+        text-decoration: none;
         word-break: normal;
     }
     // .post-card__text
     &__text {
         width: 100%;
         margin-bottom: -0.5em;
-        font-size: 14px;
+        font-size: 16px;
         line-height: 150%;
         color: #312c26;
         word-break: break-word;
@@ -471,6 +480,13 @@
         svg {
             flex-shrink: 0;
             fill: #fff;
+        }
+
+        &:disabled {
+            pointer-events: none;
+        }
+
+        &:hover {
         }
     }
 
@@ -745,6 +761,20 @@
 
         li.tarif-card__pop-up-item--disabled::before {
             background: no-repeat 0 -2px / 100% url("../images/icons/post-card/cross.svg");
+        }
+    }
+}
+
+._touch {
+    .post-card__menu-btn--head {
+        padding: 8px;
+
+        svg {
+            display: flex;
+            fill: #ffffff !important;
+        }
+        span {
+            display: none;
         }
     }
 }
