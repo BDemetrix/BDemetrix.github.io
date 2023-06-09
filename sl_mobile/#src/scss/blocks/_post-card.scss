@@ -479,14 +479,50 @@
 
         svg {
             flex-shrink: 0;
-            fill: #fff;
+            fill: #fff; 
+            transition: all .4s;
+        }
+
+
+        &--favorite,
+        &--comment,
+        &--like {
+            svg {
+                fill: transparent;
+                stroke: currentColor;
+            } 
+        }
+
+        &--favorite {
+            &.post-card__btn--active,
+            &:hover {
+                svg {
+                    fill:#EED600 !important;
+                    stroke: #EED600;
+                }
+            }
+        }
+        &--comment {
+            &.post-card__btn--active,
+            &:hover {
+                svg {
+                    fill:#808080 !important;
+                    stroke: #808080;
+                }
+            }
+        }
+        &--like {
+            &.post-card__btn--active,
+            &:hover {
+                svg {
+                    fill:#F20000 !important;
+                    stroke: #F20000;
+                }
+            }
         }
 
         &:disabled {
             pointer-events: none;
-        }
-
-        &:hover {
         }
     }
 

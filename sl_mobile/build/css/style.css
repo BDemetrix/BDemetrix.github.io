@@ -7302,6 +7302,34 @@ textarea {
   -ms-flex-negative: 0;
       flex-shrink: 0;
   fill: #fff;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.post-card__btn--favorite svg,
+.post-card__btn--comment svg,
+.post-card__btn--like svg {
+  fill: transparent;
+  stroke: currentColor;
+}
+
+.post-card__btn--favorite.post-card__btn--active svg,
+.post-card__btn--favorite:hover svg {
+  fill: #EED600 !important;
+  stroke: #EED600;
+}
+
+.post-card__btn--comment.post-card__btn--active svg,
+.post-card__btn--comment:hover svg {
+  fill: #808080 !important;
+  stroke: #808080;
+}
+
+.post-card__btn--like.post-card__btn--active svg,
+.post-card__btn--like:hover svg {
+  fill: #F20000 !important;
+  stroke: #F20000;
 }
 
 .post-card__btn:disabled {
