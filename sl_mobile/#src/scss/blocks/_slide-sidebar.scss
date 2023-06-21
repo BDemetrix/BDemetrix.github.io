@@ -98,6 +98,7 @@
     // для мобильного контейнера
     &--mob {
         @media (min-width: $convolutions-breakpoint) {
+            z-index: 8;
             top: 60px;
             width: 315px;
             height: calc(100% - 60px);
@@ -136,6 +137,7 @@
         }
 
         @media (min-width: $wide-convolutions-breakpoint) {
+            z-index: 8;
             width: 315px;
             top: 270px;
             height: calc(100% - 270px);

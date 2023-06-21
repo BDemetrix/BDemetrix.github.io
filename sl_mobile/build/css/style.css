@@ -8107,6 +8107,16 @@ textarea {
   max-width: 100%;
 }
 
+.comments__text a {
+  word-break: break-word;
+}
+
+.comments__text a,
+.comments__text a:visited,
+.comments__text a:active {
+  color: #479cd3;
+}
+
 .comments__actions {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -15842,6 +15852,7 @@ body.loader:before {
   }
 
   .slide-sidebar--mob {
+    z-index: 8;
     top: 60px;
     width: 315px;
     height: calc(100% - 60px);
@@ -15963,6 +15974,7 @@ body.loader:before {
   }
 
   .slide-sidebar--wide {
+    z-index: 8;
     width: 315px;
     top: 270px;
     height: calc(100% - 270px);

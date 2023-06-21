@@ -104,6 +104,15 @@
             max-width: 100%;
         }
 
+        a {
+            word-break: break-word;
+            &,
+            &:visited,
+            &:active {
+                color: #479cd3;
+            } 
+        }
+
         @media (min-width: $md3 + px) {
             font-size: 16px;
         }
