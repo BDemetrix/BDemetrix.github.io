@@ -109,7 +109,7 @@
   height: 100%;
 }
 
-.trades-table .flex-table__ad-text:hover {
+.trades-table .flex-table__ad-text:hover { 
   background: #f2f2f2;
   background: -moz-linear-gradient(top, #f2f2f2, #f0f0f0);
 }
@@ -122,6 +122,10 @@
 .trades-table .flex-table__l-table {
   table-layout: fixed;
   max-width: 95px;
+
+  .trades-table__name {
+    text-align: left;
+  }
 }
 
 .trades-table .flex-table__l-table * {
