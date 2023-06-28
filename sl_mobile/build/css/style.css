@@ -5570,9 +5570,9 @@ textarea {
   height: calc(100vh - 51px);
   background: #202020;
   border-top: 1px solid #3F3F3F;
-  -webkit-transform: translate(-102%, 0);
-      -ms-transform: translate(-102%, 0);
-          transform: translate(-102%, 0);
+  -webkit-transform: translate(-200%, 0);
+      -ms-transform: translate(-200%, 0);
+          transform: translate(-200%, 0);
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
@@ -11537,6 +11537,7 @@ textarea {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
+  width: 100%;
   max-width: 100%;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
@@ -11691,8 +11692,6 @@ textarea {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 100%;
           flex: 0 0 100%;
-  max-width: 100%;
-  width: 100%;
   overflow: hidden;
   font-size: 14px;
 }
@@ -11701,7 +11700,6 @@ textarea {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
   overflow: hidden;
 }
 
@@ -15833,6 +15831,10 @@ body.loader:before {
 
   .moderation-settings__heading {
     max-height: 176px;
+  }
+
+  .qn-menu__actions-wrap {
+    width: auto;
   }
 }
 
