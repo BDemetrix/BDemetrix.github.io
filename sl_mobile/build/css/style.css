@@ -12083,6 +12083,10 @@ textarea {
   text-align: left;
 }
 
+.trades-table .flex-table__l-table .trades-table__name--center {
+  text-align: center;
+}
+
 .trades-table .flex-table__l-table * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
