@@ -12041,6 +12041,10 @@ textarea {
   max-height: 18px;
 }
 
+.trades-table .trades-table__chartrow a {
+  display: block;
+}
+
 .trades-table .flex-table__ad-text {
   top: -4px;
   height: calc(100% + 8px);
