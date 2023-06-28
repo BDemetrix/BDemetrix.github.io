@@ -77,8 +77,14 @@
 }
 
 .trades-table a.charticon3 {
-  background: url(../images/icons/flex-table/chart3-icon-small.png) no-repeat;
+  background: url(../images/icons/flex-table/chart3-icon-small.png) no-repeat; 
 } */
+
+.trades-table tr td {
+  img, svg {
+    max-height: 18px;
+  }
+}
 
 .trades-table .flex-table__ad-text {
   top: -4px;
