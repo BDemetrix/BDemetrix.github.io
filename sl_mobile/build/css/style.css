@@ -12083,6 +12083,15 @@ textarea {
   text-align: left;
 }
 
+.trades-table .flex-table__l-table .trades-table__name > * {
+  display: block;
+  max-width: 100px;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .trades-table .flex-table__l-table .trades-table__name--center {
   text-align: center;
 }
@@ -15288,6 +15297,10 @@ body.loader:before {
 
   .selector-links {
     font-size: 16px;
+  }
+
+  .trades-table .flex-table__l-table .trades-table__name > * {
+    max-width: 170px;
   }
 
   .qn-filters__row:last-child {

@@ -126,6 +126,18 @@
   .trades-table__name {
     text-align: left;
 
+    &>* {
+      display: block;
+      max-width: 100px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      @media (min-width: 767.98px) {
+        max-width: 170px;
+      }
+    }
+
     &--center {
       text-align: center;
     }
