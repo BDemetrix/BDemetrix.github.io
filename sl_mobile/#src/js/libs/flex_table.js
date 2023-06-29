@@ -241,7 +241,7 @@ class FlexTable {
           this.inner.leftTBody.append(newLeftTBodyTr);
         }
       }
-    }
+    } 
     this.sourceTable.remove();
   }
   setupParameters() {
@@ -256,6 +256,27 @@ class FlexTable {
     inner.leftBox.style.width = '';
     inner.rightBox.style.width = '';
 
+    // выравниваем ширины колонок в шапке и в таблице
+    if( inner.rightTable.rows.length &&
+        inner.rightHeaderTable.rows.length &&
+        inner.rightTable.rows[0].cells.length &&
+        inner.rightHeaderTable.rows[0].cells.length &&
+        (inner.rightTable.rows[0].cells.length === inner.rightHeaderTable.rows[0].cells.length)
+      ) {
+      const rightTableTds = inner.rightTable.rows[0].cells;
+      const headTableTds = inner.rightHeaderTable.rows[0].cells;
+      let rTdWidth, hTdWidth, tdMaxWidth;
+      const length = rightTableTds.length;
+      for( let i = 0; i < length; i++) {
+        rTdWidth = rightTableTds[i].offsetWidth;
+        hTdWidth = headTableTds[i].offsetWidth;
+        tdMaxWidth = Math.max(rTdWidth, hTdWidth);
+        rightTableTds[i].style.width = headTableTds[i].style.width = tdMaxWidth + 'px';
+      }
+    } else {
+      console.log('Ошибка! Неравное количество ячеек в шапке и в таблице!')
+    }
+ 
     inner.rightTableWrap.style.marginTop = inner.rightHeaderInner.getBoundingClientRect().height + 'px';
     let leftTableWidth = inner.leftTable.getBoundingClientRect().width;
     let rightTableWidth = inner.rightTable.getBoundingClientRect().width;
