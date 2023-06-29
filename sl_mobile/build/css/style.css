@@ -12329,6 +12329,10 @@ textarea {
   width: 64px;
 }
 
+.trades-table__activity {
+  width: 64px;
+}
+
 .trades-table#trades-table-fixed {
   max-width: 500px;
   height: 300px;
