@@ -12122,8 +12122,8 @@ textarea {
   height: 55px;
 }
 
-.trades-table .flex-table__l-table tr th:first-child,
-.trades-table .flex-table__l-table tr td:first-child {
+.trades-table .flex-table__l-table tr th.trades-table__n,
+.trades-table .flex-table__l-table tr td.trades-table__n {
   width: 33px;
   padding: 4px 4px 4px 10px;
   text-align: left;
@@ -15535,8 +15535,8 @@ body.loader:before {
     max-width: 125px;
   }
 
-  .trades-table .flex-table__l-table tr th:first-child,
-  .trades-table .flex-table__l-table tr td:first-child {
+  .trades-table .flex-table__l-table tr th.trades-table__n,
+  .trades-table .flex-table__l-table tr td.trades-table__n {
     display: table-cell;
   }
 
