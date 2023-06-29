@@ -141,6 +141,15 @@
   left: 0px;
 }
 
+.flex-table__r-header-table,
+.flex-table__r-table {
+  // table-layout: fixed;
+  // width: 100%;
+  table-layout: auto;
+  width: auto;
+  max-width: 100%;
+}
+
 .flex-table__r-table-thead th,
 .flex-table__r-table-thead td {
   position: -webkit-sticky;

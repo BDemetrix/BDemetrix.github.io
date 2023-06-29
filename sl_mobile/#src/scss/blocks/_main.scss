@@ -201,5 +201,11 @@
 	// .main__table
 	&__table {
 		padding: 0 5px 20px;
+
+		&--currencies {
+			max-width: 700px;
+			margin-right: auto;
+			margin-left: auto;
+		}
 	}
 }

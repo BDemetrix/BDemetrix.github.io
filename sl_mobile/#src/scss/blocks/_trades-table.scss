@@ -1,4 +1,5 @@
 .trades-table {
+  display: inline-flex;
   position: relative;
   opacity: 1;
   -webkit-transition: opacity .3s linear;
@@ -317,6 +318,11 @@
   overflow: hidden;
 }
 
+.trades-table__tools {
+  padding-right: 10px !important;
+  padding-left: 10px !important;
+}
+
 .trades-table__ticker {
   width: 50px;
   height: 54px;
@@ -324,6 +330,7 @@
 
 .trades-table__chartrow {
   width: 30px;
+  max-width: 30px;
 }
 
 .trades-table__price {
@@ -381,6 +388,9 @@
 .trades-table__activity {
   width: 64px;
 }
+.trades-table__currency {
+  width: 64px;
+}
 
 .trades-table#trades-table-fixed {
   max-width: 500px;
@@ -416,7 +426,7 @@
 
   .trades-table .flex-table__r-header-table,
   .trades-table .flex-table__r-table {
-    width: 1100px;
+    // width: 1100px;
   }
 
 
