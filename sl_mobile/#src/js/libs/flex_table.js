@@ -251,18 +251,19 @@ class FlexTable {
           if (link) {
             link.innerHTML = '&nbsp';
             link.style.cssText = 'display: block; width: 100%; height: 100%;';
-          }
-          newRightTBodyTr.innerHTML = marketHTML;
-          newRightTBodyTr.className = 'flex-table__ad';
-          this.inner.rightTBody.append(newRightTBodyTr);
+        
+            newRightTBodyTr.innerHTML = marketHTML;
+            newRightTBodyTr.className = 'flex-table__ad';
+            this.inner.rightTBody.append(newRightTBodyTr);
 
-          for (let i = 0; i < col; i++) {
-            let td = document.createElement('td');
-            td.innerHTML = link.outerHTML;
-            newLeftTBodyTr.append(td);
+            for (let i = 0; i < col; i++) {
+              let td = document.createElement('td');
+              td.innerHTML = link.outerHTML;
+              newLeftTBodyTr.append(td);
+            }
+            newLeftTBodyTr.className = 'flex-table__ad';
+            this.inner.leftTBody.append(newLeftTBodyTr);
           }
-          newLeftTBodyTr.className = 'flex-table__ad';
-          this.inner.leftTBody.append(newLeftTBodyTr);
         }
       }
     } 
