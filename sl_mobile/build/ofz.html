@@ -930,6 +930,13 @@
         </svg>
       </button>
 
+      <!-- 
+          Баг: странная херня в фильтре не видно кнопки
+          Решение:  если не нужен чекбокс, то удалять надо только блок .qn-filters__checkbox, 
+          а оболочку qn-filters__block и qn-filters__field надо оставлять
+          Смысл в том, что в первом .qn-filters__row должно быть нечетное кол-во блоков
+          (не знаю почему я так сверстал, видимо дизайн такой замороченный был)
+      -->
       <div class="qn-filters__row">
           <div class="qn-filters__block">
             
@@ -1744,7 +1751,7 @@
                 <td class="trades-table__n">&nbsp;</td>
 
                 <td class="trades-table__name"><a href="https://smart-lab.ru/q/index_stocks/IMOEX/">Индекс ММВБ</a></td>
-                <td class="trades-table__ticker">IMOEX</td>
+                <td class="trades-table__ticker">IMOEX adasda sfsdfdf sdfsdfsd sdfsdf</td>
                 <td class="trades-table__chartrow"><a class="charticon3" href="https://smart-lab.ru/gr/MOEX.IMOEX" target="_blank"></a></td>
                 <td class="trades-table__chartrow"><a class="charticon" href="https://smart-lab.ru/gr/MOEX.IMOEX"
                     target="_blank"></a></td>

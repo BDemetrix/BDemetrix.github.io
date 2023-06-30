@@ -24,7 +24,9 @@
     height: 100%;
 
     @media (min-width: $md2-1 + px) {
-      height: 80%;
+      max-height: 80vh;
+      min-height: 467px;
+      height: auto;
       width: 90%;
     }
 
@@ -161,6 +163,7 @@
   &__field {
     width: 100%;
     margin-bottom: 16px;
+    min-height: 27px;
 
     @media (min-width: $md0 + px) {
       width: 267px;
