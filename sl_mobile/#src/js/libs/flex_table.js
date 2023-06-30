@@ -159,21 +159,45 @@ class FlexTable {
     tops.push(0)
     this.sourceTable.before(this.inner);
 
-    let trs = this.sourceTable.querySelectorAll('tr');
+    let trs = this.sourceTable.rows;
     if (trs.length > row) {
       let height;
       for (let i = 0; i < row; i++) {
-        height = trs[i].querySelectorAll('td, th')[0].getBoundingClientRect().height;
+        height = trs[i].cells[0].offsetHeight;
         if (i > 0) {
           tops.push(tops[i - 1] + height);
         }
         margin += height;
       }
+
+      // Выравнивем ширины ячеек
+      let maxCellsLength = 0;
+      let headRow;
+      for (let i = 0; i < row; i++) {
+        const length = trs[i].cells.length
+        if (maxCellsLength < length ) {
+          maxCellsLength = length;
+          headRow = trs[i];
+        }
+      }  
+      let tableRow;
+      for (let i = row; i < trs.length; i++) {
+        if (trs[i].cells.length === maxCellsLength) {
+          tableRow = trs[i];
+          break;
+        }
+      }
+      if (tableRow) {
+        for (let i = 0; i < maxCellsLength; i++) { 
+          tableRow.cells[i].style.width = headRow.cells[i].style.width = tableRow.cells[i].offsetWidth + 'px'; 
+        }
+      } 
     }
     else {
       alert('В таблице недостаточно строк');
       return null;
     }
+
     for (let i = 0; i < row; i++) {
       let tds = trs[i].querySelectorAll('td, th');
       if (tds.length > 1) {
@@ -255,27 +279,6 @@ class FlexTable {
     inner.style.width = '';
     inner.leftBox.style.width = '';
     inner.rightBox.style.width = '';
-
-    // выравниваем ширины колонок в шапке и в таблице
-    if( inner.rightTable.rows.length &&
-        inner.rightHeaderTable.rows.length &&
-        inner.rightTable.rows[0].cells.length &&
-        inner.rightHeaderTable.rows[0].cells.length &&
-        (inner.rightTable.rows[0].cells.length === inner.rightHeaderTable.rows[0].cells.length)
-      ) {
-      const rightTableTds = inner.rightTable.rows[0].cells;
-      const headTableTds = inner.rightHeaderTable.rows[0].cells;
-      let rTdWidth, hTdWidth, tdMaxWidth;
-      const length = rightTableTds.length;
-      for( let i = 0; i < length; i++) {
-        rTdWidth = rightTableTds[i].offsetWidth;
-        hTdWidth = headTableTds[i].offsetWidth;
-        tdMaxWidth = Math.max(rTdWidth, hTdWidth);
-        rightTableTds[i].style.width = headTableTds[i].style.width = tdMaxWidth + 'px';
-      }
-    } else {
-      console.log('Ошибка! Неравное количество ячеек в шапке и в таблице!')
-    }
  
     inner.rightTableWrap.style.marginTop = inner.rightHeaderInner.getBoundingClientRect().height + 'px';
     let leftTableWidth = inner.leftTable.getBoundingClientRect().width;
