@@ -115,6 +115,9 @@
   opacity: 1;
 }
 
+.flex-table__r-box._overflow .simplebar-scrollbar:before {
+  opacity: .5;
+}
 .flex-table__r-box._overflow .simplebar-scrollbar.simplebar-visible:before {
   opacity: .5;
 }
