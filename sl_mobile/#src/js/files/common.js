@@ -144,7 +144,6 @@ let _slideUp = (target, duration = 500) => {
   target.style.transitionProperty = 'height, margin, padding, opacity';
   target.style.transitionDuration = duration + 'ms';
   target.style.height = target.offsetHeight + 'px';
-  target.offsetHeight;
   target.style.overflow = 'hidden';
   target.style.height = 0;
   target.style.paddingTop = 0;

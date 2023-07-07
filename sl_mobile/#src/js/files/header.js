@@ -37,7 +37,7 @@ if (searchInput) {
   searchInput.addEventListener('focus', () => {
     searchInput.classList.add('_focus');
     searchInput.parentElement.classList.add('_focus');
-    alphabet.classList.add('_show');
+    if(alphabet) alphabet.classList.add('_show');
   });
   /**
    * когда поисковый инпут не в фокусе, то у его родителю удаляется класс _focus
@@ -45,7 +45,7 @@ if (searchInput) {
   searchInput.addEventListener('blur', () => {
     const searchInputParent = searchInput.parentElement;
     setTimeout(() => {
-      alphabet.classList.remove('_show');
+      if(alphabet) alphabet.classList.remove('_show');
       searchInput.classList.remove('_focus');
       searchInputParent.classList.remove('_focus');
       searchInput.value = '';

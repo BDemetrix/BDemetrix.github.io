@@ -1,7 +1,7 @@
 .flex-table {
   margin: 0 auto;
   position: relative;
-  width: 100%;
+  // width: 100%;
   /* table._hidden {
 		opacity: 0;
 		visibility: hidden;
@@ -115,6 +115,9 @@
   opacity: 1;
 }
 
+.flex-table__r-box._overflow .simplebar-scrollbar:before {
+  opacity: .5;
+}
 .flex-table__r-box._overflow .simplebar-scrollbar.simplebar-visible:before {
   opacity: .5;
 }
@@ -139,6 +142,16 @@
 .flex-table__r-header-table {
   position: relative;
   left: 0px;
+  width: 100%;
+}
+
+.flex-table__r-header-table,
+.flex-table__r-table {
+  table-layout: fixed;
+  width: 100%;
+/*   table-layout: auto;
+  width: auto;
+  max-width: 100%; */
 }
 
 .flex-table__r-table-thead th,

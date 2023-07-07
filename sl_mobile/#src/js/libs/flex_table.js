@@ -159,21 +159,45 @@ class FlexTable {
     tops.push(0)
     this.sourceTable.before(this.inner);
 
-    let trs = this.sourceTable.querySelectorAll('tr');
+    let trs = this.sourceTable.rows;
     if (trs.length > row) {
       let height;
       for (let i = 0; i < row; i++) {
-        height = trs[i].querySelectorAll('td, th')[0].getBoundingClientRect().height;
+        height = trs[i].cells[0].offsetHeight;
         if (i > 0) {
           tops.push(tops[i - 1] + height);
         }
         margin += height;
       }
+
+      // Выравнивем ширины ячеек
+      let maxCellsLength = 0;
+      let headRow;
+      for (let i = 0; i < row; i++) {
+        const length = trs[i].cells.length
+        if (maxCellsLength < length ) {
+          maxCellsLength = length;
+          headRow = trs[i];
+        }
+      }  
+      let tableRow;
+      for (let i = row; i < trs.length; i++) {
+        if (trs[i].cells.length === maxCellsLength) {
+          tableRow = trs[i];
+          break;
+        }
+      }
+      if (tableRow) {
+        for (let i = 0; i < maxCellsLength; i++) { 
+          tableRow.cells[i].style.width = headRow.cells[i].style.width = tableRow.cells[i].offsetWidth + 'px'; 
+        }
+      } 
     }
     else {
       alert('В таблице недостаточно строк');
       return null;
     }
+
     for (let i = 0; i < row; i++) {
       let tds = trs[i].querySelectorAll('td, th');
       if (tds.length > 1) {
@@ -227,21 +251,22 @@ class FlexTable {
           if (link) {
             link.innerHTML = '&nbsp';
             link.style.cssText = 'display: block; width: 100%; height: 100%;';
-          }
-          newRightTBodyTr.innerHTML = marketHTML;
-          newRightTBodyTr.className = 'flex-table__ad';
-          this.inner.rightTBody.append(newRightTBodyTr);
+        
+            newRightTBodyTr.innerHTML = marketHTML;
+            newRightTBodyTr.className = 'flex-table__ad';
+            this.inner.rightTBody.append(newRightTBodyTr);
 
-          for (let i = 0; i < col; i++) {
-            let td = document.createElement('td');
-            td.innerHTML = link.outerHTML;
-            newLeftTBodyTr.append(td);
+            for (let i = 0; i < col; i++) {
+              let td = document.createElement('td');
+              td.innerHTML = link.outerHTML;
+              newLeftTBodyTr.append(td);
+            }
+            newLeftTBodyTr.className = 'flex-table__ad';
+            this.inner.leftTBody.append(newLeftTBodyTr);
           }
-          newLeftTBodyTr.className = 'flex-table__ad';
-          this.inner.leftTBody.append(newLeftTBodyTr);
         }
       }
-    }
+    } 
     this.sourceTable.remove();
   }
   setupParameters() {
@@ -255,7 +280,7 @@ class FlexTable {
     inner.style.width = '';
     inner.leftBox.style.width = '';
     inner.rightBox.style.width = '';
-
+ 
     inner.rightTableWrap.style.marginTop = inner.rightHeaderInner.getBoundingClientRect().height + 'px';
     let leftTableWidth = inner.leftTable.getBoundingClientRect().width;
     let rightTableWidth = inner.rightTable.getBoundingClientRect().width;

@@ -1,10 +1,10 @@
 .trades-table {
+  margin: 0 auto;
   position: relative;
   opacity: 1;
   -webkit-transition: opacity .3s linear;
   -o-transition: opacity .3s linear;
   transition: opacity .3s linear;
-  margin: 0 auto;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border-collapse: collapse;
@@ -77,8 +77,18 @@
 }
 
 .trades-table a.charticon3 {
-  background: url(../images/icons/flex-table/chart3-icon-small.png) no-repeat;
+  background: url(../images/icons/flex-table/chart3-icon-small.png) no-repeat; 
 } */
+
+.trades-table tr td {
+  img, svg {
+    max-height: 18px;
+  }
+}
+
+.trades-table .trades-table__chartrow a {
+  display: block;
+}
 
 .trades-table .flex-table__ad-text {
   top: -4px;
@@ -99,7 +109,7 @@
   height: 100%;
 }
 
-.trades-table .flex-table__ad-text:hover {
+.trades-table .flex-table__ad-text:hover { 
   background: #f2f2f2;
   background: -moz-linear-gradient(top, #f2f2f2, #f0f0f0);
 }
@@ -112,6 +122,26 @@
 .trades-table .flex-table__l-table {
   table-layout: fixed;
   max-width: 95px;
+
+  .trades-table__name {
+    text-align: left;
+
+    &>* {
+      display: block;
+      max-width: 100px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      @media (min-width: 767.98px) {
+        max-width: 170px;
+      }
+    }
+
+    &--center {
+      text-align: center;
+    }
+  }
 }
 
 .trades-table .flex-table__l-table * {
@@ -140,8 +170,8 @@
   height: 55px;
 }
 
-.trades-table .flex-table__l-table tr th:first-child,
-.trades-table .flex-table__l-table tr td:first-child {
+.trades-table .flex-table__l-table tr th.trades-table__n,
+.trades-table .flex-table__l-table tr td.trades-table__n {
   width: 33px;
   padding: 4px 4px 4px 10px;
   text-align: left;
@@ -205,21 +235,10 @@
 
 .trades-table .flex-table__r-header-table,
 .trades-table .flex-table__r-table {
-  width: 1010px;
+  // width: 1010px;
 }
 
-.trades-table .flex-table__r-header-table tr th:nth-child(5),
-.trades-table .flex-table__r-header-table tr td:nth-child(5),
-.trades-table .flex-table__r-header-table tr th:nth-child(4),
-.trades-table .flex-table__r-header-table tr td:nth-child(4),
-.trades-table .flex-table__r-header-table tr th:nth-child(3),
-.trades-table .flex-table__r-header-table tr td:nth-child(3),
-.trades-table .flex-table__r-table tr th:nth-child(5),
-.trades-table .flex-table__r-table tr td:nth-child(5),
-.trades-table .flex-table__r-table tr th:nth-child(4),
-.trades-table .flex-table__r-table tr td:nth-child(4),
-.trades-table .flex-table__r-table tr th:nth-child(3),
-.trades-table .flex-table__r-table tr td:nth-child(3) {
+.trades-table .trades-table__chartrow {
   display: none;
 }
 
@@ -298,25 +317,43 @@
   overflow: hidden;
 }
 
+.trades-table__tools {
+  max-width: 170px;
+  padding-right: 10px !important;
+  padding-left: 10px !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .trades-table__ticker {
-  width: 50px;
-  height: 54px;
+  max-width: 170px;
+  width: 76px;
+  min-width: 76px;
+  height: 54px; 
+  padding-right: 12px !important;
+  padding-left: 12px !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .trades-table__chartrow {
   width: 30px;
+  max-width: 30px;
 }
 
 .trades-table__price {
+  max-width: 90px;
   width: 67px;
 }
 
 .trades-table__change-per {
+  max-width: 90px;
   width: 62px;
 }
 
 .trades-table__volume {
-  width: 75px;
+  max-width: 100px;
+  // width: 75px;
 }
 
 .trades-table__week {
@@ -352,10 +389,20 @@
 }
 
 .trades-table__add-case {
+  max-width: 64px;
   width: 64px;
 }
 
 .trades-table__add-list {
+  max-width: 64px;
+  width: 64px;
+}
+
+.trades-table__activity {
+  width: 64px;
+}
+.trades-table__currency {
+  max-width: 64px;
   width: 64px;
 }
 
@@ -381,39 +428,20 @@
   display: none;
 }
 
-@media (min-width: 991.98px) {
+@media (min-width: 620px) {
   .trades-table .flex-table__l-table {
     max-width: 125px;
   }
 
-  .trades-table .flex-table__l-table tr th:first-child,
-  .trades-table .flex-table__l-table tr td:first-child {
+  .trades-table .flex-table__l-table tr th.trades-table__n,
+  .trades-table .flex-table__l-table tr td.trades-table__n {
     display: table-cell;
   }
 
-  .trades-table .flex-table__r-header-table,
-  .trades-table .flex-table__r-table {
-    width: 1100px;
-  }
-
-  .trades-table .flex-table__r-header-table tr th:nth-child(5),
-  .trades-table .flex-table__r-header-table tr td:nth-child(5),
-  .trades-table .flex-table__r-header-table tr th:nth-child(4),
-  .trades-table .flex-table__r-header-table tr td:nth-child(4),
-  .trades-table .flex-table__r-header-table tr th:nth-child(3),
-  .trades-table .flex-table__r-header-table tr td:nth-child(3),
-  .trades-table .flex-table__r-table tr th:nth-child(5),
-  .trades-table .flex-table__r-table tr td:nth-child(5),
-  .trades-table .flex-table__r-table tr th:nth-child(4),
-  .trades-table .flex-table__r-table tr td:nth-child(4),
-  .trades-table .flex-table__r-table tr th:nth-child(3),
-  .trades-table .flex-table__r-table tr td:nth-child(3) {
+  .trades-table .trades-table__chartrow {
     display: table-cell;
   }
 
-  .trades-table__ticker {
-    width: 70px;
-  }
 }
 /* 
 @media (min-width: 1250px) {
