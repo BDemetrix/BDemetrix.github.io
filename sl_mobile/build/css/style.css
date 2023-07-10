@@ -11728,7 +11728,6 @@ textarea {
 
 .selector-links__slider {
   position: relative;
-  border-bottom: 1px solid #E2E2E2;
 }
 
 .selector-links__item {
@@ -14416,6 +14415,49 @@ textarea {
 
 .dark-theme .person--people .person__name-link {
   color: #e9e9e9;
+}
+
+.dark-theme .selector-links__item a {
+  color: #999999;
+}
+
+.dark-theme .selector-links__item a:hover,
+.dark-theme .selector-links__item a:active {
+  color: #fff;
+}
+
+.dark-theme .selector-links__item a::before {
+  background: #fff;
+}
+
+.dark-theme .selector-links__item._active a {
+  color: #fff;
+}
+
+.dark-theme .selector-links__prev svg,
+.dark-theme .selector-links__next svg {
+  fill: #999;
+}
+
+.dark-theme .selector-links__prev:hover svg,
+.dark-theme .selector-links__next:hover svg {
+  fill: #fff;
+}
+
+.dark-theme .selector-links__prev::before {
+  background: -webkit-gradient(linear, left top, right top, from(#202225), color-stop(35%, #202225), to(transparent));
+  background: -o-linear-gradient(left, #202225 0%, #202225 35%, transparent 100%);
+  background: linear-gradient(to right, #202225 0%, #202225 35%, transparent 100%);
+}
+
+.dark-theme .selector-links__next::before {
+  background: -webkit-gradient(linear, right top, left top, from(#202225), color-stop(35%, #202225), to(transparent));
+  background: -o-linear-gradient(right, #202225 0%, #202225 35%, transparent 100%);
+  background: linear-gradient(to left, #202225 0%, #202225 35%, transparent 100%);
+}
+
+.dark-theme .qn-menu__link {
+  color: #999;
 }
 
 .comments__answers {

@@ -705,4 +705,55 @@ $disabled-color: #e2e2e2;
             }
         }
     }
+
+    .selector-links {
+        &__item {
+            a {
+                color: #999999;
+
+                &:hover,
+                &:active {
+                    color: #fff;
+                }
+                &::before {
+                    background: #fff;
+                }
+            }
+
+            &._active {
+                a {
+                    color: #fff;
+                }
+            }
+        }
+        &__prev,
+        &__next {
+            svg {
+                fill: #999;
+            }
+            &:hover {
+                svg {
+                    fill: #fff;
+                }
+            }
+        }
+
+        &__prev {
+            &::before {
+                background: linear-gradient(to right, $body-bg 0%, $body-bg 35%, transparent 100%);
+            }
+        }
+
+        &__next {
+            &::before {
+                background: linear-gradient(to left, $body-bg 0%, $body-bg 35%, transparent 100%);
+            }
+        }
+    }
+
+    .qn-menu {
+        &__link {
+            color: #999;
+        }
+    }
 }
