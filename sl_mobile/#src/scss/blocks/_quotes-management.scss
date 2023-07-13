@@ -1,0 +1,44 @@
+.quotes-management {
+  padding: 15px;
+
+	// .quotes-management__select
+	&__select {
+    margin: 0 0 15px;
+	}
+	// .quotes-management__textarea
+	&__textarea {
+    margin: 0 0 15px;
+		min-height: 100px;
+	}
+	// .quotes-management__btns
+	&__btns {
+		display: flex;
+		align-self: end;
+		margin: 15px 0 0 auto;
+
+	}
+	// .quotes-management__save
+	&__save {
+    margin: 0 0 0 auto;
+    padding: 7px 20px;
+	}
+	// .quotes-management__flex-box
+	&__flex-box {
+    display: flex;
+    flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	// .quotes-management__column
+	&__column {
+    display: flex;
+    flex-direction: column;
+	}
+	// .quotes-management__radio
+	&__radio {
+    margin: 0 20px 10px 0;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}

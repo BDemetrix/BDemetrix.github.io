@@ -521,3 +521,33 @@
         background: url(../images/icons/flex-table/chart3-icon-small.png) no-repeat;
     }
 }
+
+// общий класс для стилизации textarea
+.custom-textarea {
+    display: flex;
+    width: 100%;
+    height: 46px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #fff;
+    color: inherit;
+    resize: none;
+    border: 1px solid #a5a5a5;
+    border-radius: 5px;
+    font-size: inherit;
+    line-height: 20px;
+
+    &:hover,
+    &:focus {
+        border-color: #323232;
+    }
+
+    &:focus::placeholder {
+        color: transparent;
+    }
+
+    &::placeholder {
+        color: inherit;
+        transition: color 0.2s ease;
+    }
+}
