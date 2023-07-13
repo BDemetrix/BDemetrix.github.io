@@ -1174,517 +1174,520 @@
   </div>
 </div>
 
-			<div class="quotes-body _wide-container">
+			<div class="quotes-body">
+				<div class="_wide-container">
 
-				<div class="quotes-body__block quotes-body__block--mb-small quotes-action-block">
-					<div class="quotes-action-block__col">
-						<div class="quotes-action-block__item quotes-action-block__item--title">
-							Карта доходности ОФЗ
-						</div>
-						<div class="quotes-action-block__item quotes-action-block__item--select">
-							<div class="custom-select">
-								<button class="custom-select__main-btn" value="Кривая бескупонной доходности" name="#"
-									type="button">Кривая бескупонной доходности</button>
-								<div class="custom-select__list ">
-									<button class="custom-select__option custom-select__option--active"
-										value="Кривая бескупонной доходности" type="button">Кривая бескупонной доходности</button>
-									<button class="custom-select__option" value="Кривая купонной доходности" type="button">
-										Кривая купонной доходности
-									</button>
-									<button class="custom-select__option" value="Доходность от срока до погашения" type="button">
-										Доходность от срока до погашения
-									</button>
-									<button class="custom-select__option" value="Купонная доходность от срока до погашения" type="button">
-										Купонная доходность от срока до погашения
-									</button>
+					<div class="quotes-body__block quotes-body__block--mb-small quotes-action-block">
+						<div class="quotes-action-block__col">
+							<div class="quotes-action-block__item quotes-action-block__item--title">
+								Карта доходности ОФЗ
+							</div>
+							<div class="quotes-action-block__item quotes-action-block__item--select">
+								<div class="custom-select">
+									<button class="custom-select__main-btn" value="Кривая бескупонной доходности" name="#"
+										type="button">Кривая бескупонной доходности</button>
+									<div class="custom-select__list ">
+										<button class="custom-select__option custom-select__option--active"
+											value="Кривая бескупонной доходности" type="button">Кривая бескупонной доходности</button>
+										<button class="custom-select__option" value="Кривая купонной доходности" type="button">
+											Кривая купонной доходности
+										</button>
+										<button class="custom-select__option" value="Доходность от срока до погашения" type="button">
+											Доходность от срока до погашения
+										</button>
+										<button class="custom-select__option" value="Купонная доходность от срока до погашения"
+											type="button">
+											Купонная доходность от срока до погашения
+										</button>
+									</div>
 								</div>
 							</div>
 						</div>
+						<div class="quotes-action-block__col">
+							<div class="quotes-action-block__item quotes-action-block__item--checkbox">
+								<label class="custom-checkbox" title="Включить автообновление 1 раз в минуту">
+									<input type="checkbox" class="custom-checkbox__input" checked="">
+									<span class="custom-checkbox__text">Месяц назад</span>
+								</label>
+							</div>
+							<div class="quotes-action-block__item quotes-action-block__item--checkbox">
+								<label class="custom-checkbox" title="Включить автообновление 1 раз в минуту">
+									<input type="checkbox" class="custom-checkbox__input" checked="">
+									<span class="custom-checkbox__text">Неделю назад</span>
+								</label>
+							</div>
+							<div class="quotes-action-block__item quotes-action-block__item--checkbox">
+								<label class="custom-checkbox" title="Включить автообновление 1 раз в минуту">
+									<input type="checkbox" class="custom-checkbox__input" checked="">
+									<span class="custom-checkbox__text">Вчера</span>
+								</label>
+							</div>
+						</div>
 					</div>
-					<div class="quotes-action-block__col">
-						<div class="quotes-action-block__item quotes-action-block__item--checkbox">
-							<label class="custom-checkbox" title="Включить автообновление 1 раз в минуту">
-								<input type="checkbox" class="custom-checkbox__input" checked="">
-								<span class="custom-checkbox__text">Месяц назад</span>
-							</label>
-						</div>
-						<div class="quotes-action-block__item quotes-action-block__item--checkbox">
-							<label class="custom-checkbox" title="Включить автообновление 1 раз в минуту">
-								<input type="checkbox" class="custom-checkbox__input" checked="">
-								<span class="custom-checkbox__text">Неделю назад</span>
-							</label>
-						</div>
-						<div class="quotes-action-block__item quotes-action-block__item--checkbox">
-							<label class="custom-checkbox" title="Включить автообновление 1 раз в минуту">
-								<input type="checkbox" class="custom-checkbox__input" checked="">
-								<span class="custom-checkbox__text">Вчера</span>
-							</label>
-						</div>
+
+					<!-- .custom-card для стилиизации блоков с фоном, закругленными углами и тенью  -->
+					<div class="quotes-body__info quotes-body__info--mb-small custom-card">
+						<p>
+							На этом графике представлена зависимость полной текущей годовой доходности облигации (купон + изменение
+							цены
+							к
+							погашению) от дюрации облигации. Представлены только облигации с постоянным купоном.
+						</p>
 					</div>
-				</div>
 
-				<!-- .custom-card для стилиизации блоков с фоном, закругленными углами и тенью  -->
-				<div class="quotes-body__info quotes-body__info--mb-small custom-card">
-					<p>
-						На этом графике представлена зависимость полной текущей годовой доходности облигации (купон + изменение цены
-						к
-						погашению) от дюрации облигации. Представлены только облигации с постоянным купоном.
-					</p>
-				</div>
-
-				<div class="quotes-body__chart">
-					<div class="quotes-body__chart-inner">
-						<svg version="1.1" class="highcharts-root"
-							style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;"
-							xmlns="http://www.w3.org/2000/svg" width="1200" height="450" viewBox="0 0 1200 450">
-							<desc>Created with Highcharts 6.0.6</desc>
-							<defs>
-								<clipPath id="highcharts-fbpyzbq-35">
-									<rect x="0" y="0" width="1119" height="386" fill="none"></rect>
-								</clipPath>
-							</defs>
-							<rect fill="#ffffff" class="highcharts-background" x="0" y="0" width="1200" height="450" rx="0" ry="0">
-							</rect>
-							<rect fill="none" class="highcharts-plot-background" x="71" y="10" width="1119" height="386"></rect>
-							<g class="highcharts-grid highcharts-xaxis-grid ">
-								<path fill="none" class="highcharts-grid-line" d="M 70.5 10 L 70.5 396" opacity="1"></path>
-								<path fill="none" class="highcharts-grid-line" d="M 192.5 10 L 192.5 396" opacity="1"></path>
-								<path fill="none" class="highcharts-grid-line" d="M 314.5 10 L 314.5 396" opacity="1"></path>
-								<path fill="none" class="highcharts-grid-line" d="M 435.5 10 L 435.5 396" opacity="1"></path>
-								<path fill="none" class="highcharts-grid-line" d="M 557.5 10 L 557.5 396" opacity="1"></path>
-								<path fill="none" class="highcharts-grid-line" d="M 679.5 10 L 679.5 396" opacity="1"></path>
-								<path fill="none" class="highcharts-grid-line" d="M 801.5 10 L 801.5 396" opacity="1"></path>
-								<path fill="none" class="highcharts-grid-line" d="M 922.5 10 L 922.5 396" opacity="1"></path>
-								<path fill="none" class="highcharts-grid-line" d="M 1044.5 10 L 1044.5 396" opacity="1"></path>
-								<path fill="none" class="highcharts-grid-line" d="M 1166.5 10 L 1166.5 396" opacity="1"></path>
-							</g>
-							<g class="highcharts-grid highcharts-yaxis-grid ">
-								<path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line"
-									d="M 71 396.5 L 1190 396.5" opacity="1"></path>
-								<path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line"
-									d="M 71 353.5 L 1190 353.5" opacity="1"></path>
-								<path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line"
-									d="M 71 310.5 L 1190 310.5" opacity="1"></path>
-								<path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line"
-									d="M 71 267.5 L 1190 267.5" opacity="1"></path>
-								<path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line"
-									d="M 71 224.5 L 1190 224.5" opacity="1"></path>
-								<path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line"
-									d="M 71 182.5 L 1190 182.5" opacity="1"></path>
-								<path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line"
-									d="M 71 139.5 L 1190 139.5" opacity="1"></path>
-								<path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line"
-									d="M 71 96.5 L 1190 96.5" opacity="1"></path>
-								<path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line"
-									d="M 71 53.5 L 1190 53.5" opacity="1"></path>
-								<path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line" d="M 71 9.5 L 1190 9.5"
-									opacity="1"></path>
-							</g>
-							<rect fill="none" class="highcharts-plot-border" x="71" y="10" width="1119" height="386"></rect>
-							<g class="highcharts-axis highcharts-xaxis ">
-								<path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1" d="M 70.5 396 L 70.5 406"
-									opacity="1">
-								</path>
-								<path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1" d="M 192.5 396 L 192.5 406"
-									opacity="1">
-								</path>
-								<path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1" d="M 314.5 396 L 314.5 406"
-									opacity="1">
-								</path>
-								<path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1" d="M 435.5 396 L 435.5 406"
-									opacity="1">
-								</path>
-								<path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1" d="M 557.5 396 L 557.5 406"
-									opacity="1">
-								</path>
-								<path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1" d="M 679.5 396 L 679.5 406"
-									opacity="1">
-								</path>
-								<path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1" d="M 801.5 396 L 801.5 406"
-									opacity="1">
-								</path>
-								<path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1" d="M 922.5 396 L 922.5 406"
-									opacity="1">
-								</path>
-								<path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1"
-									d="M 1044.5 396 L 1044.5 406" opacity="1"></path>
-								<path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1"
-									d="M 1166.5 396 L 1166.5 406" opacity="1"></path><text x="630.5" text-anchor="middle"
-									transform="translate(0,0)" class="highcharts-axis-title" style="color:#666666;fill:#666666;" y="433">
-									<tspan>Дюрация, лет</tspan>
-								</text>
-								<path fill="none" class="highcharts-axis-line" stroke="#ccd6eb" stroke-width="1"
-									d="M 71 396.5 L 1190 396.5"></path>
-							</g>
-							<g class="highcharts-axis highcharts-yaxis "><text x="24.423828125" text-anchor="middle"
-									transform="translate(0,0) rotate(270 24.423828125 203)" class="highcharts-axis-title"
-									style="color:#666666;fill:#666666;" y="203">
-									<tspan>Доходность, %</tspan>
-								</text>
-								<path fill="none" class="highcharts-axis-line" d="M 71 10 L 71 396"></path>
-							</g>
-							<g class="highcharts-series-group">
-								<g class="highcharts-series highcharts-series-0 highcharts-scatter-series highcharts-tracker "
-									transform="translate(71,10) scale(1 1)" clip-path="url(#highcharts-fbpyzbq-35)"
-									style="cursor:pointer;"></g>
-								<g class="highcharts-markers highcharts-series-0 highcharts-scatter-series highcharts-tracker "
-									transform="translate(71,10) scale(1 1)" style="cursor:pointer;">
-									<path fill="rgba(119, 152, 191, .5)" visibility="hidden"
-										d="M 814 81.48888888888882 A 0 0 0 1 1 814 81.48888888888882 Z"
-										class="highcharts-halo highcharts-color-undefined" fill-opacity="0.25"></path>
-									<path fill="rgba(119, 152, 191, .5)"
-										d="M 247 257.33333333333337 A 4 4 0 1 1 246.99999800000018 257.329333334 Z"
-										class="highcharts-point " stroke-width="0.0011937468193874423"></path>
-									<path fill="rgba(119, 152, 191, .5)" d="M 27 352 A 4 4 0 1 1 26.99999800000017 351.99600000066664 Z"
-										class="highcharts-point"></path>
-									<path fill="rgba(119, 152, 191, .5)"
-										d="M 163 303.6533333333333 A 4 4 0 1 1 162.99999800000018 303.64933333399995 Z"
-										class="highcharts-point " stroke-width="0.0007992249455124334"></path>
-									<path fill="rgba(119, 152, 191, .5)"
-										d="M 43 341.3955555555556 A 4 4 0 1 1 42.99999800000017 341.3915555562222 Z"
-										class="highcharts-point " stroke-width="0.0004835326609375912"></path>
-									<path fill="rgba(119, 152, 191, .5)"
-										d="M 778 80.63111111111107 A 4 4 0 1 1 777.9999980000001 80.62711111177774 Z"
-										class="highcharts-point " stroke-width="0.000015454435942974243"></path>
-									<path fill="rgba(119, 152, 191, .5)"
-										d="M 650 114.94222222222226 A 4 4 0 1 1 649.9999980000001 114.93822222288892 Z"
-										class="highcharts-point " stroke-width="0.000023559646111781518"></path>
-									<path fill="rgba(119, 152, 191, .5)"
-										d="M 479 186.99555555555554 A 4 4 0 1 1 478.9999980000002 186.9915555562222 Z"
-										class="highcharts-point " stroke-width="0.000016977681319418902"></path>
-									<path fill="rgba(119, 152, 191, .5)"
-										d="M 580 122.66222222222223 A 4 4 0 1 1 579.9999980000001 122.6582222228889 Z"
-										class="highcharts-point " stroke-width="0.00037063472180243195"></path>
-									<path fill="rgba(119, 152, 191, .5)" d="M 1111 56 A 4 4 0 1 1 1110.9999980000002 55.99600000066666 Z"
-										class="highcharts-point"></path>
-									<path fill="rgba(119, 152, 191, .5)"
-										d="M 133 307.9422222222222 A 4 4 0 1 1 132.99999800000018 307.93822222288884 Z"
-										class="highcharts-point " stroke-width="0.0019331954284137476"></path>
-									<path fill="rgba(119, 152, 191, .5)"
-										d="M 530 157.8311111111111 A 4 4 0 1 1 529.9999980000001 157.82711111177778 Z"
-										class="highcharts-point " stroke-width="0.0000779136103310138"></path>
-									<path fill="rgba(119, 152, 191, .5)"
-										d="M 280 259.0488888888889 A 4 4 0 1 1 279.9999980000002 259.0448888895555 Z"
-										class="highcharts-point " stroke-width="0.0001540411391833807"></path>
-									<path fill="rgba(119, 152, 191, .5)"
-										d="M 389 231.59999999999994 A 4 4 0 1 1 388.9999980000002 231.5960000006666 Z"
-										class="highcharts-point " stroke-width="0.0000028336562932218534"></path>
-									<path fill="rgba(119, 152, 191, .5)"
-										d="M 818 81.48888888888882 A 4 4 0 1 1 817.9999980000001 81.48488888955549 Z"
-										class="highcharts-point " stroke-width="0.000030367444640671398"></path>
-									<path fill="rgba(119, 152, 191, .5)" d="M 892 73 A 4 4 0 1 1 891.9999980000001 72.99600000066667 Z"
-										class="highcharts-point"></path>
-									<path fill="rgba(119, 152, 191, .5)"
-										d="M 90 334.53333333333336 A 4 4 0 1 1 89.99999800000016 334.529333334 Z" class="highcharts-point "
-										stroke-width="0.0007367227215618888"></path>
-									<path fill="rgba(119, 152, 191, .5)" d="M 1032 65 A 4 4 0 1 1 1031.9999980000002 64.99600000066667 Z"
-										class="highcharts-point"></path>
-									<path fill="rgba(119, 152, 191, .5)"
-										d="M 602 139.81777777777785 A 4 4 0 1 1 601.9999980000001 139.81377777844452 Z"
-										class="highcharts-point " stroke-width="0.000006226708602480313"></path>
-									<path fill="rgba(119, 152, 191, .5)" d="M 953 72 A 4 4 0 1 1 952.9999980000001 71.99600000066667 Z"
-										class="highcharts-point"></path>
-									<path fill="rgba(119, 152, 191, .5)"
-										d="M 359 252.18666666666664 A 4 4 0 1 1 358.9999980000002 252.1826666673333 Z"
-										class="highcharts-point " stroke-width="0.00002806279221018171"></path>
-									<path fill="rgba(119, 152, 191, .5)" d="M 734 107 A 4 4 0 1 1 733.9999980000001 106.99600000066667 Z"
-										class="highcharts-point"></path>
-									<path fill="rgba(119, 152, 191, .5)" d="M 963 62 A 4 4 0 1 1 962.9999980000001 61.99600000066666 Z"
-										class="highcharts-point"></path>
-									<path fill="rgba(119, 152, 191, .5)"
-										d="M 723 103.7911111111112 A 4 4 0 1 1 722.9999980000001 103.78711111177788 Z"
-										class="highcharts-point " stroke-width="0.00015047227137560126"></path>
-									<path fill="rgba(119, 152, 191, .5)"
-										d="M 740 115.80000000000001 A 4 4 0 1 1 739.9999980000001 115.79600000066668 Z"
-										class="highcharts-point " stroke-width="0.0010408054867466765"></path>
-									<path fill="rgba(119, 152, 191, .5)"
-										d="M 582 144.9644444444444 A 4 4 0 1 1 581.9999980000001 144.96044444511108 Z"
-										class="highcharts-point " stroke-width="0.0014702978987329862"></path>
-									<path fill="rgba(119, 152, 191, .5)"
-										d="M 469 191.2844444444445 A 4 4 0 1 1 468.9999980000002 191.28044444511116 Z"
-										class="highcharts-point " stroke-width="0.00011056997257148649"></path>
-									<path fill="rgba(119, 152, 191, .5)"
-										d="M 365 237.60444444444443 A 4 4 0 1 1 364.9999980000002 237.6004444451111 Z"
-										class="highcharts-point " stroke-width="0.00006030495590440832"></path>
+					<div class="quotes-body__chart">
+						<div class="quotes-body__chart-inner">
+							<svg version="1.1" class="highcharts-root"
+								style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;"
+								xmlns="http://www.w3.org/2000/svg" width="1200" height="450" viewBox="0 0 1200 450">
+								<desc>Created with Highcharts 6.0.6</desc>
+								<defs>
+									<clipPath id="highcharts-fbpyzbq-35">
+										<rect x="0" y="0" width="1119" height="386" fill="none"></rect>
+									</clipPath>
+								</defs>
+								<rect fill="#ffffff" class="highcharts-background" x="0" y="0" width="1200" height="450" rx="0" ry="0">
+								</rect>
+								<rect fill="none" class="highcharts-plot-background" x="71" y="10" width="1119" height="386"></rect>
+								<g class="highcharts-grid highcharts-xaxis-grid ">
+									<path fill="none" class="highcharts-grid-line" d="M 70.5 10 L 70.5 396" opacity="1"></path>
+									<path fill="none" class="highcharts-grid-line" d="M 192.5 10 L 192.5 396" opacity="1"></path>
+									<path fill="none" class="highcharts-grid-line" d="M 314.5 10 L 314.5 396" opacity="1"></path>
+									<path fill="none" class="highcharts-grid-line" d="M 435.5 10 L 435.5 396" opacity="1"></path>
+									<path fill="none" class="highcharts-grid-line" d="M 557.5 10 L 557.5 396" opacity="1"></path>
+									<path fill="none" class="highcharts-grid-line" d="M 679.5 10 L 679.5 396" opacity="1"></path>
+									<path fill="none" class="highcharts-grid-line" d="M 801.5 10 L 801.5 396" opacity="1"></path>
+									<path fill="none" class="highcharts-grid-line" d="M 922.5 10 L 922.5 396" opacity="1"></path>
+									<path fill="none" class="highcharts-grid-line" d="M 1044.5 10 L 1044.5 396" opacity="1"></path>
+									<path fill="none" class="highcharts-grid-line" d="M 1166.5 10 L 1166.5 396" opacity="1"></path>
 								</g>
-							</g><text x="600" text-anchor="middle" class="highcharts-title"
-								style="color:#333333;font-size:18px;fill:#333333;" y="24"></text><text x="600" text-anchor="middle"
-								class="highcharts-subtitle" style="color:#666666;fill:#666666;" y="24"></text>
-							<g class="highcharts-data-labels highcharts-series-0 highcharts-scatter-series highcharts-tracker "
-								transform="translate(71,10) scale(1 1)" opacity="1" style="cursor:pointer;">
-								<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
-									style="cursor:pointer;" transform="translate(210,235)"><text x="5"
-										style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
-										<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
-											stroke-width="2px" stroke-linejoin="round" style="">ОФЗ 26234</tspan>
-										<tspan x="5" y="16">ОФЗ 26234</tspan>
-									</text></g>
-								<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
-									style="cursor:pointer;" transform="translate(-5,330)"><text x="5"
-										style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
-										<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
-											stroke-width="2px" stroke-linejoin="round">ОФЗ 26215</tspan>
-										<tspan x="5" y="16">ОФЗ 26215</tspan>
-									</text></g>
-								<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
-									style="cursor:pointer;" transform="translate(126,282)"><text x="5"
-										style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
-										<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
-											stroke-width="2px" stroke-linejoin="round">ОФЗ 26222</tspan>
-										<tspan x="5" y="16">ОФЗ 26222</tspan>
-									</text></g>
-								<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
-									style="cursor:pointer;" transform="translate(5,319)" opacity="0" visibility="hidden"><text x="5"
-										style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
-										<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
-											stroke-width="2px" stroke-linejoin="round">ОФЗ 25084</tspan>
-										<tspan x="5" y="16">ОФЗ 25084</tspan>
-									</text></g>
-								<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
-									style="cursor:pointer;" transform="translate(740,59)"><text x="5"
-										style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
-										<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
-											stroke-width="2px" stroke-linejoin="round">ОФЗ 26241</tspan>
-										<tspan x="5" y="16">ОФЗ 26241</tspan>
-									</text></g>
-								<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
-									style="cursor:pointer;" transform="translate(613,93)"><text x="5"
-										style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
-										<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
-											stroke-width="2px" stroke-linejoin="round">ОФЗ 26228</tspan>
-										<tspan x="5" y="16">ОФЗ 26228</tspan>
-									</text></g>
-								<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
-									style="cursor:pointer;" transform="translate(441,165)"><text x="5"
-										style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
-										<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
-											stroke-width="2px" stroke-linejoin="round">ОФЗ 26212</tspan>
-										<tspan x="5" y="16">ОФЗ 26212</tspan>
-									</text></g>
-								<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
-									style="cursor:pointer;" transform="translate(542,101)"><text x="5"
-										style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
-										<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
-											stroke-width="2px" stroke-linejoin="round">ОФЗ 26242</tspan>
-										<tspan x="5" y="16">ОФЗ 26242</tspan>
-									</text></g>
-								<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
-									style="cursor:pointer;" transform="translate(1055,34)"><text x="5"
-										style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
-										<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
-											stroke-width="2px" stroke-linejoin="round">ОФЗ 26238</tspan>
-										<tspan x="5" y="16">ОФЗ 26238</tspan>
-									</text></g>
-								<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
-									style="cursor:pointer;" transform="translate(95,286)" opacity="0" visibility="hidden"><text x="5"
-										style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
-										<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
-											stroke-width="2px" stroke-linejoin="round">ОФЗ 26227</tspan>
-										<tspan x="5" y="16">ОФЗ 26227</tspan>
-									</text></g>
-								<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
-									style="cursor:pointer;" transform="translate(492,136)"><text x="5"
-										style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
-										<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
-											stroke-width="2px" stroke-linejoin="round">ОФЗ 26236</tspan>
-										<tspan x="5" y="16">ОФЗ 26236</tspan>
-									</text></g>
-								<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
-									style="cursor:pointer;" transform="translate(243,237)" opacity="0" visibility="hidden"><text x="5"
-										style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
-										<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
-											stroke-width="2px" stroke-linejoin="round">ОФЗ 26229</tspan>
-										<tspan x="5" y="16">ОФЗ 26229</tspan>
-									</text></g>
-								<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
-									style="cursor:pointer;" transform="translate(351,210)"><text x="5"
-										style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
-										<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
-											stroke-width="2px" stroke-linejoin="round">ОФЗ 26207</tspan>
-										<tspan x="5" y="16">ОФЗ 26207</tspan>
-									</text></g>
-								<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
-									style="cursor:pointer;" transform="translate(781,59)" opacity="0" visibility="hidden"><text x="5"
-										style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
-										<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
-											stroke-width="2px" stroke-linejoin="round">ОФЗ 26221</tspan>
-										<tspan x="5" y="16">ОФЗ 26221</tspan>
-									</text></g>
-								<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
-									style="cursor:pointer;" transform="translate(854,51)"><text x="5"
-										style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
-										<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
-											stroke-width="2px" stroke-linejoin="round">ОФЗ 26225</tspan>
-										<tspan x="5" y="16">ОФЗ 26225</tspan>
-									</text></g>
-								<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
-									style="cursor:pointer;" transform="translate(53,313)"><text x="5"
-										style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
-										<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
-											stroke-width="2px" stroke-linejoin="round">ОФЗ 26223</tspan>
-										<tspan x="5" y="16">ОФЗ 26223</tspan>
-									</text></g>
-								<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
-									style="cursor:pointer;" transform="translate(995,43)"><text x="5"
-										style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
-										<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
-											stroke-width="2px" stroke-linejoin="round">ОФЗ 26230</tspan>
-										<tspan x="5" y="16">ОФЗ 26230</tspan>
-									</text></g>
-								<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
-									style="cursor:pointer;" transform="translate(564,118)"><text x="5"
-										style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
-										<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
-											stroke-width="2px" stroke-linejoin="round">ОФЗ 26224</tspan>
-										<tspan x="5" y="16">ОФЗ 26224</tspan>
-									</text></g>
-								<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
-									style="cursor:pointer;" transform="translate(915,50)"><text x="5"
-										style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
-										<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
-											stroke-width="2px" stroke-linejoin="round">ОФЗ 26233</tspan>
-										<tspan x="5" y="16">ОФЗ 26233</tspan>
-									</text></g>
-								<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
-									style="cursor:pointer;" transform="translate(321,230)"><text x="5"
-										style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
-										<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
-											stroke-width="2px" stroke-linejoin="round">ОФЗ 26219</tspan>
-										<tspan x="5" y="16">ОФЗ 26219</tspan>
-									</text></g>
-								<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
-									style="cursor:pointer;" transform="translate(697,85)"><text x="5"
-										style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
-										<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
-											stroke-width="2px" stroke-linejoin="round">ОФЗ 26239</tspan>
-										<tspan x="5" y="16">ОФЗ 26239</tspan>
-									</text></g>
-								<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
-									style="cursor:pointer;" transform="translate(925,40)" opacity="0" visibility="hidden"><text x="5"
-										style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
-										<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
-											stroke-width="2px" stroke-linejoin="round">ОФЗ 26240</tspan>
-										<tspan x="5" y="16">ОФЗ 26240</tspan>
-									</text></g>
-								<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
-									style="cursor:pointer;" transform="translate(686,82)" opacity="0" visibility="hidden"><text x="5"
-										style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
-										<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
-											stroke-width="2px" stroke-linejoin="round">ОФЗ 26218</tspan>
-										<tspan x="5" y="16">ОФЗ 26218</tspan>
-									</text></g>
-								<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
-									style="cursor:pointer;" transform="translate(702,94)" opacity="0" visibility="hidden"><text x="5"
-										style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
-										<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
-											stroke-width="2px" stroke-linejoin="round">ОФЗ 26235</tspan>
-										<tspan x="5" y="16">ОФЗ 26235</tspan>
-									</text></g>
-								<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
-									style="cursor:pointer;" transform="translate(544,123)" opacity="0" visibility="hidden"><text x="5"
-										style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
-										<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
-											stroke-width="2px" stroke-linejoin="round">ОФЗ 26237</tspan>
-										<tspan x="5" y="16">ОФЗ 26237</tspan>
-									</text></g>
-								<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
-									style="cursor:pointer;" transform="translate(431,169)" opacity="0" visibility="hidden"><text x="5"
-										style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
-										<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
-											stroke-width="2px" stroke-linejoin="round">ОФЗ 26232</tspan>
-										<tspan x="5" y="16">ОФЗ 26232</tspan>
-									</text></g>
-								<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
-									style="cursor:pointer;" transform="translate(327,216)" opacity="0" visibility="hidden"><text x="5"
-										style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
-										<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
-											stroke-width="2px" stroke-linejoin="round">ОФЗ 26226</tspan>
-										<tspan x="5" y="16">ОФЗ 26226</tspan>
-									</text></g>
-							</g>
-							<g class="highcharts-axis-labels highcharts-xaxis-labels "><text x="71"
-									style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle"
-									transform="translate(0,0)" y="415" opacity="1">0</text><text x="192.7642563473835"
-									style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle"
-									transform="translate(0,0)" y="415" opacity="1">1</text><text x="314.528512694767"
-									style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle"
-									transform="translate(0,0)" y="415" opacity="1">2</text><text x="436.29276904215055"
-									style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle"
-									transform="translate(0,0)" y="415" opacity="1">3</text><text x="558.057025389534"
-									style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle"
-									transform="translate(0,0)" y="415" opacity="1">4</text><text x="679.8212817369175"
-									style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle"
-									transform="translate(0,0)" y="415" opacity="1">5</text><text x="801.5855380843011"
-									style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle"
-									transform="translate(0,0)" y="415" opacity="1">6</text><text x="923.3497944316846"
-									style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle"
-									transform="translate(0,0)" y="415" opacity="1">7</text><text x="1045.114050779068"
-									style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle"
-									transform="translate(0,0)" y="415" opacity="1">8</text><text x="1166.8783071264515"
-									style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle"
-									transform="translate(0,0)" y="415" opacity="1">9</text></g>
-							<g class="highcharts-axis-labels highcharts-yaxis-labels "><text x="56"
-									style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end"
-									transform="translate(0,0)" y="401" opacity="1">7</text><text x="56"
-									style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end"
-									transform="translate(0,0)" y="358" opacity="1">7.5</text><text x="56"
-									style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end"
-									transform="translate(0,0)" y="315" opacity="1">8</text><text x="56"
-									style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end"
-									transform="translate(0,0)" y="272" opacity="1">8.5</text><text x="56"
-									style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end"
-									transform="translate(0,0)" y="229" opacity="1">9</text><text x="56"
-									style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end"
-									transform="translate(0,0)" y="187" opacity="1">9.5</text><text x="56"
-									style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end"
-									transform="translate(0,0)" y="144" opacity="1">10</text><text x="56"
-									style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end"
-									transform="translate(0,0)" y="101" opacity="1">10.5</text><text x="56"
-									style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end"
-									transform="translate(0,0)" y="58" opacity="1">11</text><text x="56"
-									style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end"
-									transform="translate(0,0)" y="15" opacity="1">11.5</text></g><text x="1190" class="highcharts-credits"
-								text-anchor="end" style="cursor:pointer;color:blue;font-size:12px;fill:blue;"
-								y="390">smart-lab.ru</text>
-							<g class="highcharts-label highcharts-tooltip highcharts-color-undefined"
-								style="cursor:default;pointer-events:none;white-space:nowrap;" transform="translate(820,-9999)"
-								opacity="0" visibility="visible">
-								<path fill="none" class="highcharts-label-box highcharts-tooltip-box"
-									d="M 3.5 0.5 L 128.5 0.5 C 131.5 0.5 131.5 0.5 131.5 3.5 L 131.5 57.5 C 131.5 60.5 131.5 60.5 128.5 60.5 L 71.5 60.5 65.5 66.5 59.5 60.5 3.5 60.5 C 0.5 60.5 0.5 60.5 0.5 57.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5"
-									isShadow="true" stroke="#000000" stroke-opacity="0.049999999999999996" stroke-width="5"
-									transform="translate(1, 1)"></path>
-								<path fill="none" class="highcharts-label-box highcharts-tooltip-box"
-									d="M 3.5 0.5 L 128.5 0.5 C 131.5 0.5 131.5 0.5 131.5 3.5 L 131.5 57.5 C 131.5 60.5 131.5 60.5 128.5 60.5 L 71.5 60.5 65.5 66.5 59.5 60.5 3.5 60.5 C 0.5 60.5 0.5 60.5 0.5 57.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5"
-									isShadow="true" stroke="#000000" stroke-opacity="0.09999999999999999" stroke-width="3"
-									transform="translate(1, 1)"></path>
-								<path fill="none" class="highcharts-label-box highcharts-tooltip-box"
-									d="M 3.5 0.5 L 128.5 0.5 C 131.5 0.5 131.5 0.5 131.5 3.5 L 131.5 57.5 C 131.5 60.5 131.5 60.5 128.5 60.5 L 71.5 60.5 65.5 66.5 59.5 60.5 3.5 60.5 C 0.5 60.5 0.5 60.5 0.5 57.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5"
-									isShadow="true" stroke="#000000" stroke-opacity="0.15" stroke-width="1" transform="translate(1, 1)">
-								</path>
-								<path fill="rgba(247,247,247,0.85)" class="highcharts-label-box highcharts-tooltip-box"
-									d="M 3.5 0.5 L 128.5 0.5 C 131.5 0.5 131.5 0.5 131.5 3.5 L 131.5 57.5 C 131.5 60.5 131.5 60.5 128.5 60.5 L 71.5 60.5 65.5 66.5 59.5 60.5 3.5 60.5 C 0.5 60.5 0.5 60.5 0.5 57.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5"
-									stroke="rgba(119, 152, 191, .5)" stroke-width="1"></path><text x="8"
-									style="font-size:12px;color:#333333;fill:#333333;" y="20">
-									<tspan style="font-weight:bold">ОФЗ: ОФЗ 26221</tspan>
-									<tspan x="8" dy="15">Дюрация: 6.69 лет</tspan>
-									<tspan x="8" dy="15">Доходность: 10.55 %</tspan>
-								</text>
-							</g>
-						</svg>
+								<g class="highcharts-grid highcharts-yaxis-grid ">
+									<path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line"
+										d="M 71 396.5 L 1190 396.5" opacity="1"></path>
+									<path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line"
+										d="M 71 353.5 L 1190 353.5" opacity="1"></path>
+									<path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line"
+										d="M 71 310.5 L 1190 310.5" opacity="1"></path>
+									<path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line"
+										d="M 71 267.5 L 1190 267.5" opacity="1"></path>
+									<path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line"
+										d="M 71 224.5 L 1190 224.5" opacity="1"></path>
+									<path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line"
+										d="M 71 182.5 L 1190 182.5" opacity="1"></path>
+									<path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line"
+										d="M 71 139.5 L 1190 139.5" opacity="1"></path>
+									<path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line"
+										d="M 71 96.5 L 1190 96.5" opacity="1"></path>
+									<path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line"
+										d="M 71 53.5 L 1190 53.5" opacity="1"></path>
+									<path fill="none" stroke="#e6e6e6" stroke-width="1" class="highcharts-grid-line"
+										d="M 71 9.5 L 1190 9.5" opacity="1"></path>
+								</g>
+								<rect fill="none" class="highcharts-plot-border" x="71" y="10" width="1119" height="386"></rect>
+								<g class="highcharts-axis highcharts-xaxis ">
+									<path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1" d="M 70.5 396 L 70.5 406"
+										opacity="1">
+									</path>
+									<path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1"
+										d="M 192.5 396 L 192.5 406" opacity="1">
+									</path>
+									<path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1"
+										d="M 314.5 396 L 314.5 406" opacity="1">
+									</path>
+									<path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1"
+										d="M 435.5 396 L 435.5 406" opacity="1">
+									</path>
+									<path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1"
+										d="M 557.5 396 L 557.5 406" opacity="1">
+									</path>
+									<path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1"
+										d="M 679.5 396 L 679.5 406" opacity="1">
+									</path>
+									<path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1"
+										d="M 801.5 396 L 801.5 406" opacity="1">
+									</path>
+									<path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1"
+										d="M 922.5 396 L 922.5 406" opacity="1">
+									</path>
+									<path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1"
+										d="M 1044.5 396 L 1044.5 406" opacity="1"></path>
+									<path fill="none" class="highcharts-tick" stroke="#ccd6eb" stroke-width="1"
+										d="M 1166.5 396 L 1166.5 406" opacity="1"></path><text x="630.5" text-anchor="middle"
+										transform="translate(0,0)" class="highcharts-axis-title" style="color:#666666;fill:#666666;"
+										y="433">
+										<tspan>Дюрация, лет</tspan>
+									</text>
+									<path fill="none" class="highcharts-axis-line" stroke="#ccd6eb" stroke-width="1"
+										d="M 71 396.5 L 1190 396.5"></path>
+								</g>
+								<g class="highcharts-axis highcharts-yaxis "><text x="24.423828125" text-anchor="middle"
+										transform="translate(0,0) rotate(270 24.423828125 203)" class="highcharts-axis-title"
+										style="color:#666666;fill:#666666;" y="203">
+										<tspan>Доходность, %</tspan>
+									</text>
+									<path fill="none" class="highcharts-axis-line" d="M 71 10 L 71 396"></path>
+								</g>
+								<g class="highcharts-series-group">
+									<g class="highcharts-series highcharts-series-0 highcharts-scatter-series highcharts-tracker "
+										transform="translate(71,10) scale(1 1)" clip-path="url(#highcharts-fbpyzbq-35)"
+										style="cursor:pointer;"></g>
+									<g class="highcharts-markers highcharts-series-0 highcharts-scatter-series highcharts-tracker "
+										transform="translate(71,10) scale(1 1)" style="cursor:pointer;">
+										<path fill="rgba(119, 152, 191, .5)" visibility="hidden"
+											d="M 814 81.48888888888882 A 0 0 0 1 1 814 81.48888888888882 Z"
+											class="highcharts-halo highcharts-color-undefined" fill-opacity="0.25"></path>
+										<path fill="rgba(119, 152, 191, .5)"
+											d="M 247 257.33333333333337 A 4 4 0 1 1 246.99999800000018 257.329333334 Z"
+											class="highcharts-point " stroke-width="0.0011937468193874423"></path>
+										<path fill="rgba(119, 152, 191, .5)" d="M 27 352 A 4 4 0 1 1 26.99999800000017 351.99600000066664 Z"
+											class="highcharts-point"></path>
+										<path fill="rgba(119, 152, 191, .5)"
+											d="M 163 303.6533333333333 A 4 4 0 1 1 162.99999800000018 303.64933333399995 Z"
+											class="highcharts-point " stroke-width="0.0007992249455124334"></path>
+										<path fill="rgba(119, 152, 191, .5)"
+											d="M 43 341.3955555555556 A 4 4 0 1 1 42.99999800000017 341.3915555562222 Z"
+											class="highcharts-point " stroke-width="0.0004835326609375912"></path>
+										<path fill="rgba(119, 152, 191, .5)"
+											d="M 778 80.63111111111107 A 4 4 0 1 1 777.9999980000001 80.62711111177774 Z"
+											class="highcharts-point " stroke-width="0.000015454435942974243"></path>
+										<path fill="rgba(119, 152, 191, .5)"
+											d="M 650 114.94222222222226 A 4 4 0 1 1 649.9999980000001 114.93822222288892 Z"
+											class="highcharts-point " stroke-width="0.000023559646111781518"></path>
+										<path fill="rgba(119, 152, 191, .5)"
+											d="M 479 186.99555555555554 A 4 4 0 1 1 478.9999980000002 186.9915555562222 Z"
+											class="highcharts-point " stroke-width="0.000016977681319418902"></path>
+										<path fill="rgba(119, 152, 191, .5)"
+											d="M 580 122.66222222222223 A 4 4 0 1 1 579.9999980000001 122.6582222228889 Z"
+											class="highcharts-point " stroke-width="0.00037063472180243195"></path>
+										<path fill="rgba(119, 152, 191, .5)"
+											d="M 1111 56 A 4 4 0 1 1 1110.9999980000002 55.99600000066666 Z" class="highcharts-point"></path>
+										<path fill="rgba(119, 152, 191, .5)"
+											d="M 133 307.9422222222222 A 4 4 0 1 1 132.99999800000018 307.93822222288884 Z"
+											class="highcharts-point " stroke-width="0.0019331954284137476"></path>
+										<path fill="rgba(119, 152, 191, .5)"
+											d="M 530 157.8311111111111 A 4 4 0 1 1 529.9999980000001 157.82711111177778 Z"
+											class="highcharts-point " stroke-width="0.0000779136103310138"></path>
+										<path fill="rgba(119, 152, 191, .5)"
+											d="M 280 259.0488888888889 A 4 4 0 1 1 279.9999980000002 259.0448888895555 Z"
+											class="highcharts-point " stroke-width="0.0001540411391833807"></path>
+										<path fill="rgba(119, 152, 191, .5)"
+											d="M 389 231.59999999999994 A 4 4 0 1 1 388.9999980000002 231.5960000006666 Z"
+											class="highcharts-point " stroke-width="0.0000028336562932218534"></path>
+										<path fill="rgba(119, 152, 191, .5)"
+											d="M 818 81.48888888888882 A 4 4 0 1 1 817.9999980000001 81.48488888955549 Z"
+											class="highcharts-point " stroke-width="0.000030367444640671398"></path>
+										<path fill="rgba(119, 152, 191, .5)" d="M 892 73 A 4 4 0 1 1 891.9999980000001 72.99600000066667 Z"
+											class="highcharts-point"></path>
+										<path fill="rgba(119, 152, 191, .5)"
+											d="M 90 334.53333333333336 A 4 4 0 1 1 89.99999800000016 334.529333334 Z"
+											class="highcharts-point " stroke-width="0.0007367227215618888"></path>
+										<path fill="rgba(119, 152, 191, .5)"
+											d="M 1032 65 A 4 4 0 1 1 1031.9999980000002 64.99600000066667 Z" class="highcharts-point"></path>
+										<path fill="rgba(119, 152, 191, .5)"
+											d="M 602 139.81777777777785 A 4 4 0 1 1 601.9999980000001 139.81377777844452 Z"
+											class="highcharts-point " stroke-width="0.000006226708602480313"></path>
+										<path fill="rgba(119, 152, 191, .5)" d="M 953 72 A 4 4 0 1 1 952.9999980000001 71.99600000066667 Z"
+											class="highcharts-point"></path>
+										<path fill="rgba(119, 152, 191, .5)"
+											d="M 359 252.18666666666664 A 4 4 0 1 1 358.9999980000002 252.1826666673333 Z"
+											class="highcharts-point " stroke-width="0.00002806279221018171"></path>
+										<path fill="rgba(119, 152, 191, .5)"
+											d="M 734 107 A 4 4 0 1 1 733.9999980000001 106.99600000066667 Z" class="highcharts-point"></path>
+										<path fill="rgba(119, 152, 191, .5)" d="M 963 62 A 4 4 0 1 1 962.9999980000001 61.99600000066666 Z"
+											class="highcharts-point"></path>
+										<path fill="rgba(119, 152, 191, .5)"
+											d="M 723 103.7911111111112 A 4 4 0 1 1 722.9999980000001 103.78711111177788 Z"
+											class="highcharts-point " stroke-width="0.00015047227137560126"></path>
+										<path fill="rgba(119, 152, 191, .5)"
+											d="M 740 115.80000000000001 A 4 4 0 1 1 739.9999980000001 115.79600000066668 Z"
+											class="highcharts-point " stroke-width="0.0010408054867466765"></path>
+										<path fill="rgba(119, 152, 191, .5)"
+											d="M 582 144.9644444444444 A 4 4 0 1 1 581.9999980000001 144.96044444511108 Z"
+											class="highcharts-point " stroke-width="0.0014702978987329862"></path>
+										<path fill="rgba(119, 152, 191, .5)"
+											d="M 469 191.2844444444445 A 4 4 0 1 1 468.9999980000002 191.28044444511116 Z"
+											class="highcharts-point " stroke-width="0.00011056997257148649"></path>
+										<path fill="rgba(119, 152, 191, .5)"
+											d="M 365 237.60444444444443 A 4 4 0 1 1 364.9999980000002 237.6004444451111 Z"
+											class="highcharts-point " stroke-width="0.00006030495590440832"></path>
+									</g>
+								</g><text x="600" text-anchor="middle" class="highcharts-title"
+									style="color:#333333;font-size:18px;fill:#333333;" y="24"></text><text x="600" text-anchor="middle"
+									class="highcharts-subtitle" style="color:#666666;fill:#666666;" y="24"></text>
+								<g class="highcharts-data-labels highcharts-series-0 highcharts-scatter-series highcharts-tracker "
+									transform="translate(71,10) scale(1 1)" opacity="1" style="cursor:pointer;">
+									<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
+										style="cursor:pointer;" transform="translate(210,235)"><text x="5"
+											style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
+											<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+												stroke-width="2px" stroke-linejoin="round" style="">ОФЗ 26234</tspan>
+											<tspan x="5" y="16">ОФЗ 26234</tspan>
+										</text></g>
+									<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
+										style="cursor:pointer;" transform="translate(-5,330)"><text x="5"
+											style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
+											<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+												stroke-width="2px" stroke-linejoin="round">ОФЗ 26215</tspan>
+											<tspan x="5" y="16">ОФЗ 26215</tspan>
+										</text></g>
+									<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
+										style="cursor:pointer;" transform="translate(126,282)"><text x="5"
+											style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
+											<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+												stroke-width="2px" stroke-linejoin="round">ОФЗ 26222</tspan>
+											<tspan x="5" y="16">ОФЗ 26222</tspan>
+										</text></g>
+									<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
+										style="cursor:pointer;" transform="translate(5,319)" opacity="0" visibility="hidden"><text x="5"
+											style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
+											<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+												stroke-width="2px" stroke-linejoin="round">ОФЗ 25084</tspan>
+											<tspan x="5" y="16">ОФЗ 25084</tspan>
+										</text></g>
+									<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
+										style="cursor:pointer;" transform="translate(740,59)"><text x="5"
+											style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
+											<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+												stroke-width="2px" stroke-linejoin="round">ОФЗ 26241</tspan>
+											<tspan x="5" y="16">ОФЗ 26241</tspan>
+										</text></g>
+									<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
+										style="cursor:pointer;" transform="translate(613,93)"><text x="5"
+											style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
+											<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+												stroke-width="2px" stroke-linejoin="round">ОФЗ 26228</tspan>
+											<tspan x="5" y="16">ОФЗ 26228</tspan>
+										</text></g>
+									<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
+										style="cursor:pointer;" transform="translate(441,165)"><text x="5"
+											style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
+											<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+												stroke-width="2px" stroke-linejoin="round">ОФЗ 26212</tspan>
+											<tspan x="5" y="16">ОФЗ 26212</tspan>
+										</text></g>
+									<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
+										style="cursor:pointer;" transform="translate(542,101)"><text x="5"
+											style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
+											<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+												stroke-width="2px" stroke-linejoin="round">ОФЗ 26242</tspan>
+											<tspan x="5" y="16">ОФЗ 26242</tspan>
+										</text></g>
+									<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
+										style="cursor:pointer;" transform="translate(1055,34)"><text x="5"
+											style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
+											<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+												stroke-width="2px" stroke-linejoin="round">ОФЗ 26238</tspan>
+											<tspan x="5" y="16">ОФЗ 26238</tspan>
+										</text></g>
+									<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
+										style="cursor:pointer;" transform="translate(95,286)" opacity="0" visibility="hidden"><text x="5"
+											style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
+											<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+												stroke-width="2px" stroke-linejoin="round">ОФЗ 26227</tspan>
+											<tspan x="5" y="16">ОФЗ 26227</tspan>
+										</text></g>
+									<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
+										style="cursor:pointer;" transform="translate(492,136)"><text x="5"
+											style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
+											<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+												stroke-width="2px" stroke-linejoin="round">ОФЗ 26236</tspan>
+											<tspan x="5" y="16">ОФЗ 26236</tspan>
+										</text></g>
+									<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
+										style="cursor:pointer;" transform="translate(243,237)" opacity="0" visibility="hidden"><text x="5"
+											style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
+											<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+												stroke-width="2px" stroke-linejoin="round">ОФЗ 26229</tspan>
+											<tspan x="5" y="16">ОФЗ 26229</tspan>
+										</text></g>
+									<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
+										style="cursor:pointer;" transform="translate(351,210)"><text x="5"
+											style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
+											<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+												stroke-width="2px" stroke-linejoin="round">ОФЗ 26207</tspan>
+											<tspan x="5" y="16">ОФЗ 26207</tspan>
+										</text></g>
+									<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
+										style="cursor:pointer;" transform="translate(781,59)" opacity="0" visibility="hidden"><text x="5"
+											style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
+											<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+												stroke-width="2px" stroke-linejoin="round">ОФЗ 26221</tspan>
+											<tspan x="5" y="16">ОФЗ 26221</tspan>
+										</text></g>
+									<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
+										style="cursor:pointer;" transform="translate(854,51)"><text x="5"
+											style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
+											<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+												stroke-width="2px" stroke-linejoin="round">ОФЗ 26225</tspan>
+											<tspan x="5" y="16">ОФЗ 26225</tspan>
+										</text></g>
+									<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
+										style="cursor:pointer;" transform="translate(53,313)"><text x="5"
+											style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
+											<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+												stroke-width="2px" stroke-linejoin="round">ОФЗ 26223</tspan>
+											<tspan x="5" y="16">ОФЗ 26223</tspan>
+										</text></g>
+									<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
+										style="cursor:pointer;" transform="translate(995,43)"><text x="5"
+											style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
+											<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+												stroke-width="2px" stroke-linejoin="round">ОФЗ 26230</tspan>
+											<tspan x="5" y="16">ОФЗ 26230</tspan>
+										</text></g>
+									<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
+										style="cursor:pointer;" transform="translate(564,118)"><text x="5"
+											style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
+											<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+												stroke-width="2px" stroke-linejoin="round">ОФЗ 26224</tspan>
+											<tspan x="5" y="16">ОФЗ 26224</tspan>
+										</text></g>
+									<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
+										style="cursor:pointer;" transform="translate(915,50)"><text x="5"
+											style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
+											<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+												stroke-width="2px" stroke-linejoin="round">ОФЗ 26233</tspan>
+											<tspan x="5" y="16">ОФЗ 26233</tspan>
+										</text></g>
+									<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
+										style="cursor:pointer;" transform="translate(321,230)"><text x="5"
+											style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
+											<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+												stroke-width="2px" stroke-linejoin="round">ОФЗ 26219</tspan>
+											<tspan x="5" y="16">ОФЗ 26219</tspan>
+										</text></g>
+									<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
+										style="cursor:pointer;" transform="translate(697,85)"><text x="5"
+											style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
+											<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+												stroke-width="2px" stroke-linejoin="round">ОФЗ 26239</tspan>
+											<tspan x="5" y="16">ОФЗ 26239</tspan>
+										</text></g>
+									<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
+										style="cursor:pointer;" transform="translate(925,40)" opacity="0" visibility="hidden"><text x="5"
+											style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
+											<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+												stroke-width="2px" stroke-linejoin="round">ОФЗ 26240</tspan>
+											<tspan x="5" y="16">ОФЗ 26240</tspan>
+										</text></g>
+									<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
+										style="cursor:pointer;" transform="translate(686,82)" opacity="0" visibility="hidden"><text x="5"
+											style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
+											<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+												stroke-width="2px" stroke-linejoin="round">ОФЗ 26218</tspan>
+											<tspan x="5" y="16">ОФЗ 26218</tspan>
+										</text></g>
+									<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
+										style="cursor:pointer;" transform="translate(702,94)" opacity="0" visibility="hidden"><text x="5"
+											style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
+											<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+												stroke-width="2px" stroke-linejoin="round">ОФЗ 26235</tspan>
+											<tspan x="5" y="16">ОФЗ 26235</tspan>
+										</text></g>
+									<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
+										style="cursor:pointer;" transform="translate(544,123)" opacity="0" visibility="hidden"><text x="5"
+											style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
+											<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+												stroke-width="2px" stroke-linejoin="round">ОФЗ 26237</tspan>
+											<tspan x="5" y="16">ОФЗ 26237</tspan>
+										</text></g>
+									<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
+										style="cursor:pointer;" transform="translate(431,169)" opacity="0" visibility="hidden"><text x="5"
+											style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
+											<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+												stroke-width="2px" stroke-linejoin="round">ОФЗ 26232</tspan>
+											<tspan x="5" y="16">ОФЗ 26232</tspan>
+										</text></g>
+									<g class="highcharts-label highcharts-data-label highcharts-data-label-color-undefined "
+										style="cursor:pointer;" transform="translate(327,216)" opacity="0" visibility="hidden"><text x="5"
+											style="font-size:11px;font-weight:bold;color:#000000;fill:#000000;" y="16">
+											<tspan x="5" y="16" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF"
+												stroke-width="2px" stroke-linejoin="round">ОФЗ 26226</tspan>
+											<tspan x="5" y="16">ОФЗ 26226</tspan>
+										</text></g>
+								</g>
+								<g class="highcharts-axis-labels highcharts-xaxis-labels "><text x="71"
+										style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle"
+										transform="translate(0,0)" y="415" opacity="1">0</text><text x="192.7642563473835"
+										style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle"
+										transform="translate(0,0)" y="415" opacity="1">1</text><text x="314.528512694767"
+										style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle"
+										transform="translate(0,0)" y="415" opacity="1">2</text><text x="436.29276904215055"
+										style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle"
+										transform="translate(0,0)" y="415" opacity="1">3</text><text x="558.057025389534"
+										style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle"
+										transform="translate(0,0)" y="415" opacity="1">4</text><text x="679.8212817369175"
+										style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle"
+										transform="translate(0,0)" y="415" opacity="1">5</text><text x="801.5855380843011"
+										style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle"
+										transform="translate(0,0)" y="415" opacity="1">6</text><text x="923.3497944316846"
+										style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle"
+										transform="translate(0,0)" y="415" opacity="1">7</text><text x="1045.114050779068"
+										style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle"
+										transform="translate(0,0)" y="415" opacity="1">8</text><text x="1166.8783071264515"
+										style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="middle"
+										transform="translate(0,0)" y="415" opacity="1">9</text></g>
+								<g class="highcharts-axis-labels highcharts-yaxis-labels "><text x="56"
+										style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end"
+										transform="translate(0,0)" y="401" opacity="1">7</text><text x="56"
+										style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end"
+										transform="translate(0,0)" y="358" opacity="1">7.5</text><text x="56"
+										style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end"
+										transform="translate(0,0)" y="315" opacity="1">8</text><text x="56"
+										style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end"
+										transform="translate(0,0)" y="272" opacity="1">8.5</text><text x="56"
+										style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end"
+										transform="translate(0,0)" y="229" opacity="1">9</text><text x="56"
+										style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end"
+										transform="translate(0,0)" y="187" opacity="1">9.5</text><text x="56"
+										style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end"
+										transform="translate(0,0)" y="144" opacity="1">10</text><text x="56"
+										style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end"
+										transform="translate(0,0)" y="101" opacity="1">10.5</text><text x="56"
+										style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end"
+										transform="translate(0,0)" y="58" opacity="1">11</text><text x="56"
+										style="color:#666666;cursor:default;font-size:11px;fill:#666666;" text-anchor="end"
+										transform="translate(0,0)" y="15" opacity="1">11.5</text></g><text x="1190"
+									class="highcharts-credits" text-anchor="end"
+									style="cursor:pointer;color:blue;font-size:12px;fill:blue;" y="390">smart-lab.ru</text>
+								<g class="highcharts-label highcharts-tooltip highcharts-color-undefined"
+									style="cursor:default;pointer-events:none;white-space:nowrap;" transform="translate(820,-9999)"
+									opacity="0" visibility="visible">
+									<path fill="none" class="highcharts-label-box highcharts-tooltip-box"
+										d="M 3.5 0.5 L 128.5 0.5 C 131.5 0.5 131.5 0.5 131.5 3.5 L 131.5 57.5 C 131.5 60.5 131.5 60.5 128.5 60.5 L 71.5 60.5 65.5 66.5 59.5 60.5 3.5 60.5 C 0.5 60.5 0.5 60.5 0.5 57.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5"
+										isShadow="true" stroke="#000000" stroke-opacity="0.049999999999999996" stroke-width="5"
+										transform="translate(1, 1)"></path>
+									<path fill="none" class="highcharts-label-box highcharts-tooltip-box"
+										d="M 3.5 0.5 L 128.5 0.5 C 131.5 0.5 131.5 0.5 131.5 3.5 L 131.5 57.5 C 131.5 60.5 131.5 60.5 128.5 60.5 L 71.5 60.5 65.5 66.5 59.5 60.5 3.5 60.5 C 0.5 60.5 0.5 60.5 0.5 57.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5"
+										isShadow="true" stroke="#000000" stroke-opacity="0.09999999999999999" stroke-width="3"
+										transform="translate(1, 1)"></path>
+									<path fill="none" class="highcharts-label-box highcharts-tooltip-box"
+										d="M 3.5 0.5 L 128.5 0.5 C 131.5 0.5 131.5 0.5 131.5 3.5 L 131.5 57.5 C 131.5 60.5 131.5 60.5 128.5 60.5 L 71.5 60.5 65.5 66.5 59.5 60.5 3.5 60.5 C 0.5 60.5 0.5 60.5 0.5 57.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5"
+										isShadow="true" stroke="#000000" stroke-opacity="0.15" stroke-width="1" transform="translate(1, 1)">
+									</path>
+									<path fill="rgba(247,247,247,0.85)" class="highcharts-label-box highcharts-tooltip-box"
+										d="M 3.5 0.5 L 128.5 0.5 C 131.5 0.5 131.5 0.5 131.5 3.5 L 131.5 57.5 C 131.5 60.5 131.5 60.5 128.5 60.5 L 71.5 60.5 65.5 66.5 59.5 60.5 3.5 60.5 C 0.5 60.5 0.5 60.5 0.5 57.5 L 0.5 3.5 C 0.5 0.5 0.5 0.5 3.5 0.5"
+										stroke="rgba(119, 152, 191, .5)" stroke-width="1"></path><text x="8"
+										style="font-size:12px;color:#333333;fill:#333333;" y="20">
+										<tspan style="font-weight:bold">ОФЗ: ОФЗ 26221</tspan>
+										<tspan x="8" dy="15">Дюрация: 6.69 лет</tspan>
+										<tspan x="8" dy="15">Доходность: 10.55 %</tspan>
+									</text>
+								</g>
+							</svg>
+						</div>
+					</div>
+
+					<div class="quotes-body__hint">
+						<div class="quotes-body__hint-content custom-card">
+							<svg class="quotes-body__hint-icon">
+								<use xlink:href="./images/symbol/sprite.svg#search"></use>
+							</svg>
+							Выделите область на графике, чтобы увеличить её
+						</div>
 					</div>
 				</div>
-
-				<div class="quotes-body__hint">
-					<div class="quotes-body__hint-content custom-card">
-						<svg class="quotes-body__hint-icon">
-							<use xlink:href="./images/symbol/sprite.svg#search"></use>
-						</svg>
-						Выделите область на графике, чтобы увеличить её
-					</div>
-				</div>
-
-			</div>
-			<div class="main__table">
+				<div class="main__table">
   <!-- Адаптивная таблица  -->
       <div class="trades-table _loading">
           <table class="_hidden">
@@ -9817,6 +9820,7 @@
       </div>
       <!-- Адаптивная таблица  -->
 </div>
+			</div> 
 		</main>
 		<footer class="footer @@Class">
 	<!-- 

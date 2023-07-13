@@ -6,6 +6,7 @@ $element-bg: #2a2c30;
 $text-color: #e9e9e9;
 $date-color: #adb7c0;
 $border-color: #c1cbd6;
+$table-border-color: #515151;
 $link-color: #479cd3;
 
 $disabled-color: #e2e2e2;
@@ -16,7 +17,8 @@ $disabled-color: #e2e2e2;
     body {
         background: #fff;
     }
-    .wrapper {
+    .wrapper,
+    .system-messages__item-inner {
         background: $body-bg;
     }
 
@@ -54,7 +56,6 @@ $disabled-color: #e2e2e2;
     .add-form,
     .news-card,
     .short-comment,
-    .system-messages__item-inner,
     .tarif-card__body {
         background-color: $element-bg;
         box-shadow: none;
@@ -72,7 +73,9 @@ $disabled-color: #e2e2e2;
     .tarif-card__pop-up-title,
     .tarif-card__pop-up-list,
     .tarif-card__body,
-    .company-box__title {
+    .company-box__title,
+    .system-messages__text,
+    .system-messages__title {
         color: $text-color;
     }
 
@@ -516,8 +519,15 @@ $disabled-color: #e2e2e2;
         border-color: $border-color;
     }
 
+    .custom-radio__text,
     .custom-checkbox__text {
         color: $text-color;
+    }
+
+    .custom-checkbox:not(.custom-checkbox--switch) {
+        .custom-checkbox__input:not(:checked) + span::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18' fill='none'%3E%3Crect x='0.3' y='0.3' width='17.4' height='17.4' rx='3.7' stroke='%23C1CBD6' stroke-width='0.6'/%3E%3C/svg%3E");
+        }
     }
 
     .login {
@@ -606,12 +616,6 @@ $disabled-color: #e2e2e2;
 
     .footer-mob__banners {
         background-color: $container-bg;
-    }
-
-    .custom-checkbox:not(.custom-checkbox--switch) {
-        .custom-checkbox__input:not(:checked) + span::before {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18' fill='none'%3E%3Crect x='0.3' y='0.3' width='17.4' height='17.4' rx='3.7' stroke='%23C1CBD6' stroke-width='0.6'/%3E%3C/svg%3E");
-        }
     }
 
     .not-found {
@@ -754,6 +758,91 @@ $disabled-color: #e2e2e2;
     .qn-menu {
         &__link {
             color: #999;
+        }
+    }
+
+    .custom-card {
+        background: $element-bg;
+        box-shadow: none;
+    }
+
+    .quotes-body {
+        color: $text-color;
+        &__block-title {
+            color: $text-color;
+        }
+        &__hint-icon {
+            fill: $text-color;
+        }
+    }
+
+    .quotes-simple-table {
+        color: $text-color;
+
+        &__row {
+            border-bottom-color: $table-border-color;
+        }
+        &__item {
+            border-right-color: $table-border-color;
+        }
+    }
+
+    .custom-table {
+        &__tbody tr td {
+            border-top-color: $table-border-color;
+            border-right-color: $table-border-color;
+        }
+
+        &--gen-head {
+            tr th {
+                background: $element-bg;
+            }
+        }
+    }
+
+    .custom-textarea {
+        background-color: $container-bg;
+        color: $text-color;
+        border-color: $border-color;
+
+        &:hover,
+        &:focus {
+            border-color: #a5a5a5;
+        }
+        &::placeholder {
+            color: #adb7c0;
+        }
+        &:focus::placeholder {
+            color: transparent;
+        }
+    }
+
+    .buy-shares {
+        &__popup {
+            background: $element-bg;
+        }
+
+        &__link:hover {
+            background: $body-bg;
+        }
+    }
+
+    .pager {
+        &__link {
+            color: $text-color;
+            background: $element-bg;
+            box-shadow: none;
+
+            &:hover {
+                background: #474747;
+            }
+            &--active {
+                color: #ffffff;
+                background: #479cd3;
+            }
+            &--disabled {
+                color: #545454;
+            }
         }
     }
 }
