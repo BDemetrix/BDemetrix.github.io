@@ -1001,6 +1001,7 @@
   border-top: 1px solid #515151;
 }
 
+.dark-theme .trades-table .flex-table__l-thead svg,
 .dark-theme .trades-table .flex-table__r-header-inner svg {
   fill: #e9e9e9;
 }
