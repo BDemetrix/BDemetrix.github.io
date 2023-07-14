@@ -92,11 +92,12 @@
 
 .trades-table .flex-table__ad-text {
   top: -4px;
-  height: calc(100% + 8px);
+  height: calc(100% + 9px);
   padding: 4px 0;
   background: #fafafa;
   color: #0012ff;
   font-weight: bold;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .trades-table .flex-table__ad-text a {
@@ -150,6 +151,8 @@
 }
 
 .trades-table .flex-table__l-table .flex-table__ad td {
+  /* position: relative;
+  left: -1px; */
   border-right:0;
   border-left: 0;
   padding: 4px 0;
@@ -242,14 +245,14 @@
   display: none;
 }
 
-.trades-table .flex-table__r-side::before {
+.trades-table .flex-table__r-box::before {
   left: 0;
   background: -webkit-gradient(linear, left top, right top, from(#e0e0e0), to(transparent));
   background: -o-linear-gradient(left, #e0e0e0, transparent);
   background: linear-gradient(to right, #e0e0e0, transparent);
 }
 
-.trades-table .flex-table__r-side::after {
+.trades-table .flex-table__r-box::after {
   right: 0;
   background: -webkit-gradient(linear, right top, left top, from(#e0e0e0), to(transparent));
   background: -o-linear-gradient(right, #e0e0e0, transparent);
@@ -296,6 +299,7 @@
 
 .trades-table ._hover td,
 .trades-table .flex-table__ad._hover td .flex-table__ad-text,
+.trades-table .flex-table__ad-text:hover,
 .trades-table tr:hover td {
   background: #f2f2f2;
   background: -moz-linear-gradient(top, #f2f2f2, #f0f0f0);

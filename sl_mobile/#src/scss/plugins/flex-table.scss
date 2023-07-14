@@ -84,6 +84,7 @@
 .flex-table__r-box::before,
 .flex-table__r-box::after {
   content: "";
+  display: block;
   position: absolute;
   top: 0px;
   bottom: 0px;

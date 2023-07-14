@@ -2732,6 +2732,7 @@ picture {
 .flex-table__r-box::before,
 .flex-table__r-box::after {
   content: "";
+  display: block;
   position: absolute;
   top: 0px;
   bottom: 0px;
@@ -12202,11 +12203,12 @@ textarea {
 
 .trades-table .flex-table__ad-text {
   top: -4px;
-  height: calc(100% + 8px);
+  height: calc(100% + 9px);
   padding: 4px 0;
   background: #fafafa;
   color: #0012ff;
   font-weight: bold;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .trades-table .flex-table__ad-text a {
@@ -12257,6 +12259,8 @@ textarea {
 }
 
 .trades-table .flex-table__l-table .flex-table__ad td {
+  /* position: relative;
+  left: -1px; */
   border-right: 0;
   border-left: 0;
   padding: 4px 0;
@@ -12344,14 +12348,14 @@ textarea {
   display: none;
 }
 
-.trades-table .flex-table__r-side::before {
+.trades-table .flex-table__r-box::before {
   left: 0;
   background: -o-linear-gradient(left, #e0e0e0, transparent);
   background: -webkit-gradient(linear, left top, right top, from(#e0e0e0), to(transparent));
   background: linear-gradient(to right, #e0e0e0, transparent);
 }
 
-.trades-table .flex-table__r-side::after {
+.trades-table .flex-table__r-box::after {
   right: 0;
   background: -o-linear-gradient(right, #e0e0e0, transparent);
   background: -webkit-gradient(linear, right top, left top, from(#e0e0e0), to(transparent));
@@ -12397,6 +12401,7 @@ textarea {
 
 .trades-table ._hover td,
 .trades-table .flex-table__ad._hover td .flex-table__ad-text,
+.trades-table .flex-table__ad-text:hover,
 .trades-table tr:hover td {
   background: #f2f2f2;
   background: -moz-linear-gradient(top, #f2f2f2, #f0f0f0);
@@ -14691,6 +14696,10 @@ textarea {
   border-right-color: #515151;
 }
 
+.dark-theme .custom-table {
+  color: #e9e9e9;
+}
+
 .dark-theme .custom-table__tbody tr td {
   border-top-color: #515151;
   border-right-color: #515151;
@@ -14777,6 +14786,104 @@ textarea {
 
 .dark-theme .pager__link--disabled {
   color: #545454;
+}
+
+.dark-theme .custom-scrollbar {
+  /* полоса прокрутки (скроллбар) */
+  /* ползунок скроллбара */
+  /* Работает в Firefox */
+}
+
+.dark-theme .custom-scrollbar::-webkit-scrollbar {
+  width: 12px;
+  /* ширина для вертикального скролла */
+  height: 12px;
+  /* высота для горизонтального скролла */
+}
+
+.dark-theme .custom-scrollbar::-webkit-scrollbar-track {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background-color: #2a2c30;
+}
+
+.dark-theme .custom-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #515151;
+}
+
+.dark-theme .custom-scrollbar * {
+  scrollbar-color: #515151 #2a2c30;
+}
+
+.dark-theme .trades-table,
+.dark-theme .trades-table th,
+.dark-theme .trades-table th a,
+.dark-theme .trades-table .flex-table__l-table td a,
+.dark-theme .trades-table .flex-table__l-table td {
+  color: #e9e9e9;
+}
+
+.dark-theme .trades-table th,
+.dark-theme .trades-table tr td {
+  background: #2a2c30;
+}
+
+.dark-theme .trades-table tr td {
+  border-bottom-color: #515151;
+  border-left-color: #515151;
+}
+
+.dark-theme .trades-table .flex-table__l-table thead tr th {
+  max-height: 56px;
+  height: 56px;
+}
+
+.dark-theme .trades-table .flex-table__ad-text {
+  background: #2a2c30;
+  border-bottom: 1px solid #515151;
+}
+
+.dark-theme .trades-table .flex-table__ad-text a {
+  color: #479cd3 !important;
+}
+
+.dark-theme .trades-table .flex-table__inner {
+  border-color: #515151;
+  -webkit-box-shadow: 0 1px 2px #515151;
+  box-shadow: 0 1px 2px #515151;
+}
+
+.dark-theme .trades-table .flex-table__r-tbody tr:first-child td,
+.dark-theme .trades-table .flex-table__l-tbody tr:first-child td {
+  border-top: 1px solid #515151;
+}
+
+.dark-theme .trades-table .flex-table__r-header-inner svg {
+  fill: #e9e9e9;
+}
+
+.dark-theme .trades-table ._hover td,
+.dark-theme .trades-table .flex-table__ad._hover td .flex-table__ad-text,
+.dark-theme .trades-table .flex-table__ad-text:hover,
+.dark-theme .trades-table tr:hover td {
+  background: #202225 !important;
+}
+
+.dark-theme .trades-table .flex-table__r-box::before {
+  background: -o-linear-gradient(left, #515151, transparent);
+  background: -webkit-gradient(linear, left top, right top, from(#515151), to(transparent));
+  background: linear-gradient(to right, #515151, transparent);
+}
+
+.dark-theme .trades-table .flex-table__r-box::after {
+  background: -o-linear-gradient(right, #515151, transparent);
+  background: -webkit-gradient(linear, right top, left top, from(#515151), to(transparent));
+  background: linear-gradient(to left, #515151, transparent);
+}
+
+.dark-theme .trades-table .flex-table__r-box._overflow .simplebar-scrollbar:before {
+  background: #515151;
 }
 
 .comments__answers {

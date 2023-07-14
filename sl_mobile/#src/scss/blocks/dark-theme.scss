@@ -788,6 +788,7 @@ $disabled-color: #e2e2e2;
     }
 
     .custom-table {
+        color: $text-color;
         &__tbody tr td {
             border-top-color: $table-border-color;
             border-right-color: $table-border-color;
@@ -843,6 +844,100 @@ $disabled-color: #e2e2e2;
             &--disabled {
                 color: #545454;
             }
+        }
+    }
+
+    .custom-scrollbar {
+        /* полоса прокрутки (скроллбар) */
+        &::-webkit-scrollbar {
+            width: 12px; /* ширина для вертикального скролла */
+            height: 12px; /* высота для горизонтального скролла */
+        }
+        /* ползунок скроллбара */
+        &::-webkit-scrollbar-track {
+            box-shadow: none;
+            background-color: $element-bg;
+        }
+        &::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background-color: $table-border-color;
+        }
+        /* Работает в Firefox */
+        * {
+            scrollbar-color: $table-border-color $element-bg;
+        }
+    }
+
+    .trades-table {
+        &,
+        th,
+        th a,
+        .flex-table__l-table td a,
+        .flex-table__l-table td {
+            color: $text-color;
+        }
+
+        th,
+        tr td {
+            background: $element-bg;
+        }
+
+        tr td {
+            border-bottom-color: $table-border-color;
+            border-left-color: $table-border-color;
+        }
+
+        .flex-table__l-table thead tr th {
+            max-height: 56px;
+            height: 56px;
+        }
+
+        .flex-table__ad-text {
+            background: $element-bg;
+            border-bottom: 1px solid $table-border-color;
+        }
+        .flex-table__ad-text a {
+            color: #479cd3 !important;
+        }
+
+        .flex-table__inner {
+            border-color: $table-border-color;
+            -webkit-box-shadow: 0 1px 2px $table-border-color;
+            box-shadow: 0 1px 2px $table-border-color;
+        }
+        .flex-table__r-tbody,
+        .flex-table__l-tbody {
+            tr:first-child td {
+                border-top: 1px solid $table-border-color;
+            }
+        }
+
+        .flex-table__r-header-inner {
+            svg {
+                fill: $text-color;
+            }
+        }
+
+        ._hover td,
+        .flex-table__ad._hover td .flex-table__ad-text,
+        .flex-table__ad-text:hover,
+        tr:hover td {
+            background: $body-bg !important;
+        }
+
+        .flex-table__r-box::before {
+            background: -webkit-gradient(linear, left top, right top, from($table-border-color), to(transparent));
+            background: -o-linear-gradient(left, $table-border-color, transparent);
+            background: linear-gradient(to right, $table-border-color, transparent);
+        }
+
+        .flex-table__r-box::after {
+            background: -webkit-gradient(linear, right top, left top, from($table-border-color), to(transparent));
+            background: -o-linear-gradient(right, $table-border-color, transparent);
+            background: linear-gradient(to left, $table-border-color, transparent);
+        }
+        .flex-table__r-box._overflow .simplebar-scrollbar:before {
+            background: $table-border-color;
         }
     }
 }

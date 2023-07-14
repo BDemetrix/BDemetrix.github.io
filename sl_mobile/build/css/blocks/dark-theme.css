@@ -838,6 +838,10 @@
   border-right-color: #515151;
 }
 
+.dark-theme .custom-table {
+  color: #e9e9e9;
+}
+
 .dark-theme .custom-table__tbody tr td {
   border-top-color: #515151;
   border-right-color: #515151;
@@ -924,6 +928,104 @@
 
 .dark-theme .pager__link--disabled {
   color: #545454;
+}
+
+.dark-theme .custom-scrollbar {
+  /* полоса прокрутки (скроллбар) */
+  /* ползунок скроллбара */
+  /* Работает в Firefox */
+}
+
+.dark-theme .custom-scrollbar::-webkit-scrollbar {
+  width: 12px;
+  /* ширина для вертикального скролла */
+  height: 12px;
+  /* высота для горизонтального скролла */
+}
+
+.dark-theme .custom-scrollbar::-webkit-scrollbar-track {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background-color: #2a2c30;
+}
+
+.dark-theme .custom-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #515151;
+}
+
+.dark-theme .custom-scrollbar * {
+  scrollbar-color: #515151 #2a2c30;
+}
+
+.dark-theme .trades-table,
+.dark-theme .trades-table th,
+.dark-theme .trades-table th a,
+.dark-theme .trades-table .flex-table__l-table td a,
+.dark-theme .trades-table .flex-table__l-table td {
+  color: #e9e9e9;
+}
+
+.dark-theme .trades-table th,
+.dark-theme .trades-table tr td {
+  background: #2a2c30;
+}
+
+.dark-theme .trades-table tr td {
+  border-bottom-color: #515151;
+  border-left-color: #515151;
+}
+
+.dark-theme .trades-table .flex-table__l-table thead tr th {
+  max-height: 56px;
+  height: 56px;
+}
+
+.dark-theme .trades-table .flex-table__ad-text {
+  background: #2a2c30;
+  border-bottom: 1px solid #515151;
+}
+
+.dark-theme .trades-table .flex-table__ad-text a {
+  color: #479cd3 !important;
+}
+
+.dark-theme .trades-table .flex-table__inner {
+  border-color: #515151;
+  -webkit-box-shadow: 0 1px 2px #515151;
+  box-shadow: 0 1px 2px #515151;
+}
+
+.dark-theme .trades-table .flex-table__r-tbody tr:first-child td,
+.dark-theme .trades-table .flex-table__l-tbody tr:first-child td {
+  border-top: 1px solid #515151;
+}
+
+.dark-theme .trades-table .flex-table__r-header-inner svg {
+  fill: #e9e9e9;
+}
+
+.dark-theme .trades-table ._hover td,
+.dark-theme .trades-table .flex-table__ad._hover td .flex-table__ad-text,
+.dark-theme .trades-table .flex-table__ad-text:hover,
+.dark-theme .trades-table tr:hover td {
+  background: #202225 !important;
+}
+
+.dark-theme .trades-table .flex-table__r-box::before {
+  background: -o-linear-gradient(left, #515151, transparent);
+  background: -webkit-gradient(linear, left top, right top, from(#515151), to(transparent));
+  background: linear-gradient(to right, #515151, transparent);
+}
+
+.dark-theme .trades-table .flex-table__r-box::after {
+  background: -o-linear-gradient(right, #515151, transparent);
+  background: -webkit-gradient(linear, right top, left top, from(#515151), to(transparent));
+  background: linear-gradient(to left, #515151, transparent);
+}
+
+.dark-theme .trades-table .flex-table__r-box._overflow .simplebar-scrollbar:before {
+  background: #515151;
 }
 
 @media (min-width: 767.98px) {
