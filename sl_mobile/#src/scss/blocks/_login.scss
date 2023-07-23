@@ -16,6 +16,19 @@
         box-shadow: none;
     }
 
+    &--pop-up {
+        min-height: 0;
+        box-shadow: none;
+        margin: 0;
+        padding: 16px 20px 20px;
+        width: 500px;
+        max-width: calc(100vw - 20px);
+
+        .login__form {
+            max-width: 100%;  
+        }
+    }
+
     // .login__form
     &__form {
         flex: 0 0 100%;
@@ -58,6 +71,7 @@
     // .login__remind
     &__remind {
         //margin-left: auto;
+        padding-top: 2px;
         float: right;
     }
     // .login__submit

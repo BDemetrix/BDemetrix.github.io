@@ -664,8 +664,9 @@
 				<div class="usermenu__body-line"></div>					
 				<!-- <span>Подписчиков: 9</span> -->
 				<!-- <a href="#">Счет: 500₽</a> -->
-				<!-- <a href="#">Рейтинг 5</a> -->
-				<a href="#">Выйти</a>
+				<!-- <a href="#">Рейтинг 5</a> --> 
+				<!-- <a href="#">Выйти</a> -->
+				<a href="#" class="js-pop-up-opener _active-el" data-target-id="login-pop-up">Войти</a>
 			</div>
 		</div>
 	</div>
@@ -2316,6 +2317,65 @@
     <div class="slide-sidebar__cover js-slide-sidebar-toggle-btn"></div>
 </section>
 	</div>
+
+	<div id="login-pop-up" class="custom-pop-up any-class">
+  <div class="custom-pop-up__body any-class__body">
+    <div class="custom-pop-up__cover"></div>
+    <div class="custom-pop-up__content any-class__content">
+      <button class="custom-pop-up__close"></button>
+      <div class="login login--pop-up">
+        <form class="login__form" autocomplete="off" action="/login/" method="POST">
+          <h2 class="login__title">Авторизация</h2>
+          <!-- Класс input-wrapper и custom-input - общая для всех страниц стилизация инпутов. Смотри README -->
+          <div class="login__row input-wrapper input-wrapper--left">
+            <input type="text" class="custom-input" placeholder="Логин или Email">
+            <svg width="20" height="20">
+              <use xlink:href="images/icons/login/sprite.svg#user"></use>
+            </svg>
+          </div>
+          <div class="login__row input-wrapper input-wrapper--left">
+            <input type="password" class="custom-input" placeholder="Пароль">
+            <svg width="20" height="20">
+              <use xlink:href="images/icons/login/sprite.svg#password"></use>
+            </svg>
+          </div>
+      
+      
+          <div class="login__row">
+            <label class="login__remember custom-checkbox">
+              <input type="checkbox" class="custom-checkbox__input" checked="">
+              <span class="custom-checkbox__text">Запомнить</span>
+            </label>
+            <a href="/login/reminder/" class="login__remind">Напомнить пароль</a>
+          </div>
+          <button class="login__submit blue-btn" type="submit">Войти</button>
+          <div class="login__row">
+            <div class="login__to-registration">
+              Нет аккаунта?
+              <a href="/registration/">Зарегистрироваться</a>
+            </div>
+          </div>
+          <div class="login__row social-login">
+            <div class="social-login__title">Войти через:</div>
+            <div class="social-login__btns">
+              <a href="/" class="social-login__btn social-login__btn--vk">
+                <svg width="26" height="14">
+                  <use xlink:href="images/icons/login/sprite.svg#vk"></use>
+                </svg>
+                ВК
+              </a>
+              <a href="/" class="social-login__btn social-login__btn--google">
+                <svg width="31" height="30">
+                  <use xlink:href="images/icons/login/sprite.svg#google"></use>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 	<aside class="system-messages">
     <!-- 
         .system-messages__item - тело сообщения 

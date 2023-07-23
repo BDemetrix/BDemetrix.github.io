@@ -11037,6 +11037,20 @@ textarea {
   color: #383838;
 }
 
+.login--pop-up {
+  min-height: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  margin: 0;
+  padding: 16px 20px 20px;
+  width: 500px;
+  max-width: calc(100vw - 20px);
+}
+
+.login--pop-up .login__form {
+  max-width: 100%;
+}
+
 .login__form {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 100%;
@@ -11072,6 +11086,7 @@ textarea {
 }
 
 .login__remind {
+  padding-top: 2px;
   float: right;
 }
 
