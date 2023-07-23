@@ -92,8 +92,10 @@
 
     &--active {
         background: #ffffff;
-        color: #383838;
+        color: #383838; 
+    }
 
+    &--active.fn-tag--x {
         &::after {
             content: "";
             display: block;

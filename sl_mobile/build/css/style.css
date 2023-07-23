@@ -10092,7 +10092,7 @@ textarea {
   color: #383838;
 }
 
-.fn-tag--active::after {
+.fn-tag--active.fn-tag--x::after {
   content: "";
   display: block;
   width: 10px;
