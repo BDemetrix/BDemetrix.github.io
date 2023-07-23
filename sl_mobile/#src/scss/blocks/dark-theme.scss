@@ -201,6 +201,11 @@ $disabled-color: #e2e2e2;
             background-color: $element-bg;
             color: $text-color;
         }
+        &__footer._loading {
+            &::before {
+                background-color:rgba(33, 35, 38, 0.7);
+            }
+        }
     }
 
     .user-info {

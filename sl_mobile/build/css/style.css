@@ -8303,6 +8303,7 @@ textarea {
   right: -2px;
   bottom: -2px;
   left: -2px;
+  border-radius: 8px;
   background: rgba(255, 255, 255, 0.7) no-repeat center/42px url("/images/preloader.gif");
 }
 
@@ -14095,6 +14096,10 @@ textarea {
 .dark-theme .comments__footer._focus {
   background-color: #2a2c30;
   color: #e9e9e9;
+}
+
+.dark-theme .comments__footer._loading::before {
+  background-color: rgba(33, 35, 38, 0.7);
 }
 
 .dark-theme .user-info__date,
