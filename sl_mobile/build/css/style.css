@@ -8205,7 +8205,7 @@ textarea {
 }
 
 .comments__pinned-label span {
-  padding-bottom: 2px;
+  padding-top: 2px;
   color: #808080;
   font-size: 12px;
   font-weight: 500;
