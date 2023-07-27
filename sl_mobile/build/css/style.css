@@ -875,7 +875,65 @@ picture {
 }
 
 .blue-link {
-  color: #479CD3;
+  color: #479cd3;
+}
+
+.subscription__btn {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 6px;
+  color: #ffffff;
+  border-radius: 6px;
+  border: 0;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.subscription__btn svg {
+  fill: #ffffff;
+}
+
+.subscription__btn span {
+  display: none;
+}
+
+.subscription__btn:hover {
+  background: #9aaeb5;
+}
+
+.subscription__btn--plus {
+  background: #479cd3;
+  -webkit-box-shadow: 0px 2px 4px rgba(11, 84, 131, 0.3);
+          box-shadow: 0px 2px 4px rgba(11, 84, 131, 0.3);
+}
+
+.subscription__btn--plus:hover {
+  background: #61aad9;
+  -webkit-box-shadow: 0px 2px 4px rgba(11, 84, 131, 0.35);
+          box-shadow: 0px 2px 4px rgba(11, 84, 131, 0.35);
+}
+
+.subscription__btn--check {
+  background: #008243;
+  -webkit-box-shadow: 0px 2px 4px rgba(0, 130, 67, 0.25);
+          box-shadow: 0px 2px 4px rgba(0, 130, 67, 0.25);
+}
+
+.subscription__btn--check:hover {
+  background: #00a253;
+  -webkit-box-shadow: 0px 2px 4px rgba(0, 130, 67, 0.3);
+          box-shadow: 0px 2px 4px rgba(0, 130, 67, 0.3);
 }
 
 [data-simplebar] {
@@ -6954,6 +7012,10 @@ textarea {
   max-width: 100%;
 }
 
+.post-card__header-inner--with-full-menu {
+  width: calc(100% - 114px);
+}
+
 .post-card__header-inner--post {
   width: calc(100% - 80px);
 }
@@ -7016,8 +7078,16 @@ textarea {
   display: inline;
 }
 
+.post-card__menu-btn--ml {
+  margin-left: 12px;
+}
+
 .post-card__menu-btn svg {
   fill: #808080;
+}
+
+.post-card__subscription {
+  margin: 0 12px 0 10px;
 }
 
 .post-card__menu-wrap {
@@ -7115,11 +7185,9 @@ textarea {
   color: #479cd3;
 }
 
-.post-card__name-link--approved {
-  max-width: calc(100% - 24px);
-}
-
 .post-card__approved {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   margin-left: 4px;
 }
 
@@ -8614,62 +8682,7 @@ textarea {
 }
 
 .person__btn {
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   margin: 0 0 0 10px;
-  padding: 6px;
-  color: #ffffff;
-  border-radius: 6px;
-  border: 0;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-
-.person__btn svg {
-  fill: #ffffff;
-}
-
-.person__btn span {
-  display: none;
-}
-
-.person__btn:hover {
-  background: #9aaeb5;
-}
-
-.person__btn--plus {
-  background: #479cd3;
-  -webkit-box-shadow: 0px 2px 4px rgba(11, 84, 131, 0.3);
-          box-shadow: 0px 2px 4px rgba(11, 84, 131, 0.3);
-}
-
-.person__btn--plus:hover {
-  background: #61aad9;
-  -webkit-box-shadow: 0px 2px 4px rgba(11, 84, 131, 0.35);
-          box-shadow: 0px 2px 4px rgba(11, 84, 131, 0.35);
-}
-
-.person__btn--check {
-  background: #008243;
-  -webkit-box-shadow: 0px 2px 4px rgba(0, 130, 67, 0.25);
-          box-shadow: 0px 2px 4px rgba(0, 130, 67, 0.25);
-}
-
-.person__btn--check:hover {
-  background: #00a253;
-  -webkit-box-shadow: 0px 2px 4px rgba(0, 130, 67, 0.3);
-          box-shadow: 0px 2px 4px rgba(0, 130, 67, 0.3);
 }
 
 .person__inner {
@@ -15385,6 +15398,18 @@ body.loader:before {
 }
 
 @media (min-width: 567.98px) {
+  .subscription__btn {
+    width: 135px;
+  }
+
+  .subscription__btn svg {
+    display: none;
+  }
+
+  .subscription__btn span {
+    display: block;
+  }
+
   .header__message {
     display: block;
   }
@@ -15429,20 +15454,12 @@ body.loader:before {
     width: 25%;
   }
 
+  .post-card__header-inner--with-full-menu {
+    width: calc(100% - 218px);
+  }
+
   .person--people .person__info {
     width: calc(100% - 205px);
-  }
-
-  .person__btn {
-    width: 135px;
-  }
-
-  .person__btn svg {
-    display: none;
-  }
-
-  .person__btn span {
-    display: block;
   }
 
   .footer-mob__app-box {

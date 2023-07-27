@@ -1241,15 +1241,16 @@
 				<!-- Используются стили из _post-card.scss -->
 <section class="post-card post-card--prev">
     <div class="post-card__header">
-        <div class="post-card__header-inner">
+        <!-- Если добавляется меню, то надо добввить и модификатор  post-card__header-inner--with-full-menu -->
+        <div class="post-card__header-inner post-card__header-inner--with-full-menu">
             <a href="#" class="post-card__photo-wrap">
                 <!-- Если аватар не загружен, то <img> вставлять на страницу не надо. Будет виден фон .post-card__photo-wrap  заданный в css-->
                 <img src="./images/icons/post-card/photo.jpg" alt="Фото" class="post-card__photo">
             </a>
             <div class="post-card__info">
                 <span class="post-card__name">
-                    <!-- Если профиль подтвержден, добавляется модификатор post-card__name-link--approved и svg.post-card__approved -->
-                    <a href="#" class="post-card__name-link post-card__name-link--approved">RomanAndreev</a>
+                    <!-- Если профиль подтвержден, добавляется svg.post-card__approved -->
+                    <a href="#" class="post-card__name-link">RomanAndreev</a>
                     <!-- 
                         Возможные варианты:
                         <svg class="post-card__approved" width="20" height="20">
@@ -1267,6 +1268,106 @@
                     </svg>
                 </span>
                 <span class="post-card__date">сегодня в 21:28</span>
+            </div>
+            <div class="post-card__menu-wrap">
+                <!-- стили кнопки подписки вынесены в глобальный класс .subscription__btn  -->
+                <button class="post-card__subscription subscription__btn subscription__btn--plus">
+                    <svg height="20" width="20">
+                        <use xlink:href="images/icons/user-info/sprite.svg#plus"></use>
+                    </svg>
+                    <span>+&nbsp;Подписаться</span>
+                </button>
+                <div class="post-card__menu post-card__menu--post context-menu">
+                    <button class="post-card__menu-btn post-card__menu-btn--post context-menu__btn">
+                        <svg height="20" width="20">
+                            <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
+                        </svg>
+                    </button>
+                    <ul class="context-menu__list">
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#reload"></use>
+                                </svg>
+                                Старая версия
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#print"></use>
+                                </svg>
+                                Распечатать
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#edit"></use>
+                                </svg>
+                                Редактировать
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#del"></use>
+                                </svg>
+                                Удалить
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#alert"></use>
+                                </svg>
+                                Пожаловаться
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            
+                <div class="post-card__menu context-menu">
+                    <button class="post-card__menu-btn post-card__menu-btn--post context-menu__btn">
+                        <svg height="20" width="20">
+                            <use xlink:href="images/icons/post-card/sprite.svg#share"></use>
+                        </svg>
+                    </button>
+                    <ul class="context-menu__list">
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#chain"></use>
+                                </svg>
+                                Копировать ссылку
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#tab"></use>
+                                </svg>
+                                Добавить в закладки
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item post-card__menu-item--blue context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/user-info/sprite.svg#vk"></use>
+                                </svg>
+                                ВКонтакте
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item post-card__menu-item--blue context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/user-info/sprite.svg#tg"></use>
+                                </svg>
+                                Telegram
+                            </button>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -1333,8 +1434,8 @@
             </a>
             <div class="post-card__info">
                 <span class="post-card__name">
-                    <!-- Если профиль подтвержден, добавляется модификатор post-card__name-link--approved и svg.post-card__approved -->
-                    <a href="#" class="post-card__name-link post-card__name-link--approved">RomanAndreev</a>
+                    <!-- Если профиль подтвержден, добавляется svg.post-card__approved -->
+                    <a href="#" class="post-card__name-link">RomanAndreev</a>
                     <!-- 
                         Возможные варианты:
                         <svg class="post-card__approved" width="20" height="20">
@@ -1413,15 +1514,16 @@
 				<!-- Используются стили из _post-card.scss -->
 <section class="post-card post-card--prev">
     <div class="post-card__header">
-        <div class="post-card__header-inner">
+        <!-- Если добавляется меню, то надо добввить и модификатор  post-card__header-inner--with-full-menu -->
+        <div class="post-card__header-inner post-card__header-inner--with-full-menu">
             <a href="#" class="post-card__photo-wrap">
                 <!-- Если аватар не загружен, то <img> вставлять на страницу не надо. Будет виден фон .post-card__photo-wrap  заданный в css-->
                 <img src="./images/icons/post-card/photo.jpg" alt="Фото" class="post-card__photo">
             </a>
             <div class="post-card__info">
                 <span class="post-card__name">
-                    <!-- Если профиль подтвержден, добавляется модификатор post-card__name-link--approved и svg.post-card__approved -->
-                    <a href="#" class="post-card__name-link post-card__name-link--approved">RomanAndreev</a>
+                    <!-- Если профиль подтвержден, добавляется svg.post-card__approved -->
+                    <a href="#" class="post-card__name-link">RomanAndreev</a>
                     <!-- 
                         Возможные варианты:
                         <svg class="post-card__approved" width="20" height="20">
@@ -1439,6 +1541,106 @@
                     </svg>
                 </span>
                 <span class="post-card__date">сегодня в 21:28</span>
+            </div>
+            <div class="post-card__menu-wrap">
+                <!-- стили кнопки подписки вынесены в глобальный класс .subscription__btn  -->
+                <button class="post-card__subscription subscription__btn subscription__btn--check">
+                    <svg height="20" width="20">
+                        <use xlink:href="images/icons/user-info/sprite.svg#check"></use>
+                    </svg>
+                    <span>Подписан</span>
+                </button>
+                <div class="post-card__menu post-card__menu--post context-menu">
+                    <button class="post-card__menu-btn post-card__menu-btn--post context-menu__btn">
+                        <svg height="20" width="20">
+                            <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
+                        </svg>
+                    </button>
+                    <ul class="context-menu__list">
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#reload"></use>
+                                </svg>
+                                Старая версия
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#print"></use>
+                                </svg>
+                                Распечатать
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#edit"></use>
+                                </svg>
+                                Редактировать
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#del"></use>
+                                </svg>
+                                Удалить
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#alert"></use>
+                                </svg>
+                                Пожаловаться
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            
+                <div class="post-card__menu context-menu">
+                    <button class="post-card__menu-btn post-card__menu-btn--post context-menu__btn">
+                        <svg height="20" width="20">
+                            <use xlink:href="images/icons/post-card/sprite.svg#share"></use>
+                        </svg>
+                    </button>
+                    <ul class="context-menu__list">
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#chain"></use>
+                                </svg>
+                                Копировать ссылку
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#tab"></use>
+                                </svg>
+                                Добавить в закладки
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item post-card__menu-item--blue context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/user-info/sprite.svg#vk"></use>
+                                </svg>
+                                ВКонтакте
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item post-card__menu-item--blue context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/user-info/sprite.svg#tg"></use>
+                                </svg>
+                                Telegram
+                            </button>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -1492,7 +1694,7 @@
             <span class="post-card__btns-count">150</span>
         </button>
     </div>
-</section>
+</section> 
 			</div>
 			<div class="main__company-box">
 				<nav class="company-box">
@@ -1685,15 +1887,16 @@
 				<!-- Используются стили из _post-card.scss -->
 <section class="post-card post-card--prev">
     <div class="post-card__header">
-        <div class="post-card__header-inner">
+        <!-- Если добавляется меню, то надо добввить и модификатор  post-card__header-inner--with-full-menu -->
+        <div class="post-card__header-inner post-card__header-inner--with-full-menu">
             <a href="#" class="post-card__photo-wrap">
                 <!-- Если аватар не загружен, то <img> вставлять на страницу не надо. Будет виден фон .post-card__photo-wrap  заданный в css-->
                 <img src="./images/icons/post-card/photo.jpg" alt="Фото" class="post-card__photo">
             </a>
             <div class="post-card__info">
                 <span class="post-card__name">
-                    <!-- Если профиль подтвержден, добавляется модификатор post-card__name-link--approved и svg.post-card__approved -->
-                    <a href="#" class="post-card__name-link post-card__name-link--approved">RomanAndreev</a>
+                    <!-- Если профиль подтвержден, добавляется svg.post-card__approved -->
+                    <a href="#" class="post-card__name-link">RomanAndreev</a>
                     <!-- 
                         Возможные варианты:
                         <svg class="post-card__approved" width="20" height="20">
@@ -1711,6 +1914,106 @@
                     </svg>
                 </span>
                 <span class="post-card__date">сегодня в 21:28</span>
+            </div>
+            <div class="post-card__menu-wrap">
+                <!-- стили кнопки подписки вынесены в глобальный класс .subscription__btn  -->
+                <button class="post-card__subscription subscription__btn subscription__btn--check">
+                    <svg height="20" width="20">
+                        <use xlink:href="images/icons/user-info/sprite.svg#check"></use>
+                    </svg>
+                    <span>Подписан</span>
+                </button>
+                <div class="post-card__menu post-card__menu--post context-menu">
+                    <button class="post-card__menu-btn post-card__menu-btn--post context-menu__btn">
+                        <svg height="20" width="20">
+                            <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
+                        </svg>
+                    </button>
+                    <ul class="context-menu__list">
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#reload"></use>
+                                </svg>
+                                Старая версия
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#print"></use>
+                                </svg>
+                                Распечатать
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#edit"></use>
+                                </svg>
+                                Редактировать
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#del"></use>
+                                </svg>
+                                Удалить
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#alert"></use>
+                                </svg>
+                                Пожаловаться
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            
+                <div class="post-card__menu context-menu">
+                    <button class="post-card__menu-btn post-card__menu-btn--post context-menu__btn">
+                        <svg height="20" width="20">
+                            <use xlink:href="images/icons/post-card/sprite.svg#share"></use>
+                        </svg>
+                    </button>
+                    <ul class="context-menu__list">
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#chain"></use>
+                                </svg>
+                                Копировать ссылку
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#tab"></use>
+                                </svg>
+                                Добавить в закладки
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item post-card__menu-item--blue context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/user-info/sprite.svg#vk"></use>
+                                </svg>
+                                ВКонтакте
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item post-card__menu-item--blue context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/user-info/sprite.svg#tg"></use>
+                                </svg>
+                                Telegram
+                            </button>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -1764,7 +2067,7 @@
             <span class="post-card__btns-count">150</span>
         </button>
     </div>
-</section>
+</section> 
 			</div>
 			<div class="main__forums-slider">
 				<nav class="forums-slider swiper">
@@ -1857,6 +2160,7 @@
 				<!-- Используются стили из _post-card.scss -->
 <section class="post-card post-card--prev">
     <div class="post-card__header">
+        <!-- Если добавляется меню, то надо добввить и модификатор  post-card__header-inner--with-full-menu -->
         <div class="post-card__header-inner">
             <a href="#" class="post-card__photo-wrap">
                 <!-- Если аватар не загружен, то <img> вставлять на страницу не надо. Будет виден фон .post-card__photo-wrap  заданный в css-->
@@ -1864,13 +2168,113 @@
             </a>
             <div class="post-card__info">
                 <span class="post-card__name">
-                    <!-- Если профиль подтвержден, добавляется модификатор post-card__name-link--approved и svg.post-card__approved -->
-                    <a href="#" class="post-card__name-link post-card__name-link--approved">TIGER.TRADE</a>
+                    <!-- Если профиль подтвержден, добавляется svg.post-card__approved -->
+                    <a href="#" class="post-card__name-link">TIGER.TRADE</a>
                     <svg class="post-card__approved" width="20" height="20">
                         <use xlink:href="images/icons/post-card/sprite.svg#approved"></use>
                     </svg>
                 </span>
                 <span class="post-card__date">сегодня в 21:28</span>
+            </div>
+            <div class="post-card__menu-wrap">
+                <!-- стили кнопки подписки вынесены в глобальный класс .subscription__btn  -->
+                <button class="post-card__subscription subscription__btn subscription__btn--plus">
+                    <svg height="20" width="20">
+                        <use xlink:href="images/icons/user-info/sprite.svg#plus"></use>
+                    </svg>
+                    <span>+&nbsp;Подписаться</span>
+                </button>
+                <div class="post-card__menu post-card__menu--post context-menu">
+                    <button class="post-card__menu-btn post-card__menu-btn--post context-menu__btn">
+                        <svg height="20" width="20">
+                            <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
+                        </svg>
+                    </button>
+                    <ul class="context-menu__list">
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#reload"></use>
+                                </svg>
+                                Старая версия
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#print"></use>
+                                </svg>
+                                Распечатать
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#edit"></use>
+                                </svg>
+                                Редактировать
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#del"></use>
+                                </svg>
+                                Удалить
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#alert"></use>
+                                </svg>
+                                Пожаловаться
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            
+                <div class="post-card__menu context-menu">
+                    <button class="post-card__menu-btn post-card__menu-btn--post context-menu__btn">
+                        <svg height="20" width="20">
+                            <use xlink:href="images/icons/post-card/sprite.svg#share"></use>
+                        </svg>
+                    </button>
+                    <ul class="context-menu__list">
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#chain"></use>
+                                </svg>
+                                Копировать ссылку
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#tab"></use>
+                                </svg>
+                                Добавить в закладки
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item post-card__menu-item--blue context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/user-info/sprite.svg#vk"></use>
+                                </svg>
+                                ВКонтакте
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item post-card__menu-item--blue context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/user-info/sprite.svg#tg"></use>
+                                </svg>
+                                Telegram
+                            </button>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -1933,22 +2337,123 @@
 				<!-- Используются стили из _post-card.scss -->
 <section class="post-card">
     <div class="post-card__header">
-        <div class="post-card__header-inner">
+        <!-- Если добавляется меню, то надо добввить и модификатор  post-card__header-inner--with-full-menu -->
+        <div class="post-card__header-inner post-card__header-inner--with-full-menu">
             <a href="#" class="post-card__photo-wrap">
                 <!-- Если аватар не загружен, то <img> вставлять на страницу не надо. Будет виден фон .post-card__photo-wrap  заданный в css-->
                 <img src="./images/icons/post-card/user2.webp" alt="Фото" class="post-card__photo">
             </a>
             <div class="post-card__info">
                 <span class="post-card__name">
-                    <!-- Если профиль подтвержден, добавляется модификатор post-card__name-link--approved и svg.post-card__approved -->
-                    <a href="#" class="post-card__name-link post-card__name-link--approved">Андрей Верников</a>
+                    <!-- Если профиль подтвержден, добавляется svg.post-card__approved -->
+                    <a href="#" class="post-card__name-link">Андрей Верников</a>
                     <svg class="post-card__approved" width="20" height="20">
                         <use xlink:href="images/icons/post-card/sprite.svg#approved"></use>
                     </svg>
                 </span>
                 <span class="post-card__date">сегодня в 21:28</span>
             </div>
-        </div>
+            <div class="post-card__menu-wrap">
+                <!-- стили кнопки подписки вынесены в глобальный класс .subscription__btn  -->
+                <button class="post-card__subscription subscription__btn subscription__btn--check">
+                    <svg height="20" width="20">
+                        <use xlink:href="images/icons/user-info/sprite.svg#check"></use>
+                    </svg>
+                    <span>Подписан</span>
+                </button>
+                <div class="post-card__menu post-card__menu--post context-menu">
+                    <button class="post-card__menu-btn post-card__menu-btn--post context-menu__btn">
+                        <svg height="20" width="20">
+                            <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
+                        </svg>
+                    </button>
+                    <ul class="context-menu__list">
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#reload"></use>
+                                </svg>
+                                Старая версия
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#print"></use>
+                                </svg>
+                                Распечатать
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#edit"></use>
+                                </svg>
+                                Редактировать
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#del"></use>
+                                </svg>
+                                Удалить
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#alert"></use>
+                                </svg>
+                                Пожаловаться
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            
+                <div class="post-card__menu context-menu">
+                    <button class="post-card__menu-btn post-card__menu-btn--post context-menu__btn">
+                        <svg height="20" width="20">
+                            <use xlink:href="images/icons/post-card/sprite.svg#share"></use>
+                        </svg>
+                    </button>
+                    <ul class="context-menu__list">
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#chain"></use>
+                                </svg>
+                                Копировать ссылку
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#tab"></use>
+                                </svg>
+                                Добавить в закладки
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item post-card__menu-item--blue context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/user-info/sprite.svg#vk"></use>
+                                </svg>
+                                ВКонтакте
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item post-card__menu-item--blue context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/user-info/sprite.svg#tg"></use>
+                                </svg>
+                                Telegram
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div> 
     </div>
     <div class="post-card__body">
         <h3 class="post-card__title">

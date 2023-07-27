@@ -553,5 +553,59 @@
 }
 
 .blue-link {
-    color: #479CD3;
+    color: #479cd3;
+}
+
+// кнопка подписки
+.subscription__btn {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    color: #ffffff;
+    border-radius: 6px;
+    border: 0;
+    transition: all $t ease;
+
+    svg {
+        fill: #ffffff;
+    }
+    span {
+        display: none;
+    }
+
+    &:hover {
+        background: lighten(#889fa8, 6.25%);
+    }
+
+    &--plus {
+        background: #479cd3;
+        box-shadow: 0px 2px 4px rgba(11, 84, 131, 0.3);
+        &:hover {
+            background: lighten(#479cd3, 6.25%);
+            box-shadow: 0px 2px 4px rgba(11, 84, 131, 0.35);
+        }
+    }
+    &--check {
+        background: #008243;
+        box-shadow: 0px 2px 4px rgba(0, 130, 67, 0.25);
+        &:hover {
+            background: lighten(#008243, 6.25%);
+            box-shadow: 0px 2px 4px rgba(0, 130, 67, 0.3);
+        }
+    }
+
+    @media (min-width: $md4 + px) {
+        width: 135px;
+
+        svg {
+            display: none;
+        }
+        span {
+            display: block;
+        }
+    }
 }
