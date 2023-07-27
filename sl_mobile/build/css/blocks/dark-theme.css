@@ -228,6 +228,14 @@
   background-color: rgba(33, 35, 38, 0.7);
 }
 
+.dark-theme .comments__pinned-label svg {
+  fill: #ADB7C0;
+}
+
+.dark-theme .comments__pinned-label span {
+  color: #ADB7C0;
+}
+
 .dark-theme .user-info__date,
 .dark-theme .user-info__rating,
 .dark-theme .user-info__subscribers,

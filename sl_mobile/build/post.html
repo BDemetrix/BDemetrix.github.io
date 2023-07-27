@@ -1187,7 +1187,7 @@
 </div>
 			</div>
 			<div class="post-page__comments">
-				<div class="comments">
+				<div class="comments" id="comments">
     <div class="comments__header">
         <div class="comments__title">
             3 Комментария
@@ -1209,7 +1209,19 @@
     </div>
     <ul class="comments__list">
         <li class="comments__item">
-            <div class="comments__content">
+            <!-- 
+                У комментари есть два модификатора:
+                --new - новый комментарий
+                --author - комментарий автора
+            -->
+            <div class="comments__content comments__content--author">
+                <!-- если комментарий закрепляен надо добавить блок .comments__pinned-label -->
+                <div class="comments__pinned-label">
+                    <svg width="12" height="12">
+                        <use xlink:href="images/icons/comments/sprite.svg#pin"></use>
+                    </svg>
+                    <span>Комментарий закреплён</span>
+                </div> 
                 <div class="comments__person person">
                     <a href="#" class="person__avatar-link" title="Перейти к профилю Виктор Петров">
                         <!-- Если картинки нет (img отсутствует), то виден фон елемената .person__avatar-link -->
@@ -1341,7 +1353,7 @@
             </ul>
         </li>
         <li class="comments__item">
-            <div class="comments__content">
+            <div class="comments__content  comments__content--new">
                 <div class="comments__person person">
                     <a href="#" class="person__avatar-link" title="Перейти к профилю Виктор Петров">
                         <!-- Если картинки нет (img отсутствует), то виден фон елемената .person__avatar-link -->
