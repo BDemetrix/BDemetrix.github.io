@@ -11657,7 +11657,7 @@ textarea {
 .book-review-info {
   padding: 15px;
   border-radius: 8px;
-  border: 0.5px solid #ccc;
+  border: 1px solid #ccc;
   background: #f1f1f1;
   color: #312C26;
   line-height: 16px;
@@ -15097,6 +15097,16 @@ textarea {
 
 .dark-theme .trades-table .flex-table__r-box._overflow .simplebar-scrollbar:before {
   background: #515151;
+}
+
+.dark-theme .book-review-info {
+  border-color: #adb7c0;
+  background: #202225;
+  color: #e9e9e9;
+}
+
+.dark-theme .book-review-info__link {
+  color: #479cd3;
 }
 
 .comments__answers {

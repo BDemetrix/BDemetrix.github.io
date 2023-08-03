@@ -960,4 +960,13 @@ $disabled-color: #e2e2e2;
             background: $table-border-color;
         }
     }
+    
+    .book-review-info {
+        border-color: $date-color;
+        background: $container-bg;
+        color: $text-color;
+        &__link {
+            color: $link-color;
+        }
+    }
 }
