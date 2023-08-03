@@ -228,7 +228,7 @@ $disabled-color: #e2e2e2;
         }
 
         &__name {
-            color: $blue-btn; //#479cd3;
+            color: $blue-btn; // $link-color;
         }
 
         &__wrap {
@@ -551,6 +551,10 @@ $disabled-color: #e2e2e2;
         &__title {
             color: $text-color;
         }
+        &__remind,
+        &__to-registration a {
+            color: $link-color;   
+        }
     }
 
     .input-wrapper {
@@ -854,7 +858,7 @@ $disabled-color: #e2e2e2;
             }
             &--active {
                 color: #ffffff;
-                background: #479cd3;
+                background: $link-color;
             }
             &--disabled {
                 color: #545454;
@@ -912,7 +916,7 @@ $disabled-color: #e2e2e2;
             border-bottom: 1px solid $table-border-color;
         }
         .flex-table__ad-text a {
-            color: #479cd3 !important;
+            color: $link-color !important;
         }
 
         .flex-table__inner {
