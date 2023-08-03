@@ -170,6 +170,8 @@ $widecontainer: 1244;
 @import "./blocks/_donate-btn";
 @import "./blocks/_brokers-links";
 @import "./blocks/_lower-banner";
+@import "./blocks/rating";
+@import "./blocks/book-review-info";
 
 // стили страницы котировок (дизайн страницы кардинально отличается от новой версии)
 @import "./blocks/_quotes-menu";
@@ -184,7 +186,7 @@ $widecontainer: 1244;
 @import "./blocks/_custom-table";
 @import "./blocks/_quotes-management";
 @import "./blocks/_footer";
-@import "./blocks/_pager";
+@import "./blocks/_pager"; 
 //@import "./plugins/datepicker-new";
 
 // стили для темной темы должны подклячаться в конце

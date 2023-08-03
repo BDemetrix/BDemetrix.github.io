@@ -789,7 +789,39 @@
         <div class="post-card__title-wrap">
             <h1 class="post-card__title post-card__title--post">Агрохолдинг "Степь" запустил производство муки</h1>
         </div>
-        post-card__
+        <div class="post-card__book-review book-review-info">
+            <div class="book-review-info__title-wrap">
+                <span class="book-review-info__link-label">Рецензия на книгу:</span>
+                <a href="#" class="book-review-info__link">«АйкиБизнес» — Андрей Лушников</a>
+            </div>
+            <div class="book-review-info__rating-wrap">
+                <div class="book-review-info__rating-label">Моя оценка:</div>
+                <!-- 
+                    блок рейтинг может быть использован в двух режимах
+                    - для выставления оценки без модификатора rating--disabled
+                    - для едмонстрации с модификатором rating--disabled
+                -->
+                <div class="book-review-info__rating rating rating--disabled">
+                    <div class="rating__stars">
+                        <div class="rating__items">
+                            <input id="rating-1__5" type="radio" class="rating__item" name="rating-1" value="5">
+                            <label for="rating-1__5" class="rating__label"></label>
+                            <input id="rating-1__4" type="radio" class="rating__item" name="rating-1" value="4" checked>
+                            <label for="rating-1__4" class="rating__label"></label>
+                            <input id="rating-1__3" type="radio" class="rating__item" name="rating-1" value="3">
+                            <label for="rating-1__3" class="rating__label"></label>
+                            <input id="rating-1__2" type="radio" class="rating__item" name="rating-1" value="2">
+                            <label for="rating-1__2" class="rating__label"></label>
+                            <input id="rating-1__1" type="radio" class="rating__item" name="rating-1" value="1">
+                            <label for="rating-1__1" class="rating__label"></label>
+                        </div>
+                    </div>
+                    <div class="rating__count">
+                        (<span>4</span> из 5)
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="post-card__text">
             Агрохолдинг «Степь» расширяет продуктовую линейку и запускает новое направление бизнеса — производство муки.
             Выпуск муки

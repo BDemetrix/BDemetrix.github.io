@@ -1,0 +1,35 @@
+.book-review-info {
+  padding: 15px;
+  border-radius: 8px;
+  border: 0.5px solid #ccc;
+  background: #f1f1f1;
+  color: #312C26;
+  line-height: 16px;
+  font-size: 14px;
+
+  // .book-review-info__title-wrap
+  &__title-wrap { 
+    margin-bottom: 10px;
+  }
+  // .book-review-info__link-label
+  &__link-label { 
+  }
+  // .book-review-info__link
+  &__link {
+    word-break: normal;
+    color: #0A51BC;
+  }
+  // .book-review-info__rating-wrap
+  &__rating-wrap {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  // .book-review-info__rating-label
+  &__rating-label {
+    margin-right: 7px;
+  }
+  // .book-review-info__rating
+  &__rating {
+  }
+}
