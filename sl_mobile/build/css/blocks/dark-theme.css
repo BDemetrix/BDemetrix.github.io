@@ -229,11 +229,11 @@
 }
 
 .dark-theme .comments__pinned-label svg {
-  fill: #ADB7C0;
+  fill: #adb7c0;
 }
 
 .dark-theme .comments__pinned-label span {
-  color: #ADB7C0;
+  color: #adb7c0;
 }
 
 .dark-theme .user-info__date,
@@ -1058,6 +1058,18 @@
 
 .dark-theme .spinner-loader__label {
   color: #e9e9e9;
+}
+
+.dark-theme .warning-popup {
+  color: #e9e9e9;
+}
+
+.dark-theme .warning-popup__content {
+  background: #2a2c30;
+}
+
+.dark-theme .warning-popup__title {
+  color: #479cd3;
 }
 
 @media (min-width: 767.98px) {

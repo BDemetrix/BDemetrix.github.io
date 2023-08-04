@@ -209,11 +209,11 @@ $disabled-color: #e2e2e2;
 
         &__pinned-label {
             svg {
-                fill: #ADB7C0;
+                fill: #adb7c0;
             }
 
             span {
-                color: #ADB7C0;
+                color: #adb7c0;
             }
         }
     }
@@ -551,10 +551,10 @@ $disabled-color: #e2e2e2;
         &__title {
             color: $text-color;
         }
-        
+
         &__remind,
         &__to-registration a {
-            color: $link-color;   
+            color: $link-color;
         }
     }
 
@@ -960,7 +960,7 @@ $disabled-color: #e2e2e2;
             background: $table-border-color;
         }
     }
-    
+
     .book-review-info {
         border-color: $date-color;
         background: $container-bg;
@@ -969,8 +969,18 @@ $disabled-color: #e2e2e2;
             color: $link-color;
         }
     }
-    
+
     .spinner-loader__label {
         color: $text-color;
+    }
+
+    .warning-popup {
+        color: $text-color;
+        &__content {
+            background: $element-bg;
+        }
+        &__title {
+            color: $link-color;
+        }
     }
 }

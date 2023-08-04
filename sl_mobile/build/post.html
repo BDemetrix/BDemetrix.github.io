@@ -1295,6 +1295,7 @@
                             <li><button class="context-menu__item">Копировать URL</button></li>
                             <li><button class="context-menu__item">Копировать текст</button></li>
                             <li><button class="context-menu__item">Пожаловться</button></li>
+                            <li><button class="context-menu__item js-pop-up-opener" data-target-id="del-comment-warning-popup">Удалить</button></li>
                         </ul>
                     </div>
                 </div>
@@ -2266,6 +2267,21 @@
     <div class="slide-sidebar__cover js-slide-sidebar-toggle-btn"></div>
 </section>
 	</div>
+	<div class="custom-pop-up warning-popup _open" id="del-comment-warning-popup">
+  <div class="custom-pop-up__body">
+    <div class="custom-pop-up__cover"></div>
+    <div class="custom-pop-up__content warning-popup__content">
+      <button class="custom-pop-up__close"></button>
+      <!-- Контент поп-апа -->
+      <div class="warning-popup__title">Внимание</div>
+      <div class="warning-popup__text">Вы уверены, что хотите удалить комментарий?</div>
+      <div class="warning-popup__btns">
+        <button class="warning-popup__cancel-btn cancel-btn">Отмена</button>
+        <button class="warning-popup__ok-btn blue-btn">Удалить</button>
+      </div>
+    </div>
+  </div>
+</div>
 	<div class="custom-pop-up moderation-pop-up" id="moderation-pop-up">
     <div class="custom-pop-up__body moderation-pop-up__body">
         <div class="custom-pop-up__cover"></div>
