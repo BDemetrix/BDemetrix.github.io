@@ -1056,6 +1056,10 @@
   color: #479cd3;
 }
 
+.dark-theme .spinner-loader__label {
+  color: #e9e9e9;
+}
+
 @media (min-width: 767.98px) {
   .dark-theme .user-info__wrap::after {
     background: -o-linear-gradient(left, transparent 0, #202225 5px, #202225 100%);
