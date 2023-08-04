@@ -206,3 +206,7 @@ input-wrapper--right - иконка справа
 21) .custom-radio - класс для стилизации радиокнопок. Файл custom-radio.scss
 
 22) Кнопка подписки вынесена в отдельный класс .subscription__btn
+
+23) Класс .rating для рейтинга (звездочк) стили rating.scss
+
+24) Лоадер .spinner-loader в spinner-loader.scss

@@ -969,4 +969,8 @@ $disabled-color: #e2e2e2;
             color: $link-color;
         }
     }
+    
+    .spinner-loader__label {
+        color: $text-color;
+    }
 }
