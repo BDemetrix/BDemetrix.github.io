@@ -1,0 +1,39 @@
+.warning-popup {
+  color: #383838;
+
+  // .warning-popup__content
+  &__content {
+    width: 374px;
+    max-width: 100%;
+    padding: 20px;
+    border-radius: 8px;
+    background: #fff;
+  }
+  // .warning-popup__title
+  &__title {
+    margin-top: -2px;
+    color: #0b5483;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 500;
+  }
+  // .warning-popup__text
+  &__text {
+    margin: 20px 0 25px;
+  }
+  // .warning-popup__btns
+  &__btns {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__cancel-btn,
+  &__ok-btn {
+    width: calc(50% - 5px);
+  }
+  // .warning-popup__cancel-btn
+  &__cancel-btn {
+  }
+  // .warning-popup__ok-btn
+  &__ok-btn {
+  }
+}

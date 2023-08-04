@@ -215,29 +215,32 @@
     }
 }
 
-.blue-btn {
+.blue-btn, 
+.cancel-btn {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 12px 5px;
-    //background: #2987C5;
-    background: #80acc9;
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
-    color: #fff;
     text-decoration: none;
     border-radius: 5px;
     border: 0;
     transition: all 0.3s ease;
     margin: 0;
+}
+
+.blue-btn { 
+    background: #80acc9;
+    color: #fff;
 
     &--active {
         background: #518eb7;
     }
 
     &:hover {
-        box-shadow: 0px 4px 4px rgba(117, 117, 117, 0.3);
+        box-shadow: 2px 4px 4px rgba(117, 117, 117, 0.25);
     }
 
     &:active {
@@ -246,6 +249,29 @@
 
     &:disabled {
         background: #ccc;
+        pointer-events: none;
+    }
+}
+
+.cancel-btn {
+    background: #EBEBEB;
+    color: #383838;
+
+    &--active {
+        background: #e0dfdf;
+    }
+
+    &:hover {
+        // box-shadow: 1px 4px 4px rgba(117, 117, 117, 0.2);
+    }
+
+    &:active {
+        background: #e0dfdf;
+    }
+
+    &:disabled {
+        background: rgb(128, 128, 128);
+        pointer-events: none;
     }
 }
 

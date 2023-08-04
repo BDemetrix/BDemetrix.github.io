@@ -439,7 +439,8 @@ picture {
   background: #ccc;
 }
 
-.blue-btn {
+.blue-btn,
+.cancel-btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -450,11 +451,9 @@ picture {
       -ms-flex-pack: center;
           justify-content: center;
   padding: 12px 5px;
-  background: #80acc9;
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
-  color: #fff;
   text-decoration: none;
   border-radius: 5px;
   border: 0;
@@ -464,13 +463,18 @@ picture {
   margin: 0;
 }
 
+.blue-btn {
+  background: #80acc9;
+  color: #fff;
+}
+
 .blue-btn--active {
   background: #518eb7;
 }
 
 .blue-btn:hover {
-  -webkit-box-shadow: 0px 4px 4px rgba(117, 117, 117, 0.3);
-          box-shadow: 0px 4px 4px rgba(117, 117, 117, 0.3);
+  -webkit-box-shadow: 2px 4px 4px rgba(117, 117, 117, 0.25);
+          box-shadow: 2px 4px 4px rgba(117, 117, 117, 0.25);
 }
 
 .blue-btn:active {
@@ -479,6 +483,25 @@ picture {
 
 .blue-btn:disabled {
   background: #ccc;
+  pointer-events: none;
+}
+
+.cancel-btn {
+  background: #EBEBEB;
+  color: #383838;
+}
+
+.cancel-btn--active {
+  background: #e0dfdf;
+}
+
+.cancel-btn:active {
+  background: #e0dfdf;
+}
+
+.cancel-btn:disabled {
+  background: rgb(128, 128, 128);
+  pointer-events: none;
 }
 
 .white-btn {
@@ -11746,6 +11769,44 @@ textarea {
   }
 }
 
+.warning-popup {
+  color: #383838;
+}
+
+.warning-popup__content {
+  width: 374px;
+  max-width: 100%;
+  padding: 20px;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.warning-popup__title {
+  margin-top: -2px;
+  color: #0b5483;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.warning-popup__text {
+  margin: 20px 0 25px;
+}
+
+.warning-popup__btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.warning-popup__cancel-btn,
+.warning-popup__ok-btn {
+  width: calc(50% - 5px);
+}
+
 .qn-menu {
   font-family: Tahoma, "Open Sans", Verdana, Roboto, sans-serif;
 }
@@ -14340,11 +14401,11 @@ textarea {
 }
 
 .dark-theme .comments__pinned-label svg {
-  fill: #ADB7C0;
+  fill: #adb7c0;
 }
 
 .dark-theme .comments__pinned-label span {
-  color: #ADB7C0;
+  color: #adb7c0;
 }
 
 .dark-theme .user-info__date,
@@ -15169,6 +15230,18 @@ textarea {
 
 .dark-theme .spinner-loader__label {
   color: #e9e9e9;
+}
+
+.dark-theme .warning-popup {
+  color: #e9e9e9;
+}
+
+.dark-theme .warning-popup__content {
+  background: #2a2c30;
+}
+
+.dark-theme .warning-popup__title {
+  color: #479cd3;
 }
 
 .comments__answers {
