@@ -449,9 +449,8 @@ if (customPopUps && customPopUps.length) {
   })
 }
 
-
 document.documentElement.addEventListener('click', function (e) {
-  if (e.target.closest('.custom-pop-up__close, .custom-pop-up__cover')) {
+  if (e.target.closest('.custom-pop-up__close, .custom-pop-up__cover, .js-close-custom-pop-up')) {
     e.target.closest('.custom-pop-up').classList.remove('_open');
     e.target.dispatchEvent(new Event('close-custom-pop-up', {
       'bubbles': true,
