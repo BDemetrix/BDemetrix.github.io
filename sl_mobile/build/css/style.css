@@ -12699,7 +12699,6 @@ textarea {
 .trades-table th a {
   text-decoration: none;
   color: #666;
-  font-weight: normal;
   font-size: 10px;
   font-weight: 500;
 }
@@ -12753,9 +12752,16 @@ textarea {
 
 .trades-table__name-multiline > * {
   display: block;
+  padding: 0 10px;
   text-align: center;
   word-break: keep-all !important;
   white-space: normal !important;
+  color: inherit;
+  font-weight: inherit;
+}
+
+td.trades-table__name-multiline {
+  font-weight: bold;
 }
 
 .trades-table__tools {
