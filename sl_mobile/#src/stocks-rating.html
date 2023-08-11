@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('_head.html',{
+"title":"Гособлигации",
+"stylesheet": "./css/style.css"
+})
+
+<body class="_style-2">
+  <!-- классы ._style-1 , ._style-2 и ._style-3 используются для стилизации двух видов шаблонов 
+		Например: при body._style-1 Логотип имеет один цвет, а при body._style-2 и ._style-3 - другой
+		._style-1 для smart-lab.ru
+		._style-2 для smart-lab.ru/q/
+		._style-3 для smart-lab.ru/forum/
+		-->
+  <div class="wrapper">
+    @@include('_header--navbar.html',{"Class": "_container", "ModClass": "header--with-navbar"})
+    <main class="main main--quotes">
+      @@include('_quotes-menu--ofz.html', {
+      "MixClass": ""
+      })
+
+      <div class="quotes-body"> 
+        @@include('_trades-table--stocks-rating.html', {
+        "MixClass": "main__table"
+        })
+
+        <div class="_wide-container">
+          <!-- .custom-card для стилиизации блоков с фоном, закругленными углами и тенью  -->
+          <div class="quotes-body__info quotes-body__info--mb-small custom-card">
+            <p>
+              Предупреждение о рисках: информация в данной таблице не может рассматриваться как инвестиционная рекомендация или
+              руководство к действию. Данная таблица является отражением совокупного мнения участников аналитической команды Mozgovik
+              Research в отношении отдельных эмитентов и представлена в информационных целях. Любая инвестиция сопряжена с рисками,
+              которые мы не можем до конца спрогнозировать, и не можем полностью указать в данной таблице. Инвестор должен понимать
+              необходимость самостоятельного анализа акций перед их покупкой, а также осознавать свою собственную ответственность за
+              потери, которые он может понести в результате инвестиций на фондовом рынке.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+    @@include('_footer.html',{})
+  </div>
+  @@include('_js.html',{})
+</body>
+
+</html>

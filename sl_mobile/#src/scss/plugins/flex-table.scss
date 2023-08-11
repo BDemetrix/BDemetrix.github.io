@@ -20,8 +20,20 @@
 
 .flex-table tr th,
 .flex-table tr td {
-  table-layout: fixed;
+  // table-layout: fixed;
   white-space: nowrap;
+}
+
+/* автовысота строк */
+.flex-table._ft-auto-height tr th,
+.flex-table._ft-auto-height tr td { 
+  // max-height: 120px !important;
+}
+.flex-table._ft-auto-height tr td {
+  &, a {
+    white-space: normal !important;
+  }
+  // height: auto !important;
 }
 
 .flex-table::before {

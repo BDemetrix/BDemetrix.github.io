@@ -2,11 +2,11 @@
   margin: 0 auto;
   position: relative;
   opacity: 1;
-  -webkit-transition: opacity .3s linear;
-  -o-transition: opacity .3s linear;
-  transition: opacity .3s linear;
+  -webkit-transition: opacity 0.3s linear;
+  -o-transition: opacity 0.3s linear;
+  transition: opacity 0.3s linear;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   border-collapse: collapse;
   text-align: center;
   color: #666;
@@ -32,19 +32,19 @@
   top: 30px;
   right: 50%;
   -webkit-transform: translate(50%, 0);
-      -ms-transform: translate(50%, 0);
-          transform: translate(50%, 0);
+  -ms-transform: translate(50%, 0);
+  transform: translate(50%, 0);
   background: url("../images/icons/flex-table/loading.gif") center/100% no-repeat;
 }
 
 .trades-table * {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .trades-table .flex-table__inner {
   -webkit-box-shadow: 0 1px 2px #d1d1d1;
-          box-shadow: 0 1px 2px #d1d1d1;
+  box-shadow: 0 1px 2px #d1d1d1;
 }
 
 .trades-table .up {
@@ -81,7 +81,8 @@
 } */
 
 .trades-table tr td {
-  img, svg {
+  img,
+  svg {
     max-height: 18px;
   }
 }
@@ -110,7 +111,7 @@
   height: 100%;
 }
 
-.trades-table .flex-table__ad-text:hover { 
+.trades-table .flex-table__ad-text:hover {
   background: #f2f2f2;
   background: -moz-linear-gradient(top, #f2f2f2, #f0f0f0);
 }
@@ -127,7 +128,7 @@
   .trades-table__name {
     text-align: left;
 
-    &>* {
+    & > * {
       display: block;
       max-width: 100px;
       overflow: hidden;
@@ -147,13 +148,13 @@
 
 .trades-table .flex-table__l-table * {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .trades-table .flex-table__l-table .flex-table__ad td {
   /* position: relative;
   left: -1px; */
-  border-right:0;
+  border-right: 0;
   border-left: 0;
   padding: 4px 0;
 }
@@ -225,7 +226,7 @@
 
 .trades-table .flex-table__r-header-table * {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .trades-table .flex-table__r-header-table thead tr th {
@@ -262,8 +263,8 @@
 }
 
 .trades-table table {
-  border-collapse: collapse;
-  table-layout: fixed;
+  /* border-collapse: collapse; */
+  /* table-layout: fixed; */
 }
 
 .trades-table th {
@@ -289,7 +290,7 @@
   padding: 4px;
   overflow: hidden;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   // border-top: 1px solid #e0e0e0;
   border-bottom: 1px solid #e0e0e0;
   border-left: 1px solid #e0e0e0;
@@ -321,6 +322,28 @@
   overflow: hidden;
 }
 
+.trades-table__name-multiline {
+  width: 100px;
+  /* min-width: 100px;
+  max-width: 100px;  */
+
+  & > * {
+    display: block; 
+    text-align: center;
+    word-break: keep-all !important;
+    white-space: normal !important;
+
+    @media (max-width: $md4 + px) {
+        width: 100px;
+        word-break: break-word !important;
+    }
+    @media (max-width: $md5 + px) {
+        width: 70px;
+        word-break: break-word !important;
+    }
+  }
+}
+
 .trades-table__tools {
   max-width: 170px;
   padding-right: 10px !important;
@@ -333,7 +356,7 @@
   max-width: 170px;
   width: 76px;
   min-width: 76px;
-  height: 54px; 
+  height: 54px;
   padding-right: 12px !important;
   padding-left: 12px !important;
   overflow: hidden;
@@ -350,9 +373,24 @@
   width: 67px;
 }
 
+.trades-table__price-mozg {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+
 .trades-table__change-per {
   max-width: 90px;
   width: 62px;
+}
+
+.trades-table__big-description {
+  & > * {
+    display: block;
+    width: 470px;
+    max-width: 50vw;
+    padding: 10px;
+    text-align: left;
+  }
 }
 
 .trades-table__volume {
@@ -415,12 +453,12 @@
   height: 300px;
   background: #fafafa;
   -webkit-box-shadow: 0 1px 2px #d1d1d1;
-          box-shadow: 0 1px 2px #d1d1d1;
+  box-shadow: 0 1px 2px #d1d1d1;
 }
 
 .trades-table#trades-table-fixed .flex-table__inner {
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   margin-bottom: -11px;
 }
 
@@ -445,7 +483,6 @@
   .trades-table .trades-table__chartrow {
     display: table-cell;
   }
-
 }
 /* 
 @media (min-width: 1250px) {
@@ -528,22 +565,22 @@
   }
 } */
 
-// класс для текста/ссылки заголовков колонок, которые сортируюьтся 
+// класс для текста/ссылки заголовков колонок, которые сортируюьтся
 .sorting-column {
   &::after {
     display: inline-block;
     margin-left: 1em;
   }
-  
-  &--up { 
+
+  &--up {
     &::after {
-      content: '↑';
+      content: "↑";
     }
   }
 
   &--down {
     &::after {
-      content: '↓';
+      content: "↓";
     }
   }
 }
