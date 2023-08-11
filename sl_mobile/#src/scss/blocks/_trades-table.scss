@@ -273,11 +273,15 @@
   padding: 4px;
 }
 
-.trades-table th a {
-  text-decoration: none;
-  color: #666;
-  font-weight: normal;
-  font-size: 10px;
+.trades-table th {
+  &,
+  a {
+    text-decoration: none;
+    color: #666;
+    font-weight: normal;
+    font-size: 10px;
+    font-weight: 500;
+  }
 }
 
 .trades-table td {
@@ -328,18 +332,18 @@
   max-width: 100px;  */
 
   & > * {
-    display: block; 
+    display: block;
     text-align: center;
     word-break: keep-all !important;
     white-space: normal !important;
 
     @media (max-width: $md4 + px) {
-        width: 100px;
-        word-break: break-word !important;
+      width: 100px;
+      word-break: break-word !important;
     }
     @media (max-width: $md5 + px) {
-        width: 70px;
-        word-break: break-word !important;
+      width: 70px;
+      word-break: break-word !important;
     }
   }
 }
