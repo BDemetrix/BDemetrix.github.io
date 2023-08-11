@@ -278,7 +278,6 @@
   a {
     text-decoration: none;
     color: #666;
-    font-weight: normal;
     font-size: 10px;
     font-weight: 500;
   }
@@ -330,12 +329,15 @@
   width: 100px;
   /* min-width: 100px;
   max-width: 100px;  */
-
+  
   & > * {
     display: block;
+    padding: 0 10px;
     text-align: center;
     word-break: keep-all !important;
     white-space: normal !important;
+    color: inherit;
+    font-weight: inherit;
 
     @media (max-width: $md4 + px) {
       width: 100px;
@@ -346,6 +348,10 @@
       word-break: break-word !important;
     }
   }
+}
+
+td.trades-table__name-multiline {
+  font-weight: bold;
 }
 
 .trades-table__tools {
@@ -377,10 +383,6 @@
   width: 67px;
 }
 
-.trades-table__price-mozg {
-  padding-left: 10px !important;
-  padding-right: 10px !important;
-}
 
 .trades-table__change-per {
   max-width: 90px;
