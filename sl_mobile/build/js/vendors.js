@@ -9874,7 +9874,7 @@ function jBoxNoticeWrapper(t, a) {
 //===============================================================================================================================================
 
 class FlexTable {
-  constructor (tableWrap) {
+  constructor(tableWrap) {
     this.options = {
       rows: 1,
       cols: 2,
@@ -9887,25 +9887,30 @@ class FlexTable {
   }
 
   getDefaultOptions() {
-  return options = {
-    rows: 1,
-    cols: 2,
-    col: 0,
-    colAfter: 0,
-    simpleBar: true
-  }
+    return options = {
+      rows: 1,
+      cols: 2,
+      col: 0,
+      colAfter: 0,
+      simpleBar: true
+    }
   }
   initOptions() {
     let optionsArr = this.wrap.dataset.flextable;
+    
     if (optionsArr) {
       optionsArr = optionsArr.split(',')
-    optionsArr = optionsArr.map(el => { return (el.trim()) });
-    this.options.rows = parseInt(optionsArr[0]) || this.options.rows;
-    this.options.cols = parseInt(optionsArr[1]) || this.options.cols;
-    this.options.col = parseInt(optionsArr[2]) || this.options.col;
-    this.options.colAfter = parseInt(optionsArr[3]) || this.options.colAfter;
-    this.options.simpleBar = (optionsArr[4] == 'false') ? false : this.options.simpleBar;
+      optionsArr = optionsArr.map(el => {
+        return (el.trim())
+      });
+      this.options.rows = parseInt(optionsArr[0]) || this.options.rows;
+      this.options.cols = parseInt(optionsArr[1]) || this.options.cols;
+      this.options.col = parseInt(optionsArr[2]) || this.options.col;
+      this.options.colAfter = parseInt(optionsArr[3]) || this.options.colAfter;
+      this.options.simpleBar = (optionsArr[4] == 'false') ? false : this.options.simpleBar; 
     }
+    // Для автовысоты ячеек
+    this.options.autoHight = this.wrap.classList.contains('_ft-auto-height');
   }
   initShell() {
 
@@ -9979,11 +9984,12 @@ class FlexTable {
   }
   swapColumns() {
     if (this.options.col1 >= 0 && this.options.col2 >= 0 &&
-        this.options.col1 != this.options.col2 ) {
-      
+      this.options.col1 != this.options.col2) {
+
       let max = Math.max(this.options.col1, this.options.col2);
       let min = Math.min(this.options.col1, this.options.col2);
-      let col1 = min, col2 = max;
+      let col1 = min,
+        col2 = max;
       let trs = this.sourceTable.querySelectorAll('tr');
       if (trs.length > 0) {
         trs.forEach(tr => {
@@ -9994,7 +10000,7 @@ class FlexTable {
           }
         })
       }
-    }    
+    }
   }
   moveColumn() {
     if (this.options.col >= 0 && this.options.colAfter >= 0 &&
@@ -10002,7 +10008,8 @@ class FlexTable {
 
       let max = Math.max(this.options.col, this.options.colAfter);
       let min = Math.min(this.options.col, this.options.colAfter);
-      let col = min, colAfter = max;
+      let col = min,
+        colAfter = max;
       let trs = this.sourceTable.querySelectorAll('tr');
       if (trs.length > 0) {
         trs.forEach(tr => {
@@ -10014,7 +10021,7 @@ class FlexTable {
       }
     }
   }
-  rebuild()  {
+  rebuild() {
     const row = this.options.rows;
     const col = this.options.cols;
     let tops = [];
@@ -10034,16 +10041,26 @@ class FlexTable {
         margin += height;
       }
 
+      // Выравниваение высоты строк если обертке таблицы добавлен css класс _ft-auto-height
+      if (this.options.autoHight) {
+        for (let i = row; i < trs.length; i++) {
+          height = trs[i].cells[0].offsetHeight;
+          for (let j = 0; j < trs[i].cells.length; j++) {
+            trs[i].cells[j].style.height = `${height}px`;
+          }
+        }
+      }
+
       // Выравнивем ширины ячеек
       let maxCellsLength = 0;
       let headRow;
       for (let i = 0; i < row; i++) {
         const length = trs[i].cells.length
-        if (maxCellsLength < length ) {
+        if (maxCellsLength < length) {
           maxCellsLength = length;
           headRow = trs[i];
         }
-      }  
+      }
       let tableRow;
       for (let i = row; i < trs.length; i++) {
         if (trs[i].cells.length === maxCellsLength) {
@@ -10052,12 +10069,12 @@ class FlexTable {
         }
       }
       if (tableRow) {
-        for (let i = 0; i < maxCellsLength; i++) { 
-          tableRow.cells[i].style.width = headRow.cells[i].style.width = tableRow.cells[i].offsetWidth + 'px'; 
+        for (let i = 0; i < maxCellsLength; i++) {
+          tableRow.cells[i].style.width = headRow.cells[i].style.width = tableRow.cells[i].offsetWidth + 'px';
         }
-      } 
-    }
-    else {
+      }
+ 
+    } else {
       alert('В таблице недостаточно строк');
       return null;
     }
@@ -10115,7 +10132,7 @@ class FlexTable {
           if (link) {
             link.innerHTML = '&nbsp';
             link.style.cssText = 'display: block; width: 100%; height: 100%;';
-        
+
             newRightTBodyTr.innerHTML = marketHTML;
             newRightTBodyTr.className = 'flex-table__ad';
             this.inner.rightTBody.append(newRightTBodyTr);
@@ -10130,7 +10147,7 @@ class FlexTable {
           }
         }
       }
-    } 
+    }
     this.sourceTable.remove();
   }
   setupParameters() {
@@ -10144,7 +10161,7 @@ class FlexTable {
     inner.style.width = '';
     inner.leftBox.style.width = '';
     inner.rightBox.style.width = '';
- 
+
     inner.rightTableWrap.style.marginTop = inner.rightHeaderInner.getBoundingClientRect().height + 'px';
     let leftTableWidth = inner.leftTable.getBoundingClientRect().width;
     let rightTableWidth = inner.rightTable.getBoundingClientRect().width;
@@ -10165,8 +10182,7 @@ class FlexTable {
       inner.rightHeaderInner.style.width = rightBoxWidth + 'px';
       inner.rightTableWrap.style.maxWidth = rightBoxWidth + 'px';
       inner.rightTableWrap.style.width = rightBoxWidth + 'px';
-    }
-    else {
+    } else {
       rightBoxWidth = rightTableWidth;
       wrap.classList.remove('_overflow');
       inner.rightBox.classList.remove('_overflow');
@@ -10181,8 +10197,7 @@ class FlexTable {
           adText.style.width = rightBoxWidth + 'px';
           adText.style.left = '0px';
         });
-      }
-      else{
+      } else {
         this.adTextEls.forEach(adText => {
           adText.style.width = inner.clientWidth + 'px';
           adText.style.left = rightBoxWidth - inner.clientWidth + 'px';
@@ -10219,13 +10234,11 @@ class FlexTable {
             this.inner.rightTableWrap.style.marginBottom = -sBSHTrack + 'px';
           }
         }
-      }
-      catch {
+      } catch {
         this.inner.rightTableWrap.style.overflowX = 'auto'
         this.scroller = this.wrap;
       }
-    }
-    else {
+    } else {
       this.inner.rightTableWrap.style.overflowX = 'auto'
       this.scroller = this.wrap;
     }
@@ -10239,7 +10252,7 @@ class FlexTable {
       this.translateAdText = this.translateAdTextEls.bind(this);
       this.scroller.addEventListener('scroll', this.translateAdText);
     }
-    
+
   }
   hover() {
     let table = this.inner;
@@ -10256,14 +10269,13 @@ class FlexTable {
 
       function addHover(tr) {
         tr.addEventListener('mouseenter', () => {
-          const curentTBody = tr.parentElement;//closest('tbody');
+          const curentTBody = tr.parentElement; //closest('tbody');
           //const table = tr.closest('.flex-table');
           const curentTrs = curentTBody.querySelectorAll('tr');
           let targetTBody;
-          if (curentTBody === table.rightTBody/* .classList.contains('flex-table__l-tbody') */) {
+          if (curentTBody === table.rightTBody /* .classList.contains('flex-table__l-tbody') */ ) {
             targetTBody = table.leftTBody;
-          }
-          else {
+          } else {
             targetTBody = table.rightTBody;
           }
           const targetTrs = targetTBody.querySelectorAll('tr');
@@ -10276,16 +10288,16 @@ class FlexTable {
           }
         });
       }
+
       function removeHover(tr) {
         tr.addEventListener('mouseleave', () => {
-          const curentTBody = tr.parentElement;//closest('tbody');
+          const curentTBody = tr.parentElement; //closest('tbody');
           //const table = tr.closest('.flex-table');
           const curentTrs = curentTBody.querySelectorAll('tr');
           let targetTBody;
-          if (curentTBody === table.rightTBody/* .classList.contains('flex-table__l-tbody') */) {
+          if (curentTBody === table.rightTBody /* .classList.contains('flex-table__l-tbody') */ ) {
             targetTBody = table.leftTBody;
-          }
-          else {
+          } else {
             targetTBody = table.rightTBody;
           }
           const targetTrs = targetTBody.querySelectorAll('tr');
@@ -10315,14 +10327,13 @@ class FlexTable {
 
     if (typeof tableWrap === 'string') {
       this.wrap = document.querySelector(tableWrap);
-    }
-    else if (typeof tableWrap === 'object') {
+    } else if (typeof tableWrap === 'object') {
       this.wrap = tableWrap;
     }
     if (!this.wrap) {
       return;
     }
-    
+
     this.wrap.classList.add('flex-table', '_loading');
     this.initOptions();
 
@@ -10331,8 +10342,7 @@ class FlexTable {
     if (this.inner) {
       this.initShell();
       this.handler();
-    }
-    else {
+    } else {
       this.sourceTable = this.wrap.querySelector('table');
       this.sourceTable.classList.add('_hidden');
       this.moveColumn();

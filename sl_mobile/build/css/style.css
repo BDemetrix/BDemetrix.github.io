@@ -2750,8 +2750,14 @@ picture {
 
 .flex-table tr th,
 .flex-table tr td {
-  table-layout: fixed;
   white-space: nowrap;
+}
+
+/* автовысота строк */
+
+.flex-table._ft-auto-height tr td,
+.flex-table._ft-auto-height tr td a {
+  white-space: normal !important;
 }
 
 .flex-table::before {
@@ -12679,8 +12685,8 @@ textarea {
 }
 
 .trades-table table {
-  border-collapse: collapse;
-  table-layout: fixed;
+  /* border-collapse: collapse; */
+  /* table-layout: fixed; */
 }
 
 .trades-table th {
@@ -12737,6 +12743,19 @@ textarea {
   overflow: hidden;
 }
 
+.trades-table__name-multiline {
+  width: 100px;
+  /* min-width: 100px;
+  max-width: 100px;  */
+}
+
+.trades-table__name-multiline > * {
+  display: block;
+  text-align: center;
+  word-break: keep-all !important;
+  white-space: normal !important;
+}
+
 .trades-table__tools {
   max-width: 170px;
   padding-right: 10px !important;
@@ -12768,9 +12787,22 @@ textarea {
   width: 67px;
 }
 
+.trades-table__price-mozg {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+
 .trades-table__change-per {
   max-width: 90px;
   width: 62px;
+}
+
+.trades-table__big-description > * {
+  display: block;
+  width: 470px;
+  max-width: 50vw;
+  padding: 10px;
+  text-align: left;
 }
 
 .trades-table__volume {
@@ -17020,6 +17052,13 @@ body.loader:before {
   }
 }
 
+@media (max-width: 567.98px) {
+  .trades-table__name-multiline > * {
+    width: 100px;
+    word-break: break-word !important;
+  }
+}
+
 @media (max-width: 500px) {
   .jBox-Confirm .jBox-content {
     padding: 32px 20px;
@@ -17035,6 +17074,13 @@ body.loader:before {
 
   .jBox-Notice.jBox-hasTitle .jBox-title {
     padding: 8px 10px 0;
+  }
+}
+
+@media (max-width: 479.98px) {
+  .trades-table__name-multiline > * {
+    width: 70px;
+    word-break: break-word !important;
   }
 }
 
