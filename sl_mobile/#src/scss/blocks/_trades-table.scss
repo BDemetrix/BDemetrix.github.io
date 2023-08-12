@@ -339,14 +339,14 @@
     color: inherit;
     font-weight: inherit;
 
-    @media (max-width: $md4 + px) {
+   /*  @media (max-width: $md4 + px) {
       width: 100px;
       word-break: break-word !important;
     }
     @media (max-width: $md5 + px) {
       width: 70px;
       word-break: break-word !important;
-    }
+    } */
   }
 }
 
@@ -452,6 +452,25 @@ td.trades-table__name-multiline {
 .trades-table__currency {
   max-width: 64px;
   width: 64px;
+}
+
+.trades-table__icon-link {
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: #000;
+
+    &:hover {
+      color: #479cd3;
+    }
+
+    svg {
+      fill: currentColor;
+    }
+  }
 }
 
 .trades-table#trades-table-fixed {
