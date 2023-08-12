@@ -2750,6 +2750,7 @@ picture {
 
 .flex-table tr th,
 .flex-table tr td {
+  table-layout: fixed;
   white-space: nowrap;
 }
 
@@ -12758,6 +12759,14 @@ textarea {
   white-space: normal !important;
   color: inherit;
   font-weight: inherit;
+  /*  @media (max-width: $md4 + px) {
+     width: 100px;
+     word-break: break-word !important;
+   }
+   @media (max-width: $md5 + px) {
+     width: 70px;
+     word-break: break-word !important;
+   } */
 }
 
 td.trades-table__name-multiline {
@@ -12793,11 +12802,6 @@ td.trades-table__name-multiline {
 .trades-table__price {
   max-width: 90px;
   width: 67px;
-}
-
-.trades-table__price-mozg {
-  padding-left: 10px !important;
-  padding-right: 10px !important;
 }
 
 .trades-table__change-per {
@@ -12866,6 +12870,29 @@ td.trades-table__name-multiline {
 .trades-table__currency {
   max-width: 64px;
   width: 64px;
+}
+
+.trades-table__icon-link a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: #000;
+}
+
+.trades-table__icon-link a:hover {
+  color: #479cd3;
+}
+
+.trades-table__icon-link a svg {
+  fill: currentColor;
 }
 
 .trades-table#trades-table-fixed {
@@ -15195,6 +15222,14 @@ td.trades-table__name-multiline {
   color: #e9e9e9;
 }
 
+.dark-theme .trades-table__icon-link a {
+  color: #e9e9e9;
+}
+
+.dark-theme .trades-table__icon-link a:hover {
+  color: #479cd3;
+}
+
 .dark-theme .trades-table th,
 .dark-theme .trades-table tr td {
   background: #2a2c30;
@@ -17060,13 +17095,6 @@ body.loader:before {
   }
 }
 
-@media (max-width: 567.98px) {
-  .trades-table__name-multiline > * {
-    width: 100px;
-    word-break: break-word !important;
-  }
-}
-
 @media (max-width: 500px) {
   .jBox-Confirm .jBox-content {
     padding: 32px 20px;
@@ -17082,13 +17110,6 @@ body.loader:before {
 
   .jBox-Notice.jBox-hasTitle .jBox-title {
     padding: 8px 10px 0;
-  }
-}
-
-@media (max-width: 479.98px) {
-  .trades-table__name-multiline > * {
-    width: 70px;
-    word-break: break-word !important;
   }
 }
 

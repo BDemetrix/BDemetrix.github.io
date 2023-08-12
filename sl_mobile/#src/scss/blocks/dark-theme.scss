@@ -897,6 +897,15 @@ $disabled-color: #e2e2e2;
             color: $text-color;
         }
 
+        &__icon-link {
+            a {
+                color: $text-color;
+                &:hover {
+                    color: $link-color;
+                }
+            }
+        }
+
         th,
         tr td {
             background: $element-bg;
