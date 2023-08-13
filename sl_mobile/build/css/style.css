@@ -10110,6 +10110,13 @@ textarea {
   border-radius: 8px 8px 0px 0px;
 }
 
+.news-feed__title {
+  margin: 14px 7px;
+  font-size: 20px;
+  line-height: 22px;
+  font-weight: 500;
+}
+
 .news-feed__filter {
   margin: 10px 0;
 }
@@ -14516,6 +14523,10 @@ td.trades-table__name-multiline {
 .dark-theme .moderation-pop-up__search-results,
 .dark-theme .moderation-pop-up__heading {
   background-color: #2a2c30;
+}
+
+.dark-theme .news-feed {
+  color: #e9e9e9;
 }
 
 .dark-theme .news-feed__section {

@@ -277,6 +277,7 @@ $disabled-color: #e2e2e2;
     }
 
     .news-feed {
+        color: $text-color;
         &__section {
             background-color: $element-bg;
         }
