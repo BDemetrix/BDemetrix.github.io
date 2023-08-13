@@ -21,6 +21,14 @@
         @media (min-width: $md3 + px) {
         }
     }
+    // .news-feed__title 
+    &__title {
+        margin: 14px 7px;
+        // color: #312C26;
+        font-size: 20px;
+        line-height: 22px;
+        font-weight: 500;
+    }
     // .news-feed__filter
     &__filter {
         margin: 10px 0;
