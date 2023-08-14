@@ -10251,13 +10251,10 @@ textarea {
 }
 
 .news-card__date {
-  width: 140px;
+  max-width: 150px;
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 140px;
-          flex: 0 0 140px;
-  -webkit-box-ordinal-group: 4;
-      -ms-flex-order: 3;
-          order: 3;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
   font-size: 12px;
   line-height: 20px;
   text-align: right;
@@ -10274,9 +10271,7 @@ textarea {
 .news-card__date--ec {
   line-height: 18px;
   text-align: left;
-  -webkit-box-ordinal-group: 1;
-      -ms-flex-order: 0;
-          order: 0;
+  padding-right: 4px;
 }
 
 .news-card__time {
@@ -10333,6 +10328,7 @@ textarea {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  max-width: 50%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -10343,14 +10339,13 @@ textarea {
 }
 
 .news-card__author svg {
-  margin-left: 4px;
-}
-
-.news-card__author span {
+  margin: 0 10px 0 4px;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
-  max-width: 200px;
+}
+
+.news-card__author span {
   overflow: hidden;
   -o-text-overflow: ellipsis;
      text-overflow: ellipsis;
@@ -10360,6 +10355,20 @@ textarea {
 .news-card__author:hover {
   color: #2987c5;
   font-weight: 600;
+}
+
+.news-card__info {
+  width: 100%;
+  max-width: 100%;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .nf-filter {
@@ -14246,6 +14255,14 @@ td.trades-table__name-multiline {
   margin: 0 8.5px;
 }
 
+body.dark-theme {
+  background: #202225;
+}
+
+body.dark-theme.loader:before {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
 .dark-theme {
   color: #e9e9e9;
   /* .notify {
@@ -14256,10 +14273,6 @@ td.trades-table__name-multiline {
           background-color: $element-bg;
       }
   } */
-}
-
-.dark-theme body {
-  background: #fff;
 }
 
 .dark-theme .wrapper,
@@ -15368,7 +15381,9 @@ body.loader:before {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.8) url(/plugins/mobile/templates/skin/default/actions/ActionMobileRe/images/preloader.gif) no-repeat;
+  background-color: rgba(255, 255, 255, 0.8);
+  background-image: url("/plugins/mobile/templates/skin/default/actions/ActionMobile/images/preloader.gif");
+  background-repeat: no-repeat;
   background-position: center;
   background-size: 60px 60px;
 }
