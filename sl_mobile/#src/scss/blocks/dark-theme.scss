@@ -11,12 +11,16 @@ $link-color: #479cd3;
 
 $disabled-color: #e2e2e2;
 
+body.dark-theme {
+    background: $body-bg;
+}
+body.dark-theme.loader:before {
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
 .dark-theme {
     color: $text-color;
 
-    body {
-        background: #fff;
-    }
     .wrapper,
     .system-messages__item-inner {
         background: $body-bg;
