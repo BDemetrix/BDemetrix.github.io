@@ -12257,15 +12257,14 @@ textarea {
 
 .selector-links__item._active a {
   color: #000;
-  pointer-events: none;
 }
 
 .selector-links__item._active a::before {
   content: "";
 }
 
-.selector-links__item--has-active-link._active a {
-  pointer-events: all;
+.selector-links__item--none-link-events a {
+  pointer-events: none;
 }
 
 .selector-links__prev,

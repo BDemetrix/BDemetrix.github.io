@@ -79,7 +79,6 @@
 		&._active {
 			a {
 				color: #000;
-				pointer-events: none;
 
 				&::before {
 					content: "";
@@ -87,9 +86,9 @@
 			}
 		}
 
-		&--has-active-link._active {
+		&--none-link-events {
 			a {
-				pointer-events: all;
+				pointer-events: none;
 			}
 		}
 	}
