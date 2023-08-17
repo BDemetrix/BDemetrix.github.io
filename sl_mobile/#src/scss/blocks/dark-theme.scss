@@ -956,7 +956,28 @@ body.dark-theme.loader:before {
         .flex-table__ad._hover td .flex-table__ad-text,
         .flex-table__ad-text:hover,
         tr:hover td {
-            background: $body-bg !important;
+            background: $body-bg;
+        }
+
+        tr td,
+        &._hover td,
+        tr:hover td {
+            &.color-rating {
+                &--5 {
+                    background: #31592E;
+                }
+                &--4 {
+                    background: #2E441F;
+                }
+                &--3 {
+                }
+                &--2 {
+                    background: #483C28;
+                }
+                &--1 {
+                    background: #533434;
+                }
+            }
         }
 
         .flex-table__r-box::before {

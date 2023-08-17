@@ -1043,7 +1043,31 @@ body.dark-theme.loader:before {
 .dark-theme .trades-table .flex-table__ad._hover td .flex-table__ad-text,
 .dark-theme .trades-table .flex-table__ad-text:hover,
 .dark-theme .trades-table tr:hover td {
-  background: #202225 !important;
+  background: #202225;
+}
+
+.dark-theme .trades-table tr td.color-rating--5,
+.dark-theme .trades-table._hover td.color-rating--5,
+.dark-theme .trades-table tr:hover td.color-rating--5 {
+  background: #31592E;
+}
+
+.dark-theme .trades-table tr td.color-rating--4,
+.dark-theme .trades-table._hover td.color-rating--4,
+.dark-theme .trades-table tr:hover td.color-rating--4 {
+  background: #2E441F;
+}
+
+.dark-theme .trades-table tr td.color-rating--2,
+.dark-theme .trades-table._hover td.color-rating--2,
+.dark-theme .trades-table tr:hover td.color-rating--2 {
+  background: #483C28;
+}
+
+.dark-theme .trades-table tr td.color-rating--1,
+.dark-theme .trades-table._hover td.color-rating--1,
+.dark-theme .trades-table tr:hover td.color-rating--1 {
+  background: #533434;
 }
 
 .dark-theme .trades-table .flex-table__r-box::before {

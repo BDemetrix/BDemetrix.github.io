@@ -80,12 +80,6 @@
   background: url(../images/icons/flex-table/chart3-icon-small.png) no-repeat; 
 } */
 
-.trades-table tr td {
-  img,
-  svg {
-    max-height: 18px;
-  }
-}
 
 .trades-table .trades-table__chartrow a {
   display: block;
@@ -299,6 +293,11 @@
   border-left: 1px solid #e0e0e0;
   background: #fafafa;
   background: -moz-linear-gradient(top, #ededed, #ebebeb);
+
+  img,
+  svg {
+    max-height: 18px; 
+  }
 }
 
 .trades-table ._hover td,
@@ -307,6 +306,28 @@
 .trades-table tr:hover td {
   background: #f2f2f2;
   background: -moz-linear-gradient(top, #f2f2f2, #f0f0f0);
+}
+
+.trades-table tr td,
+.trades-table ._hover td,
+.trades-table tr:hover td {
+  &.color-rating  {
+    &--5 {
+      background: #BDFFB8;
+    }
+    &--4 {
+      background: #E2FFCE;
+    }
+    &--3 {
+      
+    }
+    &--2 {
+      background: #FFF3E0;
+    }
+    &--1 {
+      background: #FFE4E4;
+    }
+  }
 }
 
 .trades-table__n {
