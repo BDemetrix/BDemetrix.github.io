@@ -12584,11 +12584,6 @@ textarea {
   background: url(../images/icons/flex-table/chart3-icon-small.png) no-repeat; 
 } */
 
-.trades-table tr td img,
-.trades-table tr td svg {
-  max-height: 18px;
-}
-
 .trades-table .trades-table__chartrow a {
   display: block;
 }
@@ -12792,12 +12787,41 @@ textarea {
   background: -moz-linear-gradient(top, #ededed, #ebebeb);
 }
 
+.trades-table tr td img,
+.trades-table tr td svg {
+  max-height: 18px;
+}
+
 .trades-table ._hover td,
 .trades-table .flex-table__ad._hover td .flex-table__ad-text,
 .trades-table .flex-table__ad-text:hover,
 .trades-table tr:hover td {
   background: #f2f2f2;
   background: -moz-linear-gradient(top, #f2f2f2, #f0f0f0);
+}
+
+.trades-table tr td.color-rating--5,
+.trades-table ._hover td.color-rating--5,
+.trades-table tr:hover td.color-rating--5 {
+  background: #BDFFB8;
+}
+
+.trades-table tr td.color-rating--4,
+.trades-table ._hover td.color-rating--4,
+.trades-table tr:hover td.color-rating--4 {
+  background: #E2FFCE;
+}
+
+.trades-table tr td.color-rating--2,
+.trades-table ._hover td.color-rating--2,
+.trades-table tr:hover td.color-rating--2 {
+  background: #FFF3E0;
+}
+
+.trades-table tr td.color-rating--1,
+.trades-table ._hover td.color-rating--1,
+.trades-table tr:hover td.color-rating--1 {
+  background: #FFE4E4;
 }
 
 .trades-table__n {
@@ -15353,7 +15377,31 @@ body.dark-theme.loader:before {
 .dark-theme .trades-table .flex-table__ad._hover td .flex-table__ad-text,
 .dark-theme .trades-table .flex-table__ad-text:hover,
 .dark-theme .trades-table tr:hover td {
-  background: #202225 !important;
+  background: #202225;
+}
+
+.dark-theme .trades-table tr td.color-rating--5,
+.dark-theme .trades-table._hover td.color-rating--5,
+.dark-theme .trades-table tr:hover td.color-rating--5 {
+  background: #31592E;
+}
+
+.dark-theme .trades-table tr td.color-rating--4,
+.dark-theme .trades-table._hover td.color-rating--4,
+.dark-theme .trades-table tr:hover td.color-rating--4 {
+  background: #2E441F;
+}
+
+.dark-theme .trades-table tr td.color-rating--2,
+.dark-theme .trades-table._hover td.color-rating--2,
+.dark-theme .trades-table tr:hover td.color-rating--2 {
+  background: #483C28;
+}
+
+.dark-theme .trades-table tr td.color-rating--1,
+.dark-theme .trades-table._hover td.color-rating--1,
+.dark-theme .trades-table tr:hover td.color-rating--1 {
+  background: #533434;
 }
 
 .dark-theme .trades-table .flex-table__r-box::before {
