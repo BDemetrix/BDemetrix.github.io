@@ -79,14 +79,20 @@
 		&._active {
 			a {
 				color: #000;
-				pointer-events: none;
 
 				&::before {
 					content: "";
 				}
 			}
 		}
+
+		&--none-link-events {
+			a {
+				pointer-events: none;
+			}
+		}
 	}
+
 	&__prev,
 	&__next {
 		cursor: pointer;
