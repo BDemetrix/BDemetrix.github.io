@@ -1,0 +1,34 @@
+<!-- 
+  * Класс _loading для того, чтобы стили не прыгали, пока слайдер не подключился
+  * Элементу li с текущей ссылкой присваивается класс sections-box__item--active по которому она меняет свой стиль и становится не активной 
+-->
+<nav class="sections-box sections-box--news _loading">
+    <div class="sections-box__swiper swiper">
+        <ul class="sections-box__list swiper-wrapper">
+            <!-- Slides -->
+            <li class="sections-box__item swiper-slide"><a href="https://smart-lab.ru/#Все блоги">Все блоги</a></li>
+            <li class="sections-box__item swiper-slide"><a href="https://smart-lab.ru/#Торговые сигналы">Торговые сигналы</a></li>
+            <li class="sections-box__item swiper-slide"><a href="https://smart-lab.ru/#Новости акций">Новости акций</a></li>
+            <li class="sections-box__item swiper-slide"><a href="https://smart-lab.ru/#Раскрытие информации">Раскрытие информации</a></li>
+            <li class="sections-box__item sections-box__item--active sections-box__item--premium swiper-slide">
+                <a href="https://smart-lab.ru/#Premium">
+                    <svg width="20" height="20">
+                        <use xlink:href="images/icons/post-card/sprite.svg#premium-ring"></use>
+                    </svg>
+                    Premium
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="sections-box__prev">
+        <svg>
+            <use xlink:href="images/symbol/sprite.svg#ic_spoller_arrow"></use>
+        </svg>
+    </div>
+    <div class="sections-box__next">
+        <svg>
+            <use xlink:href="images/symbol/sprite.svg#ic_spoller_arrow"></use>
+        </svg>
+    </div>
+</nav>

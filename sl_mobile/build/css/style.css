@@ -10171,6 +10171,54 @@ textarea {
   font-weight: 700;
 }
 
+.news-feed__links-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 10px 0;
+}
+
+.news-feed__link-btn {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 10px 5px;
+  padding: 5px 15px;
+  font-size: 12px;
+  line-height: 14px;
+  color: #fff;
+  background: #000;
+  border-radius: 5px;
+  background: #479CD3;
+  -webkit-box-shadow: 0px 1.5px 3px 0px rgba(11, 84, 131, 0.3);
+          box-shadow: 0px 1.5px 3px 0px rgba(11, 84, 131, 0.3);
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+.news-feed__link-btn:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.news-feed__link-btn svg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 5px 0 0;
+  fill: currentColor;
+}
+
 .fn-tag {
   cursor: pointer;
   display: -webkit-inline-box;

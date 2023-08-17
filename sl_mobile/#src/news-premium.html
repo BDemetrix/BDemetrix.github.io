@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('_head.html',{
+"title":"Новости",
+"stylesheet": "./css/style.css"
+})
+<!-- 
+    * Используются стили совместно с Экономическим колендарем economic-calendar.html
+-->
+<body class="">
+    <!-- классы ._style-1 , ._style-2 и ._style-3 используются для стилизации двух видов шаблонов 
+		Например: при body._style-1 Логотип имеет один цвет, а при body._style-2 и ._style-3 - другой
+		._style-1 для smart-lab.ru
+		._style-2 для smart-lab.ru/q/
+		._style-3 для smart-lab.ru/forum/
+		-->
+    <div class="wrapper">
+        @@include('_header.html',{"Class": "_container"})
+        <main class="news-feed _mobile-container">
+            <div class="news-feed__header">
+                <div class="news-feed__section">
+                    @@include('_sections-box--news-premium.html',{})
+                </div>
+                <!-- <div class="news-feed__title">
+                    Новости компаний и новости по акциям
+                </div> -->
+                <div class="news-feed__filter nf-filter">
+                    <div class="nf-filter__head">
+                        <!-- Для отображени чекбокса в вида тумблера присваивается модификатор custom-checkbox--switch -->
+                        <label class="nf-filter__checkbox custom-checkbox custom-checkbox--switch"
+                            title="Включить автообновление 1 раз в минуту">
+                            <input type="checkbox" class="custom-checkbox__input" checked="" tabindex="0">
+                            <span class="custom-checkbox__text">В виде ленты</span>
+                        </label>
+                        <label class="nf-filter__checkbox nf-filter__checkbox--autoupdate custom-checkbox"
+                            title="Включить автообновление 1 раз в минуту">
+                            <input type="checkbox" class="custom-checkbox__input" checked="" tabindex="0">
+                            <span class="custom-checkbox__text">Автообновление</span>
+                        </label>
+                        <button class="nf-filter__btn js-nf-filter-btn" type="button" tabindex="1">
+                            <svg width="24" height="24">
+                                <use xlink:href="images/icons/news-feed/sprite.svg#filter"></use>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="nf-filter__body js-nf-filter-body">
+                        <div class="nf-filter__fields">
+                            <div class="nf-filter__search-wrap">
+                                <input class="nf-filter__search" type="text" name="serch" value="" id="nf-filter-search"
+                                    autocomplete="off" placeholder="Поиск" title="Поиск новости" tabindex="2">
+                            </div>
+                            <div class="nf-filter__date-wrap">
+                                <input class="nf-filter__date datepicker" type="text" name="date" value="" id="all_date"
+                                    route="/allblog/" autocomplete="off" placeholder="Выбрать дату"
+                                    title="Посмотреть за выбраную дату" tabindex="3" readonly>
+                            </div>
+                            <!-- Чтобы открыть надо присвоить модфикатор custom-select--opened -->
+                            <div class="nf-filter__select custom-select">
+                                <button class="custom-select__main-btn" value="По дате" name="#" type="button"
+                                    tabindex="4">
+                                    По дате
+                                </button>
+                                <div class="custom-select__list ">
+                                    <button class="custom-select__option custom-select__option--active" value="По дате"
+                                        type="button" tabindex="5">По дате</button>
+                                    <button class="custom-select__option" value="По лайкам" type="button"
+                                        tabindex="6">По
+                                        лайкам</button>
+                                    <button class="custom-select__option" value="По пользе" type="button"
+                                        tabindex="7">По
+                                        пользе</button>
+                                    <button class="custom-select__option" value="По комментам" type="button"
+                                        tabindex="8">По
+                                        комментам</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="nf-filter__tags">
+                            <button class="nf-filter__tag fn-tag fn-tag--x">
+                                Акции
+                            </button>
+                            <button class="nf-filter__tag fn-tag fn-tag--x fn-tag--active">
+                                Опционы
+                            </button>
+                            <button class="nf-filter__tag fn-tag fn-tag--x">
+                                Облигации
+                            </button>
+                            <button class="nf-filter__tag fn-tag fn-tag--x">
+                                Forex
+                            </button>
+                            <button class="nf-filter__tag fn-tag fn-tag--x">
+                                Трейдинг
+                            </button>
+                        </div>
+                        <div class="nf-filter__tags nf-filter__tags--companies">
+                            <button class="nf-filter__tag fn-tag fn-tag--x fn-tag--active fn-tag--company">
+                                сбербанк
+                            </button>
+                            <button class="nf-filter__tag fn-tag fn-tag--x fn-tag--active fn-tag--company">
+                                газпром
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <nav class="news-feed__links-box">
+                    <a href="https://t.me/mozgovikresearch" class="news-feed__link-btn" target="_blank">
+                        <svg width="12" height="12">
+                            <use xlink:href="images/icons/news-feed/sprite.svg#tg"></use>
+                        </svg>
+                        @mozgovikresearch
+                    </a>
+                    <a href="https://smart-lab.ru/stocks-rating/" class="news-feed__link-btn" target="_blank">
+                        <svg width="12" height="12">
+                            <use xlink:href="images/icons/news-feed/sprite.svg#star"></use>
+                        </svg>
+                        Рейтинг акций
+                    </a>
+                </nav>
+            </div>
+            <div class="news-feed__list js-news-feed-list">
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/blog/851748.php">
+            
+                    <p class="news-card__title">
+                        
+                        Match Group прогнозирует слабый рост в 2022 из-за
+                        укрепления доллара и ухудшения экономической ситуации
+                    </p>
+            
+                    <div class="news-card__info"><span data-href="https://smart-lab.ru/profile/suve/"
+                            class="news-card__author js-news-card-author">
+                            <span>SUVE Capital Management Management</span>
+                            <svg width="20" height="20">
+                                <use xlink:href="images/icons/comments/sprite.svg#approved"></use>
+                            </svg>
+                        </span>
+                        <div class="news-card__date js-news-card-date">Сегодня в 13:39</div>
+                    </div>
+                </a>
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/mobile/topic/881071/">
+            
+                    <p class="news-card__title">США повысят пошлины на ввоз металлов, минералов и химпродукции из РФ
+                    </p>
+            
+                    <div class="news-card__info"><span data-href="https://smart-lab.ru/profile/editor2/"
+                            class="news-card__author js-news-card-author">
+                            <span>Редактор Боб</span>
+                        </span>
+                        <div class="news-card__date js-news-card-date">Сегодня в 14:13</div>
+                    </div>
+                </a>
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/mobile/topic/881062/">
+            
+                    <p class="news-card__title">📉АЛРОСА падает на 1,3% после того как ЕС согласовал санкции против
+                        российских
+                        алмазов</p>
+            
+                    <div class="news-card__info"><span data-href="https://smart-lab.ru/profile/dr-mart/"
+                            class="news-card__author js-news-card-author">
+                            <span>Тимофей Мартынов</span>
+                            <svg width="20" height="20">
+                                <use xlink:href="images/icons/comments/sprite.svg#approved"></use>
+                            </svg>
+                        </span>
+                        <div class="news-card__date js-news-card-date">Сегодня в 13:39</div>
+                    </div>
+                </a>
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/mobile/topic/880995/">
+            
+                    <p class="news-card__title">Минэкономики Германии не против запрета на поставки российского газа в
+                        ЕС -
+                        вице-канцлер Хабек
+                    </p>
+            
+                    <div class="news-card__info"><span data-href="https://smart-lab.ru/profile/zhmakr/"
+                            class="news-card__author js-news-card-author">
+                            <span>Роман Жмак</span>
+                        </span>
+                        <div class="news-card__date js-news-card-date">Сегодня в 09:56</div>
+                    </div>
+                </a>
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/mobile/topic/880836/">
+            
+                    <p class="news-card__title">G7 работает над механизмом контроля за санкциями против России -
+                        Bloomberg
+                    </p>
+            
+                    <div class="news-card__info"><span data-href="https://smart-lab.ru/profile/zhmakr/"
+                            class="news-card__author js-news-card-author">
+                            <span>Роман Жмак</span>
+                        </span>
+                        <div class="news-card__date js-news-card-date">Вчера в 09:39</div>
+                    </div>
+                </a>
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/mobile/topic/880790/">
+            
+                    <p class="news-card__title">Титов сообщил, что "Абрау-Дюрсо" только начинает работать на рынке КНР
+                    </p>
+            
+                    <div class="news-card__info"><span data-href="https://smart-lab.ru/profile/editor2/"
+                            class="news-card__author js-news-card-author">
+                            <span>Редактор Боб</span>
+                        </span>
+                        <div class="news-card__date js-news-card-date">22 февраля 2023, 22:29</div>
+                    </div>
+                </a>
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/mobile/topic/880787/">
+            
+                    <p class="news-card__title">⚡️ Мосбиржа прекратит торги акциями и облигациями OR Group (Обувь
+                        России)</p>
+            
+                    <div class="news-card__info"><span data-href="https://smart-lab.ru/profile/vasssilio/"
+                            class="news-card__author js-news-card-author">
+                            <span>Василий Баранов</span>
+                        </span>
+                        <div class="news-card__date js-news-card-date">22 февраля 2023, 22:27</div>
+                    </div>
+                </a>
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/mobile/topic/880777/">
+            
+                    <p class="news-card__title">Квартальные результаты Baidu оказались лучше ожиданий и
+                        консенсус-прогнозов - Синара</p>
+            
+                    <div class="news-card__info"><span data-href="https://smart-lab.ru/profile/stanislava/"
+                            class="news-card__author js-news-card-author">
+                            <span>stanislava</span>
+                        </span>
+                        <div class="news-card__date js-news-card-date">22 февраля 2023, 21:04</div>
+                    </div>
+                </a>
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/mobile/topic/880560/">
+            
+                    <p class="news-card__title">МТС закрыла сделку по приобретению 67% в капитале рекламного агентства
+                        Buzzoola
+                    </p>
+            
+                    <div class="news-card__info"><span data-href="https://smart-lab.ru/profile/Buterbrod2018/"
+                            class="news-card__author js-news-card-author">
+                            <span>Все Верно</span>
+                            <svg width="14" height="14">
+                                <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
+                            </svg>
+                        </span>
+                        <div class="news-card__date js-news-card-date">22 февраля 2023, 10:45</div>
+                    </div>
+                </a>
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/mobile/topic/880553/">
+            
+                    <p class="news-card__title">Доллар уверенно снижается котировки опустились ниже 74.5 рублей
+                    </p>
+            
+                    <div class="news-card__info"><span data-href="https://smart-lab.ru/profile/romanranniy/"
+                            class="news-card__author js-news-card-author">
+                            <span>Роман Ранний</span>
+                            <svg width="14" height="14">
+                                <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
+                            </svg>
+                        </span>
+                        <div class="news-card__date js-news-card-date">22 февраля 2023, 10:34</div>
+                    </div>
+                </a>
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/mobile/topic/880777/">
+            
+                    <p class="news-card__title">Квартальные результаты Baidu оказались лучше ожиданий и
+                        консенсус-прогнозов - Синара
+                    </p>
+            
+                    <div class="news-card__info"><span data-href="https://smart-lab.ru/profile/stanislava/"
+                            class="news-card__author js-news-card-author">
+                            <span>stanislava</span>
+                        </span>
+                        <div class="news-card__date js-news-card-date">22 февраля 2023, 21:04</div>
+                    </div>
+                </a>
+                <a class="news-feed__item news-card" href="https://smart-lab.ru/mobile/topic/880777/">
+            
+                    <p class="news-card__title">Квартальные результаты Baidu оказались лучше ожиданий и
+                        консенсус-прогнозов - Синара
+                    </p>
+            
+                    <div class="news-card__info"><span data-href="https://smart-lab.ru/profile/stanislava/"
+                            class="news-card__author js-news-card-author">
+                            <span>stanislava</span>
+                        </span>
+                        <div class="news-card__date js-news-card-date">22 февраля 2023, 21:04</div>
+                    </div>
+                </a>
+            </div>
+            @@include('_footer_mob.html',{'Class': 'footer-mob--news'})
+        </main>
+    </div>
+    @@include('_transfer-btn.html')
+    @@include('_js.html',{})
+</body>
+
+</html>
