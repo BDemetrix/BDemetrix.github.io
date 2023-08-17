@@ -11851,6 +11851,7 @@ textarea {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  padding: 0 15px;
   font-size: 16px;
   line-height: 22px;
   color: #dadada;
@@ -12261,6 +12262,10 @@ textarea {
 
 .selector-links__item._active a::before {
   content: "";
+}
+
+.selector-links__item--has-active-link._active a {
+  pointer-events: all;
 }
 
 .selector-links__prev,

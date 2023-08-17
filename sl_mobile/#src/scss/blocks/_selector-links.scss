@@ -86,7 +86,14 @@
 				}
 			}
 		}
+
+		&--has-active-link._active {
+			a {
+				pointer-events: all;
+			}
+		}
 	}
+
 	&__prev,
 	&__next {
 		cursor: pointer;

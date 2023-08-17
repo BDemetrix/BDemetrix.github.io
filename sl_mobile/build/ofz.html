@@ -747,7 +747,7 @@
       * и дублировать содержимое не нужно, т.к. она ведет на страницу с другим дизайном
   	-->
   <div class="qn-menu__tabs-wrap _spollers" data-spoller-maxwidth="767.98">
-    <div class="qn-menu__tabs-control _spoller _container">
+    <div class="qn-menu__tabs-control _spoller">
       <span>Котировки</span>
       <svg class="qn-menu__tabs-control_arrow">
           <use xlink:href="images/symbol/sprite.svg#ic_spoller_arrow"></use>
@@ -806,6 +806,8 @@
     <!--
   * Класс _loading для того, чтобы стили не прыгали, пока слайдер не подключился
   * Элементу li с текущей ссылкой присваивается класс _active по которому она меняет свой стиль и становится не активной 
+  * По умолчанию ссылка в текущем пункте (с слассом _active) не активна, 
+  * но при необходимости перехода по ней надо юобвить модификатор `.selector-links__item--has-active-link`
 -->
 <div class="selector-links _container _loading">
   <div class="selector-links__slider swiper">
