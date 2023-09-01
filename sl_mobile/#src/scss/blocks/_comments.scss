@@ -172,13 +172,30 @@
         background: none;
         border: 0;
         cursor: pointer;
+
+        svg {
+            fill: transparent;
+            transition: all .4s;
+        }
     }
     // .comments__reply
     &__reply {
         margin-right: 24px;
+
+        &:hover {
+            svg {
+                fill: #808080;
+            } 
+        }
     }
     // .comments__like
     &__like {
+        &:hover,
+        &--marked {
+            svg {
+                fill: #008000;
+            }
+        }
     }
     // .comments__fan
     &__fan {
@@ -189,6 +206,12 @@
     }
     // .comments__dislike
     &__dislike {
+        &:hover,
+        &--marked {
+            svg {
+                fill: #000000;
+            }
+        }
     }
     // .comments__answers
     &__answers {
