@@ -8384,8 +8384,26 @@ textarea {
   cursor: pointer;
 }
 
+.comments__reply svg,
+.comments__like svg,
+.comments__dislike svg {
+  fill: transparent;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
 .comments__reply {
   margin-right: 24px;
+}
+
+.comments__reply:hover svg {
+  fill: #808080;
+}
+
+.comments__like:hover svg,
+.comments__like--marked svg {
+  fill: #008000;
 }
 
 .comments__fan {
@@ -8393,6 +8411,11 @@ textarea {
   line-height: 24px;
   color: #808080;
   padding: 0 10px;
+}
+
+.comments__dislike:hover svg,
+.comments__dislike--marked svg {
+  fill: #000000;
 }
 
 .comments__answers {
