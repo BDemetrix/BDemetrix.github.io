@@ -7889,6 +7889,18 @@ textarea {
   color: #0b5483;
 }
 
+.company-box__title a {
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  color: #0b5483;
+  border-bottom: 1px solid #0b5483;
+}
+
+.company-box__title a:hover {
+  border-color: transparent;
+}
+
 .company-box__list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -14431,6 +14443,15 @@ body.dark-theme.loader:before {
 .dark-theme .system-messages__text,
 .dark-theme .system-messages__title {
   color: #e9e9e9;
+}
+
+.dark-theme .company-box__title a {
+  color: #e9e9e9;
+  border-color: #e9e9e9;
+}
+
+.dark-theme .company-box__title a:hover {
+  border-color: transparent;
 }
 
 .dark-theme .tarif-card__period,
