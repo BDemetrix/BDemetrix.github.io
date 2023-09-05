@@ -14,6 +14,7 @@ $disabled-color: #e2e2e2;
 body.dark-theme {
     background: $body-bg;
 }
+
 body.dark-theme.loader:before {
     background-color: rgba(0, 0, 0, 0.85);
 }
@@ -38,9 +39,11 @@ body.dark-theme.loader:before {
         &__top-content {
             background-color: $element-bg;
         }
+
         &__head-title {
             color: $text-color;
         }
+
         &__head,
         &__item {
             background: $element-bg;
@@ -83,10 +86,19 @@ body.dark-theme.loader:before {
         color: $text-color;
     }
 
+    .company-box__title a {
+        color: $text-color;
+        border-color: $text-color; 
+        &:hover {
+            border-color: transparent;
+        }
+    }
+
     .tarif-card__period,
     .tarif-card__show-info {
         color: $date-color;
     }
+
     .tarif-card__show-info {
         border-color: $border-color;
     }
@@ -94,11 +106,14 @@ body.dark-theme.loader:before {
     .slide-sidebar__title-hint {
         color: $date-color;
     }
+
     .short-comment {
+
         &__author,
         &__time {
             color: $date-color;
         }
+
         &__company,
         &__text {
             color: $text-color;
@@ -108,6 +123,7 @@ body.dark-theme.loader:before {
     .add-post {
         background: none;
         box-shadow: none;
+
         &__form {
             background-color: $element-bg;
         }
@@ -121,6 +137,7 @@ body.dark-theme.loader:before {
             color: $text-color;
 
             border-color: $border-color;
+
             &:hover,
             &:focus {
                 border-color: #a5a5a5;
@@ -132,11 +149,13 @@ body.dark-theme.loader:before {
         }
 
         &__link {
+
             &,
             &:visited,
             &:active {
                 color: $link-color;
             }
+
             &:hover {
                 border-color: $link-color;
             }
@@ -147,6 +166,7 @@ body.dark-theme.loader:before {
         }
 
         &__select .custom-select__option {
+
             &:hover,
             &:focus {
                 background: $element-bg;
@@ -172,11 +192,13 @@ body.dark-theme.loader:before {
         &__text--premium::after {
             background: linear-gradient(to bottom, transparent, $body-bg);
         }
+
         &__blog-link,
         &__date-label,
         &__date {
             color: $date-color;
         }
+
         &__photo {
             background-color: $element-bg;
         }
@@ -184,6 +206,7 @@ body.dark-theme.loader:before {
         &__btn svg {
             fill: $element-bg;
         }
+
         &__menu-btn {
             svg {
                 fill: $date-color;
@@ -198,6 +221,7 @@ body.dark-theme.loader:before {
     }
 
     .comments {
+
         &,
         &__footer,
         &__footer:hover,
@@ -205,6 +229,7 @@ body.dark-theme.loader:before {
             background-color: $element-bg;
             color: $text-color;
         }
+
         &__footer._loading {
             &::before {
                 background-color: rgba(33, 35, 38, 0.7);
@@ -223,6 +248,7 @@ body.dark-theme.loader:before {
     }
 
     .user-info {
+
         &__date,
         &__rating,
         &__subscribers,
@@ -259,6 +285,7 @@ body.dark-theme.loader:before {
             svg {
                 fill: $text-color;
             }
+
             &:hover {
                 background: $element-bg;
             }
@@ -266,6 +293,7 @@ body.dark-theme.loader:before {
     }
 
     .custom-pop-up {
+
         &__content,
         &__close {
             background-color: $element-bg;
@@ -273,6 +301,7 @@ body.dark-theme.loader:before {
     }
 
     .moderation-pop-up {
+
         &__search,
         &__search-results,
         &__heading {
@@ -282,9 +311,11 @@ body.dark-theme.loader:before {
 
     .news-feed {
         color: $text-color;
+
         &__section {
             background-color: $element-bg;
         }
+
         &__empty {
             color: $text-color;
         }
@@ -298,6 +329,7 @@ body.dark-theme.loader:before {
                 fill: $text-color;
             }
         }
+
         &__date,
         &__author {
             color: $date-color;
@@ -306,6 +338,7 @@ body.dark-theme.loader:before {
 
     .search-block {
         color: $text-color;
+
         .autocomplete-suggestions {
             background: $element-bg;
             border: 1px solid $border-color;
@@ -319,6 +352,7 @@ body.dark-theme.loader:before {
         .autocomplete-suggestion {
             color: inherit;
         }
+
         .autocomplete-selected {
             background: $element-bg;
         }
@@ -339,6 +373,7 @@ body.dark-theme.loader:before {
             &:hover {
                 background-color: $container-bg;
             }
+
             &:focus {
                 border-color: $text-color;
             }
@@ -354,6 +389,7 @@ body.dark-theme.loader:before {
             }
 
             border-color: $border-color;
+
             &:hover,
             &:focus {
                 border-color: #a5a5a5;
@@ -366,6 +402,7 @@ body.dark-theme.loader:before {
 
         &__search-wrap {
             color: $text-color;
+
             .autocomplete-suggestions {
                 background: $element-bg;
                 border: 1px solid $border-color;
@@ -379,6 +416,7 @@ body.dark-theme.loader:before {
             .autocomplete-suggestion {
                 color: inherit;
             }
+
             .autocomplete-selected {
                 background: $element-bg;
             }
@@ -410,16 +448,20 @@ body.dark-theme.loader:before {
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M3 7L10 14L17 7' stroke='%23adb7c0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' /%3E%3C/svg%3E");
 
             border-color: $border-color;
+
             &:hover,
             &:focus {
                 border-color: #a5a5a5;
             }
         }
+
         &__list {
             background-color: $element-bg;
         }
+
         &__option {
             color: $text-color;
+
             &:hover,
             &:focus {
                 background: $container-bg;
@@ -445,6 +487,7 @@ body.dark-theme.loader:before {
 
     .categories-slider {
         border-bottom-color: $text-color;
+
         &__body {
             &--loading {
                 .categories-slider__slide:first-child {
@@ -452,13 +495,17 @@ body.dark-theme.loader:before {
                 }
             }
         }
+
         &__slide {
             color: $text-color;
         }
     }
+
     .slide-content {
+
         &__tabs-item,
         &__tabs-link {
+
             &,
             &:hover {
                 color: $text-color;
@@ -479,11 +526,13 @@ body.dark-theme.loader:before {
 
         &__item {
             a {
+
                 &,
                 &:hover,
                 &:active {
                     color: $text-color;
                 }
+
                 &:disabled {
                     color: $disabled-color;
                 }
@@ -493,6 +542,7 @@ body.dark-theme.loader:before {
                 }
             }
         }
+
         &__prev,
         &__next {
             svg {
@@ -507,11 +557,13 @@ body.dark-theme.loader:before {
                 }
             }
         }
+
         &__prev {
             &::before {
                 background: linear-gradient(to right, $element-bg 0%, $element-bg 35%, transparent 100%);
             }
         }
+
         &__next {
             &::before {
                 background: linear-gradient(to left, $element-bg 0%, $element-bg 35%, transparent 100%);
@@ -523,11 +575,13 @@ body.dark-theme.loader:before {
         &__input {
             background: transparent;
             border-color: $border-color;
+
             &,
             &::placeholder {
                 color: $text-color;
             }
         }
+
         &__submit {
             svg {
                 fill: $text-color;
@@ -545,12 +599,13 @@ body.dark-theme.loader:before {
     }
 
     .custom-checkbox:not(.custom-checkbox--switch) {
-        .custom-checkbox__input:not(:checked) + span::before {
+        .custom-checkbox__input:not(:checked)+span::before {
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18' fill='none'%3E%3Crect x='0.3' y='0.3' width='17.4' height='17.4' rx='3.7' stroke='%23C1CBD6' stroke-width='0.6'/%3E%3C/svg%3E");
         }
     }
 
     .login {
+
         &,
         &__rules-link,
         &__title {
@@ -578,6 +633,7 @@ body.dark-theme.loader:before {
         }
 
         border-color: $border-color;
+
         &:hover,
         &:focus {
             border-color: #a5a5a5;
@@ -596,6 +652,7 @@ body.dark-theme.loader:before {
             }
 
             border-color: $border-color;
+
             &:hover,
             &:focus {
                 border-color: #a5a5a5;
@@ -604,6 +661,7 @@ body.dark-theme.loader:before {
 
         &__search-wrapper {
             color: $text-color;
+
             .autocomplete-suggestions {
                 background: $element-bg;
                 border: 1px solid $border-color;
@@ -617,6 +675,7 @@ body.dark-theme.loader:before {
             .autocomplete-suggestion {
                 color: inherit;
             }
+
             .autocomplete-selected {
                 background: $element-bg;
             }
@@ -624,6 +683,7 @@ body.dark-theme.loader:before {
     }
 
     .quick-comment {
+
         &__body,
         &__text,
         &__send {
@@ -632,6 +692,7 @@ body.dark-theme.loader:before {
     }
 
     .slide-sidebar {
+
         &,
         &__slide-btn {
             background-color: $container-bg;
@@ -664,6 +725,7 @@ body.dark-theme.loader:before {
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='8' viewBox='0 0 7 8' fill='none'%3E%3Cpath d='M4.32171 3.9995L6.82762 1.49906C6.93736 1.38931 6.99901 1.24045 6.99901 1.08524C6.99901 0.930023 6.93736 0.781166 6.82762 0.671412C6.71788 0.561659 6.56904 0.5 6.41385 0.5C6.25866 0.5 6.10982 0.561659 6.00008 0.671412L3.5 3.17768L0.999916 0.671412C0.890178 0.561659 0.741342 0.5 0.586149 0.5C0.430957 0.5 0.28212 0.561659 0.172382 0.671412C0.0626446 0.781166 0.000994557 0.930023 0.000994556 1.08524C0.000994554 1.24045 0.0626446 1.38931 0.172382 1.49906L2.67829 3.9995L0.172382 6.49994C0.11776 6.55413 0.0744057 6.61859 0.0448192 6.68962C0.0152327 6.76064 0 6.83682 0 6.91377C0 6.99071 0.0152327 7.06689 0.0448192 7.13792C0.0744057 7.20895 0.11776 7.27341 0.172382 7.32759C0.226558 7.38222 0.291013 7.42559 0.362029 7.45518C0.433045 7.48477 0.509217 7.5 0.586149 7.5C0.663082 7.5 0.739253 7.48477 0.810269 7.45518C0.881285 7.42559 0.94574 7.38222 0.999916 7.32759L3.5 4.82133L6.00008 7.32759C6.05426 7.38222 6.11872 7.42559 6.18973 7.45518C6.26075 7.48477 6.33692 7.5 6.41385 7.5C6.49078 7.5 6.56696 7.48477 6.63797 7.45518C6.70899 7.42559 6.77344 7.38222 6.82762 7.32759C6.88224 7.27341 6.9256 7.20895 6.95518 7.13792C6.98477 7.06689 7 6.99071 7 6.91377C7 6.83682 6.98477 6.76064 6.95518 6.68962C6.9256 6.61859 6.88224 6.55413 6.82762 6.49994L4.32171 3.9995Z' fill='%23C1CBD6'/%3E%3C/svg%3E");
         }
     }
+
     .post-label {
         color: $container-bg;
 
@@ -681,8 +743,8 @@ body.dark-theme.loader:before {
     }
 
     .lock-comments {
-        &__info {
-        }
+        &__info {}
+
         &__card {
             border-color: $border-color;
             background-color: $element-bg;
@@ -700,6 +762,7 @@ body.dark-theme.loader:before {
                 fill: $text-color;
             }
         }
+
         &__link {
             color: $link-color;
         }
@@ -719,6 +782,7 @@ body.dark-theme.loader:before {
         &:hover {
             background-color: lighten($element-bg, 0.95);
         }
+
         &:active {
             background-color: lighten($element-bg, 0.9);
         }
@@ -728,6 +792,7 @@ body.dark-theme.loader:before {
         &__subscribers {
             color: #adb7c0;
         }
+
         &--people {
             .person__name-link {
                 color: $text-color;
@@ -744,6 +809,7 @@ body.dark-theme.loader:before {
                 &:active {
                     color: #fff;
                 }
+
                 &::before {
                     background: #fff;
                 }
@@ -755,11 +821,13 @@ body.dark-theme.loader:before {
                 }
             }
         }
+
         &__prev,
         &__next {
             svg {
                 fill: #999;
             }
+
             &:hover {
                 svg {
                     fill: #fff;
@@ -793,9 +861,11 @@ body.dark-theme.loader:before {
 
     .quotes-body {
         color: $text-color;
+
         &__block-title {
             color: $text-color;
         }
+
         &__hint-icon {
             fill: $text-color;
         }
@@ -807,6 +877,7 @@ body.dark-theme.loader:before {
         &__row {
             border-bottom-color: $table-border-color;
         }
+
         &__item {
             border-right-color: $table-border-color;
         }
@@ -814,6 +885,7 @@ body.dark-theme.loader:before {
 
     .custom-table {
         color: $text-color;
+
         &__tbody tr td {
             border-top-color: $table-border-color;
             border-right-color: $table-border-color;
@@ -835,9 +907,11 @@ body.dark-theme.loader:before {
         &:focus {
             border-color: #a5a5a5;
         }
+
         &::placeholder {
             color: #adb7c0;
         }
+
         &:focus::placeholder {
             color: transparent;
         }
@@ -862,10 +936,12 @@ body.dark-theme.loader:before {
             &:hover {
                 background: #474747;
             }
+
             &--active {
                 color: #ffffff;
                 background: $link-color;
             }
+
             &--disabled {
                 color: #545454;
             }
@@ -873,20 +949,26 @@ body.dark-theme.loader:before {
     }
 
     .custom-scrollbar {
+
         /* полоса прокрутки (скроллбар) */
         &::-webkit-scrollbar {
-            width: 12px; /* ширина для вертикального скролла */
-            height: 12px; /* высота для горизонтального скролла */
+            width: 12px;
+            /* ширина для вертикального скролла */
+            height: 12px;
+            /* высота для горизонтального скролла */
         }
+
         /* ползунок скроллбара */
         &::-webkit-scrollbar-track {
             box-shadow: none;
             background-color: $element-bg;
         }
+
         &::-webkit-scrollbar-thumb {
             border-radius: 10px;
             background-color: $table-border-color;
         }
+
         /* Работает в Firefox */
         * {
             scrollbar-color: $table-border-color $element-bg;
@@ -894,6 +976,7 @@ body.dark-theme.loader:before {
     }
 
     .trades-table {
+
         &,
         th,
         th a,
@@ -905,6 +988,7 @@ body.dark-theme.loader:before {
         &__icon-link {
             a {
                 color: $text-color;
+
                 &:hover {
                     color: $link-color;
                 }
@@ -930,6 +1014,7 @@ body.dark-theme.loader:before {
             background: $element-bg;
             border-bottom: 1px solid $table-border-color;
         }
+
         .flex-table__ad-text a {
             color: $link-color !important;
         }
@@ -939,12 +1024,14 @@ body.dark-theme.loader:before {
             -webkit-box-shadow: 0 1px 2px $table-border-color;
             box-shadow: 0 1px 2px $table-border-color;
         }
+
         .flex-table__r-tbody,
         .flex-table__l-tbody {
             tr:first-child td {
                 border-top: 1px solid $table-border-color;
             }
         }
+
         .flex-table__l-thead,
         .flex-table__r-header-inner {
             svg {
@@ -966,14 +1053,17 @@ body.dark-theme.loader:before {
                 &--5 {
                     background: #31592E;
                 }
+
                 &--4 {
                     background: #2E441F;
                 }
-                &--3 {
-                }
+
+                &--3 {}
+
                 &--2 {
                     background: #483C28;
                 }
+
                 &--1 {
                     background: #533434;
                 }
@@ -991,6 +1081,7 @@ body.dark-theme.loader:before {
             background: -o-linear-gradient(right, $table-border-color, transparent);
             background: linear-gradient(to left, $table-border-color, transparent);
         }
+
         .flex-table__r-box._overflow .simplebar-scrollbar:before {
             background: $table-border-color;
         }
@@ -1000,6 +1091,7 @@ body.dark-theme.loader:before {
         border-color: $date-color;
         background: $container-bg;
         color: $text-color;
+
         &__link {
             color: $link-color;
         }
@@ -1011,9 +1103,11 @@ body.dark-theme.loader:before {
 
     .warning-popup {
         color: $text-color;
+
         &__content {
             background: $element-bg;
         }
+
         &__title {
             color: $link-color;
         }
