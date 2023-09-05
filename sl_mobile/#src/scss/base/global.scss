@@ -635,3 +635,23 @@
         }
     }
 }
+
+// Класс для заголовков в блоках на главной и в постах
+.box-title {
+    margin-bottom: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 16px;
+    color: #0b5483;
+
+    a {
+        transition: all .3s;
+        color: #0b5483;
+        border-bottom: 1px solid #0b5483;
+        
+        &:hover {
+            border-color: transparent;
+        }
+    } 
+}
+
