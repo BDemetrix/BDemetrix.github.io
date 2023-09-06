@@ -84,7 +84,7 @@ body.dark-theme.loader:before {
     .system-messages__text,
     .system-messages__title {
         color: $text-color;
-    } 
+    }
 
     .tarif-card__period,
     .tarif-card__show-info {
@@ -1107,9 +1107,19 @@ body.dark-theme.loader:before {
 
     .box-title a {
         color: $text-color;
-        border-color: $text-color; 
+        border-color: $text-color;
+
         &:hover {
             border-color: transparent;
+        }
+    }
+
+    .post-history {
+        &__item-title {
+            color: $text-color;
+        }
+        &__item-data {
+            color: $date-color;
         }
     }
 }
