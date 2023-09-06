@@ -172,6 +172,7 @@
         background: none;
         border: 0;
         cursor: pointer;
+        color: #808080;
 
         svg {
             fill: transparent;
@@ -192,8 +193,10 @@
     &__like {
         &:hover,
         &--marked {
+            color: transparent;
             svg {
                 fill: #008000;
+                stroke: #fff;
             }
         }
     }
@@ -208,8 +211,10 @@
     &__dislike {
         &:hover,
         &--marked {
+            color: transparent;
             svg {
                 fill: #000000;
+                stroke: #fff;
             }
         }
     }

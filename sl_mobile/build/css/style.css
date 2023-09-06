@@ -8462,6 +8462,7 @@ textarea {
   background: none;
   border: 0;
   cursor: pointer;
+  color: #808080;
 }
 
 .comments__reply svg,
@@ -8481,9 +8482,15 @@ textarea {
   fill: #808080;
 }
 
+.comments__like:hover,
+.comments__like--marked {
+  color: transparent;
+}
+
 .comments__like:hover svg,
 .comments__like--marked svg {
   fill: #008000;
+  stroke: #fff;
 }
 
 .comments__fan {
@@ -8493,9 +8500,15 @@ textarea {
   padding: 0 10px;
 }
 
+.comments__dislike:hover,
+.comments__dislike--marked {
+  color: transparent;
+}
+
 .comments__dislike:hover svg,
 .comments__dislike--marked svg {
   fill: #000000;
+  stroke: #fff;
 }
 
 .comments__answers {
@@ -14675,6 +14688,13 @@ body.dark-theme.loader:before {
 
 .dark-theme .comments__pinned-label span {
   color: #adb7c0;
+}
+
+.dark-theme .comments__like:hover svg,
+.dark-theme .comments__like--marked svg,
+.dark-theme .comments__dislike:hover svg,
+.dark-theme .comments__dislike--marked svg {
+  stroke: #2a2c30;
 }
 
 .dark-theme .user-info__date,

@@ -237,6 +237,17 @@ body.dark-theme.loader:before {
                 color: #adb7c0;
             }
         }
+
+        &__like,
+        &__dislike {
+
+            &:hover,
+            &--marked {
+                svg {
+                    stroke: $element-bg;
+                }
+            }
+        }
     }
 
     .user-info {
@@ -1118,6 +1129,7 @@ body.dark-theme.loader:before {
         &__item-title {
             color: $text-color;
         }
+
         &__item-data {
             color: $date-color;
         }
