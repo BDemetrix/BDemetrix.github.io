@@ -240,6 +240,13 @@ body.dark-theme.loader:before {
   color: #adb7c0;
 }
 
+.dark-theme .comments__like:hover svg,
+.dark-theme .comments__like--marked svg,
+.dark-theme .comments__dislike:hover svg,
+.dark-theme .comments__dislike--marked svg {
+  stroke: #2a2c30;
+}
+
 .dark-theme .user-info__date,
 .dark-theme .user-info__rating,
 .dark-theme .user-info__subscribers,
