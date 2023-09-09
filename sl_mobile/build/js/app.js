@@ -633,9 +633,11 @@ if (categoriesSliderBbody) {
         watchOverflow: true,
     });
 } 
-const selectorLinks = document.querySelector('.sections-box__swiper');
+(function () {
+    // сдайдер ссылок в новостях
+    const selectorLinks = document.querySelector('.sections-box__swiper');
 
-if (selectorLinks) {
+    if (!selectorLinks) return;
 
     selectorLinks.parentElement.classList.remove('_loading');
     const sectionsItems = Array.from(selectorLinks.querySelectorAll('.sections-box__item'));
@@ -673,7 +675,8 @@ if (selectorLinks) {
             };
         })
     })
-}
+
+}());
 const forumsSlider = new Swiper('.forums-slider', {
     speed: 400,
     autoplay: {
@@ -1053,32 +1056,55 @@ function jBoxNotice(color, title, message) {
 
 // скрипты для страницы котировок
 (function () {
-    // сдайдер ссылок
-    let selectorLinksSlider;
+    // сдайдер ссылок в котировках
     const selectorLinks = document.querySelector('.selector-links__slider');
-    if (selectorLinks) {
-        selectorLinks.parentElement.classList.remove('_loading');
+    if (!selectorLinks) return;
 
-        selectorLinksSlider = new Swiper(selectorLinks, {
-            slidesPerView: 'auto',
-            watchOverflow: true,
-            freeMode: {
-                enabled: true,
-                sticky: true,
-            },
-            speed: 300,
-            navigation: {
-                nextEl: '.selector-links__next',
-                prevEl: '.selector-links__prev',
-            },
-        });
-    }
-    
-    window.addEventListener('resize', () => {
+    const selectorItems = Array.from(selectorLinks.querySelectorAll('.selector-links__item'));
+    const activeIndex = selectorItems.findIndex(item => item.classList.contains('._active'));
+
+    selectorLinks.parentElement.classList.remove('_loading');
+    const selectorLinksSlider = new Swiper(selectorLinks, {
+        slidesPerView: 'auto',
+        watchOverflow: true,
+        observer: true,
+        resizeObserver: true,
+        freeMode: {
+            enabled: true,
+            //sticky: true,
+        },
+        speed: 300,
+        navigation: {
+            nextEl: '.selector-links__next',
+            prevEl: '.selector-links__prev',
+        },
+    });
+
+
+    /* window.addEventListener('resize', () => {
         if (selectorLinksSlider) {
             selectorLinksSlider.updateSize();
         }
     });
+ */
+    selectorLinksSlider.slideTo(activeIndex);
+
+    selectorItems.forEach((item, i, arr) => {
+        item.addEventListener('click', () => {
+            arr.forEach(el => {
+                el.classList.remove('_active')
+            });
+            item.classList.add('_active');
+            selectorLinksSlider.slideTo(i);
+            const a = item.querySelector('a');
+            /* if (selectorLinksSlider.isLocked && a) {
+                console.log('selectorLinksSlider.isLocked = ', selectorLinksSlider.isLocked)
+                window.location = a.href;
+            }; */
+        })
+    })
+
+
 }());
 (function () {
     // слайдер "хлебные крошки"
