@@ -12388,13 +12388,17 @@ textarea {
   transition: all 0.15s ease;
 }
 
+.selector-links__item:first-child a {
+  margin: 0;
+}
+
 .selector-links__item:last-child a {
-  margin-right: 0;
+  margin: 0 40px;
 }
 
 .selector-links__item a {
   position: relative;
-  margin-right: 40px;
+  margin-left: 40px;
   display: inline-block;
   text-decoration: none;
   color: #585858;

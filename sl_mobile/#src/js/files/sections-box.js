@@ -1,6 +1,8 @@
-const selectorLinks = document.querySelector('.sections-box__swiper');
+(function () {
+    // сдайдер ссылок в новостях
+    const selectorLinks = document.querySelector('.sections-box__swiper');
 
-if (selectorLinks) {
+    if (!selectorLinks) return;
 
     selectorLinks.parentElement.classList.remove('_loading');
     const sectionsItems = Array.from(selectorLinks.querySelectorAll('.sections-box__item'));
@@ -38,4 +40,5 @@ if (selectorLinks) {
             };
         })
     })
-}
+
+}());
