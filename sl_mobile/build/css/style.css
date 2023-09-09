@@ -14454,6 +14454,55 @@ td.trades-table__name-multiline {
   margin: 0 8.5px;
 }
 
+.linear-progress-bar {
+  position: relative;
+  height: 15px;
+  width: 100%;
+  border-radius: 10px;
+  background: #E5E5E5;
+}
+
+.linear-progress-bar__filed {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  height: 100%;
+  min-width: 40px;
+  padding: 0 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.linear-progress-bar__filed--green {
+  background: #51D400;
+}
+
+.linear-progress-bar__filed--yellow {
+  background: #FBC400;
+}
+
+.linear-progress-bar__filed--red {
+  background: #FF4D4D;
+}
+
+.linear-progress-bar__text {
+  color: #000;
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 15px;
+}
+
 body.dark-theme {
   background: #202225;
 }
