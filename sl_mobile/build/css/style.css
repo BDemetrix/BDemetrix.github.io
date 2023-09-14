@@ -12639,6 +12639,15 @@ textarea {
   border-radius: 5px;
 }
 
+.trades-table--demo .flex-table__inner {
+  overflow: hidden;
+}
+
+.trades-table--demo tr td {
+  -webkit-filter: blur(2px);
+          filter: blur(2px);
+}
+
 .trades-table table._hidden {
   opacity: 0;
   visibility: hidden;
@@ -12730,7 +12739,6 @@ textarea {
 
 .trades-table .flex-table__ad-text:hover {
   background: #f2f2f2;
-  background: -moz-linear-gradient(top, #f2f2f2, #f0f0f0);
 }
 
 .trades-table .flex-table__inner {
@@ -12904,7 +12912,6 @@ textarea {
   border-bottom: 1px solid #e0e0e0;
   border-left: 1px solid #e0e0e0;
   background: #fafafa;
-  background: -moz-linear-gradient(top, #ededed, #ebebeb);
 }
 
 .trades-table tr td img,
@@ -12917,7 +12924,6 @@ textarea {
 .trades-table .flex-table__ad-text:hover,
 .trades-table tr:hover td {
   background: #f2f2f2;
-  background: -moz-linear-gradient(top, #f2f2f2, #f0f0f0);
 }
 
 .trades-table tr td.color-rating--5,
@@ -12975,13 +12981,13 @@ textarea {
   color: inherit;
   font-weight: inherit;
   /*  @media (max-width: $md4 + px) {
-     width: 100px;
-     word-break: break-word !important;
-   }
-   @media (max-width: $md5 + px) {
-     width: 70px;
-     word-break: break-word !important;
-   } */
+    width: 100px;
+    word-break: break-word !important;
+  }
+  @media (max-width: $md5 + px) {
+    width: 70px;
+    word-break: break-word !important;
+  } */
 }
 
 td.trades-table__name-multiline {
@@ -14503,6 +14509,58 @@ td.trades-table__name-multiline {
   line-height: 15px;
 }
 
+.table-mask {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 70px 0;
+  height: 100%;
+}
+
+.table-mask--top-56 {
+  top: 56px;
+  height: calc(100% - 56px);
+}
+
+.table-mask .subscribe-box {
+  padding: 0;
+  background: transparent !important;
+}
+
+.table-mask .subscribe-box__link-wrap {
+  margin-bottom: 0;
+}
+
+.table-mask__cover {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background: rgba(229, 229, 229, 0.6);
+}
+
+.table-mask__offers {
+  -ms-flex-item-align: start;
+      -ms-grid-row-align: start;
+      align-self: start;
+  position: sticky;
+  top: 48px;
+  bottom: 48px;
+  width: 452px;
+  max-width: calc(100% - 20px);
+  margin: 0 auto;
+  padding: 36px;
+  border-radius: 20px;
+  background: #F1F1F1;
+  -webkit-box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+}
+
 body.dark-theme {
   background: #202225;
 }
@@ -14577,6 +14635,10 @@ body.dark-theme.loader:before {
 .dark-theme .system-messages__text,
 .dark-theme .system-messages__title {
   color: #e9e9e9;
+}
+
+.dark-theme .subscribe-box__link-wrap a {
+  border-color: #e9e9e9;
 }
 
 .dark-theme .tarif-card__period,
@@ -15544,6 +15606,10 @@ body.dark-theme.loader:before {
   border-top: 1px solid #515151;
 }
 
+.dark-theme .trades-table .flex-table__l-tbody tr td:first-child {
+  border-left: 0;
+}
+
 .dark-theme .trades-table .flex-table__l-thead svg,
 .dark-theme .trades-table .flex-table__r-header-inner svg {
   fill: #e9e9e9;
@@ -15590,6 +15656,7 @@ body.dark-theme.loader:before {
   background: -o-linear-gradient(right, #515151, transparent);
   background: -webkit-gradient(linear, right top, left top, from(#515151), to(transparent));
   background: linear-gradient(to left, #515151, transparent);
+  right: -2px;
 }
 
 .dark-theme .trades-table .flex-table__r-box._overflow .simplebar-scrollbar:before {
@@ -15637,6 +15704,14 @@ body.dark-theme.loader:before {
 
 .dark-theme .post-history__item-data {
   color: #adb7c0;
+}
+
+.dark-theme .table-mask__cover {
+  background: rgba(32, 34, 37, 0.87);
+}
+
+.dark-theme .table-mask__offers {
+  background: #2a2c30;
 }
 
 .comments__answers {
