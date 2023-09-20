@@ -8355,7 +8355,7 @@ textarea {
 }
 
 .comments__item {
-  margin-top: 48px;
+  margin-top: 30px;
 }
 
 .comments__item:first-child {
@@ -8363,7 +8363,8 @@ textarea {
 }
 
 .comments__content--author .comments__text,
-.comments__content--new .comments__text {
+.comments__content--new .comments__text,
+.comments__content--self .comments__text {
   padding: 12px;
   border-radius: 4px;
 }
@@ -8376,6 +8377,11 @@ textarea {
 .comments__content--new .comments__text {
   border-left: 2px solid #69913b;
   background: rgba(105, 145, 59, 0.1);
+}
+
+.comments__content--self .comments__text {
+  border-left: 2px solid #479cd3;
+  background: rgba(205, 205, 205, 0.18);
 }
 
 .comments__pinned-label {

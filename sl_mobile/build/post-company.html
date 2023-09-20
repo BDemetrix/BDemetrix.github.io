@@ -1276,6 +1276,7 @@
                 У комментари есть два модификатора:
                 .comments__content--new - новый комментарий
                 .comments__content--author - комментарий автора
+                .comments__content--self перекрывает стили .comments__content--new
             -->
             <div class="comments__content comments__content--author">
                 <!-- если комментарий закрепляен надо добавить блок .comments__pinned-label -->
@@ -1656,7 +1657,7 @@
             </ul>
         </li>
         <li class="comments__item">
-            <div class="comments__content">
+            <div class="comments__content comments__content--self comments__content--new">
                 <div class="comments__person person">
                     <a href="#" class="person__avatar-link" title="Перейти к профилю Виктор Петров">
                         <!-- Если картинки нет (img отсутствует), то виден фон елемената .person__avatar-link -->
