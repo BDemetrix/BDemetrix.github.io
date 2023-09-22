@@ -322,7 +322,8 @@ body.dark-theme.loader:before {
         &__section {
             background-color: $element-bg;
         }
-
+        
+        &__title,
         &__empty {
             color: $text-color;
         }

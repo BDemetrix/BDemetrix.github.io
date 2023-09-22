@@ -302,6 +302,7 @@ body.dark-theme.loader:before {
   background-color: #2a2c30;
 }
 
+.dark-theme .news-feed__title,
 .dark-theme .news-feed__empty {
   color: #e9e9e9;
 }
