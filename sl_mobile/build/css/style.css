@@ -9738,7 +9738,7 @@ textarea {
 
 .custom-checkbox--switch span,
 .custom-checkbox--switch__text {
-  padding-top: 2px;
+  padding-top: 1px;
 }
 
 .custom-radio {
@@ -10236,7 +10236,8 @@ textarea {
 }
 
 .news-feed__title {
-  margin: 14px 7px;
+  width: 100%;
+  margin: 8px 0px;
   font-size: 20px;
   line-height: 22px;
   font-weight: 500;
@@ -10568,7 +10569,7 @@ textarea {
 }
 
 .nf-filter__checkbox {
-  margin: 10px 20px 10px 0;
+  margin: 8px 20px 8px 0;
   white-space: nowrap;
 }
 
@@ -10585,7 +10586,7 @@ textarea {
 
 .nf-filter__btn {
   position: absolute;
-  top: calc(50% - 19px);
+  top: 8px;
   right: 8px;
   display: -webkit-box;
   display: -ms-flexbox;

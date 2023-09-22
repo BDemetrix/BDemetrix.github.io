@@ -16,7 +16,7 @@
     }
     // .nf-filter__checkbox
     &__checkbox {
-        margin: 10px 20px 10px 0;
+        margin: 8px 20px 8px 0;
         white-space: nowrap;
 
         &--autoupdate {
@@ -37,7 +37,8 @@
     // .nf-filter__btn
     &__btn {
         position: absolute;
-        top: calc(50% - 19px);
+        // top: calc(50% - 19px);
+        top: 8px;
         right: 8px;
         display: flex;
         align-items: center;
