@@ -5,6 +5,8 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	
+	<script src="./js/jquery-3.6.0.min.js"></script>
+	
 	<link rel="stylesheet" href="./css/style.css">
 	<link rel="stylesheet" href="css/demo.css">
 
@@ -653,7 +655,7 @@
 				<!-- <a href="#">Счет: 500₽</a> -->
 				<!-- <a href="#">Рейтинг 5</a> --> 
 				<!-- <a href="#">Выйти</a> -->
-				<a href="#" class="js-pop-up-opener _active-el" data-target-id="login-pop-up">Войти</a>
+				<a href="#" class="" data-target-id="login-pop-up">Войти</a>
 			</div>
 		</div>
 	</div>
@@ -1328,7 +1330,7 @@
                             <li><button class="context-menu__item">Копировать URL</button></li>
                             <li><button class="context-menu__item">Копировать текст</button></li>
                             <li><button class="context-menu__item">Пожаловться</button></li>
-                            <li><button class="context-menu__item js-pop-up-opener" data-target-id="del-comment-warning-popup">Удалить</button></li>
+                            <li><button class="context-menu__item js-del-comment-warning-popup-opener" data-target-id="del-comment-warning-popup">Удалить</button></li>
                         </ul>
                     </div>
                 </div>
@@ -2303,9 +2305,9 @@
 	</div>
 	<div class="custom-pop-up moderation-pop-up" id="moderation-pop-up">
     <div class="custom-pop-up__body moderation-pop-up__body">
-        <div class="custom-pop-up__cover"></div>
+        <div class="custom-pop-up__cover js-close-custom-pop-up"></div>
         <div class="custom-pop-up__content moderation-pop-up__content">
-            <button class="custom-pop-up__close moderation-pop-up__close" type="button"></button>
+            <button class="custom-pop-up__close js-close-custom-pop-up moderation-pop-up__close" type="button"></button>
             <div class="moderation-pop-up__title-wrap">
                 <div class="moderation-pop-up__title">
                     Модерация
@@ -2654,7 +2656,8 @@
 <script src="./js/app.js"></script>
 
 <!-- demo.js предназначен исключительно для демонстрации некоторых свойств вёрстки -->
-<script src="./js/demo.js"></script>
+<script src="./js/demo.min.js"></script>
+<script src="./js/jBox-demo.min.js"></script>
 
 </body>
 
