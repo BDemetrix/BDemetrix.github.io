@@ -1,7 +1,7 @@
 /**
  * demo.js предназначен исключительно для демонстрации некоторых свойств вёрстки
  */
-@@include('files/lower-banner.js', {});
+@@include('../files/lower-banner.js', {});
 
 (function () {
 

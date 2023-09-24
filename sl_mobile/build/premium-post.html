@@ -5,6 +5,8 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	
+	<script src="./js/jquery-3.6.0.min.js"></script>
+	
 	<link rel="stylesheet" href="./css/style.css">
 	<link rel="stylesheet" href="css/demo.css">
 
@@ -653,7 +655,7 @@
 				<!-- <a href="#">Счет: 500₽</a> -->
 				<!-- <a href="#">Рейтинг 5</a> --> 
 				<!-- <a href="#">Выйти</a> -->
-				<a href="#" class="js-pop-up-opener _active-el" data-target-id="login-pop-up">Войти</a>
+				<a href="#" class="" data-target-id="login-pop-up">Войти</a>
 			</div>
 		</div>
 	</div>
@@ -839,9 +841,9 @@
                 -->
                 <div class="custom-pop-up tarif-card__pop-up" id="tarif-card-pop-up--month">
                     <div class="custom-pop-up__body tarif-card__pop-up-body">
-                        <div class="custom-pop-up__cover"></div>
+                        <div class="custom-pop-up__cover js-close-custom-pop-up"></div>
                         <div class="custom-pop-up__content tarif-card__pop-up-content">
-                            <button class="custom-pop-up__close"></button>
+                            <button class="custom-pop-up__close js-close-custom-pop-up"></button>
                             <div class="custom-pop-up__title tarif-card__pop-up-title">
                                 <svg class="tarif-card__pop-up-title-icon" width="45" height="45">
                                     <use xlink:href="images/icons/post-card/sprite.svg#premium-ring"></use>
@@ -894,9 +896,9 @@
                 -->
                 <div class="custom-pop-up tarif-card__pop-up" id="tarif-card-pop-up--year">
                     <div class="custom-pop-up__body tarif-card__pop-up-body">
-                        <div class="custom-pop-up__cover"></div>
+                        <div class="custom-pop-up__cover js-close-custom-pop-up"></div>
                         <div class="custom-pop-up__content tarif-card__pop-up-content">
-                            <button class="custom-pop-up__close"></button>
+                            <button class="custom-pop-up__close js-close-custom-pop-up"></button>
                             <div class="custom-pop-up__title tarif-card__pop-up-title">
                                 <svg class="tarif-card__pop-up-title-icon" width="45" height="45">
                                     <use xlink:href="images/icons/post-card/sprite.svg#premium-ring"></use>
@@ -1057,7 +1059,8 @@
 <script src="./js/app.js"></script>
 
 <!-- demo.js предназначен исключительно для демонстрации некоторых свойств вёрстки -->
-<script src="./js/demo.js"></script>
+<script src="./js/demo.min.js"></script>
+<script src="./js/jBox-demo.min.js"></script>
 
 </body>
 

@@ -122,6 +122,7 @@
     transition: all 0.3s ease;
     overflow-y: auto;
 
+    &--open,
     &._open {
         z-index: 999;
         opacity: 1;
