@@ -124,6 +124,8 @@ _js.html
 scss/base/global.scss и   
 js/files/common.js  
   
+Где `any-class` - любой микс-класс  по БЭМ для дополнительной стилизации, следует заменить или удалить.
+  
 Для того, чтобы кнопка или другой элемент (находящийся в поп-апе) закрывал поп-ап при клике ему надо добавить класс `js-close-custom-pop-up`    
 а если поп-ап помещен внутрь `jBox` заменить класс `js-close-custom-pop-up` на `js-custom-pop-up-close-jBox`.
 
@@ -149,82 +151,82 @@ js/files/common.js
 
 ```js
 /**
-	 * Декоратор для инициализации jBox с кастомным поп-апом `.custom-pop-up` внутри
-	 * @param {Map<String dynamic>} options - объект с опциями и контролами
-	 * @param {*} bindControls - анонимная функция инициализации контролов, 
-	 * в которой надо связать кнопки и контролы, переданные в `options`
-	 * 
-	 * Пример инициализации с кнопкой `enterButton` и ее контролом `enter`: 
-	 * ```js
-	 * initJBoxWithCustomPopUp({
-	 * 	content: $('#pop-up'),
-	 * 	attach: $('#pop-up-opener'),
-	 * 	enterButton: '',
-	 * 	enter: function () { alert('Нажата кнопка "Войти"'); },
-	 * },
-	 * 	function () {
-	 * 		this.enterButton = this.container.find('.login__submit').click(function () { this.options.enter() }.bind(this));
-	 * 	}
-	 * );
-	 * ```
-	 * 
-	 * Пример когда мы навешиваем инициализацию на клик по кнопке 
-	 * (при этом поле `attach` отсутствует в опцииях, но надо явно вызывать dialog.open();):
-	 * ```js
-	 * $('#pop-up-opener').click( function () {
-	 * 	let dialog = initJBoxWithCustomPopUp({
-	 * 		content: $('#login-pop-up'),
-	 * 		enterButton: '',
-	 * 		enter: function () { alert('Нажата кнопка "Войти"'); },
-	 * 	},
-	 * 		function () {
-	 * 			this.enterButton = this.container.find('.login__submit').click(function () { this.options.enter() }.bind(this));
-	 * 		}
-	 * 	);
-	 * 	dialog.open();
-	 * });
-	 * ```
-	 */
-	function initJBoxWithCustomPopUp(options, bindControls) {
-		let dialog = new jBox('Modal', {
-			...options,
-			theme: 'with-custom-pop-up',
-			maxWidth: '100%',
-			overlay: false,
-			closeButton: '',
-
-			onCreated: function () {
-				bindControls.bind(this)();
-				this.closeButton = this.container.find('.js-custom-pop-up-close-jBox').click(function () { this.close() }.bind(this));
-			},
-		});
-		return dialog;
-	}
+ * Декоратор для инициализации jBox с кастомным поп-апом `.custom-pop-up` внутри
+ * @param {Map<String dynamic>} options - объект с опциями и контролами
+ * @param {*} bindControls - анонимная функция инициализации контролов, 
+ * в которой надо связать кнопки и контролы, переданные в `options`
+ * 
+ * Пример инициализации с кнопкой `enterButton` и ее контролом `enter`: 
+ * ```js
+ * initJBoxWithCustomPopUp({
+ * 	content: $('#pop-up'),
+ * 	attach: $('#pop-up-opener'),
+ * 	enterButton: '',
+ * 	enter: function () { alert('Нажата кнопка "Войти"'); },
+ * },
+ * 	function () {
+ * 		this.enterButton = this.container.find('.login__submit').click(function () { this.options.enter() }.bind(this));
+ * 	}
+ * );
+ * ```
+ * 
+ * Пример когда мы навешиваем инициализацию на клик по кнопке 
+ * (при этом поле `attach` отсутствует в опцииях, но надо явно вызывать dialog.open();):
+ * ```js
+ * $('#pop-up-opener').click( function () {
+ * 	let dialog = initJBoxWithCustomPopUp({
+ * 		content: $('#login-pop-up'),
+ * 		enterButton: '',
+ * 		enter: function () { alert('Нажата кнопка "Войти"'); },
+ * 	},
+ * 		function () {
+ * 			this.enterButton = this.container.find('.login__submit').click(function () { this.options.enter() }.bin(this));
+ * 		}
+ * 	);
+ * 	dialog.open();
+ * });
+ * ```
+ */
+function initJBoxWithCustomPopUp(options, bindControls) {
+	let dialog = new jBox('Modal', {
+		...options,
+		theme: 'with-custom-pop-up',
+		maxWidth: '100%',
+		overlay: false,
+		closeButton: '',
+        
+		onCreated: function () {
+			bindControls.bind(this)();
+			this.closeButton = this.container.find('.js-custom-pop-up-close-jBox').click(function () { this.close() }.bin(this));
+		},
+	});
+	return dialog;
+}
 ```
 
 **Тема `jBox` для `.custom-pop-up`**
 При инициализации `jBox` используется поле `theme: 'with-custom-pop-up'`, что добавляет в `jBox` css-класс `.jBox-with-custom-pop-up` и по нему переопределяются стили контейнера: 
 ```css
-    /* Переопределение стилей для jBox-with-custom-pop-up */
-    .jBox-with-custom-pop-up {
-    	width: auto !important;
-    	height: auto !important;
-    	position: fixed !important;
-    	top: 0 !important;
-    	left: 0 !important;
-    	bottom: 0 !important;
-    	right: 0 !important;
-    	border-radius: 8px;
-    	overflow: hidden;
-    }
+/* Переопределение стилей для jBox-with-custom-pop-up */
+.jBox-with-custom-pop-up {
+	width: auto !important;
+	height: auto !important;
+	position: fixed !important;
+	top: 0 !important;
+	left: 0 !important;
+	bottom: 0 !important;
+	right: 0 !important;
+	border-radius: 8px;
+	overflow: hidden;
+}
 
-	.jBox-with-custom-pop-up .jBox-container,
-	.jBox-with-custom-pop-up .jBox-content {
-		width: 100%;
-		height: 100%;
-		background: transparent !important;
-		box-shadow: none !important;
-	}
+.jBox-with-custom-pop-up .jBox-container,
+.jBox-with-custom-pop-up .jBox-content {
+	width: 100%;
+	height: 100%;
+	background: transparent !important;
+	box-shadow: none !important;
+}
 ```
 
 9) кнопка с классом `js-pop-up-opener` открывает поп-ап `.custom-pop-up` с id, который указан в атрибуте `data-target-id` данной кнопки. (см описание `.custom-pop-up`).  
