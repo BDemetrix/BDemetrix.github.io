@@ -10654,6 +10654,15 @@ textarea {
   margin: 0 5px 15px;
 }
 
+.nf-filter__search-wrap--top {
+  width: auto;
+  margin: 0 6px 10px;
+  /* 
+              .nf-filter__search {
+                  width: 100%;
+              } */
+}
+
 .nf-filter__search-wrap .autocomplete-suggestions {
   width: 100%;
   top: calc(100% + 5px);
@@ -16291,6 +16300,10 @@ body.loader:before {
 @media (min-width: 600px) {
   .nf-filter__search-wrap {
     width: calc(50% - 10px);
+  }
+
+  .nf-filter__search-wrap--top {
+    width: auto;
   }
 
   .nf-filter__date-wrap:not(.nf-filter__date-wrap--ec) {

@@ -21,9 +21,11 @@
                 <div class="news-feed__section">
                     @@include('_sections-box--news-premium.html',{})
                 </div>
-                
                 <div class="news-feed__filter nf-filter">
-                    
+                    <div class="nf-filter__search-wrap nf-filter__search-wrap--top">
+                        <input class="nf-filter__search" type="text" name="serch" value="" id="nf-filter-search"
+                            autocomplete="off" placeholder="Поиск" title="Поиск новости" tabindex="2">
+                    </div>
                     <div class="nf-filter__head">
                         <div class="news-feed__title">
                             Заголовок страницы, если он будет очень длинным. А такое очень даже может быть
