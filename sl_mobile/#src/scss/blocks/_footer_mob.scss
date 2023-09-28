@@ -80,38 +80,7 @@
     padding: 30px 15px;
     background: #2d2d2d; //#3f3f3f;
   }
-  // .footer-mob__app-title
-  &__app-title {
-    width: 100%;
-    margin-bottom: 24px;
-    text-align: center;
-    color: #fff;
-    font-size: 14px;
-  }
-  // .footer-mob__app-box
-  &__app-box {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 30px;
-
-    @media (min-width: $md4 + px) {
-      justify-content: space-evenly;
-    }
-  }
-  // .footer-mob__app-btn
-  &__app-btn {
-    width: 135px;
-    border-radius: 5px;
-    overflow: hidden;
-  }
-
-  // .footer-mob__app-img {
-  &__app-img {
-    width: 100%;
-  }
-
+  
   // .footer-mob__social-box
   &__social-box {
     display: flex;

@@ -1,0 +1,45 @@
+.app-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    // .app-box__title
+    &__title {
+        width: 100%;
+    margin-bottom: 14px;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    }
+    // .app-box__inner
+    &__inner {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 10px 0;
+    }
+    // .app-box__btn
+    &__btn {
+        display: inline-flex;
+        width: 135px;
+        margin: 0 15px;
+    }
+    // .app-box__img
+    &__img {
+        width: 100%;
+    }
+}
+
+
+.footer {
+
+
+    // .footer__app-btn
+
+    &__app-btn {
+    }
+
+    // .footer__app-img
+
+    &__app-img {
+    }
+}

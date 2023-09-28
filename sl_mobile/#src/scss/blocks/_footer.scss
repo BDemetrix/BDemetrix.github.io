@@ -71,36 +71,6 @@
     background: #d14029;
 	} */
 
-	// .footer__app-title
-  &__app-title {
-    width: 100%;
-    margin-bottom: 24px;
-    text-align: center;
-    color: #fff;
-    font-size: 14px;
-  }
-  // .footer__app-box
-  &__app-box {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 738px;
-    max-width: 100%;
-    margin: 0px auto 0;
-  }
-  // .footer__app-btn
-  &__app-btn {
-    width: 135px;
-    border-radius: 5px;
-    overflow: hidden;
-  }
-
-  // .footer__app-img {
-  &__app-img {
-    width: 100%;
-  }
-
 	// .footer__list
 	&__list {
     font-family: "Open Sans", Tahoma, sans-serif;
