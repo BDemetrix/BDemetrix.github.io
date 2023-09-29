@@ -18,22 +18,101 @@
 			<div class="post-page__info post-page__info--blog">
 				@@include('_user-info--blog.html',{})
 			</div>
-			<div class="main__post-card">
-				@@include('_post-card--blog.html') 
-			</div> 
-			<div class="main__post-card">
-				@@include('_post-card--blog.html')
+
+
+			<div class="news-feed__filter nf-filter">
+				<div class="nf-filter__head nf-filter__head--no-decor">
+					<div class="nf-filter__search-wrap nf-filter__search-wrap--wide nf-filter__search-wrap--em">
+						<input class="nf-filter__search" type="text" name="serch" value="" id="nf-filter-search"
+							autocomplete="off" placeholder="Поиск" title="Поиск новости" tabindex="3">
+						<!-- <div class="autocomplete-suggestions" style="position: absolute; z-index: 9999; display: none;">
+							<div class="autocomplete-suggestion" data-index="0"><strong>Сб</strong>ербанк</div>
+							<div class="autocomplete-suggestion" data-index="1">Пермэнерго<strong>сб</strong>ыт</div>
+							<div class="autocomplete-suggestion" data-index="2">Красноярскэнерго<strong>сб</strong>ыт</div>
+							<div class="autocomplete-suggestion" data-index="3">Ставропольэнерго<strong>сб</strong>ыт</div>
+							<div class="autocomplete-suggestion" data-index="4">Ро<strong>сб</strong>анк</div>
+							<div class="autocomplete-suggestion" data-index="5">Тамбовэнерго<strong>сб</strong>ыт</div>
+							<div class="autocomplete-suggestion" data-index="6">Мордовэнерго<strong>сб</strong>ыт</div>
+							<div class="autocomplete-suggestion" data-index="7">Астраханэнерго<strong>сб</strong>ыт</div>
+							<div class="autocomplete-suggestion" data-index="8">Челябэнерго<strong>сб</strong>ыт</div>
+							<div class="autocomplete-suggestion" data-index="9">Волгоградэнерго<strong>сб</strong>ыт</div>
+						</div> -->
+					</div>
+					<button class="nf-filter__btn nf-filter__btn--relative  js-nf-filter-btn" type="button" tabindex="1">
+						<svg width="24" height="24">
+							<use xlink:href="images/icons/news-feed/sprite.svg#filter"></use>
+						</svg>
+					</button>
+				</div>
+				<div class="nf-filter__body nf-filter__body--blog js-nf-filter-body">
+					<div class="nf-filter__fields nf-filter__fields--content-center">
+						<div class="nf-filter__date-wrap nf-filter__date-wrap--blog input-wrapper input-wrapper--left">
+							<input class="nf-filter__date custom-input datepicker" id="date_from" placeholder="с" autocomplete="off" type="text" name="from" value="">
+							<svg width="20" height="20">
+								<use xlink:href="images/icons/post-card/sprite.svg#calendar"></use>
+							</svg>
+						</div>
+						<div class="nf-filter__date-wrap nf-filter__date-wrap--blog input-wrapper input-wrapper--left">
+							<input class="nf-filter__date custom-input datepicker" id="date_to" placeholder="по" autocomplete="off" type="text" name="to" value="">
+							<svg width="20" height="20">
+								<use xlink:href="images/icons/post-card/sprite.svg#calendar"></use>
+							</svg>
+						</div>
+						<a href="#" class="nf-filter__link">
+							<svg width="20" height="20">
+								<use xlink:href="images/icons/post-card/sprite.svg#tree"></use>
+							</svg>
+							<span>Оглавление блога</span>
+						</a>
+					</div>
+					<!-- <div class="nf-filter__tags">
+						<button class="nf-filter__tag fn-tag fn-tag--x">
+							Акции
+						</button>
+						<button class="nf-filter__tag fn-tag fn-tag--x fn-tag--active">
+							Опционы
+						</button>
+						<button class="nf-filter__tag fn-tag fn-tag--x">
+							Облигации
+						</button>
+						<button class="nf-filter__tag fn-tag fn-tag--x">
+							Forex
+						</button>
+						<button class="nf-filter__tag fn-tag fn-tag--x">
+							Трейдинг
+						</button>
+					</div>
+					<div class="nf-filter__tags nf-filter__tags--companies">
+						<button class="nf-filter__tag fn-tag fn-tag--x fn-tag--active fn-tag--company">
+							сбербанк
+						</button>
+						<button class="nf-filter__tag fn-tag fn-tag--x fn-tag--active fn-tag--company">
+							газпром
+						</button>
+					</div> -->
+				</div>
 			</div>
-			<div class="main__post-card">
-				@@include('_post-history.html')
+
+
+			<div class="news-feed__list js-news-feed-list  feed" data-feed-source="user:dr-mart"
+				data-feed-content="true">
+				<div class="main__post-card">
+					@@include('_post-card--blog.html')
+				</div>
+				<div class="main__post-card">
+					@@include('_post-card--blog.html')
+				</div>
+				<div class="main__post-card">
+					@@include('_post-history.html')
+				</div>
+				<div class="main__post-card">
+					@@include('_post-card--blog.html')
+				</div>
+				<div class="main__post-card">
+					@@include('_post-card--blog.html')
+				</div>
+				<button class="big-blue-btn main__next-btn" type="button">Далее</button>
 			</div>
-			<div class="main__post-card">
-				@@include('_post-card--blog.html')
-			</div>
-			<div class="main__post-card">
-				@@include('_post-card--blog.html')
-			</div>
-			<button class="big-blue-btn main__next-btn" type="button">Далее</button>
 
 			@@include('_pager.html',{'Class': ''})
 			@@include('_footer_mob.html',{'Class': ''})
