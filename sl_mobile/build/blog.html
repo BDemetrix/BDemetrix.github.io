@@ -728,93 +728,86 @@
     </div>
 </div>
 			</div>
-			<div class="main__post-card">
-				<!-- Используются стили из _post-card.scss -->
-<section class="post-card">
-    <div class="post-card__header">
-        <!-- Если есть контекстное меню (при точки), присваивается модификатор post-card__header-inner--blog -->
-        <div class="post-card__header-inner post-card__header-inner--blog">
-            <a href="#" class="post-card__photo-wrap">
-                <!-- Если аватар не загружен, то <img> вставлять на страницу не надо. Будет виден фон .post-card__photo-wrap  заданный в css-->
-                <img src="./images/icons/post-card/photo.jpg" alt="Фото" class="post-card__photo">
-            </a>
-            <div class="post-card__info">
-                <span class="post-card__name">
-                    <!-- Если профиль подтвержден, добавляется svg.post-card__approved -->
-                    <a href="#" class="post-card__name-link">RomanAndreev</a>
-                    <svg class="post-card__approved" width="20" height="20">
-                        <use xlink:href="images/icons/post-card/sprite.svg#approved"></use>
-                    </svg>
-                </span>
-                <span class="post-card__date">сегодня в 21:28</span>
-            </div>
-        </div>
-        <div class="post-card__menu post-card__menu--blog context-menu">
-            <button class="post-card__menu-btn context-menu__btn">
-                <svg class="context-menu__svg" height="20" width="20">
-                    <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
-                </svg>
-            </button>
-            <ul class="context-menu__list">
-                <li><button class="context-menu__item">Копировать URL</button></li>
-                <li><button class="context-menu__item">Пожаловться</button></li>
-            </ul>
-        </div>
-    </div>
-    <div class="post-card__body">
-        <!-- Для полного поста присваивается модификатор post-card__title--post -->
-        <h3 class="post-card__title post-card__title--blog">Ситуация на текущий момент</h3>
-        <div class="post-card__text post-card__text--blog">
-            Многие из населения и почти 100% смартлабовцев мечтают жить рантье после 40 лет. С одним таким смердом,
-            вернее с
-            женщиной 44 лет лет я недавно брал интервью...
-        </div>
-        <div class="post-card__tags">
-            <a href="#" class="post-tag">смарт-лаб</a>
-            <a href="#" class="post-tag">форекс</a>
-            <a href="#" class="post-tag">юань</a>
-            <a href="#" class="post-tag">форекс</a>
-            <a href="#" class="post-tag">юань</a>
-        </div>
-    </div>
-    <div class="post-card__footer">
-        <button class="post-card__btn post-card__btn--left" type="button">
-            <span class="post-card__btns-count">3K</span>
-            <svg width="20" height="20">
-                <use xlink:href="images/icons/post-card/sprite.svg#views"></use>
-            </svg>
-        </button>
-        <!-- кнопка с классом `js-pop-up-opener` открывает поп-ап с id, который указан в атрибуте `data-target-id` кнопки -->
-        <button class="post-card__btn post-card__btn--simple js-pop-up-opener" type="button"
-            data-target-id="moderation-pop-up">
-            <svg width="20" height="20">
-                <use xlink:href="images/icons/post-card/sprite.svg#moderation"></use>
-            </svg>
-        </button>
-        <!-- Активной кнопкe добавляется модификатор post-card__btn--active -->
-        <button class="post-card__btn post-card__btn--favorite" type="button">
-            <svg width="19" height="18">
-                <use xlink:href="images/icons/post-card/sprite.svg#star"></use>
-            </svg>
-            <span class="post-card__btns-count">69</span>
-        </button>
-        <button class="post-card__btn post-card__btn--comment" type="button">
-            <svg width="17" height="16">
-                <use xlink:href="images/icons/post-card/sprite.svg#chat"></use>
-            </svg>
-            <span class="post-card__btns-count">36</span>
-        </button>
-        <button class="post-card__btn post-card__btn--like" type="button">
-            <svg width="18" height="17">
-                <use xlink:href="images/icons/post-card/sprite.svg#heart"></use>
-            </svg>
-            <span class="post-card__btns-count">150</span>
-        </button>
-    </div>
-</section> 
-			</div> 
-			<div class="main__post-card">
-				<!-- Используются стили из _post-card.scss -->
+
+
+			<div class="news-feed__filter nf-filter">
+				<div class="nf-filter__head nf-filter__head--no-decor">
+					<div class="nf-filter__search-wrap nf-filter__search-wrap--wide nf-filter__search-wrap--em">
+						<input class="nf-filter__search" type="text" name="serch" value="" id="nf-filter-search"
+							autocomplete="off" placeholder="Поиск" title="Поиск новости" tabindex="3">
+						<!-- <div class="autocomplete-suggestions" style="position: absolute; z-index: 9999; display: none;">
+							<div class="autocomplete-suggestion" data-index="0"><strong>Сб</strong>ербанк</div>
+							<div class="autocomplete-suggestion" data-index="1">Пермэнерго<strong>сб</strong>ыт</div>
+							<div class="autocomplete-suggestion" data-index="2">Красноярскэнерго<strong>сб</strong>ыт</div>
+							<div class="autocomplete-suggestion" data-index="3">Ставропольэнерго<strong>сб</strong>ыт</div>
+							<div class="autocomplete-suggestion" data-index="4">Ро<strong>сб</strong>анк</div>
+							<div class="autocomplete-suggestion" data-index="5">Тамбовэнерго<strong>сб</strong>ыт</div>
+							<div class="autocomplete-suggestion" data-index="6">Мордовэнерго<strong>сб</strong>ыт</div>
+							<div class="autocomplete-suggestion" data-index="7">Астраханэнерго<strong>сб</strong>ыт</div>
+							<div class="autocomplete-suggestion" data-index="8">Челябэнерго<strong>сб</strong>ыт</div>
+							<div class="autocomplete-suggestion" data-index="9">Волгоградэнерго<strong>сб</strong>ыт</div>
+						</div> -->
+					</div>
+					<button class="nf-filter__btn nf-filter__btn--relative  js-nf-filter-btn" type="button" tabindex="1">
+						<svg width="24" height="24">
+							<use xlink:href="images/icons/news-feed/sprite.svg#filter"></use>
+						</svg>
+					</button>
+				</div>
+				<div class="nf-filter__body nf-filter__body--blog js-nf-filter-body">
+					<div class="nf-filter__fields nf-filter__fields--content-center">
+						<div class="nf-filter__date-wrap nf-filter__date-wrap--blog input-wrapper input-wrapper--left">
+							<input class="nf-filter__date custom-input datepicker" id="date_from" placeholder="с" autocomplete="off" type="text" name="from" value="">
+							<svg width="20" height="20">
+								<use xlink:href="images/icons/post-card/sprite.svg#calendar"></use>
+							</svg>
+						</div>
+						<div class="nf-filter__date-wrap nf-filter__date-wrap--blog input-wrapper input-wrapper--left">
+							<input class="nf-filter__date custom-input datepicker" id="date_to" placeholder="по" autocomplete="off" type="text" name="to" value="">
+							<svg width="20" height="20">
+								<use xlink:href="images/icons/post-card/sprite.svg#calendar"></use>
+							</svg>
+						</div>
+						<a href="#" class="nf-filter__link">
+							<svg width="20" height="20">
+								<use xlink:href="images/icons/post-card/sprite.svg#tree"></use>
+							</svg>
+							<span>Оглавление блога</span>
+						</a>
+					</div>
+					<!-- <div class="nf-filter__tags">
+						<button class="nf-filter__tag fn-tag fn-tag--x">
+							Акции
+						</button>
+						<button class="nf-filter__tag fn-tag fn-tag--x fn-tag--active">
+							Опционы
+						</button>
+						<button class="nf-filter__tag fn-tag fn-tag--x">
+							Облигации
+						</button>
+						<button class="nf-filter__tag fn-tag fn-tag--x">
+							Forex
+						</button>
+						<button class="nf-filter__tag fn-tag fn-tag--x">
+							Трейдинг
+						</button>
+					</div>
+					<div class="nf-filter__tags nf-filter__tags--companies">
+						<button class="nf-filter__tag fn-tag fn-tag--x fn-tag--active fn-tag--company">
+							сбербанк
+						</button>
+						<button class="nf-filter__tag fn-tag fn-tag--x fn-tag--active fn-tag--company">
+							газпром
+						</button>
+					</div> -->
+				</div>
+			</div>
+
+
+			<div class="news-feed__list js-news-feed-list  feed" data-feed-source="user:dr-mart"
+				data-feed-content="true">
+				<div class="main__post-card">
+					<!-- Используются стили из _post-card.scss -->
 <section class="post-card">
     <div class="post-card__header">
         <!-- Если есть контекстное меню (при точки), присваивается модификатор post-card__header-inner--blog -->
@@ -897,9 +890,94 @@
         </button>
     </div>
 </section>
-			</div>
-			<div class="main__post-card">
-				<div class="post-history">
+				</div>
+				<div class="main__post-card">
+					<!-- Используются стили из _post-card.scss -->
+<section class="post-card">
+    <div class="post-card__header">
+        <!-- Если есть контекстное меню (при точки), присваивается модификатор post-card__header-inner--blog -->
+        <div class="post-card__header-inner post-card__header-inner--blog">
+            <a href="#" class="post-card__photo-wrap">
+                <!-- Если аватар не загружен, то <img> вставлять на страницу не надо. Будет виден фон .post-card__photo-wrap  заданный в css-->
+                <img src="./images/icons/post-card/photo.jpg" alt="Фото" class="post-card__photo">
+            </a>
+            <div class="post-card__info">
+                <span class="post-card__name">
+                    <!-- Если профиль подтвержден, добавляется svg.post-card__approved -->
+                    <a href="#" class="post-card__name-link">RomanAndreev</a>
+                    <svg class="post-card__approved" width="20" height="20">
+                        <use xlink:href="images/icons/post-card/sprite.svg#approved"></use>
+                    </svg>
+                </span>
+                <span class="post-card__date">сегодня в 21:28</span>
+            </div>
+        </div>
+        <div class="post-card__menu post-card__menu--blog context-menu">
+            <button class="post-card__menu-btn context-menu__btn">
+                <svg class="context-menu__svg" height="20" width="20">
+                    <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
+                </svg>
+            </button>
+            <ul class="context-menu__list">
+                <li><button class="context-menu__item">Копировать URL</button></li>
+                <li><button class="context-menu__item">Пожаловться</button></li>
+            </ul>
+        </div>
+    </div>
+    <div class="post-card__body">
+        <!-- Для полного поста присваивается модификатор post-card__title--post -->
+        <h3 class="post-card__title post-card__title--blog">Ситуация на текущий момент</h3>
+        <div class="post-card__text post-card__text--blog">
+            Многие из населения и почти 100% смартлабовцев мечтают жить рантье после 40 лет. С одним таким смердом,
+            вернее с
+            женщиной 44 лет лет я недавно брал интервью...
+        </div>
+        <div class="post-card__tags">
+            <a href="#" class="post-tag">смарт-лаб</a>
+            <a href="#" class="post-tag">форекс</a>
+            <a href="#" class="post-tag">юань</a>
+            <a href="#" class="post-tag">форекс</a>
+            <a href="#" class="post-tag">юань</a>
+        </div>
+    </div>
+    <div class="post-card__footer">
+        <button class="post-card__btn post-card__btn--left" type="button">
+            <span class="post-card__btns-count">3K</span>
+            <svg width="20" height="20">
+                <use xlink:href="images/icons/post-card/sprite.svg#views"></use>
+            </svg>
+        </button>
+        <!-- кнопка с классом `js-pop-up-opener` открывает поп-ап с id, который указан в атрибуте `data-target-id` кнопки -->
+        <button class="post-card__btn post-card__btn--simple js-pop-up-opener" type="button"
+            data-target-id="moderation-pop-up">
+            <svg width="20" height="20">
+                <use xlink:href="images/icons/post-card/sprite.svg#moderation"></use>
+            </svg>
+        </button>
+        <!-- Активной кнопкe добавляется модификатор post-card__btn--active -->
+        <button class="post-card__btn post-card__btn--favorite" type="button">
+            <svg width="19" height="18">
+                <use xlink:href="images/icons/post-card/sprite.svg#star"></use>
+            </svg>
+            <span class="post-card__btns-count">69</span>
+        </button>
+        <button class="post-card__btn post-card__btn--comment" type="button">
+            <svg width="17" height="16">
+                <use xlink:href="images/icons/post-card/sprite.svg#chat"></use>
+            </svg>
+            <span class="post-card__btns-count">36</span>
+        </button>
+        <button class="post-card__btn post-card__btn--like" type="button">
+            <svg width="18" height="17">
+                <use xlink:href="images/icons/post-card/sprite.svg#heart"></use>
+            </svg>
+            <span class="post-card__btns-count">150</span>
+        </button>
+    </div>
+</section>
+				</div>
+				<div class="main__post-card">
+					<div class="post-history">
     <h3 class="post-history__title box-title">
         <a href="#">Что вы писали в этот день в прошлом</a>
     </h3>
@@ -983,9 +1061,9 @@
     </ul>
 </div>
 
-			</div>
-			<div class="main__post-card">
-				<!-- Используются стили из _post-card.scss -->
+				</div>
+				<div class="main__post-card">
+					<!-- Используются стили из _post-card.scss -->
 <section class="post-card">
     <div class="post-card__header">
         <!-- Если есть контекстное меню (при точки), присваивается модификатор post-card__header-inner--blog -->
@@ -1068,9 +1146,9 @@
         </button>
     </div>
 </section>
-			</div>
-			<div class="main__post-card">
-				<!-- Используются стили из _post-card.scss -->
+				</div>
+				<div class="main__post-card">
+					<!-- Используются стили из _post-card.scss -->
 <section class="post-card">
     <div class="post-card__header">
         <!-- Если есть контекстное меню (при точки), присваивается модификатор post-card__header-inner--blog -->
@@ -1153,8 +1231,9 @@
         </button>
     </div>
 </section>
+				</div>
+				<button class="big-blue-btn main__next-btn" type="button">Далее</button>
 			</div>
-			<button class="big-blue-btn main__next-btn" type="button">Далее</button>
 
 			<div class="pager " id="pager">
   <!-- 

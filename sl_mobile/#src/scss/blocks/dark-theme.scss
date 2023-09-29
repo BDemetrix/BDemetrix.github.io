@@ -368,7 +368,11 @@ body.dark-theme.loader:before {
 
     .nf-filter {
         &__head {
-            background-color: $element-bg;
+            background: $element-bg;
+
+            &--no-decor {
+                background: none;
+            }
         }
 
         &__title {
@@ -378,17 +382,24 @@ body.dark-theme.loader:before {
         &__btn {
             color: $text-color;
 
-            &:hover {
+            &:hover,
+            &--relative:hover {
                 background-color: $container-bg;
+                box-shadow: none;
             }
 
             &:focus {
                 border-color: $text-color;
             }
+
+            &--relative {
+                background-color: $element-bg;
+            }
         }
 
         &__search,
-        &__date {
+        &__date, 
+        &__link {
             color: $text-color;
             background-color: $element-bg;
 

@@ -10576,6 +10576,15 @@ textarea {
   border-radius: 8px;
 }
 
+.nf-filter__head--no-decor {
+  min-height: 0;
+  background: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+}
+
 .nf-filter__checkbox {
   margin: 8px 20px 8px 0;
   white-space: nowrap;
@@ -10617,6 +10626,23 @@ textarea {
   color: #808080;
 }
 
+.nf-filter__btn--relative {
+  position: relative;
+  top: auto;
+  right: auto;
+  width: 44px;
+  height: 44px;
+  margin-left: 10px;
+  border: 1px solid #a5a5a5;
+  border-radius: 5px;
+  background: #fff;
+}
+
+.nf-filter__btn--relative:hover {
+  -webkit-box-shadow: 0px 1px 2px rgba(117, 117, 117, 0.25);
+          box-shadow: 0px 1px 2px rgba(117, 117, 117, 0.25);
+}
+
 .nf-filter__btn:hover {
   background-color: #f0f0f0;
 }
@@ -10625,10 +10651,38 @@ textarea {
   border-color: #323232;
 }
 
+.nf-filter__link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-width: 44px;
+  margin: 0 5px 15px;
+  padding: 0 11px;
+  background: #fff;
+}
+
+.nf-filter__link span {
+  display: none;
+}
+
+.nf-filter__link svg {
+  fill: #808080;
+}
+
 .nf-filter__body {
   display: none;
   margin: 0 15px;
   padding: 15px 0 5px;
+}
+
+.nf-filter__body--blog {
+  margin: 0 1px;
 }
 
 .nf-filter__fields {
@@ -10640,12 +10694,19 @@ textarea {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  margin-bottom: -15px;
 }
 
 .nf-filter__fields--right {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: end;
+}
+
+.nf-filter__fields--content-center {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .nf-filter__search-wrap {
@@ -10657,10 +10718,14 @@ textarea {
 .nf-filter__search-wrap--top {
   width: auto;
   margin: 0 6px 10px;
-  /* 
-              .nf-filter__search {
-                  width: 100%;
-              } */
+}
+
+.nf-filter__search-wrap--wide {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  width: auto;
+  margin: 0;
 }
 
 .nf-filter__search-wrap .autocomplete-suggestions {
@@ -10701,7 +10766,8 @@ textarea {
 }
 
 .nf-filter__search,
-.nf-filter__date {
+.nf-filter__date,
+.nf-filter__link {
   height: 44px;
   border: 1px solid #a5a5a5;
   border-radius: 5px;
@@ -10712,7 +10778,9 @@ textarea {
 .nf-filter__search:hover,
 .nf-filter__search:focus,
 .nf-filter__date:hover,
-.nf-filter__date:focus {
+.nf-filter__date:focus,
+.nf-filter__link:hover,
+.nf-filter__link:focus {
   border-color: #323232;
 }
 
@@ -10762,6 +10830,10 @@ textarea {
   width: calc(50% - 10px);
 }
 
+.nf-filter__date-wrap--blog {
+  width: calc(50% - 38px);
+}
+
 .nf-filter__date {
   cursor: pointer;
   width: 100%;
@@ -10809,6 +10881,7 @@ textarea {
           justify-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  margin-top: 15px;
 }
 
 .nf-filter__tags--companies {
@@ -14893,7 +14966,11 @@ body.dark-theme.loader:before {
 }
 
 .dark-theme .nf-filter__head {
-  background-color: #2a2c30;
+  background: #2a2c30;
+}
+
+.dark-theme .nf-filter__head--no-decor {
+  background: none;
 }
 
 .dark-theme .nf-filter__title {
@@ -14904,46 +14981,57 @@ body.dark-theme.loader:before {
   color: #e9e9e9;
 }
 
-.dark-theme .nf-filter__btn:hover {
+.dark-theme .nf-filter__btn:hover,
+.dark-theme .nf-filter__btn--relative:hover {
   background-color: #202225;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .dark-theme .nf-filter__btn:focus {
   border-color: #e9e9e9;
 }
 
+.dark-theme .nf-filter__btn--relative {
+  background-color: #2a2c30;
+}
+
 .dark-theme .nf-filter__search,
-.dark-theme .nf-filter__date {
+.dark-theme .nf-filter__date,
+.dark-theme .nf-filter__link {
   color: #e9e9e9;
   background-color: #2a2c30;
   border-color: #c1cbd6;
 }
 
-.dark-theme .nf-filter__search::-webkit-input-placeholder, .dark-theme .nf-filter__date::-webkit-input-placeholder {
+.dark-theme .nf-filter__search::-webkit-input-placeholder, .dark-theme .nf-filter__date::-webkit-input-placeholder, .dark-theme .nf-filter__link::-webkit-input-placeholder {
   color: #c1cbd6;
 }
 
-.dark-theme .nf-filter__search::-moz-placeholder, .dark-theme .nf-filter__date::-moz-placeholder {
+.dark-theme .nf-filter__search::-moz-placeholder, .dark-theme .nf-filter__date::-moz-placeholder, .dark-theme .nf-filter__link::-moz-placeholder {
   color: #c1cbd6;
 }
 
-.dark-theme .nf-filter__search:-ms-input-placeholder, .dark-theme .nf-filter__date:-ms-input-placeholder {
+.dark-theme .nf-filter__search:-ms-input-placeholder, .dark-theme .nf-filter__date:-ms-input-placeholder, .dark-theme .nf-filter__link:-ms-input-placeholder {
   color: #c1cbd6;
 }
 
-.dark-theme .nf-filter__search::-ms-input-placeholder, .dark-theme .nf-filter__date::-ms-input-placeholder {
+.dark-theme .nf-filter__search::-ms-input-placeholder, .dark-theme .nf-filter__date::-ms-input-placeholder, .dark-theme .nf-filter__link::-ms-input-placeholder {
   color: #c1cbd6;
 }
 
 .dark-theme .nf-filter__search::placeholder,
-.dark-theme .nf-filter__date::placeholder {
+.dark-theme .nf-filter__date::placeholder,
+.dark-theme .nf-filter__link::placeholder {
   color: #c1cbd6;
 }
 
 .dark-theme .nf-filter__search:hover,
 .dark-theme .nf-filter__search:focus,
 .dark-theme .nf-filter__date:hover,
-.dark-theme .nf-filter__date:focus {
+.dark-theme .nf-filter__date:focus,
+.dark-theme .nf-filter__link:hover,
+.dark-theme .nf-filter__link:focus {
   border-color: #a5a5a5;
 }
 
@@ -16298,10 +16386,16 @@ body.loader:before {
 }
 
 @media (min-width: 600px) {
+  .nf-filter__link span {
+    display: block;
+    margin-left: 10px;
+  }
+
   .nf-filter__search-wrap {
     width: calc(50% - 10px);
   }
 
+  .nf-filter__search-wrap--wide,
   .nf-filter__search-wrap--top {
     width: auto;
   }
@@ -17496,6 +17590,15 @@ body.loader:before {
 @media (max-width: 600px) {
   .jBox-image-label {
     font-size: 13px;
+  }
+
+  .nf-filter__date-wrap .nf-filter__date {
+    padding-left: 35px;
+    padding-right: 5px;
+  }
+
+  .nf-filter__date-wrap svg {
+    left: 27.5px;
   }
 }
 

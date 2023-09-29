@@ -343,7 +343,11 @@ body.dark-theme.loader:before {
 }
 
 .dark-theme .nf-filter__head {
-  background-color: #2a2c30;
+  background: #2a2c30;
+}
+
+.dark-theme .nf-filter__head--no-decor {
+  background: none;
 }
 
 .dark-theme .nf-filter__title {
@@ -354,46 +358,57 @@ body.dark-theme.loader:before {
   color: #e9e9e9;
 }
 
-.dark-theme .nf-filter__btn:hover {
+.dark-theme .nf-filter__btn:hover,
+.dark-theme .nf-filter__btn--relative:hover {
   background-color: #202225;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .dark-theme .nf-filter__btn:focus {
   border-color: #e9e9e9;
 }
 
+.dark-theme .nf-filter__btn--relative {
+  background-color: #2a2c30;
+}
+
 .dark-theme .nf-filter__search,
-.dark-theme .nf-filter__date {
+.dark-theme .nf-filter__date,
+.dark-theme .nf-filter__link {
   color: #e9e9e9;
   background-color: #2a2c30;
   border-color: #c1cbd6;
 }
 
-.dark-theme .nf-filter__search::-webkit-input-placeholder, .dark-theme .nf-filter__date::-webkit-input-placeholder {
+.dark-theme .nf-filter__search::-webkit-input-placeholder, .dark-theme .nf-filter__date::-webkit-input-placeholder, .dark-theme .nf-filter__link::-webkit-input-placeholder {
   color: #c1cbd6;
 }
 
-.dark-theme .nf-filter__search::-moz-placeholder, .dark-theme .nf-filter__date::-moz-placeholder {
+.dark-theme .nf-filter__search::-moz-placeholder, .dark-theme .nf-filter__date::-moz-placeholder, .dark-theme .nf-filter__link::-moz-placeholder {
   color: #c1cbd6;
 }
 
-.dark-theme .nf-filter__search:-ms-input-placeholder, .dark-theme .nf-filter__date:-ms-input-placeholder {
+.dark-theme .nf-filter__search:-ms-input-placeholder, .dark-theme .nf-filter__date:-ms-input-placeholder, .dark-theme .nf-filter__link:-ms-input-placeholder {
   color: #c1cbd6;
 }
 
-.dark-theme .nf-filter__search::-ms-input-placeholder, .dark-theme .nf-filter__date::-ms-input-placeholder {
+.dark-theme .nf-filter__search::-ms-input-placeholder, .dark-theme .nf-filter__date::-ms-input-placeholder, .dark-theme .nf-filter__link::-ms-input-placeholder {
   color: #c1cbd6;
 }
 
 .dark-theme .nf-filter__search::placeholder,
-.dark-theme .nf-filter__date::placeholder {
+.dark-theme .nf-filter__date::placeholder,
+.dark-theme .nf-filter__link::placeholder {
   color: #c1cbd6;
 }
 
 .dark-theme .nf-filter__search:hover,
 .dark-theme .nf-filter__search:focus,
 .dark-theme .nf-filter__date:hover,
-.dark-theme .nf-filter__date:focus {
+.dark-theme .nf-filter__date:focus,
+.dark-theme .nf-filter__link:hover,
+.dark-theme .nf-filter__link:focus {
   border-color: #a5a5a5;
 }
 
