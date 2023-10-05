@@ -8448,6 +8448,20 @@ textarea {
   margin-bottom: 8px;
 }
 
+.comments__text blockquote::before,
+.comments__text blockquote::after {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.comments__text blockquote::before {
+  content: "„";
+}
+
+.comments__text blockquote::after {
+  content: "‟";
+}
+
 .comments__actions {
   display: -webkit-box;
   display: -ms-flexbox;

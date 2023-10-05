@@ -178,6 +178,18 @@
             border-left: 2px solid #595959;
             background: rgba(121, 121, 121, 0.10);
             margin-bottom: 8px;
+
+            &::before,
+            &::after {
+                font-size: 16px;
+                line-height: 20px;
+            }
+            &::before {
+                content: "\201e";
+            }
+            &::after {
+                content: "\201f";
+            }
         }
 
         @media (min-width: $md3 + px) {
