@@ -109,6 +109,7 @@
                 background: rgba(105, 145, 59, 0.1);
             }
         }
+
         // должен перекрыват comments__content--new поэтому идет последним
         &--self {
             .comments__text {
@@ -169,6 +170,14 @@
             &:active {
                 color: #479cd3;
             }
+        }
+
+        blockquote {
+            padding: 12px;
+            border-radius: 4px;
+            border-left: 2px solid #595959;
+            background: rgba(121, 121, 121, 0.10);
+            margin-bottom: 8px;
         }
 
         @media (min-width: $md3 + px) {

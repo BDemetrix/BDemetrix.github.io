@@ -8440,6 +8440,14 @@ textarea {
   color: #479cd3;
 }
 
+.comments__text blockquote {
+  padding: 12px;
+  border-radius: 4px;
+  border-left: 2px solid #595959;
+  background: rgba(121, 121, 121, 0.1);
+  margin-bottom: 8px;
+}
+
 .comments__actions {
   display: -webkit-box;
   display: -ms-flexbox;
