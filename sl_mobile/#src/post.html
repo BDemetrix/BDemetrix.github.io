@@ -23,7 +23,10 @@
 			<div class="post-page__comments">
 				@@include('_comments.html',{})
 			</div>
-			@@include('_footer_mob.html',{'Class': ''})
+			<div class="post-page__more-posts">
+				@@include('_more-posts.html',{})
+			</div>
+			@@include('_footer_mob.html',{'Class': 'footer-mob--mt-none'})
 		</main>
 		@@include('_slide-sidebar.html',{'Class': 'slide-sidebar--not-on-mobile slide-sidebar--mob'})
 	</div>

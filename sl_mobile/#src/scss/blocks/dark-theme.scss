@@ -339,8 +339,19 @@ body.dark-theme.loader:before {
         }
 
         &__date,
-        &__author {
+        &__author,
+        &--extended .person__name-link {
             color: $date-color;
+        }
+
+        &--extended .person__name-link:hover {
+            color: #2987c5;
+        }
+    }
+
+    .more-posts {
+        &__title {
+            color: $text-color;
         }
     }
 

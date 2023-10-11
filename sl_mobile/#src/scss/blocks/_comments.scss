@@ -185,10 +185,10 @@
                 line-height: 20px;
             }
             &::before {
-                content: "\201e";
+                content: "\201e ";
             }
             &::after {
-                content: "\201f";
+                content: " \201f";
             }
         }
 
