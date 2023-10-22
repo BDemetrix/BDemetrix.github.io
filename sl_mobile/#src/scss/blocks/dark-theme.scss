@@ -322,7 +322,7 @@ body.dark-theme.loader:before {
         &__section {
             background-color: $element-bg;
         }
-        
+
         &__title,
         &__empty {
             color: $text-color;
@@ -409,7 +409,7 @@ body.dark-theme.loader:before {
         }
 
         &__search,
-        &__date, 
+        &__date,
         &__link {
             color: $text-color;
             background-color: $element-bg;
@@ -1025,6 +1025,23 @@ body.dark-theme.loader:before {
             }
         }
 
+        &__col-title {
+            a {
+                &:hover {
+                    color: #B4B4B4 !important;
+                }
+
+                svg {
+                    fill: currentColor !important;
+                }
+            }
+        }
+
+        &__title-hint {
+            fill: #666666 !important; // ;$container-bg 
+            stroke: #fff;
+        }
+
         th,
         tr td {
             background: $element-bg;
@@ -1173,10 +1190,21 @@ body.dark-theme.loader:before {
         &__cover {
             background: rgba(32, 34, 37, 0.87);
         }
-    
+
         // .table-mask__offers
         &__offers {
             background: $element-bg;
+        }
+    }
+
+    .jBox-trades-table {
+        .jBox-container { 
+            border: 1px solid $table-border-color;
+            background: $element-bg;
+            box-shadow: none;
+        }
+        .jBox-content { 
+            color: $text-color;
         }
     }
 }

@@ -344,6 +344,43 @@
   }
 }
 
+.trades-table__col-title {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  a {
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      color: #9F9F9F;
+    }
+
+    svg{
+      &:first-child {
+        margin-right: 5px;
+      }
+      &:last-child {
+        margin-left: 5px;
+      }
+      fill: currentColor;
+    }
+
+    span {
+      text-align: center;
+    }
+  }
+  
+}
+
+.trades-table__title-hint {
+  margin-left: 5px;
+  fill: #fff;
+  stroke: #666666;
+}
+
 .trades-table__n {
   width: 33px;
   padding: 4px 4px 4px 10px;
@@ -414,7 +451,7 @@ td.trades-table__name-multiline {
 }
 
 .trades-table__price {
-  max-width: 90px;
+  // max-width: 90px;
   width: 67px;
 }
 
