@@ -1186,37 +1186,173 @@
     <table class="_hidden">
       <tbody>
         <tr>
-          <th class="trades-table__ticker"><a class="active" href="/stocks-rating/new/order_by_ticker/desc/">Тикер</a>
+          <th class="trades-table__ticker">
+            <div class="trades-table__col-title">
+              <a href="/stocks-rating/new/order_by_ticker/desc/">
+                <svg width="10" height="10">
+                  <use xlink:href="images/icons/trade-table/sprite.svg#up-arrow"></use>
+                </svg>
+                <span>Тикер</span>
+              </a>
+            </div>
           </th>
-          <th class="trades-table__name-multiline"><a href="/stocks-rating/new/order_by_short_name/desc/">Эмитент</a>
-          </th>
+          <th>
+            <div class="trades-table__col-title">
+              <a href="/stocks-rating/new/order_by_short_name/desc/">
+                <svg width="10" height="10">
+                  <use xlink:href="images/icons/trade-table/sprite.svg#down-arrow"></use>
+                </svg>
+                <span>Эмитент</span>
+              </a>
+              <svg class="trades-table__title-hint js-trades-table-tooltip" title="Текст подсказки Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis voluptatem, est veniam repudiandae dolorum aspernatur" width="10" height="10">
+                <use xlink:href="images/icons/trade-table/sprite.svg#i"></use>
+              </svg>
+            </div>
+          </th> 
   
-          <th class="trades-table__price" style="min-width: 80px;"><a
-              href="/stocks-rating/new/order_by_forecast_price/desc/">Целевая
-              цена<br>Mozgovik</a></th>
-          <th class="trades-table__price" style="min-width: 80px;"><a
-              href="/stocks-rating/new/order_by_last/desc/">Рыночная<br>цена</a></th>
-          <th style="min-width: 80px;"><a href="/stocks-rating/new/order_by_potential/desc/">Потенциал</a></th>
+          <th class="trades-table__price" style="min-width: 110px;">
+            <div class="trades-table__col-title">
+              <a href="/stocks-rating/new/order_by_forecast_price/desc/" class=".blue-link">
+                <svg width="10" height="10">
+                  <use xlink:href="images/icons/trade-table/sprite.svg#unsorted"></use>
+                </svg>
+                <span>Целевая цена<br>Mozgovik</span> 
+              </a>
+              <svg class="trades-table__title-hint js-trades-table-tooltip" title="Текст подсказки Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis voluptatem, est veniam repudiandae dolorum aspernatur" width="10" height="10">
+                <use xlink:href="images/icons/trade-table/sprite.svg#i"></use>
+              </svg>
+            </div>
+          </th>
+          <th class="trades-table__price" style="min-width: 110px;">
+            <div class="trades-table__col-title">
+              <a href="/stocks-rating/new/order_by_last/desc/">
+                <svg width="10" height="10">
+                  <use xlink:href="images/icons/trade-table/sprite.svg#unsorted"></use>
+                </svg>
+                <span>Рыночная<br>цена</span>
+              </a>
+              <svg class="trades-table__title-hint js-trades-table-tooltip" title="Текст подсказки Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis voluptatem, est veniam repudiandae dolorum aspernatur" width="10" height="10">
+                <use xlink:href="images/icons/trade-table/sprite.svg#i"></use>
+              </svg>
+            </div>
+          </th>
+          <th style="min-width: 110px;"> 
+            <div class="trades-table__col-title">
+              <a href="/stocks-rating/new/order_by_potential/desc/">
+                <svg width="10" height="10">
+                  <use xlink:href="images/icons/trade-table/sprite.svg#unsorted"></use>
+                </svg>
+                <span>Потенциал</span>
+              </a>
+              <svg class="trades-table__title-hint js-trades-table-tooltip" title="Текст подсказки Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis voluptatem, est veniam repudiandae dolorum aspernatur" width="10" height="10">
+                <use xlink:href="images/icons/trade-table/sprite.svg#i"></use>
+              </svg>
+            </div>
+          </th>
   
           <th class="trades-table__big-description">
-            Описание
+            <div class="trades-table__col-title">
+              <span>Описание</span>
+              <svg class="trades-table__title-hint js-trades-table-tooltip" title="Текст подсказки Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis voluptatem, est veniam repudiandae dolorum aspernatur" width="10" height="10">
+                <use xlink:href="images/icons/trade-table/sprite.svg#i"></use>
+              </svg>
+            </div>
           </th>
   
-          <th style="min-width: 100px;"><a
-              href="/stocks-rating/new/order_by_forecast_dividend/desc/">Прогноздивиденда<br>за
-              2023 год</a></th>
-          <th style="min-width: 100px;"><a href="/stocks-rating/new/order_by_div_yield/desc/">Див. доходность<br>за 2023
-              год</a></th>
-          <th style="min-width: 70px;"><a href="/stocks-rating/new/order_by_company_type/desc/">Тип<br>компании</a></th>
-  
-          <th style="min-width: 70px;"><a
-              href="/stocks-rating/new/order_by_stockholder_rating/desc/">Оценка<br>акционера</a></th>
-          <th style="min-width: 70px;"><a
-              href="/stocks-rating/new/order_by_business_rating/desc/">Оценка<br>качества<br>бизнеса</a></th>
-          <th style="min-width: 70px;"><a href="/stocks-rating/new/order_by_mozgovik_rating/desc/">Mozgovik<br>рейтинг</a>
+          <th style="min-width: 135px;">
+            <div class="trades-table__col-title">
+              <a href="/stocks-rating/new/order_by_forecast_dividend/desc/">
+                <svg width="10" height="10">
+                  <use xlink:href="images/icons/trade-table/sprite.svg#unsorted"></use>
+                </svg>
+                <span>Прогноздивиденда<br>за 2023 год</span>
+              </a>
+              <svg class="trades-table__title-hint js-trades-table-tooltip" title="Текст подсказки Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis voluptatem, est veniam repudiandae dolorum aspernatur" width="10" height="10">
+                <use xlink:href="images/icons/trade-table/sprite.svg#i"></use>
+              </svg>
+            </div>
           </th>
-          <th style="min-width: 70px;">&nbsp;</th>
-          <th style="min-width: 70px;"><a href="/stocks-rating/new/order_by_date/desc/">Дата<br>изменения</a></th>
+          <th style="min-width: 130px;"> 
+            <div class="trades-table__col-title">
+              <a href="/stocks-rating/new/order_by_div_yield/desc/">
+                <svg width="10" height="10">
+                  <use xlink:href="images/icons/trade-table/sprite.svg#unsorted"></use>
+                </svg>
+                <span>Див. доходность<br>за 2023 год</span>
+              </a>
+              <svg class="trades-table__title-hint js-trades-table-tooltip" title="Текст подсказки Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis voluptatem, est veniam repudiandae dolorum aspernatur" width="10" height="10">
+                <use xlink:href="images/icons/trade-table/sprite.svg#i"></use>
+              </svg>
+            </div>
+          </th>
+
+          <th style="min-width: 100px;"> 
+            <div class="trades-table__col-title">
+              <a href="/stocks-rating/new/order_by_company_type/desc/">
+                <svg width="10" height="10">
+                  <use xlink:href="images/icons/trade-table/sprite.svg#unsorted"></use>
+                </svg>
+                <span>Тип<br>компании</span>
+              </a>
+              <svg class="trades-table__title-hint js-trades-table-tooltip" title="Текст подсказки Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis voluptatem, est veniam repudiandae dolorum aspernatur" width="10" height="10">
+                <use xlink:href="images/icons/trade-table/sprite.svg#i"></use>
+              </svg>
+            </div>
+          </th>
+  
+          <th style="min-width: 100px;"> 
+            <div class="trades-table__col-title">
+              <a href="/stocks-rating/new/order_by_stockholder_rating/desc/">
+                <svg width="10" height="10">
+                  <use xlink:href="images/icons/trade-table/sprite.svg#unsorted"></use>
+                </svg>
+                <span>Оценка<br>акционера</span>
+              </a>
+              <svg class="trades-table__title-hint js-trades-table-tooltip" title="Текст подсказки Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis voluptatem, est veniam repudiandae dolorum aspernatur" width="10" height="10">
+                <use xlink:href="images/icons/trade-table/sprite.svg#i"></use>
+              </svg>
+            </div>
+          </th>
+          <th style="min-width: 100px;">
+            <div class="trades-table__col-title">
+              <a href="/stocks-rating/new/order_by_business_rating/desc/">
+                <svg width="10" height="10">
+                  <use xlink:href="images/icons/trade-table/sprite.svg#unsorted"></use>
+                </svg>
+                <span>Оценка<br>качества<br>бизнеса</span>
+              </a>
+              <svg class="trades-table__title-hint js-trades-table-tooltip" title="Текст подсказки Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis voluptatem, est veniam repudiandae dolorum aspernatur" width="10" height="10">
+                <use xlink:href="images/icons/trade-table/sprite.svg#i"></use>
+              </svg>
+            </div>
+          </th>
+          <th style="min-width: 100px;">
+            <div class="trades-table__col-title">
+              <a href="/stocks-rating/new/order_by_mozgovik_rating/desc/">
+                <svg width="10" height="10">
+                  <use xlink:href="images/icons/trade-table/sprite.svg#unsorted"></use>
+                </svg>
+                <span>Mozgovik<br>рейтинг</span>
+              </a>
+              <svg class="trades-table__title-hint js-trades-table-tooltip" title="Текст подсказки Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis voluptatem, est veniam repudiandae dolorum aspernatur" width="10" height="10">
+                <use xlink:href="images/icons/trade-table/sprite.svg#i"></use>
+              </svg>
+            </div>
+          </th>
+          
+          <th style="min-width: 100px;">
+            <div class="trades-table__col-title">
+              <a href="/stocks-rating/new/order_by_date/desc/">
+                <svg width="10" height="10">
+                  <use xlink:href="images/icons/trade-table/sprite.svg#unsorted"></use>
+                </svg>
+                <span>Дата<br>изменения</span>
+              </a>
+              <svg class="trades-table__title-hint js-trades-table-tooltip" title="Текст подсказки Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis voluptatem, est veniam repudiandae dolorum aspernatur" width="10" height="10">
+                <use xlink:href="images/icons/trade-table/sprite.svg#i"></use>
+              </svg>
+            </div>
+          </th>
           <th style="min-width: 85px;" class="trades-table__icon-link">Ссылка на<br>все прогнозы</th>
           <th style="min-width: 85px;" class="trades-table__icon-link">Ссылка на<br>Premiun<br>прогнозы</th>
         </tr>
@@ -1249,7 +1385,7 @@
           <td></td>
           <td class="color-rating--5">5</td>
   
-          <td>&nbsp;</td>
+          
           <td>01.01.1970</td>
           <td class="trades-table__icon-link"><a class="blue-link" href="/forum/forecast/AFKS/">
               <svg width="14" height="14">
@@ -1293,7 +1429,7 @@
           <td>3</td>
           <td class="color-rating--4">4</td>
   
-          <td>&nbsp;</td>
+          
           <td>21.07.2023</td>
           <td class="trades-table__icon-link"><a class="blue-link" href="/forum/forecast/AFLT/">
               <svg width="14" height="14">
@@ -1331,7 +1467,7 @@
           <td>4</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>26.08.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/AGRO/" class="blue-link">
               <svg width="14" height="14">
@@ -1355,9 +1491,9 @@
           </td>
   
   
-          <td><a href="https://smart-lab.ru/blog/909947.php" class="blue-link">108₽</a></td>
+          <td><a href="https://smart-lab.ru/blog/909947.php" class="blue-link .blue-link">108₽</a></td>
           <td class="trades-table__price">88.49₽</td>
-          <td class="trades-table__price">22%</td>
+          <td class="trades-table__price up">22%</td>
   
           <td class="trades-table__big-description">
             <div>Дефицит алмазов в мире из-за снижения добычи, рф - треть рынка, 60% запасов, 70% в Бельгию, синтетика
@@ -1373,7 +1509,7 @@
           <td>4</td>
           <td class="color-rating--2">2</td>
   
-          <td>&nbsp;</td>
+          
           <td>20.07.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/ALRS/" class="blue-link">
               <svg width="14" height="14">
@@ -1414,7 +1550,7 @@
           <td>4</td>
           <td class="color-rating--1">1</td>
   
-          <td>&nbsp;</td>
+          
           <td>03.08.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/AQUA/" class="blue-link">
               <svg width="14" height="14">
@@ -1433,9 +1569,9 @@
           </td>
   
   
-          <td><a href="https://smart-lab.ru/company/mozgovik/blog/886010.php" class="blue-link">4310₽</a></td>
+          <td><a href="https://smart-lab.ru/company/mozgovik/blog/886010.php" class="blue-link .blue-link">4310₽</a></td>
           <td class="trades-table__price">5691₽</td>
-          <td class="trades-table__price">-24%</td>
+          <td class="trades-table__price down">-24%</td>
   
           <td class="trades-table__big-description">
             <div>Рост за счет развития алко-ритейла. Продажи алкогольной продукции растут в натуральном выражении.</div>
@@ -1449,7 +1585,7 @@
           <td>4</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>21.07.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/BELU/" class="blue-link">
               <svg width="14" height="14">
@@ -1473,9 +1609,9 @@
           </td>
   
   
-          <td><a href="https://smart-lab.ru/company/mozgovik/blog/916747.php" class="blue-link">199₽</a></td>
+          <td><a href="https://smart-lab.ru/company/mozgovik/blog/916747.php" class="blue-link .blue-link">199₽</a></td>
           <td class="trades-table__price">280.51₽</td>
-          <td class="trades-table__price">-29%</td>
+          <td class="trades-table__price down">-29%</td>
   
           <td class="trades-table__big-description">
             <div>Банк и мажоритарий скупают акции. Банк заработал рекордную прибыль благодаря валютным операциям, но
@@ -1491,7 +1627,7 @@
           <td>3</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>22.07.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/BSPB/" class="blue-link">
               <svg width="14" height="14">
@@ -1517,7 +1653,7 @@
   
           <td>71₽</td>
           <td class="trades-table__price">68.82₽</td>
-          <td class="trades-table__price">3%</td>
+          <td class="trades-table__price up">3%</td>
   
           <td class="trades-table__big-description">
             <div>Компания собирается стать частной. Миноритариев могут "высадить" принудительно по невыгодным ценам.
@@ -1534,7 +1670,7 @@
           <td>3</td>
           <td class="color-rating--2">2</td>
   
-          <td>&nbsp;</td>
+          
           <td>25.07.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/DSKY/" class="blue-link">
               <svg width="14" height="14">
@@ -1560,7 +1696,7 @@
   
           <td>955₽</td>
           <td class="trades-table__price">542₽</td>
-          <td class="trades-table__price">76%</td>
+          <td class="trades-table__price up">76%</td>
   
           <td class="trades-table__big-description">
             <div>Холдинг. (высокорентабельные ГЭС + контрольный пакет в Русале), бенефециар энергокризисов и высоких цен
@@ -1577,7 +1713,7 @@
           <td>4</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>01.08.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/ENPG/" class="blue-link">
               <svg width="14" height="14">
@@ -1619,7 +1755,7 @@
           <td>3</td>
           <td class="color-rating--2">2</td>
   
-          <td>&nbsp;</td>
+          
           <td>19.09.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/ENRU/" class="blue-link">
               <svg width="14" height="14">
@@ -1645,7 +1781,7 @@
   
           <td>1900₽</td>
           <td class="trades-table__price">2203₽</td>
-          <td class="trades-table__price">-14%</td>
+          <td class="trades-table__price down">-14%</td>
   
           <td class="trades-table__big-description">
             <div>При схожих финансах дисконт с Магнитом минимальный (около 5%). Прописка в Нидерландах - БОЛЬШАЯ
@@ -1663,7 +1799,7 @@
           <td>4</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>25.09.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/FIVE/" class="blue-link">
               <svg width="14" height="14">
@@ -1689,7 +1825,7 @@
   
           <td>344₽</td>
           <td class="trades-table__price">424.8₽</td>
-          <td class="trades-table__price">-19%</td>
+          <td class="trades-table__price down">-19%</td>
   
           <td class="trades-table__big-description">
             <div>После падения оценка акций близка к справедливой. Расписка☹️ Компания стоит дорого, а темпы роста
@@ -1706,7 +1842,7 @@
           <td>4</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>18.09.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/FIXP/" class="blue-link">
               <svg width="14" height="14">
@@ -1732,7 +1868,7 @@
   
           <td>71₽</td>
           <td class="trades-table__price">107.07₽</td>
-          <td class="trades-table__price">-34%</td>
+          <td class="trades-table__price down">-34%</td>
   
           <td class="trades-table__big-description">
             <div>Отчеты скрывают, под санкционным риском. Компания циклическая и зависит от текущих ставок на фрахт
@@ -1749,7 +1885,7 @@
           <td>3</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>12.09.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/FLOT/" class="blue-link">
               <svg width="14" height="14">
@@ -1775,7 +1911,7 @@
   
           <td>200₽</td>
           <td class="trades-table__price">176.48₽</td>
-          <td class="trades-table__price">13%</td>
+          <td class="trades-table__price up">13%</td>
   
           <td class="trades-table__big-description">
             <div>Газпром может выплатить 10 руб дивидендов за 2-е полугодие 22 г. Вероятный дивиденд за 2023 год может
@@ -1794,7 +1930,7 @@
           <td>3</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>26.07.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/GAZP/" class="blue-link">
               <svg width="14" height="14">
@@ -1820,7 +1956,7 @@
   
           <td>800₽</td>
           <td class="trades-table__price">996.5₽</td>
-          <td class="trades-table__price">-20%</td>
+          <td class="trades-table__price down">-20%</td>
   
           <td class="trades-table__big-description">
             <div>Прибыльная дочерняя компания ИСКЧ, из которой собственник выкачивает деньги всеми возможными способами.
@@ -1837,7 +1973,7 @@
           <td>3</td>
           <td class="color-rating--2">2</td>
   
-          <td>&nbsp;</td>
+          
           <td>13.08.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/GEMA/" class="blue-link">
               <svg width="14" height="14">
@@ -1863,7 +1999,7 @@
   
           <td>670₽</td>
           <td class="trades-table__price">792₽</td>
-          <td class="trades-table__price">-15%</td>
+          <td class="trades-table__price down">-15%</td>
   
           <td class="trades-table__big-description">
             <div>Смущает информационная полная закрытость (пока вернулись с отчетом за 2022 год). Отток экспатов из
@@ -1881,7 +2017,7 @@
           <td>4</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>31.07.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/GEMC/" class="blue-link">
               <svg width="14" height="14">
@@ -1907,7 +2043,7 @@
   
           <td>600₽</td>
           <td class="trades-table__price">667.6₽</td>
-          <td class="trades-table__price">-10%</td>
+          <td class="trades-table__price down">-10%</td>
   
           <td class="trades-table__big-description">
             <div>Конъюнктура хорошая (ставки на полувагоны и цистерны на максимумах), фунданметально недооценена рынком.
@@ -1922,7 +2058,7 @@
           <td>3</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>02.08.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/GLTR/" class="blue-link">
               <svg width="14" height="14">
@@ -1948,7 +2084,7 @@
   
           <td>11776₽</td>
           <td class="trades-table__price">16386₽</td>
-          <td class="trades-table__price">-28%</td>
+          <td class="trades-table__price down">-28%</td>
   
           <td class="trades-table__big-description">
             <div>Сложно заменить на мировом рынке, низкая доля внутр продаж. Снижение цен на металлы на фоне замедления
@@ -1965,7 +2101,7 @@
           <td>4</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>28.07.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/GMKN/" class="blue-link">
               <svg width="14" height="14">
@@ -2009,7 +2145,7 @@
           <td>4</td>
           <td class="color-rating--2">2</td>
   
-          <td>&nbsp;</td>
+          
           <td>21.09.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/HYDR/" class="blue-link">
               <svg width="14" height="14">
@@ -2035,7 +2171,7 @@
   
           <td>6₽</td>
           <td class="trades-table__price">4.1995₽</td>
-          <td class="trades-table__price">43%</td>
+          <td class="trades-table__price up">43%</td>
   
           <td class="trades-table__big-description">
             <div>Высокая недооценка из-за нежелания распределять прибыль .</div>
@@ -2049,7 +2185,7 @@
           <td>4</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>04.08.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/IRAO/" class="blue-link">
               <svg width="14" height="14">
@@ -2075,7 +2211,7 @@
   
           <td>80₽</td>
           <td class="trades-table__price">114.72₽</td>
-          <td class="trades-table__price">-30%</td>
+          <td class="trades-table__price down">-30%</td>
   
           <td class="trades-table__big-description">
             <div>Чтобы акции компании стоили 100 рублей, бизнес должен вырасти не менее чем в 10 раз.
@@ -2092,7 +2228,7 @@
           <td>2</td>
           <td class="color-rating--1">1</td>
   
-          <td>&nbsp;</td>
+          
           <td>05.08.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/ISKJ/" class="blue-link">
               <svg width="14" height="14">
@@ -2118,7 +2254,7 @@
   
           <td>750₽</td>
           <td class="trades-table__price">797₽</td>
-          <td class="trades-table__price">-6%</td>
+          <td class="trades-table__price down">-6%</td>
   
           <td class="trades-table__big-description">
             <div>Основная выручка идет от стагнируещего формата гипермаркетов. Увеличили присутствие в онлайне, но
@@ -2135,7 +2271,7 @@
           <td>3</td>
           <td class="color-rating--2">2</td>
   
-          <td>&nbsp;</td>
+          
           <td>07.08.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/LENT/" class="blue-link">
               <svg width="14" height="14">
@@ -2161,7 +2297,7 @@
   
           <td>8304₽</td>
           <td class="trades-table__price">6249₽</td>
-          <td class="trades-table__price">33%</td>
+          <td class="trades-table__price up">33%</td>
   
           <td class="trades-table__big-description">
             <div>Дивидендный аристократ в прошлом, высокоэффективный нефтегазовый мейджор. Основной риск: новые налоги,
@@ -2176,7 +2312,7 @@
           <td>4</td>
           <td class="color-rating--4">4</td>
   
-          <td>&nbsp;</td>
+          
           <td>08.08.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/LKOH/" class="blue-link">
               <svg width="14" height="14">
@@ -2220,7 +2356,7 @@
           <td>3</td>
           <td class="color-rating--2">2</td>
   
-          <td>&nbsp;</td>
+          
           <td>29.07.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/LSRG/" class="blue-link">
               <svg width="14" height="14">
@@ -2260,7 +2396,7 @@
           <td>4</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>12.08.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/MAGN/" class="blue-link">
               <svg width="14" height="14">
@@ -2286,7 +2422,7 @@
   
           <td>725₽</td>
           <td class="trades-table__price">771.5₽</td>
-          <td class="trades-table__price">-6%</td>
+          <td class="trades-table__price down">-6%</td>
   
           <td class="trades-table__big-description">
             <div>Ковид победили, рождаемость не растет - ставка на альтернативные направления медицины. Для роста нужен
@@ -2301,7 +2437,7 @@
           <td>4</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>10.08.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/MDMG/" class="blue-link">
               <svg width="14" height="14">
@@ -2327,7 +2463,7 @@
   
           <td>5650₽</td>
           <td class="trades-table__price">5621.5₽</td>
-          <td class="trades-table__price">1%</td>
+          <td class="trades-table__price up">1%</td>
   
           <td class="trades-table__big-description">
             <div>Ждем решения вопроса по дивидендам в этом году. Рост выручки может начать замедляться в 3-ем квартале.
@@ -2342,7 +2478,7 @@
           <td>4</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>09.08.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/MGNT/" class="blue-link">
               <svg width="14" height="14">
@@ -2368,7 +2504,7 @@
   
           <td>115₽</td>
           <td class="trades-table__price">135.54₽</td>
-          <td class="trades-table__price">-15%</td>
+          <td class="trades-table__price down">-15%</td>
   
           <td class="trades-table__big-description">
             <div>При цене акций &gt; 100 руб не видно потенциала или драйверов для переоценки. Дивдоходность 2022
@@ -2386,7 +2522,7 @@
           <td>5</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>14.08.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/MOEX/" class="blue-link">
               <svg width="14" height="14">
@@ -2412,7 +2548,7 @@
   
           <td>2₽</td>
           <td class="trades-table__price">3.088₽</td>
-          <td class="trades-table__price">-35%</td>
+          <td class="trades-table__price down">-35%</td>
   
           <td class="trades-table__big-description">
             <div>У компании нет долгов, стабильный свободный денежный поток, но много денежных средств отправляет
@@ -2428,7 +2564,7 @@
           <td>4</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>15.08.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/MSNG/" class="blue-link">
               <svg width="14" height="14">
@@ -2454,7 +2590,7 @@
   
           <td>1₽</td>
           <td class="trades-table__price">1.3295₽</td>
-          <td class="trades-table__price">-25%</td>
+          <td class="trades-table__price down">-25%</td>
   
           <td class="trades-table__big-description">
             <div>За 2022г. снизился общий долг, увеличилась чистая прибыль, но часть дивидендов уже выплачена за 9
@@ -2470,7 +2606,7 @@
           <td>3</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>01.09.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/MSRS/" class="blue-link">
               <svg width="14" height="14">
@@ -2496,7 +2632,7 @@
   
           <td>250₽</td>
           <td class="trades-table__price">290.55₽</td>
-          <td class="trades-table__price">-14%</td>
+          <td class="trades-table__price down">-14%</td>
   
           <td class="trades-table__big-description">
             <div>Повышение тарифов на 10% в 22 году. Запредельные дивиденды. Отсутствие большого денежного потока, чтобы
@@ -2513,7 +2649,7 @@
           <td>4</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>16.08.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/MTSS/" class="blue-link">
               <svg width="14" height="14">
@@ -2539,7 +2675,7 @@
   
           <td>36₽</td>
           <td class="trades-table__price">226.7₽</td>
-          <td class="trades-table__price">-84%</td>
+          <td class="trades-table__price down">-84%</td>
   
           <td class="trades-table__big-description">
             <div>Падение числа заказов, отрицательный денежный поток, планы роста не реализуются, Гуцериев хочет
@@ -2555,7 +2691,7 @@
           <td>2</td>
           <td class="color-rating--1">1</td>
   
-          <td>&nbsp;</td>
+          
           <td>11.08.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/MVID/" class="blue-link">
               <svg width="14" height="14">
@@ -2596,7 +2732,7 @@
           <td>4</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>17.08.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/NKNC/" class="blue-link">
               <svg width="14" height="14">
@@ -2622,7 +2758,7 @@
   
           <td>9₽</td>
           <td class="trades-table__price">14.84₽</td>
-          <td class="trades-table__price">-39%</td>
+          <td class="trades-table__price down">-39%</td>
   
           <td class="trades-table__big-description">
             <div>Из-за эмбарго ЕС по нефти и другим товарам - грузооборот с Балтийского моря будет уходить в Черное, где
@@ -2639,7 +2775,7 @@
           <td>3</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>18.08.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/NMTP/" class="blue-link">
               <svg width="14" height="14">
@@ -2665,7 +2801,7 @@
   
           <td>1580₽</td>
           <td class="trades-table__price">1628.6₽</td>
-          <td class="trades-table__price">-3%</td>
+          <td class="trades-table__price down">-3%</td>
   
           <td class="trades-table__big-description">
             <div>Российской экспортер газа без санкций. Высокая прибыль от продажи конденсата с нефтью и СПГ Заводов
@@ -2683,7 +2819,7 @@
           <td>4</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>19.08.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/NVTK/" class="blue-link">
               <svg width="14" height="14">
@@ -2725,7 +2861,7 @@
           <td>3</td>
           <td class="color-rating--2">2</td>
   
-          <td>&nbsp;</td>
+          
           <td>21.08.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/OGKB/" class="blue-link">
               <svg width="14" height="14">
@@ -2751,7 +2887,7 @@
   
           <td>53₽</td>
           <td class="trades-table__price">35.61₽</td>
-          <td class="trades-table__price">49%</td>
+          <td class="trades-table__price up">49%</td>
   
           <td class="trades-table__big-description">
             <div>Большой долг, самый слабый рост среди продуктовых ритейлеров, убытки. Рост выручки и эффективности
@@ -2767,7 +2903,7 @@
           <td>2</td>
           <td class="color-rating--2">2</td>
   
-          <td>&nbsp;</td>
+          
           <td>23.08.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/OKEY/" class="blue-link">
               <svg width="14" height="14">
@@ -2807,7 +2943,7 @@
           <td>1</td>
           <td class="color-rating--1">1</td>
   
-          <td>&nbsp;</td>
+          
           <td>20.08.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/ORUP/" class="blue-link">
               <svg width="14" height="14">
@@ -2828,7 +2964,7 @@
   
           <td>1290₽</td>
           <td class="trades-table__price">2785.5₽</td>
-          <td class="trades-table__price">-54%</td>
+          <td class="trades-table__price down">-54%</td>
   
           <td class="trades-table__big-description">
             <div>Оценка базируется на смелом предположении, что OZON уже в 2023 году сумеет выйти на безубыточность, а в
@@ -2845,7 +2981,7 @@
           <td>3</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>22.08.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/OZON/" class="blue-link">
               <svg width="14" height="14">
@@ -2871,7 +3007,7 @@
   
           <td>10338₽</td>
           <td class="trades-table__price">11706₽</td>
-          <td class="trades-table__price">-12%</td>
+          <td class="trades-table__price down">-12%</td>
   
           <td class="trades-table__big-description">
             <div>Акции оценены справедливо. 3 риска: 1) Растущие ставки снижают привлекательность золота. 2) Непонятная
@@ -2890,7 +3026,7 @@
           <td>4</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>25.08.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/PLZL/" class="blue-link">
               <svg width="14" height="14">
@@ -2916,7 +3052,7 @@
   
           <td>323₽</td>
           <td class="trades-table__price">558.8₽</td>
-          <td class="trades-table__price">-42%</td>
+          <td class="trades-table__price down">-42%</td>
   
           <td class="trades-table__big-description">
             <div>Растущие ставки ФРС снижают привлекательность золота. Отсутствие ясности с продажами за рубеж.
@@ -2935,7 +3071,7 @@
           <td>3</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>24.08.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/POLY/" class="blue-link">
               <svg width="14" height="14">
@@ -2961,7 +3097,7 @@
   
           <td>1570₽</td>
           <td class="trades-table__price">2166.4₽</td>
-          <td class="trades-table__price">-28%</td>
+          <td class="trades-table__price down">-28%</td>
   
           <td class="trades-table__big-description">
             <div>Компания - основной бенефициар текущего кризиса, но акции уже оценены слишком высоко, P/E(23)=13-15.
@@ -2976,7 +3112,7 @@
           <td>4</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>30.07.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/POSI/" class="blue-link">
               <svg width="14" height="14">
@@ -3002,7 +3138,7 @@
   
           <td>640₽</td>
           <td class="trades-table__price">651₽</td>
-          <td class="trades-table__price">-2%</td>
+          <td class="trades-table__price down">-2%</td>
   
           <td class="trades-table__big-description">
             <div>Очень большие риски реструктуризации, в результате которых акционеры в НРД могут потерять права на
@@ -3017,7 +3153,7 @@
           <td>3</td>
           <td class="color-rating--2">2</td>
   
-          <td>&nbsp;</td>
+          
           <td>06.08.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/QIWI/" class="blue-link">
               <svg width="14" height="14">
@@ -3043,7 +3179,7 @@
   
           <td>421₽</td>
           <td class="trades-table__price">372.3₽</td>
-          <td class="trades-table__price">13%</td>
+          <td class="trades-table__price up">13%</td>
   
           <td class="trades-table__big-description">
             <div>Выручка больше, чем в среднем в прошлые годы. Экспорт ограничен, сильный рубль действует негативно.
@@ -3059,7 +3195,7 @@
           <td>4</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>28.08.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/RASP/" class="blue-link">
               <svg width="14" height="14">
@@ -3085,7 +3221,7 @@
   
           <td>78₽</td>
           <td class="trades-table__price">94.66₽</td>
-          <td class="trades-table__price">-18%</td>
+          <td class="trades-table__price down">-18%</td>
   
           <td class="trades-table__big-description">
             <div>Рост компании активизируется на снижении ставок. Компания регулярно выкупает свои акции, но про
@@ -3101,7 +3237,7 @@
           <td>3</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>29.08.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/RENI/" class="blue-link">
               <svg width="14" height="14">
@@ -3142,7 +3278,7 @@
           <td>2</td>
           <td class="color-rating--2">2</td>
   
-          <td>&nbsp;</td>
+          
           <td>31.08.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/RNFT/" class="blue-link">
               <svg width="14" height="14">
@@ -3185,7 +3321,7 @@
           <td>3</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>30.08.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/ROSN/" class="blue-link">
               <svg width="14" height="14">
@@ -3226,7 +3362,7 @@
           <td>4</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>27.08.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/RUAL/" class="blue-link">
               <svg width="14" height="14">
@@ -3269,7 +3405,7 @@
           <td>3</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>02.09.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/RZSB/" class="blue-link">
               <svg width="14" height="14">
@@ -3311,7 +3447,7 @@
           <td>5</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>09.09.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/SBER/" class="blue-link">
               <svg width="14" height="14">
@@ -3353,7 +3489,7 @@
           <td>2</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>11.09.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/SELG/" class="blue-link">
               <svg width="14" height="14">
@@ -3394,7 +3530,7 @@
           <td>3</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>20.09.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/SFIN/" class="blue-link">
               <svg width="14" height="14">
@@ -3434,7 +3570,7 @@
           <td>2</td>
           <td class="color-rating--2">2</td>
   
-          <td>&nbsp;</td>
+          
           <td>13.09.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/SFTL/" class="blue-link">
               <svg width="14" height="14">
@@ -3476,7 +3612,7 @@
           <td>3</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>10.09.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/SGZH/" class="blue-link">
               <svg width="14" height="14">
@@ -3517,7 +3653,7 @@
           <td>4</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>27.07.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/SIBN/" class="blue-link">
               <svg width="14" height="14">
@@ -3561,7 +3697,7 @@
           <td>4</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>03.09.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/SMLT/" class="blue-link">
               <svg width="14" height="14">
@@ -3603,7 +3739,7 @@
           <td>3</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>05.09.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/SNGS/" class="blue-link">
               <svg width="14" height="14">
@@ -3647,7 +3783,7 @@
           <td>3</td>
           <td class="color-rating--4">4</td>
   
-          <td>&nbsp;</td>
+          
           <td>06.09.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/SNGSP/" class="blue-link">
               <svg width="14" height="14">
@@ -3686,7 +3822,7 @@
           <td>3</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>04.09.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/STSB/" class="blue-link">
               <svg width="14" height="14">
@@ -3726,7 +3862,7 @@
           <td>4</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>14.09.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/TATN/" class="blue-link">
               <svg width="14" height="14">
@@ -3752,7 +3888,7 @@
   
           <td>3410₽</td>
           <td class="trades-table__price">3670₽</td>
-          <td class="trades-table__price">-7%</td>
+          <td class="trades-table__price down">-7%</td>
   
           <td class="trades-table__big-description">
             <div>Тинькофф остается растущей компанией, но санкции добрались и до него. Краткосрочно банковский сектор
@@ -3768,7 +3904,7 @@
           <td>4</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>16.09.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/TCSG/" class="blue-link">
               <svg width="14" height="14">
@@ -3811,7 +3947,7 @@
           <td>3</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>15.09.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/TGKA/" class="blue-link">
               <svg width="14" height="14">
@@ -3837,7 +3973,7 @@
   
           <td>145620₽</td>
           <td class="trades-table__price">119100₽</td>
-          <td class="trades-table__price">22%</td>
+          <td class="trades-table__price up">22%</td>
   
           <td class="trades-table__big-description">
             <div>Компания стоит дешево (фундаментально), дивиденды 10%+, но в показателях полная стагнация. Прибыль
@@ -3853,7 +3989,7 @@
           <td>3</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>08.09.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/TRNFP/" class="blue-link">
               <svg width="14" height="14">
@@ -3879,7 +4015,7 @@
   
           <td>145620₽</td>
           <td class="trades-table__price">119100₽</td>
-          <td class="trades-table__price">22%</td>
+          <td class="trades-table__price up">22%</td>
   
           <td class="trades-table__big-description">
             <div>Компания стоит дешево (фундаментально), дивиденды 10%+, но в показателях полная стагнация. Прибыль
@@ -3895,7 +4031,7 @@
           <td>3</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>17.09.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/TRNFP/" class="blue-link">
               <svg width="14" height="14">
@@ -3921,7 +4057,7 @@
   
           <td>2₽</td>
           <td class="trades-table__price">2.125₽</td>
-          <td class="trades-table__price">-6%</td>
+          <td class="trades-table__price down">-6%</td>
   
           <td class="trades-table__big-description">
             <div>Компания принадлежит иностранцам, поэтому выплаты дивидендов в такой ситуации не предвидится. У
@@ -3940,7 +4076,7 @@
           <td>3</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>22.09.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/UPRO/" class="blue-link">
               <svg width="14" height="14">
@@ -3982,7 +4118,7 @@
           <td>3</td>
           <td class="color-rating--2">2</td>
   
-          <td>&nbsp;</td>
+          
           <td>24.09.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/VKCO/" class="blue-link">
               <svg width="14" height="14">
@@ -4023,7 +4159,7 @@
           <td>2</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>23.07.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/VTBR/" class="blue-link">
               <svg width="14" height="14">
@@ -4065,7 +4201,7 @@
           <td>4</td>
           <td class="color-rating--3">3</td>
   
-          <td>&nbsp;</td>
+          
           <td>24.07.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/WUSH/" class="blue-link">
               <svg width="14" height="14">
@@ -4107,7 +4243,7 @@
           <td></td>
           <td class="color-rating--2">2</td>
   
-          <td>&nbsp;</td>
+          
           <td>23.09.2023</td>
           <td class="trades-table__icon-link"><a href="/forum/forecast/YNDX/" class="blue-link">
               <svg width="14" height="14">
