@@ -2337,22 +2337,22 @@
                 <div class="moderation-pop-up__left-col">
                     <div class="moderation-pop-up__btns">
                         <div class="moderation-pop-up__btns-row">
-                            <button class="moderation-pop-up__btn blue-btn" type="button">Редактировать</button>
-                            <button class="moderation-pop-up__btn blue-btn" type="button">Удалить</button>
+                            <button class="moderation-pop-up__btn blue-btn blue-btn--not-selected" type="button">Редактировать</button>
+                            <button class="moderation-pop-up__btn blue-btn  blue-btn--not-selected" type="button">Удалить</button>
                         </div>
                         <div class="moderation-pop-up__btns-row">
                             <button class="moderation-pop-up__btn blue-btn" type="button">На главную</button>
-                            <button class="moderation-pop-up__btn blue-btn" type="button">Убрать с&nbsp;главной</button>
+                            <button class="moderation-pop-up__btn blue-btn  blue-btn--not-selected" type="button">Убрать с&nbsp;главной</button>
                         </div>
                         <div class="moderation-pop-up__btns-row">
-                            <button class="moderation-pop-up__to-smm blue-btn" type="button">В SMM</button>
+                            <button class="moderation-pop-up__to-smm blue-btn  blue-btn--not-selected" type="button">В SMM</button>
                         </div>
                     </div>
 
                     <div class="moderation-pop-up__spollers _spollers _one">
                         <div class="moderation-pop-up__spollers-inner">
                             <button
-                                class="moderation-pop-up__spoller moderation-pop-up__spoller--left blue-btn _spoller"
+                                class="moderation-pop-up__spoller moderation-pop-up__spoller--left blue-btn  blue-btn--not-selected _spoller"
                                 type="button">
                                 Оффтоп
                                 <svg width="19" height="18">
@@ -2536,25 +2536,26 @@
                     <div class="moderation-pop-up__extra-tags">
                         <div class="moderation-pop-up__title">Экстра-теги:</div>
                         <div class="moderation-pop-up__extra-tags-inner">
-                            <div class="moderation-pop-up__tag"><button class="blue-btn blue-btn--active"
+                            <!-- Модификатор `.blue-btn--active`  для выделения более темным цветом -->
+                            <div class="moderation-pop-up__tag"><button class="blue-btn"
                                     type="button">STK</button></div>
-                            <div class="moderation-pop-up__tag"><button class="blue-btn" type="button">BND</button>
+                            <div class="moderation-pop-up__tag"><button class="blue-btn  blue-btn--not-selected" type="button">BND</button>
                             </div>
                             <div class="moderation-pop-up__tag"><button class="blue-btn" type="button">OPT</button>
                             </div>
-                            <div class="moderation-pop-up__tag"><button class="blue-btn" type="button">ALG</button>
+                            <div class="moderation-pop-up__tag"><button class="blue-btn  blue-btn--not-selected" type="button">ALG</button>
                             </div>
-                            <div class="moderation-pop-up__tag"><button class="blue-btn" type="button">BNK</button>
+                            <div class="moderation-pop-up__tag"><button class="blue-btn  blue-btn--not-selected" type="button">BNK</button>
                             </div>
                             <div class="moderation-pop-up__tag"><button class="blue-btn" type="button">BRK</button>
                             </div>
                             <div class="moderation-pop-up__tag"><button class="blue-btn" type="button">SFT</button>
                             </div>
-                            <div class="moderation-pop-up__tag"><button class="blue-btn" type="button">TRD</button>
+                            <div class="moderation-pop-up__tag"><button class="blue-btn  blue-btn--not-selected" type="button">TRD</button>
                             </div>
-                            <div class="moderation-pop-up__tag"><button class="blue-btn" type="button">FX</button>
+                            <div class="moderation-pop-up__tag"><button class="blue-btn  blue-btn--not-selected" type="button">FX</button>
                             </div>
-                            <div class="moderation-pop-up__tag"><button class="blue-btn" type="button">CRY</button>
+                            <div class="moderation-pop-up__tag"><button class="blue-btn  blue-btn--not-selected" type="button">CRY</button>
                             </div>
                         </div>
                     </div>
@@ -2578,30 +2579,31 @@
                             </span>
                         </div>
                         <div class="moderation-pop-up__search-wrapper" id="tag-search-wrapper">
-                            <input type="text" class="moderation-pop-up__search" placeholder="Поиск" autocomplete="off">
+                            <input type="text" class="moderation-pop-up__search search-field-with-icon" placeholder="Поиск" autocomplete="off">
                         </div>
                         <div class="moderation-pop-up__tags-inner">
-                            <span class="post-label post-label--with-btn post-label--active">
+                            <!-- Есть модификатор `.post-label--active` для выделения более темным цветом -->
+                            <span class="post-label post-label--with-btn">
                                 дивиденды
                                 <button class="post-label__btn" type="button"></button>
                             </span>
-                            <span class="post-label">
+                            <span class="post-label post-label--not-selected">
                                 отчеты МСФО
                                 <button class="post-label__btn" type="button"></button>
                             </span>
-                            <span class="post-label">
+                            <span class="post-label post-label--not-selected">
                                 отчеты РСБУ
                                 <button class="post-label__btn" type="button"></button>
                             </span>
-                            <span class="post-label">
+                            <span class="post-label post-label--not-selected">
                                 операционные результаты
                                 <button class="post-label__btn" type="button"></button>
                             </span>
-                            <span class="post-label">
+                            <span class="post-label post-label--not-selected">
                                 технический анализ
                                 <button class="post-label__btn" type="button"></button>
                             </span>
-                            <span class="post-label">
+                            <span class="post-label post-label--not-selected">
                                 прогноз по акциям
                                 <button class="post-label__btn" type="button"></button>
                             </span>
@@ -2610,7 +2612,7 @@
                     <div class="moderation-pop-up__companies">
                         <div class="moderation-pop-up__title">Привязать форум:</div>
                         <div class="moderation-pop-up__search-wrapper" id="comp-search-wrapper">
-                            <input type="text" class="moderation-pop-up__search" placeholder="Поиск" autocomplete="off">
+                            <input type="text" class="moderation-pop-up__search search-field-with-icon" placeholder="Поиск" autocomplete="off">
                         </div>
                         <div class="moderation-pop-up__tags-inner">
                             <span class="post-label post-label--with-btn">

@@ -1191,6 +1191,37 @@ body.dark-theme.loader:before {
   background: #2a2c30;
 }
 
+.dark-theme .x {
+  color: #e9e9e9;
+  background-color: #2a2c30;
+  border-color: #c1cbd6;
+}
+
+.dark-theme .x::-webkit-input-placeholder {
+  color: #c1cbd6;
+}
+
+.dark-theme .x::-moz-placeholder {
+  color: #c1cbd6;
+}
+
+.dark-theme .x:-ms-input-placeholder {
+  color: #c1cbd6;
+}
+
+.dark-theme .x::-ms-input-placeholder {
+  color: #c1cbd6;
+}
+
+.dark-theme .x::placeholder {
+  color: #c1cbd6;
+}
+
+.dark-theme .x:hover,
+.dark-theme .x:focus {
+  border-color: #a5a5a5;
+}
+
 .dark-theme .jBox-trades-table .jBox-container {
   border: 1px solid #515151;
   background: #2a2c30;

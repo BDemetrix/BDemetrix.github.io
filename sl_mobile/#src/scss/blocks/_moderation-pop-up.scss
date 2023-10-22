@@ -1,6 +1,7 @@
 .moderation-pop-up {
     font-family: Roboto, Tahoma, "Open Sans", Verdana, sans-serif;
-    color: #323232;
+    // color: #323232;
+    color: #000;
 
     // .moderation-pop-up__close {
     &__close {
@@ -27,7 +28,7 @@
     &__title {
         width: 100%;
         font-size: 18px;
-        font-weight: 500;
+        font-weight: 500; 
     }
     // .moderation-pop-up__inner
     &__inner {
@@ -196,17 +197,8 @@
     &__search {
         width: 100%;
         margin: 0px 0px 0px 0px;
-        padding: 11px 15px;
-        background: #ffffff;
-        border: 1px solid #a5a5a5;
-        border-radius: 5px;
         color: inherit;
         font-size: 14px;
-        line-height: 20px;
-
-        &:placeholder {
-            color: #a5a5a5;
-        }
     }
 
     /*  Дополнительные изменения от Владимира */
@@ -239,6 +231,8 @@
             padding: 7px 14px 5px;
             border: 0;
             transition: all 0.3s ease;
+
+            @extend .custom-scrollbar;
         }
 
         .autocomplete-suggestion.autocomplete-selected {
