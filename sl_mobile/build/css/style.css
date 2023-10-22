@@ -483,8 +483,13 @@ picture {
 }
 
 .blue-btn:disabled {
-  background: #ccc;
   pointer-events: none;
+}
+
+.blue-btn:disabled,
+.blue-btn--not-selected {
+  color: #808080;
+  background: #E7E7E7;
 }
 
 .cancel-btn {
@@ -726,6 +731,15 @@ picture {
   background: #4a80a4;
 }
 
+.post-label--not-selected {
+  color: #808080;
+  background: #E7E7E7;
+}
+
+.post-label--not-selected svg {
+  fill: currentColor !important;
+}
+
 .post-label__btn {
   background: transparent no-repeat center/9px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='8' viewBox='0 0 7 8' fill='none'%3E%3Cpath d='M4.32171 3.9995L6.82762 1.49906C6.93736 1.38931 6.99901 1.24045 6.99901 1.08524C6.99901 0.930023 6.93736 0.781166 6.82762 0.671412C6.71788 0.561659 6.56904 0.5 6.41385 0.5C6.25866 0.5 6.10982 0.561659 6.00008 0.671412L3.5 3.17768L0.999916 0.671412C0.890178 0.561659 0.741342 0.5 0.586149 0.5C0.430957 0.5 0.28212 0.561659 0.172382 0.671412C0.0626446 0.781166 0.000994557 0.930023 0.000994556 1.08524C0.000994554 1.24045 0.0626446 1.38931 0.172382 1.49906L2.67829 3.9995L0.172382 6.49994C0.11776 6.55413 0.0744057 6.61859 0.0448192 6.68962C0.0152327 6.76064 0 6.83682 0 6.91377C0 6.99071 0.0152327 7.06689 0.0448192 7.13792C0.0744057 7.20895 0.11776 7.27341 0.172382 7.32759C0.226558 7.38222 0.291013 7.42559 0.362029 7.45518C0.433045 7.48477 0.509217 7.5 0.586149 7.5C0.663082 7.5 0.739253 7.48477 0.810269 7.45518C0.881285 7.42559 0.94574 7.38222 0.999916 7.32759L3.5 4.82133L6.00008 7.32759C6.05426 7.38222 6.11872 7.42559 6.18973 7.45518C6.26075 7.48477 6.33692 7.5 6.41385 7.5C6.49078 7.5 6.56696 7.48477 6.63797 7.45518C6.70899 7.42559 6.77344 7.38222 6.82762 7.32759C6.88224 7.27341 6.9256 7.20895 6.95518 7.13792C6.98477 7.06689 7 6.99071 7 6.91377C7 6.83682 6.98477 6.76064 6.95518 6.68962C6.9256 6.61859 6.88224 6.55413 6.82762 6.49994L4.32171 3.9995Z' fill='white'/%3E%3C/svg%3E");
 }
@@ -737,7 +751,8 @@ picture {
   border-radius: 10px;
 }
 
-.custom-scrollbar {
+.custom-scrollbar,
+.moderation-pop-up__search-results .autocomplete-suggestion {
   /* полоса прокрутки (скроллбар) */
   /* ползунок скроллбара */
   /* Стрелки */
@@ -771,26 +786,30 @@ picture {
   /* Работает в Firefox */
 }
 
-.custom-scrollbar::-webkit-scrollbar {
+.custom-scrollbar::-webkit-scrollbar,
+.moderation-pop-up__search-results .autocomplete-suggestion::-webkit-scrollbar {
   width: 12px;
   /* ширина для вертикального скролла */
   height: 12px;
   /* высота для горизонтального скролла */
 }
 
-.custom-scrollbar::-webkit-scrollbar-track {
+.custom-scrollbar::-webkit-scrollbar-track,
+.moderation-pop-up__search-results .autocomplete-suggestion::-webkit-scrollbar-track {
   box-shadow: 2px 2px 2px -2px rgba(34, 60, 80, 0.2) inset;
   -webkit-box-shadow: 2px 2px 2px -2px rgba(34, 60, 80, 0.2) inset;
   border-radius: 10px;
   background-color: #f9f9fd;
 }
 
-.custom-scrollbar::-webkit-scrollbar-thumb {
+.custom-scrollbar::-webkit-scrollbar-thumb,
+.moderation-pop-up__search-results .autocomplete-suggestion::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: #ced4da;
 }
 
-.custom-scrollbar * {
+.custom-scrollbar *,
+.moderation-pop-up__search-results .autocomplete-suggestion * {
   scrollbar-width: thin;
   scrollbar-color: #f9f9fd #ced4da;
 }
@@ -978,6 +997,36 @@ picture {
 
 .box-title a:hover {
   border-color: transparent;
+}
+
+.search-field-with-icon {
+  border: 1px solid #a5a5a5;
+  border-radius: 5px;
+  color: #383838;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 11px 12px 11px 46px;
+  background: #fff no-repeat left 15px center/21px 26px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='21' height='26' viewBox='0 0 21 26' fill='none'%3E%3Ccircle cx='10.4113' cy='11.0268' r='6.77477' transform='rotate(-30 10.4113 11.0268)' stroke='%23383838' stroke-width='1.69369'/%3E%3Cline x1='13.3752' y1='16.1604' x2='18.4563' y2='24.9611' stroke='%23383838' stroke-width='1.69369'/%3E%3C/svg%3E");
+}
+
+.search-field-with-icon::-webkit-input-placeholder {
+  color: #383838;
+}
+
+.search-field-with-icon::-moz-placeholder {
+  color: #383838;
+}
+
+.search-field-with-icon:-ms-input-placeholder {
+  color: #383838;
+}
+
+.search-field-with-icon::-ms-input-placeholder {
+  color: #383838;
+}
+
+.search-field-with-icon::placeholder {
+  color: #383838;
 }
 
 [data-simplebar] {
@@ -9322,7 +9371,7 @@ textarea {
 
 .moderation-pop-up {
   font-family: Roboto, Tahoma, "Open Sans", Verdana, sans-serif;
-  color: #323232;
+  color: #000;
   /*  Дополнительные изменения от Владимира */
 }
 
@@ -9496,17 +9545,8 @@ textarea {
 .moderation-pop-up__search {
   width: 100%;
   margin: 0px 0px 0px 0px;
-  padding: 11px 15px;
-  background: #ffffff;
-  border: 1px solid #a5a5a5;
-  border-radius: 5px;
   color: inherit;
   font-size: 14px;
-  line-height: 20px;
-}
-
-.moderation-pop-up__search:placeholder {
-  color: #a5a5a5;
 }
 
 .moderation-pop-up__search-wrapper {
@@ -10947,28 +10987,6 @@ textarea {
 
 .nf-filter__search {
   width: 100%;
-  padding: 0 12px 0 46px;
-  background: #fff no-repeat left 15px center/21px 26px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='21' height='26' viewBox='0 0 21 26' fill='none'%3E%3Ccircle cx='10.4113' cy='11.0268' r='6.77477' transform='rotate(-30 10.4113 11.0268)' stroke='%23383838' stroke-width='1.69369'/%3E%3Cline x1='13.3752' y1='16.1604' x2='18.4563' y2='24.9611' stroke='%23383838' stroke-width='1.69369'/%3E%3C/svg%3E");
-}
-
-.nf-filter__search::-webkit-input-placeholder {
-  color: #383838;
-}
-
-.nf-filter__search::-moz-placeholder {
-  color: #383838;
-}
-
-.nf-filter__search:-ms-input-placeholder {
-  color: #383838;
-}
-
-.nf-filter__search::-ms-input-placeholder {
-  color: #383838;
-}
-
-.nf-filter__search::placeholder {
-  color: #383838;
 }
 
 .nf-filter__date-wrap,
@@ -15838,31 +15856,41 @@ body.dark-theme.loader:before {
   color: #545454;
 }
 
-.dark-theme .custom-scrollbar {
+.dark-theme .custom-scrollbar,
+.dark-theme .moderation-pop-up__search-results .autocomplete-suggestion,
+.moderation-pop-up__search-results .dark-theme .autocomplete-suggestion {
   /* полоса прокрутки (скроллбар) */
   /* ползунок скроллбара */
   /* Работает в Firefox */
 }
 
-.dark-theme .custom-scrollbar::-webkit-scrollbar {
+.dark-theme .custom-scrollbar::-webkit-scrollbar,
+.dark-theme .moderation-pop-up__search-results .autocomplete-suggestion::-webkit-scrollbar,
+.moderation-pop-up__search-results .dark-theme .autocomplete-suggestion::-webkit-scrollbar {
   width: 12px;
   /* ширина для вертикального скролла */
   height: 12px;
   /* высота для горизонтального скролла */
 }
 
-.dark-theme .custom-scrollbar::-webkit-scrollbar-track {
+.dark-theme .custom-scrollbar::-webkit-scrollbar-track,
+.dark-theme .moderation-pop-up__search-results .autocomplete-suggestion::-webkit-scrollbar-track,
+.moderation-pop-up__search-results .dark-theme .autocomplete-suggestion::-webkit-scrollbar-track {
   -webkit-box-shadow: none;
           box-shadow: none;
   background-color: #2a2c30;
 }
 
-.dark-theme .custom-scrollbar::-webkit-scrollbar-thumb {
+.dark-theme .custom-scrollbar::-webkit-scrollbar-thumb,
+.dark-theme .moderation-pop-up__search-results .autocomplete-suggestion::-webkit-scrollbar-thumb,
+.moderation-pop-up__search-results .dark-theme .autocomplete-suggestion::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: #515151;
 }
 
-.dark-theme .custom-scrollbar * {
+.dark-theme .custom-scrollbar *,
+.dark-theme .moderation-pop-up__search-results .autocomplete-suggestion *,
+.moderation-pop-up__search-results .dark-theme .autocomplete-suggestion * {
   scrollbar-color: #515151 #2a2c30;
 }
 
@@ -16036,6 +16064,37 @@ body.dark-theme.loader:before {
 
 .dark-theme .table-mask__offers {
   background: #2a2c30;
+}
+
+.dark-theme .x {
+  color: #e9e9e9;
+  background-color: #2a2c30;
+  border-color: #c1cbd6;
+}
+
+.dark-theme .x::-webkit-input-placeholder {
+  color: #c1cbd6;
+}
+
+.dark-theme .x::-moz-placeholder {
+  color: #c1cbd6;
+}
+
+.dark-theme .x:-ms-input-placeholder {
+  color: #c1cbd6;
+}
+
+.dark-theme .x::-ms-input-placeholder {
+  color: #c1cbd6;
+}
+
+.dark-theme .x::placeholder {
+  color: #c1cbd6;
+}
+
+.dark-theme .x:hover,
+.dark-theme .x:focus {
+  border-color: #a5a5a5;
 }
 
 .dark-theme .jBox-trades-table .jBox-container {

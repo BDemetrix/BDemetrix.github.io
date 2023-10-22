@@ -1197,6 +1197,22 @@ body.dark-theme.loader:before {
         }
     }
 
+    .x {
+        color: $text-color;
+            background-color: $element-bg;
+
+            &::placeholder {
+                color: $border-color;
+            }
+
+            border-color: $border-color;
+
+            &:hover,
+            &:focus {
+                border-color: #a5a5a5;
+            }
+    }
+
     .jBox-trades-table {
         .jBox-container { 
             border: 1px solid $table-border-color;
