@@ -7071,7 +7071,7 @@ textarea {
 }
 
 .post-card__header-inner--with-full-menu {
-  width: calc(100% - 114px);
+  width: calc(100% - 60px);
 }
 
 .post-card__header-inner--post {
@@ -7145,6 +7145,7 @@ textarea {
 }
 
 .post-card__subscription {
+  display: none;
   margin: 0 12px 0 10px;
 }
 
@@ -10578,6 +10579,7 @@ textarea {
   left: 0;
   -o-object-fit: cover;
      object-fit: cover;
+  border-radius: 8px;
 }
 
 .news-card__inner {
@@ -16385,6 +16387,18 @@ body.loader:before {
 @media (min-width: 392px) {
   .apps-box__item {
     width: 20%;
+  }
+}
+
+@media (min-width: 400px) {
+  .post-card__header-inner--with-full-menu {
+    width: calc(100% - 114px);
+  }
+
+  .post-card__subscription {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 }
 

@@ -70,8 +70,11 @@
         max-width: 100%; 
 
         &--with-full-menu {
-            width: calc(100% - 114px);
+            width: calc(100% - 60px);
 
+            @media (min-width: 400px) {
+                width: calc(100% - 114px);
+            }
             @media (min-width: $md4 + px) {
                 width: calc(100% - 218px);
             }
@@ -152,7 +155,12 @@
     }
     // .post-card__subscription 
     &__subscription {
+        display: none;
         margin: 0 12px 0 10px;
+        
+        @media (min-width: 400px) {
+            display: flex;
+        }
     }
     // .post-card__menu-wrap
     &__menu-wrap {

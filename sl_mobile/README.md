@@ -21,7 +21,8 @@
 20) https://bdemetrix.github.io/sl_mobile/build/ofz.html  
 21) https://bdemetrix.github.io/sl_mobile/build/quotes.html  
 22) https://bdemetrix.github.io/sl_mobile/build/stocks-rating.html
-23) https://bdemetrix.github.io/sl_mobile/build/news-premium.html
+23) https://bdemetrix.github.io/sl_mobile/build/stocks-rating-mask.html
+24) https://bdemetrix.github.io/sl_mobile/build/news-premium.html
 
 
 #### Исходники в #src:
