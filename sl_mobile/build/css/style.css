@@ -752,7 +752,9 @@ picture {
 }
 
 .custom-scrollbar,
-.moderation-pop-up__search-results .autocomplete-suggestion {
+.dark-theme .moderation-pop-up__search-wrapper .autocomplete-suggestions,
+.dark-theme .search-block .autocomplete-suggestions,
+.moderation-pop-up__search-wrapper .autocomplete-suggestions {
   /* полоса прокрутки (скроллбар) */
   /* ползунок скроллбара */
   /* Стрелки */
@@ -787,7 +789,9 @@ picture {
 }
 
 .custom-scrollbar::-webkit-scrollbar,
-.moderation-pop-up__search-results .autocomplete-suggestion::-webkit-scrollbar {
+.dark-theme .moderation-pop-up__search-wrapper .autocomplete-suggestions::-webkit-scrollbar,
+.dark-theme .search-block .autocomplete-suggestions::-webkit-scrollbar,
+.moderation-pop-up__search-wrapper .autocomplete-suggestions::-webkit-scrollbar {
   width: 12px;
   /* ширина для вертикального скролла */
   height: 12px;
@@ -795,7 +799,9 @@ picture {
 }
 
 .custom-scrollbar::-webkit-scrollbar-track,
-.moderation-pop-up__search-results .autocomplete-suggestion::-webkit-scrollbar-track {
+.dark-theme .moderation-pop-up__search-wrapper .autocomplete-suggestions::-webkit-scrollbar-track,
+.dark-theme .search-block .autocomplete-suggestions::-webkit-scrollbar-track,
+.moderation-pop-up__search-wrapper .autocomplete-suggestions::-webkit-scrollbar-track {
   box-shadow: 2px 2px 2px -2px rgba(34, 60, 80, 0.2) inset;
   -webkit-box-shadow: 2px 2px 2px -2px rgba(34, 60, 80, 0.2) inset;
   border-radius: 10px;
@@ -803,13 +809,17 @@ picture {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb,
-.moderation-pop-up__search-results .autocomplete-suggestion::-webkit-scrollbar-thumb {
+.dark-theme .moderation-pop-up__search-wrapper .autocomplete-suggestions::-webkit-scrollbar-thumb,
+.dark-theme .search-block .autocomplete-suggestions::-webkit-scrollbar-thumb,
+.moderation-pop-up__search-wrapper .autocomplete-suggestions::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: #ced4da;
 }
 
 .custom-scrollbar *,
-.moderation-pop-up__search-results .autocomplete-suggestion * {
+.dark-theme .moderation-pop-up__search-wrapper .autocomplete-suggestions *,
+.dark-theme .search-block .autocomplete-suggestions *,
+.moderation-pop-up__search-wrapper .autocomplete-suggestions * {
   scrollbar-width: thin;
   scrollbar-color: #f9f9fd #ced4da;
 }
@@ -15857,16 +15867,18 @@ body.dark-theme.loader:before {
 }
 
 .dark-theme .custom-scrollbar,
-.dark-theme .moderation-pop-up__search-results .autocomplete-suggestion,
-.moderation-pop-up__search-results .dark-theme .autocomplete-suggestion {
+.dark-theme .moderation-pop-up__search-wrapper .autocomplete-suggestions,
+.moderation-pop-up__search-wrapper .dark-theme .autocomplete-suggestions,
+.dark-theme .search-block .autocomplete-suggestions {
   /* полоса прокрутки (скроллбар) */
   /* ползунок скроллбара */
   /* Работает в Firefox */
 }
 
 .dark-theme .custom-scrollbar::-webkit-scrollbar,
-.dark-theme .moderation-pop-up__search-results .autocomplete-suggestion::-webkit-scrollbar,
-.moderation-pop-up__search-results .dark-theme .autocomplete-suggestion::-webkit-scrollbar {
+.dark-theme .moderation-pop-up__search-wrapper .autocomplete-suggestions::-webkit-scrollbar,
+.moderation-pop-up__search-wrapper .dark-theme .autocomplete-suggestions::-webkit-scrollbar,
+.dark-theme .search-block .autocomplete-suggestions::-webkit-scrollbar {
   width: 12px;
   /* ширина для вертикального скролла */
   height: 12px;
@@ -15874,23 +15886,26 @@ body.dark-theme.loader:before {
 }
 
 .dark-theme .custom-scrollbar::-webkit-scrollbar-track,
-.dark-theme .moderation-pop-up__search-results .autocomplete-suggestion::-webkit-scrollbar-track,
-.moderation-pop-up__search-results .dark-theme .autocomplete-suggestion::-webkit-scrollbar-track {
+.dark-theme .moderation-pop-up__search-wrapper .autocomplete-suggestions::-webkit-scrollbar-track,
+.moderation-pop-up__search-wrapper .dark-theme .autocomplete-suggestions::-webkit-scrollbar-track,
+.dark-theme .search-block .autocomplete-suggestions::-webkit-scrollbar-track {
   -webkit-box-shadow: none;
           box-shadow: none;
   background-color: #2a2c30;
 }
 
 .dark-theme .custom-scrollbar::-webkit-scrollbar-thumb,
-.dark-theme .moderation-pop-up__search-results .autocomplete-suggestion::-webkit-scrollbar-thumb,
-.moderation-pop-up__search-results .dark-theme .autocomplete-suggestion::-webkit-scrollbar-thumb {
+.dark-theme .moderation-pop-up__search-wrapper .autocomplete-suggestions::-webkit-scrollbar-thumb,
+.moderation-pop-up__search-wrapper .dark-theme .autocomplete-suggestions::-webkit-scrollbar-thumb,
+.dark-theme .search-block .autocomplete-suggestions::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: #515151;
 }
 
 .dark-theme .custom-scrollbar *,
-.dark-theme .moderation-pop-up__search-results .autocomplete-suggestion *,
-.moderation-pop-up__search-results .dark-theme .autocomplete-suggestion * {
+.dark-theme .moderation-pop-up__search-wrapper .autocomplete-suggestions *,
+.moderation-pop-up__search-wrapper .dark-theme .autocomplete-suggestions *,
+.dark-theme .search-block .autocomplete-suggestions * {
   scrollbar-color: #515151 #2a2c30;
 }
 

@@ -991,31 +991,41 @@ body.dark-theme.loader:before {
   color: #545454;
 }
 
-.dark-theme .custom-scrollbar {
+.dark-theme .custom-scrollbar,
+.dark-theme .search-block .autocomplete-suggestions,
+.dark-theme .moderation-pop-up__search-wrapper .autocomplete-suggestions {
   /* полоса прокрутки (скроллбар) */
   /* ползунок скроллбара */
   /* Работает в Firefox */
 }
 
-.dark-theme .custom-scrollbar::-webkit-scrollbar {
+.dark-theme .custom-scrollbar::-webkit-scrollbar,
+.dark-theme .search-block .autocomplete-suggestions::-webkit-scrollbar,
+.dark-theme .moderation-pop-up__search-wrapper .autocomplete-suggestions::-webkit-scrollbar {
   width: 12px;
   /* ширина для вертикального скролла */
   height: 12px;
   /* высота для горизонтального скролла */
 }
 
-.dark-theme .custom-scrollbar::-webkit-scrollbar-track {
+.dark-theme .custom-scrollbar::-webkit-scrollbar-track,
+.dark-theme .search-block .autocomplete-suggestions::-webkit-scrollbar-track,
+.dark-theme .moderation-pop-up__search-wrapper .autocomplete-suggestions::-webkit-scrollbar-track {
   -webkit-box-shadow: none;
           box-shadow: none;
   background-color: #2a2c30;
 }
 
-.dark-theme .custom-scrollbar::-webkit-scrollbar-thumb {
+.dark-theme .custom-scrollbar::-webkit-scrollbar-thumb,
+.dark-theme .search-block .autocomplete-suggestions::-webkit-scrollbar-thumb,
+.dark-theme .moderation-pop-up__search-wrapper .autocomplete-suggestions::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: #515151;
 }
 
-.dark-theme .custom-scrollbar * {
+.dark-theme .custom-scrollbar *,
+.dark-theme .search-block .autocomplete-suggestions *,
+.dark-theme .moderation-pop-up__search-wrapper .autocomplete-suggestions * {
   scrollbar-color: #515151 #2a2c30;
 }
 

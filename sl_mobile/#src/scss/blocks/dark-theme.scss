@@ -366,6 +366,8 @@ body.dark-theme.loader:before {
             strong {
                 color: $link-color;
             }
+
+            @extend .custom-scrollbar;
         }
 
         .autocomplete-suggestion {
@@ -700,10 +702,14 @@ body.dark-theme.loader:before {
                 strong {
                     color: $link-color;
                 }
+
+                @extend .custom-scrollbar;
             }
 
             .autocomplete-suggestion {
                 color: inherit;
+
+
             }
 
             .autocomplete-selected {
