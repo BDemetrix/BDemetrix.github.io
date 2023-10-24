@@ -487,7 +487,8 @@ picture {
 }
 
 .blue-btn:disabled,
-.blue-btn--not-selected {
+.blue-btn--not-selected,
+.moderation-pop-up__spoller:not(._active) {
   color: #808080;
   background: #E7E7E7;
 }
@@ -9484,7 +9485,7 @@ textarea {
 }
 
 .moderation-pop-up__spoller._active {
-  background: #176ca4;
+  background: #80acc9;
 }
 
 .moderation-pop-up__spoller._active svg {

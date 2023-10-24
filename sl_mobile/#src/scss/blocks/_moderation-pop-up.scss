@@ -139,12 +139,17 @@
         }
 
         &._active {
-            background: #176ca4;
+            // background: #176ca4;
+            background: #80acc9;
 
             svg {
                 transition: all 0.3s ease;
                 transform: scaleY(-1);
             }
+        }
+
+        &:not(._active) {
+            @extend .blue-btn--not-selected;
         }
     }
 
