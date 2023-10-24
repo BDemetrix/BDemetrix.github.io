@@ -176,7 +176,11 @@
     }
     // .custom-pop-up__title
     &__title {
-        padding-right: 54px;
+        padding: 16px 54px 16px 20px;
+        font-weight: 500;
+        font-size: 19px;
+        line-height: 22px;
+        color: #0b5483;
     }
 }
 
