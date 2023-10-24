@@ -116,11 +116,14 @@ _js.html
         <div class="custom-pop-up__cover"></div>
         <div class="custom-pop-up__content any-class__content">
             <button class="custom-pop-up__close"></button>
+            <div class="custom-pop-up__title">Заголовок</div>
             <!-- Контент поп-апа -->
         </div>
     </div>
 </div>
 ```
+Элемент `<div class="custom-pop-up__title">Заголовок</div>` - опциональный!
+
 где к классу `.custom-pop-up` и его потомкам (по БЭМ) привязываются обработчики событий и основные стили из  
 scss/base/global.scss и   
 js/files/common.js  

@@ -305,14 +305,9 @@ body.dark-theme.loader:before {
         &__close {
             background-color: $element-bg;
         }
-    }
 
-    .moderation-pop-up {
-
-        &__search,
-        &__search-results,
-        &__heading {
-            background-color: $element-bg;
+        &__title {
+            color: $text-color;
         }
     }
 
@@ -673,7 +668,17 @@ body.dark-theme.loader:before {
     }
 
     .moderation-pop-up {
-        color: $text-color;
+
+        &,
+        &__title--main {
+            color: $text-color;
+        }
+        
+        &__search,
+        &__search-results,
+        &__heading {
+            background-color: $element-bg;
+        }
 
         &__search {
             color: $text-color;
