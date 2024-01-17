@@ -374,7 +374,6 @@ picture {
 
 .custom-pop-up__content {
   position: relative;
-  z-index: 3;
   max-width: 100%;
   margin: 0 auto;
   background: #fff;
@@ -405,6 +404,13 @@ picture {
   font-size: 19px;
   line-height: 22px;
   color: #0b5483;
+}
+
+.custom-pop-up__inner {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 4px 20px 20px;
 }
 
 .big-blue-btn {
@@ -494,11 +500,11 @@ picture {
 .blue-btn--not-selected,
 .moderation-pop-up__spoller:not(._active) {
   color: #808080;
-  background: #E7E7E7;
+  background: #e7e7e7;
 }
 
 .cancel-btn {
-  background: #EBEBEB;
+  background: #ebebeb;
   color: #383838;
 }
 
@@ -738,7 +744,7 @@ picture {
 
 .post-label--not-selected {
   color: #808080;
-  background: #E7E7E7;
+  background: #e7e7e7;
 }
 
 .post-label--not-selected svg {
@@ -764,32 +770,32 @@ picture {
   /* ползунок скроллбара */
   /* Стрелки */
   /*  &::-webkit-scrollbar-button:vertical:start:decrement {
-      background: linear-gradient(120deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
-          linear-gradient(240deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
-          linear-gradient(0deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
-      background-color: #f6f8f4;
-  }
+        background: linear-gradient(120deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+            linear-gradient(240deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+            linear-gradient(0deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+        background-color: #f6f8f4;
+    }
 
-  &::-webkit-scrollbar-button:vertical:end:increment {
-      background: linear-gradient(300deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
-          linear-gradient(60deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
-          linear-gradient(180deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
-      background-color: #f6f8f4;
-  }
+    &::-webkit-scrollbar-button:vertical:end:increment {
+        background: linear-gradient(300deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+            linear-gradient(60deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+            linear-gradient(180deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+        background-color: #f6f8f4;
+    }
 
-  &::-webkit-scrollbar-button:horizontal:start:decrement {
-      background: linear-gradient(30deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
-          linear-gradient(150deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
-          linear-gradient(270deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
-      background-color: #f6f8f4;
-  }
+    &::-webkit-scrollbar-button:horizontal:start:decrement {
+        background: linear-gradient(30deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+            linear-gradient(150deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+            linear-gradient(270deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+        background-color: #f6f8f4;
+    }
 
-  &::-webkit-scrollbar-button:horizontal:end:increment {
-      background: linear-gradient(210deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
-          linear-gradient(330deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
-          linear-gradient(90deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
-      background-color: #f6f8f4;
-  } */
+    &::-webkit-scrollbar-button:horizontal:end:increment {
+        background: linear-gradient(210deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+            linear-gradient(330deg, #02141a 40%, rgba(0, 0, 0, 0) 41%),
+            linear-gradient(90deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+        background-color: #f6f8f4;
+    } */
   /* Работает в Firefox */
 }
 
@@ -3264,7 +3270,10 @@ picture {
 }
 
 .main-logo__title-main {
-  font-size: calc(17px + 8 * ((100vw - 320px) / 159.98));
+  font-size: calc(
+    17px + 8 *
+      ((100vw - 320px) / 159.98)
+  );
   line-height: 32px;
   white-space: nowrap;
   color: #d4d4d4;
@@ -5246,7 +5255,10 @@ textarea {
 
 .futures span {
   text-align: center;
-  font-size: calc(40px + 40 * ((100vw - 320px) / 671.98));
+  font-size: calc(
+    40px + 40 *
+      ((100vw - 320px) / 671.98)
+  );
   font-size: 40px;
   opacity: 0.4;
 }
@@ -5826,6 +5838,7 @@ textarea {
   font-weight: 800;
   font-size: 22px;
   line-height: 130%;
+  overflow: hidden;
 }
 
 .post-card__title--blog,
@@ -6356,7 +6369,10 @@ textarea {
 .post-head {
   position: relative;
   width: 100%;
-  margin: 0 0 calc(10px + 15 * ((100vw - 360px) / 407.98));
+  margin: 0 0 calc(
+    10px + 15 *
+      ((100vw - 360px) / 407.98)
+  );
 }
 
 .post-head:hover .post-head__menu {
@@ -6371,8 +6387,14 @@ textarea {
 .post-head__menu {
   position: absolute;
   z-index: 3;
-  top: calc(5px + 15 * ((100vw - 360px) / 407.98));
-  right: calc(5px + 15 * ((100vw - 360px) / 407.98));
+  top: calc(
+    5px + 15 *
+      ((100vw - 360px) / 407.98)
+  );
+  right: calc(
+    5px + 15 *
+      ((100vw - 360px) / 407.98)
+  );
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
@@ -10147,6 +10169,7 @@ textarea {
   width: calc(50% - 8px);
   gap: 10px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .social-login__btn--vk {
@@ -10684,7 +10707,6 @@ textarea {
 .warning-popup__content {
   width: 374px;
   max-width: 100%;
-  padding: 20px;
   border-radius: 8px;
   background: #fff;
 }
@@ -10698,7 +10720,7 @@ textarea {
 }
 
 .warning-popup__text {
-  margin: 20px 0 25px;
+  margin: 0 0 25px;
 }
 
 .warning-popup__btns {
@@ -10713,6 +10735,106 @@ textarea {
 .warning-popup__cancel-btn,
 .warning-popup__ok-btn {
   width: calc(50% - 5px);
+}
+
+.abuse-popup .warning-popup__text {
+  margin: 0 0 20px 0;
+}
+
+.abuse-popup .custom-pop-up__inner {
+  min-height: 0;
+  width: 500px;
+  max-width: calc(100vw - 20px);
+}
+
+.login-popup .custom-pop-up__inner {
+  min-height: 0;
+  width: 500px;
+  max-width: calc(100vw - 20px);
+}
+
+.login-popup .login__form {
+  max-width: 100%;
+}
+
+.premium-popup .custom-pop-up__inner {
+  min-height: 0;
+  width: 500px;
+  height: 300px;
+  max-width: calc(100vw - 20px);
+}
+
+.premium-popup .warning-popup__text {
+  margin: 0 0 20px 0;
+  height: calc(100% - 64px);
+}
+
+.premium-popup [name=user] {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.premium-popup .user_searchbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.premium-popup .user_searchbox input[type=button] {
+  margin-left: 4px;
+}
+
+.premium-popup .hider {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.premium-popup .applyer {
+  display: none;
+  margin-top: 20px;
+}
+
+.premium-popup .applyer #premium_interval {
+  width: auto;
+}
+
+.premium-popup #premium_until_dt_hider {
+  display: none;
+}
+
+.premium-popup #premium_until_dt.good {
+  color: green;
+}
+
+.premium-popup #premium_until_dt.bad {
+  color: red;
+}
+
+.premium-popup [name=premium_until_dt] {
+  font-size: 16px;
+  padding: 2px 8px;
+  border: 1px solid #ccc;
+  max-width: 120px;
+}
+
+.premium-popup #premium_amdin_user {
+  font-size: 16px;
+  padding: 2px 8px;
+  border: 1px solid #ccc;
+}
+
+.premium-popup #premium_amdin_user_find {
+  padding: 8px 16px;
+  -webkit-appearance: button;
+     -moz-appearance: button;
+          appearance: button;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.premium-popup .user_searchbox_results {
+  position: fixed;
 }
 
 .qn-menu {
@@ -12049,7 +12171,10 @@ td.trades-table__name-multiline {
 }
 
 .qn-filters__block {
-  padding: 35px calc(15px + 20 * ((100vw - 320px) / 159.98));
+  padding: 35px calc(
+    15px + 20 *
+      ((100vw - 320px) / 159.98)
+  );
   border-bottom: 1px solid #e2e2e2;
   width: 100%;
 }
@@ -13782,6 +13907,12 @@ body.dark-theme.loader:before {
   border-color: #a5a5a5;
 }
 
+.dark-theme .custom-select__main-btn:disabled {
+  color: #777;
+  border: 1px solid #777;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M3 7L10 14L17 7' stroke='%23777777' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' /%3E%3C/svg%3E");
+}
+
 .dark-theme .custom-select__list {
   background-color: #2a2c30;
 }
@@ -14815,53 +14946,32 @@ body.loader:before {
   font-size: 12px;
 }
 
-/* Переопределение стилей для jBox-with-custom-pop-up */
-
-.jBox-with-custom-pop-up {
-  width: auto !important;
-  height: auto !important;
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  bottom: 0 !important;
-  right: 0 !important;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.jBox-with-custom-pop-up .jBox-container,
-.jBox-with-custom-pop-up .jBox-content {
-  width: 100%;
-  height: 100%;
-  background: transparent !important;
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
-}
-
-/* .jBox-Tooltip .jBox-container {
-	max-width: calc(100% - 20px) !important;
-	border-radius: 5px;
-	box-shadow: 0 0 3px rgb(0 0 0 / 25%);
-	overflow: hidden;
-	padding: 0 !important;
-	margin: 0 !important;
-}
-.jBox-content {
-	overflow: hidden;
-	padding: 0 !important;
-} */
-
 @media (min-width: 320px) {
   .main-logo::before {
     display: block;
-    top: calc(8px + -3 * ((100vw - 320px) / 247.98));
-    right: calc(-7px + -5 * ((100vw - 320px) / 159.98));
-    width: calc(5px + 3 * ((100vw - 320px) / 247.98));
-    height: calc(5px + 3 * ((100vw - 320px) / 247.98));
+    top: calc(
+    8px + -3 *
+      ((100vw - 320px) / 247.98)
+  );
+    right: calc(
+    -7px + -5 *
+      ((100vw - 320px) / 159.98)
+  );
+    width: calc(
+    5px + 3 *
+      ((100vw - 320px) / 247.98)
+  );
+    height: calc(
+    5px + 3 *
+      ((100vw - 320px) / 247.98)
+  );
   }
 
   .query-search__icon {
-    margin-right: calc(20px + 5 * ((100vw - 320px) / 159.98));
+    margin-right: calc(
+    20px + 5 *
+      ((100vw - 320px) / 159.98)
+  );
   }
 }
 
@@ -15538,7 +15648,10 @@ body.loader:before {
   }
 
   .qn-menu__tab-link {
-    margin-right: calc(50px + 35 * ((100vw - 767.98px) / 224));
+    margin-right: calc(
+    50px + 35 *
+      ((100vw - 767.98px) / 224)
+  );
   }
 
   .qn-menu__tab-link svg {
@@ -16268,6 +16381,15 @@ body.loader:before {
 }
 
 @media (min-width: 1920px) {
+  .usermenu {
+    position: relative;
+  }
+
+  .usermenu__body {
+    top: 58px;
+    right: 0;
+  }
+
   .qn-filters {
     -webkit-box-align: center;
         -ms-flex-align: center;

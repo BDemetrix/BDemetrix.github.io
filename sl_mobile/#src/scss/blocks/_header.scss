@@ -820,6 +820,11 @@
 }
 
 .usermenu {
+
+	@media (min-width: $md0 + px) {
+		position: relative;
+	}
+
 	// .usermenu__icon
 	&__icon {
 		position: relative;
@@ -907,6 +912,11 @@
 		opacity: 0;
 		visibility: hidden;
 		transition: transform $t linear, opacity $t * 0.8 linear;
+
+		@media (min-width: $md0 + px) {
+			top: 58px;
+			right: 0;
+		}
 
 		a,
 		&>span {

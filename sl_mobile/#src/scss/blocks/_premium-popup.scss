@@ -1,0 +1,91 @@
+.premium-popup .custom-pop-up__inner  {
+    min-height: 0;
+    width: 500px;
+    height: 300px;
+    max-width: calc(100vw - 20px);
+  }
+  
+  .premium-popup .warning-popup__text
+  {
+      margin: 0 0 20px 0;
+      height: calc(100% - 64px);
+  }
+  
+  .premium-popup [name="user"]
+  {
+      width: 100%;
+      box-sizing: border-box;
+  }
+  
+  .premium-popup .user_searchbox
+  {
+      display: flex;
+  }
+  
+  .premium-popup .user_searchbox input[type="button"]
+  {
+      margin-left: 4px;
+  }
+  
+  .premium-popup .hider
+  {
+      text-align: center;
+      margin-top: 50px;
+  }
+  
+  .premium-popup .applyer
+  {
+      display: none;
+      margin-top: 20px;
+  }
+  
+  .premium-popup .applyer #premium_interval
+  {
+      width: auto;
+  }
+  
+  .premium-popup #premium_until_dt_hider
+  {
+      display: none;
+  }
+  
+  .premium-popup #premium_until_dt.good
+  {
+      color: green;
+  }
+  
+  .premium-popup #premium_until_dt.bad
+  {
+      color: red;
+  }
+  
+  .premium-popup [name="premium_until_dt"]
+  {
+      font-size: 16px;
+    padding: 2px 8px;
+    border: 1px solid #ccc;
+    max-width: 120px;
+  }
+  
+  
+  .premium-popup #premium_amdin_user
+  {
+      font-size: 16px;
+      padding: 2px 8px;
+      border: 1px solid #ccc;
+  }
+  
+  .premium-popup #premium_amdin_user_find
+  {
+      padding: 8px 16px;
+      appearance: button;
+      border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .premium-popup .user_searchbox_results
+  {
+      position: fixed;
+  }
+  
+  

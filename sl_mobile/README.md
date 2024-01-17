@@ -117,7 +117,12 @@ _js.html
         <div class="custom-pop-up__content any-class__content">
             <button class="custom-pop-up__close"></button>
             <div class="custom-pop-up__title">Заголовок</div>
-            <!-- Контент поп-апа -->
+            <!-- Дюбой кастомный контент поп-апа со своими паддингами-->
+            
+            <!-- Либо  -->
+            <div class="custom-pop-up__inner">
+                 <!-- Контент поп-апа без паддингов при использовании smartlabus.js -->
+            </div> 
         </div>
     </div>
 </div>
