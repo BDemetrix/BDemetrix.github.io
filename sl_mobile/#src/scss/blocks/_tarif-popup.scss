@@ -1,0 +1,54 @@
+.tarif-popup {
+  // .tarif-popup__content
+  &__content {
+    width: 620px;
+    padding: 20px 0 0;
+  }
+  // .tarif-popup__title
+  &__title {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+    color: #383838;
+  }
+  // .tarif-popup__title-icon
+  &__title-icon {
+    margin-right: 10px;
+  }
+  // .tarif-popup__list
+  &__list {
+    padding: 0 20px 15px;
+    font-size: 14px;
+    line-height: 16px;
+    color: #312c26;
+
+    li {
+      position: relative;
+      margin-bottom: 20px;
+      padding-left: 20px;
+
+      &:last-child {
+        margin-bottom: 10px;
+      }
+
+      &::before {
+        content: "";
+        display: block;
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        // background: no-repeat 0 -2px / 100% url("../images/icons/post-card/check.svg");
+      }
+    }
+
+    li.tarif-popup__item--disabled::before {
+      // background: no-repeat 0 -2px / 100% url("../images/icons/post-card/cross.svg");
+    }
+  }
+}

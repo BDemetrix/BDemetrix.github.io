@@ -1,0 +1,59 @@
+<!-- 
+    custom-pop-up - кастомный поп-ап на весь экран содержащий кнопку закрыия custom-pop-up__close
+    и затемняющуюся подложку custom-pop-up__cover клики на которые обрабатываются общим js.
+    Открывается при добавлениикласса  _open, закрывается при удалении.
+    Переносится в конец <body> и позиционируется position: fixed;
+-->
+<div class="custom-pop-up tarif-popup" id="tarif-card-pop-up--month">
+  <div class="custom-pop-up__body tarif-popup__body">
+    <div class="custom-pop-up__cover js-close-custom-pop-up"></div>
+    <div class="custom-pop-up__content tarif-popup__content">
+      <button class="custom-pop-up__close js-close-custom-pop-up"></button>
+      <div class="custom-pop-up__title tarif-popup__title">
+        <svg class="tarif-popup__title-icon" width="45" height="45">
+          <use
+            xlink:href="images/icons/post-card/sprite.svg#premium-ring"
+          ></use>
+        </svg>
+        Premium на 1 месяц
+      </div>
+      <div class="custom-pop-up__inner tarif-popup__inner">
+        <ul class="tarif-popup__list">
+          <!-- По умобчанию у пункта зеленая галочка, для за замены на крестик присвоить модификатор tarif-popup__item--disabled -->
+          <li>
+            Доступ к закрытым материалам, включая аналитику от Mozgovik Research
+          </li>
+          <li>Прогнозы по российским акциям: рейтинг от Mozgovik Research</li>
+          <li>Долгосрочная инвестиционная стратегия</li>
+          <li>Инсайдерские мнения</li>
+          <li>Авторитетные комментарии по текущей ситуации на рынке</li>
+          <li>
+            Объяснения какое влияние новости могут оказать на акции и другие
+            активы
+          </li>
+          <li>
+            Регулярная публикация инвестиционных портфелей участников команды с
+            комментариями
+          </li>
+          <li>
+            Бесплатный доступ ко всем платным видео (конференции, инвест идеи)
+          </li>
+          <li class="tarif-popup__item--disabled">
+            Telegram - чат с нашей командой, где можно задать любой вопрос и
+            оперативно получить ответы
+          </li>
+          <li class="tarif-popup__item--disabled">
+            Возможность принять участие в отдельной конференции для годовых
+            подписчиков
+          </li>
+          <li class="tarif-popup__item--disabled">
+            Cкидка 50% на конференцию смартлаба
+          </li>
+          <li class="tarif-popup__item--disabled">
+            Три месяца подписки в подарок!
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

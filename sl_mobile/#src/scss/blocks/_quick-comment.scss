@@ -21,6 +21,10 @@
         }
     }
 
+    &--hidden {
+        display: none;
+    }
+
     @media (min-width: $md3 + px) {
         display: none;
     }

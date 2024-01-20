@@ -48,6 +48,10 @@ body.dark-theme.loader:before {
         &__item {
             background: $element-bg;
         }
+
+        &__themes a{
+            color: #479cd3; 
+        }
     }
 
     /* .notify {
@@ -77,8 +81,8 @@ body.dark-theme.loader:before {
     .subscribe-box__title,
     .subscribe-box__link-wrap a,
     .slide-sidebar__title-text,
-    .tarif-card__pop-up-title,
-    .tarif-card__pop-up-list,
+    .tarif-popup__title,
+    .tarif-popup__list,
     .tarif-card__body,
     .company-box__title,
     .system-messages__text,
@@ -352,6 +356,11 @@ body.dark-theme.loader:before {
 
     .search-block {
         color: $text-color;
+    }
+
+    .search-block,
+    .nf-filter__search-wrap,
+    .moderation-pop-up__search-wrapper {
 
         .autocomplete-suggestions {
             background: $element-bg;
@@ -361,8 +370,6 @@ body.dark-theme.loader:before {
             strong {
                 color: $link-color;
             }
-
-            @extend .custom-scrollbar;
         }
 
         .autocomplete-suggestion {
@@ -429,24 +436,6 @@ body.dark-theme.loader:before {
 
         &__search-wrap {
             color: $text-color;
-
-            .autocomplete-suggestions {
-                background: $element-bg;
-                border: 1px solid $border-color;
-                border-radius: 8px;
-
-                strong {
-                    color: $link-color;
-                }
-            }
-
-            .autocomplete-suggestion {
-                color: inherit;
-            }
-
-            .autocomplete-selected {
-                background: $element-bg;
-            }
         }
     }
 
@@ -704,28 +693,14 @@ body.dark-theme.loader:before {
 
         &__search-wrapper {
             color: $text-color;
+        }
+    }
 
-            .autocomplete-suggestions {
-                background: $element-bg;
-                border: 1px solid $border-color;
-                border-radius: 8px;
-
-                strong {
-                    color: $link-color;
-                }
-
-                @extend .custom-scrollbar;
-            }
-
-            .autocomplete-suggestion {
-                color: inherit;
-
-
-            }
-
-            .autocomplete-selected {
-                background: $element-bg;
-            }
+    .moderation-settings {
+        &__heading {
+            background: $element-bg;
+            border: 1px solid $border-color;
+            color: $text-color;
         }
     }
 
@@ -755,7 +730,7 @@ body.dark-theme.loader:before {
         background-color: $element-bg;
 
         &__img {
-            background-image: url("../images/404-light.png");
+            // background-image: url("../images/404-light.png");
         }
 
         &__title,

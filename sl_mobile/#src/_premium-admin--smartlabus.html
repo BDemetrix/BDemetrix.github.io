@@ -1,0 +1,143 @@
+<!-- <div class="warning-popup__text">
+  <label for="premium_amdin_user">Логин или EMail:</label>
+  <div class="user_searchbox">
+    <input
+      id="premium_amdin_user"
+      class="custom-input"
+      type="text"
+      name="user"
+      autocomplete="off"
+    />
+    <input type="hidden" name="user_id" />
+    <input id="premium_amdin_user_find" type="button" value="найти" />
+  </div>
+  <div class="user_searchbox_results">
+    <div
+      class="autocomplete-suggestions"
+      style="
+        position: absolute;
+        display: none;
+        max-height: 300px;
+        z-index: 99999;
+      "
+    ></div>
+  </div>
+  <div>
+    <div class="hider">Пользователь не найден</div>
+    <div class="applyer">
+      <table>
+        <tbody>
+          <tr>
+            <td>ID:</td>
+            <td id="user_id"></td>
+          </tr>
+          <tr>
+            <td>Регистрация:</td>
+            <td id="registration_dt"></td>
+          </tr>
+          <tr>
+            <td>Активация:</td>
+            <td id="activation_dt"></td>
+          </tr>
+          <tr>
+            <td>Премиум до:</td>
+            <td id="premium_until_dt"></td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top">Выдать премиум:</td>
+            <td>
+              <select id="premium_interval">
+                <option value="">---</option>
+                <option value="month">на месяц</option>
+                <option value="half">на пол года</option>
+                <option value="year">на год</option>
+                <option value="date">точная дата</option>
+                <option value="cancel">отменить подписку</option>
+              </select>
+              <span id="premium_until_dt_hider"
+                >до
+                <input
+                  type="text"
+                  class="custom-input"
+                  name="premium_until_dt"
+                />
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div> -->
+
+<div class="warning-popup__text">
+  <label for="premium_amdin_user">Логин или EMail:</label>
+  <div class="user_searchbox">
+    <input
+      id="premium_amdin_user"
+      class="custom-input"
+      type="text"
+      name="user"
+      autocomplete="off"
+    />
+    <input type="hidden" name="user_id" value="10525" />
+    <input id="premium_amdin_user_find" type="button" value="найти" />
+  </div>
+  <div class="user_searchbox_results">
+    <div
+      class="autocomplete-suggestions"
+      style="
+        position: absolute;
+        display: none;
+        max-height: 300px;
+        z-index: 99999;
+      "
+    ></div>
+  </div>
+  <div>
+    <div class="hider" style="display: none">Пользователь не найден</div>
+    <div class="applyer" style="display: block">
+      <table>
+        <tbody>
+          <tr>
+            <td>ID:</td>
+            <td id="user_id"><a href="/profile/timmartynov/">10525</a></td>
+          </tr>
+          <tr>
+            <td>Регистрация:</td>
+            <td id="registration_dt">30.07.2012</td>
+          </tr>
+          <tr>
+            <td>Активация:</td>
+            <td id="activation_dt">30.07.2012</td>
+          </tr>
+          <tr>
+            <td>Премиум до:</td>
+            <td id="premium_until_dt" class="bad">Дата не задана</td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top">Выдать премиум:</td>
+            <td>
+              <select id="premium_interval">
+                <option value="">---</option>
+                <option value="month">на месяц</option>
+                <option value="half">на пол года</option>
+                <option value="year">на год</option>
+                <option value="date">точная дата</option>
+                <option value="cancel">отменить подписку</option>
+              </select>
+              <span id="premium_until_dt_hider" style="display: none"
+                >до
+                <input
+                  type="text"
+                  class="custom-input"
+                  name="premium_until_dt"
+                />
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

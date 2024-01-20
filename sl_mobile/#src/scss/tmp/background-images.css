@@ -1,0 +1,35 @@
+body.loader::before,
+._loading::before
+{
+	background-image: url('/plugins/mobile/templates/skin/default/actions/ActionMobile/images/preloader.gif');
+}
+
+.post-card__photo-wrap
+{
+	background: no-repeat center/100% url('/plugins/mobile/templates/skin/default/actions/ActionMobile/images/icons/post-card/avatar_64x64.jpg');
+}
+
+.tarif-popup__list li::before
+{
+	background: no-repeat 0 -2px/100% url('/plugins/mobile/templates/skin/default/actions/ActionMobile/images/icons/post-card/check.svg');
+}
+
+.tarif-popup__list li.tarif-card__item--disabled::before
+{
+	background: no-repeat 0 -2px/100% url('/plugins/mobile/templates/skin/default/actions/ActionMobile/images/icons/post-card/cross.svg');
+}
+
+body.loader:before {
+	background: rgba(255, 255, 255, 0.8) url(/plugins/mobile/templates/skin/default/actions/ActionMobile/images/preloader.gif) no-repeat;
+}
+
+.not-found__img
+{
+	background: no-repeat center/100% url('/plugins/mobile/templates/skin/default/actions/ActionMobile/images/404-dark.png');
+}
+
+.dark-theme .not-found__img {
+	background-image: url('/plugins/mobile/templates/skin/default/actions/ActionMobile/images/404-light.png');
+}
+
+

@@ -1,3 +1,9 @@
+/**
+ * Реализованы следующие типы модальных окон 
+ * class ModalDialog
+ * class ConfirmDialog
+ */
+
 document.body.addEventListener('keyup', function(e)
 {
 	if (e.key === 'Escape')
@@ -63,22 +69,45 @@ class ModalDialog
 		this.dialogEvents = this._dialogEvents.bind(this);
 	}
 
-	setContent(content)
+	setTitle(title, params)
+	{
+		if (title !== null)
+		{
+			var sTitle = (typeof(title) !== 'function') ? title : title(params);
+			if (typeof(sTitle) === 'string') this.dialog.querySelector('.custom-pop-up__title').insertAdjacentHTML('afterbegin', sTitle);
+			if ((typeof(sTitle) === 'object') && (sTitle !== null) && ('nodeType' in sTitle) && ((sTitle.nodeType === 1) || (sTitle.nodeType === 11))) this.dialog.querySelector('.custom-pop-up__title').appendChild(sTitle);
+		} else
+		{
+			const nTitle = this.dialog.querySelector('.custom-pop-up__title');
+			if (nTitle)
+			{
+				while (nTitle.hasChildNodes())
+				{
+					nTitle.removeChild(nTitle.firstChild);
+				}
+			}
+		}
+	}
+
+	setContent(content, params)
 	{
 		if (content !== null)
 		{
 			var sContent = (typeof(content) !== 'function') ? content : content(params);
-			if (typeof(sContent) === 'string') this.dialog.querySelector('.custom-pop-up__inner').insertAdjacentHTML('afterbegin', sContent);
-			if ((typeof(sContent) === 'object') && ('nodeType' in sContent) && ((sContent.nodeType === 1) || (sContent.nodeType === 11))) this.dialog.querySelector('.custom-pop-up__inner').appendChild(sContent);
-		} else
-		{
-			const nContent = this.dialog.querySelector('.custom-pop-up__inner');
-			if (nContent)
+			if (sContent !== null)
 			{
-				while (nContent.hasChildNodes())
-				{
-					nContent.removeChild(nContent.firstChild);
-				}
+				if (typeof(sContent) === 'string') this.dialog.querySelector('.custom-pop-up__inner').insertAdjacentHTML('afterbegin', sContent);
+				if ((typeof(sContent) === 'object') && ('nodeType' in sContent) && ((sContent.nodeType === 1) || (sContent.nodeType === 11))) this.dialog.querySelector('.custom-pop-up__inner').appendChild(sContent);
+				return;
+			}
+		}
+		
+		const nContent = this.dialog.querySelector('.custom-pop-up__inner');
+		if (nContent)
+		{
+			while (nContent.hasChildNodes())
+			{
+				nContent.removeChild(nContent.firstChild);
 			}
 		}
 	}
@@ -109,34 +138,32 @@ class ModalDialog
 			var sClasses = (typeof(this.options.class) !== 'function') ? this.options.class : this.options.class(params);
 			if (typeof(sClasses) === 'string')
 			{
-				const nContent = this.dialog.querySelector('.custom-pop-up__content');
 				const nBody = this.dialog.querySelector('.custom-pop-up__body');
+				const nContent = this.dialog.querySelector('.custom-pop-up__content');
+				const nTitle = this.dialog.querySelector('.custom-pop-up__title'); 
 				const nInner = this.dialog.querySelector('.custom-pop-up__inner');
 				sClasses.split(' ').forEach(function(e,i,a)
 				{
 					this.dialog.classList.add(e);
-					nContent.classList.add(e + '__content');
+					
 					nBody.classList.add(e + '__body');
+					nContent.classList.add(e + '__content');
+					nTitle.classList.add(e + '__title');
 					nInner.classList.add(e + '__inner');
 
 				}, this);
 			}
 		}
 
-		if (this.options.title !== null)
-		{
-			var sTitle = (typeof(this.options.title) !== 'function') ? this.options.title : this.options.title(params);
-			if (typeof(sTitle) === 'string') this.dialog.querySelector('.custom-pop-up__title').textContent = sTitle;
-		}
-
-		if (this.options.content !== null) this.setContent(this.options.content);
+		this.setTitle(this.options.title, params);
+		this.setContent(this.options.content, params);
 
 		document.body.appendChild(this.dialog);
 		this.dialog.addEventListener('click', this.dialogEvents, false);
 
 		var zIndex = 1000;
 		const nOpenedCustomPopups = Array.from(document.querySelectorAll('.custom-pop-up--open'));
-		const zIndexes = nOpenedCustomPopups.map((n) => n.style.zIndex).filter((i) => i != 'auto');
+		const zIndexes = nOpenedCustomPopups.map((n) => n.style.zIndex).filter((i) => ( !!i && i != 'auto'));
 		if (zIndexes.length) zIndex = Math.max.apply(null, zIndexes);
 
 		this.dialog.style.zIndex = zIndex + 1;
@@ -152,7 +179,7 @@ class ModalDialog
 		{
 			this.dialog.classList.add('custom-pop-up--open', '_open');
 
-		}.bind(this), 1); // кастылечик для transition
+		}.bind(this), 100); // кастылечик для transition
 	}
 
 	close()
@@ -211,7 +238,7 @@ class ConfirmDialog extends ModalDialog
 		super(options);
 	}
 
-	setContent(content)
+	setContent(content, params)
 	{
 		const nContent = document.createElement('template');
 		nContent.innerHTML = '\
@@ -223,7 +250,7 @@ class ConfirmDialog extends ModalDialog
 
 		nContent.content.querySelector('.warning-popup__text').insertAdjacentHTML('afterbegin', this.options.content);
 		nContent.content.querySelector('.warning-popup__ok-btn').textContent = this.options.confirmText ? this.options.confirmText : 'OK';
-		super.setContent(nContent.content);
+		super.setContent(nContent.content, params);
 	}
 
 	open(params)
@@ -235,7 +262,7 @@ class ConfirmDialog extends ModalDialog
 		{
 			this.dialog.querySelector('.warning-popup__ok-btn').focus();
 		
-		}.bind(this), 100);
+		}.bind(this), 200);
 	}
 
 	_onOpen(params)
@@ -286,6 +313,53 @@ function Confirm(text, title, confirmText = null)
 	});
 }
 
+document.documentElement.addEventListener('click', function (e)
+{
+	const nOpener = e.target.closest('.auto-opener');
+	if (nOpener)
+	{
+		const nPopup = document.getElementById(nOpener.dataset.targetId);
+		if (nPopup)
+		{
+			const oParams = {};
+			if (nPopup.classList.contains('custom-pop-up'))
+			{
+				// попап
+				oParams.class = function()
+				{
+					const aClasses = [];
+					nPopup.classList.forEach(function(v,k,l)
+					{
+						if (v !== 'custom-pop-up') aClasses.push(v);
+					});
+					return aClasses.join(' ');
+				};
+
+				oParams.title = function()
+				{
+					const nTitle = nPopup.querySelector('.custom-pop-up__title');
+					return nTitle ? nTitle.innerHTML : '';
+				};
+				
+				oParams.content = function()
+				{
+					const nContent = nPopup.querySelector('.custom-pop-up__inner');
+					return nContent ? nContent.innerHTML : null;
+				};
+
+			} else
+			{
+				// только контент
+				oParams.content = nPopup.innerHTML;
+				if (nPopup.hasAttribute('title')) oParams.title = nPopup.getAttribute('title');
+				if (nPopup.hasAttribute('class')) oParams.class = nPopup.getAttribute('class');
+			}
+
+			nOpener.classList.add('_open');
+			(new ModalDialog(oParams)).open();
+		}
+	}
+});
 
 (function()
 {
