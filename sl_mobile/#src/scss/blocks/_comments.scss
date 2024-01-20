@@ -73,7 +73,13 @@
     }
 
     // .comments__list
-    &__list {}
+    &__list {
+
+        & > .comments__item > .comments__answers {
+            padding-left: 15px;
+            border-left: 1px solid #aaaaaa;
+        }
+    }
 
     // .comments__item
     &__item {
@@ -272,8 +278,8 @@
 
     // .comments__answers
     &__answers {
-        padding-left: 15px;
-        border-left: 1px solid #aaaaaa;
+        /* padding-left: 15px;
+        border-left: 1px solid #aaaaaa; */
 
         .comments__item {
             margin-top: 16px;
@@ -319,7 +325,8 @@
                 bottom: -2px;
                 left: -2px;
                 border-radius: 8px;
-                background: rgba(255, 255, 255, 0.7) no-repeat center/42px url("/images/preloader.gif");
+                background: rgba(255, 255, 255, 0.7) no-repeat center/42px url("./images/preloader.gif");
+                background-image: ;
             }
         }
     }
@@ -400,4 +407,11 @@
         letter-spacing: 1.5px;
         transition: all 0.3s ease;
     }
+}
+
+// это комменты в 2 уровня (на самом деле там дерево, но у 2+ уровней не надо эту полоску рисовать
+// и отступать и будет выглядеть как 2 уровня.
+[tid] .post-card__text img[alt="flag_icon"] {
+    margin: 0;
+    height: 13px;
 }

@@ -102,6 +102,9 @@
     // .custom-select__list
     &__list {
         width: 100%;
+        max-height: 300px;
+        overflow-y: auto;
+        overflow-x: hidden;
         position: absolute;
         top: calc(100% - 5px);
         border-radius: 5px;

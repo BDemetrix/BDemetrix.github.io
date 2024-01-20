@@ -221,7 +221,8 @@
 		position: absolute;
 		border-radius: 50%;
 		display: none;
-		background: #15e11e;
+		// background: #15e11e;
+		background: #F59300;
 
 		@media (min-width: $md7 + px) {
 			display: block;
@@ -820,6 +821,11 @@
 }
 
 .usermenu {
+
+	@media (min-width: $md0 + px) {
+		position: relative;
+	}
+
 	// .usermenu__icon
 	&__icon {
 		position: relative;
@@ -907,6 +913,11 @@
 		opacity: 0;
 		visibility: hidden;
 		transition: transform $t linear, opacity $t * 0.8 linear;
+
+		@media (min-width: $md0 + px) {
+			top: 58px;
+			right: 0;
+		}
 
 		a,
 		&>span {

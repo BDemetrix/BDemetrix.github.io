@@ -1,6 +1,8 @@
+@import "../base/variables";
+
 .system-messages {
     position: fixed;
-    z-index: 999;
+    z-index: 10000;
     right: 0;
     bottom: 0;
     display: flex;
@@ -23,6 +25,7 @@
 
     // .system-messages__item
     &__item {
+        cursor: pointer;
         z-index: 5;
         width: 360px;
         max-width: calc(100% - 30px);  

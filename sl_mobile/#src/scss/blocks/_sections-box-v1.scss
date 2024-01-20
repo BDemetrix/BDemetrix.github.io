@@ -16,6 +16,19 @@
             }
         }
     }
+
+    &--main-section {
+        .sections-box__slide {
+            a {
+                font-weight: 400;
+            }
+
+            &--active a {
+                font-weight: 600;
+            }
+        }
+    }
+
     // .sections-box__wrap
     &__wrap {
     }

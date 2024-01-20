@@ -63,6 +63,8 @@
       "value": "АО ИА ВТБ 2014 [обл]"
     },
   ];
+
+  window.autocompleterResponse = response;
   var windowFeatures = "menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes,target=_blank";
 
   // Автокомплит для хедера
@@ -99,6 +101,9 @@
       });
     }, 10);
   }
+
+  window.menuSlideDown = menuSlideDown;
+
   // Автокомплит для ленты новостей nf-filter__search-wrap
   $('#nf-filter-search').autocomplete({
     lookup: response,
@@ -127,32 +132,7 @@
   });
 
 
-// Автокомплит для ленты новостей moderation-pop-up__search
-$('#tag-search-wrapper input').autocomplete({
-  lookup: response,
-  appendTo: '#tag-search-wrapper',
-  maxHeight: '300',
-  onSelect: function (suggestion) {
-    window.open(suggestion.data, "WindowName", windowFeatures);
-    this.value = '';
-  },
-  beforeRender: function (container, suggestions) {
-   menuSlideDown(container);
-  },
-});
 
-$('#comp-search-wrapper input').autocomplete({
-  lookup: response,
-  appendTo: '#comp-search-wrapper',
-  maxHeight: '300',
-  onSelect: function (suggestion) {
-    window.open(suggestion.data, "WindowName", windowFeatures);
-    this.value = '';
-  },
-  beforeRender: function (container, suggestions) {
-    menuSlideDown(container);
-  },
-});
 
 
   var nContent = $('.notify');

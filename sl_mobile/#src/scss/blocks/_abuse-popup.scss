@@ -1,0 +1,10 @@
+.abuse-popup .warning-popup__text
+{
+	margin: 0 0 20px 0;
+}
+
+.abuse-popup .custom-pop-up__inner {
+  min-height: 0;
+  width: 500px;
+  max-width: calc(100vw - 20px);
+}

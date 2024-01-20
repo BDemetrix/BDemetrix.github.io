@@ -18,48 +18,50 @@ let isMobile = {
     return navigator.userAgent.match(/IEMobile/i);
   },
   any: function () {
-    return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-  }
+    return (
+      isMobile.Android() ||
+      isMobile.BlackBerry() ||
+      isMobile.iOS() ||
+      isMobile.Opera() ||
+      isMobile.Windows()
+    );
+  },
 };
 /**
  * если устройство является тачпадом, body присваивается класс ._touch
  */
 if (isMobile.any()) {
-  document.body.classList.add('_touch');
+  document.body.classList.add("_touch");
 } else {
-  document.body.classList.remove('_touch');
+  document.body.classList.remove("_touch");
 }
 
-const bodyGlobal = document.querySelector('body');
+const bodyGlobal = document.querySelector("body");
 const scrollWidth = window.innerWidth - document.documentElement.clientWidth; // ширина скролл-бара окна
 /**
- * функции для блокировки скролла при открытии модального окна 
+ * функции для блокировки скролла при открытии модального окна
  */
 function blockOverflow() {
   bodyGlobal.style.overflow = `hidden`;
   bodyGlobal.style.touchAction = `none`;
   if (!isMobile.any()) {
-    bodyGlobal.style.paddingRight = scrollWidth + 'px';
+    bodyGlobal.style.paddingRight = scrollWidth + "px";
   }
-};
+}
 
 /**
  * функции для разблокировки скролла при закрытии модального окна
  */
 function unBlockOverflow(time = 400) {
-  setTimeout(() => {
-    bodyGlobal.style.overflow = ``;
-    bodyGlobal.style.touchAction = ``;
-    bodyGlobal.style.paddingRight = ``;
-    console.log('unBlockOverflow')
-  }, time)
-};
+  bodyGlobal.style.overflow = ``;
+  bodyGlobal.style.touchAction = ``;
+  bodyGlobal.style.paddingRight = ``;
+  console.log("unBlockOverflow");
+}
 
 function toggleOverflow() {
-  if (window.getComputedStyle(bodyGlobal).overflow != 'hidden')
-    blockOverflow();
-  else
-    unBlockOverflow();
+  if (window.getComputedStyle(bodyGlobal).overflow != "hidden") blockOverflow();
+  else unBlockOverflow();
 }
 
 //Spollers
@@ -73,11 +75,11 @@ function toggleOverflow() {
 function initSpollers(spollersArr) {
   const timeOut = 400;
   if (spollersArr.length) {
-    spollersArr.forEach(spollersBlock => {
+    spollersArr.forEach((spollersBlock) => {
       let spollersGo = true;
       const maxWidth = spollersBlock.dataset.spollerMaxwidth;
-      const one = spollersBlock.classList.contains('_one')
-      let spollerEl = spollersBlock.querySelectorAll('._spoller');
+      const one = spollersBlock.classList.contains("_one");
+      let spollerEl = spollersBlock.querySelectorAll("._spoller");
       if (spollerEl.length) {
         spollerEl.forEach((spoller, i, spollerArr) => {
           spoller.addEventListener("click", function () {
@@ -89,24 +91,24 @@ function initSpollers(spollersArr) {
               }
               // Если блоку спойлеров задан класс _one, то он является аккордеоном
               if (one) {
-                spollerArr.forEach(el => {
+                spollerArr.forEach((el) => {
                   if (el != spoller) {
-                    el.classList.remove('_active');
+                    el.classList.remove("_active");
                     _slideUp(el.nextElementSibling, timeOut);
                   }
-                })
+                });
               }
-              spoller.classList.toggle('_active');
+              spoller.classList.toggle("_active");
               _slideToggle(spoller.nextElementSibling, timeOut);
 
               setTimeout(function () {
                 spollersGo = true;
               }, timeOut);
             }
-          })
-        })
+          });
+        });
       }
-    })
+    });
   }
 }
 
@@ -116,23 +118,23 @@ function initSpollers(spollersArr) {
 function clearSpollersStyle() {
   let spollersArr = document.querySelectorAll("._spollers");
   if (spollersArr.length) {
-    spollersArr.forEach(spollersBlock => {
+    spollersArr.forEach((spollersBlock) => {
       const maxWidth = spollersBlock.dataset.spollerMaxwidth;
       if (maxWidth && window.innerWidth > maxWidth) {
-        let spollerEl = spollersBlock.querySelectorAll('._spoller');
+        let spollerEl = spollersBlock.querySelectorAll("._spoller");
         if (spollerEl.length) {
-          spollerEl.forEach(spoller => {
-            spoller.classList.remove('_active');
+          spollerEl.forEach((spoller) => {
+            spoller.classList.remove("_active");
             spoller.nextElementSibling.style.display = ``;
-          })
+          });
         }
       }
-    })
+    });
   }
 }
 
 initSpollers(document.querySelectorAll("._spollers")); // инициализируем споллеры
-window.addEventListener('resize', clearSpollersStyle);
+window.addEventListener("resize", clearSpollersStyle);
 
 //SlideToggle
 /**
@@ -141,10 +143,10 @@ window.addEventListener('resize', clearSpollersStyle);
  * @param {Number} duration - длительность анимации
  */
 let _slideUp = (target, duration = 500) => {
-  target.style.transitionProperty = 'height, margin, padding, opacity';
-  target.style.transitionDuration = duration + 'ms';
-  target.style.height = target.offsetHeight + 'px';
-  target.style.overflow = 'hidden';
+  target.style.transitionProperty = "height, margin, padding, opacity";
+  target.style.transitionDuration = duration + "ms";
+  target.style.height = target.offsetHeight + "px";
+  target.style.overflow = "hidden";
   target.style.height = 0;
   target.style.paddingTop = 0;
   target.style.paddingBottom = 0;
@@ -152,33 +154,32 @@ let _slideUp = (target, duration = 500) => {
   target.style.marginBottom = 0;
   target.style.opacity = 0;
   window.setTimeout(() => {
-    target.style.display = 'none';
-    target.style.removeProperty('height');
-    target.style.removeProperty('padding-top');
-    target.style.removeProperty('padding-bottom');
-    target.style.removeProperty('margin-top');
-    target.style.removeProperty('margin-bottom');
-    target.style.removeProperty('overflow');
-    target.style.removeProperty('transition-duration');
-    target.style.removeProperty('transition-property');
-    target.style.removeProperty('opacity');
-    target.classList.remove('_slide');
+    target.style.display = "none";
+    target.style.removeProperty("height");
+    target.style.removeProperty("padding-top");
+    target.style.removeProperty("padding-bottom");
+    target.style.removeProperty("margin-top");
+    target.style.removeProperty("margin-bottom");
+    target.style.removeProperty("overflow");
+    target.style.removeProperty("transition-duration");
+    target.style.removeProperty("transition-property");
+    target.style.removeProperty("opacity");
+    target.classList.remove("_slide");
   }, duration);
-}
+};
 /**
  * Функция сворачивает/разворачивает элемент
  * @param {Object} target - элемент DOM, который надо свернуть/развернуть
  * @param {Number} duration - длительность анимации
  */
 let _slideDown = (target, duration = 500) => {
-  target.style.removeProperty('display');
+  target.style.removeProperty("display");
   let display = window.getComputedStyle(target).display;
-  if (display === 'none')
-    display = 'block';
+  if (display === "none") display = "block";
 
   target.style.display = display;
   let height = target.offsetHeight;
-  target.style.overflow = 'hidden';
+  target.style.overflow = "hidden";
   target.style.height = 0;
   target.style.paddingTop = 0;
   target.style.paddingBottom = 0;
@@ -186,22 +187,22 @@ let _slideDown = (target, duration = 500) => {
   target.style.marginBottom = 0;
   target.offsetHeight;
   target.style.transitionProperty = "height, margin, padding, opacity";
-  target.style.transitionDuration = duration + 'ms';
-  target.style.height = height + 'px';
+  target.style.transitionDuration = duration + "ms";
+  target.style.height = height + "px";
   target.style.opacity = 1;
-  target.style.removeProperty('padding-top');
-  target.style.removeProperty('padding-bottom');
-  target.style.removeProperty('margin-top');
-  target.style.removeProperty('margin-bottom');
+  target.style.removeProperty("padding-top");
+  target.style.removeProperty("padding-bottom");
+  target.style.removeProperty("margin-top");
+  target.style.removeProperty("margin-bottom");
   window.setTimeout(() => {
-    target.style.removeProperty('height');
-    target.style.removeProperty('overflow');
-    target.style.removeProperty('transition-duration');
-    target.style.removeProperty('transition-property');
-    target.style.removeProperty('opacity');
-    target.classList.remove('_slide');
+    target.style.removeProperty("height");
+    target.style.removeProperty("overflow");
+    target.style.removeProperty("transition-duration");
+    target.style.removeProperty("transition-property");
+    target.style.removeProperty("opacity");
+    target.classList.remove("_slide");
   }, duration);
-}
+};
 /**
  * Функция сворачивает/разворачивает элемент
  * @param {Object} target - элемент DOM, который надо свернуть/развернуть
@@ -209,16 +210,15 @@ let _slideDown = (target, duration = 500) => {
  * @returns вызывает соответствующую условию функцию
  */
 let _slideToggle = (target, duration = 500) => {
-  if (!target.classList.contains('_slide')) {
-    target.classList.add('_slide');
-    if (window.getComputedStyle(target).display === 'none') {
+  if (!target.classList.contains("_slide")) {
+    target.classList.add("_slide");
+    if (window.getComputedStyle(target).display === "none") {
       return _slideDown(target, duration);
     } else {
       return _slideUp(target, duration);
     }
   }
-}
-
+};
 
 // To connect the SimpleBar
 /**
@@ -227,9 +227,9 @@ let _slideToggle = (target, duration = 500) => {
  */
 function plugSimpleBar(selector) {
   let simpleBarEl;
-  if (typeof selector === 'string') {
+  if (typeof selector === "string") {
     simpleBarEl = document.querySelector(selector);
-  } else if (typeof selector === 'object') {
+  } else if (typeof selector === "object") {
     simpleBarEl = selector;
   } else return;
 
@@ -237,7 +237,7 @@ function plugSimpleBar(selector) {
     try {
       return new SimpleBar(simpleBarEl);
     } catch {
-      simpleBarEl.style.ovetflowY = 'auto';
+      simpleBarEl.style.ovetflowY = "auto";
     }
   }
 }
@@ -246,23 +246,21 @@ function plugSimpleBar(selector) {
  * закрывает в все открытые меню и попапы, открытые
  */
 function closeAllOpenedMenu() {
-  const allMenu = document.querySelectorAll('._open');
-  allMenu.forEach(menu => menu.classList.remove('_open'));
+  const allMenu = document.querySelectorAll("._open");
+  allMenu.forEach((menu) => menu.classList.remove("_open"));
 }
 
 /**
- * при клике на любую область документа, если эта область не находится внутри открытого меню, 
+ * при клике на любую область документа, если эта область не находится внутри открытого меню,
  * то закрываются все окна
  */
-document.documentElement.addEventListener('click', (e) => {
-  setTimeout(() => {
-    // если не проверить, присоединен ли элемент в DOM, то при удалении элемента по клику
-    // происходит автоматическое закрытие меню
-    if (e.target.closest('body') && !e.target.closest('._open')) {
-      closeAllOpenedMenu();
-      unBlockOverflow();
-    }
-  }, 10);
+document.documentElement.addEventListener("click", (e) => {
+  // если не проверить, присоединен ли элемент в DOM, то при удалении элемента по клику
+  // происходит автоматическое закрытие меню
+  if (e.target.closest("body") && !e.target.closest("._open")) {
+    closeAllOpenedMenu();
+    unBlockOverflow();
+  }
 });
 
 /**
@@ -270,13 +268,13 @@ document.documentElement.addEventListener('click', (e) => {
  * которому присвоен класс ._active-el
  * при нажатии закрываются все елементы открытые елементы, содержащие класс ._open
  */
-let activeHeadersEls = document.querySelectorAll('._active-el');
-activeHeadersEls.forEach(el => {
-  el.addEventListener('click', () => {
-    if (!el.parentElement.classList.contains('_open')) {
+let activeHeadersEls = document.querySelectorAll("._active-el");
+activeHeadersEls.forEach((el) => {
+  el.addEventListener("click", () => {
+    if (!el.parentElement.classList.contains("_open")) {
       closeAllOpenedMenu();
     }
-    el.parentElement.classList.toggle('_open');
+    el.parentElement.classList.toggle("_open");
   });
 });
 
@@ -286,26 +284,24 @@ activeHeadersEls.forEach(el => {
  * Когда <input class="input"> в фокусе его родителю присваивается класс _focus
  */
 
-let inputArr = document.querySelectorAll('._input');
+let inputArr = document.querySelectorAll("._input");
 if (inputArr.length) {
-  inputArr.forEach(input => {
-    input.addEventListener('focus', () => {
-      input.parentElement.classList.add('_focus');
+  inputArr.forEach((input) => {
+    input.addEventListener("focus", () => {
+      input.parentElement.classList.add("_focus");
     });
-    input.addEventListener('blur', () => {
-      input.parentElement.classList.remove('_focus');
+    input.addEventListener("blur", () => {
+      input.parentElement.classList.remove("_focus");
     });
-    input.addEventListener('change', () => {
-      if (input.value)
-        input.parentElement.classList.add('_filled');
-      else
-        input.parentElement.classList.remove('_filled');
+    input.addEventListener("change", () => {
+      if (input.value) input.parentElement.classList.add("_filled");
+      else input.parentElement.classList.remove("_filled");
     });
   });
 }
 
 /**
- * по классу _tabs находятся все блоки, которые должны быть табами 
+ * по классу _tabs находятся все блоки, которые должны быть табами
  * например в проэкте блок .slide-content__tabs-item
  */
 //Tabs
@@ -319,36 +315,37 @@ for (let index = 0; index < tabs.length; index++) {
     tabs_item.addEventListener("click", function (e) {
       for (let index = 0; index < tabs_items.length; index++) {
         let tabs_item = tabs_items[index];
-        tabs_item.classList.remove('_active');
-        tabs_blocks[index].classList.remove('_active');
+        tabs_item.classList.remove("_active");
+        tabs_blocks[index].classList.remove("_active");
       }
-      tabs_item.classList.add('_active');
-      tabs_blocks[index].classList.add('_active');
+      tabs_item.classList.add("_active");
+      tabs_blocks[index].classList.add("_active");
       e.preventDefault();
     });
   }
 }
 
 // Обработка событий для контекстного меню .context-menu
-const popUpMenu = document.querySelectorAll('.context-menu');
+const popUpMenu = document.querySelectorAll(".context-menu");
 if (popUpMenu.length) {
-
-  document.documentElement.addEventListener('click', function (e) {
-    let btn = e.target.closest('.context-menu > button, .context-menu > a');
-    if (btn) {
-      let menu = e.target.closest('.context-menu');
-      if (menu) {
-        if (!menu.classList.contains('_open')) closeAllOpenedMenu();
-        popUpMenuCorrectPos(menu);
-        menu.classList.toggle('_open');
+  document.documentElement.addEventListener(
+    "click",
+    function (e) {
+      let btn = e.target.closest(".context-menu > button, .context-menu > a");
+      if (btn) {
+        let menu = e.target.closest(".context-menu");
+        if (menu) {
+          if (!menu.classList.contains("_open")) closeAllOpenedMenu();
+          popUpMenuCorrectPos(menu);
+          menu.classList.toggle("_open");
+        }
+      } else {
+        let popUpMenu = document.querySelector(".context-menu._open");
+        if (popUpMenu) popUpMenu.classList.remove("_open");
       }
-    } else {
-      let popUpMenu = document.querySelector('.context-menu._open');
-      if (popUpMenu) popUpMenu.classList.remove('_open');
-    }
-
-  }, false);
-
+    },
+    false
+  );
 
   /**
    * если окно выходит за рамки окна браузера, корректируем позицию
@@ -357,137 +354,135 @@ if (popUpMenu.length) {
     if (!popUpMenu) return;
     popUpMenuCleartPos(popUpMenu);
 
-    const ul = popUpMenu.querySelector('ul');
+    const ul = popUpMenu.querySelector("ul");
     if (!ul) return;
 
     let menuPosLeft = popUpMenu.getBoundingClientRect().left;
     let menuPosRight = popUpMenu.getBoundingClientRect().right;
     let ulPosLeft = ul.getBoundingClientRect().left - 5;
-    let ulPosRight = document.documentElement.clientWidth - ul.getBoundingClientRect().right - 5;
+    let ulPosRight =
+      document.documentElement.clientWidth -
+      ul.getBoundingClientRect().right -
+      5;
 
     if (ulPosLeft < 0) {
-      if ((document.documentElement.clientWidth - menuPosLeft - 5) >= ul.offsetWidth)
-        ul.style.left = '0';
-      else
-        ul.style.right = ulPosLeft + 'px';
+      if (
+        document.documentElement.clientWidth - menuPosLeft - 5 >=
+        ul.offsetWidth
+      )
+        ul.style.left = "0";
+      else ul.style.right = ulPosLeft + "px";
     }
 
     if (ulPosRight < 0) {
-      if ((menuPosRight - 5) >= ul.offsetWidth)
-        ul.style.right = '0';
-      else
-        ul.style.left = ulPosRight + 'px';
+      if (menuPosRight - 5 >= ul.offsetWidth) ul.style.right = "0";
+      else ul.style.left = ulPosRight + "px";
     }
   }
 
   function popUpMenuCleartPos(popUpMenu) {
-    const ul = popUpMenu.querySelector('ul');
-    if (ul) ul.style.left = ul.style.right = '';
+    const ul = popUpMenu.querySelector("ul");
+    if (ul) ul.style.left = ul.style.right = "";
   }
 
-  window.addEventListener('resize', () => {
-    popUpMenu.forEach(menu => {
+  window.addEventListener("resize", () => {
+    popUpMenu.forEach((menu) => {
       popUpMenuCleartPos(menu);
       popUpMenuCorrectPos(menu);
-    })
+    });
   });
 }
 
 // адаптивная высота textarea
-document.documentElement.addEventListener('input', function (e) {
-  if (!e.target.matches('.js-textarea-auto-height')) return;
-  e.target.style.height = '';
-  e.target.style.height = e.target.scrollHeight + 2 + 'px';
+document.documentElement.addEventListener(
+  "input",
+  function (e) {
+    if (!e.target.matches(".js-textarea-auto-height")) return;
+    e.target.style.height = "";
+    e.target.style.height = e.target.scrollHeight + 2 + "px";
+  },
+  true
+);
 
-}, true);
-
-const textareaAutoHeight = document.querySelectorAll('.js-textarea-auto-height');
-textareaAutoHeight.forEach(textarea => {
+const textareaAutoHeight = document.querySelectorAll(
+  ".js-textarea-auto-height"
+);
+textareaAutoHeight.forEach((textarea) => {
   if (textarea.getBoundingClientRect().height < textarea.scrollHeight) {
-    textarea.style.height = textarea.scrollHeight + 2 + 'px';
+    textarea.style.height = textarea.scrollHeight + 2 + "px";
   }
 });
 
-window.addEventListener('resize', function (e) {
-  const textareaAutoHeight = document.querySelectorAll('.js-textarea-auto-height');
-  textareaAutoHeight.forEach(textarea => {
-    textarea.dispatchEvent(new Event('input'))
-  });
-}, false);
+window.addEventListener(
+  "resize",
+  function (e) {
+    const textareaAutoHeight = document.querySelectorAll(
+      ".js-textarea-auto-height"
+    );
+    textareaAutoHeight.forEach((textarea) => {
+      textarea.dispatchEvent(new Event("input"));
+    });
+  },
+  false
+);
 
-// фокус родителю поля ввода 
-const fieldFocus = document.querySelectorAll('.js-focus')
+// фокус родителю поля ввода
+const fieldFocus = document.querySelectorAll(".js-focus");
 if (fieldFocus.length) {
-  fieldFocus.forEach(field => {
-    field.addEventListener('focus', function () {
-      this.parentElement.classList.add('_focus')
+  fieldFocus.forEach((field) => {
+    field.addEventListener("focus", function () {
+      this.parentElement.classList.add("_focus");
     });
 
-    field.addEventListener('blur', function () {
-      this.parentElement.classList.remove('_focus')
-    })
-  })
+    field.addEventListener("blur", function () {
+      this.parentElement.classList.remove("_focus");
+    });
+  });
 }
 
 // Стрелка прокрутки вверх
-let arrowToTop = document.querySelector('.arrow-to-top');
+let arrowToTop = document.querySelector(".arrow-to-top");
 if (arrowToTop) {
-  window.addEventListener('scroll', () => {
-    arrowToTop.classList.toggle('arrow-to-top--visible', window.scrollY > 250);
+  window.addEventListener("scroll", () => {
+    arrowToTop.classList.toggle("arrow-to-top--visible", window.scrollY > 250);
   });
 
-  arrowToTop.addEventListener('click', () => {
+  arrowToTop.addEventListener("click", () => {
     window.scrollTo(0, 0);
-  })
+  });
 }
-
-// Обработчик закрытия кастомнного поп-апа .custom-pop-up
-let customPopUps = document.querySelectorAll('.custom-pop-up')
-if (customPopUps && customPopUps.length) {
-  customPopUps.forEach(popUp => {
-    document.body.append(popUp)
-  })
-}
-
-document.documentElement.addEventListener('click', function (e) {
-  if (e.target.closest('.js-close-custom-pop-up')) {
-    e.target.closest('.custom-pop-up').classList.remove('_open');
-    e.target.dispatchEvent(new Event('close-custom-pop-up', {
-      'bubbles': true,
-      'cancelable': false
-    }));
-  } else if (nOpener = e.target.closest('.js-pop-up-opener')) {
-    var popUp = document.getElementById(nOpener.dataset.targetId);
-    if (popUp) {
-      popUp.classList.add('_open');
-      nOpener.classList.add('_open');
-      blockOverflow();
-    }
-  }
-}, false);
-
 
 /**
  * Валиация ввода - только цифры
  * @param {event} event
  */
 function numOnly(event) {
-  if (event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || event.keyCode == 13 ||
+  if (
+    event.keyCode == 46 ||
+    event.keyCode == 8 ||
+    event.keyCode == 9 ||
+    event.keyCode == 27 ||
+    event.keyCode == 13 ||
     // Разрешаем: Ctrl+A
     (event.keyCode == 65 && event.ctrlKey === true) ||
     // Разрешаем: home, end, влево, вправо
-    (event.keyCode >= 35 && event.keyCode <= 39)) {
+    (event.keyCode >= 35 && event.keyCode <= 39)
+  ) {
     // Ничего не делаем
     return;
   } else {
     // Запрещаем все, кроме цифр на основной клавиатуре, а так же Num-клавиатуре
-    if ((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105)) {
+    if (
+      (event.keyCode < 48 || event.keyCode > 57) &&
+      (event.keyCode < 96 || event.keyCode > 105)
+    ) {
       event.preventDefault();
     }
   }
 }
 
 //=================
+
 // HEADER JS / begin ============================================================================
 let mainHeader = document.querySelector('header.header');
 let headerMenuBody = document.querySelector('.header .menu__body');
@@ -708,70 +703,6 @@ const forumsSlider = new Swiper('.forums-slider', {
         },
     }
 });
-// Модальное окно модерации
-(function () {
-
-    const sModerationPopupSelector = '#moderation-pop-up';
-    if (typeof (IntersectionObserver) === 'function') {
-        let observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) {
-                    entry.target.scrollIntoView();
-                }
-            })
-        });
-
-        document.documentElement.addEventListener('focus', function (e) {
-            if (!e.target.closest(sModerationPopupSelector)) return;
-            if (!e.target.matches('textarea, input')) return;
-
-            setTimeout(() => {
-                observer.observe(e.target);
-            }, 100);
-
-        }, false);
-    }
-
-    document.documentElement.addEventListener('click', function (e) {
-        if (!e.target.closest(sModerationPopupSelector)) return;
-        if (!e.target.matches('._spoller')) return;
-
-        var inputs = e.target.closest(sModerationPopupSelector).querySelectorAll('.js-textarea-auto-height');
-        inputs.forEach(textarea => {
-            textarea.dispatchEvent(new Event('input'))
-        });
-
-    }, false);
-
-    document.documentElement.addEventListener('close-custom-pop-up', function (e) {
-        if (!e.target.closest(sModerationPopupSelector)) return;
-
-        const opened = e.target.closest(sModerationPopupSelector).querySelector('._spoller._active');
-        if (opened) opened.click();
-
-    }, false);
-
-    document.documentElement.addEventListener('keyup', (e) => {
-        heightCorrection(e)
-    }, false);
-
-    const popUpBody = document.querySelector('.moderation-pop-up__body');
-    var bodyPaddingBottom = 0;
-    if (popUpBody) {
-        bodyPaddingBottom = +(window.getComputedStyle(popUpBody).paddingBottom.slice(0, -2));
-    }
-
-    function heightCorrection(e) {
-        if (!e.target.closest(sModerationPopupSelector)) return;
-        if (!e.target.matches('.moderation-pop-up__search')) return;
-
-        const popUp = e.target.closest('.moderation-pop-up');
-        const popUpBody = popUp.querySelector('.moderation-pop-up__body');
-
-        popUpBody.style.height = popUp.scrollHeight + bodyPaddingBottom + 'px';
-        bodyPaddingBottom = 0;
-    }
-}());
 
 // Срипт для кастомного селекта
 (function () {
@@ -876,49 +807,6 @@ const forumsSlider = new Swiper('.forums-slider', {
     });
 
 }());
-// стемные уведомления
-var oNoticeOptions = {
-    theme: 'NoticeSmartlab',
-    animation: {
-        open: 'slide:bottom',
-        close: 'slide:bottom'
-    },
-    stack: false,
-    attributes: {
-        x: 'right',
-        y: 'bottom'
-    },
-    position: {
-        x: 40,
-        y: 40
-    },
-    responsivePositions: {
-        320: {
-            x: 22,
-            y: 40
-        },
-
-        380: {
-            x: 18,
-            y: 40
-        },
-
-        480: {
-            x: 25,
-            y: 40
-        }
-    },
-    color: 'green',
-    width: null,
-    height: null
-};
-
-function jBoxNotice(color, title, message) {
-    oNoticeOptions['color'] = color;
-    oNoticeOptions['title'] = title ? title : null;
-    oNoticeOptions['content'] = message ? message : null;
-    new jBox('Notice', oNoticeOptions);
-}
 (function () {
     const filterBtn = document.querySelector('.js-nf-filter-btn');
     const filterBody = document.querySelector('.js-nf-filter-body');

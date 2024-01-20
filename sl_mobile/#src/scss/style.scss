@@ -129,7 +129,7 @@ $widecontainer: 1244;
 @import "./plugins/sumoselect";
 @import "./plugins/nouislider";
 @import "./plugins/flex-table";
-@import "./plugins/jBox.all"; // Может испортить верстку
+
 //@import "./plugins/swiper-bundle.min.css"; // Подключен минимальный наботр правил _custom-swiper
 @import "./blocks/_custom-swiper"; // Минимальные и необходимые стили для слайдера swiper
 @import "./blocks/_header";
@@ -176,6 +176,12 @@ $widecontainer: 1244;
 @import "./blocks/book-review-info";
 @import "./blocks/spinner-loader";
 @import "./blocks/_warning-popup";
+@import "./blocks/_abuse-popup";
+@import "./blocks/_login-popup";
+@import "./blocks/_premium-popup";
+@import "./blocks/_tarif-popup";
+@import "./blocks/_stat-page";
+@import "./blocks/_system-messages";
 
 // стили страницы котировок (дизайн страницы кардинально отличается от новой версии)
 @import "./blocks/_quotes-menu";
@@ -202,7 +208,7 @@ $widecontainer: 1244;
 // Костыли для совместимости
 @import "./blocks/crutches";
 @import "./blocks/style.more.login";
-@import "./blocks/jBox-with-custom-pop-up";
+// @import "./blocks/jBox-with-custom-pop-up";
 
 //</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
 
@@ -212,17 +218,3 @@ $widecontainer: 1244;
 
 //</ОСНОВНОЙ БЛОК>====================================================================================================
 
-//<Доп правила для jBox>===
-
-/* .jBox-Tooltip .jBox-container {
-	max-width: calc(100% - 20px) !important;
-	border-radius: 5px;
-	box-shadow: 0 0 3px rgb(0 0 0 / 25%);
-	overflow: hidden;
-	padding: 0 !important;
-	margin: 0 !important;
-}
-.jBox-content {
-	overflow: hidden;
-	padding: 0 !important;
-} */

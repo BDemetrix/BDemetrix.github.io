@@ -1,0 +1,29 @@
+.stat-page__stat
+{
+	font-family: inherit;
+		max-width: 100%;
+		padding: 14px 10px 4px;
+		background: #ffffff;
+		-webkit-box-shadow: 0px 4px 4px rgb(117 117 117 / 12%);
+		box-shadow: 0px 4px 4px rgb(117 117 117 / 12%);
+		box-sizing: border-box;
+}
+.stat__btns
+{
+	display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		width: 100%;
+		margin-bottom: 20px;
+}
+.stat__btns--bottom
+{
+	margin-top: 20px;
+}
+.stat__btns a
+{
+	-webkit-box-flex: 0;
+		-ms-flex: 0 0 calc(50% - 20px);
+		flex: 0 0 calc(50% - 20px);
+		margin: 0 10px;
+}
