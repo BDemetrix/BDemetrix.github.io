@@ -1,0 +1,138 @@
+/* цвет точки в логотипе. для разных разделов должен означать разное. пока везде такой. возможно надо делать классом */
+/* Ответ: Это было предусмотрено / только стоит развания классов более осмысленные выбрать
+<!-- классы ._style-1 , ._style-2 и ._style-3 используются для стилизации двух видов шаблонов 
+	Например: при body._style-1 Логотип имеет один цвет, а при body._style-2 и ._style-3 - другой
+	._style-1 для smart-lab.ru
+	._style-2 для smart-lab.ru/q/
+	._style-3 для smart-lab.ru/forum/ 
+--> */
+/* .main-logo::before
+{
+	background: #F59300;
+} */
+
+
+
+/* глазик просмотров на карточке поста по умолчанию не показываем, т.к. у нас просмотры считаются не для всего, а шаблон универсальный */
+
+/* Ответ: Можно накже в шаблоне по условию убирать этот глазик, но я перенес */
+
+/* .post-card__btn.views
+{
+	display: none;
+} */
+
+/* какие-то мутки в фильтрах с датами. видимо везде хотели огранчить длину, я сделал как умел ))
+http://smart-lab.ru/mobile/calendar/index/country_0/2021-03-05/
+https://smart-lab.ru/mobile/allnews/?lenta=1
+*/
+
+/* Ответ: там только css не получалось сделать под хотелки, написал js который работает по селекторам .js-news-card-author и .js-news-card-date
+надо делать так:
+<div class="news-card__info"><span data-href="https://smart-lab.ru/profile/suve/" class="news-card__author js-news-card-author" style="max-width: 637px;">
+        <span>SUVE Capital Management Management</span>
+        <svg width="20" height="20">
+            <use xlink:href="images/icons/comments/sprite.svg#approved"></use>
+        </svg>
+    </span>
+    <div class="news-card__date js-news-card-date">Сегодня в 13:39</div>
+</div>
+
+*/
+/* .news-card__date
+{
+	width: 150px;
+	flex: 0 0 150px;
+} */
+
+/* это переносить не надо */
+/* Ответ: ок */
+.post-page__banner--top
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+
+/* курсор в премиум заглушках. поскольку у а нету href, то курсор показывается не тот (клик у нас озвучивается скриптом).
+для этих дел вручную ставлю - https://smart-lab.ru/mobile/topic/980405/ например тут "Есть Smart-Lab Premium? Войдите" */
+/* Ответ: я это не переносил */
+#login_link
+{
+	cursor: pointer;
+}
+
+
+
+
+/* страница статистики мобильной - https://smart-lab.ru/mobile/stat/ надо иметь права. хз надо ли переносить */
+/* Ответ: перенес все в sl_mobile/#src/scss/blocks/_stat-page.scss и подключил в общий бандл */
+/* .stat-page__stat
+{
+	font-family: inherit;
+		max-width: 100%;
+		padding: 14px 10px 4px;
+		background: #ffffff;
+		-webkit-box-shadow: 0px 4px 4px rgb(117 117 117 / 12%);
+		box-shadow: 0px 4px 4px rgb(117 117 117 / 12%);
+		box-sizing: border-box;
+}
+.stat__btns
+{
+	display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		width: 100%;
+		margin-bottom: 20px;
+}
+.stat__btns--bottom
+{
+	margin-top: 20px;
+}
+.stat__btns a
+{
+	-webkit-box-flex: 0;
+		-ms-flex: 0 0 calc(50% - 20px);
+		flex: 0 0 calc(50% - 20px);
+		margin: 0 10px;
+} */
+/* --- */
+
+/* мои мутки с баннерами, их переносить не надо */
+@media (min-width: 480px)
+{
+	.post-page__banner
+	{
+		min-height: auto;
+	}
+}
+.post-page__banner-wrapper 
+{
+	min-height: 250px; font-size: 0;
+}
+.post-page__banner-wrapper .post-page__banner-img.desktop
+{
+	display: inline-block; width: 50%; vertical-align: top;
+}
+
+/* --- */
+
+
+
+
+/* хуй знает что это такое */
+/* Ответ: если в шаблонах у тебя нет, давай удалим, напиши мне твой ответ, пожалуйста */
+/* .nf-filter__body-nodate .nf-filter__date-wrap
+{
+	display: none;
+} */
+
+
+/* фильтр на страницах блога пользователя: поле поиска - http://smart-lab.ru/mobile/users/cdb/blog/ я подгонял как мог, не факт что правильно */
+/* Ответ: перенес, но в дизайне было так https://bdemetrix.github.io/sl_mobile/build/blog.html */
+/* @media (min-width: 600px) {
+	.nf-filter__search-wrap.nf-filter__search-wrap--em {
+		width: calc(41% - 10px);
+	}
+} */
+

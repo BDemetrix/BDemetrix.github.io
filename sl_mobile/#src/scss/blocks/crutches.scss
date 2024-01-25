@@ -1,3 +1,7 @@
+@import "../base/variables";
+@import "../base/global";
+
+
 // Костыли для совместимости (которые эффективнее оставить в этом файле и подключать в конце)
 @keyframes menu-slide-down {
   from {
