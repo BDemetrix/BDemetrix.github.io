@@ -13,7 +13,7 @@
         offset: {                   
             y: 10                  
         },
-        maxWidth: 220,
+        maxWidth: 250,
         pointer: false,
         // trigger: 'click', 
     });
