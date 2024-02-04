@@ -68,6 +68,31 @@ var moderationPopUp = new ModalDialog({
   content: `<div class="moderation-pop-up__left-col">
   <div class="moderation-pop-up__btns">
     <div class="moderation-pop-up__btns-row">
+      <button class="moderation-pop-up__btn blue-btn" type="button">
+        На главную
+      </button>
+      <button
+        class="moderation-pop-up__btn blue-btn blue-btn--not-selected"
+        type="button"
+      >
+        Запрет на&nbsp;главной
+      </button>
+    </div>
+    <div class="moderation-pop-up__btns-row">
+      <button
+        class="moderation-pop-up__btn blue-btn blue-btn--not-selected"
+        type="button"
+      >
+        В SMM
+      </button>
+      <button
+        class="moderation-pop-up__btn blue-btn blue-btn--not-selected"
+        type="button"
+      >
+        В сигналы
+      </button>
+    </div>
+    <div class="moderation-pop-up__btns-row">
       <button
         class="moderation-pop-up__btn blue-btn blue-btn--not-selected"
         type="button"
@@ -79,25 +104,6 @@ var moderationPopUp = new ModalDialog({
         type="button"
       >
         Удалить
-      </button>
-    </div>
-    <div class="moderation-pop-up__btns-row">
-      <button class="moderation-pop-up__btn blue-btn" type="button">
-        На главную
-      </button>
-      <button
-        class="moderation-pop-up__btn blue-btn blue-btn--not-selected"
-        type="button"
-      >
-        Убрать с&nbsp;главной
-      </button>
-    </div>
-    <div class="moderation-pop-up__btns-row">
-      <button
-        class="moderation-pop-up__to-smm blue-btn blue-btn--not-selected"
-        type="button"
-      >
-        В SMM
       </button>
     </div>
   </div>
@@ -416,7 +422,7 @@ var moderationPopUp = new ModalDialog({
   </div>
 
   <div class="moderation-pop-up__extra-tags">
-    <div class="moderation-pop-up__title">Экстра-теги:</div>
+    <div class="moderation-pop-up__sub-title moderation-pop-up__sub-title--mt">Экстра-теги:</div>
     <div class="moderation-pop-up__extra-tags-inner">
       <!-- Модификатор .blue-btn--active  для выделения более темным цветом -->
       <div class="moderation-pop-up__tag">
@@ -467,7 +473,7 @@ var moderationPopUp = new ModalDialog({
 
 <div class="moderation-pop-up__column">
   <div class="moderation-pop-up__tags">
-    <div class="moderation-pop-up__title">Tеги:</div>
+    <div class="moderation-pop-up__sub-title">Tеги:</div>
     <div class="moderation-pop-up__tags-inner">
       <span class="post-tag post-tag--with-btn">
         инвесторам
@@ -519,7 +525,7 @@ var moderationPopUp = new ModalDialog({
     </div>
   </div>
   <div class="moderation-pop-up__companies">
-    <div class="moderation-pop-up__title">Привязать форум:</div>
+    <div class="moderation-pop-up__sub-title">Привязать форум:</div>
     <div class="moderation-pop-up__search-wrapper" id="comp-search-wrapper">
       <input
         type="text"
