@@ -309,7 +309,7 @@ body.dark-theme.loader:before {
     }
 
     &__title {
-      color: $text-color;
+      color: $text-color !important;
     }
   }
 
