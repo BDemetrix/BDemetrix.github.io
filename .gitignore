@@ -8,6 +8,6 @@ package-lock.json
 *.psd
 *.sublime*
 node_modules/
-emails/source/
-emails/default.html
-emails/README.md
+#emails/source/
+#emails/default.html
+#emails/README.md
