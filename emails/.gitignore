@@ -9,7 +9,7 @@ package.json
 *.psd
 *.sublime*
 node_modules/
-source/
+# source/
 npm-debug.*
 Thumbs.db
 default.html
