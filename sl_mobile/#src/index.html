@@ -66,6 +66,22 @@
 			<div class="main__post-card">
 				@@include('_post-card--video.html',{'btnMod': 'check', 'btnText': 'Подписан'})
 			</div> 
+			<div class="main__post-card">
+				@@include('_post-card--questionnaire.html',{'btnMod': 'check', 'btnText': 'Подписан', 
+				'questionnaireMod': ' questionnaire--counter',
+				'questionnaireFile': '_questionnaire--radio.html'
+				} )
+			</div> 
+			<div class="main__post-card">
+				@@include('_post-card--questionnaire.html',{'btnMod': 'check', 'btnText': 'Подписан', 
+				'questionnaireMod': ' questionnaire--multiple questionnaire--counter questionnaire--multiple',
+				'questionnaireFile': '_questionnaire.html'})
+			</div> 
+			<div class="main__post-card">
+				@@include('_post-card--questionnaire.html',{'btnMod': 'check', 'btnText': 'Подписан', 
+				'questionnaireMod': ' questionnaire--multiple questionnaire--counter questionnaire--voted',
+				'questionnaireFile': '_questionnaire.html'})
+			</div> 
 			<div class="main__post-loader spinner-loader" role="status">
 				<div class="spinner-loader__ring"></div>
 				<span class="spinner-loader__label">Загружаем...</span>

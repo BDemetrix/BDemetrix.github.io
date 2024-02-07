@@ -256,7 +256,8 @@
 }
 
 .blue-btn,
-.cancel-btn {
+.cancel-btn,
+.outline-btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -277,6 +278,29 @@
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
   margin: 0;
+}
+
+.outline-btn {
+  font-weight: 500;
+  padding: 7px 12px;
+  color: #479CD3;
+  border: 1px solid #479CD3;
+  border-radius: 8px;
+  background: transparent;
+}
+
+.outline-btn--wide {
+  width: 100%;
+}
+
+.outline-btn:hover {
+  -webkit-box-shadow: 2px 4px 4px rgba(117, 117, 117, 0.25);
+          box-shadow: 2px 4px 4px rgba(117, 117, 117, 0.25);
+}
+
+.outline-btn:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .blue-btn {

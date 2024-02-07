@@ -858,6 +858,74 @@
                 </div>
             </div>
         </div>
+        <!-- 
+  Для одиночного или множественного выбора используется type="radio || checkbox" и 
+  если нужен множественный выбор, добавляестя модификатор questionnaire--multiple или questionnaire--check-icon для показа кнопки "Проголосовать"
+  Если нужна автоматическая нумерация вопросов, добавить questionnaire--counter
+  Если опрос проголосован добавить модификатор questionnaire--voted  
+-->
+
+<!-- Радио кнопки -->
+<article class="questionnaire  questionnaire--counter">
+  <div class="questionnaire__head">
+    <h3 class="questionnaire__title">Какой вариант Вы считаете приемлемым?</h3>
+    <div class="questionnaire__hint">Один вариант ответа</div>
+  </div>
+  <div class="questionnaire__list">
+    <label class="questionnaire__item questionnaire__item--selected">
+      <input class="questionnaire__switcher" type="radio" name="question"/>
+      <div class="questionnaire__item-content"> 
+        <span class="questionnaire__item-text">Первый вариант</span>
+        <span class="questionnaire__score">
+          <span class="questionnaire__marker">
+            <svg height="24" width="24">
+              <use xlink:href="images/icons/user-info/sprite.svg#check"></use>
+            </svg>
+          </span>
+          <span>15%</span>
+        </span>
+      </div> 
+      <div class="questionnaire__item-filler" style="width: 15%"></div>
+    </label>
+    <label class="questionnaire__item questionnaire__item--leader">
+      <input class="questionnaire__switcher" type="radio" name="question"/>
+      <div class="questionnaire__item-content">
+        <span class="questionnaire__item-text">Второй вариант Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium odit, veniam at adipisci cum explicabo.</span> 
+        <span class="questionnaire__score">
+          <span class="questionnaire__marker"></span>
+          <span class="questionnaire__score-val">70%</span>
+        </span>
+      </div> 
+      <div class="questionnaire__item-filler" style="width: 70%"></div>
+    </label>
+    <label class="questionnaire__item">
+      <input class="questionnaire__switcher" type="radio" name="question"/>
+      <div class="questionnaire__item-content">
+        <span class="questionnaire__item-text">Третий вариант</span> 
+        <span class="questionnaire__score">
+          <span class="questionnaire__marker"></span>
+          <span class="questionnaire__score-val">5%</span>
+        </span>
+      </div> 
+      <div class="questionnaire__item-filler" style="width: 5%"></div>
+    </label>
+    <label class="questionnaire__item">
+      <input class="questionnaire__switcher" type="radio" name="question"/>
+      <div class="questionnaire__item-content">
+        <span class="questionnaire__item-text">Четвёртый вариант</span> 
+        <span class="questionnaire__score">
+          <span class="questionnaire__marker"></span>
+          <span class="questionnaire__score-val">10%</span>
+        </span>
+      </div> 
+      <div class="questionnaire__item-filler" style="width: 10%"></div>
+    </label>
+  </div>
+  <div class="questionnaire__footer">
+    <button class="outline-btn outline-btn--wide" type="button">Проголосовать</button>
+  </div>
+</article>
+
         <div class="post-card__text">
             Агрохолдинг «Степь» расширяет продуктовую линейку и запускает новое направление бизнеса — производство муки.
             Выпуск муки

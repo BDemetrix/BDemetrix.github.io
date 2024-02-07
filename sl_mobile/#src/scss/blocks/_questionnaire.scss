@@ -1,0 +1,222 @@
+.questionnaire {
+  margin-bottom: 24px;
+
+  &--voted {
+    .questionnaire__list {
+      &::after {
+        content: '';
+        position: absolute;
+        z-index: 5;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+    } 
+
+    .questionnaire__item {
+      background: #7ebae0;
+      padding: 8px 14px;
+
+      &--leader {
+        background: #5aae85;
+        .questionnaire__item-filler {
+          background: #008243;
+        }
+      }
+    }
+    .questionnaire__item-content {
+      &::after {
+        display: none;
+      }
+    }
+    .questionnaire__score {
+      display: flex;
+    }
+    .questionnaire__hint,
+    .questionnaire__footer {
+      display: none;
+    }
+  }
+  &--check-icon,
+  &--multiple {
+    .questionnaire__item-content {
+      &::after {
+        content: "";
+      }
+    }
+
+    .questionnaire__footer {
+      display: block;
+    }
+  }
+  &--check-icon,
+  &--multiple {
+    &.questionnaire--voted {
+      .questionnaire__footer {
+        display: none;
+      }
+    }
+  }
+
+  &--counter {
+    .questionnaire__list {
+      counter-reset: questionnaire-counter;
+    }
+
+    .questionnaire__item {
+      display: flex;
+      align-items: start;
+      padding: 8px 10px;
+
+      &::before {
+        counter-increment: questionnaire-counter;
+        content: counter(questionnaire-counter) ". ";
+        position: relative;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        align-self: stretch;
+        min-height: 24px;
+        // max-height: 48px;
+        max-height: 24px;
+        margin-right: 8px;
+      }
+    }
+  }
+
+  // .questionnaire__head
+  &__head {
+  }
+  // .questionnaire__title
+  &__title {
+    margin: 0 0 14px;
+    letter-spacing: 0.0125em;
+    color: #424242;
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 130%;
+    text-align: center;
+    overflow: hidden;
+
+    @media (min-width: $md3 + px) {
+      font-size: 28px;
+      font-weight: bold;
+    }
+  }
+  // .questionnaire__hint
+  &__hint {
+    margin-bottom: 10px;
+    text-align: center;
+    color: #424242;
+  }
+  // .questionnaire__list
+  &__list {
+    position: relative;
+  }
+  // .questionnaire__item
+  &__item {
+    cursor: pointer;
+    position: relative;
+    display: block;
+    padding: 8px 10px 8px 14px;
+    border-radius: 8px;
+    background: #479cd3;
+    color: #fff;
+    font-size: 15px;
+    line-height: 24px;
+    font-weight: 700;
+    overflow: hidden;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    &--leader { 
+    }
+    &--selected {
+      .questionnaire__marker {
+        display: flex;
+      }
+    }
+  }
+  // .questionnaire__item-content
+  &__item-content {
+    flex: 1 1 auto;
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+
+    * {
+      text-shadow: 1px 2px 1px #00000066;
+    }
+
+    &::after {
+      flex-shrink: 0;
+      align-self: stretch;
+      display: block;
+      width: 24px;
+      min-height: 24px;
+      max-height: 24px;
+      // max-height: 48px;
+      margin-left: 8px;
+      background: no-repeat center / 18px
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='19' viewBox='0 0 18 19' fill='none'%3E%3Crect x='0.5' y='0.751221' width='17' height='17' rx='3.5' fill='white' fill-opacity='0.1' stroke='white'/%3E%3C/svg%3E");
+    }
+  }
+  // .questionnaire__switcher
+  &__switcher {
+    @include visually-hidden;
+
+    &:checked + .questionnaire__item-content::after {
+      background: no-repeat center / 18px
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='19' viewBox='0 0 18 19' fill='none'%3E%3Crect y='0.251221' width='18' height='18' rx='4' fill='white'/%3E%3Cpath d='M5 9.07475L8.07692 12.2512L13 6.25122' stroke='%23479CD3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    }
+  }
+  // .questionnaire__checkbox-icon {
+  &__checkbox-icon {
+  }
+  // .questionnaire__item-text
+  &__item-text {
+    display: flex;
+  }
+
+  // .questionnaire__score
+  &__score {
+    display: none;
+    align-items: center;
+    color: #fff;
+  }
+  // .questionnaire__marker
+  &__marker {
+    display: none;
+    align-content: center;
+    justify-content: center;
+    margin-right: 8px;
+
+    svg {
+      fill: currentColor;
+      filter: drop-shadow(0px 2px 1px #00000066);
+    }
+  }
+  // .questionnaire__score-val
+  &__score-val {
+  }
+  // .questionnaire__item-filler
+  &__item-filler {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background: #479cd3;
+    transition: width 0.3s;
+  }
+  // .questionnaire__footer
+  &__footer {
+    display: none;
+    margin-top: 10px;
+  }
+}
