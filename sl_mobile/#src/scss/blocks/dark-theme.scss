@@ -1210,6 +1210,15 @@ body.dark-theme.loader:before {
     }
   }
 
+  .questionnaire {
+    &__title {
+      color: $text-color;
+    }
+    &__hint {
+      color: $date-color;
+    }
+  }
+
   .table-mask {
     &__cover {
       background: rgba(32, 34, 37, 0.87);

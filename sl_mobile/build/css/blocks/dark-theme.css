@@ -1172,6 +1172,14 @@ body.dark-theme.loader:before {
   color: #adb7c0;
 }
 
+.dark-theme .questionnaire__title {
+  color: #e9e9e9;
+}
+
+.dark-theme .questionnaire__hint {
+  color: #adb7c0;
+}
+
 .dark-theme .table-mask__cover {
   background: rgba(32, 34, 37, 0.87);
 }
