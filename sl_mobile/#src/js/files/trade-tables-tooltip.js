@@ -14,7 +14,7 @@
             y: 10                  
         },
         maxWidth: 250,
-        pointer: false,
-        // trigger: 'click', 
+        //pointer: false,
+        trigger: 'click', 
     });
 }());

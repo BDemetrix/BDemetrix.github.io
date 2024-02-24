@@ -1,0 +1,199 @@
+.js-tooltip {
+  $t: 0.3s;
+  $start: 5px;
+  $end: 0px;
+
+  --offset: 14px; // Смещение контекта тултипа от целевого элемента
+  --pointer-size: 10px;
+
+  display: inline-block;
+  position: absolute;
+  z-index: -1;
+  color: #666;
+  opacity: 0;
+  max-width: calc(100% - 32px);
+
+  &, * {
+    box-sizing: border-box;
+  }
+
+  &--top {
+    border-bottom: var(--offset) solid transparent;
+    animation: none;
+  }
+  &--bottom {
+    border-top: var(--offset) solid transparent;
+    animation: none;
+  }
+  &--left {
+    border-right: var(--offset) solid transparent;
+    animation: none;
+  }
+  &--right {
+    border-left: var(--offset) solid transparent;
+    animation: none;
+  }
+
+  &--shown {
+    z-index: 999;
+    opacity: 1;
+    visibility: visible;
+
+    &.js-tooltip--top {
+      animation: to-bottom $t ease-in-out;
+    }
+    &.js-tooltip--bottom {
+      animation: to-top $t ease-in-out;
+    }
+  }
+
+  // .js-tooltip__pointer
+  &__pointer {
+    position: absolute;
+
+    &::before,
+    &::after {
+      content: "";
+      width: calc(var(--pointer-size) * 1.4);
+      height: calc(var(--pointer-size) * 1.4);
+      position: absolute;
+      background: #fff;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+    &::before {
+      z-index: 2;
+    }
+    &::after {
+      box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+    }
+
+    &--top,
+    &--bottom {
+      width: calc( var(--pointer-size) * 2);
+      height: var(--pointer-size);
+      left:  calc(50% - var(--pointer-size));
+
+      &::before,
+      &::after {
+        left: calc(var(--pointer-size) * 0.3);
+      }
+    }
+    &--top {
+      bottom: auto;
+      top: 0px;
+
+      &::before,
+      &::after {
+        bottom: 1px;
+      }
+    }
+
+    &--bottom {
+      top: auto;
+      bottom: 0;
+
+      &::before,
+      &::after {
+        top: 1px;
+      }
+    }
+
+    &--left,
+    &--right {
+      height: calc( var(--pointer-size) * 2);
+      width: var(--pointer-size);
+      top: calc(50% - var(--pointer-size));
+
+      &::before,
+      &::after {
+        top: calc(var(--pointer-size) * 0.3)
+      }
+    }
+    &--left {
+      left: 0px;
+
+      &::before,
+      &::after {
+        right: 1px;
+      }
+    }
+    &--right {
+      right: 0px;
+
+      &::after {
+        box-shadow: 3px 0px 10px 0px rgba(0, 0, 0, 0.25);
+      }
+
+      &::before,
+      &::after {
+        left: 1px;
+      }
+    }
+  }
+
+  // .js-tooltip__container
+  &__container {
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+
+    & > * {
+      position: relative;
+      z-index: 3;
+    }
+  }
+
+  // .js-tooltip__content
+  &__content {
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+  }
+
+  // @keyframes common {
+  //   0% {
+  //     opacity: 0;
+  //     transform: scale(.8);
+  //   }
+  //   100% {
+  //     opacity: 1;
+  //     transform: translateY($end) scale(1);
+  //   }
+  // }
+  @keyframes to-bottom {
+    0% { transform: translateY(-$start) scale(0.8); opacity: 0;}
+    100% { transform: translateY($end) scale(1); opacity: 1;}
+  }
+  @keyframes to-top {
+    0% { transform: translateY($start) scale(0.8); opacity: 0;}
+    100% { transform: translateY($end) scale(1); opacity: 1;}
+  }
+}
+
+.dark-theme {
+  .js-tooltip {
+    color: #e9e9e9;
+
+    // .js-tooltip__container
+    &__container {
+      background: #2a2c30;
+    }
+    
+    // .js-tooltip__pointer 
+    &__pointer {
+      &::before,
+      &::after {
+        background: #2a2c30;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('_head.html',{
+"title":"Главная",
+"stylesheet": "./css/style.css"
+})
+
+<body class="">
+	<style>
+		.demo-style {
+			display: inline-block;
+  			margin: 20px;
+  			padding: 10px;
+  			border: 1px solid goldenrod;
+  			border-radius: 5px;
+		}
+
+		h2 {
+			font-size: 18px;
+			margin: 32px 16px 0px;
+		}
+
+		.hr {
+			background: #000;
+			height: 1px;
+			width: 100%;
+		}
+	</style>
+
+		@@include('_header.html',{"Class": "_container"})
+		<main class="main _mobile-container">
+
+			<h2>Автоматическое позиционирование</h2>
+			<div style="margin-left: auto; display: flex; justify-content: space-between;">
+				<div class="smart-tooltip demo-style" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa tenetur nemo, minima quo dignissimos numquam consequatur, odit voluptatem porro quis nisi accusantium obcaecati molestiae qui! Consectetur hic quaerat illo?  minima quo dignissimos numquam consequatur, odit voluptatem porro quis nisi accusantium obcaecati molestiae qui! Consectetur hic quaerat illo?">
+					auto/auto 1 
+				</div>
+				<div class="smart-tooltip demo-style" title="Lorem ipsum dolor sit amet ">
+					auto/auto 2
+				</div>
+				<div class="smart-tooltip demo-style" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa tenetur nemo, minima quo dignissimos numquam consequatur, odit voluptatem porro quis nisi accusantium obcaecati molestiae qui! Consectetur hic quaerat illo?">
+					auto/auto 3 
+				</div>
+			</div>
+			<div class="hr"></div>
+
+			<h2>Автоматическое позиционирование по горизонтали, <b>всегда сверху</b></h2>
+			<div style="margin-left: auto; display: flex; justify-content: space-between;">
+				<div class="smart-tooltip-above demo-style" title="Lorem ipsum">
+					auto/above 1 
+				</div>
+				<div class="smart-tooltip-above  demo-style" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa ">
+					auto/above 2
+				</div>
+				<div class="smart-tooltip-above  demo-style" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa tenetur nemo, minima quo dignissimos numquam consequatur, odit voluptatem porro quis nisi accusantium obcaecati molestiae qui! Consectetur hic quaerat illo?">
+					auto/above 3 
+				</div>
+			</div>
+			<div class="hr"></div>
+
+			<h2>Позиционирование по <b>левому краю</b>, всегда <b>внизу</b>, открывается/закрывается по клику</h2>
+			<div style="margin-left: auto; display: flex; justify-content: space-between;">
+				<div class="smart-tooltip-under-left demo-style" title="Lorem ipsum">
+					left/under 1 
+				</div>
+				<div class="smart-tooltip-under-left  demo-style" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa ">
+					left/under 2
+				</div>
+				<div class="smart-tooltip-under-left  demo-style" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa tenetur nemo, minima quo dignissimos numquam consequatur, odit voluptatem porro quis nisi accusantium obcaecati molestiae qui! Consectetur hic quaerat illo?">
+					left/under 3 
+				</div>
+			</div>
+			<div class="hr"></div>
+
+			<h2>Позиционирование по <b>правому краю</b>, всегда <b>внизу</b>, открывается по клику, закрывается про клику на документ</h2>
+			<div style="margin-left: auto; display: flex; justify-content: space-between;">
+				<div class="smart-tooltip-under-right demo-style" title="Lorem ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa ">
+					right/under 1 
+				</div>
+				<div class="smart-tooltip-under-right  demo-style" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa ">
+					right/under 2
+				</div>
+				<div class="smart-tooltip-under-right  demo-style" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa tenetur nemo, minima quo dignissimos numquam consequatur, odit voluptatem porro quis nisi accusantium obcaecati molestiae qui! Consectetur hic quaerat illo?">
+					right/under 3 
+				</div>
+			</div>
+			
+
+
+			<div class="main__post-card">
+				
+			</div>
+			
+
+			@@include('_footer_mob.html',{'Class': 'footer-mob--mt-none footer-mob--no-banners'})
+		</main>
+
+	</div>
+
+	@@include('_js.html',{})
+</body>
+
+<script>
+
+new Tooltips({
+	// hasPointer: false,
+});
+
+new Tooltips({
+	attach: '.smart-tooltip-above',
+  width: 250,
+  posMod: { y: "above"},
+});
+
+new Tooltips({
+	attach: '.smart-tooltip-under-left',
+	openTrigger: 'click',
+  // maxWidth: 150,
+  // hasPointer: false,
+  // closeTrigger: "click",
+  // pointerSize: 5,
+  // offset: 100,
+  width: 250,
+  posMod: { y: "under", x: 'left'},
+});
+
+new Tooltips({
+	attach: '.smart-tooltip-under-right',
+  // maxWidth: 150,
+  // hasPointer: false,
+  // closeTrigger: "click",
+  // pointerSize: 5,
+  // offset: 100,
+  width: 250,
+  posMod: { y: "under", x: 'right'},
+});
+
+// new Tooltips({
+//   // maxWidth: 150,
+//   // hasPointer: false,
+//   // closeTrigger: "click",
+//   // pointerSize: 5,
+//   // offset: 100,
+//   width: 250,
+//   posMod: { y: "under", x: 'left'},
+// });
+
+</script>
+
+</html>
