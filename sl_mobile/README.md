@@ -23,6 +23,7 @@
 22) https://bdemetrix.github.io/sl_mobile/build/stocks-rating.html
 23) https://bdemetrix.github.io/sl_mobile/build/stocks-rating-mask.html
 24) https://bdemetrix.github.io/sl_mobile/build/news-premium.html
+25) https://bdemetrix.github.io/sl_mobile/build/tooltip-demo.html
 
 
 #### Исходники в #src:

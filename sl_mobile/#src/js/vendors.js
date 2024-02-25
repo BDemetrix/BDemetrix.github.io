@@ -11,3 +11,4 @@
 @@include('libs/flex_table.js', {})
 @@include('libs/jquery.sumoselect.js', {})
 @@include('libs/nouislider.js', {})
+@@include('files/Tooltips.js', {})

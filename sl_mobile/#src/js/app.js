@@ -17,3 +17,6 @@
 @@include('files/trades-table.js', {})
 @@include('files/qn-filters.js', {})
 @@include('files/trade-tables-tooltip.js', {})
+
+
+

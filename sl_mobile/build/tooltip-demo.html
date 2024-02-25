@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
  <head>
-	<title>ПИФ</title>
+	<title>Главная</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	
@@ -20,19 +20,43 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body class="_style-2">
-  <!-- 
-    right-panel-wide добавляется если есть правая панель при широкой центральной колонке _wide-container
-    right-panel добавляется если есть правая панель при узкой центральной колонке _mobile-container
-  -->
-  <!-- классы ._style-1 , ._style-2 и ._style-3 используются для стилизации двух видов шаблонов 
-		Например: при body._style-1 Логотип имеет один цвет, а при body._style-2 и ._style-3 - другой
-		._style-1 для smart-lab.ru
-		._style-2 для smart-lab.ru/q/
-		._style-3 для smart-lab.ru/forum/
-		-->
-  <div class="wrapper">
-    <header class="header header--with-navbar">
+<body class="">
+	
+	<style>
+		body {
+			overflow-x: hidden;
+		}
+		.demo-row {
+			margin-left: auto; display: flex; justify-content: space-between; flex-wrap: wrap;
+		}
+		.demo-btn {
+			display: inline-block;
+  			margin: 20px;
+  			padding: 10px;
+  			border: 1px solid goldenrod;
+  			border-radius: 5px;
+			white-space: nowrap;
+			line-height: 20px;
+
+			&:nth-child(3) {
+				margin-left: auto;
+			}
+			
+		}
+
+		h2 {
+			font-size: 18px;
+			margin: 32px 16px 0px;
+		}
+
+		.hr {
+			background: #000;
+			height: 1px;
+			width: 100%;
+		}
+	</style>
+
+		<header class="header">
 	<!-- 
 		* по классу ._active-el навешиваем обработчик события 'click' на каждый
 		* из этих елементов (кнопку/иконку), его родителю присваивается класс ._open 
@@ -633,471 +657,168 @@
 				</div>
 			</div>
 			<div class="usermenu__body">
-				<a href="#" class="_active-el">
+				<a href="#"  class="_active-el">
 						<img src="./images/icons/usermenu/profile.png"> Мой профиль
 				</a>
-				<a href="#" class="_active-el">
+				<a href="#"  class="_active-el">
 						<img src="./images/icons/usermenu/settings.png"> Настройки
 				</a>
 				<div class="usermenu__body-line"></div>
-				<a href="#" class="_active-el">
+				<a href="#"  class="_active-el">
 						<img src="./images/icons/usermenu/favourites.png"> Избранное
 				</a>
-				<a href="#" class="_active-el">
+				<a href="#"  class="_active-el">
 						<img src="./images/icons/usermenu/portfolio.png"> Мой портфель
 				</a>
-				<a href="#" class="_active-el">
+				<a href="#"  class="_active-el">
 						<img src="./images/icons/usermenu/watchlist.png"> Watchlist
 				</a>
-				<a href="#" class="_active-el">
+				<a href="#"  class="_active-el">
 						<img src="./images/icons/usermenu/links.png"> Сохраненные ссылки
 				</a>
-				<!-- <a href="#" class="_active-el">
+				<!-- <a href="#"  class="_active-el">
 						<img src="./images/icons/usermenu/account.png"> Статистика счета
 				</a> -->		
 				<div class="usermenu__body-line"></div>
-					<label class="usermenu__body-switch custom-checkbox custom-checkbox--switch _active-el" title="Поменть тему">
-						<input type="checkbox" class="custom-checkbox__input js-dark-theme">
-						<span class="custom-checkbox__text">Тёмная тема</span>
-					</label>
-				<div class="usermenu__body-line"></div>					
+				<label class="usermenu__body-switch custom-checkbox custom-checkbox--switch _active-el" title="Поменть тему">
+					<input type="checkbox" class="custom-checkbox__input js-dark-theme">
+					<span class="custom-checkbox__text">Тёмная тема</span>
+				</label>
+				<div class="usermenu__body-line"></div>	
+				<a class="_active-el" id="premium-admin">Премиумы</a>
 				<!-- <span>Подписчиков: 9</span> -->
 				<!-- <a href="#">Счет: 500₽</a> -->
-				<!-- <a href="#">Рейтинг 5</a> -->
-				<a href="#">Выйти</a>
+				<!-- <a href="#">Рейтинг 5</a> --> 
+				<!-- <a href="#">Выйти</a> -->
+				<!-- data-target-id="login-pop-up" -->
+				<span class="_active-el" id="login_btn" >Войти</span>
 			</div>
 		</div>
 	</div>
-	<!--
-  * Класс _swiper нужен для подключения слайдера 
-  * Класс _loading для того, чтобы стили не прыгали, пока слайдер не подключился
--->
-<nav class="navbar _loading">
-  <div class="navbar__wrap _container swiper">
-      <ul class="navbar__list swiper-wrapper">
-        <!-- 
-            * если у элемента списка есть вложеный список, то при наведении на стрелку navbar__down-arrow
-            * открывается .jBox с содержимым соответствующего меню из соседнего элемента .navbar__drop-menu-wrap
-          -->
-        <li class="navbar__item swiper-slide">
-          <a class="navbar__link" href="/">смартлаб</a>
-        </li>
-        <li class="navbar__item swiper-slide">
-          <span class="navbar__drop-item">
-            <span class="navbar__drop-link">форумы</span>
-            <svg class="navbar__down-arrow">
-              <use xlink:href="./images/symbol/sprite.svg#ic_spoller_arrow"></use>
-            </svg>
-          </span>
-          <div class="navbar__drop-menu-wrap">
-            <div class="navbar__drop-menu">
-              <a class="navbar__sub-link" href="#">фьючерс ртс</a>
-            </div>
-          </div>
-        </li>
-        <li class="navbar__item swiper-slide">
-          <span class="navbar__drop-item">
-            <span class="navbar__drop-link">форум акций</span>
-            <svg class="navbar__down-arrow">
-              <use xlink:href="./images/symbol/sprite.svg#ic_spoller_arrow"></use>
-            </svg>
-          </span>
-          <div class="navbar__drop-menu-wrap">
-            <div class="navbar__drop-menu">
-              <a class="navbar__sub-link" href="#">облигации</a>
-              <a class="navbar__sub-link" href="#">общий форум</a>
-              <a class="navbar__sub-link" href="#">forex</a>
-              <a class="navbar__sub-link" href="#">крипта</a>
-              <a class="navbar__sub-link" href="#">алготрейдинг</a>
-              <a class="navbar__sub-link" href="#">опционы</a>
-              <a class="navbar__sub-link" href="#">трейдинг софт</a>
-              <a class="navbar__sub-link" href="#">банки</a>
-              <a class="navbar__sub-link" href="#">финансовый словарь</a>
-              <a class="navbar__sub-link" href="#">брокеры</a>
-            </div>
-          </div>
-        </li>
-        <!-- если ссылка ведет на другой шаблон, например из форума на котировки, ей присваивается модификатор 
-            navbar__item--out по которому меняется контент before -->
-        <li class="navbar__item navbar__item--out  swiper-slide"><a class="navbar__link" href="#">котировки акций</a></li>
-        <!-- текущей ссылке присваивается модификатор navbar__item--current, служит для выделения ее на общем фоне списка -->
-        <li class="navbar__item navbar__item--current  swiper-slide"><a class="navbar__link" href="#">Сбербанк</a></li>
-      </ul>
-  </div>
-  <div class="navbar__prev">
-    <svg>
-      <use xlink:href="./images/symbol/sprite.svg#ic_spoller_arrow"></use>
-    </svg>
-  </div>
-  <div class="navbar__next">
-    <svg>
-      <use xlink:href="./images/symbol/sprite.svg#ic_spoller_arrow"></use>
-    </svg>
-  </div>
-</nav>
+	
 </header>
-    <main class="main main--quotes  main--pb-50">
-      <!-- Доловое английское сокращение QN (quotation) — котировка -->
-<div class=" qn-menu">
-  <!-- 
-  	  * Блоку .qn-menu__tabs-wrap является блоком спойлеров спойлеров (добавяется класс _spollers)
-      * но содержит всего один спойлер qn-menu__tabs-control (заголовок спойлера), который становится активным при 
-      * ширине экрана ментше data-spoller-maxwidth и раскрывает и закрывает список .qn-menu__tabs
-      *
-      * При сборке страницы на сервере
-      * в списке .qn-menu__tabs элементу li.qn-menu__tab соответствующему текущей открытой стр.(ссылке)
-      * должен быть добавлен класс _active (этот элемент скрывается), а содержимое соответствующей ссылки 
-      * .qn-menu__tab-link должно быть продублировано в елементе .qn-menu__tabs-control
-      * Эти действия нужны только для страниц использующих данное меню
-      * Например элементу li со ссылкой https://smart-lab.ru/q/watchlist/ добавлять _active 
-      * и дублировать содержимое не нужно, т.к. она ведет на страницу с другим дизайном
-  	-->
-  <div class="qn-menu__tabs-wrap _spollers" data-spoller-maxwidth="767.98">
-    <div class="qn-menu__tabs-control _spoller">
-      <span>Котировки</span>
-      <svg class="qn-menu__tabs-control_arrow">
-        <use xlink:href="images/symbol/sprite.svg#ic_spoller_arrow"></use>
-      </svg>
-      <!-- qn-menu__mob-tabs появляется толоко при разнрешении меньше 767.98 -->
-      <div class="qn-menu__mob-tabs">
-        <li>
-          <a class="qn-menu__tab-link" href="https://smart-lab.ru/q/portfolio/">
-            <svg>
-              <use class="use-portfolio" xlink:href="images/symbol/sprite.svg#ic_portfolio"></use>
-            </svg>
-          </a>
-        </li>
-        <li>
-          <a class="qn-menu__tab-link" href="https://smart-lab.ru/q/watchlist/">
-            <svg>
-              <use xlink:href="images/symbol/sprite.svg#ic_watchlist"></use>
-            </svg>
-          </a>
-        </li>
-      </div>
-    </div>
-    <ul class="qn-menu__tabs _container">
-      <li class="qn-menu__tab _active">
-        <a class="qn-menu__tab-link" href="https://smart-lab.ru/q/shares/">Котировки</a>
-      </li>
-      <li class="qn-menu__tab">
-        <a class="qn-menu__tab-link" href="https://smart-lab.ru/dividends/">Дивиденды</a>
-      </li>
-      <li class="qn-menu__tab">
-        <a class="qn-menu__tab-link" href="https://smart-lab.ru/q/shares_fundamental/">Фундаментал</a>
-      </li>
-      <li class="qn-menu__tab">
-        <a class="qn-menu__tab-link" href="https://smart-lab.ru/q/map/">Карта рынка</a>
-      </li>
-      <!-- 
-        * Элемент qn-menu__tab--pc скрывается при  разрешении меньше 767.98
-       -->
-      <li class="qn-menu__tab qn-menu__tab--pc">
-        <a class="qn-menu__tab-link" href="https://smart-lab.ru/q/portfolio/">
-          <svg>
-            <use class="use-portfolio" xlink:href="images/symbol/sprite.svg#ic_portfolio"></use>
-          </svg>
-        </a>
-      </li>
-      <li class="qn-menu__tab qn-menu__tab--pc">
-        <a class="qn-menu__tab-link" href="https://smart-lab.ru/q/watchlist/">
-          <svg>
-            <use xlink:href="images/symbol/sprite.svg#ic_watchlist"></use>
-          </svg>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div class="qn-menu__selectors  _container">
-    <!--
-  * Класс _loading для того, чтобы стили не прыгали, пока слайдер не подключился
-  * Элементу li с текущей ссылкой присваивается класс _active по которому она меняет свой стиль и становится не активной 
-  * По умолчанию ссылка в текущем пункте (с слассом _active) активна, 
-  * но при необходимости перехода можно запретить  добвив модификатор `.selector-links__item--none-link-events`
--->
-<div class="selector-links _loading">
-  <div class="selector-links__slider swiper">
-    <ul class="selector-links__list swiper-wrapper">
-      <li class="selector-links__item swiper-slide _active">
-        <a href="https://smart-lab.ru/q/shares/?utm_source=quotes">Акции RU</a>
-      </li>
-      <li class="selector-links__item swiper-slide">
-        <a href="https://smart-lab.ru/q/spbex/?utm_source=quotes">Акции СПБ</a>
-      </li>
-      <li class="selector-links__item swiper-slide">
-        <a href="https://smart-lab.ru/q/bonds/?utm_source=quotes">Корп Облигации</a>
-      </li>
-      <li class="selector-links__item swiper-slide">
-        <a href="https://smart-lab.ru/q/ofz/?utm_source=quotes">ОФЗ</a>
-      </li>
-      <li class="selector-links__item swiper-slide">
-        <a href="https://smart-lab.ru/q/futures/?utm_source=quotes">Фьючерсы</a>
-      </li>
-      <li class="selector-links__item swiper-slide">
-        <a href="https://smart-lab.ru/q/world-quotes/?utm_source=quotes">Мир/FX/Сырье/Крипта</a>
-      </li>
-      <li class="selector-links__item swiper-slide">
-        <a href="https://smart-lab.ru/q/usa/?utm_source=quotes">Акции US</a>
-      </li>
-      <li class="selector-links__item swiper-slide">
-        <a href="https://smart-lab.ru/q/world-stocks/?utm_source=quotes">Акции Мир</a>
-      </li>
-      <li class="selector-links__item swiper-slide">
-        <a href="https://smart-lab.ru/q/etf/?utm_source=quotes">БПИФ/ETF</a>
-      </li>
-      <li class="selector-links__item swiper-slide">
-        <a href="https://smart-lab.ru/q/currencies/?utm_source=quotes">Рубль</a>
-      </li>
-      <li class="selector-links__item swiper-slide">
-        <a href="https://smart-lab.ru/q/adr/?utm_source=quotes">АДР</a>
-      </li>
-      <li class="selector-links__item swiper-slide">
-        <a href="https://smart-lab.ru/q/usa-stocks-moex/?utm_source=quotes">US MOEX</a>
-      </li>
-      <li class="selector-links__item swiper-slide">
-        <a href="https://smart-lab.ru/q/pif/?utm_source=quotes">ПИФы</a>
-      </li>
-      <li class="selector-links__item swiper-slide">
-        <a href="https://smart-lab.ru/q/index_stocks/">Индексы</a>
-      </li>
-      <li class="selector-links__item swiper-slide">
-        <a href="https://smart-lab.ru/q/repo-s-ck/">РЕПО с ЦК</a>
-      </li>
-    </ul>
-  </div>
+		<main class="main _mobile-container">
 
-  <div class="selector-links__prev">
-    <svg>
-      <use xlink:href="images/symbol/sprite.svg#ic_spoller_arrow"></use>
-    </svg>
-  </div>
-  <div class="selector-links__next">
-    <svg>
-      <use xlink:href="images/symbol/sprite.svg#ic_spoller_arrow"></use>
-    </svg>
-  </div>
-</div>
-  </div>
-  <div class="qn-menu__box _container">
-    <h1 class="qn-menu__title qn-menu__title--wrap">ПИФ ОПИФ Российские Гособлигации (RU000A101UY0) Цена, Купить</h1>
-    <!-- Дополнительная обертка .qn-menu__actions-wrap добавляется если надо, чтоб одна из кнопок оставалась справа -->
-    <div class="qn-menu__actions-wrap">
-      <div class="qn-menu__actions">
-        <!-- Класс _active-el нужен для синхронизации закрытия всех меню -->
-<div class="qn-menu__buy-shares buy-shares context-menu">
-  <button class="buy-shares__btn">Купить ПИФы</button>
-  <ul class="buy-shares__popup">
-    <li>
-      <a class="buy-shares__link" href="https://www.finam.ru/services/promo00096/?AgencyBAckofficeID=1&amp;agent=17FDE70F-5D0A-4DE9-809E-A9F5334CE8DD" target="_blank" rel="nofollow"> 
-        <span>Купить в</span>
-        <img   alt="Финам" src="images/icons/quotes-menu/finam.png">
-        <span class="buy-shares__broker">Финаме</span>
-      </a>
-    </li>
-    <li>
-      <a class="buy-shares__link" href="https://www.vtb.ru/personal/investicii/?code=media_smart-lab_invest&amp;utm_source=smart-lab&amp;utm_medium=media&amp;utm_campaign=media_invest_smart-lab_link_package_rf" target="_blank" rel="nofollow"> 
-        <span>Купить в</span>
-        <img   alt="ВТБ" src="images/icons/quotes-menu/VTB.png">
-        <span class="buy-shares__broker">ВТБ</span>
-      </a>  
-    </li>
-    <li>
-      <a class="buy-shares__link" href="https://open-broker.ru/ru/open-account/?aid=20628&utm_source=agent&utm_medium=referral&utm_campaign=smart_lab" target="_blank" rel="nofollow"> 
-        <span>Купить в</span>
-        <img   alt="Открытие Брокер" src="images/icons/quotes-menu/open.png">
-        <span class="buy-shares__broker">Открытие Брокер</span>
-      </a>
-    </li>
-    <li>
-      <a class="buy-shares__link" href="https://www.alfadirect.ru/?platform=smartlab" target="_blank" rel="nofollow"> 
-        <span>Купить в</span>
-        <img   alt="Альфа-Банк" src="images/icons/quotes-menu/alfa.png">
-        <span class="buy-shares__broker">Альфа-Банк</span>
-      </a>										
-    </li>
-		<li>
-      <a class="buy-shares__link" href="https://iticapital.ru/hellosmartlab/" target="_blank" rel="nofollow"> 
-        <span>Купить в</span>
-        <img   alt="ITI Capital" src="images/icons/quotes-menu/iti.png">
-        <span class="buy-shares__broker">ITI Capital</span>
-      </a>										
-    </li>
-  </ul>
-</div>
-      </div>
-    </div> 
-  </div>
-</div>
-      <div class="main__quotes quotes-body _wide-container">
-        <!-- .custom-card для стилиизации блоков с фоном, закругленными углами и тенью  -->
-        <div class="quotes-body__info custom-card">
-          <p>
-            ПИФ ОПИФ Российские Гособлигации сегодня сделок не было, последняя цена одного пая ПИФа на Московской Бирже составляла 1
-            088.0 рублей
-          </p>
-        </div>
-        <div class="quotes-body__block">
-          <section class="quotes-info-list">
-            <article class="quotes-info-list__item">
-              <div class="quotes-simple-table custom-card">
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Код ценной бумаги</div>
-                  <div class="quotes-simple-table__item">RU000A101UY0</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Полное наименование</div>
-                  <div class="quotes-simple-table__item">ОПИФ Российские Гособлигации</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Краткое наименование</div>
-                  <div class="quotes-simple-table__item">ОПИФ ОФЗ</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Регистрационный номер</div>
-                  <div class="quotes-simple-table__item">4073</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Код ISIN</div>
-                  <div class="quotes-simple-table__item">RU000A101UY0</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">&nbsp;</div>
-                  <div class="quotes-simple-table__item">&nbsp;</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Режим торгов</div>
-                  <div class="quotes-simple-table__item">Т+: Паи - безадрес.</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Сектор</div>
-                  <div class="quotes-simple-table__item">&nbsp;</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Группа инструментов</div>
-                  <div class="quotes-simple-table__item">IFA1</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Рынок</div>
-                  <div class="quotes-simple-table__item">FNDT</div>
-                </div>
-              </div>
-            </article>
+			<h2>Автоматическое позиционирование</h2>  
+			<div class="demo-row">
+				<div class="smart-tooltip demo-btn" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa tenetur nemo, minima quo dignissimos numquam consequatur, odit voluptatem porro quis nisi accusantium obcaecati molestiae qui! Consectetur hic quaerat illo?  minima quo dignissimos numquam consequatur, odit voluptatem porro quis nisi accusantium obcaecati molestiae qui! Consectetur hic quaerat illo?">
+					auto / auto
+				</div>
+				<div class="smart-tooltip demo-btn" title="Lorem ipsum dolor sit amet ">
+					auto / auto
+				</div>
+				<div class="smart-tooltip demo-btn" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa tenetur nemo, minima quo dignissimos numquam consequatur, odit voluptatem porro quis nisi accusantium obcaecati molestiae qui! Consectetur hic quaerat illo?">
+					auto / auto
+				</div>
+			</div>
+			<div class="hr"></div>
 
-            <article class="quotes-info-list__item">
-              <div class="quotes-simple-table custom-card">
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Цена последней сделки</div>
-                  <div class="quotes-simple-table__item quotes-simple-table__item--bold">1085.5</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Объем торгов сегодня</div>
-                  <div class="quotes-simple-table__item">94219</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Цена на покупку (BID), руб</div>
-                  <div class="quotes-simple-table__item">1084</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Цена на продажу (OFFER), руб</div>
-                  <div class="quotes-simple-table__item">1086.5</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">&nbsp;</div>
-                  <div class="quotes-simple-table__item">&nbsp;</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Последняя цена пред. дня</div>
-                  <div class="quotes-simple-table__item">1082.5</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Цена закрытия пред. дня</div>
-                  <div class="quotes-simple-table__item">1082.5</div>
-                </div> 
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Признаваемая котир. пред. дня</div>
-                  <div class="quotes-simple-table__item">1060</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Валюта</div>
-                  <div class="quotes-simple-table__item">SUR</div>
-                </div>
-              </div>
-            </article>
+			<h2>Автоматическое позиционирование по горизонтали, <b>всегда сверху</b></h2>
+			<div class="demo-row">
+				<div class="smart-tooltip-above demo-btn" title="Lorem ipsum">
+					auto / above
+				</div>
+				<div class="smart-tooltip-above  demo-btn" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa ">
+					auto / above
+				</div>
+				<div class="smart-tooltip-above  demo-btn" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa tenetur nemo, minima quo dignissimos numquam consequatur, odit voluptatem porro quis nisi accusantium obcaecati molestiae qui! Consectetur hic quaerat illo?">
+					auto / above
+				</div>
+			</div>
+			<div class="hr"></div>
 
-            <article class="quotes-info-list__item">
-              <div class="quotes-simple-table custom-card">
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Номинал</div>
-                  <div class="quotes-simple-table__item">0</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Мин. шаг цены</div>
-                  <div class="quotes-simple-table__item">0.5</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Валюта номинала</div>
-                  <div class="quotes-simple-table__item">SUR</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Размер лота</div>
-                  <div class="quotes-simple-table__item">1</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Объем выпуска, шт</div>
-                  <div class="quotes-simple-table__item">0</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">&nbsp;</div>
-                  <div class="quotes-simple-table__item">&nbsp;</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Тип ценной бумаги</div>
-                  <div class="quotes-simple-table__item">9</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Уровень листинга</div>
-                  <div class="quotes-simple-table__item">3</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Дата последних торгов</div>
-                  <div class="quotes-simple-table__item">2023-05-19</div>
-                </div>
-                <div class="quotes-simple-table__row">
-                  <div class="quotes-simple-table__item">Дата расчетов сделки</div>
-                  <div class="quotes-simple-table__item">2023-05-24</div>
-                </div>
-              </div>
-            </article>
-          </section>
-        </div>
+			<h2>Позиционирование по <b>левому краю</b>, всегда <b>внизу</b>, открывается/закрывается по клику на таргет или документ вне тултипа</h2>
+			<div class="demo-row">
+				<div class="smart-tooltip-under-left demo-btn" title="Lorem ipsum">
+					left / under / click 
+				</div>
+				<div class="smart-tooltip-under-left  demo-btn" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa ">
+					left / under / click
+				</div>
+				<div class="smart-tooltip-under-left  demo-btn" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa tenetur nemo, minima quo dignissimos numquam consequatur, odit voluptatem porro quis nisi accusantium obcaecati molestiae qui! Consectetur hic quaerat illo?">
+					left / under / click 
+				</div>
+			</div>
+			<div class="hr"></div>
 
-      </div>
-    </main>
-    <footer class="footer ">
-	<!-- 
-	  * Блоку спойлеров добавяется класс _spollers
-	  * элементам, при клике на которые раскрывается список, добавляется класс _spoller
-	  * раскрвающийся список должен быть соседним и следующим за блоком _spoller
-	  * data-spoller-maxwidth - ширина экрана меньше которой работает спойлер
-	  * при клике на заголовок спойлера, заголовку присваивается/удаляется класс _active
-	  * если у блока спойлеров есть класс _one, то то он является аккордеоном 
-	-->
-	<!-- <div class="footer__banners">
-		<div class="footer__banner ">
-			<a href="#" class="footer__banner-best">
-				<svg>
-						<use xlink:href="images/symbol/sprite.svg#telegram"></use>
-				</svg>
-				<span>Лучшее со Смартлаба</span>
-			</a>
+			<h2>Позиционирование по <b>правому краю</b>, всегда <b>внизу</b></h2>
+			<div class="demo-row">
+				<div class="smart-tooltip-under-right demo-btn" title="Lorem ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa ">
+					right / under
+				</div>
+				<div class="smart-tooltip-under-right  demo-btn" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa ">
+					right / under
+				</div>
+				<div class="smart-tooltip-under-right  demo-btn" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa tenetur nemo, minima quo dignissimos numquam consequatur, odit voluptatem porro quis nisi accusantium obcaecati molestiae qui! Consectetur hic quaerat illo?">
+					right / under
+				</div>
+			</div>
+			<div class="hr"></div>
+
+			<h2>Позиционирование по <b>правому краю</b> и если не помещеется, то по левому, всегда <b>внизу</b></h2>
+			<div class="demo-row">
+				<div class="smart-tooltip-under-right-auto demo-btn" title="Lorem ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa ">
+					right-auto / under 
+				</div>
+				<div class="smart-tooltip-under-right-auto  demo-btn" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa ">
+					right-auto / under
+				</div>
+				<div class="smart-tooltip-under-right-auto  demo-btn" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa tenetur nemo, minima quo dignissimos numquam consequatur, odit voluptatem porro quis nisi accusantium obcaecati molestiae qui! Consectetur hic quaerat illo?">
+					right-auto / under
+				</div>
+			</div>
+			<div class="hr"></div>
+
+			<h2>Позиционирование по <b>левому краю</b> и если не помещеется, то по правому, всегда <b>вверху</b>, 
+				открывается по клику, закрывается про клику на документ
+			</h2>
+			<div class="demo-row">
+				<div class="smart-tooltip-under-left-auto demo-btn" title="Lorem ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa ">
+					left-auto / above 
+				</div>
+				<div class="smart-tooltip-under-left-auto  demo-btn" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa ">
+					left-auto / above
+				</div>
+				<div class="smart-tooltip-under-left-auto  demo-btn" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa tenetur nemo, minima quo dignissimos numquam consequatur, odit voluptatem porro quis nisi accusantium obcaecati molestiae qui! Consectetur hic quaerat illo?">
+					left-auto / above 
+				</div>
+			</div>
+			<div class="hr"></div>
+
+			<h2>Позиционирование по <b>левому краю</b> и если не помещеется, то по правому, всегда <b>вверху</b>, открывается по клику, закрывается про клику на документ</h2>
+			<div class="demo-row">
+				<div class="smart-tooltip-content-defined demo-btn">
+					Этот контент задан<br> при создании экземплара<br> <b>new Tooltips({content: '...'}</b>)
+				</div>
+				<div class="smart-tooltip-content-soursce  demo-btn" >
+					Контент находится на странице,<br>в доступе по селектору
+				</div>
+				<div class="smart-tooltip-content-set  demo-btn">
+					Загрузка удаленного<br>
+					контента
+				</div>
+			</div>
+
+
+			<footer class="footer-mob footer-mob--mt-none footer-mob--no-banners">
+	<div class="footer-mob__content">
+		<div class="footer-mob__banners">
+			<div class="footer-mob__banner ">
+				<a href="#" class="footer-mob__banner-best">
+					<svg>
+						<use xlink:href="images/icons/footer/sprite.svg#telegram"></use>
+					</svg>
+					<span>Лучшее со Смартлаба</span>
+				</a>
+			</div>
+			<div class="footer-mob__banner">
+				<a href="#" class="footer-mob__banner-choice">
+					Выбери стабильного брокера
+				</a>
+			</div>
 		</div>
-		<div class="footer__banner">
-			<a href="#" class="footer__banner-choice">
-				Выбери стабильного брокера 
-			</a>
-		</div>
-	</div> -->
-	<div class="app-box">
+		<div class="footer-mob__buttons">
+			<div class="app-box">
     <div class="app-box__title">Установите приложение Смартлаба:</div>
     <div class="app-box__inner">
         <a href="https://play.google.com/store/apps/details?id=ru.smartlab" class="app-box__btn">
@@ -1116,140 +837,87 @@
         </a>
     </div>
 </div>
-	<ul class="footer__list _one _spollers" data-spoller-maxwidth="991.98">
-		<li class="footer__item">
-			<div class="footer__item-title _spoller">
-				<span>Блоги</span>
-				<svg>
-					<use xlink:href="images/symbol/sprite.svg#ic_spoller_arrow"></use>
-				</svg>
+			<div class="footer-mob__social-box">
+				<div class="footer-mob__social-item">
+					<a href="#" class="telegram-btn">
+						<svg>
+							<use xlink:href="images/icons/footer/sprite.svg#telegram"></use>
+						</svg>
+					</a>
+				</div>
+				<div class="footer-mob__social-item">
+					<a href="#" class="vk-btn">
+						<svg>
+							<use xlink:href="images/icons/footer/sprite.svg#vk"></use>
+						</svg>
+					</a>
+				</div>
+				<!-- 				<div class="footer-mob__social-item">
+					<a href="#" class="instagram-btn">
+						<svg>
+							<use xlink:href="images/icons/footer/sprite.svg#instagram"></use>
+						</svg>
+					</a>
+				</div> -->
+				<div class="footer-mob__social-item">
+					<a href="#" class="youtube-btn">
+						<svg>
+							<use xlink:href="images/icons/footer/sprite.svg#youtube"></use>
+						</svg>
+					</a>
+				</div>
+				<!-- 				<div class="footer-mob__social-item">
+					<a href="#" class="facebook-btn">
+						<svg>
+							<use xlink:href="images/icons/footer/sprite.svg#facebook"></use>
+						</svg>
+					</a>
+				</div> -->
 			</div>
-			<ul class="footer__sub-list">
-				<li class="footer__sub-item"><a class="footer__link" href="/allblog/?utm_source=footer">Лента всех блогов</a></li>
-				<li class="footer__sub-item"><a class="footer__link" href="/favtop/?utm_source=footer">Самые полезные</a></li>
-				<li class="footer__sub-item"><a class="footer__link" href="/top/topic/24h/by_comments/?utm_source=footer">Самые комментируемые</a></li>
-				<li class="footer__sub-item"><a class="footer__link" href="/news/?utm_source=footer">Новости</a></li>
-				<li class="footer__sub-item"><a class="footer__link" href="/blog/tradesignals/?utm_source=footer">Торговые сигналы</a></li>
-				<li class="footer__sub-item"><a class="footer__link" href="/vopros/?utm_source=footer">Ответы на вопросы</a></li>
-				<li class="footer__sub-item"><a class="footer__link" href="/blog/reviews/?utm_source=footer">Книжные рецензии</a></li>
-				<li class="footer__sub-item"><a class="footer__link" href="/company/?utm_source=footer">Корпоративные</a></li>
-			</ul>
-		</li>
-		<li class="footer__item">
-			<div class="footer__item-title _spoller">
-				<span>Форумы</span>
-				<svg>
-					<use xlink:href="images/symbol/sprite.svg#ic_spoller_arrow"></use>
-				</svg>
-			</div>
-			<ul class="footer__sub-list">
-				<li class="footer__sub-item"><a class="footer__link" href="/forums/?utm_source=footer">Лента всех форумов</a></li>
-				<li class="footer__sub-item"><a class="footer__link" href="/trading/?utm_source=footer">Общие темы</a></li>
-				<li class="footer__sub-item"><a class="footer__link" href="/forum/?utm_source=footer">Форум акций</a></li>
-				<li class="footer__sub-item"><a class="footer__link" href="/algotrading/?utm_source=footer">Форум алготрейдинг</a></li>
-				<li class="footer__sub-item"><a class="footer__link" href="/options/?utm_source=footer">Форум опционы</a></li>
-				<li class="footer__sub-item"><a class="footer__link" href="/crypto/?utm_source=footer">Форум криптовалют</a></li>
-				<li class="footer__sub-item"><a class="footer__link" href="/forex/?utm_source=footer">Форум Forex</a></li>
-				<li class="footer__sub-item"><a class="footer__link" href="/brokers-rating/?utm_source=footer">Рейтинг брокеров</a></li>
-			</ul>
-		</li>
-		<li class="footer__item">
-			<div class="footer__item-title _spoller">
-				<span>Акции</span>
-				<svg>
-					<use xlink:href="images/symbol/sprite.svg#ic_spoller_arrow"></use>
-				</svg>
-			</div>
-			<ul class="footer__sub-list">
-				<li class="footer__sub-item"><a class="footer__link" href="/q/map/?utm_source=footer">Карта рынка</a></li>
-				<li class="footer__sub-item"><a class="footer__link" href="/q/shares/?utm_source=footer">Котировки</a></li>
-				<li class="footer__sub-item"><a class="footer__link" href="/q/shares_fundamental/?utm_source=footer">Фундаментальный анализ</a></li>
-				<li class="footer__sub-item"><a class="footer__link" href="/q/shares_fundamental/?utm_source=footer">Отчеты компаний</a></li>
-				<li class="footer__sub-item"><a class="footer__link" href="/dividends/?utm_source=footer">Дивиденды</a></li>
-				<li class="footer__sub-item"><a class="footer__link" href="/q/portfolio/?utm_source=footer">Мой портфель</a></li>
-				<li class="footer__sub-item"><a class="footer__link" href="/forum/sectors/?utm_source=footer">Все компании</a></li>
-				<li class="footer__sub-item"><a class="footer__link" href="/calendar/stocks/?utm_source=footer">Календарь акций</a></li>
-			</ul>
-		</li>
-		<li class="footer__item">
-			<div class="footer__item-title _spoller">
-				<span>Смартлаб</span>
-				<svg>
-					<use xlink:href="images/symbol/sprite.svg#ic_spoller_arrow"></use>
-				</svg>
-			</div>
-			<ul class="footer__sub-list">
-				<li class="footer__sub-item"><a class="footer__link" href="/page/values/?utm_source=footer">Ценности смартлаба</a></li>
-				<li class="footer__sub-item"><a class="footer__link" href="/page/privacy/?utm_source=footer">Политика Конфиденциальности</a></li>
-				<li class="footer__sub-item"><a class="footer__link" href="/page/sitemap/?utm_source=footer">Карта сайта</a></li>
-				<li class="footer__sub-item"><a class="footer__link" href="/blog/mytrading/7053.php?utm_source=footer">Реклама</a></li>
-				<li class="footer__sub-item"><a class="footer__link" href="/page/contact/?utm_source=footer">Контакты</a></li>
-				<li class="footer__sub-item"><a class="footer__link" href="/blog/mytrading/5161.php?utm_source=footer">Правила</a></li>
-				<li class="footer__sub-item"><a class="footer__link" href="/page/help/?utm_source=footer">Помощь</a></li>
-				<li class="footer__sub-item"><a class="footer__link" href="/trading/%D0%97%D0%B0%D0%B4%D0%B0%D0%B9%20%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81%20%D0%A2%D0%B8%D0%BC%D0%BE%D1%84%D0%B5%D1%8E%20%D0%9C%D0%B0%D1%80%D1%82%D1%8B%D0%BD%D0%BE%D0%B2%D1%83?utm_source=footer">Обратная связь</a></li>
-			</ul>
-		</li>
-	</ul>
 
-	<ul class="footer__social-box">
-		<li class="footer__social-item">
-			<a href="#" class="telegram-btn">
-				<svg>
-					<use xlink:href="images/icons/footer/sprite.svg#telegram"></use>
-				</svg>
-			</a>
-		</li>
-		<li class="footer__social-item">
-			<a href="#" class="vk-btn">
-				<svg>
-					<use xlink:href="images/icons/footer/sprite.svg#vk"></use>
-				</svg>
-			</a>
-		</li>
-<!-- 		<li class="footer__social-item">
-			<a href="#" class="instagram-btn">
-				<svg>
-					<use xlink:href="images/symbol/sprite.svg#instagram"></use>
-				</svg>
-			</a>
-		</li> -->
-		<li class="footer__social-item">
-			<a href="#" class="youtube-btn">
-				<svg>
-					<use xlink:href="images/icons/footer/sprite.svg#youtube"></use>
-				</svg>
-			</a>
-		</li>
-<!-- 		<li class="footer__social-item">
-			<a href="#" class="facebook-btn">
-				<svg>
-					<use xlink:href="images/symbol/sprite.svg#facebook"></use>
-				</svg>
-			</a>
-		</li> -->
-	</ul>
+			<ul class="footer-mob__link-box">
+				<li class="footer-mob__links-item"><a href="#" class="footer-mob__link">О смартлабе</a></li>
+				<li class="footer-mob__links-item"><a href="#" class="footer-mob__link">Реклама</a></li>
+				<li class="footer-mob__links-item"><a href="#" class="footer-mob__link">Полная версия</a></li>
+			</ul>
 
-	<div class="footer__bottom">
-		<div class="footer__moex">
-			<a href="https://www.moex.com/" target="_blank" class="i">
-				<img src="https://smart-lab.ru/uploads/2021/images/01/15/47/2021/12/17/avatar_c6f6bc_140x140.webp">
-			</a>
-			<div class="footer__moex-text">
-				<a href="https://www.moex.com/" target="_blank"> Московская Биржа</a> является спонсором ресурса smart-lab.ru
+			<div class="footer-mob__bottom">
+				<div class="footer-mob__moex">
+					<a href="https://www.moex.com/" target="_blank" class="i">
+						<img
+							src="https://smart-lab.ru/uploads/2021/images/01/15/47/2021/12/17/avatar_c6f6bc_140x140.webp">
+					</a>
+					<div class="footer-mob__moex-text">
+						<a href="https://www.moex.com/" target="_blank"> Московская Биржа</a> является спонсором ресурса
+						smart-lab.ru
+					</div>
+				</div>
+				<div class="footer-mob__counter">
+					<a class="footer-mob__counter-link" id="footer-mob__counter" href="//www.liveinternet.ru/click"
+						target="_blank"><img id="licnt497C" width="88" height="31" style="border:0"
+							title="LiveInternet: показано число просмотров за 24 часа, посетителей за 24 часа и за сегодня"
+							src="//counter.yadro.ru/hit?t18.3;rhttps%3A//trello.com/;s1366*768*24;uhttps%3A//smart-lab.ru/forum/GAZP;h%u0424%u043E%u0440%u0443%u043C%20%u0430%u043A%u0446%u0438%u0438%20%u0413%u0430%u0437%u043F%u0440%u043E%u043C%20%28GAZP%29;0.5047278326930724"
+							alt="">
+					</a>
+				</div>
 			</div>
-		</div>
-		<div class="footer__counter">
-			<a class="footer__counter-link" id="footer__counter" href="//www.liveinternet.ru/click" target="_blank"><img id="licnt497C" width="88" height="31"
-			style="border:0" title="LiveInternet: показано число просмотров за 24 часа, посетителей за 24 часа и за сегодня"
-			src="//counter.yadro.ru/hit?t18.3;rhttps%3A//trello.com/;s1366*768*24;uhttps%3A//smart-lab.ru/forum/GAZP;h%u0424%u043E%u0440%u0443%u043C%20%u0430%u043A%u0446%u0438%u0438%20%u0413%u0430%u0437%u043F%u0440%u043E%u043C%20%28GAZP%29;0.5047278326930724"
-			alt="">
-			</a>
+			<!-- <div class="footer-mob__copy">
+				<div class="footer-mob__copy-txt">©Все права защищены</div>
+			</div> -->
 		</div>
 	</div>
-
+	<button class="arrow-to-top" title="Наверх">
+    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none">
+        <circle cx="25" cy="25" r="25" fill="black"/>
+        <path d="M17 28L25 19.6418L33 28" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+</button> 
 </footer>
-  </div>
-  <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+		</main>
+
+	</div>
+
+	<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
 <!-- <script src="js/vendors.min.js"></script>
 <script src="js/app.min.js"></script> -->
 <script src="./js/vendors.js"></script>
@@ -1262,5 +930,231 @@
 <script src="./js/Tooltips.js"></script>
 
 </body>
+
+<script>
+
+// Настройки по умолчанию
+const smartTooltip = new Tooltips();
+
+// smartTooltip.open(); // необходимо передать сылку на таргет, или предварительно установить контекст
+
+new Tooltips({
+	attach: '.smart-tooltip-above',
+  	posMod: { y: "above"},
+});
+
+new Tooltips({
+	attach: '.smart-tooltip-under-left',
+	openTrigger: 'click',
+  	posMod: { y: "under", x: 'left'},
+});
+
+new Tooltips({
+	attach: '.smart-tooltip-under-right',
+  	posMod: { y: "under", x: 'right'},
+	// width: 280, 
+});
+
+new Tooltips({
+	attach: '.smart-tooltip-under-right-auto',
+  	posMod: { y: "under", x: 'right-auto'},
+});
+
+new Tooltips({
+	attach: '.smart-tooltip-under-left-auto',
+  	posMod: { y: "above", x: 'left-auto'},
+});
+
+// Контент задан заранее
+new Tooltips({
+	attach: '.smart-tooltip-content-defined',
+	// openTrigger: 'click',
+	content: `<div class="post-card__header" style="margin: 0; padding: 12px;">
+        <!-- Если добавляется меню, то надо добввить и модификатор  post-card__header-inner--with-full-menu -->
+        <div class="post-card__header-inner post-card__header-inner--with-full-menu">
+            <a href="#" class="post-card__photo-wrap">
+                <!-- Если аватар не загружен, то <img> вставлять на страницу не надо. Будет виден фон .post-card__photo-wrap  заданный в css-->
+                <img src="./images/icons/post-card/photo.jpg" alt="Фото" class="post-card__photo">
+            </a>
+            <div class="post-card__info">
+                <span class="post-card__name">
+                    <!-- Если профиль подтвержден, добавляется svg.post-card__approved -->
+                    <a href="#" class="post-card__name-link">RomanAndreev</a>
+                    <!-- 
+                        Возможные варианты:
+                        <svg class="post-card__approved" width="20" height="20">
+                            <use xlink:href="images/icons/post-card/sprite.svg#approved"></use>
+                        </svg>
+                        <svg class="post-card__approved" width="14" height="14">
+                            <use xlink:href="images/icons/post-card/sprite.svg#popular"></use>
+                        </svg>
+                        <svg class="post-card__approved" width="14" height="14">
+                            <use xlink:href="images/icons/post-card/sprite.svg#premium"></use>
+                        </svg>
+                    -->
+                    <svg class="post-card__approved" width="14" height="14">
+                        <use xlink:href="images/icons/post-card/sprite.svg#premium"></use>
+                    </svg>
+                </span>
+                <span class="post-card__date">сегодня в 21:28</span>
+            </div>
+            <div class="post-card__menu-wrap">
+                <!-- стили кнопки подписки вынесены в глобальный класс .subscription__btn  -->
+                <button class="post-card__subscription subscription__btn subscription__btn--plus">
+                    <svg height="20" width="20">
+                        <use xlink:href="images/icons/user-info/sprite.svg#plus"></use>
+                    </svg>
+                    <span>+&nbsp;Подписаться</span>
+                </button>
+                <div class="post-card__menu post-card__menu--post context-menu">
+                    <button class="post-card__menu-btn post-card__menu-btn--post context-menu__btn">
+                        <svg height="20" width="20">
+                            <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
+                        </svg>
+                    </button>
+                    <ul class="context-menu__list">
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#reload"></use>
+                                </svg>
+                                Старая версия
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#print"></use>
+                                </svg>
+                                Распечатать
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#edit"></use>
+                                </svg>
+                                Редактировать
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#del"></use>
+                                </svg>
+                                Удалить
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#alert"></use>
+                                </svg>
+                                Пожаловаться
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            
+                <div class="post-card__menu context-menu">
+                    <button class="post-card__menu-btn post-card__menu-btn--post context-menu__btn">
+                        <svg height="20" width="20">
+                            <use xlink:href="images/icons/post-card/sprite.svg#share"></use>
+                        </svg>
+                    </button>
+                    <ul class="context-menu__list">
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#chain"></use>
+                                </svg>
+                                Копировать ссылку
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#tab"></use>
+                                </svg>
+                                Добавить в закладки
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item post-card__menu-item--blue context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/user-info/sprite.svg#vk"></use>
+                                </svg>
+                                ВКонтакте
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item post-card__menu-item--blue context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/user-info/sprite.svg#tg"></use>
+                                </svg>
+                                Telegram
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>`,
+  	posMod: { y: "above"},
+	maxWidth: 736,
+	width: 'calc(100% - 40px)',
+});
+
+// Контент задан заранее
+new Tooltips({
+	attach: '.smart-tooltip-content-soursce',
+	// openTrigger: 'click',
+	closeTrigger: 'click',
+	contentSource: '.app-box__img',
+  	posMod: { y: "above"},
+	hasPointer: false,
+	width: 'auto',
+});
+
+// Контент из сети 
+new Tooltips({
+	attach: '.smart-tooltip-content-set',
+	openTrigger: 'click',
+
+	setContent: async function (){
+		const timeout = 1000;
+		const data = await delayedFetch('https://bdemetrix.github.io/sl_mobile/build/news-premium.html', timeout).then(res => res.text());
+
+		return `<div style="width: 736px; max-width: 100vw; height:300px; padding: 12px; border-radius: 14px;border: 2px solid green;"><div style="max-width: 100%; height:100%;  overflow-y: auto; overflow-x: hidden;"><frame style="max-width: 100%;">${data}<frame></div></div>`
+	},
+  	posMod: { y: "above"},
+	// hasPointer: false,
+	maxWidth: 736,
+	width: 'calc(100% - 40px)',
+});
+
+
+// new Tooltips({
+//   maxWidth: 150,
+//   hasPointer: false,
+//   closeTrigger: "click",
+//   pointerSize: 5,
+//   offset: 100,
+//   width: 250,
+//   posMod: { y: "under", x: 'left'},
+// });
+
+
+function delayedFetch(url, delay) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            fetch(url)
+                .then(response => resolve(response))
+                .catch(error => reject(error));
+        }, delay);
+    });
+}
+
+</script>
 
 </html>

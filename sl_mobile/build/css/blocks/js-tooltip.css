@@ -1,0 +1,200 @@
+.js-tooltip {
+  --offset: 14px;
+  --pointer-size: 10px;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  color: #666;
+  opacity: 0;
+  width: auto;
+  max-width: calc(100% - 32px);
+}
+
+.js-tooltip,
+.js-tooltip * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.js-tooltip--top {
+  padding-bottom: var(--offset);
+  -webkit-animation: none;
+          animation: none;
+}
+
+.js-tooltip--bottom {
+  padding-top: var(--offset);
+  -webkit-animation: none;
+          animation: none;
+}
+
+.js-tooltip--shown {
+  z-index: 999;
+  opacity: 1;
+  visibility: visible;
+}
+
+.js-tooltip--shown.js-tooltip--top {
+  -webkit-animation: to-bottom 0.3s ease-in-out;
+          animation: to-bottom 0.3s ease-in-out;
+}
+
+.js-tooltip--shown.js-tooltip--bottom {
+  -webkit-animation: to-top 0.3s ease-in-out;
+          animation: to-top 0.3s ease-in-out;
+}
+
+.js-tooltip__pointer {
+  position: absolute;
+}
+
+.js-tooltip__pointer::before,
+.js-tooltip__pointer::after {
+  content: "";
+  width: calc(var(--pointer-size) * 1.4);
+  height: calc(var(--pointer-size) * 1.4);
+  position: absolute;
+  background: #fff;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.js-tooltip__pointer::before {
+  z-index: 2;
+}
+
+.js-tooltip__pointer::after {
+  -webkit-box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+}
+
+.js-tooltip__pointer--top,
+.js-tooltip__pointer--bottom {
+  width: calc(var(--pointer-size) * 2);
+  height: var(--pointer-size);
+  left: calc(50% - var(--pointer-size));
+}
+
+.js-tooltip__pointer--top::before,
+.js-tooltip__pointer--top::after,
+.js-tooltip__pointer--bottom::before,
+.js-tooltip__pointer--bottom::after {
+  left: calc(var(--pointer-size) * 0.3);
+}
+
+.js-tooltip__pointer--top {
+  bottom: auto;
+  top: var(--offset);
+}
+
+.js-tooltip__pointer--top::before,
+.js-tooltip__pointer--top::after {
+  bottom: 1px;
+}
+
+.js-tooltip__pointer--bottom {
+  top: auto;
+  bottom: var(--offset);
+}
+
+.js-tooltip__pointer--bottom::before,
+.js-tooltip__pointer--bottom::after {
+  top: 1px;
+}
+
+.js-tooltip__container {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  border-radius: 10px;
+  background: #fff;
+  -webkit-box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+}
+
+.js-tooltip__container > * {
+  position: relative;
+  z-index: 3;
+}
+
+.js-tooltip__content {
+  text-align: center;
+  padding: 10px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+}
+
+@-webkit-keyframes to-bottom {
+  0% {
+    -webkit-transform: translateY(-5px) scale(0.8);
+            transform: translateY(-5px) scale(0.8);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateY(0px) scale(1);
+            transform: translateY(0px) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes to-bottom {
+  0% {
+    -webkit-transform: translateY(-5px) scale(0.8);
+            transform: translateY(-5px) scale(0.8);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateY(0px) scale(1);
+            transform: translateY(0px) scale(1);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes to-top {
+  0% {
+    -webkit-transform: translateY(5px) scale(0.8);
+            transform: translateY(5px) scale(0.8);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateY(0px) scale(1);
+            transform: translateY(0px) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes to-top {
+  0% {
+    -webkit-transform: translateY(5px) scale(0.8);
+            transform: translateY(5px) scale(0.8);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateY(0px) scale(1);
+            transform: translateY(0px) scale(1);
+    opacity: 1;
+  }
+}
+
+.dark-theme .js-tooltip {
+  color: #e9e9e9;
+}
+
+.dark-theme .js-tooltip__container {
+  background: #2a2c30;
+}
+
+.dark-theme .js-tooltip__pointer::before,
+.dark-theme .js-tooltip__pointer::after {
+  background: #2a2c30;
+}
