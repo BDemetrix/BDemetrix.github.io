@@ -1,27 +1,31 @@
+/**
+ * Создает всплывающие увдобления при наведении (или клике) на таргет (целевой элемент)
+ */
 class Tooltips {
   constructor(options = {}) {
-    this.attach = options.attach ?? ".smart-tooltip";
-    this.openTrigger = options.openTrigger ?? "mouseenter"; // openopenTrigger: 'click',
-    this.closeTrigger = options.closeTrigger ?? "mouseleave"; // openopenTrigger: 'click',
-    this.content = options.content ?? "title";
+    this.attach = options.attach ?? ".smart-tooltip";         // селектор таргетов тултипа
+    this.openTrigger = options.openTrigger ?? "mouseenter";   // тригер показа тултипа
+    this.closeTrigger = options.closeTrigger ?? "mouseleave"; // по умолчанию "mouseleave", если openTrigger !== "click"
+    this.content = options.content ?? "title";                // контент тултипа (HTML) может быть задан при создании экземпляра класса
 
-    this.contentSource = options.contentSource ?? null; // селектор блока, содержимое которого надо перенести в тултип
-    this.setContent = options.setContent ?? null; // солбек для получения контента
+    this.contentSource = options.contentSource ?? null;       // селектор блока, содержимое которого надо перенести в тултип 
+    this.setContent = options.setContent ?? null;             // асинхронный колбек для получения контента (удаленно)
 
     // Настройки отображения
-    this.offset = options.offset ?? "";
-    this.hasPointer = options.hasPointer ?? true;
-    this.pointerSize = options.pointerSize ?? "";
-    this.maxWidth = options.maxWidth ?? null;
-    this.width = options.width ?? null;
+    this.offset = options.offset ?? "";                       // отступ от таргета
+    this.hasPointer = options.hasPointer ?? true;             // признак существования стрелочки (указателя)
+    this.pointerSize = options.pointerSize ?? "";             // размер стрелочки (указателя)
+    this.maxWidth = options.maxWidth ?? null;                 // максимальная ширина
+    this.width = options.width ?? null;                       // ширина, если задана, то this.posMod.x = 'center' принудительно, иначе возникают баги
     this.posMod = {};
-    this.posMod.x = options.posMod?.x ?? "center"; // x: left|left-auto|center|right|right-auto
-    this.posMod.y = options.posMod?.y ?? "auto"; // y: above|under|auto
-    this.hMargin = options.hMargin ?? 10; // оттступ тултипа открая экрана
-    this.classMod = {};
+    this.posMod.x = options.posMod?.x ?? "center";            // позиция по горизонтали x: left|left-auto|center|right|right-auto
+    this.posMod.y = options.posMod?.y ?? "auto";              // позиция по вертикали y: above|under|auto, auto по умолчанию
+    this.hMargin = options.hMargin ?? 10;                     // оттступ тултипа от края экрана
 
-    this.isOpen = false;
-    this.isFirstOpen = true;
+    // вспомогательные свойства, не пребуют конфигурирования
+    this.classMod = {};                                       // вспомогатольный объект для работы с модификаторами css
+    this.isOpen = false;                                      // признак открытого тултипа
+    this.isFirstOpen = true;                                  // признак первого открытия (нужен для исправления бага)
 
     this._init();
   }
@@ -104,12 +108,6 @@ class Tooltips {
 
     // Устанавливем свойства из "option"
     this._setProperty();
-    // Фикс бага при первой отрисовке / к другим багам
-    // this.open(this.targets[0]);
-
-    // setTimeout(() => {
-    //   this.close();
-    // }, 1);
   }
 
   /**
