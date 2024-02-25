@@ -20,6 +20,3 @@
 
 
 
-@@include('files/Tooltips.js', {})
-
-

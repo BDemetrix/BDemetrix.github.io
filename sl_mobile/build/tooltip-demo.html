@@ -21,13 +21,27 @@
 </head>
 
 <body class="">
+	
 	<style>
-		.demo-style {
+		body {
+			overflow-x: hidden;
+		}
+		.demo-row {
+			margin-left: auto; display: flex; justify-content: space-between; flex-wrap: wrap;
+		}
+		.demo-btn {
 			display: inline-block;
   			margin: 20px;
   			padding: 10px;
   			border: 1px solid goldenrod;
   			border-radius: 5px;
+			white-space: nowrap;
+			line-height: 20px;
+
+			&:nth-child(3) {
+				margin-left: auto;
+			}
+			
 		}
 
 		h2 {
@@ -685,67 +699,106 @@
 </header>
 		<main class="main _mobile-container">
 
-			<h2>Автоматическое позиционирование</h2>
-			<div style="margin-left: auto; display: flex; justify-content: space-between;">
-				<div class="smart-tooltip demo-style" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa tenetur nemo, minima quo dignissimos numquam consequatur, odit voluptatem porro quis nisi accusantium obcaecati molestiae qui! Consectetur hic quaerat illo?  minima quo dignissimos numquam consequatur, odit voluptatem porro quis nisi accusantium obcaecati molestiae qui! Consectetur hic quaerat illo?">
-					auto/auto 1 
+			<h2>Автоматическое позиционирование</h2>  
+			<div class="demo-row">
+				<div class="smart-tooltip demo-btn" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa tenetur nemo, minima quo dignissimos numquam consequatur, odit voluptatem porro quis nisi accusantium obcaecati molestiae qui! Consectetur hic quaerat illo?  minima quo dignissimos numquam consequatur, odit voluptatem porro quis nisi accusantium obcaecati molestiae qui! Consectetur hic quaerat illo?">
+					auto / auto
 				</div>
-				<div class="smart-tooltip demo-style" title="Lorem ipsum dolor sit amet ">
-					auto/auto 2
+				<div class="smart-tooltip demo-btn" title="Lorem ipsum dolor sit amet ">
+					auto / auto
 				</div>
-				<div class="smart-tooltip demo-style" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa tenetur nemo, minima quo dignissimos numquam consequatur, odit voluptatem porro quis nisi accusantium obcaecati molestiae qui! Consectetur hic quaerat illo?">
-					auto/auto 3 
+				<div class="smart-tooltip demo-btn" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa tenetur nemo, minima quo dignissimos numquam consequatur, odit voluptatem porro quis nisi accusantium obcaecati molestiae qui! Consectetur hic quaerat illo?">
+					auto / auto
 				</div>
 			</div>
 			<div class="hr"></div>
 
 			<h2>Автоматическое позиционирование по горизонтали, <b>всегда сверху</b></h2>
-			<div style="margin-left: auto; display: flex; justify-content: space-between;">
-				<div class="smart-tooltip-above demo-style" title="Lorem ipsum">
-					auto/above 1 
+			<div class="demo-row">
+				<div class="smart-tooltip-above demo-btn" title="Lorem ipsum">
+					auto / above
 				</div>
-				<div class="smart-tooltip-above  demo-style" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa ">
-					auto/above 2
+				<div class="smart-tooltip-above  demo-btn" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa ">
+					auto / above
 				</div>
-				<div class="smart-tooltip-above  demo-style" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa tenetur nemo, minima quo dignissimos numquam consequatur, odit voluptatem porro quis nisi accusantium obcaecati molestiae qui! Consectetur hic quaerat illo?">
-					auto/above 3 
-				</div>
-			</div>
-			<div class="hr"></div>
-
-			<h2>Позиционирование по <b>левому краю</b>, всегда <b>внизу</b>, открывается/закрывается по клику</h2>
-			<div style="margin-left: auto; display: flex; justify-content: space-between;">
-				<div class="smart-tooltip-under-left demo-style" title="Lorem ipsum">
-					left/under 1 
-				</div>
-				<div class="smart-tooltip-under-left  demo-style" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa ">
-					left/under 2
-				</div>
-				<div class="smart-tooltip-under-left  demo-style" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa tenetur nemo, minima quo dignissimos numquam consequatur, odit voluptatem porro quis nisi accusantium obcaecati molestiae qui! Consectetur hic quaerat illo?">
-					left/under 3 
+				<div class="smart-tooltip-above  demo-btn" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa tenetur nemo, minima quo dignissimos numquam consequatur, odit voluptatem porro quis nisi accusantium obcaecati molestiae qui! Consectetur hic quaerat illo?">
+					auto / above
 				</div>
 			</div>
 			<div class="hr"></div>
 
-			<h2>Позиционирование по <b>правому краю</b>, всегда <b>внизу</b>, открывается по клику, закрывается про клику на документ</h2>
-			<div style="margin-left: auto; display: flex; justify-content: space-between;">
-				<div class="smart-tooltip-under-right demo-style" title="Lorem ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa ">
-					right/under 1 
+			<h2>Позиционирование по <b>левому краю</b>, всегда <b>внизу</b>, открывается/закрывается по клику на таргет или документ вне тултипа</h2>
+			<div class="demo-row">
+				<div class="smart-tooltip-under-left demo-btn" title="Lorem ipsum">
+					left / under / click 
 				</div>
-				<div class="smart-tooltip-under-right  demo-style" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa ">
-					right/under 2
+				<div class="smart-tooltip-under-left  demo-btn" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa ">
+					left / under / click
 				</div>
-				<div class="smart-tooltip-under-right  demo-style" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa tenetur nemo, minima quo dignissimos numquam consequatur, odit voluptatem porro quis nisi accusantium obcaecati molestiae qui! Consectetur hic quaerat illo?">
-					right/under 3 
+				<div class="smart-tooltip-under-left  demo-btn" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa tenetur nemo, minima quo dignissimos numquam consequatur, odit voluptatem porro quis nisi accusantium obcaecati molestiae qui! Consectetur hic quaerat illo?">
+					left / under / click 
 				</div>
 			</div>
-			
+			<div class="hr"></div>
 
-
-			<div class="main__post-card">
-				
+			<h2>Позиционирование по <b>правому краю</b>, всегда <b>внизу</b></h2>
+			<div class="demo-row">
+				<div class="smart-tooltip-under-right demo-btn" title="Lorem ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa ">
+					right / under
+				</div>
+				<div class="smart-tooltip-under-right  demo-btn" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa ">
+					right / under
+				</div>
+				<div class="smart-tooltip-under-right  demo-btn" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa tenetur nemo, minima quo dignissimos numquam consequatur, odit voluptatem porro quis nisi accusantium obcaecati molestiae qui! Consectetur hic quaerat illo?">
+					right / under
+				</div>
 			</div>
-			
+			<div class="hr"></div>
+
+			<h2>Позиционирование по <b>правому краю</b> и если не помещеется, то по левому, всегда <b>внизу</b></h2>
+			<div class="demo-row">
+				<div class="smart-tooltip-under-right-auto demo-btn" title="Lorem ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa ">
+					right-auto / under 
+				</div>
+				<div class="smart-tooltip-under-right-auto  demo-btn" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa ">
+					right-auto / under
+				</div>
+				<div class="smart-tooltip-under-right-auto  demo-btn" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa tenetur nemo, minima quo dignissimos numquam consequatur, odit voluptatem porro quis nisi accusantium obcaecati molestiae qui! Consectetur hic quaerat illo?">
+					right-auto / under
+				</div>
+			</div>
+			<div class="hr"></div>
+
+			<h2>Позиционирование по <b>левому краю</b> и если не помещеется, то по правому, всегда <b>вверху</b>, 
+				открывается по клику, закрывается про клику на документ
+			</h2>
+			<div class="demo-row">
+				<div class="smart-tooltip-under-left-auto demo-btn" title="Lorem ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa ">
+					left-auto / above 
+				</div>
+				<div class="smart-tooltip-under-left-auto  demo-btn" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa ">
+					left-auto / above
+				</div>
+				<div class="smart-tooltip-under-left-auto  demo-btn" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa tenetur nemo, minima quo dignissimos numquam consequatur, odit voluptatem porro quis nisi accusantium obcaecati molestiae qui! Consectetur hic quaerat illo?">
+					left-auto / above 
+				</div>
+			</div>
+			<div class="hr"></div>
+
+			<h2>Позиционирование по <b>левому краю</b> и если не помещеется, то по правому, всегда <b>вверху</b>, открывается по клику, закрывается про клику на документ</h2>
+			<div class="demo-row">
+				<div class="smart-tooltip-content-defined demo-btn">
+					Этот контент задан<br> при создании экземплара<br> <b>new Tooltips({content: '...'}</b>)
+				</div>
+				<div class="smart-tooltip-content-soursce  demo-btn" >
+					Контент находится на странице,<br>в доступе по селектору
+				</div>
+				<div class="smart-tooltip-content-set  demo-btn">
+					Загрузка удаленного<br>
+					контента
+				</div>
+			</div>
+
 
 			<footer class="footer-mob footer-mob--mt-none footer-mob--no-banners">
 	<div class="footer-mob__content">
@@ -874,53 +927,233 @@
 <script src="./js/demo.min.js"></script>
 <script src="./js/smartlabus.min.js"></script> 
 <script src="./js/smartlabus-modal-demo.js"></script>
+<script src="./js/Tooltips.js"></script>
 
 </body>
 
 <script>
 
-new Tooltips({
-	// hasPointer: false,
-});
+// Настройки по умолчанию
+const smartTooltip = new Tooltips();
+
+// smartTooltip.open(); // необходимо передать сылку на таргет, или предварительно установить контекст
 
 new Tooltips({
 	attach: '.smart-tooltip-above',
-  width: 250,
-  posMod: { y: "above"},
+  	posMod: { y: "above"},
 });
 
 new Tooltips({
 	attach: '.smart-tooltip-under-left',
 	openTrigger: 'click',
-  // maxWidth: 150,
-  // hasPointer: false,
-  // closeTrigger: "click",
-  // pointerSize: 5,
-  // offset: 100,
-  width: 250,
-  posMod: { y: "under", x: 'left'},
+  	posMod: { y: "under", x: 'left'},
 });
 
 new Tooltips({
 	attach: '.smart-tooltip-under-right',
-  // maxWidth: 150,
-  // hasPointer: false,
-  // closeTrigger: "click",
-  // pointerSize: 5,
-  // offset: 100,
-  width: 250,
-  posMod: { y: "under", x: 'right'},
+  	posMod: { y: "under", x: 'right'},
+	// width: 280, 
 });
 
+new Tooltips({
+	attach: '.smart-tooltip-under-right-auto',
+  	posMod: { y: "under", x: 'right-auto'},
+});
+
+new Tooltips({
+	attach: '.smart-tooltip-under-left-auto',
+  	posMod: { y: "above", x: 'left-auto'},
+});
+
+// Контент задан заранее
+new Tooltips({
+	attach: '.smart-tooltip-content-defined',
+	// openTrigger: 'click',
+	content: `<div class="post-card__header" style="margin: 0; padding: 12px;">
+        <!-- Если добавляется меню, то надо добввить и модификатор  post-card__header-inner--with-full-menu -->
+        <div class="post-card__header-inner post-card__header-inner--with-full-menu">
+            <a href="#" class="post-card__photo-wrap">
+                <!-- Если аватар не загружен, то <img> вставлять на страницу не надо. Будет виден фон .post-card__photo-wrap  заданный в css-->
+                <img src="./images/icons/post-card/photo.jpg" alt="Фото" class="post-card__photo">
+            </a>
+            <div class="post-card__info">
+                <span class="post-card__name">
+                    <!-- Если профиль подтвержден, добавляется svg.post-card__approved -->
+                    <a href="#" class="post-card__name-link">RomanAndreev</a>
+                    <!-- 
+                        Возможные варианты:
+                        <svg class="post-card__approved" width="20" height="20">
+                            <use xlink:href="images/icons/post-card/sprite.svg#approved"></use>
+                        </svg>
+                        <svg class="post-card__approved" width="14" height="14">
+                            <use xlink:href="images/icons/post-card/sprite.svg#popular"></use>
+                        </svg>
+                        <svg class="post-card__approved" width="14" height="14">
+                            <use xlink:href="images/icons/post-card/sprite.svg#premium"></use>
+                        </svg>
+                    -->
+                    <svg class="post-card__approved" width="14" height="14">
+                        <use xlink:href="images/icons/post-card/sprite.svg#premium"></use>
+                    </svg>
+                </span>
+                <span class="post-card__date">сегодня в 21:28</span>
+            </div>
+            <div class="post-card__menu-wrap">
+                <!-- стили кнопки подписки вынесены в глобальный класс .subscription__btn  -->
+                <button class="post-card__subscription subscription__btn subscription__btn--plus">
+                    <svg height="20" width="20">
+                        <use xlink:href="images/icons/user-info/sprite.svg#plus"></use>
+                    </svg>
+                    <span>+&nbsp;Подписаться</span>
+                </button>
+                <div class="post-card__menu post-card__menu--post context-menu">
+                    <button class="post-card__menu-btn post-card__menu-btn--post context-menu__btn">
+                        <svg height="20" width="20">
+                            <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
+                        </svg>
+                    </button>
+                    <ul class="context-menu__list">
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#reload"></use>
+                                </svg>
+                                Старая версия
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#print"></use>
+                                </svg>
+                                Распечатать
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#edit"></use>
+                                </svg>
+                                Редактировать
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#del"></use>
+                                </svg>
+                                Удалить
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#alert"></use>
+                                </svg>
+                                Пожаловаться
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            
+                <div class="post-card__menu context-menu">
+                    <button class="post-card__menu-btn post-card__menu-btn--post context-menu__btn">
+                        <svg height="20" width="20">
+                            <use xlink:href="images/icons/post-card/sprite.svg#share"></use>
+                        </svg>
+                    </button>
+                    <ul class="context-menu__list">
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#chain"></use>
+                                </svg>
+                                Копировать ссылку
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/post-card/sprite.svg#tab"></use>
+                                </svg>
+                                Добавить в закладки
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item post-card__menu-item--blue context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/user-info/sprite.svg#vk"></use>
+                                </svg>
+                                ВКонтакте
+                            </button>
+                        </li>
+                        <li>
+                            <button class="post-card__menu-item post-card__menu-item--blue context-menu__item">
+                                <svg height="20" width="20">
+                                    <use xlink:href="images/icons/user-info/sprite.svg#tg"></use>
+                                </svg>
+                                Telegram
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>`,
+  	posMod: { y: "above"},
+	maxWidth: 736,
+	width: 'calc(100% - 40px)',
+});
+
+// Контент задан заранее
+new Tooltips({
+	attach: '.smart-tooltip-content-soursce',
+	// openTrigger: 'click',
+	closeTrigger: 'click',
+	contentSource: '.app-box__img',
+  	posMod: { y: "above"},
+	hasPointer: false,
+	width: 'auto',
+});
+
+// Контент из сети 
+new Tooltips({
+	attach: '.smart-tooltip-content-set',
+	openTrigger: 'click',
+
+	setContent: async function (){
+		const timeout = 1000;
+		const data = await delayedFetch('https://bdemetrix.github.io/sl_mobile/build/news-premium.html', timeout).then(res => res.text());
+
+		return `<div style="width: 736px; max-width: 100vw; height:300px; padding: 12px; border-radius: 14px;border: 2px solid green;"><div style="max-width: 100%; height:100%;  overflow-y: auto; overflow-x: hidden;"><frame style="max-width: 100%;">${data}<frame></div></div>`
+	},
+  	posMod: { y: "above"},
+	// hasPointer: false,
+	maxWidth: 736,
+	width: 'calc(100% - 40px)',
+});
+
+
 // new Tooltips({
-//   // maxWidth: 150,
-//   // hasPointer: false,
-//   // closeTrigger: "click",
-//   // pointerSize: 5,
-//   // offset: 100,
+//   maxWidth: 150,
+//   hasPointer: false,
+//   closeTrigger: "click",
+//   pointerSize: 5,
+//   offset: 100,
 //   width: 250,
 //   posMod: { y: "under", x: 'left'},
 // });
+
+
+function delayedFetch(url, delay) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            fetch(url)
+                .then(response => resolve(response))
+                .catch(error => reject(error));
+        }, delay);
+    });
+}
 
 </script>
 

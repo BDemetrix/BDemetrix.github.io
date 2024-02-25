@@ -4,35 +4,44 @@
   $end: 0px;
 
   --offset: 14px; // Смещение контекта тултипа от целевого элемента
+  // --h-margin: 5px 
   --pointer-size: 10px;
 
   display: inline-block;
   position: absolute;
+  top: 0;
+  left: 0;
   z-index: -1;
   color: #666;
   opacity: 0;
-  max-width: calc(100% - 32px);
+  width: auto;
+  max-width: calc(100% - 32px); 
 
   &, * {
     box-sizing: border-box;
   }
 
   &--top {
-    border-bottom: var(--offset) solid transparent;
+    // border-bottom: var(--offset) solid transparent;
+    padding-bottom: var(--offset);
     animation: none;
   }
   &--bottom {
-    border-top: var(--offset) solid transparent;
+    // border-top: var(--offset) solid transparent;
+    padding-top: var(--offset);
     animation: none;
   }
-  &--left {
-    border-right: var(--offset) solid transparent;
-    animation: none;
-  }
-  &--right {
-    border-left: var(--offset) solid transparent;
-    animation: none;
-  }
+  // задел на будущее
+  // &--left {
+  //   // border-right: var(--offset) solid transparent;
+  //   padding-right: var(--offset);
+  //   animation: none;
+  // }
+  // &--right {
+  //   // border-left: var(--offset) solid transparent;
+  //   padding-left: var(--offset);
+  //   animation: none;
+  // }
 
   &--shown {
     z-index: 999;
@@ -82,7 +91,7 @@
     }
     &--top {
       bottom: auto;
-      top: 0px;
+      top: var(--offset);
 
       &::before,
       &::after {
@@ -92,7 +101,7 @@
 
     &--bottom {
       top: auto;
-      bottom: 0;
+      bottom: var(--offset);
 
       &::before,
       &::after {
@@ -100,37 +109,38 @@
       }
     }
 
-    &--left,
-    &--right {
-      height: calc( var(--pointer-size) * 2);
-      width: var(--pointer-size);
-      top: calc(50% - var(--pointer-size));
+    // задел на будущее
+    // &--left,
+    // &--right {
+    //   height: calc( var(--pointer-size) * 2);
+    //   width: var(--pointer-size);
+    //   top: calc(50% - var(--pointer-size));
 
-      &::before,
-      &::after {
-        top: calc(var(--pointer-size) * 0.3)
-      }
-    }
-    &--left {
-      left: 0px;
+    //   &::before,
+    //   &::after {
+    //     top: calc(var(--pointer-size) * 0.3)
+    //   }
+    // }
+    // &--left {
+    //   left: 0px;
 
-      &::before,
-      &::after {
-        right: 1px;
-      }
-    }
-    &--right {
-      right: 0px;
+    //   &::before,
+    //   &::after {
+    //     right: 1px;
+    //   }
+    // }
+    // &--right {
+    //   right: 0px;
 
-      &::after {
-        box-shadow: 3px 0px 10px 0px rgba(0, 0, 0, 0.25);
-      }
+    //   &::after {
+    //     box-shadow: 3px 0px 10px 0px rgba(0, 0, 0, 0.25);
+    //   }
 
-      &::before,
-      &::after {
-        left: 1px;
-      }
-    }
+    //   &::before,
+    //   &::after {
+    //     left: 1px;
+    //   }
+    // }
   }
 
   // .js-tooltip__container
@@ -139,6 +149,7 @@
     position: relative;
     z-index: 1;
     width: 100%;
+
     border-radius: 10px;
     background: #fff;
     box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
@@ -158,16 +169,6 @@
     line-height: 14px;
   }
 
-  // @keyframes common {
-  //   0% {
-  //     opacity: 0;
-  //     transform: scale(.8);
-  //   }
-  //   100% {
-  //     opacity: 1;
-  //     transform: translateY($end) scale(1);
-  //   }
-  // }
   @keyframes to-bottom {
     0% { transform: translateY(-$start) scale(0.8); opacity: 0;}
     100% { transform: translateY($end) scale(1); opacity: 1;}
