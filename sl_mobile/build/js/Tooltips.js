@@ -27,7 +27,8 @@ class Tooltips {
     this.classMod = {};                                       // вспомогатольный объект для работы с модификаторами css
     this.isOpen = false;                                      // признак открытого тултипа
     this.isFirstOpen = true;                                  // признак первого открытия (нужен для исправления бага)
-
+    this.isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0)
+    
     this._init();
   }
 
@@ -60,6 +61,10 @@ class Tooltips {
       // this.container.append(contentSourceEl);
     }
 
+    // Если устройство тачскрин
+    if (this.isTouch) {
+      this.openTrigger = 'click';
+    }
     // Устанавливаем обработчики
     this.targets.forEach((target) => {
       // Чистим/переносим атрибуты 'title'

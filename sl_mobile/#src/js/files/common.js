@@ -326,6 +326,7 @@ for (let index = 0; index < tabs.length; index++) {
 }
 
 // Обработка событий для контекстного меню .context-menu
+function contextMenuInit() {
 const popUpMenu = document.querySelectorAll(".context-menu");
 if (popUpMenu.length) {
   document.documentElement.addEventListener(
@@ -392,6 +393,9 @@ if (popUpMenu.length) {
     });
   });
 }
+}
+
+contextMenuInit();
 
 // адаптивная высота textarea
 document.documentElement.addEventListener(

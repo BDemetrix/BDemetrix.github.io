@@ -966,10 +966,159 @@ new Tooltips({
 });
 
 // Контент задан заранее
+// new Tooltips({
+// 	attach: '.smart-tooltip-content-defined',
+// 	// openTrigger: 'click',
+// 	closeTrigger: 'click',
+// 	// не для интерактивного контента
+// 	content: `<div class="post-card__header" style="margin: 0; padding: 12px;">
+//         <!-- Если добавляется меню, то надо добввить и модификатор  post-card__header-inner--with-full-menu -->
+//         <div class="post-card__header-inner post-card__header-inner--with-full-menu">
+//             <a href="#" class="post-card__photo-wrap">
+//                 <!-- Если аватар не загружен, то <img> вставлять на страницу не надо. Будет виден фон .post-card__photo-wrap  заданный в css-->
+//                 <img src="./images/icons/post-card/photo.jpg" alt="Фото" class="post-card__photo">
+//             </a>
+//             <div class="post-card__info">
+//                 <span class="post-card__name">
+//                     <!-- Если профиль подтвержден, добавляется svg.post-card__approved -->
+//                     <a href="#" class="post-card__name-link">RomanAndreev</a>
+//                     <!-- 
+//                         Возможные варианты:
+//                         <svg class="post-card__approved" width="20" height="20">
+//                             <use xlink:href="images/icons/post-card/sprite.svg#approved"></use>
+//                         </svg>
+//                         <svg class="post-card__approved" width="14" height="14">
+//                             <use xlink:href="images/icons/post-card/sprite.svg#popular"></use>
+//                         </svg>
+//                         <svg class="post-card__approved" width="14" height="14">
+//                             <use xlink:href="images/icons/post-card/sprite.svg#premium"></use>
+//                         </svg>
+//                     -->
+//                     <svg class="post-card__approved" width="14" height="14">
+//                         <use xlink:href="images/icons/post-card/sprite.svg#premium"></use>
+//                     </svg>
+//                 </span>
+//                 <span class="post-card__date">сегодня в 21:28</span>
+//             </div>
+//             <div class="post-card__menu-wrap">
+//                 <!-- стили кнопки подписки вынесены в глобальный класс .subscription__btn  -->
+//                 <button class="post-card__subscription subscription__btn subscription__btn--plus">
+//                     <svg height="20" width="20">
+//                         <use xlink:href="images/icons/user-info/sprite.svg#plus"></use>
+//                     </svg>
+//                     <span>+&nbsp;Подписаться</span>
+//                 </button>
+//                 <div class="post-card__menu post-card__menu--post context-menu">
+//                     <button class="post-card__menu-btn post-card__menu-btn--post context-menu__btn">
+//                         <svg height="20" width="20">
+//                             <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
+//                         </svg>
+//                     </button>
+//                     <ul class="context-menu__list">
+//                         <li>
+//                             <button class="post-card__menu-item context-menu__item">
+//                                 <svg height="20" width="20">
+//                                     <use xlink:href="images/icons/post-card/sprite.svg#reload"></use>
+//                                 </svg>
+//                                 Старая версия
+//                             </button>
+//                         </li>
+//                         <li>
+//                             <button class="post-card__menu-item context-menu__item">
+//                                 <svg height="20" width="20">
+//                                     <use xlink:href="images/icons/post-card/sprite.svg#print"></use>
+//                                 </svg>
+//                                 Распечатать
+//                             </button>
+//                         </li>
+//                         <li>
+//                             <button class="post-card__menu-item context-menu__item">
+//                                 <svg height="20" width="20">
+//                                     <use xlink:href="images/icons/post-card/sprite.svg#edit"></use>
+//                                 </svg>
+//                                 Редактировать
+//                             </button>
+//                         </li>
+//                         <li>
+//                             <button class="post-card__menu-item context-menu__item">
+//                                 <svg height="20" width="20">
+//                                     <use xlink:href="images/icons/post-card/sprite.svg#del"></use>
+//                                 </svg>
+//                                 Удалить
+//                             </button>
+//                         </li>
+//                         <li>
+//                             <button class="post-card__menu-item context-menu__item">
+//                                 <svg height="20" width="20">
+//                                     <use xlink:href="images/icons/post-card/sprite.svg#alert"></use>
+//                                 </svg>
+//                                 Пожаловаться
+//                             </button>
+//                         </li>
+//                     </ul>
+//                 </div>
+            
+//                 <div class="post-card__menu context-menu">
+//                     <button class="post-card__menu-btn post-card__menu-btn--post context-menu__btn">
+//                         <svg height="20" width="20">
+//                             <use xlink:href="images/icons/post-card/sprite.svg#share"></use>
+//                         </svg>
+//                     </button>
+//                     <ul class="context-menu__list">
+//                         <li>
+//                             <button class="post-card__menu-item context-menu__item">
+//                                 <svg height="20" width="20">
+//                                     <use xlink:href="images/icons/post-card/sprite.svg#chain"></use>
+//                                 </svg>
+//                                 Копировать ссылку
+//                             </button>
+//                         </li>
+//                         <li>
+//                             <button class="post-card__menu-item context-menu__item">
+//                                 <svg height="20" width="20">
+//                                     <use xlink:href="images/icons/post-card/sprite.svg#tab"></use>
+//                                 </svg>
+//                                 Добавить в закладки
+//                             </button>
+//                         </li>
+//                         <li>
+//                             <button class="post-card__menu-item post-card__menu-item--blue context-menu__item">
+//                                 <svg height="20" width="20">
+//                                     <use xlink:href="images/icons/user-info/sprite.svg#vk"></use>
+//                                 </svg>
+//                                 ВКонтакте
+//                             </button>
+//                         </li>
+//                         <li>
+//                             <button class="post-card__menu-item post-card__menu-item--blue context-menu__item">
+//                                 <svg height="20" width="20">
+//                                     <use xlink:href="images/icons/user-info/sprite.svg#tg"></use>
+//                                 </svg>
+//                                 Telegram
+//                             </button>
+//                         </li>
+//                     </ul>
+//                 </div>
+//             </div>
+//         </div>
+//     </div>
+// 	`
+// 	,
+//   	posMod: { y: "above"},
+// 	maxWidth: 736,
+// 	width: 'calc(100% - 40px)',
+// });
+
 new Tooltips({
 	attach: '.smart-tooltip-content-defined',
 	// openTrigger: 'click',
-	content: `<div class="post-card__header" style="margin: 0; padding: 12px;">
+	closeTrigger: 'click',
+	// не для интерактивного контента
+	setContent: function () {
+		setTimeout(() => {
+			contextMenuInit();
+		}, 500);
+		return `<div class="post-card__header" style="margin: 0; padding: 12px;">
         <!-- Если добавляется меню, то надо добввить и модификатор  post-card__header-inner--with-full-menu -->
         <div class="post-card__header-inner post-card__header-inner--with-full-menu">
             <a href="#" class="post-card__photo-wrap">
@@ -1099,7 +1248,10 @@ new Tooltips({
                 </div>
             </div>
         </div>
-    </div>`,
+    </div>
+	`
+	}
+	,
   	posMod: { y: "above"},
 	maxWidth: 736,
 	width: 'calc(100% - 40px)',
@@ -1116,6 +1268,7 @@ new Tooltips({
 	width: 'auto',
 });
 
+
 // Контент из сети 
 new Tooltips({
 	attach: '.smart-tooltip-content-set',
@@ -1125,7 +1278,7 @@ new Tooltips({
 		const timeout = 1000;
 		const data = await delayedFetch('https://bdemetrix.github.io/sl_mobile/build/news-premium.html', timeout).then(res => res.text());
 
-		return `<div style="width: 736px; max-width: 100vw; height:300px; padding: 12px; border-radius: 14px;border: 2px solid green;"><div style="max-width: 100%; height:100%;  overflow-y: auto; overflow-x: hidden;"><frame style="max-width: 100%;">${data}<frame></div></div>`
+		return `<div style="width: 736px; max-width: 100%; height:300px; padding: 12px; border-radius: 14px;border: 2px solid green;"><div style="max-width: 100%; height:100%;  overflow-y: auto; overflow-x: hidden;"><frame style="max-width: 100%;">${data}<frame></div></div>`
 	},
   	posMod: { y: "above"},
 	// hasPointer: false,
