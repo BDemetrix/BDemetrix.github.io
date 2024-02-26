@@ -326,73 +326,79 @@ for (let index = 0; index < tabs.length; index++) {
 }
 
 // Обработка событий для контекстного меню .context-menu
-function contextMenuInit() {
-const popUpMenu = document.querySelectorAll(".context-menu");
-if (popUpMenu.length) {
-  document.documentElement.addEventListener(
-    "click",
-    function (e) {
-      let btn = e.target.closest(".context-menu > button, .context-menu > a");
-      if (btn) {
-        let menu = e.target.closest(".context-menu");
-        if (menu) {
-          if (!menu.classList.contains("_open")) closeAllOpenedMenu();
-          popUpMenuCorrectPos(menu);
-          menu.classList.toggle("_open");
-        }
-      } else {
-        let popUpMenu = document.querySelector(".context-menu._open");
-        if (popUpMenu) popUpMenu.classList.remove("_open");
+function contextMenuInit(reinit = false) {
+  if (reinit) {
+    document.documentElement.removeEventListener('click', contextMenuHendler);
+    window.removeEventListener('resize', contextMenuResizeHendler);
+  }
+
+  const popUpMenu = document.querySelectorAll(".context-menu");
+  if (popUpMenu.length) {
+    document.documentElement.addEventListener(
+      "click", contextMenuHendler,
+      false
+    );
+
+    window.addEventListener("resize", contextMenuResizeHendler);
+  }
+
+  function contextMenuHendler(e) {
+    let btn = e.target.closest(".context-menu > button, .context-menu > a");
+    if (btn) {
+      let menu = e.target.closest(".context-menu");
+      if (menu) {
+        if (!menu.classList.contains("_open")) closeAllOpenedMenu();
+        popUpMenuCorrectPos(menu);
+        menu.classList.toggle("_open");
       }
-    },
-    false
-  );
-
-  /**
-   * если окно выходит за рамки окна браузера, корректируем позицию
-   */
-  function popUpMenuCorrectPos(popUpMenu) {
-    if (!popUpMenu) return;
-    popUpMenuCleartPos(popUpMenu);
-
-    const ul = popUpMenu.querySelector("ul");
-    if (!ul) return;
-
-    let menuPosLeft = popUpMenu.getBoundingClientRect().left;
-    let menuPosRight = popUpMenu.getBoundingClientRect().right;
-    let ulPosLeft = ul.getBoundingClientRect().left - 5;
-    let ulPosRight =
-      document.documentElement.clientWidth -
-      ul.getBoundingClientRect().right -
-      5;
-
-    if (ulPosLeft < 0) {
-      if (
-        document.documentElement.clientWidth - menuPosLeft - 5 >=
-        ul.offsetWidth
-      )
-        ul.style.left = "0";
-      else ul.style.right = ulPosLeft + "px";
-    }
-
-    if (ulPosRight < 0) {
-      if (menuPosRight - 5 >= ul.offsetWidth) ul.style.right = "0";
-      else ul.style.left = ulPosRight + "px";
+    } else {
+      let popUpMenu = document.querySelector(".context-menu._open");
+      if (popUpMenu) popUpMenu.classList.remove("_open");
     }
   }
 
-  function popUpMenuCleartPos(popUpMenu) {
-    const ul = popUpMenu.querySelector("ul");
-    if (ul) ul.style.left = ul.style.right = "";
-  }
-
-  window.addEventListener("resize", () => {
+  function contextMenuResizeHendler(e) {
     popUpMenu.forEach((menu) => {
       popUpMenuCleartPos(menu);
       popUpMenuCorrectPos(menu);
     });
-  });
+  }
 }
+
+/**
+ * если окно выходит за рамки окна браузера, корректируем позицию
+ */
+function popUpMenuCorrectPos(popUpMenu) {
+  if (!popUpMenu) return;
+  popUpMenuCleartPos(popUpMenu);
+
+  const ul = popUpMenu.querySelector("ul");
+  if (!ul) return;
+
+  let menuPosLeft = popUpMenu.getBoundingClientRect().left;
+  let menuPosRight = popUpMenu.getBoundingClientRect().right;
+  let ulPosLeft = ul.getBoundingClientRect().left - 5;
+  let ulPosRight =
+    document.documentElement.clientWidth - ul.getBoundingClientRect().right - 5;
+
+  if (ulPosLeft < 0) {
+    if (
+      document.documentElement.clientWidth - menuPosLeft - 5 >=
+      ul.offsetWidth
+    )
+      ul.style.left = "0";
+    else ul.style.right = ulPosLeft + "px";
+  }
+
+  if (ulPosRight < 0) {
+    if (menuPosRight - 5 >= ul.offsetWidth) ul.style.right = "0";
+    else ul.style.left = ulPosRight + "px";
+  }
+}
+
+function popUpMenuCleartPos(popUpMenu) {
+  const ul = popUpMenu.querySelector("ul");
+  if (ul) ul.style.left = ul.style.right = "";
 }
 
 contextMenuInit();

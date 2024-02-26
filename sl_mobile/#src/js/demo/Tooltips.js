@@ -182,14 +182,14 @@ class Tooltips {
 
   /**
    * Получает контент асинхронно
-   * @param {Event} e - пробрасываем событие, чтобы в колбеке получить доступ к атрибутам таргета (если нужны для запроса)
+   * @param {Node} target - пробрасываем событие, чтобы в колбеке получить доступ к атрибутам таргета (если нужны для запроса)
    * @returns null
    */
   async _setContent(target) {
     if (!this.setContent || typeof this.setContent !== "function") return;
 
     const conntent = await this.setContent(target);
-    console.log(conntent);
+    // console.log(conntent);
     if (!conntent) return;
     this.close();
     this.container.innerHTML = conntent;

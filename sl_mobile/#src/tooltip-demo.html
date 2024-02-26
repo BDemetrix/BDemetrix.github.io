@@ -29,8 +29,8 @@
 			
 		}
 
-		h2 {
-			font-size: 18px;
+		.h2 {
+			font-size: 18px; 
 			margin: 32px 16px 0px;
 		}
 
@@ -44,7 +44,7 @@
 		@@include('_header.html',{"Class": "_container"})
 		<main class="main _mobile-container">
 
-			<h2>Автоматическое позиционирование</h2>  
+			<h2 class="h2">Автоматическое позиционирование</h2>  
 			<div class="demo-row">
 				<div class="smart-tooltip demo-btn" title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa tenetur nemo, minima quo dignissimos numquam consequatur, odit voluptatem porro quis nisi accusantium obcaecati molestiae qui! Consectetur hic quaerat illo?  minima quo dignissimos numquam consequatur, odit voluptatem porro quis nisi accusantium obcaecati molestiae qui! Consectetur hic quaerat illo?">
 					auto / auto
@@ -58,7 +58,7 @@
 			</div>
 			<div class="hr"></div>
 
-			<h2>Автоматическое позиционирование по горизонтали, <b>всегда сверху</b></h2>
+			<h2 class="h2">Автоматическое позиционирование по горизонтали, <b>всегда сверху</b></h2>
 			<div class="demo-row">
 				<div class="smart-tooltip-above demo-btn" title="Lorem ipsum">
 					auto / above
@@ -72,7 +72,7 @@
 			</div>
 			<div class="hr"></div>
 
-			<h2>Позиционирование по <b>левому краю</b>, всегда <b>внизу</b>, открывается/закрывается по клику на таргет или документ вне тултипа</h2>
+			<h2 class="h2">Позиционирование по <b>левому краю</b>, всегда <b>внизу</b>, открывается/закрывается по клику на таргет или документ вне тултипа</h2>
 			<div class="demo-row">
 				<div class="smart-tooltip-under-left demo-btn" title="Lorem ipsum">
 					left / under / click 
@@ -86,7 +86,7 @@
 			</div>
 			<div class="hr"></div>
 
-			<h2>Позиционирование по <b>правому краю</b>, всегда <b>внизу</b></h2>
+			<h2 class="h2">Позиционирование по <b>правому краю</b>, всегда <b>внизу</b></h2>
 			<div class="demo-row">
 				<div class="smart-tooltip-under-right demo-btn" title="Lorem ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa ">
 					right / under
@@ -100,7 +100,7 @@
 			</div>
 			<div class="hr"></div>
 
-			<h2>Позиционирование по <b>правому краю</b> и если не помещеется, то по левому, всегда <b>внизу</b></h2>
+			<h2 class="h2">Позиционирование по <b>правому краю</b> и если не помещеется, то по левому, всегда <b>внизу</b></h2>
 			<div class="demo-row">
 				<div class="smart-tooltip-under-right-auto demo-btn" title="Lorem ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum culpa ">
 					right-auto / under 
@@ -114,7 +114,7 @@
 			</div>
 			<div class="hr"></div>
 
-			<h2>Позиционирование по <b>левому краю</b> и если не помещеется, то по правому, всегда <b>вверху</b>, 
+			<h2 class="h2">Позиционирование по <b>левому краю</b> и если не помещеется, то по правому, всегда <b>вверху</b>, 
 				открывается по клику, закрывается про клику на документ
 			</h2>
 			<div class="demo-row">
@@ -130,7 +130,7 @@
 			</div>
 			<div class="hr"></div>
 
-			<h2>Позиционирование по <b>левому краю</b> и если не помещеется, то по правому, всегда <b>вверху</b>, открывается по клику, закрывается про клику на документ</h2>
+			<h2 class="h2">Позиционирование по <b>левому краю</b> и если не помещеется, то по правому, всегда <b>вверху</b>, открывается по клику, закрывается про клику на документ</h2>
 			<div class="demo-row">
 				<div class="smart-tooltip-content-defined demo-btn">
 					Этот контент задан<br> при создании экземплара<br> <b>new Tooltips({content: '...'}</b>)
@@ -338,8 +338,8 @@ new Tooltips({
 	// не для интерактивного контента
 	setContent: function () {
 		setTimeout(() => {
-			contextMenuInit();
-		}, 500);
+			contextMenuInit(true);
+		}, 1000);
 		return `<div class="post-card__header" style="margin: 0; padding: 12px;">
         <!-- Если добавляется меню, то надо добввить и модификатор  post-card__header-inner--with-full-menu -->
         <div class="post-card__header-inner post-card__header-inner--with-full-menu">
@@ -496,10 +496,10 @@ new Tooltips({
 	attach: '.smart-tooltip-content-set',
 	openTrigger: 'click',
 
-	setContent: async function (){
+	setContent: async function (target){
+		console.log(target);
 		const timeout = 1000;
 		const data = await delayedFetch('https://bdemetrix.github.io/sl_mobile/build/news-premium.html', timeout).then(res => res.text());
-
 		return `<div style="width: 736px; max-width: 100%; height:300px; padding: 12px; border-radius: 14px;border: 2px solid green;"><div style="max-width: 100%; height:100%;  overflow-y: auto; overflow-x: hidden;"><frame style="max-width: 100%;">${data}<frame></div></div>`
 	},
   	posMod: { y: "above"},
