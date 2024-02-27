@@ -22,6 +22,8 @@ class Tooltips {
     this.posMod.x = options.posMod?.x ?? "center";            // позиция по горизонтали x: left|left-auto|center|right|right-auto
     this.posMod.y = options.posMod?.y ?? "auto";              // позиция по вертикали y: above|under|auto, auto по умолчанию
     this.hMargin = options.hMargin ?? 10;                     // оттступ тултипа от края экрана
+    this.textAlign = options.textAlign ?? '';                 // выравнивание текста в 
+    this.theme = options.theme;                               // суфикс к классу, для кастомизации css
 
     // вспомогательные свойства, не пребуют конфигурирования
     this.classMod = {};                                       // вспомогатольный объект для работы с модификаторами css
@@ -49,6 +51,10 @@ class Tooltips {
     document.body.append(this.el);
     this.container = this.el.querySelector(".js-tooltip__container");
     this.pointer = this.el.querySelector(".js-tooltip__pointer");
+
+    if(this.theme) {
+      this.el.classList.add(`js-tooltip-${this.theme}`)
+    }
 
     // Если контент для тултипа уже загружен на страницу, переносим его в
     if (this.contentSource && typeof this.contentSource == "string") {
@@ -415,6 +421,8 @@ class Tooltips {
           window.getComputedStyle(this.el).getPropertyValue("--pointer-size")
         ) ?? "";
     }
+
+    if (this.textAlign) this.el.style.textAlign = this.textAlign;
 
     if (this.maxWidth) {
       this.el.style.maxWidth =

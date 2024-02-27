@@ -941,12 +941,17 @@ const smartTooltip = new Tooltips();
 new Tooltips({
 	attach: '.smart-tooltip-above',
   	posMod: { y: "above"},
+	// openTrigger: 'click',
+	width: 'auto',
+	textAlign: 'center', 
+	theme: 'DEMO',
 });
 
 new Tooltips({
 	attach: '.smart-tooltip-under-left',
 	openTrigger: 'click',
   	posMod: { y: "under", x: 'left'},
+	// width: 'auto', 
 });
 
 new Tooltips({

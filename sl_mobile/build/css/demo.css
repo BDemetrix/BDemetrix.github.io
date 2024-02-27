@@ -1729,7 +1729,7 @@ body[class*=" jBox-blockScroll-"] {
 }
 
 .js-tooltip__content {
-  text-align: center;
+  text-align: inherit;
   padding: 10px;
   font-size: 12px;
   font-weight: 400;
