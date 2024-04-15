@@ -799,6 +799,13 @@
 				</div>
 			</div>
 
+			<h2 class="h2">Передача контекста в collback</h2>
+			<div class="demo-row">
+				<div class="smart-tooltip-collback demo-btn" title="Передача контекста в collback">
+					collback()
+				</div> 
+			</div>
+
 
 			<footer class="footer-mob footer-mob--mt-none footer-mob--no-banners">
 	<div class="footer-mob__content">
@@ -1119,7 +1126,10 @@ new Tooltips({
 	// openTrigger: 'click',
 	closeTrigger: 'click',
 	// не для интерактивного контента
-	setContent: function () {
+	setContent: function (target) {
+		console.log(this.target);
+		console.log(target);
+
 		setTimeout(() => {
 			contextMenuInit(true);
 		}, 1000);
@@ -1279,10 +1289,14 @@ new Tooltips({
 	attach: '.smart-tooltip-content-set',
 	openTrigger: 'click',
 
-	setContent: async function (target){
-		console.log(target);
+	// this этого колбека несет в себе родительский объект Tooltips(),
+	// его можно завайндить с любой функцией вызываемой в колбеке, см. пример
+	setContent: async function (){
+		console.log(this.target);
 		const timeout = 1000;
-		const data = await delayedFetch('https://bdemetrix.github.io/sl_mobile/build/news-premium.html', timeout).then(res => res.text());
+		// const data = await delayedFetch('https://bdemetrix.github.io/sl_mobile/build/news-premium.html', timeout, this).then(res => res.text());
+		const data = await delayedFetch.bind(this)('https://bdemetrix.github.io/sl_mobile/build/news-premium.html', timeout).then(res => res.text());
+		// после загрузки контента, пможно навесить обработчик на любой элемент в нем, найдя его в this.el
 		return `<div style="width: 736px; max-width: 100%; height:300px; padding: 12px; border-radius: 14px;border: 2px solid green;"><div style="max-width: 100%; height:100%;  overflow-y: auto; overflow-x: hidden;"><frame style="max-width: 100%;">${data}<frame></div></div>`
 	},
   	posMod: { y: "above"},
@@ -1290,6 +1304,27 @@ new Tooltips({
 	maxWidth: 736,
 	width: 'calc(100% - 40px)',
 });
+
+
+// Collback и контекст
+new Tooltips({
+	attach: '.smart-tooltip-collback',
+	// openTrigger: 'click',
+	closeTrigger: 'click',
+	// this этого колбека несет в себе родительский объект Tooltips(),
+	setContent: collback,
+  	posMod: { y: "above"},
+});
+
+// колбек принимает контекст Tooltips()
+async function collback () {
+	console.log(this.target);
+	const timeout = 2000;
+	setTimeout(() => {
+		alert('Тултип будет закрыть') // this.el
+		this.close();
+	}, timeout);
+}
 
 
 // new Tooltips({
@@ -1304,8 +1339,13 @@ new Tooltips({
 
 
 function delayedFetch(url, delay) {
+	console.log(this);
+	const self = this;
     return new Promise((resolve, reject) => {
         setTimeout(() => {
+			console.log(self);
+			// self.close();
+			// return
             fetch(url)
                 .then(response => resolve(response))
                 .catch(error => reject(error));

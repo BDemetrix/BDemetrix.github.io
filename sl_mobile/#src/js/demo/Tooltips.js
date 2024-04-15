@@ -26,6 +26,7 @@ class Tooltips {
     this.theme = options.theme;                               // суфикс к классу, для кастомизации css
 
     // вспомогательные свойства, не пребуют конфигурирования
+    this.timeout = options.timeout ?? 500;                    // Таймаут показа тултипа
     this.classMod = {};                                       // вспомогатольный объект для работы с модификаторами css
     this.isOpen = false;                                      // признак открытого тултипа
     this.isFirstOpen = true;                                  // признак первого открытия (нужен для исправления бага)
@@ -84,21 +85,31 @@ class Tooltips {
 
       const that = this;
       target.addEventListener(this.openTrigger, (e) => {
-        const target = e.target.closest(this.attach);
+        const closestAttach = e.target.closest(this.attach);
         if (e.type === "mouseenter") {
-          this.open(target);
+          closestAttach.isTooltipMouseEnter = true;
+          setTimeout(() => {
+            if (!closestAttach.isTooltipMouseEnter) return;
+            console.log({closestAttach});
+            console.log(closestAttach.isTooltipMouseEnter);
+            this.open(closestAttach);
+          }, this.timeout); 
           return;
         }
+
+        // Если срабатывает не по наведению, то пауза не нужна
         const prevTarget = this.target;
         this.close();
 
-        if (prevTarget != target) this.open(target);
+        // Если предыдущий открытый тултип не равен текущему
+        if (prevTarget != closestAttach) this.open(closestAttach);
       });
 
       // Тригер закрытия
       this.openTrigger === "click" ? (this.closeTrigger = "click") : null;
       if (this.closeTrigger === "mouseleave") {
-        target.addEventListener(this.closeTrigger, (e) => {
+        target.addEventListener(this.closeTrigger, (e) => { 
+          target.isTooltipMouseEnter = false;
           this.close();
         });
       }
@@ -127,6 +138,7 @@ class Tooltips {
    * @param {Event} e - пробрасываем событие для
    */
   open(target) {
+    console.log('open');
     this.target = target;
     let content = "";
 
@@ -137,6 +149,7 @@ class Tooltips {
         <div class="spinner-loader__ring"></div>
         <span class="spinner-loader__label">Загружаем...</span>
       </div>`;
+      // this._setContent.bind(this);
       this._setContent(target);
     }
     // если контент находится на странице и имеет слектор contentSource
@@ -167,6 +180,7 @@ class Tooltips {
   }
 
   close() {
+    console.log('close')
     this.target = null;
     this.hide();
     this._clearPos();
@@ -191,7 +205,7 @@ class Tooltips {
    * @param {Node} target - пробрасываем событие, чтобы в колбеке получить доступ к атрибутам таргета (если нужны для запроса)
    * @returns null
    */
-  async _setContent(target) {
+  async _setContent(target) { 
     if (!this.setContent || typeof this.setContent !== "function") return;
 
     const conntent = await this.setContent(target);
@@ -204,7 +218,7 @@ class Tooltips {
       this._calcPos(target);
       this._modClasses();
       this.show();
-    }, 100);
+    }, this.timeout);
   }
 
   /**
@@ -435,4 +449,15 @@ class Tooltips {
         typeof this.width === "string" ? this.width : this.width + "px";
     }
   }
+
+  _isMouseOverElement(event) {
+    const rect = element.getBoundingClientRect();
+    return (
+      event.clientX >= rect.left &&
+      event.clientX <= rect.right &&
+      event.clientY >= rect.top &&
+      event.clientY <= rect.bottom
+    );
+  }
+  
 }
