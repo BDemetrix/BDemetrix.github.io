@@ -146,8 +146,8 @@
 
 			<h2 class="h2">Передача контекста в collback</h2>
 			<div class="demo-row">
-				<div class="smart-tooltip-collback demo-btn" title="Передача контекста в collback">
-					collback()
+				<div class="smart-tooltip-collback demo-btn" title="Передача контекста в collback" style="white-space: normal;">
+					Пример использования контекста объекта Tooltips() в collback()
 				</div> 
 			</div>
 
@@ -494,7 +494,7 @@ new Tooltips({
 	width: 'calc(100% - 40px)',
 });
 
-// Контент задан заранее
+// Контент задан заранее по селектору
 new Tooltips({
 	attach: '.smart-tooltip-content-soursce',
 	// openTrigger: 'click',
@@ -502,7 +502,8 @@ new Tooltips({
 	contentSource: '.app-box__img',
   	posMod: { y: "above"},
 	hasPointer: false,
-	width: 'auto',
+	width: 280,
+	maxWidth: 280,
 });
 
 
@@ -528,38 +529,35 @@ new Tooltips({
 });
 
 
-// Collback и контекст
+// Пример использования контекста объекта Tooltips() в Collback 
 new Tooltips({
 	attach: '.smart-tooltip-collback',
 	// openTrigger: 'click',
 	closeTrigger: 'click',
 	// this этого колбека несет в себе родительский объект Tooltips(),
-	setContent: collback,
+	// setContent: collback,
   	posMod: { y: "above"},
+	// mobileAttach: 'none',
+	// mobileAttach: '.app-box__img',
+	// posMod: {x: 'left-auto'},
 });
 
-// колбек принимает контекст Tooltips()
-async function collback () {
-	console.log(this.target);
+// колбек принимает контекст Tooltips() 
+// и через this можно вызывать методы и молучить доступ ко всем полям
+async function collback() {
+	const target = this.target;
+	console.log(target);
+	console.log({target});
 	const timeout = 2000;
 	setTimeout(() => {
-		alert('Тултип будет закрыть') // this.el
+		alert('Тултип будет закрыт из collback()') // this.el
 		this.close();
 	}, timeout);
 }
 
 
-// new Tooltips({
-//   maxWidth: 150,
-//   hasPointer: false,
-//   closeTrigger: "click",
-//   pointerSize: 5,
-//   offset: 100,
-//   width: 250,
-//   posMod: { y: "under", x: 'left'},
-// });
 
-
+// Колбек с сетевым запросом - получение контента по сети
 function delayedFetch(url, delay) {
 	console.log(this);
 	const self = this;

@@ -5,6 +5,9 @@
 class Tooltips {
   constructor(options = {}) {
     this.attach = options.attach ?? ".smart-tooltip";         // селектор таргетов тултипа
+    this.mobileAttach = options.mobileAttach;                 // селектор таргетов тултипа для тачскринов 
+                                                              // если задан и устройство тачскрин, this.mobileAttach переопределяет this.аttach 
+                                                              // чтобы отключить создание тултипа на мобильных (тачскринах) надо присвоить `{mobileAttach: 'none'}`
     this.openTrigger = options.openTrigger ?? "mouseenter";   // тригер показа тултипа
     this.closeTrigger = options.closeTrigger ?? "mouseleave"; // по умолчанию "mouseleave", если openTrigger !== "click"
     this.content = options.content ?? "title";                // контент тултипа (HTML) может быть задан при создании экземпляра класса
@@ -17,16 +20,19 @@ class Tooltips {
     this.hasPointer = options.hasPointer ?? true;             // признак существования стрелочки (указателя)
     this.pointerSize = options.pointerSize ?? "";             // размер стрелочки (указателя)
     this.maxWidth = options.maxWidth ?? null;                 // максимальная ширина
-    this.width = options.width ?? null;                       // ширина, если задана, то this.posMod.x = 'center' принудительно, иначе возникают баги
+    this.width = options.width ?? null;                       // ширина тултипа
+                                                              // если задана, то this.posMod.x = 'center' принудительно, иначе возникают баги
     this.posMod = {};
     this.posMod.x = options.posMod?.x ?? "center";            // позиция по горизонтали x: left|left-auto|center|right|right-auto
     this.posMod.y = options.posMod?.y ?? "auto";              // позиция по вертикали y: above|under|auto, auto по умолчанию
     this.hMargin = options.hMargin ?? 10;                     // оттступ тултипа от края экрана
     this.textAlign = options.textAlign ?? '';                 // выравнивание текста в 
     this.theme = options.theme;                               // суфикс к классу, для кастомизации css
+    this.timeout = options.timeout ?? 1000;                   // таймаут показа тултипа
+    this.attachCursorPos = options.attachCursorPos ?? 1.3;    // если ширина таргета больше тултипа в attachCursorPos раз, 
+                                                              // то позиция тултипа привязывается к позиции курсора по горизонтали
 
-    // вспомогательные свойства, не пребуют конфигурирования
-    this.timeout = options.timeout ?? 500;                    // Таймаут показа тултипа
+    // вспомогательные свойства, не пребуют конфигурирования (не определяются пользователем)
     this.classMod = {};                                       // вспомогатольный объект для работы с модификаторами css
     this.isOpen = false;                                      // признак открытого тултипа
     this.isFirstOpen = true;                                  // признак первого открытия (нужен для исправления бага)
@@ -39,6 +45,15 @@ class Tooltips {
    * Инициализация
    */
   _init() {
+    // если тачскрин выходим или переопределяем this.attach  
+    if (this.mobileAttach === 'none' && this.isTouch) {
+      console.info(`Тултипы для селектора ${this.attach} на тачскринах отключены опцией {mobileAttach: 'none'}`);
+      return;
+    }
+    else if(this.mobileAttach && this.isTouch) {
+      this.attach = this.mobileAttach;
+    }
+
     this.targets = document.querySelectorAll(this.attach);
     if (!this.targets.length)
       throw `Не найдены ноды по селектору ${this.attach}`;
@@ -92,7 +107,7 @@ class Tooltips {
             if (!closestAttach.isTooltipMouseEnter) return;
             console.log({closestAttach});
             console.log(closestAttach.isTooltipMouseEnter);
-            this.open(closestAttach);
+            this.open(closestAttach, e);
           }, this.timeout); 
           return;
         }
@@ -102,7 +117,7 @@ class Tooltips {
         this.close();
 
         // Если предыдущий открытый тултип не равен текущему
-        if (prevTarget != closestAttach) this.open(closestAttach);
+        if (prevTarget != closestAttach) this.open(closestAttach, e);
       });
 
       // Тригер закрытия
@@ -135,9 +150,11 @@ class Tooltips {
 
   /**
    * Получает контент и порказывает tooltip
+   * @param {Element} target - таргет на котором показывается тултип
    * @param {Event} e - пробрасываем событие для
    */
-  open(target) {
+  open(target, e) {
+
     console.log('open');
     this.target = target;
     let content = "";
@@ -174,7 +191,7 @@ class Tooltips {
 
     this.container.innerHTML = content;
 
-    this._calcPos(target);
+    this._calcPos(target, e);
     this._modClasses();
     this.show();
   }
@@ -224,8 +241,9 @@ class Tooltips {
   /**
    * Вычисляет координаты
    * @param {Node} target - целевой элемент к которому привязывается тултип
+   * @param {Event} e - пробрасываем событие для
    */
-  _calcPos(target) {
+  _calcPos(target, e) {
     if (this.width) {
       // иначе баг
       this.posMod.x = "auto";
@@ -240,6 +258,13 @@ class Tooltips {
     let width = this.el.offsetWidth;
     let height = this.el.offsetHeight + (this.isFirstOpen ? this.offset : 0);
     this.isFirstOpen = false;
+    // Таргет шире тултипа
+    const targetIsWider = (typeof this.attachCursorPos === 'number') ? targetRect.width > width * this.attachCursorPos: false ;
+
+    if (targetIsWider) {
+      this.posMod.x = 'cursor-pos-auto';
+    }
+
     // console.log({ width, height });
     // console.log(targetRect);
 
@@ -273,12 +298,12 @@ class Tooltips {
     /** Вычисляет правую позицию тултипа при позиционировании по центру таргета */
     const rightPos = () => leftPos() + width;
 
-    // Позиционируем по правому краю
-    var getRightToRightPos = (auto = "") => {
+    // Позиционируем тултип по правому краю таргета
+    var getRightToRightPos = (flag = "") => {
       left = "auto";
 
       // если позиция всегда по правой стороне, установлен режим "right-auto" и сонтейнер выходит за левую гараницу
-      if (auto === "auto" && leftPos() < this.hMargin) {
+      if (flag === "auto" && leftPos() < this.hMargin) {
         return getLeftToLeftPos();
       }
 
@@ -300,12 +325,12 @@ class Tooltips {
       return (right = windowWidth - targetRect.right);
     };
 
-    // Позиционируем по левовому краю
-    var getLeftToLeftPos = (auto = "") => {
+    // Позиционируем тултип по левовому краю таргета
+    var getLeftToLeftPos = (flag = "") => {
       right = "auto";
 
-      // если позиция всегда по правой стороне, установлен режим "right-auto" и сонтейнер выходит за левую гараницу
-      if (auto === "auto" && rightPos() > windowWidth - this.hMargin) {
+      // если позиция всегда по правой стороне, установлен режим "right-auto" и контейнер выходит за левую гараницу
+      if (flag === "auto" && rightPos() > windowWidth - this.hMargin) {
         return getRightToRightPos();
       }
 
@@ -314,7 +339,7 @@ class Tooltips {
         right = this.hMargin + "px";
       }
 
-      // расчет позиции поинтера
+      // расчет позиции поинтера если таргет меньше тултипа
       if (this.hasPointer && width > targetRect.width) {
         setTimeout(() => {
           this.pointer.style.left =
@@ -338,6 +363,21 @@ class Tooltips {
       return (left = lPos);
     };
 
+    const getHorizontalToCursorePos = () => {
+      const cursorXPos = e.pageX;
+      const d = (targetRect.width - width)/2;
+
+      if ( cursorXPos > targetRect.right - d) {
+        left = targetRect.right - width;
+      } else if (cursorXPos > targetRect.left + d) {
+        left = cursorXPos - width/2;
+      } else {
+        left = targetRect.left;
+      }
+      
+      return {left, right}
+    }
+
     switch (this.posMod.x) {
       case "left":
         getLeftToLeftPos();
@@ -350,6 +390,9 @@ class Tooltips {
         break;
       case "right-auto":
         getRightToRightPos("auto");
+        break;
+      case "cursor-pos-auto":
+        getHorizontalToCursorePos();
         break;
       default:
         getLeftToCenterPos();
