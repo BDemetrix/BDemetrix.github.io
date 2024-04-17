@@ -12,6 +12,8 @@ class Tooltips {
     this.closeTrigger = options.closeTrigger ?? "mouseleave"; // по умолчанию "mouseleave", если openTrigger !== "click"
     this.content = options.content ?? "title";                // контент тултипа (HTML) может быть задан при создании экземпляра класса
 
+    this.beforeOpen = options.beforeOpen;                     // колбек вызывающийся перед открытием
+
     this.contentSource = options.contentSource ?? null;       // селектор блока, содержимое которого надо перенести в тултип 
     this.setContent = options.setContent ?? null;             // асинхронный колбек для получения контента (удаленно)
 
@@ -149,11 +151,26 @@ class Tooltips {
   }
 
   /**
+   * Вызывает колбек (может быть асинхронным) перед открытием тултипа и возвращает его результат
+   * если колбек отсутствует возвращает true
+   * @param {Element} target - таргет на котором показывается тултип
+   * @param {Event} e - событие 
+   * @returns 
+   */
+  async _beforeOpen(target, e) {
+    if (!this.beforeOpen || typeof this.beforeOpen !== 'function') return true
+    
+    return await this.beforeOpen(target, e);
+  }
+
+  /**
    * Получает контент и порказывает tooltip
    * @param {Element} target - таргет на котором показывается тултип
-   * @param {Event} e - пробрасываем событие для
+   * @param {Event} e - событие
    */
   open(target, e) {
+
+    if ( !this._beforeOpen(target, e) ) return; 
 
     console.log('open');
     this.target = target;
