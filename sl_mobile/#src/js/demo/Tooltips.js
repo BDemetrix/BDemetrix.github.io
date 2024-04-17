@@ -13,6 +13,8 @@ class Tooltips {
     this.content = options.content ?? "title";                // контент тултипа (HTML) может быть задан при создании экземпляра класса
 
     this.beforeOpen = options.beforeOpen;                     // колбек вызывающийся перед открытием
+    this.onOpen = options.onOpen;                             // колбек выполняется послле открытия тултипа
+    this.onClose = options.onClose;                             // колбек выполняется послле закрытия тултипа
 
     this.contentSource = options.contentSource ?? null;       // селектор блока, содержимое которого надо перенести в тултип 
     this.setContent = options.setContent ?? null;             // асинхронный колбек для получения контента (удаленно)
@@ -211,13 +213,18 @@ class Tooltips {
     this._calcPos(target, e);
     this._modClasses();
     this.show();
+    if (typeof this.onOpen === 'function') this.onOpen(target, e);
   }
 
+  /**
+   * Закрывает тултип
+   */
   close() {
     console.log('close')
     this.target = null;
     this.hide();
     this._clearPos();
+    if (typeof this.onClose === 'function') this.onClose();
   }
 
   show() {
