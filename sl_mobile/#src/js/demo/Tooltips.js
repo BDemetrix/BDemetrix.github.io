@@ -76,6 +76,11 @@ class Tooltips {
       this.el.classList.add(`js-tooltip-${this.theme}`)
     }
 
+    // закрывает тултип при клике на кнопку '.js-tooltip-close-btn'
+    this.el.addEventListener('click', e => {
+      if (e.target.closest('.js-tooltip-close-btn')) this.close();
+    }) 
+
     // Если контент для тултипа уже загружен на страницу, переносим его в
     if (this.contentSource && typeof this.contentSource == "string") {
       const contentSourceEl = document.querySelector(this.contentSource);
@@ -109,8 +114,8 @@ class Tooltips {
           closestAttach.isTooltipMouseEnter = true;
           setTimeout(() => {
             if (!closestAttach.isTooltipMouseEnter) return;
-            console.log({closestAttach});
-            console.log(closestAttach.isTooltipMouseEnter);
+            // console.log({closestAttach});
+            // console.log(closestAttach.isTooltipMouseEnter);
             this.open(closestAttach, e);
           }, this.timeout); 
           return;

@@ -805,7 +805,7 @@
 					Пример использования контекста объекта Tooltips() в collback()
 				</div> 
 			</div>
-
+ 
 
 			<footer class="footer-mob footer-mob--mt-none footer-mob--no-banners">
 	<div class="footer-mob__content">
@@ -958,6 +958,8 @@ new Tooltips({
 	attach: '.smart-tooltip-under-left',
 	openTrigger: 'click',
   	posMod: { y: "under", x: 'left'},
+	// setContent: () => '<div style="padding: 32px;"><button class="demo-btn js-tooltip-close-btn">Закрыть</button></div>',
+	// timeout: 0,
 	// width: 'auto', 
 });
 
@@ -1310,15 +1312,17 @@ new Tooltips({
 // Пример использования контекста объекта Tooltips() в Collback 
 new Tooltips({
 	attach: '.smart-tooltip-collback',
-	// openTrigger: 'click',
+	openTrigger: 'click',
 	closeTrigger: 'click',
 	// this этого колбека несет в себе родительский объект Tooltips(),
 	beforeOpen: beforeOpen,
 	// setContent: collback,
+	setContent: '<div style="padding: 32px;"><button class="demo-btn js-tooltip-close-btn">Закрыть</button></div>',
   	posMod: { y: "above"},
 	// mobileAttach: 'none',
 	// mobileAttach: '.app-box__img',
 });
+
 
 // колбек перед открытием 
 async function beforeOpen(target, e) {
