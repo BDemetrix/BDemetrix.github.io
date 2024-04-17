@@ -36,6 +36,11 @@ class Tooltips {
     this.attachCursorPos = options.attachCursorPos ?? 1.3;    // если ширина таргета больше тултипа в attachCursorPos раз, 
                                                               // то позиция тултипа привязывается к позиции курсора по горизонтали
 
+    this.loader = options.loader ?? `<div class="spinner-loader spinner-loader--p0" role="status">
+                                      <div class="spinner-loader__ring"></div>
+                                      <span class="spinner-loader__label">Загружаем...</span>
+                                    </div>`;
+
     // вспомогательные свойства, не пребуют конфигурирования (не определяются пользователем)
     this.classMod = {};                                       // вспомогатольный объект для работы с модификаторами css
     this.isOpen = false;                                      // признак открытого тултипа
@@ -81,15 +86,13 @@ class Tooltips {
       if (e.target.closest('.js-tooltip-close-btn')) this.close();
     }) 
 
-    // Если контент для тултипа уже загружен на страницу, переносим его в
+    // Если контент для тултипа уже загружен на страницу в виде html, переносим его в
     if (this.contentSource && typeof this.contentSource == "string") {
       const contentSourceEl = document.querySelector(this.contentSource);
       if (!contentSourceEl) {
         throw `По селектору ${this.contentSource} не найден блок для наполнения тултипа`;
       }
       this.contentSourceEl = contentSourceEl;
-      // this.container.innerHTML = "";
-      // this.container.append(contentSourceEl);
     }
 
     // Если устройство тачскрин
@@ -107,15 +110,12 @@ class Tooltips {
         this.el.style.maxWidth = this.maxWidth + "px";
       }
 
-      const that = this;
       target.addEventListener(this.openTrigger, (e) => {
         const closestAttach = e.target.closest(this.attach);
         if (e.type === "mouseenter") {
           closestAttach.isTooltipMouseEnter = true;
           setTimeout(() => {
             if (!closestAttach.isTooltipMouseEnter) return;
-            // console.log({closestAttach});
-            // console.log(closestAttach.isTooltipMouseEnter);
             this.open(closestAttach, e);
           }, this.timeout); 
           return;
@@ -186,12 +186,12 @@ class Tooltips {
     // Если контент требует асинхронной загрузки с, здесь this.getContent - функция возвращающая HTML
     if (this.setContent && typeof this.setContent === "function") {
       content = `
-      <div class="js-tooltip__content spinner-loader" role="status">
-        <div class="spinner-loader__ring"></div>
-        <span class="spinner-loader__label">Загружаем...</span>
-      </div>`;
-      // this._setContent.bind(this);
+      <div class="js-tooltip__content">${this.loader}</div>`;
       this._setContent(target);
+    }
+    // если контент передан в виде строки html
+    else if (this.setContent && typeof this.setContent === 'string') {
+      content = `<div class="js-tooltip__content">${this.setContent}</div>`;
     }
     // если контент находится на странице и имеет слектор contentSource
     else if (this.contentSourceEl) {
@@ -264,7 +264,7 @@ class Tooltips {
       this._calcPos(target);
       this._modClasses();
       this.show();
-    }, this.timeout);
+    }, 200);
   }
 
   /**
@@ -394,7 +394,7 @@ class Tooltips {
 
     const getHorizontalToCursorePos = () => {
       const cursorXPos = e.pageX;
-      const d = (targetRect.width - width)/2;
+      const d = width;
 
       if ( cursorXPos > targetRect.right - d) {
         left = targetRect.right - width;

@@ -180,7 +180,7 @@ new Tooltips({
 	attach: '.smart-tooltip-under-left',
 	openTrigger: 'click',
   	posMod: { y: "under", x: 'left'},
-	// setContent: () => '<div style="padding: 32px;"><button class="demo-btn js-tooltip-close-btn">Закрыть</button></div>',
+	// setContent: '<div style="padding: 32px;"><button class="demo-btn js-tooltip-close-btn">Закрыть</button></div>',
 	// timeout: 0,
 	// width: 'auto', 
 });
@@ -538,9 +538,10 @@ new Tooltips({
 	closeTrigger: 'click',
 	// this этого колбека несет в себе родительский объект Tooltips(),
 	beforeOpen: beforeOpen,
-	// setContent: collback,
-	setContent: '<div style="padding: 32px;"><button class="demo-btn js-tooltip-close-btn">Закрыть</button></div>',
+	// this этого колбека несет в себе родительский объект Tooltips(),
+	setContent: collback,
   	posMod: { y: "above"},
+	width: 'auto',
 	// mobileAttach: 'none',
 	// mobileAttach: '.app-box__img',
 });
@@ -568,8 +569,8 @@ async function collback() {
 	console.log({target});
 	const timeout = 2000;
 	setTimeout(() => {
-		alert('Тултип будет закрыт из collback()') // this.el
-		this.close();
+		// alert('Тултип будет закрыт из collback()') // this.el
+		// this.close();
 	}, timeout);
 }
 
