@@ -31,14 +31,15 @@ class Tooltips {
                                                               // если задана, то this.posMod.x = 'center' принудительно, иначе возникают баги
     this.posMod = {};
     this.posMod.x = options.posMod?.x ?? "center";            // позиция по горизонтали x: left|left-auto|center|right|right-auto
-    this.posMod.y = options.posMod?.y ?? "auto";              // позиция по вертикали y: above|under|auto, auto по умолчанию
+    this.posMod.y = options.posMod?.y ?? "auto";              // позиция по вертикали y: above|under|auto|, auto по умолчанию
     this.hMargin = options.hMargin ?? 10;                     // оттступ тултипа от края экрана
     this.textAlign = options.textAlign ?? '';                 // выравнивание текста в 
     this.theme = options.theme;                               // суфикс к классу, для кастомизации css
     this.timeout = options.timeout ?? 500;                    // таймаут показа тултипа при наведении (только если this.openTrigger === "mouseenter";)
     this.closeTimeout = options.closeTimeout ?? 300;          // таймаут закрытия тултипа при потере курсора (только если this.closeTrigger === "mouseleave";)
-    this.attachCursorPos = options.attachCursorPos ?? 1.3;    // если ширина таргета больше тултипа в attachCursorPos раз, 
+    this.attachCursorXPos = options.attachCursorXPos ?? 1.3;  // если ширина таргета больше тултипа в attachCursorXPos раз, 
                                                               // то позиция тултипа привязывается к позиции курсора по горизонтали
+    this.attachCursorYPos = options.attachCursorYPos ?? false;// привязать вертикальную координату к курсору мыши, координаты определяются в рамках таргета
 
     this.loader = options.loader ?? `<div class="spinner-loader spinner-loader--p0" role="status">
                                       <div class="spinner-loader__ring"></div>
@@ -99,6 +100,7 @@ class Tooltips {
         this.closeTimer = setTimeout(() => {
           if (this.target !== this.prevTarget) {
             this.mouseEnterThis = false;
+            this.target = null;
             this.close();
           } 
           clearTimeout(this.closeTimer);
@@ -192,12 +194,14 @@ class Tooltips {
       const attach = this.attach;
       document.documentElement.addEventListener("click", (e) => {
         if (e.target.closest(attach) || e.target.closest(".js-tooltip")) return;
+        this.mouseEnterThis = false;
         this.close();
       });
     }
 
     // При изменении ширины экрана закрываем
     window.addEventListener("resize", () => {
+      this.mouseEnterThis = false;
       if (this.isOpen) this.close();
     });
 
@@ -309,6 +313,7 @@ class Tooltips {
     this.fetchedConntent = await this.setContent(target);
     // console.log(conntent);
     if (!this.fetchedConntent) return;
+    this.mouseEnterThis = false;
     this.close();
     this.container.innerHTML = this.fetchedConntent;
 
@@ -340,10 +345,21 @@ class Tooltips {
     let height = this.el.offsetHeight + (this.isFirstOpen ? this.offset : 0);
     this.isFirstOpen = false;
     // Таргет шире тултипа
-    const targetIsWider = (typeof this.attachCursorPos === 'number') ? targetRect.width > width * this.attachCursorPos: false ;
+    const targetIsWider = (typeof this.attachCursorXPos === 'number') ? targetRect.width > width * this.attachCursorXPos: false ;
 
     if (targetIsWider) {
-      this.posMod.x = 'cursor-pos-auto';
+      this.posMod.x = 'cursor-x-pos-auto';
+    }
+
+    // сдвиг по вертикали 
+    let yPosShiftFromTop = 0;
+    let yPosShiftFromBottom = 0;
+    if (this.attachCursorYPos) {
+      // сдвиг от верха таргета
+      yPosShiftFromTop = e.pageY - pageYOffset - targetRect.top;
+      yPosShiftFromBottom = e.pageY - pageYOffset - targetRect.bottom;
+      console.log({yPosShiftFromTop});
+      console.log({yPosShiftFromBottom});
     }
 
     // console.log({ width, height });
@@ -358,11 +374,11 @@ class Tooltips {
     // vertical: above|under|auto
     const getAbove = () => {
       this.classMod.y = "above";
-      return (top = Math.ceil(targetRect.top - height + pageYOffset));
+      return (top = Math.ceil(targetRect.top + yPosShiftFromTop - height + pageYOffset));
     };
     const getUnder = () => {
       this.classMod.y = "under";
-      return (top = Math.ceil(targetRect.bottom + pageYOffset));
+      return (top = Math.ceil(targetRect.bottom - yPosShiftFromBottom + pageYOffset));
     };
 
     // Автоматическое позиционирование по вертикали
@@ -370,6 +386,7 @@ class Tooltips {
     this.posMod.y === "under"
       ? getUnder()
       : getAbove();
+
 
     // horisontal left|left-auto|center|right|right-auto
 
@@ -444,6 +461,7 @@ class Tooltips {
       return (left = lPos);
     };
 
+    // Если таргет шире тултипа, позиционирует по курсору
     const getHorizontalToCursorePos = () => {
       const cursorXPos = e.pageX;
       const d = width;
@@ -472,7 +490,7 @@ class Tooltips {
       case "right-auto":
         getRightToRightPos("auto");
         break;
-      case "cursor-pos-auto":
+      case "cursor-x-pos-auto":
         getHorizontalToCursorePos();
         break;
       default:

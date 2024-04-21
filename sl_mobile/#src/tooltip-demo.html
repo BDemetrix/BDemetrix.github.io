@@ -544,7 +544,7 @@ new Tooltips({
 	width: 'calc(100% - 40px)',
 });
 
-
+ 
 // Пример использования контекста объекта Tooltips() в Collback 
 new Tooltips({
 	attach: '.smart-tooltip-collback',
@@ -565,8 +565,11 @@ new Tooltips({
 new Tooltips({
 	attach: '.smart-tooltip-popover',
 	popover: true,
+	attachCursorYPos: true,
 	setContent:  '<div style="padding: 32px;"><button class="demo-btn js-tooltip-close-btn">Закрыть</button></div>',
-  	posMod: { y: "above"},
+  	// posMod: { y: "above"},
+  	posMod: { y: "auto"},
+  	// posMod: { y: "under"},
 	width: 'auto',
 });
 
