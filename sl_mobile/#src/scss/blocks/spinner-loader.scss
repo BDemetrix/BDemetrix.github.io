@@ -6,6 +6,11 @@
   min-height: 150px;
   padding: 45px 15px;
 
+  &--p0 {
+    min-height: 0;
+    padding: 0;
+  }
+
 	// .spinner-loader__ring
 	&__ring {
     display: inline-block;

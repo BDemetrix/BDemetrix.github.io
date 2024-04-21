@@ -799,6 +799,26 @@
 				</div>
 			</div>
 
+			<h2 class="h2">Передача контекста в collback</h2>
+			<div class="demo-row">
+				<div class="smart-tooltip-collback demo-btn" title="Передача контекста в collback" style="white-space: normal;">
+					Пример использования контекста объекта Tooltips() в collback()
+				</div> 
+			</div>
+
+			<h2 class="h2">Пример popover </h2> 
+			<div class="demo-row">
+				<div class="smart-tooltip-popover demo-btn" title="Пример popover" style="white-space: normal;text-align: center;">
+					<br><br><br><br>Пример popover<br><br><br><br><br>
+				</div> 
+				<div class="smart-tooltip-popover demo-btn" title="Пример popover" style="white-space: normal;text-align: center;">
+					<br><br><br><br>Пример popover<br><br><br><br><br>
+				</div> 
+				<div class="smart-tooltip-popover demo-btn" title="Пример popover" style="white-space: normal;text-align: center;">
+					<br><br><br><br>Пример popover<br><br><br><br><br>
+				</div> 
+			</div>
+ 
 
 			<footer class="footer-mob footer-mob--mt-none footer-mob--no-banners">
 	<div class="footer-mob__content">
@@ -951,6 +971,8 @@ new Tooltips({
 	attach: '.smart-tooltip-under-left',
 	openTrigger: 'click',
   	posMod: { y: "under", x: 'left'},
+	// setContent: '<div style="padding: 32px;"><button class="demo-btn js-tooltip-close-btn">Закрыть</button></div>',
+	// timeout: 0,
 	// width: 'auto', 
 });
 
@@ -1119,7 +1141,11 @@ new Tooltips({
 	// openTrigger: 'click',
 	closeTrigger: 'click',
 	// не для интерактивного контента
-	setContent: function () {
+	setContent: function (target) {
+		// console.log(this.target);
+		// console.log(target);
+		// console.log(this);
+
 		setTimeout(() => {
 			contextMenuInit(true);
 		}, 1000);
@@ -1262,7 +1288,7 @@ new Tooltips({
 	width: 'calc(100% - 40px)',
 });
 
-// Контент задан заранее
+// Контент задан заранее по селектору
 new Tooltips({
 	attach: '.smart-tooltip-content-soursce',
 	// openTrigger: 'click',
@@ -1270,7 +1296,8 @@ new Tooltips({
 	contentSource: '.app-box__img',
   	posMod: { y: "above"},
 	hasPointer: false,
-	width: 'auto',
+	width: 280,
+	maxWidth: 280,
 });
 
 
@@ -1279,10 +1306,14 @@ new Tooltips({
 	attach: '.smart-tooltip-content-set',
 	openTrigger: 'click',
 
-	setContent: async function (target){
-		console.log(target);
+	// this этого колбека несет в себе родительский объект Tooltips(),
+	// его можно завайндить с любой функцией вызываемой в колбеке, см. пример
+	setContent: async function (){
+		console.log(this.target);
 		const timeout = 1000;
-		const data = await delayedFetch('https://bdemetrix.github.io/sl_mobile/build/news-premium.html', timeout).then(res => res.text());
+		// const data = await delayedFetch('https://bdemetrix.github.io/sl_mobile/build/news-premium.html', timeout, this).then(res => res.text());
+		const data = await delayedFetch.bind(this)('https://bdemetrix.github.io/sl_mobile/build/news-premium.html', timeout).then(res => res.text());
+		// после загрузки контента, пможно навесить обработчик на любой элемент в нем, найдя его в this.el
 		return `<div style="width: 736px; max-width: 100%; height:300px; padding: 12px; border-radius: 14px;border: 2px solid green;"><div style="max-width: 100%; height:100%;  overflow-y: auto; overflow-x: hidden;"><frame style="max-width: 100%;">${data}<frame></div></div>`
 	},
   	posMod: { y: "above"},
@@ -1291,21 +1322,71 @@ new Tooltips({
 	width: 'calc(100% - 40px)',
 });
 
+ 
+// Пример использования контекста объекта Tooltips() в Collback 
+new Tooltips({
+	attach: '.smart-tooltip-collback',
+	openTrigger: 'click',
+	closeTrigger: 'click',
+	// this этого колбека несет в себе родительский объект Tooltips(),
+	beforeOpen: beforeOpen,
+	// this этого колбека несет в себе родительский объект Tooltips(),
+	setContent: collback,
+  	posMod: { y: "above"},
+	width: 'auto',
+	// mobileAttach: 'none',
+	// mobileAttach: '.app-box__img',
+});
 
-// new Tooltips({
-//   maxWidth: 150,
-//   hasPointer: false,
-//   closeTrigger: "click",
-//   pointerSize: 5,
-//   offset: 100,
-//   width: 250,
-//   posMod: { y: "under", x: 'left'},
-// });
+
+// Пример использования popover 
+window.tooltips = new Tooltips({
+	attach: '.smart-tooltip-popover',
+	popover: true,
+	attachCursorYPos: true,
+	setContent:  '<div style="padding: 32px;"><button class="demo-btn js-tooltip-close-btn">Закрыть</button></div>',
+	width: 'auto',
+});
 
 
+
+
+// колбек перед открытием 
+async function beforeOpen(target, e) {
+	console.info('The beforeOpen() has started');
+	console.log(target);
+	console.log(e);
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			resolve(true);
+			console.log(this);
+			console.info('The beforeOpen() has ended');
+		}, 2000);
+	});
+}
+
+// колбек принимает контекст Tooltips() 
+// и через this можно вызывать методы и молучить доступ ко всем полям
+async function collback() {
+	const target = this.target;
+	console.log(target);
+	console.log({target});
+	const timeout = 2000;
+	setTimeout(() => {
+		alert('Тултип будет закрыт из collback()') // this.el
+		this.close();
+	}, timeout);
+}
+
+// Колбек с сетевым запросом - получение контента по сети
 function delayedFetch(url, delay) {
+	console.log(this);
+	const self = this;
     return new Promise((resolve, reject) => {
         setTimeout(() => {
+			console.log(self);
+			// self.close();
+			// return
             fetch(url)
                 .then(response => resolve(response))
                 .catch(error => reject(error));
