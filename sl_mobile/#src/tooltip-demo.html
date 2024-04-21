@@ -150,6 +150,19 @@
 					Пример использования контекста объекта Tooltips() в collback()
 				</div> 
 			</div>
+
+			<h2 class="h2">Пример popover </h2> 
+			<div class="demo-row">
+				<div class="smart-tooltip-popover demo-btn" title="Пример popover" style="white-space: normal;text-align: center;">
+					<br><br><br><br>Пример popover<br><br><br><br><br>
+				</div> 
+				<div class="smart-tooltip-popover demo-btn" title="Пример popover" style="white-space: normal;text-align: center;">
+					<br><br><br><br>Пример popover<br><br><br><br><br>
+				</div> 
+				<div class="smart-tooltip-popover demo-btn" title="Пример popover" style="white-space: normal;text-align: center;">
+					<br><br><br><br>Пример popover<br><br><br><br><br>
+				</div> 
+			</div>
  
 
 			@@include('_footer_mob.html',{'Class': 'footer-mob--mt-none footer-mob--no-banners'})
@@ -351,8 +364,9 @@ new Tooltips({
 	closeTrigger: 'click',
 	// не для интерактивного контента
 	setContent: function (target) {
-		console.log(this.target);
-		console.log(target);
+		// console.log(this.target);
+		// console.log(target);
+		// console.log(this);
 
 		setTimeout(() => {
 			contextMenuInit(true);
@@ -547,6 +561,18 @@ new Tooltips({
 });
 
 
+// Пример использования popover 
+new Tooltips({
+	attach: '.smart-tooltip-popover',
+	popover: true,
+	setContent:  '<div style="padding: 32px;"><button class="demo-btn js-tooltip-close-btn">Закрыть</button></div>',
+  	posMod: { y: "above"},
+	width: 'auto',
+});
+
+
+
+
 // колбек перед открытием 
 async function beforeOpen(target, e) {
 	console.info('The beforeOpen() has started');
@@ -569,8 +595,8 @@ async function collback() {
 	console.log({target});
 	const timeout = 2000;
 	setTimeout(() => {
-		// alert('Тултип будет закрыт из collback()') // this.el
-		// this.close();
+		alert('Тултип будет закрыт из collback()') // this.el
+		this.close();
 	}, timeout);
 }
 
