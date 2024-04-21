@@ -562,14 +562,11 @@ new Tooltips({
 
 
 // Пример использования popover 
-new Tooltips({
+window.tooltips = new Tooltips({
 	attach: '.smart-tooltip-popover',
 	popover: true,
 	attachCursorYPos: true,
 	setContent:  '<div style="padding: 32px;"><button class="demo-btn js-tooltip-close-btn">Закрыть</button></div>',
-  	// posMod: { y: "above"},
-  	posMod: { y: "auto"},
-  	// posMod: { y: "under"},
 	width: 'auto',
 });
 
