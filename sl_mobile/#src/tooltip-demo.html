@@ -154,13 +154,13 @@
 			<h2 class="h2">Пример popover </h2> 
 			<div class="demo-row">
 				<div class="smart-tooltip-popover demo-btn" title="Пример popover" style="white-space: normal;text-align: center;">
-					<br><br><br><br>Пример popover<br><br><br><br><br>
+					<br><br><br><br>Пример popover 1<br><br><br><br><br>
 				</div> 
 				<div class="smart-tooltip-popover demo-btn" title="Пример popover" style="white-space: normal;text-align: center;">
-					<br><br><br><br>Пример popover<br><br><br><br><br>
+					<br><br><br><br>Пример popover 2<br><br><br><br><br>
 				</div> 
 				<div class="smart-tooltip-popover demo-btn" title="Пример popover" style="white-space: normal;text-align: center;">
-					<br><br><br><br>Пример popover<br><br><br><br><br>
+					<br><br><br><br>Пример popover 3<br><br><br><br><br>
 				</div> 
 			</div>
  
@@ -566,7 +566,9 @@ window.tooltips = new Tooltips({
 	attach: '.smart-tooltip-popover',
 	popover: true,
 	attachCursorYPos: true,
-	setContent:  '<div style="padding: 32px;"><button class="demo-btn js-tooltip-close-btn">Закрыть</button></div>',
+	setContent: function(){
+		return `<div style="padding: 32px;"><button class="demo-btn js-tooltip-close-btn">Закрыть<br>${this.target.textContent}</button></div>`;
+	},
 	width: 'auto',
 });
 

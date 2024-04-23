@@ -18,7 +18,7 @@ class Tooltips {
 
     this.contentSource = options.contentSource ?? null;       // селектор блока, содержимое которого надо перенести в тултип 
     this.setContent = options.setContent ?? null;             // асинхронный колбек для получения контента (удаленно)
-    this.setContentOnce = options.setContentOnce ?? false;     // флаг единоразовой загрузки контента из колбека если объект наведения/клика не изменился
+    this.setContentOnce = options.setContentOnce ?? false;    // флаг единоразовой загрузки контента из колбека если объект наведения/клика не изменился
     this.popover = options.popover ?? false;                  // для того, чтоб тултип не закрывался при переводе курсора
                                                               // с таргета на него надо установить {popover: true}                   
 
@@ -92,8 +92,9 @@ class Tooltips {
     if (this.popover) {
       // Устанавливает флаг при наведении на тултип, чтоб он не закрывался
       this.el.addEventListener('mouseenter', e => {
+        clearTimeout(this.closeTimer);
         this.mouseEnterThis = true;
-        this.parentTarget = this.target;
+        // this.parentTarget = this.target;
       }, false) 
 
       // закрывает тултип при снятии с него курсора
@@ -141,15 +142,20 @@ class Tooltips {
 
       target.addEventListener(this.openTrigger, (e) => {
         const closestTarget = e.target.closest(this.attach);
+        this.target = closestTarget;
         // console.log(closestTarget);
         // Открытие по наведению
         if (e.type === "mouseenter") { 
 
+          clearTimeout(this.closeTimer);
+          // this.target = closestTarget;
+
           if(this.popover && this.parentTarget === closestTarget) {
-            clearTimeout(this.closeTimer);
-            this.parentTarget = null;
+            // clearTimeout(this.closeTimer);
             this.mouseEnterThis = false;
             return;
+          } else if (this.popover) {
+            this.parentTarget = closestTarget;
           }
 
           this.openTimer = setTimeout(() => {
@@ -160,12 +166,16 @@ class Tooltips {
         }
 
         // Если срабатывает не по наведению, то пауза не нужна
-        this.prevTarget = this.target;
         this.mouseEnterThis = false;
         this.close();
 
         // Если предыдущий открытый тултип не равен текущему
-        if (this.prevTarget != closestTarget) this.open(closestTarget, e);
+        if (this.prevClickTarget != closestTarget) {
+          this.prevClickTarget = closestTarget;
+          this.open(closestTarget, e);
+        }  else {
+          this.prevClickTarget = null;
+        }
         // this.target = closestTarget;
       }, false);
 
@@ -178,6 +188,7 @@ class Tooltips {
             return;
           }
           this.closeTimer = setTimeout(() => {
+            this.parentTarget = null;
             this.close();
           }, this.closeTimeout);
         }, false);
@@ -194,6 +205,7 @@ class Tooltips {
       document.documentElement.addEventListener("click", (e) => {
         if (e.target.closest(attach) || e.target.closest(".js-tooltip")) return;
         this.mouseEnterThis = false;
+        this.prevClickTarget = null;
         this.close();
       }, false);
     }
@@ -232,14 +244,13 @@ class Tooltips {
     if ( !this._beforeOpen(target, e) ) return; 
 
     // console.log('open Tooltips');
-    this.target = target;
     let content = "";
 
     // Если контент требует асинхронной загрузки с, здесь this.getContent - функция возвращающая HTML
     if (this.setContent && typeof this.setContent === "function") {
       content = `
       <div class="js-tooltip__content">${this.loader}</div>`;
-      this._setContent(target);
+      this._setContent(target, e);
     }
     // если контент передан в виде строки html
     else if (this.setContent && typeof this.setContent === 'string') {
@@ -279,7 +290,7 @@ class Tooltips {
   close() {
     if (this.mouseEnterThis) return;
     // console.log('close Tooltips')
-    this.target = null;
+    this.target = null; 
     this.hide();
     this._clearPos();
     if (typeof this.onClose === 'function') this.onClose();
@@ -304,9 +315,9 @@ class Tooltips {
    * @param {Node} target - пробрасываем событие, чтобы в колбеке получить доступ к атрибутам таргета (если нужны для запроса)
    * @returns null
    */
-  async _setContent(target) { 
+  async _setContent(target, e) { 
     if (!this.setContent || typeof this.setContent !== "function") return;
-    if (!this.setContentOnce && this.prevTarget !== target) {
+    if (!this.setContentOnce && this.prevClickTarget !== target) {
       
     }
 
@@ -318,7 +329,7 @@ class Tooltips {
     this.container.innerHTML = this.fetchedConntent;
 
     setTimeout(() => {
-      this._calcPos(target);
+      this._calcPos(target, e);
       this._modClasses();
       this.show();
     }, 200);
