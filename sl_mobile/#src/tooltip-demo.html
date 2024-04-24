@@ -163,6 +163,13 @@
 					<br><br><br><br>Пример popover 3<br><br><br><br><br>
 				</div> 
 			</div>
+
+			<!-- <h2 class="h2">Передача контекста в collback</h2>
+			<div class="demo-row">
+				<div class="smart-tooltip-collback demo-btn" title="Передача контекста в collback" style="white-space: normal;">
+					Пример использования контекста объекта Tooltips() в collback()
+				</div> 
+			</div> -->
  
 
 			@@include('_footer_mob.html',{'Class': 'footer-mob--mt-none footer-mob--no-banners'})
@@ -527,7 +534,8 @@ new Tooltips({
 new Tooltips({
 	attach: '.smart-tooltip-content-set',
 	openTrigger: 'click',
-	setContentOnce: true,
+	// setContentOnce: true,
+	// holdUntilDone: true,
 	// this этого колбека несет в себе родительский объект Tooltips(),
 	// его можно завайндить с любой функцией вызываемой в колбеке, см. пример
 	setContent: async function (){
@@ -622,3 +630,5 @@ function delayedFetch(url, delay) {
 </script>
 
 </html>
+
+
