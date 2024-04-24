@@ -47,6 +47,7 @@ class Tooltips {
                                     </div>`;
 
     // вспомогательные свойства, не требуют конфигурирования (не определяются пользователем)
+    this.presetPosMod = {...this.posMod}                      // Сохранение базовой предустановленной настройки 
     this.classMod = {};                                       // вспомогатольный объект для работы с модификаторами css
     // this.isOpen = false;                                      // признак открытого тултипа
     this.isFirstOpen = true;                                  // признак первого открытия (нужен для исправления бага)
@@ -167,14 +168,13 @@ class Tooltips {
 
         // Если срабатывает не по наведению, то пауза не нужна
         this.mouseEnterThis = false;
-        this.close();
 
         // Если предыдущий открытый тултип не равен текущему
         if (this.prevClickTarget != closestTarget) {
           this.prevClickTarget = closestTarget;
           this.open(closestTarget, e);
         }  else {
-          this.prevClickTarget = null;
+          this.close(); 
         }
         // this.target = closestTarget;
       }, false);
@@ -291,6 +291,7 @@ class Tooltips {
     if (this.mouseEnterThis) return;
     // console.log('close Tooltips')
     this.target = null; 
+    this.prevClickTarget = null;
     this.hide();
     this._clearPos();
     if (typeof this.onClose === 'function') this.onClose();
@@ -360,6 +361,9 @@ class Tooltips {
 
     if (targetIsWider) {
       this.posMod.x = 'cursor-x-pos-auto';
+    } else {
+      const x = this.presetPosMod.x;
+      this.posMod.x = x;
     }
 
     // сдвиг по вертикали 
@@ -470,7 +474,7 @@ class Tooltips {
     // Если таргет шире тултипа, позиционирует по курсору
     const getHorizontalToCursorePos = () => {
       const cursorXPos = e.pageX;
-      const d = width;
+      const d = width/2;
 
       if ( cursorXPos > targetRect.right - d) {
         left = targetRect.right - width;
