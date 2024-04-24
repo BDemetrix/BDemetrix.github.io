@@ -1301,11 +1301,11 @@ new Tooltips({
 });
 
 
-// Контент из сети 
+// Контент из сети (одноразовая загрузка)
 new Tooltips({
 	attach: '.smart-tooltip-content-set',
 	openTrigger: 'click',
-
+	setContentOnce: true,
 	// this этого колбека несет в себе родительский объект Tooltips(),
 	// его можно завайндить с любой функцией вызываемой в колбеке, см. пример
 	setContent: async function (){
@@ -1378,6 +1378,7 @@ async function collback() {
 		alert('Тултип будет закрыт из collback()') // this.el
 		this.close();
 	}, timeout);
+	return `<div style="padding: 32px;"><button class="demo-btn js-tooltip-close-btn" style="white-space: normal;">Закрыть<br>${this.target.textContent}</button></div>`;
 }
 
 // Колбек с сетевым запросом - получение контента по сети

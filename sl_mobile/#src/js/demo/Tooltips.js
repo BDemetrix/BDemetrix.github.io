@@ -19,6 +19,7 @@ class Tooltips {
     this.contentSource = options.contentSource ?? null;       // селектор блока, содержимое которого надо перенести в тултип 
     this.setContent = options.setContent ?? null;             // асинхронный колбек для получения контента (удаленно)
     this.setContentOnce = options.setContentOnce ?? false;    // флаг единоразовой загрузки контента из колбека если объект наведения/клика не изменился
+    this.holdUntilDone = options.holdUntilDone ?? false;      // флаг блокировки закрытия тултипа при асинхронной загрузке контента
     this.popover = options.popover ?? false;                  // для того, чтоб тултип не закрывался при переводе курсора
                                                               // с таргета на него надо установить {popover: true}                   
 
@@ -44,9 +45,10 @@ class Tooltips {
     this.loader = options.loader ?? `<div class="spinner-loader spinner-loader--p0" role="status">
                                       <div class="spinner-loader__ring"></div>
                                       <span class="spinner-loader__label">Загружаем...</span>
-                                    </div>`;
+                                    </div>`; 
 
     // вспомогательные свойства, не требуют конфигурирования (не определяются пользователем)
+    this.closeBlocked = this.holdUntilDone;                   // рабочий флаг блокировки закрытия тултипа при асинхронной загрузке контента, основывается на holdUntilDone
     this.presetPosMod = {...this.posMod}                      // Сохранение базовой предустановленной настройки 
     this.classMod = {};                                       // вспомогатольный объект для работы с модификаторами css
     // this.isOpen = false;                                      // признак открытого тултипа
@@ -247,10 +249,14 @@ class Tooltips {
     let content = "";
 
     // Если контент требует асинхронной загрузки с, здесь this.getContent - функция возвращающая HTML
-    if (this.setContent && typeof this.setContent === "function") {
-      content = `
-      <div class="js-tooltip__content">${this.loader}</div>`;
-      this._setContent(target, e);
+    if (this.setContent && typeof this.setContent === "function") { 
+      // если предусмотрена одноразовая загрузка и контент уже загружен, просто паказываем тултип
+      if (this.setContentOnce && this.fetchedConntent) {
+        content = this.fetchedConntent;
+      } else {
+        content = `<div class="js-tooltip__content">${this.loader}</div>`;
+        this._setContent(target, e);
+      } 
     }
     // если контент передан в виде строки html
     else if (this.setContent && typeof this.setContent === 'string') {
@@ -288,7 +294,7 @@ class Tooltips {
    * Закрывает тултип
    */
   close() {
-    if (this.mouseEnterThis) return;
+    if (this.mouseEnterThis || this.closeBlocked) return;
     // console.log('close Tooltips')
     this.target = null; 
     this.prevClickTarget = null;
@@ -299,16 +305,10 @@ class Tooltips {
 
   show() {
     this.el.classList.add("js-tooltip--shown");
-    // setTimeout(() => {
-    //   this.el.classList.add("js-tooltip--shown");
-    // }, 10);
   }
 
   hide() {
     this.el.classList.remove("js-tooltip--shown");
-    // setTimeout(() => {
-    //   this.el.classList.remove("js-tooltip--shown");
-    // }, 10);
   }
 
   /**
@@ -317,23 +317,32 @@ class Tooltips {
    * @returns null
    */
   async _setContent(target, e) { 
-    if (!this.setContent || typeof this.setContent !== "function") return;
-    if (!this.setContentOnce && this.prevClickTarget !== target) {
-      
-    }
+    
+    if (!this.setContent || typeof this.setContent !== "function") return;  
+    
+    // устанавливаем флаг блокировки закрытия
+    this.closeBlocked = this.holdUntilDone;
 
-    this.fetchedConntent = await this.setContent(target);
-    // console.log(conntent);
-    if (!this.fetchedConntent) return;
+    try {
+      this.fetchedConntent = await this.setContent(target);
+    } catch (e) {
+      console.error(e); 
+    }
+    this.closeBlocked = false;
     this.mouseEnterThis = false;
     this.close();
+
+    if (!this.fetchedConntent) return;
     this.container.innerHTML = this.fetchedConntent;
+    if (!this.setContentOnce) this.fetchedConntent = null;
+
 
     setTimeout(() => {
       this._calcPos(target, e);
       this._modClasses();
       this.show();
     }, 200);
+    this.closeBlocked = false;
   }
 
   /**
@@ -362,8 +371,7 @@ class Tooltips {
     if (targetIsWider) {
       this.posMod.x = 'cursor-x-pos-auto';
     } else {
-      const x = this.presetPosMod.x;
-      this.posMod.x = x;
+      this.posMod.x = this.presetPosMod.x;
     }
 
     // сдвиг по вертикали 
