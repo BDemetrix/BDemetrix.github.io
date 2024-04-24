@@ -235,10 +235,15 @@ class Tooltips {
    * @param {Event} e - событие 
    * @returns 
    */
-  async _beforeOpen(target, e) {
+  async _beforeOpen(target, event) {
     if (!this.beforeOpen || typeof this.beforeOpen !== 'function') return true
-    
-    return await this.beforeOpen(target, e);
+
+    try {
+      return await this.beforeOpen(target, event);
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
   }
 
   /**

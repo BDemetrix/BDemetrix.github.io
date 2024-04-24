@@ -819,12 +819,12 @@
 				</div> 
 			</div>
 
-			<!-- <h2 class="h2">Передача контекста в collback</h2>
+			<h2 class="h2">Все колбеки</h2>
 			<div class="demo-row">
-				<div class="smart-tooltip-collback demo-btn" title="Передача контекста в collback" style="white-space: normal;">
-					Пример использования контекста объекта Tooltips() в collback()
+				<div id="all-callbacks" class="demo-btn" title="Передача контекста в collback" style="white-space: normal;">
+					Вызывает все колбеки
 				</div> 
-			</div> -->
+			</div>
  
 
 			<footer class="footer-mob footer-mob--mt-none footer-mob--no-banners">
@@ -1404,6 +1404,35 @@ function delayedFetch(url, delay) {
         }, delay);
     });
 }
+
+
+new Tooltips(
+{
+  attach:'#all-callbacks',
+  onOpen: function()
+  {
+    console.log('open', this);
+  },
+  onClose: function()
+  {
+   console.log('close', this);
+  },
+  beforeOpen: function()
+  {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+		x = Math.random();
+		console.log(x);
+		x < 0.33 ? resolve(false) 
+				: x < 0.66 ? resolve(true) 
+						: reject({error: 'Текст ошибки!'}) ; // просто проброс ошибки
+				
+      }, 1000);
+    });
+  }
+
+});
+
 
 </script>
 
