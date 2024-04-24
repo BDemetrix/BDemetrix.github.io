@@ -809,13 +809,20 @@
 			<h2 class="h2">Пример popover </h2> 
 			<div class="demo-row">
 				<div class="smart-tooltip-popover demo-btn" title="Пример popover" style="white-space: normal;text-align: center;">
-					<br><br><br><br>Пример popover<br><br><br><br><br>
+					<br><br><br><br>Пример popover 1<br><br><br><br><br>
 				</div> 
 				<div class="smart-tooltip-popover demo-btn" title="Пример popover" style="white-space: normal;text-align: center;">
-					<br><br><br><br>Пример popover<br><br><br><br><br>
+					<br><br><br><br>Пример popover 2<br><br><br><br><br>
 				</div> 
 				<div class="smart-tooltip-popover demo-btn" title="Пример popover" style="white-space: normal;text-align: center;">
-					<br><br><br><br>Пример popover<br><br><br><br><br>
+					<br><br><br><br>Пример popover 3<br><br><br><br><br>
+				</div> 
+			</div>
+
+			<h2 class="h2">Все колбеки</h2>
+			<div class="demo-row">
+				<div id="all-callbacks" class="demo-btn" title="Передача контекста в collback" style="white-space: normal;">
+					Вызывает все колбеки
 				</div> 
 			</div>
  
@@ -1301,11 +1308,12 @@ new Tooltips({
 });
 
 
-// Контент из сети 
+// Контент из сети (одноразовая загрузка)
 new Tooltips({
 	attach: '.smart-tooltip-content-set',
 	openTrigger: 'click',
-
+	// setContentOnce: true,
+	// holdUntilDone: true,
 	// this этого колбека несет в себе родительский объект Tooltips(),
 	// его можно завайндить с любой функцией вызываемой в колбеке, см. пример
 	setContent: async function (){
@@ -1344,7 +1352,9 @@ window.tooltips = new Tooltips({
 	attach: '.smart-tooltip-popover',
 	popover: true,
 	attachCursorYPos: true,
-	setContent:  '<div style="padding: 32px;"><button class="demo-btn js-tooltip-close-btn">Закрыть</button></div>',
+	setContent: function(){
+		return `<div style="padding: 32px;"><button class="demo-btn js-tooltip-close-btn">Закрыть<br>${this.target.textContent}</button></div>`;
+	},
 	width: 'auto',
 });
 
@@ -1376,6 +1386,7 @@ async function collback() {
 		alert('Тултип будет закрыт из collback()') // this.el
 		this.close();
 	}, timeout);
+	return `<div style="padding: 32px;"><button class="demo-btn js-tooltip-close-btn" style="white-space: normal;">Закрыть<br>${this.target.textContent}</button></div>`;
 }
 
 // Колбек с сетевым запросом - получение контента по сети
@@ -1394,6 +1405,37 @@ function delayedFetch(url, delay) {
     });
 }
 
+
+new Tooltips(
+{
+  attach:'#all-callbacks',
+  onOpen: function()
+  {
+    console.log('open', this);
+  },
+  onClose: function()
+  {
+   console.log('close', this);
+  },
+  beforeOpen: function()
+  {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+		x = Math.random();
+		console.log(x);
+		x < 0.33 ? resolve(false) 
+				: x < 0.66 ? resolve(true) 
+						: reject({error: 'Текст ошибки!'}) ; // просто проброс ошибки
+				
+      }, 1000);
+    });
+  }
+
+});
+
+
 </script>
 
 </html>
+
+
