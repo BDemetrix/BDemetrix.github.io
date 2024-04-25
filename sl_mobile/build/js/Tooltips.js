@@ -4,7 +4,7 @@
  */
 class Tooltips {
   constructor(options = {}) {
-    this.attach = options.attach ?? ".smart-tooltip";         // селектор таргетов тултипа
+    this.attach = options.attach ?? ".smart-tooltip";         // селектор таргетов || NodeList или HTMLCollection тултипа
     this.mobileAttach = options.mobileAttach;                 // селектор таргетов тултипа для тачскринов 
                                                               // если задан и устройство тачскрин, this.mobileAttach переопределяет this.аttach 
                                                               // чтобы отключить создание тултипа на мобильных (тачскринах) надо присвоить `{mobileAttach: 'none'}`
@@ -59,6 +59,7 @@ class Tooltips {
     this.isOpen = false;                                      // признак открытого тултипа
     this.isFirstOpen = true;                                  // признак первого открытия (нужен для исправления бага)
     this.fetchedConntent = null;                              // контент загруженный колбеком this.setContent
+    this.borderRadius = 0;                                    // радиус контейнера
     this.mouseEnterThis = false;                              // признак, что курсор был наведен (переведен с таргета) на тултип, 
                                                               // в этом случае тултип не закрвывается работает только при опции {popover: true} 
     this.isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0)
@@ -79,7 +80,15 @@ class Tooltips {
       this.attach = this.mobileAttach;
     }
 
-    this.targets = document.querySelectorAll(this.attach);
+    if (this.attach instanceof NodeList) {
+      this.targets = this.attach;
+    } else if ( (typeof this.attach) === 'string' ) {
+      this.targets = document.querySelectorAll(this.attach);
+    } else {
+      throw `Параметр "attach" = ${this.attach}, должен быть экземпляром NodeList либо строкой`;
+    }
+ 
+    
     if (!this.targets.length)
       throw `Не найдены ноды по селектору ${this.attach}`;
     // console.warn(this.targets);
@@ -278,19 +287,20 @@ class Tooltips {
     }
     // контент лежит в атрибуте 'title' - принимается по умолчанию
     else if (this.content === "title") {
-      const data = target.dataset[this.content];
+      const data = target.getAttribute("data-title") ?? "";
       data
-        ? (content = `<div class="js-tooltip__content">${
-            target.dataset[this.content]
-          }</div>`)
-        : null;
+        ? (content = `<div class="js-tooltip__content">${data}</div>`)
+        : content = null;
     }
     // Контент задан при создании экземпляра класса
     else if (this.content) {
       content = this.content;
     }
 
-    if (!content) return;
+    if (!content) {
+      console.error('Контент тултипа не задан! \nСледует задать одно из свойств: setContent, content, contentSource в конструкторе new Tooltips() \nлибо заполнить атрибут "title" у целевых элементов')
+      return;
+    }
 
     this.container.innerHTML = content;
 
@@ -385,7 +395,7 @@ class Tooltips {
     }
     const pageYOffset = window.scrollY;
     let width = this.el.offsetWidth;
-    let height = this.el.offsetHeight + (this.isFirstOpen ? this.offset : 0);
+    let height = () => this.el.offsetHeight + (this.isFirstOpen ? this.offset : 0);
     this.isFirstOpen = false;
     // Таргет шире тултипа
     const targetIsWider = (typeof this.attachCursorXPos === 'number') ? targetRect.width > width * this.attachCursorXPos: false ;
@@ -410,23 +420,6 @@ class Tooltips {
     let right = "auto";
     let bottom = "auto";
     let left = "auto";
-
-    // vertical: above|under|auto
-    const getAbove = () => {
-      this.classMod.y = "above";
-      return (top = Math.ceil(targetRect.top + yPosShiftFromTop - height + pageYOffset));
-    };
-    const getUnder = () => {
-      this.classMod.y = "under";
-      return (top = Math.ceil(targetRect.bottom - yPosShiftFromBottom + pageYOffset));
-    };
-
-    // Автоматическое позиционирование по вертикали
-    (targetRect.top < height && this.posMod.y === "auto") ||
-    this.posMod.y === "under"
-      ? getUnder()
-      : getAbove();
-
 
     // horisontal left|left-auto|center|right|right-auto
 
@@ -455,7 +448,7 @@ class Tooltips {
         setTimeout(() => {
           this.pointer.style.left =
             this.el.offsetWidth -
-            (targetRect.width / 2 + this.pointerSize) +
+            Math.max((targetRect.width / 2 + this.pointerSize), this.borderRadius) +
             "px";
         }, 50);
       }
@@ -480,8 +473,7 @@ class Tooltips {
       // расчет позиции поинтера если таргет меньше тултипа
       if (this.hasPointer && width > targetRect.width) {
         setTimeout(() => {
-          this.pointer.style.left =
-            targetRect.width / 2 - this.pointerSize + "px";
+          this.pointer.style.left = Math.max((targetRect.width / 2 - this.pointerSize), this.borderRadius) + "px";
         }, 50);
       }
 
@@ -516,6 +508,22 @@ class Tooltips {
       
       return {left, right}
     }
+
+    // vertical: above|under|auto
+    const getAbove = () => {
+      this.classMod.y = "above";
+      return (top = Math.ceil(targetRect.top + yPosShiftFromTop - height() + pageYOffset));
+    };
+    const getUnder = () => {
+      this.classMod.y = "under";
+      return (top = Math.ceil(targetRect.bottom - yPosShiftFromBottom + pageYOffset));
+    };
+
+    // Автоматическое позиционирование по вертикали
+    (targetRect.top < height() && this.posMod.y === "auto") ||
+    this.posMod.y === "under"
+      ? getUnder()
+      : getAbove();
 
     switch (this.posMod.x) {
       case "left":
@@ -630,5 +638,12 @@ class Tooltips {
       this.el.style.width =
         typeof this.width === "string" ? this.width : this.width + "px";
     }
+
+    
+    this.borderRadius = parseFloat(
+      window.getComputedStyle(this.container).borderRadius
+    ) ?? 0;
+    
+    ;
   }
 }
