@@ -259,9 +259,10 @@ class Tooltips {
    * @param {Element} target - таргет на котором показывается тултип
    * @param {Event} e - событие
    */
-  open(target, e) {
+  async open(target, e) {
     this.mouseEnterThis = false;
-    if ( !this._beforeOpen(target, e) || this.closeBlocked) return; 
+    const beforeOpenDone = await this._beforeOpen(target, e) 
+    if ( !beforeOpenDone || this.closeBlocked) return; 
 
     // console.log('open Tooltips');
     let content = "";
