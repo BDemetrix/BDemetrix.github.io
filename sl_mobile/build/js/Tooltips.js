@@ -157,26 +157,25 @@ class Tooltips {
         this.el.style.maxWidth = this.maxWidth + "px";
       }
 
-      target.addEventListener(this.openTrigger, (e) => {
-        const closestTarget = e.target.closest(this.attach);
-        this.target = closestTarget;
-        // console.log(closestTarget);
+      target.addEventListener(this.openTrigger, (e) => {  
+        const currentTarget = e.target;
+        this.target = currentTarget;
         // Открытие по наведению
         if (e.type === "mouseenter") { 
 
           clearTimeout(this.closeTimer);
           // this.target = closestTarget;
 
-          if(this.popover && this.parentTarget === closestTarget) {
+          if(this.popover && this.parentTarget === currentTarget) {
             // clearTimeout(this.closeTimer);
             this.mouseEnterThis = false;
             return;
           } else if (this.popover) {
-            this.parentTarget = closestTarget;
+            this.parentTarget = currentTarget;
           }
 
           this.openTimer = setTimeout(() => {
-            this.open(closestTarget, e);
+            this.open(currentTarget, e);
           }, this.timeout); 
 
           return;
@@ -186,9 +185,9 @@ class Tooltips {
         this.mouseEnterThis = false;
 
         // Если предыдущий открытый тултип не равен текущему
-        if (this.prevClickTarget != closestTarget) {
-          this.prevClickTarget = closestTarget;
-          this.open(closestTarget, e);
+        if (this.prevClickTarget != currentTarget) {
+          this.prevClickTarget = currentTarget;
+          this.open(currentTarget, e);
         }  else {
           this.close(); 
         }
@@ -219,7 +218,7 @@ class Tooltips {
     if (this.closeTrigger !== "mouseleave" || this.popover) {
       const attach = this.attach;
       document.documentElement.addEventListener("click", (e) => {
-        if (e.target.closest(attach) || e.target.closest(".js-tooltip")) return;
+        if (e.target === this.target) return;
         this.mouseEnterThis = false;
         this.prevClickTarget = null;
         this.close();
@@ -383,10 +382,10 @@ class Tooltips {
    * @param {Event} e - пробрасываем событие для
    */
   _calcPos(target, e) {
-    if (this.width) {
-      // иначе баг
-      this.posMod.x = "auto";
-    }
+    // if (this.width) {
+    //   // иначе баг
+    //   this.posMod.x = "auto";
+    // }
 
     const windowWidth = document.documentElement.clientWidth;
     const targetRect = target.getBoundingClientRect();
@@ -420,6 +419,24 @@ class Tooltips {
     let right = "auto";
     let bottom = "auto";
     let left = "auto";
+
+
+    // vertical: above|under|auto
+    const getAbove = () => {
+      this.classMod.y = "above";
+      return (top = Math.ceil(targetRect.top + yPosShiftFromTop - height() + pageYOffset));
+    };
+    const getUnder = () => {
+      this.classMod.y = "under";
+      return (top = Math.ceil(targetRect.bottom - yPosShiftFromBottom + pageYOffset));
+    };
+
+    // Автоматическое позиционирование по вертикали
+    (targetRect.top < height() && this.posMod.y === "auto") ||
+    this.posMod.y === "under"
+      ? getUnder()
+      : getAbove();
+  
 
     // horisontal left|left-auto|center|right|right-auto
 
@@ -508,22 +525,6 @@ class Tooltips {
       
       return {left, right}
     }
-
-    // vertical: above|under|auto
-    const getAbove = () => {
-      this.classMod.y = "above";
-      return (top = Math.ceil(targetRect.top + yPosShiftFromTop - height() + pageYOffset));
-    };
-    const getUnder = () => {
-      this.classMod.y = "under";
-      return (top = Math.ceil(targetRect.bottom - yPosShiftFromBottom + pageYOffset));
-    };
-
-    // Автоматическое позиционирование по вертикали
-    (targetRect.top < height() && this.posMod.y === "auto") ||
-    this.posMod.y === "under"
-      ? getUnder()
-      : getAbove();
 
     switch (this.posMod.x) {
       case "left":

@@ -157,7 +157,9 @@
 					<br><br><br><br>Пример popover 1<br><br><br><br><br>
 				</div> 
 				<div class="smart-tooltip-popover demo-btn" title="Пример popover" style="white-space: normal;text-align: center;">
-					<br><br><br><br>Пример popover 2<br><br><br><br><br>
+					<br><br><br><br>
+					<div class="example-class" style="margin: 0px;">Пример popover 2</div> 
+					<br><br><br><br><br>
 				</div> 
 				<div class="smart-tooltip-popover demo-btn" title="Пример popover" style="white-space: normal;text-align: center;">
 					<br><br><br><br>Пример popover 3<br><br><br><br><br>
@@ -628,9 +630,11 @@ function delayedFetch(url, delay) {
 }
 
 
+const attach = document.querySelectorAll('#all-callbacks');
+
 new Tooltips(
 {
-  attach:'#all-callbacks',
+  attach: attach,
   onOpen: function()
   {
     console.log('open', this);
@@ -652,7 +656,6 @@ new Tooltips(
       }, 1000);
     });
   }
-
 });
 
 
