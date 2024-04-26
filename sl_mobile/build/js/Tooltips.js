@@ -394,7 +394,7 @@ class Tooltips {
     }
     const pageYOffset = window.scrollY;
     let width = this.el.offsetWidth;
-    let height = () => this.el.offsetHeight + (this.isFirstOpen ? this.offset : 0);
+    let height = this.el.offsetHeight + (this.isFirstOpen ? this.offset : 0);
     this.isFirstOpen = false;
     // Таргет шире тултипа
     const targetIsWider = (typeof this.attachCursorXPos === 'number') ? targetRect.width > width * this.attachCursorXPos: false ;
@@ -424,7 +424,7 @@ class Tooltips {
     // vertical: above|under|auto
     const getAbove = () => {
       this.classMod.y = "above";
-      return (top = Math.ceil(targetRect.top + yPosShiftFromTop - height() + pageYOffset));
+      return (top = Math.ceil(targetRect.top + yPosShiftFromTop - height + pageYOffset));
     };
     const getUnder = () => {
       this.classMod.y = "under";
@@ -432,7 +432,7 @@ class Tooltips {
     };
 
     // Автоматическое позиционирование по вертикали
-    (targetRect.top < height() && this.posMod.y === "auto") ||
+    (targetRect.top < height && this.posMod.y === "auto") ||
     this.posMod.y === "under"
       ? getUnder()
       : getAbove();
