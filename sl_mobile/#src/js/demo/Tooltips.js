@@ -218,7 +218,7 @@ class Tooltips {
     if (this.closeTrigger !== "mouseleave" || this.popover) {
       const attach = this.attach;
       document.documentElement.addEventListener("click", (e) => {
-        if (e.target === this.target) return;
+        if (e.target.closest('.js-tooltip__container')) return;
         this.mouseEnterThis = false;
         this.prevClickTarget = null;
         this.close();
@@ -228,7 +228,7 @@ class Tooltips {
     // При изменении ширины экрана закрываем
     window.addEventListener("resize", () => {
       this.mouseEnterThis = false;
-      // if (this.isOpen) 
+      if (this.isOpen) 
       this.close();
     }, false);
 
@@ -307,7 +307,9 @@ class Tooltips {
     this._calcPos(target, e);
     this._modClasses();
     this.show();
-    if (typeof this.onOpen === 'function') this.onOpen(target, e);
+    if (typeof this.onOpen === 'function') setTimeout(() => {
+      this.onOpen(target, e);
+    }, 0);
   }
 
   /**
