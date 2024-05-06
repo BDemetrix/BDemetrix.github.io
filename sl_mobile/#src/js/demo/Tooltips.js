@@ -40,6 +40,7 @@ class Tooltips {
     this.hMargin = options.hMargin ?? 10;                     // оттступ тултипа от края экрана
     this.textAlign = options.textAlign ?? '';                 // выравнивание текста в 
     this.theme = options.theme;                               // суфикс к классу, для кастомизации css
+    this.addClass = options.addClass ?? null;                 // добавление своего класса к тултипу 
     this.timeout = options.timeout ?? 500;                    // таймаут показа тултипа при наведении (только если this.openTrigger === "mouseenter";)
     this.closeTimeout = options.closeTimeout ?? 400;          // таймаут закрытия тултипа при потере курсора (только если this.closeTrigger === "mouseleave";)
     this.attachCursorXPos = options.attachCursorXPos ?? 1.3;  // если ширина таргета больше тултипа в attachCursorXPos раз, 
@@ -80,7 +81,7 @@ class Tooltips {
       this.attach = this.mobileAttach;
     }
 
-    if (this.attach instanceof NodeList) {
+    if (this.attach instanceof NodeList || Array.isArray(this.attach)) {
       this.targets = this.attach;
     } else if ( (typeof this.attach) === 'string' ) {
       this.targets = document.querySelectorAll(this.attach);
@@ -100,6 +101,7 @@ class Tooltips {
       '<div class="js-tooltip__container"></div> <div class="js-tooltip__pointer js-tooltip__pointer--bottom"></div>';
     document.body.append(this.el);
     this.container = this.el.querySelector(".js-tooltip__container");
+    if (this.addClass !== null) this.container.classList.add(this.addClass);
     this.pointer = this.el.querySelector(".js-tooltip__pointer");
 
     if(this.theme) {

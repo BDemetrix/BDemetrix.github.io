@@ -80,7 +80,7 @@ class Tooltips {
       this.attach = this.mobileAttach;
     }
 
-    if (this.attach instanceof NodeList) {
+    if (this.attach instanceof NodeList || ) {
       this.targets = this.attach;
     } else if ( (typeof this.attach) === 'string' ) {
       this.targets = document.querySelectorAll(this.attach);
