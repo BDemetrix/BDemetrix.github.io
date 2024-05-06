@@ -1357,6 +1357,13 @@ window.tooltips = new Tooltips({
 	setContent: function(){
 		return `<div style="padding: 32px;"><button class="demo-btn js-tooltip-close-btn">Закрыть<br>${this.target.textContent}</button></div>`;
 	},
+	onOpen: function(target, e)
+        {
+			console.log('onOpen');
+          	const container = $(this.container);
+         	if (!container.length) return;
+         	console.log(container, container.html());
+		},
 	width: 'auto',
 });
 

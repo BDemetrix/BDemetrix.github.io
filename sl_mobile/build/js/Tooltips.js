@@ -127,7 +127,9 @@ class Tooltips {
 
     // закрывает тултип при клике на кнопку '.js-tooltip-close-btn'
     this.el.addEventListener('click', e => {
+      console.log(e)
       if (e.target.closest('.js-tooltip-close-btn')) { 
+        console.log('.js-tooltip-close-btn')
         this.mouseEnterThis = false;
         this.close();
       }
@@ -307,7 +309,9 @@ class Tooltips {
     this._calcPos(target, e);
     this._modClasses();
     this.show();
-    if (typeof this.onOpen === 'function') this.onOpen(target, e);
+    if (typeof this.onOpen === 'function') setTimeout(() => {
+      this.onOpen(target, e);
+    }, 0);
   }
 
   /**
