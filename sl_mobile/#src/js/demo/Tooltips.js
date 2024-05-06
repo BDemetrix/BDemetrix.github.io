@@ -127,9 +127,7 @@ class Tooltips {
 
     // закрывает тултип при клике на кнопку '.js-tooltip-close-btn'
     this.el.addEventListener('click', e => {
-      console.log(e)
       if (e.target.closest('.js-tooltip-close-btn')) { 
-        console.log('.js-tooltip-close-btn')
         this.mouseEnterThis = false;
         this.close();
       }
@@ -220,7 +218,7 @@ class Tooltips {
     if (this.closeTrigger !== "mouseleave" || this.popover) {
       const attach = this.attach;
       document.documentElement.addEventListener("click", (e) => {
-        if (e.target === this.target) return;
+        if (e.target.closest('.js-tooltip__container')) return;
         this.mouseEnterThis = false;
         this.prevClickTarget = null;
         this.close();
@@ -230,7 +228,7 @@ class Tooltips {
     // При изменении ширины экрана закрываем
     window.addEventListener("resize", () => {
       this.mouseEnterThis = false;
-      // if (this.isOpen) 
+      if (this.isOpen) 
       this.close();
     }, false);
 
