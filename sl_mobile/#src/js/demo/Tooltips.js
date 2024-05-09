@@ -21,7 +21,7 @@ class Tooltips {
     this.setContentOnce = options.setContentOnce ?? false;    // флаг единоразовой загрузки контента из колбека если объект наведения/клика не изменился, 
                                                               // работает только если в setContent передана функция
 
-    this.holdUntilDone = options.holdUntilDone ?? false;      // флаг блокировки закрытия тултипа при асинхронной загрузке контента, 
+    this.awaitDone = options.awaitDone ?? false;              // флаг блокировки закрытия тултипа при асинхронной загрузке контента, 
                                                               // работает только если в setContent передана функция
 
     this.popover = options.popover ?? false;                  // для того, чтоб тултип не закрывался при переводе курсора
@@ -53,7 +53,7 @@ class Tooltips {
                                     </div>`; 
 
     // вспомогательные свойства, не требуют конфигурирования (не определяются пользователем)
-    this.closeBlocked = false;                                // рабочий флаг блокировки закрытия тултипа при асинхронной загрузке контента, основывается на holdUntilDone
+    this.closeBlocked = false;                                // рабочий флаг блокировки закрытия тултипа при асинхронной загрузке контента, основывается на awaitDone
     this.contentLoading = false;                              // флаг активного процесса загрузки контента
     this.presetPosMod = {...this.posMod}                      // Сохранение базовой предустановленной настройки 
     this.classMod = {};                                       // вспомогатольный объект для работы с модификаторами css
@@ -121,7 +121,7 @@ class Tooltips {
         this.closeTimer = setTimeout(() => {
             this.mouseEnterThis = false;
             this.parentTarget = null;
-            this.close();
+            this._close();
         }, this.closeTimeout); 
       }, false) 
     }
@@ -131,7 +131,7 @@ class Tooltips {
     this.el.addEventListener('click', e => {
       if (e.target.closest('.js-tooltip-close-btn')) { 
         this.mouseEnterThis = false;
-        this.close();
+        this._close();
       }
     }, false) 
 
@@ -191,7 +191,7 @@ class Tooltips {
           this.prevClickTarget = currentTarget;
           this.open(currentTarget, e);
         }  else {
-          this.close(); 
+          this._close(); 
         }
         // this.target = closestTarget;
       }, false);
@@ -201,12 +201,12 @@ class Tooltips {
       if (this.closeTrigger === "mouseleave") {
         target.addEventListener(this.closeTrigger, (e) => { 
           if (!this.popover) {
-            this.close();
+            this._close();
             return;
           }
           this.closeTimer = setTimeout(() => {
             this.parentTarget = null;
-            this.close();
+            this._close();
           }, this.closeTimeout);
         }, false);
       }
@@ -223,7 +223,7 @@ class Tooltips {
         if (e.target.closest('.js-tooltip__container')) return;
         this.mouseEnterThis = false;
         this.prevClickTarget = null;
-        this.close();
+        this._close();
       }, false);
     }
 
@@ -231,7 +231,7 @@ class Tooltips {
     window.addEventListener("resize", () => {
       this.mouseEnterThis = false;
       if (this.isOpen) 
-      this.close();
+      this._close();
     }, false);
 
     // Устанавливем свойства из "option"
@@ -316,8 +316,20 @@ class Tooltips {
 
   /**
    * Закрывает тултип
+   * Публичный метод для вызова в колбеках
+   * Убирает все блокировки и закрывает тултип
    */
   close() {
+    this.mouseEnterThis = false;
+    this.closeBlocked = false;
+    this._close();
+  }
+
+  /**
+   * Закрывает тултип
+   * Приватный метод
+   */
+  _close() {
     if (this.mouseEnterThis || this.closeBlocked) return;
     // console.log('close Tooltips')
     this.target = null; 
@@ -347,7 +359,7 @@ class Tooltips {
     if (!this.setContent || typeof this.setContent !== "function" || this.contentLoading ) return;  
     
     // устанавливаем флаг блокировки закрытия
-    this.closeBlocked = this.holdUntilDone;
+    this.closeBlocked = this.awaitDone;
     this.contentLoading = true;
 
     try {
@@ -362,7 +374,7 @@ class Tooltips {
     this.mouseEnterThis = false;
 
     const isOpen = this.isOpen;
-    this.close();
+    this._close();
 
     if (!this.fetchedConntent) {
       console.error('Контент не загрузился!');
