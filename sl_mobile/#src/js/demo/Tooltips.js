@@ -92,7 +92,6 @@ class Tooltips {
     
     if (!this.targets.length)
       throw `Не найдены ноды по селектору ${this.attach}`;
-    // console.warn(this.targets);
 
     // Создаем контейнер
     this.el = document.createElement("div");
@@ -150,6 +149,9 @@ class Tooltips {
     }
     // Устанавливаем обработчики
     this.targets.forEach((target) => {
+      // добавляем класс js-tooltip-target для отслеживания этиго элемента 
+      target.classList.add('js-tooltip-target');
+
       // Чистим/переносим атрибуты 'title'
       if (this.content === "title") {
         target.dataset[this.content] = target.getAttribute(this.content) ?? "";
@@ -166,7 +168,6 @@ class Tooltips {
         if (e.type === "mouseenter") { 
 
           clearTimeout(this.closeTimer);
-          // this.target = closestTarget;
 
           if(this.popover && this.parentTarget === currentTarget) {
             // clearTimeout(this.closeTimer);
@@ -193,7 +194,6 @@ class Tooltips {
         }  else {
           this._close(); 
         }
-        // this.target = closestTarget;
       }, false);
 
       // Тригер закрытия
@@ -221,6 +221,8 @@ class Tooltips {
       const attach = this.attach;
       document.documentElement.addEventListener("click", (e) => {
         if (e.target.closest('.js-tooltip__container')) return;
+        if (this.isOpen && e.target.closest('.js-tooltip-target') == this.target) return;
+
         this.mouseEnterThis = false;
         this.prevClickTarget = null;
         this._close();
@@ -231,7 +233,7 @@ class Tooltips {
     window.addEventListener("resize", () => {
       this.mouseEnterThis = false;
       if (this.isOpen) 
-      this._close();
+        this._close();
     }, false);
 
     // Устанавливем свойства из "option"
@@ -257,7 +259,18 @@ class Tooltips {
   }
 
   /**
-   * Получает контент и порказывает tooltip
+   * Показывает tooltip - приватный метод
+   * @param {Element} target - таргет на котором показывается тултип
+   * @param {Event} e - событие
+   */
+  _open(target, e) {
+    this._calcPos(target, e);
+    this._modClasses();
+    this.show();
+  }
+
+  /**
+   * Получает контент и показывает tooltip
    * @param {Element} target - таргет на котором показывается тултип
    * @param {Event} e - событие
    */
@@ -266,6 +279,7 @@ class Tooltips {
     const beforeOpenDone = await this._beforeOpen(target, e) 
     if ( !beforeOpenDone || this.closeBlocked) return; 
 
+    this.target
     // console.log('open Tooltips');
     let content = "";
 
@@ -305,10 +319,8 @@ class Tooltips {
     }
 
     this.container.innerHTML = content;
+    this._open(target, e);
 
-    this._calcPos(target, e);
-    this._modClasses();
-    this.show();
     if (typeof this.onOpen === 'function') setTimeout(() => {
       this.onOpen(target, e);
     }, 0);
@@ -332,7 +344,6 @@ class Tooltips {
   _close() {
     if (this.mouseEnterThis || this.closeBlocked) return;
     // console.log('close Tooltips')
-    this.target = null; 
     this.prevClickTarget = null;
     this.hide();
     this._clearPos();
@@ -368,7 +379,6 @@ class Tooltips {
       console.error(e); 
     }
 
-
     this.closeBlocked = false;
     this.contentLoading = false;
     this.mouseEnterThis = false;
@@ -387,9 +397,7 @@ class Tooltips {
     if (!isOpen) return;
 
     setTimeout(() => {
-      this._calcPos(target, e);
-      this._modClasses();
-      this.show();
+      this._open(target, e);
     }, 200);
   }
 

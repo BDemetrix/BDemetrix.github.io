@@ -433,7 +433,8 @@ window.tooltips = new Tooltips({
 	attach: '.smart-tooltip-popover',
 	popover: true,
 	attachCursorYPos: true,
-	setContent: function(){
+	setContent: async function() {
+		console.log(this.target); 
 		return `<div style="padding: 32px;"><button class="demo-btn js-tooltip-close-btn">Закрыть<br>${this.target.textContent}</button></div>`;
 	},
 	onOpen: function(target, e)
@@ -459,16 +460,17 @@ async function beforeOpen(target, e) {
 			resolve(true);
 			console.log(this);
 			console.info('The beforeOpen() has ended');
-		}, 2000);
+		}, 100);
 	});
 }
 
 // колбек принимает контекст Tooltips() 
 // и через this можно вызывать методы и молучить доступ ко всем полям
 async function collback() {
-	const target = this.target;
-	console.log(target);
-	console.log({target});
+	// const target = this.target;
+	console.log(this);
+	// console.log({target});
+	// console.log(this.target.textContent);
 	const timeout = 2000;
 	setTimeout(() => {
 		alert('Тултип будет закрыт из collback()') // this.el
