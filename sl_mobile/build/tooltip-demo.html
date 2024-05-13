@@ -1238,18 +1238,17 @@ async function beforeOpen(target, e) {
 			resolve(true);
 			console.log(this);
 			console.info('The beforeOpen() has ended');
-		}, 2000);
+		}, 100);
 	});
 }
 
 // колбек принимает контекст Tooltips() 
 // и через this можно вызывать методы и молучить доступ ко всем полям
 async function collback() {
-	const target = this.target;
+	// const target = this.target;
 	console.log(this);
-	console.log({target});
-	console.log(this.target.textContent);
-		const textContent = this.target.textContent;
+	// console.log({target});
+	// console.log(this.target.textContent);
 	const timeout = 2000;
 	setTimeout(() => {
 		alert('Тултип будет закрыт из collback()') // this.el
