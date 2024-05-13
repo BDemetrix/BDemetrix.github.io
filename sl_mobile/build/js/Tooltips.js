@@ -92,7 +92,6 @@ class Tooltips {
     
     if (!this.targets.length)
       throw `Не найдены ноды по селектору ${this.attach}`;
-    // console.warn(this.targets);
 
     // Создаем контейнер
     this.el = document.createElement("div");
@@ -150,6 +149,9 @@ class Tooltips {
     }
     // Устанавливаем обработчики
     this.targets.forEach((target) => {
+      // добавляем класс js-tooltip-target для отслеживания этиго элемента 
+      target.classList.add('js-tooltip-target');
+
       // Чистим/переносим атрибуты 'title'
       if (this.content === "title") {
         target.dataset[this.content] = target.getAttribute(this.content) ?? "";
@@ -220,7 +222,10 @@ class Tooltips {
     if (this.closeTrigger !== "mouseleave" || this.popover) {
       const attach = this.attach;
       document.documentElement.addEventListener("click", (e) => {
+        console.log(this.target);
         if (e.target.closest('.js-tooltip__container')) return;
+        if (this.isOpen && e.target.closest('.js-tooltip-target') == this.target) return;
+
         this.mouseEnterThis = false;
         this.prevClickTarget = null;
         this._close();
@@ -231,7 +236,7 @@ class Tooltips {
     window.addEventListener("resize", () => {
       this.mouseEnterThis = false;
       if (this.isOpen) 
-      this._close();
+        this._close();
     }, false);
 
     // Устанавливем свойства из "option"
@@ -331,7 +336,7 @@ class Tooltips {
    */
   _close() {
     if (this.mouseEnterThis || this.closeBlocked) return;
-    // console.log('close Tooltips')
+    console.log('close Tooltips')
     this.target = null; 
     this.prevClickTarget = null;
     this.hide();
@@ -367,7 +372,6 @@ class Tooltips {
     } catch (e) {
       console.error(e); 
     }
-
 
     this.closeBlocked = false;
     this.contentLoading = false;
