@@ -65,6 +65,10 @@ class Tooltips {
                                                               // в этом случае тултип не закрвывается работает только при опции {popover: true} 
     this.isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0)
     
+    this.mainOpenTriggerListenersCB = []                        // Массив колбеков слушателей открытия, одна ссылка на колбек для каждого таргета
+    this.mainCloseTriggerListenersCB = []                       // Массив колбеков слушателей закрытия, одна ссылка на колбек для каждого таргета
+    this.removeTimerListenersCB = []                            // Массив колбеков слушателей удаления таймера, одна ссылка на колбек для каждого таргета
+
     this._init();
   }
 
@@ -107,32 +111,14 @@ class Tooltips {
       this.el.classList.add(`js-tooltip-${this.theme}`)
     }
 
-    if (this.popover) {
-      // Устанавливает флаг при наведении на тултип, чтоб он не закрывался
-      this.el.addEventListener('mouseenter', e => {
-        clearTimeout(this.closeTimer);
-        this.mouseEnterThis = true;
-        // this.parentTarget = this.target;
-      }, false) 
-
-      // закрывает тултип при снятии с него курсора
-      this.el.addEventListener('mouseleave', e => {
-        this.closeTimer = setTimeout(() => {
-            this.mouseEnterThis = false;
-            this.parentTarget = null;
-            this._close();
-        }, this.closeTimeout); 
-      }, false) 
+    if (this.popover && (this.closeTrigger == 'mouseleave')) 
+    {
+      this.el.addEventListener('mouseenter', this._setHoverPopoverFlag.bind(this), false); 
+      this.el.addEventListener('mouseleave', this._closePopoverOnMouseOut.bind(this), false);
     }
-    
 
     // закрывает тултип при клике на кнопку '.js-tooltip-close-btn'
-    this.el.addEventListener('click', e => {
-      if (e.target.closest('.js-tooltip-close-btn')) { 
-        this.mouseEnterThis = false;
-        this._close();
-      }
-    }, false) 
+    this.el.addEventListener('click', this._closeTooltipOnBtnClick.bind(this), false); 
 
     // Если контент для тултипа уже загружен на страницу в виде html, переносим его в
     if (this.contentSource && typeof this.contentSource == "string") {
@@ -161,80 +147,33 @@ class Tooltips {
         this.el.style.maxWidth = this.maxWidth + "px";
       }
 
-      target.addEventListener(this.openTrigger, (e) => {  
-        const currentTarget = e.target;
-        this.target = currentTarget;
-        // Открытие по наведению
-        if (e.type === "mouseenter") { 
+      // Главны обработчик отрытия
+      const openTriggerCB = this._mainOpenTriggerListener.bind(this);
+      this.mainOpenTriggerListenersCB.push(openTriggerCB);
+      target.addEventListener(this.openTrigger, openTriggerCB, false);
 
-          clearTimeout(this.closeTimer);
-
-          if(this.popover && this.parentTarget === currentTarget) {
-            // clearTimeout(this.closeTimer);
-            this.mouseEnterThis = false;
-            return;
-          } else if (this.popover) {
-            this.parentTarget = currentTarget;
-          }
-
-          this.openTimer = setTimeout(() => {
-            this.open(currentTarget, e);
-          }, this.timeout); 
-
-          return;
-        }
-
-        // Если срабатывает не по наведению, то пауза не нужна
-        this.mouseEnterThis = false;
-
-        // Если предыдущий открытый тултип не равен текущему
-        if (this.prevClickTarget != currentTarget) {
-          this.prevClickTarget = currentTarget;
-          this.open(currentTarget, e);
-        }  else {
-          this._close(); 
-        }
-      }, false);
-
-      // Тригер закрытия
+      // Тригер закрытия 
       this.openTrigger === "click" ? (this.closeTrigger = "click") : null;
       if (this.closeTrigger === "mouseleave") {
-        target.addEventListener(this.closeTrigger, (e) => { 
-          if (!this.popover) {
-            this._close();
-            return;
-          }
-          this.closeTimer = setTimeout(() => {
-            this.parentTarget = null;
-            this._close();
-          }, this.closeTimeout);
-        }, false);
+        const closeTriggerCB = this._mainCloseTriggerListener.bind(this);
+        this.mainCloseTriggerListenersCB.push(closeTriggerCB);
+        target.addEventListener(this.closeTrigger, closeTriggerCB, false);
       }
+
       // Удаляем таймер при сведении курсора
-      target.addEventListener('mouseleave', (e) => { 
-        clearTimeout(this.openTimer);
-      }, false);
+      const removeTimerCB = this._removeTimerOnMouseOut.bind(this);
+      this.removeTimerListenersCB.push(removeTimerCB);
+
+      target.addEventListener('mouseleave', removeTimerCB, false);
     });
 
     // Если закрываем по клику вне тултипа
     if (this.closeTrigger !== "mouseleave" || this.popover) {
-      const attach = this.attach;
-      document.documentElement.addEventListener("click", (e) => {
-        if (e.target.closest('.js-tooltip__container')) return;
-        if (this.isOpen && e.target.closest('.js-tooltip-target') == this.target) return;
-
-        this.mouseEnterThis = false;
-        this.prevClickTarget = null;
-        this._close();
-      }, false);
+      document.documentElement.addEventListener("click", this._closeTooltipOutsideTargetClick.bind(this), false);
     }
 
     // При изменении ширины экрана закрываем
-    window.addEventListener("resize", () => {
-      this.mouseEnterThis = false;
-      if (this.isOpen) 
-        this._close();
-    }, false);
+    window.addEventListener("resize", this._closeTooltipOnResize.bind(this), false);
 
     // Устанавливем свойства из "option"
     this._setProperty();
@@ -258,6 +197,164 @@ class Tooltips {
     }
   }
 
+  // Колбек target.addEventListener(this.openTrigger, ... )
+  _mainOpenTriggerListener(e) {  
+    console.log('_mainOpenTriggerListener');
+    const currentTarget = e.target;
+    this.target = currentTarget;
+    // иначе сразу закрывается
+    if ((e.type === 'click') && (this.closeTrigger == e.type))
+    {
+      if (this.isOpen) return;
+      e.stopPropagation();
+    }
+    // Открытие по наведению
+    if (e.type === "mouseenter") { 
+      clearTimeout(this.closeTimer);
+      if(this.popover && this.parentTarget === currentTarget) {
+        // clearTimeout(this.closeTimer);
+        this.mouseEnterThis = false;
+        return;
+      } else if (this.popover) {
+        this.parentTarget = currentTarget;
+      }
+      this.openTimer = setTimeout(() => {
+        this.open(currentTarget, e);
+      }, this.timeout); 
+      return;
+    }
+    // Если срабатывает не по наведению, то пауза не нужна
+    this.mouseEnterThis = false;
+    // Если предыдущий открытый тултип не равен текущему
+    if (this.prevClickTarget != currentTarget) {
+      this.prevClickTarget = currentTarget;
+      this.open(currentTarget, e);
+    }  else {
+      this._close(); 
+    }
+  }
+
+  // Колбек target.addEventListener(this.closeTrigger, ... )
+  _mainCloseTriggerListener() { 
+    if (!this.popover) {
+      this._close();
+      return;
+    }
+    this.closeTimer = setTimeout(() => {
+      this.parentTarget = null;
+      this._close();
+    }, this.closeTimeout);
+  }
+
+  // Колбек target.addEventListener('mouseleave', ... )
+  // Удаляем таймер при сведении курсора
+  _removeTimerOnMouseOut(e) { 
+    clearTimeout(this.openTimer);
+  }
+
+  // Колбек слушателя this.el.addEventListener('mouseenter')
+  // Устанавливает флаг при наведении на тултип, чтоб он не закрывался
+  _setHoverPopoverFlag(e){
+    console.log('setHoverPopoverFlag');
+    console.log(this)
+    clearTimeout(this.closeTimer);
+    this.mouseEnterThis = true;
+  }
+
+  // Колбек слушателя this.el.addEventListener('mouseleave', ...)
+  // Закрывает тултип при снятии с него курсора
+  _closePopoverOnMouseOut(e) {
+    console.log('closePopoverOnMouseOut')
+    console.log(this)
+    if (!this.isOpen) return;
+    this.closeTimer = setTimeout(() => {
+        this.mouseEnterThis = false;
+        this.parentTarget = null;
+        this._close();
+    }, this.closeTimeout); 
+  }
+
+  // Колбек this.el.addEventListener('click', ...)
+  // Закрывает тултип при клике на кнопку '.js-tooltip-close-btn'
+  _closeTooltipOnBtnClick(e) {
+    if (e.target.closest('.js-tooltip-close-btn')) { 
+      this.mouseEnterThis = false;
+      this._close();
+    }
+  }
+
+  // Колбек document.documentElement.addEventListener("click", ... )
+  // Если закрываем по клику вне тултипа
+  _closeTooltipOutsideTargetClick(e) {
+    if (e.target.closest('.js-tooltip__container')) return;
+    if (this.isOpen && e.target.closest('.js-tooltip-target') == this.target) return;
+
+    this.mouseEnterThis = false;
+    this.prevClickTarget = null;
+    if (this.isOpen) this._close();
+  }
+
+  // Колбек window.addEventListener("resize", ... )
+  // При изменении ширины экрана закрываем
+  _closeTooltipOnResize(e) {
+    this.mouseEnterThis = false;
+    if (this.isOpen) 
+      this._close();
+  }
+
+
+  /**
+   * Демортирует объект
+   */
+  destroy() {
+    this.targets.forEach((target, i) => {
+
+      target.removeEventListener(this.openTrigger, this.mainOpenTriggerListenersCB[i]);
+      target.removeEventListener('mouseleave', this.removeTimerListenersCB[i]); 
+
+      if (this.closeTrigger === "mouseleave" && this.mainCloseTriggerListenersCB.length) {
+        target.removeEventListener(this.closeTrigger, this.mainCloseTriggerListenersCB[i]);
+      }
+    });
+
+    if (this.popover && (this.closeTrigger == 'mouseleave')) 
+    {
+      this.el.removeEventListener('mouseenter', this._setHoverPopoverFlag); 
+      this.el.removeEventListener('mouseleave', this._closePopoverOnMouseOut);
+    }
+
+    this.el.removeEventListener('click', this._closeTooltipOnBtnClick); 
+
+    if (this.closeTrigger !== "mouseleave" || this.popover) {
+      document.documentElement.removeEventListener("click", this._closeTooltipOutsideTargetClick);
+    }
+    window.removeEventListener("resize", this._closeTooltipOnResize);
+
+    // Удаление таймаутов, если они были установлены
+     if (this.openTimer) {
+      clearTimeout(this.openTimer);
+    }
+    if (this.closeTimer) {
+      clearTimeout(this.closeTimer);
+    }
+    
+    // Удаление контейнера из тултипа из DOM, если он есть
+    this.el.remove();
+
+    // Обнуление свойств для освобождения памяти
+    for (let  prop  in this) {
+      if (this.hasOwnProperty( prop )) {
+        delete this[ prop ];
+        console.log( prop  + ": " + this[ prop ]);
+      } 
+    }
+    let self = this;
+    setTimeout(() => {
+      self = null;
+    }, 0); 
+  }
+
+
   /**
    * Показывает tooltip - приватный метод
    * @param {Element} target - таргет на котором показывается тултип
@@ -267,6 +364,8 @@ class Tooltips {
     this._calcPos(target, e);
     this._modClasses();
     this.show();
+
+    if ((typeof this.onOpen === 'function') && !this.contentLoading) this.onOpen(target, e);
   }
 
   /**
@@ -320,10 +419,6 @@ class Tooltips {
 
     this.container.innerHTML = content;
     this._open(target, e);
-
-    if (typeof this.onOpen === 'function') setTimeout(() => {
-      this.onOpen(target, e);
-    }, 0);
   }
 
   /**
@@ -342,21 +437,26 @@ class Tooltips {
    * Приватный метод
    */
   _close() {
+
     if (this.mouseEnterThis || this.closeBlocked) return;
     // console.log('close Tooltips')
     this.prevClickTarget = null;
     this.hide();
     this._clearPos();
-    if (typeof this.onClose === 'function') this.onClose();
+    if ((typeof this.onClose === 'function') && !this.contentLoading) this.onClose();
   }
 
   show() {
-    this.el.classList.add("js-tooltip--shown");
+    if (this.el) {
+      this.el.classList.add("js-tooltip--shown");
+    } 
     this.isOpen = true;
   }
 
   hide() {
-    this.el.classList.remove("js-tooltip--shown");
+    if (this.el) {
+      this.el.classList.remove("js-tooltip--shown");
+    } 
     this.isOpen = false;
   }
 
@@ -380,11 +480,12 @@ class Tooltips {
     }
 
     this.closeBlocked = false;
-    this.contentLoading = false;
     this.mouseEnterThis = false;
 
     const isOpen = this.isOpen;
     this._close();
+    
+    this.contentLoading = false;
 
     if (!this.fetchedConntent) {
       console.error('Контент не загрузился!');
@@ -582,6 +683,7 @@ class Tooltips {
    * Очищает позицию
    */
   _clearPos() {
+    if (!this.el) return;
     this.el.style.top = "";
     this.el.style.right = "";
     this.el.style.bottom = "";
