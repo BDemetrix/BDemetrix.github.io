@@ -8825,6 +8825,7 @@ textarea {
 
 .add-post__textarea {
   min-height: calc(100vh - 438px);
+  max-height: calc(100vh - 318px);
 }
 
 .news-feed {
