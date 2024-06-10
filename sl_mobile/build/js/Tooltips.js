@@ -47,6 +47,7 @@ class Tooltips {
                                                               // то позиция тултипа привязывается к позиции курсора по горизонтали
     this.attachCursorYPos = options.attachCursorYPos ?? false;// привязать вертикальную координату к курсору мыши, координаты определяются в рамках таргета
 
+    this.hasLoader = options.hasLoader ?? false;              // Включает лоадар
     this.loader = options.loader ?? `<div class="spinner-loader spinner-loader--p0" role="status">
                                       <div class="spinner-loader__ring"></div>
                                       <span class="spinner-loader__label">Загружаем...</span>
@@ -381,9 +382,11 @@ class Tooltips {
     this.target
     // console.log('open Tooltips');
     let content = "";
+    let hasLoader = null;
 
     // Если контент требует асинхронной загрузки с, здесь this.getContent - функция возвращающая HTML
     if (this.setContent && typeof this.setContent === "function") { 
+      hasLoader = this.hasLoader;
       // если предусмотрена одноразовая загрузка и контент уже загружен, просто паказываем тултип
       if (this.setContentOnce && this.fetchedConntent) {
         content = this.fetchedConntent;
@@ -411,6 +414,8 @@ class Tooltips {
     else if (this.content) {
       content = this.content;
     }
+
+    if (hasLoader !== null && !hasLoader) return;
 
     if (!content) {
       console.error('Контент тултипа не задан! \nСледует задать одно из свойств: setContent, content, contentSource в конструкторе new Tooltips() \nлибо заполнить атрибут "title" у целевых элементов')
@@ -495,7 +500,7 @@ class Tooltips {
     if (!this.setContentOnce) this.fetchedConntent = null;
 
     // если тултип был закрыт до загрузки контента
-    if (!isOpen) return;
+    if (!isOpen && this.hasLoader) return;
 
     setTimeout(() => {
       this._open(target, e);
