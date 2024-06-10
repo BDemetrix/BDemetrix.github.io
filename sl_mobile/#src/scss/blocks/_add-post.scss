@@ -80,5 +80,6 @@
     // .add-post__textarea 
     &__textarea {
         min-height: calc(100vh - 438px);
+        max-height: calc(100vh - 318px);
     }
 }
