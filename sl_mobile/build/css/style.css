@@ -5656,6 +5656,14 @@ textarea {
   width: calc(100% - 60px);
 }
 
+.post-card__header-inner--with-moderator-menu {
+  width: calc(100% - 60px - 45px);
+}
+
+.post-card__header-inner--with-moderator-menu .post-card__subscription {
+  display: none;
+}
+
 .post-card__header-inner--post {
   width: calc(100% - 80px);
 }
@@ -16339,6 +16347,16 @@ body.loader:before {
     width: calc(100% - 114px);
   }
 
+  .post-card__header-inner--with-moderator-menu {
+    width: calc(100% - 114px - 45px);
+  }
+
+  .post-card__header-inner--with-moderator-menu .post-card__subscription {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
   .post-card__subscription {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -16515,6 +16533,10 @@ body.loader:before {
 
   .post-card__header-inner--with-full-menu {
     width: calc(100% - 218px);
+  }
+
+  .post-card__header-inner--with-moderator-menu {
+    width: calc(100% - 218px - 45px);
   }
 
   .person--people .person__info {
