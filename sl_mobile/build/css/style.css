@@ -5653,7 +5653,7 @@ textarea {
 }
 
 .post-card__header-inner--with-full-menu {
-  width: calc(100% - 60px);
+  width: calc(100% - 114px);
 }
 
 .post-card__header-inner--with-moderator-menu {
