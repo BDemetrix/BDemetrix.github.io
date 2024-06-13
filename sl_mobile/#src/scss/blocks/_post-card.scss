@@ -80,6 +80,23 @@
       }
     }
 
+    &--with-moderator-menu {
+      width: calc(100% - 60px - 45px);
+      .post-card__subscription {
+        display: none;
+      }
+
+      @media (min-width: 400px) {
+        width: calc(100% - 114px - 45px);
+        .post-card__subscription {
+          display: flex;
+        }
+      }
+      @media (min-width: $md4 + px) {
+        width: calc(100% - 218px - 45px);
+      }
+    }
+
     &--post {
       width: calc(100% - 80px);
     }
