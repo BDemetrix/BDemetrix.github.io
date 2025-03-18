@@ -502,6 +502,10 @@
 .more-posts {
   padding: 25px 15px;
 
+  &--paid {
+    padding: 0 15px 15px;
+  }
+
   // .more-posts__title
   &__title {
     font-size: 18px;
