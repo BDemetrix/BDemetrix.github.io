@@ -327,13 +327,17 @@ body.dark-theme.loader:before {
   }
 
   .news-card {
-    &__title {
+
+    &__title,
+    &__text {
       color: $text-color;
 
       svg {
         fill: $text-color;
       }
     }
+
+
 
     &__date,
     &__author,
