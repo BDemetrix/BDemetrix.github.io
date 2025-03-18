@@ -9336,6 +9336,10 @@ textarea {
   padding: 25px 15px;
 }
 
+.more-posts--paid {
+  padding: 0 15px 15px;
+}
+
 .more-posts__title {
   font-size: 18px;
   font-weight: 600;
