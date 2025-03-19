@@ -276,6 +276,65 @@
         }
     }
 
+    // .comments__show-answers
+    &__show-answers {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 3px 10px;
+        border-radius: 8px;
+        color: #312c26;
+        // color: #595959;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        background-color: transparent;
+        transition: background-color .1s ease;
+
+        &:hover {
+            background-color: rgba(0, 11, 33, 0.06);;
+        }
+
+        &::before {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 1px;
+            background-color: #aaaaaa;
+        }
+
+        &:active:not(:disabled) {
+            transform: scale(0.98);
+        }
+
+        @media (min-width: $md5 + px) {
+            position: relative;
+            top: -16px;
+        }
+    }
+
+    // .comments__show-others
+    &__show-others {
+        display: flex;
+        align-items: center;
+        padding: 9px 16px 11px;
+        border-radius: 12px;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 500;
+        background-color:  rgba(0, 11, 33, 0.06);
+        transition: background-color .1s ease;
+
+        &:hover {
+            background-color: rgba(0, 11, 33, 0.10);
+        }
+
+        &:active:not(:disabled) {
+            transform: scale(0.98);
+        }
+    }
+
+
     // .comments__answers
     &__answers {
         /* padding-left: 15px;
@@ -283,6 +342,10 @@
 
         .comments__item {
             margin-top: 16px;
+        }
+
+        &--hidden {
+            display: none;
         }
     }
 

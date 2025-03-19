@@ -7111,6 +7111,72 @@ textarea {
   stroke: #fff;
 }
 
+.comments__show-answers {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+  padding: 3px 10px;
+  border-radius: 8px;
+  color: #312c26;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  background-color: transparent;
+  -webkit-transition: background-color 0.1s ease;
+  -o-transition: background-color 0.1s ease;
+  transition: background-color 0.1s ease;
+}
+
+.comments__show-answers:hover {
+  background-color: rgba(0, 11, 33, 0.06);
+}
+
+.comments__show-answers::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 1px;
+  background-color: #aaaaaa;
+}
+
+.comments__show-answers:active:not(:disabled) {
+  -webkit-transform: scale(0.98);
+      -ms-transform: scale(0.98);
+          transform: scale(0.98);
+}
+
+.comments__show-others {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 9px 16px 11px;
+  border-radius: 12px;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+  background-color: rgba(0, 11, 33, 0.06);
+  -webkit-transition: background-color 0.1s ease;
+  -o-transition: background-color 0.1s ease;
+  transition: background-color 0.1s ease;
+}
+
+.comments__show-others:hover {
+  background-color: rgba(0, 11, 33, 0.1);
+}
+
+.comments__show-others:active:not(:disabled) {
+  -webkit-transform: scale(0.98);
+      -ms-transform: scale(0.98);
+          transform: scale(0.98);
+}
+
 .comments__answers {
   /* padding-left: 15px;
   border-left: 1px solid #aaaaaa; */
@@ -7118,6 +7184,10 @@ textarea {
 
 .comments__answers .comments__item {
   margin-top: 16px;
+}
+
+.comments__answers--hidden {
+  display: none;
 }
 
 .comments__footer {
@@ -14187,6 +14257,17 @@ body.dark-theme.loader:before {
   color: #e9e9e9;
 }
 
+.dark-theme .comments__show-answers,
+.dark-theme .comments__show-others {
+  background-color: #202225;
+  color: #e9e9e9;
+}
+
+.dark-theme .comments__show-answers:hover,
+.dark-theme .comments__show-others:hover {
+  background-color: #515151;
+}
+
 .dark-theme .comments__footer._loading::before {
   background-color: rgba(33, 35, 38, 0.7);
 }
@@ -16500,6 +16581,11 @@ body.loader:before {
 
   .post-card__header-inner {
     min-width: 250px;
+  }
+
+  .comments__show-answers {
+    position: relative;
+    top: -16px;
   }
 
   .moderation-pop-up__inner {

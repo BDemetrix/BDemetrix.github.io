@@ -129,6 +129,18 @@
     beforeRender: function (container, suggestions) {
       menuSlideDown(container);
     },
+
+
+
+
+
+
+
+
+
+
+
+    
   });
 
 
@@ -239,3 +251,364 @@ all.forEach(el => {
     console.log(el)
   }
 }) */
+
+
+// document.querySelectorAll('.comments__show-answers').forEach( el => {
+//   el.addEventListener('click', e => {
+//     // const closest = el.closest('.comments__item');
+//     // console.log(closest);
+//     el.closest('.comments__item')?.querySelector('.comments__answers')?.classList.remove('comments__answers--hidden');
+//     el.remove();
+//   });
+// })
+
+
+document.querySelectorAll('.comments__list').forEach( el => {
+  el.addEventListener('click', e => {
+
+    const showAnswers = e.target.closest('.comments__show-answers');
+    if (!showAnswers) return;
+
+    showAnswers.closest('.comments__item')?.querySelector('.comments__answers')?.classList.remove('comments__answers--hidden');
+    showAnswers.remove();
+  });
+})
+
+
+const commentsForAdjacentHTML = `
+        <li class="comments__item">
+            <div class="comments__content comments__content--self comments__content--new">
+                <div class="comments__person person">
+                    <a href="#" class="person__avatar-link" title="Перейти к профилю Виктор Петров">
+                        <!-- Если картинки нет (img отсутствует), то виден фон елемената .person__avatar-link -->
+                        <img src="./images/icons/comments/user.jpg" alt="Фото" class="person__avatar">
+                    </a>
+                    <div class="person__info">
+                        <div class="person__name">
+                            <a href="#" class="person__name-link" title="Перейти к профилю Виктор Петров">
+                                Виктор Петров
+                            </a>
+                            <div class="person__label">
+                                <svg width="14" height="14">
+                                    <use xlink:href="images/icons/comments/sprite.svg#star"></use>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="person__date">
+                            сегоддня в 13:33
+                        </div>
+                    </div>
+                    <div class="person__menu context-menu">
+                        <button class="context-menu__btn">
+                            <svg class="context-menu__svg" height="20" width="20">
+                                <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
+                            </svg>
+                        </button>
+                        <ul class="context-menu__list">
+                            <li><button class="context-menu__item">Копировать URL</button></li>
+                            <li><button class="context-menu__item">Копировать текст</button></li>
+                            <li><button class="context-menu__item">Пожаловться</button></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="comments__text">
+                    <p>
+                        Агрохолдинг «Степь» расширяет продуктовую линейку и запускает новое
+                        направление
+                        бизнеса — производство муки. Выпуск муки
+                        высшего и первого сортов начался на производственных площадках компании в городе Сальске
+                        Ростовской
+                        области
+                    </p>
+                    <p>
+                        Выпуск муки
+                        высшего и первого сортов начался на производственных площадках компании в городе Сальске
+                        Ростовской
+                        области
+                    </p>
+                </div>
+                <div class="comments__actions">
+                    <button class="comments__reply" title="Ответить" type="button">
+                        <svg width="20" height="17">
+                            <use xlink:href="images/icons/comments/sprite.svg#reply-arrow"></use>
+                        </svg>
+                    </button>
+                    <button class="comments__like" type="button" title="Поставить лайк">
+                        <svg width="20" height="19">
+                            <use xlink:href="images/icons/comments/sprite.svg#like"></use>
+                        </svg>
+                    </button>
+                    <a href="#" class="comments__fan" rel="nofollow" title="Трейдеры, которые оценили комментарий">3</a>
+                    <button class="comments__dislike" type="button" title="Поставить дизлайк">
+                        <svg width="20" height="19">
+                            <use xlink:href="images/icons/comments/sprite.svg#dislike"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <button class="comments__show-answers">
+                <span>Показать 76 ответов</span>
+            </button>
+            <ul class="comments__answers  comments__answers--hidden">
+                <li class="comments__item">
+                    <div class="comments__content">
+                        <div class="comments__person person">
+                            <a href="#" class="person__avatar-link" title="Перейти к профилю Виктор Петров">
+                                <img src="./images/icons/comments/user.jpg" alt="Фото" class="person__avatar">
+                            </a>
+                            <div class="person__info">
+                                <div class="person__name">
+                                    <a href="#" class="person__name-link" title="Перейти к профилю Виктор Петров">
+                                        Виктор Петров
+                                    </a>
+                                    <div class="person__label">
+                                        <svg width="14" height="14">
+                                            <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="person__date">
+                                    сегоддня в 13:33
+                                </div>
+                            </div>
+                            <div class="person__menu context-menu">
+                                <button class="context-menu__btn">
+                                    <svg class="context-menu__svg" height="20" width="20">
+                                        <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
+                                    </svg>
+                                </button>
+                                <ul class="context-menu__list">
+                                    <li><button class="context-menu__item">Копировать URL</button></li>
+                                    <li><button class="context-menu__item">Копировать текст</button></li>
+                                    <li><button class="context-menu__item">Пожаловться</button></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="comments__text">
+                            <blockquote>
+                                Текст цитаты из поста, который надо в комментариях тоже выделять
+                            </blockquote>
+                            
+                            новое направление бизнеса — производство муки. Выпуск муки
+                            высшего и первого сортов начался на производственных площадках компании в городе Сальске
+                            Ростовской
+                            области</div>
+                        <div class="comments__actions">
+                            <button class="comments__reply" title="Ответить" type="button">
+                                <svg width="20" height="17">
+                                    <use xlink:href="images/icons/comments/sprite.svg#reply-arrow"></use>
+                                </svg>
+                            </button>
+                            <button class="comments__like" type="button" title="Поставить лайк">
+                                <svg width="20" height="19">
+                                    <use xlink:href="images/icons/comments/sprite.svg#like"></use>
+                                </svg>
+                            </button>
+                            <a href="#" class="comments__fan" rel="nofollow"
+                                title="Трейдеры, которые оценили комментарий">3</a>
+                            <button class="comments__dislike" type="button" title="Поставить дизлайк">
+                                <svg width="20" height="19">
+                                    <use xlink:href="images/icons/comments/sprite.svg#dislike"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                <li class="comments__item">
+                    <div class="comments__content">
+                        <div class="comments__person person">
+                            <a href="#" class="person__avatar-link" title="Перейти к профилю Виктор Петров">
+                                <!-- <img src="./images/icons/comments/user.jpg" alt="Фото" class="person__avatar"> -->
+                            </a>
+                            <div class="person__info">
+                                <div class="person__name">
+                                    <a href="#" class="person__name-link" title="Перейти к профилю Виктор Петров">
+                                        Виктор Петров
+                                    </a>
+                                    <div class="person__label">
+                                        <svg width="14" height="14">
+                                            <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="person__date">
+                                    сегоддня в 13:33
+                                </div>
+                            </div>
+                            <div class="person__menu context-menu">
+                                <button class="context-menu__btn">
+                                    <svg class="context-menu__svg" height="20" width="20">
+                                        <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
+                                    </svg>
+                                </button>
+                                <ul class="context-menu__list">
+                                    <li><button class="context-menu__item">Копировать URL</button></li>
+                                    <li><button class="context-menu__item">Копировать текст</button></li>
+                                    <li><button class="context-menu__item">Пожаловться</button></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="comments__text">новое направление бизнеса — производство муки. Выпуск муки
+                            высшего и первого сортов начался на производственных площадках компании в городе Сальске
+                            Ростовской
+                            области
+                        </div>
+                        <div class="comments__actions">
+                            <button class="comments__reply" title="Ответить" type="button">
+                                <svg width="20" height="17">
+                                    <use xlink:href="images/icons/comments/sprite.svg#reply-arrow"></use>
+                                </svg>
+                            </button>
+                            <button class="comments__like" type="button" title="Поставить лайк">
+                                <svg width="20" height="19">
+                                    <use xlink:href="images/icons/comments/sprite.svg#like"></use>
+                                </svg>
+                            </button>
+                            <a href="#" class="comments__fan" rel="nofollow"
+                                title="Трейдеры, которые оценили комментарий">3</a>
+                            <button class="comments__dislike" type="button" title="Поставить дизлайк">
+                                <svg width="20" height="19">
+                                    <use xlink:href="images/icons/comments/sprite.svg#dislike"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li class="comments__item">
+            <div class="comments__content">
+                <div class="comments__person person">
+                    <a href="#" class="person__avatar-link" title="Перейти к профилю Виктор Петров">
+                        <!-- Если картинки нет (img отсутствует), то виден фон елемената .person__avatar-link -->
+                        <img src="./images/icons/comments/user.jpg" alt="Фото" class="person__avatar">
+                    </a>
+                    <div class="person__info">
+                        <div class="person__name">
+                            <a href="#" class="person__name-link" title="Перейти к профилю Виктор Петров">
+                                Виктор Петров
+                            </a>
+                            <div class="person__label">
+                                <svg width="14" height="14">
+                                    <use xlink:href="images/icons/comments/sprite.svg#star"></use>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="person__date">
+                            сегоддня в 13:33
+                        </div>
+                    </div>
+                    <div class="person__menu context-menu">
+                        <button class="context-menu__btn">
+                            <svg class="context-menu__svg" height="20" width="20">
+                                <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
+                            </svg>
+                        </button>
+                        <ul class="context-menu__list">
+                            <li><button class="context-menu__item">Копировать URL</button></li>
+                            <li><button class="context-menu__item">Копировать текст</button></li>
+                            <li><button class="context-menu__item">Пожаловться</button></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="comments__text">
+                    <blockquote>
+                        Текст цитаты из поста, который надо в комментариях тоже выделять
+                    </blockquote>
+                    
+                    Агрохолдинг «Степь» расширяет продуктовую линейку и запускает новое
+                    направление
+                    бизнеса — производство муки. Выпуск муки
+                    высшего и первого сортов начался на производственных площадках компании в городе Сальске Ростовской
+                    области
+                </div>
+                <div class="comments__actions">
+                    <button class="comments__reply" title="Ответить" type="button">
+                        <svg width="20" height="17">
+                            <use xlink:href="images/icons/comments/sprite.svg#reply-arrow"></use>
+                        </svg>
+                    </button>
+                    <button class="comments__like" type="button" title="Поставить лайк">
+                        <svg width="20" height="19">
+                            <use xlink:href="images/icons/comments/sprite.svg#like"></use>
+                        </svg>
+                    </button>
+                    <a href="#" class="comments__fan" rel="nofollow" title="Трейдеры, которые оценили комментарий">3</a>
+                    <button class="comments__dislike" type="button" title="Поставить дизлайк">
+                        <svg width="20" height="19">
+                            <use xlink:href="images/icons/comments/sprite.svg#dislike"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <button class="comments__show-answers">
+                <span>Показать 999 ответов</span>
+            </button>
+            <ul class="comments__answers comments__answers--hidden">
+                <li class="comments__item">
+                    <div class="comments__content">
+                        <div class="comments__person person">
+                            <a href="#" class="person__avatar-link" title="Перейти к профилю Виктор Петров">
+                                <img src="./images/icons/comments/user.jpg" alt="Фото" class="person__avatar">
+                            </a>
+                            <div class="person__info">
+                                <div class="person__name">
+                                    <a href="#" class="person__name-link" title="Перейти к профилю Виктор Петров">
+                                        Виктор Петров
+                                    </a>
+                                    <div class="person__label">
+                                        <svg width="14" height="14">
+                                            <use xlink:href="images/icons/comments/sprite.svg#popular"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="person__date">
+                                    сегоддня в 13:33
+                                </div>
+                            </div>
+                            <div class="person__menu context-menu">
+                                <button class="context-menu__btn">
+                                    <svg class="context-menu__svg" height="20" width="20">
+                                        <use xlink:href="images/icons/user-info/sprite.svg#more"></use>
+                                    </svg>
+                                </button>
+                                <ul class="context-menu__list">
+                                    <li><button class="context-menu__item">Копировать URL</button></li>
+                                    <li><button class="context-menu__item">Копировать текст</button></li>
+                                    <li><button class="context-menu__item">Пожаловться</button></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="comments__text">новое направление бизнеса — производство муки. Выпуск муки
+                            высшего и первого сортов начался на производственных площадках компании в городе Сальске
+                            Ростовской
+                            области</div>
+                        <div class="comments__actions">
+                            <button class="comments__reply" title="Ответить" type="button">
+                                <svg width="20" height="17">
+                                    <use xlink:href="images/icons/comments/sprite.svg#reply-arrow"></use>
+                                </svg>
+                            </button>
+                            <button class="comments__like" type="button" title="Поставить лайк">
+                                <svg width="20" height="19">
+                                    <use xlink:href="images/icons/comments/sprite.svg#like"></use>
+                                </svg>
+                            </button>
+                            <a href="#" class="comments__fan" rel="nofollow"
+                                title="Трейдеры, которые оценили комментарий">3</a>
+                            <button class="comments__dislike" type="button" title="Поставить дизлайк">
+                                <svg width="20" height="19">
+                                    <use xlink:href="images/icons/comments/sprite.svg#dislike"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </li>
+`
+
+document.querySelector('.comments__show-others')?.addEventListener('click', e => {
+  e.target.closest('.comments__list')?.insertAdjacentHTML('beforeend', commentsForAdjacentHTML);
+  e.target.remove();
+});
