@@ -226,6 +226,16 @@ body.dark-theme.loader:before {
       color: $text-color;
     }
 
+    &__show-answers,
+    &__show-others {
+      background-color: $container-bg;
+      color: $text-color;
+
+      &:hover {
+        background-color: $table-border-color;
+      }
+    }
+
     &__footer._loading {
       &::before {
         background-color: rgba(33, 35, 38, 0.7);
