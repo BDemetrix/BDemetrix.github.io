@@ -3,6 +3,7 @@ import { resolve } from 'path';
 import htmlIncludePlugin from './plugins/html-include.js';
 
 export default defineConfig({
+  base: './',
   root: 'src/html',
   publicDir: false,
   server: {
