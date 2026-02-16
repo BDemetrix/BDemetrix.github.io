@@ -1,0 +1,30 @@
+{
+  "name": "sl_blocks",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "watch": "node scripts/watch-and-serve.js",
+    "build": "node scripts/build-svg-sprite.js && vite build && node scripts/minify-css.js",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "chokidar": "^5.0.0",
+    "concurrently": "^9.2.1",
+    "cssnano": "^7.1.2",
+    "fast-glob": "^3.3.3",
+    "postcss": "^8.5.6",
+    "posthtml": "^0.16.7",
+    "posthtml-expressions": "^1.11.4",
+    "posthtml-include": "^2.0.1",
+    "posthtml-modules": "^0.9.1",
+    "sass": "^1.97.3",
+    "vite": "^7.3.1",
+    "vite-plugin-svg-icons": "^2.0.1"
+  }
+}
