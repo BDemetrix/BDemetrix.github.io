@@ -1,0 +1,31 @@
+<!-- 
+Для того чтобы кнопка встроилась в существующую верстку в заколовок необходимо:
+- добавить заголовку class="download-table-button-parent"
+- поместить в заголовок кнопку <button class="download-table-button download-table-button--rc">
+- добавить на страницу стили sl_blocks/src/scss/components/download-table-button.scss
+- диаграммам надо добавить  margin-bottom: 32px;
+
+Для быстрого проспотра результата в верстке действующего сайта надо 
+- зайти на страницу 
+- встваить в консоль код из sl_blocks/src/js/download-table-button/download-table-button.js
+- нажать "Enter"
+-->
+
+<div style="width: 1080px; max-width: 100%; margin: 0 auto;">
+    <h2 style="text-align: center; margin: 7px; font-size: 16px;" class="download-table-button-parent">
+        Роснефть. Выручка МСФО, млрд руб (моковый текст для демонстрации очень-очень-очень-очень-очень длинного текста закголовка)
+
+        <button class="download-table-button download-table-button--rc">
+            <svg class="download-table-button__icon">
+                <use href="#icon-table-file"></use>
+            </svg>
+            <span class="download-table-button__text">
+                Скачать таблицу
+            </span>
+        </button>
+    </h2>
+
+    <img src="./pictures/diagram.png" alt="скриншот" style="width: 100%;">
+</div>
+
+

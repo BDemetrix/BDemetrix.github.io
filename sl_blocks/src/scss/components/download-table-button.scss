@@ -1,0 +1,38 @@
+.download-table-button-parent {
+    position: relative;
+    padding: 0 140px;
+}
+.download-table-button {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 2px;
+    padding: 3px 7px 3px 3px;
+    background: #EFEFEF;
+    color: #000;
+    border: 1px solid #E6E6E6;
+    border-radius: 3px;
+    cursor: pointer;
+
+    &--rc {
+        position: absolute;
+        top: 50%;
+        right: 3px;
+        transform: translateY(-50%);
+    }
+
+	// .download-table-button__icon
+	&__icon {
+        width: 18px;
+        height: 18px;
+	}
+	// .download-table-button__text
+	&__text {
+        display: block;
+        padding-top: 1px;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 110%;
+	}
+}
+

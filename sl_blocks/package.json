@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "vite",
     "watch": "node scripts/watch-and-serve.js",
-    "build": "node scripts/build-svg-sprite.js && vite build && node scripts/minify-css.js",
+    "build": "node scripts/build-svg-sprite.js && node scripts/copy-images.js && vite build && node scripts/minify-css.js",
     "preview": "vite preview"
   },
   "keywords": [],

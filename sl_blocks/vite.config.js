@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
 import htmlIncludePlugin from './plugins/html-include.js';
+import { copyImagesPlugin } from './plugins/copy-images.js';
 
 export default defineConfig({
   base: './',
@@ -10,7 +11,8 @@ export default defineConfig({
     open: true
   },
   plugins: [
-    htmlIncludePlugin()
+    htmlIncludePlugin(),
+    copyImagesPlugin()
   ],
   build: {
     outDir: '../../build',
