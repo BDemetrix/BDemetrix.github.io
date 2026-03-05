@@ -13,10 +13,12 @@ sl_blocks/
 │   ├── js/            # JavaScript файлы
 │   └── images/
 │       ├── svg/       # SVG иконки для спрайта
+│       ├── pictures/  # Изображения для копирования в сборку
 │       └── sprite.svg # Сгенерированный SVG спрайт
 ├── build/             # Готовая сборка
 │   ├── css/           # CSS (style.css + style.min.css)
 │   ├── js/            # JavaScript (несжатый)
+│   ├── pictures/      # Скопированные изображения из src/images/pictures
 │   ├── sprite.svg     # SVG спрайт
 │   └── index.html     # Готовые HTML страницы
 ├── scripts/           # Скрипты для сборки
@@ -92,6 +94,25 @@ sl_blocks/
 
 Где `example` — это имя файла SVG без расширения.
 
+## Работа с изображениями
+
+Все изображения из папки `src/images/pictures/` автоматически копируются в `build/pictures/` при:
+
+- Запуске команды сборки `npm run build`
+- Запуске режима разработки `npm run watch`
+- Изменении файлов в папке `src/images/pictures/`
+
+### Пример использования
+
+1. Поместите изображение в `src/images/pictures/`, например `diagram.png`
+2. Запустите сборку или вотчер
+3. Изображение появится в `build/pictures/diagram.png`
+4. Используйте в HTML:
+
+```html
+<img src="../pictures/diagram.png" alt="Diagram">
+```
+
 ## Особенности
 
 - ✅ Нативная верстка без фреймворков
@@ -103,6 +124,7 @@ sl_blocks/
 - ✅ Автоматическая генерация SVG спрайтов
 - ✅ Вотчер с автосборкой и live reload при изменениях
 - ✅ Автоматическое открытие браузера при запуске dev-сервера
+- ✅ Автоматическое копирование изображений из `src/images/pictures/` в `build/pictures/`
 
 ## Дополнительно
 
