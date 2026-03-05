@@ -12,11 +12,14 @@ const execAsync = promisify(exec);
 const bs = browserSync.create();
 let isBuilding = false;
 let buildQueue = false;
+let debounceTimer = null;
+let shouldReload = false;
 
-// Функция сборки проекта
-async function buildProject() {
+// Функция сборки проекта с debounce
+async function buildProject(triggerReload = false) {
   if (isBuilding) {
     buildQueue = true;
+    if (triggerReload) shouldReload = true;
     return;
   }
 
@@ -27,8 +30,14 @@ async function buildProject() {
     await execAsync('npm run build', { cwd: path.resolve(__dirname, '..') });
     console.log('✅ Build completed successfully');
 
-    // Перезагрузка браузера после сборки
-    bs.reload();
+    // Перезагрузка только если это было вызвано изменением файла
+    if (triggerReload || shouldReload) {
+      setTimeout(() => {
+        console.log('🔄 Reloading browser...');
+        bs.reload();
+        shouldReload = false;
+      }, 200);
+    }
   } catch (error) {
     console.error('❌ Build failed:', error.message);
   } finally {
@@ -37,9 +46,17 @@ async function buildProject() {
     // Если были изменения во время сборки, запускаем ещё раз
     if (buildQueue) {
       buildQueue = false;
-      buildProject();
+      setTimeout(() => buildProject(shouldReload), 500);
     }
   }
+}
+
+// Debounced сборка
+function debouncedBuild(filePath) {
+  clearTimeout(debounceTimer);
+  debounceTimer = setTimeout(() => {
+    buildProject(true);  // true = перезагрузить браузер после сборки
+  }, 1000);  // Увеличиваем debounce до 1 секунды
 }
 
 // Первоначальная сборка
@@ -56,7 +73,10 @@ bs.init({
   port: 3000,
   open: true,
   notify: false,
-  ui: false
+  ui: false,
+  watch: false,  // Отключаем автоматическое отслеживание
+  reloadDelay: 0,
+  injectChanges: false
 });
 
 console.log('👀 Watching for changes in src/...');
@@ -65,24 +85,40 @@ console.log('👀 Watching for changes in src/...');
 const watcher = chokidar.watch(
   path.resolve(__dirname, '../src'),
   {
-    ignored: /(^|[\/\\])\../,
+    ignored: (filePath) => {
+      // Игнорируем скрытые файлы
+      if (/(^|[\/\\])\./.test(filePath)) return true;
+
+      // Игнорируем автогенерируемые файлы
+      if (filePath.includes('svg-sprite.html')) return true;
+      if (filePath.includes('sprite.svg')) return true;
+
+      return false;
+    },
     persistent: true,
-    ignoreInitial: true
+    ignoreInitial: true,
+    awaitWriteFinish: {
+      stabilityThreshold: 500,
+      pollInterval: 100
+    }
   }
 );
 
 watcher
   .on('add', (filePath) => {
-    console.log(`📄 File added: ${path.relative(process.cwd(), filePath)}`);
-    buildProject();
+    const relativePath = path.relative(process.cwd(), filePath);
+    console.log(`📄 File added: ${relativePath}`);
+    debouncedBuild(filePath);
   })
   .on('change', (filePath) => {
-    console.log(`📝 File changed: ${path.relative(process.cwd(), filePath)}`);
-    buildProject();
+    const relativePath = path.relative(process.cwd(), filePath);
+    console.log(`📝 File changed: ${relativePath}`);
+    debouncedBuild(filePath);
   })
   .on('unlink', (filePath) => {
-    console.log(`🗑️  File removed: ${path.relative(process.cwd(), filePath)}`);
-    buildProject();
+    const relativePath = path.relative(process.cwd(), filePath);
+    console.log(`🗑️  File removed: ${relativePath}`);
+    debouncedBuild(filePath);
   });
 
 // Обработка завершения процесса
