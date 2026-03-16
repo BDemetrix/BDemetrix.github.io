@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bdemetrix.github.io/sitemap.xml

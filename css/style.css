@@ -1051,16 +1051,8 @@ button {
     min-height: auto;
     align-items: flex-start;
   }
-  .hero__container {
-    flex-direction: column-reverse;
-    text-align: center;
-  }
   .hero__photo {
     width: clamp(140px, 50vw, 220px);
-    margin: 0 auto;
-  }
-  .hero__actions {
-    justify-content: center;
   }
   .section-title {
     text-align: center;
@@ -1138,6 +1130,20 @@ button {
   .section-title::after {
     left: 0;
     transform: none;
+  }
+}
+
+/* md-max — hero goes vertical below 1024px */
+@media (max-width: 1023px) {
+  .hero__container {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .hero__photo {
+    margin: 0 auto;
+  }
+  .hero__actions {
+    justify-content: center;
   }
 }
 
