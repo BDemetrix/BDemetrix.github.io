@@ -342,6 +342,7 @@ button {
   align-items: center;
   gap: var(--space-xs);
   flex-shrink: 0;
+  flex-grow: 1;
 }
 
 /* Hamburger */
@@ -389,7 +390,7 @@ button {
 .hero__container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   gap: var(--space-lg);
   width: 100%;
 }
@@ -1008,6 +1009,11 @@ button {
     display: flex;
   }
 
+  .header__burger {
+    justify-self: flex-end;
+    margin-left: auto;
+  }
+
   .header__nav {
     position: fixed;
     top: var(--header-height);
@@ -1055,6 +1061,9 @@ button {
   }
   .hero__actions {
     justify-content: center;
+  }
+  .section-title {
+    text-align: center;
   }
   .section-title::after {
     left: 50%;
@@ -1126,11 +1135,6 @@ button {
     display: block;
   }
 
-  .hero__container {
-    flex-direction: row;
-    text-align: left;
-  }
-
   .section-title::after {
     left: 0;
     transform: none;
@@ -1139,6 +1143,11 @@ button {
 
 /* lg */
 @media (min-width: 1024px) {
+  .hero__container {
+    flex-direction: row;
+    text-align: left;
+  }
+
   .projects__grid {
     grid-template-columns: repeat(3, 1fr);
   }
