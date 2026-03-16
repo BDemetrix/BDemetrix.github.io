@@ -666,34 +666,24 @@ button {
   position: relative;
   width: 100%;
   height: 0;
-  padding-bottom: 62.5%; /* 16:10 ratio */
+  padding-bottom: 100%; /* квадрат 1:1 */
   overflow: hidden;
   background: var(--color-surface-2);
   flex-shrink: 0;
 }
 
-.project-card__preview iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 200%;
-  height: 200%;
-  transform: scale(0.5);
-  transform-origin: top left;
-  border: none;
-  pointer-events: none;
-}
-
-.project-card__preview--img {
-  padding-bottom: 62.5%; /* same ratio as iframe cards */
-}
-
-.project-card__preview--img img {
+.project-card__preview iframe,
+.project-card__preview img {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  border: none;
+  pointer-events: none;
+}
+
+.project-card__preview--img img {
   object-fit: cover;
   object-position: top;
 }
