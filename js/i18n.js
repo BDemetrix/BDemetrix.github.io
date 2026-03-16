@@ -141,7 +141,7 @@ var i18n = {
     'contacts.telegram': 'Написать в Telegram',
     'contacts.email':    'Написать на email',
     'contacts.github':   'GitHub профиль',
-    'contacts.phone':    '📞 +7 911 257 35 86',
+    'contacts.phone':    '+7 911 257 35 86',
 
     // Footer
     'footer.copy': '© 2026 Дмитрий Богданов',
@@ -288,7 +288,7 @@ var i18n = {
     'contacts.telegram': 'Message on Telegram',
     'contacts.email':    'Send an Email',
     'contacts.github':   'GitHub Profile',
-    'contacts.phone':    '📞 +7 911 257 35 86',
+    'contacts.phone':    '+7 911 257 35 86',
 
     // Footer
     'footer.copy': '© 2026 Dmitry Bogdanov',
