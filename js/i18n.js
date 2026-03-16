@@ -102,8 +102,6 @@ var i18n = {
     'projects.misocial.title': 'MISOCIAL — адаптивная верстка',
     'projects.misocial.desc':  'Адаптивный сайт социальной сети с мобильной навигацией',
 
-    'projects.flutter.title': 'Flutter Demo App',
-    'projects.flutter.desc':  'Пример мобильного приложения на Flutter с Clean Architecture, BLoC и навигацией',
 
     // Featured / main projects
     'projects.smartcard.title': 'Smart Card — Flutter (RuStore)',
@@ -249,8 +247,6 @@ var i18n = {
     'projects.misocial.title': 'MISOCIAL — Responsive Layout',
     'projects.misocial.desc':  'Responsive social network website with mobile navigation',
 
-    'projects.flutter.title': 'Flutter Demo App',
-    'projects.flutter.desc':  'Mobile app example built with Flutter, Clean Architecture, BLoC, and navigation',
 
     // Featured / main projects
     'projects.smartcard.title': 'Smart Card — Flutter (RuStore)',
