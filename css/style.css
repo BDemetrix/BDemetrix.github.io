@@ -778,8 +778,10 @@ button {
 }
 
 .project-card--featured .project-card__preview {
-  flex: 0 0 62%;
-  /* padding-bottom:100% inherited — квадрат, iframe/img на всю ширину */
+  flex: 0 0 360px;
+  height: auto;       /* высота от flex-родителя (align-items: stretch) */
+  padding-bottom: 0;  /* отменяем ratio-трюк базового стиля */
+  align-self: stretch;
 }
 
 /* Certificate card */
@@ -874,7 +876,6 @@ button {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: var(--space-md);
-  max-width: 600px;
 }
 
 .education__university {
@@ -1061,7 +1062,8 @@ button {
 
   .project-card--featured .project-card__preview {
     flex: none;
-    /* padding-bottom:100% inherited */
+    height: 0;
+    padding-bottom: 100%; /* на мобильном — квадрат */
   }
 
   .project-card__cert-icon {
