@@ -105,8 +105,28 @@ var i18n = {
     'projects.flutter.title': 'Flutter Demo App',
     'projects.flutter.desc':  'Пример мобильного приложения на Flutter с Clean Architecture, BLoC и навигацией',
 
-    'projects.roots.title':    'От вёрстки к архитектуре',
-    'projects.roots.subtitle': 'Здесь начинался мой путь в разработку — освоение HTML/CSS/JS, вёрстка по макетам, первые коммерческие работы',
+    // Featured / main projects
+    'projects.smartcard.title': 'Smart Card — Flutter (RuStore)',
+    'projects.smartcard.desc':  'Мобильное приложение для умных визиток. Тимлид команды 4 разработчиков. Выпуск в RuStore, App Store и Google Play.',
+
+    'projects.meatinfo.title': 'meatinfo.ru — Маркетплейс (M16)',
+    'projects.meatinfo.desc':  'Листинг и карточки товаров foodtech-маркетплейса M16.TECH. Рефакторинг компонентов, проектирование API-контрактов с бэкендом.',
+
+    'projects.smartlabmobile.title': 'smart-lab.ru/mobile',
+    'projects.smartlabmobile.desc':  'Адаптивная мобильная версия финансового портала Smart-lab.',
+
+    'projects.cert.title': 'Foodtech-платформа M16 — Гос. регистрация ПО',
+    'projects.cert.desc':  'Свидетельство о гос. регистрации ПО №2023613075. Платформа автоматизации продаж продуктов питания и сельхозсырья. Соавтор: Богданов Д.Е.',
+    'projects.cert.badge': '№2023613075',
+
+    // Journey block
+    'projects.journey.title': 'От вёрстки к архитектуре',
+    'projects.journey.text':  'Я начал с нуля — самостоятельно освоил HTML, CSS и JavaScript, верстал макеты и создавал первые коммерческие лендинги. Со временем задачи усложнялись: появились архитектурные паттерны, командная работа, нативная разработка. Сегодня я проектирую системы на Clean Architecture, SOLID и DDD — и передаю эти знания коллегам.',
+    'projects.journey.link':  'Ранние работы ↓',
+
+    // Early works section
+    'projects.roots.title':    'Ранние работы',
+    'projects.roots.subtitle': 'HTML/CSS/JS вёрстка — с чего началась карьера',
 
     // Education
     'edu.title':      'Образование',
@@ -231,8 +251,28 @@ var i18n = {
     'projects.flutter.title': 'Flutter Demo App',
     'projects.flutter.desc':  'Mobile app example built with Flutter, Clean Architecture, BLoC, and navigation',
 
-    'projects.roots.title':    'From Layout to Architecture',
-    'projects.roots.subtitle': 'Where my development journey began — mastering HTML/CSS/JS, pixel-perfect layouts, first commercial projects',
+    // Featured / main projects
+    'projects.smartcard.title': 'Smart Card — Flutter (RuStore)',
+    'projects.smartcard.desc':  'Smart business card mobile app. Led a team of 4 developers. Released on RuStore, App Store and Google Play.',
+
+    'projects.meatinfo.title': 'meatinfo.ru — Marketplace (M16)',
+    'projects.meatinfo.desc':  'Product listing and cards for M16.TECH foodtech marketplace. Component refactoring, API contract design with backend.',
+
+    'projects.smartlabmobile.title': 'smart-lab.ru/mobile',
+    'projects.smartlabmobile.desc':  'Responsive mobile version of the Smart-lab financial portal.',
+
+    'projects.cert.title': 'M16 Foodtech Platform — State Software Registration',
+    'projects.cert.desc':  'Certificate of State Software Registration №2023613075. Platform for automating food and agricultural produce sales. Co-author: D. Bogdanov.',
+    'projects.cert.badge': '№2023613075',
+
+    // Journey block
+    'projects.journey.title': 'From Layout to Architecture',
+    'projects.journey.text':  'I started from scratch — taught myself HTML, CSS, and JavaScript, built pixel-perfect layouts and first commercial landing pages. Over time the challenges grew: architectural patterns, team leadership, native development. Today I design systems using Clean Architecture, SOLID, and DDD — and mentor colleagues on the principles I learned on my own.',
+    'projects.journey.link':  'Early Works ↓',
+
+    // Early works section
+    'projects.roots.title':    'Early Works',
+    'projects.roots.subtitle': 'HTML/CSS/JS layouts — where the journey began',
 
     // Education
     'edu.title':      'Education',

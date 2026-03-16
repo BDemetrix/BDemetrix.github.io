@@ -8,12 +8,15 @@
   <title>Дмитрий Богданов — Frontend Developer | Vue.js, Flutter, TypeScript</title>
   <meta name="description" content="Frontend Developer с 4+ годами опыта. Vue.js, Flutter, TypeScript. Разработка маркетплейсов, CRM, мобильных приложений. Санкт-Петербург, Remote.">
   <meta name="keywords" content="frontend developer, Vue.js, Flutter, TypeScript, резюме, Санкт-Петербург, portfolio">
+  <meta name="author" content="Dmitry Bogdanov">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Дмитрий Богданов — Frontend Developer">
   <meta property="og:description" content="Frontend Developer | Vue.js · Flutter · TypeScript · 4+ лет опыта">
   <meta property="og:image" content="https://bdemetrix.github.io/images/og-preview.jpg">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="420">
   <meta property="og:url" content="https://bdemetrix.github.io">
   <meta property="og:locale" content="ru_RU">
 
@@ -445,149 +448,219 @@
       <div class="projects__container container">
         <h2 class="section-title _scr-item" id="projects-title" data-i18n="projects.title">Проекты</h2>
 
-        <div class="projects__grid">
+        <!-- === ЧАСТЬ 1: Актуальные коммерческие проекты === -->
+        <div class="projects__main">
 
-          <!-- FlexTable — iframe -->
-          <article class="project-card _scr-item">
+          <!-- Smart Card — Flutter (RuStore) -->
+          <article class="project-card project-card--featured _scr-item">
             <div class="project-card__preview">
-              <iframe src="https://bdemetrix.github.io/blocks/FlexTable/" loading="lazy"
-                      title="FlexTable — плагин таблиц"
+              <iframe src="https://www.rustore.ru/catalog/app/com.devstars.smart_c" loading="lazy"
+                      title="Smart Card — Flutter App (RuStore)"
                       sandbox="allow-scripts allow-same-origin"></iframe>
             </div>
             <div class="project-card__info">
-              <h3 class="project-card__title" data-i18n="projects.flextable.title">FlexTable — плагин таблиц</h3>
-              <p class="project-card__desc" data-i18n="projects.flextable.desc">Кастомный JS-плагин для гибких адаптивных таблиц с сортировкой и фильтрацией</p>
-              <p class="project-card__stack">HTML · CSS · JavaScript</p>
-              <a href="https://bdemetrix.github.io/blocks/FlexTable/" target="_blank" rel="noopener noreferrer"
+              <h3 class="project-card__title" data-i18n="projects.smartcard.title">Smart Card — Flutter (RuStore)</h3>
+              <p class="project-card__desc" data-i18n="projects.smartcard.desc">Мобильное приложение для умных визиток. Тимлид команды 4 разработчиков. Выпуск в RuStore, App Store и Google Play.</p>
+              <p class="project-card__stack">Flutter · Dart · Clean Architecture · BLoC · Git</p>
+              <a href="https://www.rustore.ru/catalog/app/com.devstars.smart_c" target="_blank" rel="noopener noreferrer"
                  class="btn btn--outline" data-i18n="projects.view">Смотреть →</a>
             </div>
           </article>
 
-          <!-- smartlab.news — screenshot -->
-          <article class="project-card _scr-item">
-            <div class="project-card__preview project-card__preview--img">
-              <img src="images/projects/smartlab-news.webp" alt="smartlab.news — вёрстка сайта" loading="lazy" width="800" height="500">
-            </div>
-            <div class="project-card__info">
-              <h3 class="project-card__title" data-i18n="projects.smartlab.title">smartlab.news — вёрстка</h3>
-              <p class="project-card__desc" data-i18n="projects.smartlab.desc">Полная пиксельная вёрстка новостного финансового портала</p>
-              <p class="project-card__stack">HTML · CSS · JavaScript</p>
-              <a href="https://smartlab.news" target="_blank" rel="noopener noreferrer"
-                 class="btn btn--outline" data-i18n="projects.view">Смотреть →</a>
-            </div>
-          </article>
-
-          <!-- AOD — iframe -->
-          <article class="project-card _scr-item">
+          <!-- meatinfo.ru — Маркетплейс M16 -->
+          <article class="project-card project-card--featured _scr-item">
             <div class="project-card__preview">
-              <iframe src="https://bdemetrix.github.io/AOD/" loading="lazy"
-                      title="AOD — лендинг велосипедного бренда"
+              <iframe src="https://meatinfo.ru/moskva/trade" loading="lazy"
+                      title="meatinfo.ru — Foodtech маркетплейс"
                       sandbox="allow-scripts allow-same-origin"></iframe>
             </div>
             <div class="project-card__info">
-              <h3 class="project-card__title" data-i18n="projects.aod.title">AOD — лендинг велобренда</h3>
-              <p class="project-card__desc" data-i18n="projects.aod.desc">Анимированный лендинг для велосипедного бренда с параллакс-эффектами</p>
-              <p class="project-card__stack">HTML · CSS · JavaScript</p>
-              <a href="https://bdemetrix.github.io/AOD/" target="_blank" rel="noopener noreferrer"
+              <h3 class="project-card__title" data-i18n="projects.meatinfo.title">meatinfo.ru — Маркетплейс (M16)</h3>
+              <p class="project-card__desc" data-i18n="projects.meatinfo.desc">Листинг и карточки товаров foodtech-маркетплейса M16.TECH. Рефакторинг компонентов, проектирование API-контрактов с бэкендом.</p>
+              <p class="project-card__stack">Vue 3 · HTML5 · CSS3 · Vuex · REST API · Webpack</p>
+              <a href="https://meatinfo.ru/moskva/trade" target="_blank" rel="noopener noreferrer"
                  class="btn btn--outline" data-i18n="projects.view">Смотреть →</a>
             </div>
           </article>
 
-          <!-- Mavic — iframe -->
-          <article class="project-card _scr-item">
+          <!-- smart-lab.ru/mobile -->
+          <article class="project-card project-card--featured _scr-item">
             <div class="project-card__preview">
-              <iframe src="https://bdemetrix.github.io/Mavic/" loading="lazy"
-                      title="Mavic — лендинг квадрокоптера"
+              <iframe src="https://smart-lab.ru/mobile/" loading="lazy"
+                      title="smart-lab.ru/mobile — Мобильная версия"
                       sandbox="allow-scripts allow-same-origin"></iframe>
             </div>
             <div class="project-card__info">
-              <h3 class="project-card__title" data-i18n="projects.mavic.title">Mavic — лендинг квадрокоптера</h3>
-              <p class="project-card__desc" data-i18n="projects.mavic.desc">Лендинг квадрокоптера DJI Mavic с анимациями и адаптивной вёрсткой</p>
-              <p class="project-card__stack">HTML · CSS · JavaScript</p>
-              <a href="https://bdemetrix.github.io/Mavic/" target="_blank" rel="noopener noreferrer"
+              <h3 class="project-card__title" data-i18n="projects.smartlabmobile.title">smart-lab.ru/mobile</h3>
+              <p class="project-card__desc" data-i18n="projects.smartlabmobile.desc">Адаптивная мобильная версия финансового портала Smart-lab.</p>
+              <p class="project-card__stack">HTML5 · CSS3 · JavaScript</p>
+              <a href="https://smart-lab.ru/mobile/" target="_blank" rel="noopener noreferrer"
                  class="btn btn--outline" data-i18n="projects.view">Смотреть →</a>
             </div>
           </article>
 
-          <!-- Logo — iframe -->
-          <article class="project-card _scr-item">
-            <div class="project-card__preview">
-              <iframe src="https://bdemetrix.github.io/Logo/" loading="lazy"
-                      title="Logo — интернет-магазин"
-                      sandbox="allow-scripts allow-same-origin"></iframe>
+          <!-- Гос. регистрация ПО №2023613075 -->
+          <article class="project-card project-card--cert _scr-item">
+            <div class="project-card__cert-icon" aria-hidden="true">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                   style="color: var(--color-accent)">
+                <circle cx="12" cy="8" r="6"/>
+                <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+              </svg>
             </div>
             <div class="project-card__info">
-              <h3 class="project-card__title" data-i18n="projects.logo.title">Logo — интернет-магазин</h3>
-              <p class="project-card__desc" data-i18n="projects.logo.desc">Многостраничный интернет-магазин: каталог, карточка товара, оформление заказа</p>
-              <p class="project-card__stack">HTML · CSS · JavaScript</p>
-              <a href="https://bdemetrix.github.io/Logo/" target="_blank" rel="noopener noreferrer"
-                 class="btn btn--outline" data-i18n="projects.view">Смотреть →</a>
-            </div>
-          </article>
-
-          <!-- Luxtrader — iframe -->
-          <article class="project-card _scr-item">
-            <div class="project-card__preview">
-              <iframe src="https://bdemetrix.github.io/Luxtrader/" loading="lazy"
-                      title="Luxtrader — онлайн-аукцион"
-                      sandbox="allow-scripts allow-same-origin"></iframe>
-            </div>
-            <div class="project-card__info">
-              <h3 class="project-card__title" data-i18n="projects.luxtrader.title">Luxtrader — онлайн-аукцион</h3>
-              <p class="project-card__desc" data-i18n="projects.luxtrader.desc">Платформа онлайн-аукциона предметов роскоши с интерактивными элементами</p>
-              <p class="project-card__stack">HTML · CSS · JavaScript</p>
-              <a href="https://bdemetrix.github.io/Luxtrader/" target="_blank" rel="noopener noreferrer"
-                 class="btn btn--outline" data-i18n="projects.view">Смотреть →</a>
-            </div>
-          </article>
-
-          <!-- MISOCIAL — iframe -->
-          <article class="project-card _scr-item">
-            <div class="project-card__preview">
-              <iframe src="https://bdemetrix.github.io/MISOCIAL/" loading="lazy"
-                      title="MISOCIAL — адаптивная верстка"
-                      sandbox="allow-scripts allow-same-origin"></iframe>
-            </div>
-            <div class="project-card__info">
-              <h3 class="project-card__title" data-i18n="projects.misocial.title">MISOCIAL — адаптивная верстка</h3>
-              <p class="project-card__desc" data-i18n="projects.misocial.desc">Адаптивный сайт социальной сети с мобильной навигацией</p>
-              <p class="project-card__stack">HTML · CSS · JavaScript</p>
-              <a href="https://bdemetrix.github.io/MISOCIAL/" target="_blank" rel="noopener noreferrer"
-                 class="btn btn--outline" data-i18n="projects.view">Смотреть →</a>
-            </div>
-          </article>
-
-          <!-- Flutter Demo — screenshot -->
-          <article class="project-card _scr-item">
-            <div class="project-card__preview project-card__preview--img">
-              <img src="images/projects/flutter-demo.webp" alt="Flutter Demo App — мобильное приложение" loading="lazy" width="800" height="500">
-            </div>
-            <div class="project-card__info">
-              <h3 class="project-card__title" data-i18n="projects.flutter.title">Flutter Demo App</h3>
-              <p class="project-card__desc" data-i18n="projects.flutter.desc">Пример мобильного приложения на Flutter с Clean Architecture, BLoC и навигацией</p>
-              <p class="project-card__stack">Flutter · Dart · Clean Architecture</p>
-              <a href="https://github.com/BDemetrix/flutter-example" target="_blank" rel="noopener noreferrer"
-                 class="btn btn--outline" data-i18n="projects.view">Смотреть →</a>
+              <p class="project-card__cert-num" data-i18n="projects.cert.badge">№2023613075</p>
+              <h3 class="project-card__title" data-i18n="projects.cert.title">Foodtech-платформа M16 — Гос. регистрация ПО</h3>
+              <p class="project-card__desc" data-i18n="projects.cert.desc">Свидетельство о гос. регистрации ПО №2023613075. Платформа автоматизации продаж продуктов питания и сельхозсырья. Соавтор: Богданов Д.Е.</p>
+              <p class="project-card__stack">Vue 3 · Python · Symfony · REST API · PostgreSQL</p>
             </div>
           </article>
 
         </div>
 
-        <!-- Subsection: From layout to architecture -->
-        <div class="projects__roots _scr-item">
-          <h3 class="projects__roots-title" data-i18n="projects.roots.title">От вёрстки к архитектуре</h3>
-          <p class="projects__roots-subtitle" data-i18n="projects.roots.subtitle">
-            Здесь начинался мой путь в разработку — освоение HTML/CSS/JS, вёрстка по макетам, первые коммерческие работы
-          </p>
-          <ul class="projects__roots-list">
-            <li><a href="https://bdemetrix.github.io/blocks/FlexTable/" target="_blank" rel="noopener noreferrer">FlexTable plugin</a></li>
-            <li><a href="https://smartlab.news" target="_blank" rel="noopener noreferrer">smartlab.news</a></li>
-            <li><a href="https://bdemetrix.github.io/AOD/" target="_blank" rel="noopener noreferrer">AOD — велобренд</a></li>
-            <li><a href="https://bdemetrix.github.io/Mavic/" target="_blank" rel="noopener noreferrer">Mavic — квадрокоптер</a></li>
-            <li><a href="https://bdemetrix.github.io/Logo/" target="_blank" rel="noopener noreferrer">Logo — интернет-магазин</a></li>
-            <li><a href="https://bdemetrix.github.io/Luxtrader/" target="_blank" rel="noopener noreferrer">Luxtrader — аукцион</a></li>
-            <li><a href="https://bdemetrix.github.io/MISOCIAL/" target="_blank" rel="noopener noreferrer">MISOCIAL — адаптив</a></li>
-          </ul>
+        <!-- === ЧАСТЬ 2: Переход «От вёрстки к архитектуре» === -->
+        <div class="projects__journey _scr-item">
+          <div class="projects__journey-body">
+            <h3 class="projects__journey-title" data-i18n="projects.journey.title">От вёрстки к архитектуре</h3>
+            <p class="projects__journey-text" data-i18n="projects.journey.text">Я начал с нуля — самостоятельно освоил HTML, CSS и JavaScript, верстал макеты и создавал первые коммерческие лендинги. Со временем задачи усложнялись: появились архитектурные паттерны, командная работа, нативная разработка. Сегодня я проектирую системы на Clean Architecture, SOLID и DDD — и передаю эти знания коллегам.</p>
+            <a href="#projects-roots" class="btn btn--outline" data-i18n="projects.journey.link">Ранние работы ↓</a>
+          </div>
+        </div>
+
+        <!-- === ЧАСТЬ 3: Ранние работы === -->
+        <div id="projects-roots" class="projects__roots-section">
+
+          <h3 class="projects__roots-title _scr-item" data-i18n="projects.roots.title">Ранние работы</h3>
+          <p class="projects__roots-subtitle _scr-item" data-i18n="projects.roots.subtitle">HTML/CSS/JS вёрстка — с чего началась карьера</p>
+
+          <div class="projects__grid">
+
+            <!-- FlexTable — iframe -->
+            <article class="project-card project-card--muted _scr-item">
+              <div class="project-card__preview">
+                <iframe src="https://bdemetrix.github.io/blocks/FlexTable/" loading="lazy"
+                        title="FlexTable — плагин таблиц"
+                        sandbox="allow-scripts allow-same-origin"></iframe>
+              </div>
+              <div class="project-card__info">
+                <h3 class="project-card__title" data-i18n="projects.flextable.title">FlexTable — плагин таблиц</h3>
+                <p class="project-card__desc" data-i18n="projects.flextable.desc">Кастомный JS-плагин для гибких адаптивных таблиц с сортировкой и фильтрацией</p>
+                <p class="project-card__stack">HTML · CSS · JavaScript</p>
+                <a href="https://bdemetrix.github.io/blocks/FlexTable/" target="_blank" rel="noopener noreferrer"
+                   class="btn btn--outline" data-i18n="projects.view">Смотреть →</a>
+              </div>
+            </article>
+
+            <!-- smartlab.news — screenshot -->
+            <article class="project-card project-card--muted _scr-item">
+              <div class="project-card__preview project-card__preview--img">
+                <img src="images/projects/smartlab-news.webp" alt="smartlab.news — вёрстка сайта" loading="lazy" width="800" height="500">
+              </div>
+              <div class="project-card__info">
+                <h3 class="project-card__title" data-i18n="projects.smartlab.title">smartlab.news — вёрстка</h3>
+                <p class="project-card__desc" data-i18n="projects.smartlab.desc">Полная пиксельная вёрстка новостного финансового портала</p>
+                <p class="project-card__stack">HTML · CSS · JavaScript</p>
+                <a href="https://smartlab.news" target="_blank" rel="noopener noreferrer"
+                   class="btn btn--outline" data-i18n="projects.view">Смотреть →</a>
+              </div>
+            </article>
+
+            <!-- AOD — iframe -->
+            <article class="project-card project-card--muted _scr-item">
+              <div class="project-card__preview">
+                <iframe src="https://bdemetrix.github.io/AOD/" loading="lazy"
+                        title="AOD — лендинг велосипедного бренда"
+                        sandbox="allow-scripts allow-same-origin"></iframe>
+              </div>
+              <div class="project-card__info">
+                <h3 class="project-card__title" data-i18n="projects.aod.title">AOD — лендинг велобренда</h3>
+                <p class="project-card__desc" data-i18n="projects.aod.desc">Анимированный лендинг для велосипедного бренда с параллакс-эффектами</p>
+                <p class="project-card__stack">HTML · CSS · JavaScript</p>
+                <a href="https://bdemetrix.github.io/AOD/" target="_blank" rel="noopener noreferrer"
+                   class="btn btn--outline" data-i18n="projects.view">Смотреть →</a>
+              </div>
+            </article>
+
+            <!-- Mavic — iframe -->
+            <article class="project-card project-card--muted _scr-item">
+              <div class="project-card__preview">
+                <iframe src="https://bdemetrix.github.io/Mavic/" loading="lazy"
+                        title="Mavic — лендинг квадрокоптера"
+                        sandbox="allow-scripts allow-same-origin"></iframe>
+              </div>
+              <div class="project-card__info">
+                <h3 class="project-card__title" data-i18n="projects.mavic.title">Mavic — лендинг квадрокоптера</h3>
+                <p class="project-card__desc" data-i18n="projects.mavic.desc">Лендинг квадрокоптера DJI Mavic с анимациями и адаптивной вёрсткой</p>
+                <p class="project-card__stack">HTML · CSS · JavaScript</p>
+                <a href="https://bdemetrix.github.io/Mavic/" target="_blank" rel="noopener noreferrer"
+                   class="btn btn--outline" data-i18n="projects.view">Смотреть →</a>
+              </div>
+            </article>
+
+            <!-- Logo — iframe -->
+            <article class="project-card project-card--muted _scr-item">
+              <div class="project-card__preview">
+                <iframe src="https://bdemetrix.github.io/Logo/" loading="lazy"
+                        title="Logo — интернет-магазин"
+                        sandbox="allow-scripts allow-same-origin"></iframe>
+              </div>
+              <div class="project-card__info">
+                <h3 class="project-card__title" data-i18n="projects.logo.title">Logo — интернет-магазин</h3>
+                <p class="project-card__desc" data-i18n="projects.logo.desc">Многостраничный интернет-магазин: каталог, карточка товара, оформление заказа</p>
+                <p class="project-card__stack">HTML · CSS · JavaScript</p>
+                <a href="https://bdemetrix.github.io/Logo/" target="_blank" rel="noopener noreferrer"
+                   class="btn btn--outline" data-i18n="projects.view">Смотреть →</a>
+              </div>
+            </article>
+
+            <!-- Luxtrader — iframe -->
+            <article class="project-card project-card--muted _scr-item">
+              <div class="project-card__preview">
+                <iframe src="https://bdemetrix.github.io/Luxtrader/" loading="lazy"
+                        title="Luxtrader — онлайн-аукцион"
+                        sandbox="allow-scripts allow-same-origin"></iframe>
+              </div>
+              <div class="project-card__info">
+                <h3 class="project-card__title" data-i18n="projects.luxtrader.title">Luxtrader — онлайн-аукцион</h3>
+                <p class="project-card__desc" data-i18n="projects.luxtrader.desc">Платформа онлайн-аукциона предметов роскоши с интерактивными элементами</p>
+                <p class="project-card__stack">HTML · CSS · JavaScript</p>
+                <a href="https://bdemetrix.github.io/Luxtrader/" target="_blank" rel="noopener noreferrer"
+                   class="btn btn--outline" data-i18n="projects.view">Смотреть →</a>
+              </div>
+            </article>
+
+            <!-- MISOCIAL — iframe -->
+            <article class="project-card project-card--muted _scr-item">
+              <div class="project-card__preview">
+                <iframe src="https://bdemetrix.github.io/MISOCIAL/" loading="lazy"
+                        title="MISOCIAL — адаптивная верстка"
+                        sandbox="allow-scripts allow-same-origin"></iframe>
+              </div>
+              <div class="project-card__info">
+                <h3 class="project-card__title" data-i18n="projects.misocial.title">MISOCIAL — адаптивная верстка</h3>
+                <p class="project-card__desc" data-i18n="projects.misocial.desc">Адаптивный сайт социальной сети с мобильной навигацией</p>
+                <p class="project-card__stack">HTML · CSS · JavaScript</p>
+                <a href="https://bdemetrix.github.io/MISOCIAL/" target="_blank" rel="noopener noreferrer"
+                   class="btn btn--outline" data-i18n="projects.view">Смотреть →</a>
+              </div>
+            </article>
+
+            <!-- Flutter Demo — screenshot -->
+            <article class="project-card project-card--muted _scr-item">
+              <div class="project-card__preview project-card__preview--img">
+                <img src="images/projects/flutter-demo.webp" alt="Flutter Demo App — мобильное приложение" loading="lazy" width="800" height="500">
+              </div>
+              <div class="project-card__info">
+                <h3 class="project-card__title" data-i18n="projects.flutter.title">Flutter Demo App</h3>
+                <p class="project-card__desc" data-i18n="projects.flutter.desc">Пример мобильного приложения на Flutter с Clean Architecture, BLoC и навигацией</p>
+                <p class="project-card__stack">Flutter · Dart · Clean Architecture</p>
+                <a href="https://github.com/BDemetrix/flutter-example" target="_blank" rel="noopener noreferrer"
+                   class="btn btn--outline" data-i18n="projects.view">Смотреть →</a>
+              </div>
+            </article>
+
+          </div>
         </div>
 
       </div>
