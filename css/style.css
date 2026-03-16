@@ -688,6 +688,20 @@ button {
   object-position: top;
 }
 
+.project-card__preview--no-img {
+  background: var(--color-surface-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-card__preview--no-img::after {
+  content: 'RuStore';
+  font-size: 13px;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+}
+
 .project-card__info {
   padding: var(--space-md);
   flex: 1;
@@ -780,7 +794,7 @@ button {
 .project-card--featured .project-card__preview {
   flex: 0 0 360px;
   height: auto;       /* высота от flex-родителя (align-items: stretch) */
-  padding-bottom: 0;  /* отменяем ratio-трюк базового стиля */
+  padding-bottom: 28%;  
   align-self: stretch;
 }
 
