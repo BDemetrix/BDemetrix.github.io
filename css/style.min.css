@@ -665,7 +665,8 @@ button {
 .project-card__preview {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  height: 0;
+  padding-bottom: 62.5%; /* 16:10 ratio */
   overflow: hidden;
   background: var(--color-surface-2);
   flex-shrink: 0;
@@ -683,7 +684,14 @@ button {
   pointer-events: none;
 }
 
+.project-card__preview--img {
+  padding-bottom: 62.5%; /* same ratio as iframe cards */
+}
+
 .project-card__preview--img img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -781,8 +789,31 @@ button {
 
 .project-card--featured .project-card__preview {
   flex: 0 0 62%;
+  height: auto;
+  padding-bottom: 0; /* flex item — высота от соседа */
   min-height: 300px;
-  aspect-ratio: unset;
+}
+
+.project-card--featured .project-card__preview iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  transform: scale(0.5);
+  transform-origin: top left;
+  border: none;
+  pointer-events: none;
+}
+
+.project-card--featured .project-card__preview img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
 }
 
 /* Certificate card */
@@ -1064,8 +1095,9 @@ button {
 
   .project-card--featured .project-card__preview {
     flex: none;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 на мобильном */
     min-height: 0;
-    aspect-ratio: 16 / 10;
   }
 
   .project-card__cert-icon {
