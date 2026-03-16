@@ -145,7 +145,7 @@ var i18n = {
 
     // Footer
     'footer.copy': '© 2026 Дмитрий Богданов',
-    'footer.made': 'Сделано с ❤️ и чистым HTML/CSS'
+    'footer.made': 'Frontend Developer · Открыт к предложениям'
   },
 
   en: {
@@ -292,7 +292,7 @@ var i18n = {
 
     // Footer
     'footer.copy': '© 2026 Dmitry Bogdanov',
-    'footer.made': 'Made with ❤️ and clean HTML/CSS'
+    'footer.made': 'Frontend Developer · Open to opportunities'
   }
 };
 
