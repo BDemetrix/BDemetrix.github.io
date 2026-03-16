@@ -670,6 +670,7 @@ button {
   overflow: hidden;
   background: var(--color-surface-2);
   flex-shrink: 0;
+  border-radius: var(--radius-md);
 }
 
 .project-card__preview iframe,
