@@ -118,6 +118,7 @@ var i18n = {
     'projects.cert.title': 'Foodtech-платформа M16 — Гос. регистрация ПО',
     'projects.cert.desc':  'Свидетельство о гос. регистрации ПО №2023613075. Платформа автоматизации продаж продуктов питания и сельхозсырья. Соавтор: Богданов Д.Е.',
     'projects.cert.badge': '№2023613075',
+    'projects.cert.open':  'Открыть свидетельство PDF →',
 
     // Journey block
     'projects.journey.title': 'От вёрстки к архитектуре',
@@ -264,6 +265,7 @@ var i18n = {
     'projects.cert.title': 'M16 Foodtech Platform — State Software Registration',
     'projects.cert.desc':  'Certificate of State Software Registration №2023613075. Platform for automating food and agricultural produce sales. Co-author: D. Bogdanov.',
     'projects.cert.badge': '№2023613075',
+    'projects.cert.open':  'Open Certificate PDF →',
 
     // Journey block
     'projects.journey.title': 'From Layout to Architecture',
