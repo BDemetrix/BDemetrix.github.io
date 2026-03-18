@@ -1080,7 +1080,9 @@ if (goto_links) {
 		goto_link.addEventListener('click', function (e) {
 			let target_block_class = goto_link.getAttribute('href').replace('#', '');
 			let target_block = document.querySelector('.' + target_block_class);
-			_goto(target_block, 300);
+			if (target_block) {
+				_goto(target_block, 300);
+			}
 			e.preventDefault();
 		});
 	}
@@ -1266,8 +1268,6 @@ function custom_scroll(event) {
       burger.classList.toggle('_active');
       if (menuBody) {
         menuBody.classList.toggle('_active');
-        // add menu__body class for CSS selector
-        menuBody.classList.toggle('menu__body');
       }
     });
   }

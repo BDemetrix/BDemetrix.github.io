@@ -1066,7 +1066,7 @@ button {
     transition: opacity 0.3s ease, transform 0.3s ease;
     z-index: 99;
   }
-  .header__nav.menu__body._active {
+  .header__nav._active {
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
