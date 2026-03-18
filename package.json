@@ -1,0 +1,11 @@
+{
+  "name": "bdemetrix-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "pdf": "node scripts/generate-pdf.js"
+  },
+  "dependencies": {
+    "puppeteer": "^22.0.0"
+  }
+}

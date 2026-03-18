@@ -223,20 +223,23 @@ if (iconMenu != null) {
 	let delay = 0;
 	let menuBody = document.querySelector(".menu__body"),
 		logo = document.querySelector('.top-header__column--logo');
-	iconMenu.addEventListener("click", function (e) {
-		if (unlock) {
-			scroll_lock(delay);
-			iconMenu.classList.toggle("_active");
-			menuBody.classList.toggle("_active");
-			logo.classList.toggle("_active");
-		}
-	});
+	// Guard: only run old handler if legacy elements exist (not the new portfolio layout)
+	if (menuBody != null && logo != null) {
+		iconMenu.addEventListener("click", function (e) {
+			if (unlock) {
+				scroll_lock(delay);
+				iconMenu.classList.toggle("_active");
+				menuBody.classList.toggle("_active");
+				logo.classList.toggle("_active");
+			}
+		});
+	}
 };
 function menu_close() {
 	let iconMenu = document.querySelector(".icon-menu");
 	let menuBody = document.querySelector(".menu__body");
-	iconMenu.classList.remove("_active");
-	menuBody.classList.remove("_active");
+	if (iconMenu) iconMenu.classList.remove("_active");
+	if (menuBody) menuBody.classList.remove("_active");
 }
 //=================
 //BodyLock
@@ -1077,7 +1080,9 @@ if (goto_links) {
 		goto_link.addEventListener('click', function (e) {
 			let target_block_class = goto_link.getAttribute('href').replace('#', '');
 			let target_block = document.querySelector('.' + target_block_class);
-			_goto(target_block, 300);
+			if (target_block) {
+				_goto(target_block, 300);
+			}
 			e.preventDefault();
 		});
 	}
@@ -1198,6 +1203,140 @@ function custom_scroll(event) {
 		custom_scroll_line.style.height = custom_cursor_height + 'px';
 	}
 }
+
+// =============================================
+// THEME TOGGLE
+// =============================================
+(function() {
+  var themeBtn = document.querySelector('.theme-toggle');
+  if (!themeBtn) return;
+
+  themeBtn.addEventListener('click', function() {
+    var current = document.documentElement.getAttribute('data-theme') || 'dark';
+    var next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+})();
+
+// =============================================
+// BACK TO TOP
+// =============================================
+(function() {
+  var btn = document.getElementById('backToTop');
+  if (!btn) return;
+
+  window.addEventListener('scroll', function() {
+    if (pageYOffset > 300) {
+      btn.classList.add('_visible');
+    } else {
+      btn.classList.remove('_visible');
+    }
+  }, { passive: true });
+
+  btn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+
+// =============================================
+// MOBILE MENU — nav links close menu on click
+// =============================================
+(function() {
+  var navLinks = document.querySelectorAll('.nav__link');
+  for (var i = 0; i < navLinks.length; i++) {
+    navLinks[i].addEventListener('click', function() {
+      var iconMenu = document.querySelector('.icon-menu');
+      var menuBody = document.querySelector('.header__nav');
+      if (iconMenu && iconMenu.classList.contains('_active')) {
+        iconMenu.classList.remove('_active');
+        iconMenu.setAttribute('aria-expanded', 'false');
+      }
+      if (menuBody) {
+        menuBody.classList.remove('_active');
+      }
+    });
+  }
+
+  // Hamburger toggle for new header structure
+  var burger = document.querySelector('.header__burger.icon-menu');
+  if (burger) {
+    burger.addEventListener('click', function() {
+      var menuBody = document.querySelector('.header__nav');
+      var expanded = burger.getAttribute('aria-expanded') === 'true';
+      burger.setAttribute('aria-expanded', String(!expanded));
+      burger.classList.toggle('_active');
+      if (menuBody) {
+        menuBody.classList.toggle('_active');
+      }
+    });
+  }
+})();
+
+// =============================================
+// LOGO — close menu + scroll to top
+// =============================================
+(function() {
+  var logo = document.querySelector('.header__logo');
+  if (!logo) return;
+  logo.addEventListener('click', function(e) {
+    e.preventDefault();
+    // close mobile menu
+    var burger = document.querySelector('.icon-menu');
+    var menuBody = document.querySelector('.header__nav');
+    if (burger) {
+      burger.classList.remove('_active');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+    if (menuBody) menuBody.classList.remove('_active');
+    // scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+
+// =============================================
+// DOWNLOAD RESUME — theme + lang aware
+// =============================================
+(function() {
+  var btn = document.querySelector('button.btn--primary');
+  if (!btn) return;
+  btn.addEventListener('click', function(e) {
+    var theme = localStorage.getItem('theme') ||
+                document.documentElement.getAttribute('data-theme') || 'dark';
+    var lang  = localStorage.getItem('lang') ||
+                document.documentElement.getAttribute('data-lang') || 'ru';
+    var file  = 'pdf/resume-' + lang + '-' + theme + '.pdf';
+    var a = document.createElement('a');
+    a.href     = file;
+    a.download = 'Bogdanov_Resume_' + lang.toUpperCase() + '_' + theme + '.pdf';
+    a.click();
+  });
+})();
+
+// =============================================
+// NAV ACTIVE STATE on scroll
+// =============================================
+(function() {
+  var sections = document.querySelectorAll('section[id]');
+  var navLinks = document.querySelectorAll('.nav__link');
+
+  window.addEventListener('scroll', function() {
+    var scrollY = pageYOffset;
+    sections.forEach(function(section) {
+      var sectionTop = section.offsetTop - 80;
+      var sectionHeight = section.offsetHeight;
+      var id = section.getAttribute('id');
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        navLinks.forEach(function(link) {
+          link.classList.remove('_active');
+          if (link.getAttribute('href') === '#' + id) {
+            link.classList.add('_active');
+          }
+        });
+      }
+    });
+  }, { passive: true });
+})();
 
 let new_pos = pageYOffset;
 function scroll_animate(event) {
