@@ -371,13 +371,17 @@ button {
   padding: 0;
   flex-shrink: 0;
 }
+.icon-menu:hover span,
+.icon-menu:focus-visible span {
+  background: var(--color-accent);
+}
 .icon-menu span {
   display: block;
   width: 100%;
   height: 2px;
   background: var(--color-text);
   border-radius: 2px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease, background var(--transition);
 }
 .icon-menu._active span:nth-child(1) {
   transform: translateY(9px) rotate(45deg);
