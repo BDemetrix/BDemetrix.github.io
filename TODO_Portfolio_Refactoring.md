@@ -1,6 +1,0 @@
-Необходимо выполнить рефакторинг резюме /Users/dmitry/FreeWork/BDemetrix.github.io/index.html
-
-1. Сначала изучи /Users/dmitry/FreeWork/BDemetrix.github.io/index.html тексты, стили и js (если получится переиспользовать js эффекты - будет здорово)
-2. Сильно не меняй мои стили и с учетом референсов /Users/dmitry/FreeWork/BDemetrix.github.io/refs/refs.md и рекоменадаций составь ТЗ по рефакторингу резюме (обрати внимание что верстка должна быть адапривной - используй брейкпоинты, используй как основной цвет rgb(30, 41, 57)) с учетом добавления вот этой информации: /Users/dmitry/Development/pet/page_q_bot/my_resume/dmitry-bogdanov-resume.md /Users/dmitry/Development/pet/page_q_bot/my_resume/dmitry-bogdanov-resume.md
-3. информацию обо мне не искажай сделай скриншоты или iframe для демонстрации работ из блока ## Ссылки и портфолио в /Users/dmitry/Development/pet/page_q_bot/my_resume/dmitry-bogdanov-resume.md
-4. В результате должно получиться ТЗ для работы по /Users/dmitry/Study/agency/.claude/workflow/workflow-13-resume.md Результат (Получившееся ТЗ) сохрани в этот проект 
