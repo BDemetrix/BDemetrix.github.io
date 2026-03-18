@@ -1295,6 +1295,26 @@ function custom_scroll(event) {
 })();
 
 // =============================================
+// DOWNLOAD RESUME — theme + lang aware
+// =============================================
+(function() {
+  var btn = document.querySelector('a[download].btn--primary');
+  if (!btn) return;
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    var theme = localStorage.getItem('theme') ||
+                document.documentElement.getAttribute('data-theme') || 'dark';
+    var lang  = localStorage.getItem('lang') ||
+                document.documentElement.getAttribute('data-lang') || 'ru';
+    var file  = 'pdf/resume-' + lang + '-' + theme + '.pdf';
+    var a = document.createElement('a');
+    a.href     = file;
+    a.download = 'Bogdanov_Resume_' + lang.toUpperCase() + '_' + theme + '.pdf';
+    a.click();
+  });
+})();
+
+// =============================================
 // NAV ACTIVE STATE on scroll
 // =============================================
 (function() {
