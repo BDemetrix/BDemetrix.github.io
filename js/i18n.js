@@ -20,20 +20,26 @@ var i18n = {
     // About
     'about.title': 'Обо мне',
     'about.text1': 'Фронтенд-разработчик с 4+ годами коммерческого опыта. Специализируюсь на разработке интерфейсов для маркетплейсов, CRM и биллинговых систем на Vue.js. Руководил командой при создании кроссплатформенного мобильного приложения на Flutter (iOS/Android).',
-    'about.text2': 'Применяю Clean Architecture, SOLID, DRY, KISS, YAGNI. Работаю в OOP и функциональной парадигмах. Участвовал в полном цикле разработки: от анализа бизнес-задач до деплоя в продакшн.',
+    'about.text2': 'Применяю Clean Architecture, DDD, SOLID, DRY, KISS, YAGNI. Работаю в OOP и функциональной парадигмах. Участвовал в полном цикле разработки: от анализа бизнес-задач до деплоя в продакшн.',
     'about.text3': 'Интересна позиция Mid+/Senior Frontend Developer (remote) в продуктовой или аутсорс-компании с нетривиальными техническими задачами.',
 
     // Skills
-    'skills.title':        'Навыки',
-    'skills.cat.languages':'Языки',
-    'skills.cat.frameworks':'Фреймворки',
-    'skills.cat.arch':     'Архитектура',
-    'skills.cat.state':    'Стейт-менеджеры',
-    'skills.cat.build':    'Сборка',
-    'skills.cat.api':      'HTTP / API',
-    'skills.cat.infra':    'Инфраструктура',
-    'skills.cat.native':   'Нативная разработка',
-    'skills.cat.process':  'Процессы',
+    'skills.title':         'Навыки',
+    'skills.cat.languages': 'Языки',
+    'skills.cat.frameworks':'Фреймворки и библиотеки',
+    'skills.cat.mobile':    'Мобильная разработка',
+    'skills.cat.arch':      'Архитектура и принципы',
+    'skills.cat.paradigms': 'Парадигмы',
+    'skills.cat.state':     'Стейт-менеджмент',
+    'skills.cat.routing':   'Роутинг',
+    'skills.cat.testing':   'Тестирование',
+    'skills.cat.libs':      'Библиотеки',
+    'skills.cat.build':     'Сборка',
+    'skills.cat.api':       'API и сеть',
+    'skills.cat.tools':     'Инструменты',
+    'skills.cat.infra':     'Инфраструктура',
+    'skills.cat.process':   'Процессы',
+    'skills.legend':        ' — Знаю синтаксис и принцип работы, применял в проектах от случая к случаю для простых задач.',
 
     // Experience
     'exp.title': 'Опыт работы',
@@ -143,7 +149,8 @@ var i18n = {
 
     // Footer
     'footer.copy': '© 2026 Дмитрий Богданов',
-    'footer.made': 'Frontend Developer · Открыт к предложениям'
+    'footer.made':  'Архитектура важнее фреймворка.',
+    'footer.made2': 'Один разработчик. Много платформ.'
   },
 
   en: {
@@ -165,20 +172,26 @@ var i18n = {
     // About
     'about.title': 'About Me',
     'about.text1': 'Frontend developer with 4+ years of commercial experience. I specialize in building interfaces for marketplaces, CRM, and billing systems with Vue.js. Led a team while developing a cross-platform mobile application in Flutter (iOS/Android).',
-    'about.text2': 'I apply Clean Architecture, SOLID, DRY, KISS, and YAGNI principles. I work in both OOP and functional paradigms. I\'ve participated in the full development cycle: from business requirements analysis to production deployment.',
+    'about.text2': 'I apply Clean Architecture, DDD, SOLID, DRY, KISS, and YAGNI principles. I work in both OOP and functional paradigms. I\'ve participated in the full development cycle: from business requirements analysis to production deployment.',
     'about.text3': 'I\'m considering a Mid+/Senior Frontend Developer position (remote) at a product or outsourcing company with non-trivial technical challenges.',
 
     // Skills
-    'skills.title':        'Skills',
-    'skills.cat.languages':'Languages',
-    'skills.cat.frameworks':'Frameworks',
-    'skills.cat.arch':     'Architecture',
-    'skills.cat.state':    'State Management',
-    'skills.cat.build':    'Build Tools',
-    'skills.cat.api':      'HTTP / API',
-    'skills.cat.infra':    'Infrastructure',
-    'skills.cat.native':   'Native Development',
-    'skills.cat.process':  'Processes',
+    'skills.title':         'Skills',
+    'skills.cat.languages': 'Languages',
+    'skills.cat.frameworks':'Frameworks & Libraries',
+    'skills.cat.mobile':    'Mobile Development',
+    'skills.cat.arch':      'Architecture & Principles',
+    'skills.cat.paradigms': 'Programming Paradigms',
+    'skills.cat.state':     'State Management',
+    'skills.cat.routing':   'Routing',
+    'skills.cat.testing':   'Testing & Code Quality',
+    'skills.cat.libs':      'Libraries',
+    'skills.cat.build':     'Build Tools',
+    'skills.cat.api':       'API & Networking',
+    'skills.cat.tools':     'Tools & Package Managers',
+    'skills.cat.infra':     'Infrastructure & DevOps',
+    'skills.cat.process':   'Development Processes',
+    'skills.legend':        ' — I know the syntax and how it works, and I\'ve used it in projects on a case-by-case basis for simple tasks.',
 
     // Experience
     'exp.title': 'Work Experience',
@@ -288,7 +301,8 @@ var i18n = {
 
     // Footer
     'footer.copy': '© 2026 Dmitry Bogdanov',
-    'footer.made': 'Frontend Developer · Open to opportunities'
+    'footer.made':  'Architecture over framework.',
+    'footer.made2': 'One developer. Many platforms.'
   }
 };
 

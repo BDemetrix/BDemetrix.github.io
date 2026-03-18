@@ -85,6 +85,13 @@
   </script>
 </head>
 <body>
+
+<svg xmlns="http://www.w3.org/2000/svg" hidden aria-hidden="true" style="display:none">
+  <symbol id="icon-basic" viewBox="0 -960 960 960">
+    <path fill="currentColor" d="M340-260h180q60 0 98-35t38-89q0-37-21.5-64T575-487v-2q30-12 47-37.5t17-58.5q0-54-38-85t-104-31H340v441Zm70-254v-125h87q34 0 53.5 16.5T570-576q0 27-19 44.5T501-514h-91Zm0 194v-137h93q36 0 59 19t23 50q0 30-21.5 49T507-320h-97Zm-86 208.5Q251-143 197-197t-85.5-127Q80-397 80-480t31.5-156Q143-709 197-763t127-85.5Q397-880 480-880t156 31.5Q709-817 763-763t85.5 127Q880-563 880-480t-31.5 156Q817-251 763-197t-127 85.5Q563-80 480-80t-156-31.5Zm382.5-142Q800-347 800-480t-93.5-226.5Q613-800 480-800t-226.5 93.5Q160-613 160-480t93.5 226.5Q347-160 480-160t226.5-93.5ZM480-480Z"/>
+  </symbol>
+</svg>
+
 <div class="wrapper">
 
   <!-- ========== HEADER ========== -->
@@ -210,7 +217,7 @@
             при создании кроссплатформенного мобильного приложения на Flutter (iOS/Android).
           </p>
           <p class="about__text" data-i18n="about.text2">
-            Применяю Clean Architecture, SOLID, DRY, KISS, YAGNI. Работаю в OOP и функциональной
+            Применяю Clean Architecture, DDD, SOLID, DRY, KISS, YAGNI. Работаю в OOP и функциональной
             парадигмах. Участвовал в полном цикле разработки: от анализа бизнес-задач до деплоя
             в продакшн.
           </p>
@@ -232,43 +239,100 @@
           <div class="skills__category _scr-item">
             <h3 class="skills__category-title" data-i18n="skills.cat.languages">Языки</h3>
             <ul class="skills__list">
+              <li class="skills__tag">HTML5</li>
+              <li class="skills__tag">CSS3</li>
               <li class="skills__tag">JavaScript (ES6+)</li>
               <li class="skills__tag">TypeScript</li>
               <li class="skills__tag">Dart</li>
-              <li class="skills__tag">PHP</li>
-              <li class="skills__tag">Python</li>
-              <li class="skills__tag">SQL</li>
+              <li class="skills__tag">Kotlin</li>
+              <li class="skills__tag skills__tag--basic">PHP<svg class="skills__tag-badge" aria-hidden="true"><use href="#icon-basic"/></svg></li>
+              <li class="skills__tag skills__tag--basic">Python<svg class="skills__tag-badge" aria-hidden="true"><use href="#icon-basic"/></svg></li>
+              <li class="skills__tag skills__tag--basic">SQL<svg class="skills__tag-badge" aria-hidden="true"><use href="#icon-basic"/></svg></li>
             </ul>
           </div>
 
           <div class="skills__category _scr-item">
-            <h3 class="skills__category-title" data-i18n="skills.cat.frameworks">Фреймворки</h3>
+            <h3 class="skills__category-title" data-i18n="skills.cat.frameworks">Фреймворки и библиотеки</h3>
             <ul class="skills__list">
               <li class="skills__tag">Vue 3</li>
               <li class="skills__tag">Composition API</li>
-              <li class="skills__tag">Vue Router</li>
               <li class="skills__tag">Flutter</li>
-              <li class="skills__tag">Electron.js</li>
+              <li class="skills__tag">Electron</li>
+              <li class="skills__tag">Jetpack Compose</li>
+              <li class="skills__tag">Bloc</li>
+              <li class="skills__tag">Cubit</li>
+              <li class="skills__tag">Provider</li>
             </ul>
           </div>
 
           <div class="skills__category _scr-item">
-            <h3 class="skills__category-title" data-i18n="skills.cat.arch">Архитектура</h3>
+            <h3 class="skills__category-title" data-i18n="skills.cat.mobile">Мобильная разработка</h3>
+            <ul class="skills__list">
+              <li class="skills__tag">Android</li>
+              <li class="skills__tag">Coroutines</li>
+              <li class="skills__tag">Flow</li>
+              <li class="skills__tag">Streams</li>
+              <li class="skills__tag">BLoC Architecture</li>
+            </ul>
+          </div>
+
+          <div class="skills__category _scr-item">
+            <h3 class="skills__category-title" data-i18n="skills.cat.arch">Архитектура и принципы</h3>
             <ul class="skills__list">
               <li class="skills__tag">Clean Architecture</li>
               <li class="skills__tag">SOLID</li>
               <li class="skills__tag">DRY</li>
               <li class="skills__tag">KISS</li>
               <li class="skills__tag">YAGNI</li>
+              <li class="skills__tag">DDD</li>
             </ul>
           </div>
 
           <div class="skills__category _scr-item">
-            <h3 class="skills__category-title" data-i18n="skills.cat.state">Стейт-менеджеры</h3>
+            <h3 class="skills__category-title" data-i18n="skills.cat.paradigms">Парадигмы</h3>
+            <ul class="skills__list">
+              <li class="skills__tag">OOP</li>
+              <li class="skills__tag">Functional Programming</li>
+            </ul>
+          </div>
+
+          <div class="skills__category _scr-item">
+            <h3 class="skills__category-title" data-i18n="skills.cat.state">Стейт-менеджмент</h3>
             <ul class="skills__list">
               <li class="skills__tag">Pinia</li>
               <li class="skills__tag">Vuex</li>
-              <li class="skills__tag">BLoC</li>
+              <li class="skills__tag">Bloc</li>
+              <li class="skills__tag">Cubit</li>
+              <li class="skills__tag">Provider</li>
+            </ul>
+          </div>
+
+          <div class="skills__category _scr-item">
+            <h3 class="skills__category-title" data-i18n="skills.cat.routing">Роутинг</h3>
+            <ul class="skills__list">
+              <li class="skills__tag">Vue Router</li>
+              <li class="skills__tag">GoRouter</li>
+              <li class="skills__tag">Navigator 2.0</li>
+              <li class="skills__tag">AutoRoute</li>
+            </ul>
+          </div>
+
+          <div class="skills__category _scr-item">
+            <h3 class="skills__category-title" data-i18n="skills.cat.testing">Тестирование</h3>
+            <ul class="skills__list">
+              <li class="skills__tag">Unit Testing</li>
+              <li class="skills__tag">Kotest</li>
+              <li class="skills__tag">Static Code Analysis</li>
+              <li class="skills__tag">Detekt</li>
+            </ul>
+          </div>
+
+          <div class="skills__category _scr-item">
+            <h3 class="skills__category-title" data-i18n="skills.cat.libs">Библиотеки</h3>
+            <ul class="skills__list">
+              <li class="skills__tag">Axios</li>
+              <li class="skills__tag">Lodash</li>
+              <li class="skills__tag">PrimeVue</li>
             </ul>
           </div>
 
@@ -282,30 +346,30 @@
           </div>
 
           <div class="skills__category _scr-item">
-            <h3 class="skills__category-title" data-i18n="skills.cat.api">HTTP / API</h3>
+            <h3 class="skills__category-title" data-i18n="skills.cat.api">API и сеть</h3>
             <ul class="skills__list">
               <li class="skills__tag">REST API</li>
-              <li class="skills__tag">WebSocket</li>
-              <li class="skills__tag">Axios</li>
+              <li class="skills__tag">WebSockets</li>
+            </ul>
+          </div>
+
+          <div class="skills__category _scr-item">
+            <h3 class="skills__category-title" data-i18n="skills.cat.tools">Инструменты</h3>
+            <ul class="skills__list">
+              <li class="skills__tag">Git</li>
+              <li class="skills__tag">GitHub</li>
+              <li class="skills__tag">GitLab</li>
+              <li class="skills__tag">npm</li>
+              <li class="skills__tag">Yarn</li>
+              <li class="skills__tag">pub (Dart)</li>
             </ul>
           </div>
 
           <div class="skills__category _scr-item">
             <h3 class="skills__category-title" data-i18n="skills.cat.infra">Инфраструктура</h3>
             <ul class="skills__list">
-              <li class="skills__tag">Git</li>
-              <li class="skills__tag">GitHub</li>
-              <li class="skills__tag">Docker</li>
-              <li class="skills__tag">Nginx</li>
-            </ul>
-          </div>
-
-          <div class="skills__category _scr-item">
-            <h3 class="skills__category-title" data-i18n="skills.cat.native">Нативная разработка</h3>
-            <ul class="skills__list">
-              <li class="skills__tag">Android</li>
-              <li class="skills__tag">Kotlin</li>
-              <li class="skills__tag">Jetpack Compose</li>
+              <li class="skills__tag skills__tag--basic">Docker<svg class="skills__tag-badge" aria-hidden="true"><use href="#icon-basic"/></svg></li>
+              <li class="skills__tag skills__tag--basic">Nginx<svg class="skills__tag-badge" aria-hidden="true"><use href="#icon-basic"/></svg></li>
             </ul>
           </div>
 
@@ -316,10 +380,16 @@
               <li class="skills__tag">Scrum</li>
               <li class="skills__tag">Kanban</li>
               <li class="skills__tag">Code Review</li>
+              <li class="skills__tag">Technical Task Analysis</li>
             </ul>
           </div>
 
         </div>
+
+        <p class="skills__legend _scr-item">
+          <svg class="skills__legend-badge" aria-hidden="true"><use href="#icon-basic"/></svg><span data-i18n="skills.legend"> — Знаю синтаксис и принцип работы, применял в проектах от случая к случаю для простых задач.</span>
+        </p>
+
       </div>
     </section>
 
@@ -541,23 +611,7 @@
           <h3 class="projects__roots-title _scr-item" data-i18n="projects.roots.title">Ранние работы</h3>
           <p class="projects__roots-subtitle _scr-item" data-i18n="projects.roots.subtitle">HTML/CSS/JS вёрстка — с чего началась карьера</p>
 
-          <div class="projects__grid">
-
-            <!-- FlexTable — iframe -->
-            <article class="project-card project-card--muted _scr-item">
-              <div class="project-card__preview">
-                <iframe src="https://bdemetrix.github.io/blocks/FlexTable/" loading="lazy"
-                        title="FlexTable — плагин таблиц"
-                        sandbox="allow-scripts allow-same-origin"></iframe>
-              </div>
-              <div class="project-card__info">
-                <h3 class="project-card__title" data-i18n="projects.flextable.title">FlexTable — плагин таблиц</h3>
-                <p class="project-card__desc" data-i18n="projects.flextable.desc">Кастомный JS-плагин для гибких адаптивных таблиц с сортировкой и фильтрацией</p>
-                <p class="project-card__stack">HTML · CSS · JavaScript</p>
-                <a href="https://bdemetrix.github.io/blocks/FlexTable/" target="_blank" rel="noopener noreferrer"
-                   class="btn btn--outline" data-i18n="projects.view">Смотреть →</a>
-              </div>
-            </article>
+          <div class="projects__grid"> 
 
             <!-- smartlab.news — screenshot -->
             <article class="project-card project-card--muted _scr-item">
@@ -653,6 +707,21 @@
               </div>
             </article>
 
+            <!-- FlexTable — iframe -->
+            <article class="project-card project-card--muted _scr-item">
+              <div class="project-card__preview">
+                <iframe src="https://bdemetrix.github.io/blocks/FlexTable/" loading="lazy"
+                        title="FlexTable — плагин таблиц"
+                        sandbox="allow-scripts allow-same-origin"></iframe>
+              </div>
+              <div class="project-card__info">
+                <h3 class="project-card__title" data-i18n="projects.flextable.title">FlexTable — плагин таблиц</h3>
+                <p class="project-card__desc" data-i18n="projects.flextable.desc">Кастомный JS-плагин для гибких адаптивных таблиц с сортировкой и фильтрацией</p>
+                <p class="project-card__stack">HTML · CSS · JavaScript</p>
+                <a href="https://bdemetrix.github.io/blocks/FlexTable/" target="_blank" rel="noopener noreferrer"
+                   class="btn btn--outline" data-i18n="projects.view">Смотреть →</a>
+              </div>
+            </article>
 
           </div>
         </div>
@@ -702,12 +771,12 @@
             </svg>
             GitHub профиль
           </a>
-          <a href="tel:+79112573586" class="btn btn--secondary" data-i18n="contacts.phone">
+          <!-- <a href="tel:+79112573586" class="btn btn--secondary" data-i18n="contacts.phone">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.86a16 16 0 0 0 6 6l.95-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"/>
             </svg>
             +7 911 257 35 86
-          </a>
+          </a> -->
         </div>
 
       </div>
@@ -719,7 +788,7 @@
   <footer class="footer">
     <div class="footer__container container">
       <p class="footer__copy" data-i18n="footer.copy">© 2026 Дмитрий Богданов</p>
-      <p class="footer__made" data-i18n="footer.made">Сделано с ❤️ и чистым HTML/CSS</p>
+      <p class="footer__made"><span data-i18n="footer.made">Архитектура важнее фреймворка.</span><br><span data-i18n="footer.made2">Один разработчик. Много платформ.</span></p>
     </div>
   </footer>
 
