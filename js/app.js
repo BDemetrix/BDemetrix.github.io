@@ -1274,6 +1274,27 @@ function custom_scroll(event) {
 })();
 
 // =============================================
+// LOGO — close menu + scroll to top
+// =============================================
+(function() {
+  var logo = document.querySelector('.header__logo');
+  if (!logo) return;
+  logo.addEventListener('click', function(e) {
+    e.preventDefault();
+    // close mobile menu
+    var burger = document.querySelector('.icon-menu');
+    var menuBody = document.querySelector('.header__nav');
+    if (burger) {
+      burger.classList.remove('_active');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+    if (menuBody) menuBody.classList.remove('_active');
+    // scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+
+// =============================================
 // NAV ACTIVE STATE on scroll
 // =============================================
 (function() {

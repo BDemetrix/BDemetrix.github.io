@@ -318,6 +318,7 @@ button {
 .nav__link {
   font-size: 14px;
   font-weight: 500;
+  white-space: nowrap;
   color: var(--color-text-muted);
   text-decoration: none;
   transition: color var(--transition);
@@ -523,6 +524,10 @@ button {
   color: var(--color-text-muted);
   transition: color var(--transition), border-color var(--transition), background var(--transition);
   cursor: default;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .skills__tag:hover {
   color: var(--color-accent);
@@ -700,6 +705,7 @@ button {
 .project-card__preview {
   position: relative;
   width: 100%;
+  border-bottom: 1px solid var(--color-border);
   height: 0;
   padding-bottom: 100%; /* квадрат 1:1 */
   overflow: hidden;
@@ -1083,8 +1089,27 @@ button {
 
   .hero {
     padding: var(--space-lg) 0;
-    min-height: auto;
+    /* min-height: auto; */
     align-items: flex-start;
+    flex-direction: column;
+  }
+  .hero__container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+  .hero__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    text-align: center;
+  }
+  .hero__actions {
+    margin-top: auto;
+    justify-content: flex-start;
   }
   .hero__photo {
     width: clamp(140px, 50vw, 220px);
