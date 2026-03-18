@@ -297,6 +297,13 @@ button {
 .header__logo:hover {
   opacity: 0.85;
 }
+.header__logo-img {
+  display: block;
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  background: transparent;
+}
 
 .header__nav {
   flex: 1;

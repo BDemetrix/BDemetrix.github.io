@@ -166,7 +166,7 @@ var i18n = {
     'about.title': 'About Me',
     'about.text1': 'Frontend developer with 4+ years of commercial experience. I specialize in building interfaces for marketplaces, CRM, and billing systems with Vue.js. Led a team while developing a cross-platform mobile application in Flutter (iOS/Android).',
     'about.text2': 'I apply Clean Architecture, SOLID, DRY, KISS, and YAGNI principles. I work in both OOP and functional paradigms. I\'ve participated in the full development cycle: from business requirements analysis to production deployment.',
-    'about.text3': 'I\'m looking for a Mid+/Senior Frontend Developer position (remote) at a product or outsourcing company with non-trivial technical challenges.',
+    'about.text3': 'I\'m considering a Mid+/Senior Frontend Developer position (remote) at a product or outsourcing company with non-trivial technical challenges.',
 
     // Skills
     'skills.title':        'Skills',
