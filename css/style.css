@@ -315,6 +315,11 @@ button {
   gap: var(--space-md);
 }
 
+.nav__item {
+  position: relative;
+  left: 0;
+}
+
 .nav__link {
   font-size: 14px;
   font-weight: 500;
@@ -348,6 +353,7 @@ button {
 .header__controls {
   display: flex;
   align-items: center;
+  justify-content: end;
   gap: var(--space-xs);
   flex-shrink: 0;
   flex-grow: 1;
@@ -596,7 +602,7 @@ button {
 .timeline__marker {
   position: absolute;
   top: 8px;
-  left: -28px;
+  left: -30px;
   width: 14px;
   height: 14px;
   background: var(--color-accent);
@@ -705,7 +711,7 @@ button {
 .project-card__preview {
   position: relative;
   width: 100%;
-  border-bottom: 1px solid var(--color-border);
+  border: 1px solid var(--color-border);
   height: 0;
   padding-bottom: 100%; /* квадрат 1:1 */
   overflow: hidden;
@@ -1083,6 +1089,9 @@ button {
     align-items: center;
     gap: var(--space-lg);
   }
+  .nav__item {
+    left: -22px;
+  }
   .nav__link {
     font-size: 20px;
   }
@@ -1124,6 +1133,10 @@ button {
 
   .timeline {
     padding-left: 24px;
+  }
+
+  .timeline__marker {
+    left: -22.5px;
   }
 
   .footer__container {
