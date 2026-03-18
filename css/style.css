@@ -317,7 +317,6 @@ button {
 
 .nav__item {
   position: relative;
-  left: 0;
 }
 
 .nav__link {
@@ -1089,40 +1088,11 @@ button {
     align-items: center;
     gap: var(--space-lg);
   }
-  .nav__item {
-    left: -22px;
-  }
+
   .nav__link {
     font-size: 20px;
   }
 
-  .hero {
-    padding: var(--space-lg) 0;
-    /* min-height: auto; */
-    align-items: flex-start;
-    flex-direction: column;
-  }
-  .hero__container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
-  }
-  .hero__content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    max-width: 100%;
-    text-align: center;
-  }
-  .hero__actions {
-    margin-top: auto;
-    justify-content: flex-start;
-  }
-  .hero__photo {
-    width: clamp(140px, 50vw, 220px);
-  }
   .section-title {
     text-align: center;
   }
@@ -1167,6 +1137,13 @@ button {
   }
 }
 
+@media (max-width: 600px) {
+  .hero__actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 /* xs */
 @media (max-width: 480px) {
   .btn-icon__label { display: none; }
@@ -1208,15 +1185,41 @@ button {
 
 /* md-max — hero goes vertical below 1024px */
 @media (max-width: 1023px) {
+  .hero {
+    padding: max(24px, 3vh) 0;
+    /* min-height: auto; */
+    align-items: flex-start;
+    flex-direction: column;
+  }
   .hero__container {
+    flex: 1;
+    display: flex;
     flex-direction: column-reverse;
+    align-items: center;
+    width: 100%;
+  }
+  .hero__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
     text-align: center;
+  }
+  .hero__actions {
+    margin-top: auto;
+    justify-content: flex-start;
   }
   .hero__photo {
     margin: 0 auto;
   }
-  .hero__actions {
-    justify-content: center;
+}
+
+/* md-max + height fluid — hero padding 5vh→10vh between 700px and 840px screen height */
+@media (max-width: 1023px) and (min-height: 700px) {
+  .hero {
+    /* formula: mobPx=35 + (pcPx-mobPx) * ((100vh - minH) / (maxH - minH)) */
+    /* = 35px + 49px * ((100vh - 700px) / 140) */
+    padding: clamp(35px, calc(35px + 0.35 * (100vh - 700px)), 10vh) 0;
   }
 }
 

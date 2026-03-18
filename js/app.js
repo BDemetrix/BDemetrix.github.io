@@ -1298,10 +1298,9 @@ function custom_scroll(event) {
 // DOWNLOAD RESUME — theme + lang aware
 // =============================================
 (function() {
-  var btn = document.querySelector('a[download].btn--primary');
+  var btn = document.querySelector('button.btn--primary');
   if (!btn) return;
   btn.addEventListener('click', function(e) {
-    e.preventDefault();
     var theme = localStorage.getItem('theme') ||
                 document.documentElement.getAttribute('data-theme') || 'dark';
     var lang  = localStorage.getItem('lang') ||

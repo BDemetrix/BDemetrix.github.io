@@ -47,7 +47,8 @@
   <link rel="preload" href="fonts/montserrat-v15-latin-ext_cyrillic-ext-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="images/i-am.webp" as="image">
   <!-- Styles -->
-  <link rel="stylesheet" href="css/style.min.css">
+  <!-- <link rel="stylesheet" href="css/style.min.css"> -->
+  <link rel="stylesheet" href="css/style.css">
 
   <!-- Schema.org Person (JSON-LD) -->
   <script type="application/ld+json">
@@ -174,11 +175,13 @@
       <div class="hero__container container">
 
         <div class="hero__content">
-          <p class="hero__location" data-i18n="hero.location">
-            <span aria-hidden="true"></span>Санкт-Петербург · Remote
-          </p>
-          <h1 class="hero__name" data-i18n="hero.name">Дмитрий Богданов</h1>
-          <p class="hero__subtitle" data-i18n="hero.subtitle">Frontend Developer · Vue.js · Flutter · 4+ лет коммерческого опыта</p>
+          <div class="hero__headline">
+            <p class="hero__location" data-i18n="hero.location">
+              <span aria-hidden="true"></span>Санкт-Петербург · Remote
+            </p>
+            <h1 class="hero__name" data-i18n="hero.name">Дмитрий Богданов</h1>
+            <p class="hero__subtitle" data-i18n="hero.subtitle">Frontend Developer · Vue.js · Flutter · 4+ лет коммерческого опыта</p>
+          </div>
 
           <div class="hero__actions">
             <!--
@@ -187,14 +190,14 @@
               Результат: pdf/resume-{lang}-{theme}.pdf (4 варианта)
               После изменений на странице — перегенерировать: npm run pdf
             -->
-            <a href="#" download class="btn btn--primary" data-i18n="hero.cta.download">
+            <button type="button" class="btn btn--primary" data-i18n="hero.cta.download">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                 <polyline points="7 10 12 15 17 10"/>
                 <line x1="12" y1="15" x2="12" y2="3"/>
               </svg>
               Скачать резюме PDF
-            </a>
+            </button>
             <a href="https://t.me/Meaning_Driven" target="_blank" rel="noopener noreferrer" class="btn btn--secondary" data-i18n="hero.cta.telegram">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.17 13.662l-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.98.897z"/>
