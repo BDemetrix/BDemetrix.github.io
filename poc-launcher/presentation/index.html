@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POC Launcher — Обзор возможностей</title>
+  <style>
+    /* ── Tokens ──────────────────────────────────────────────────────── */
+    :root {
+      --primary:       #006874;
+      --primary-light: #82D3E1;
+      --accent:        #00BCD4;
+      --surface:       #f6fafb;
+      --surface-card:  #ffffff;
+      --border:        #d0e8ec;
+      --text:          #1a1c1e;
+      --text-muted:    #5a6068;
+      --green:         #1b7c3e;
+      --green-bg:      #e6f4ec;
+      --orange:        #b45309;
+      --orange-bg:     #fef3c7;
+      --red:           #b91c1c;
+      --red-bg:        #fee2e2;
+      --grey:          #4b5563;
+      --grey-bg:       #f3f4f6;
+      --code-bg:       #eef6f8;
+      --radius:        12px;
+      --radius-sm:     6px;
+      --shadow:        0 2px 12px rgba(0,0,0,.08);
+    }
+    [data-theme="dark"] {
+      --primary:       #4DD8E8;
+      --primary-light: #2a8a96;
+      --accent:        #4DD8E8;
+      --surface:       #111416;
+      --surface-card:  #1c1f22;
+      --border:        #2a3840;
+      --text:          #e2e8ea;
+      --text-muted:    #8a9ba0;
+      --green:         #4ade80;
+      --green-bg:      #14291e;
+      --orange:        #fbbf24;
+      --orange-bg:     #2a1f05;
+      --red:           #f87171;
+      --red-bg:        #2a0f0f;
+      --grey:          #9ca3af;
+      --grey-bg:       #1f2328;
+      --code-bg:       #151c20;
+      --shadow:        0 2px 12px rgba(0,0,0,.4);
+    }
+
+    /* ── Reset ───────────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px; line-height: 1.7;
+      color: var(--text); background: var(--surface);
+      transition: background .2s, color .2s;
+    }
+    a { color: var(--primary); }
+
+    /* ── Top nav ─────────────────────────────────────────────────────── */
+    .topnav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--surface-card);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 clamp(12px, 4vw, 32px); height: 56px;
+      box-shadow: var(--shadow);
+    }
+    .topnav-brand {
+      font-size: 17px; font-weight: 800;
+      color: var(--primary); text-decoration: none;
+      display: flex; align-items: center; gap: 8px;
+      white-space: nowrap;
+    }
+    .topnav-links { display: flex; align-items: center; gap: 24px; }
+    .topnav-links a {
+      font-size: 14px; color: var(--text-muted); text-decoration: none;
+      transition: color .15s;
+    }
+    .topnav-links a:hover { color: var(--primary); }
+    .theme-btn {
+      width: 32px; height: 32px;
+      display: flex; align-items: center; justify-content: center;
+      background: transparent; border: none; border-radius: 50%;
+      cursor: pointer; font-size: 16px; transition: background .15s;
+      color: var(--text);
+    }
+    .theme-btn:hover { background: var(--code-bg); }
+
+    /* ── Hero ────────────────────────────────────────────────────────── */
+    .hero {
+      text-align: center;
+      padding: clamp(44px, 10vw, 80px) clamp(12px, 4vw, 24px) clamp(40px, 8vw, 64px);
+      max-width: 800px; margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--code-bg);
+      color: var(--primary);
+      font-size: 13px; font-weight: 600;
+      padding: 4px 14px; border-radius: 20px;
+      margin-bottom: 20px;
+      border: 1px solid var(--primary-light);
+    }
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 800; line-height: 1.15;
+      color: var(--text); margin-bottom: 20px;
+    }
+    .hero h1 span { color: var(--primary); }
+    .hero p {
+      font-size: 18px; color: var(--text-muted); margin-bottom: 36px;
+      max-width: 600px; margin-left: auto; margin-right: auto;
+    }
+    .hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--primary); color: var(--surface-card);
+      text-decoration: none; padding: 12px 28px;
+      border-radius: 24px; font-size: 15px; font-weight: 600;
+      transition: opacity .15s;
+    }
+    .btn-primary:hover { opacity: .88; }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--primary);
+      text-decoration: none; padding: 12px 28px;
+      border-radius: 24px; font-size: 15px; font-weight: 600;
+      border: 2px solid var(--primary-light);
+      transition: border-color .15s, color .15s;
+    }
+    .btn-outline:hover { border-color: var(--primary); }
+
+    /* ── Comparison strip ────────────────────────────────────────────── */
+    .compare-strip {
+      background: var(--surface-card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+    .compare-inner {
+      max-width: 960px; margin: 0 auto; padding: 0 clamp(12px, 3vw, 32px);
+      display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+    }
+    .compare-label { font-size: 13px; color: var(--text-muted); font-weight: 600; }
+    .compare-chips { display: flex; gap: 12px; flex-wrap: wrap; }
+    .chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 600; padding: 6px 14px;
+      border-radius: 20px; white-space: nowrap;
+    }
+    .chip-green  { background: var(--green-bg);  color: var(--green); }
+    .chip-grey   { background: var(--grey-bg);   color: var(--grey); }
+    .chip-orange { background: var(--orange-bg); color: var(--orange); }
+
+    /* ── Features ────────────────────────────────────────────────────── */
+    .section {
+      max-width: 1060px; margin: 0 auto; padding: 72px clamp(12px, 3vw, 32px);
+    }
+    .section-label {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .08em; color: var(--primary); margin-bottom: 12px;
+    }
+    .section > h2 {
+      font-size: clamp(24px, 3vw, 34px); font-weight: 800;
+      color: var(--text); margin-bottom: 48px; line-height: 1.25;
+    }
+
+    /* Feature: text-left / screenshot-right alternating layout */
+    .feature {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px; align-items: center;
+      margin-bottom: 80px;
+    }
+    .feature.flip { direction: rtl; }
+    .feature.flip > * { direction: ltr; }
+
+    .feature-text {}
+    .feature-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--primary); color: var(--surface-card);
+      font-size: 18px; font-weight: 700; margin-bottom: 16px;
+    }
+    .feature-text h3 {
+      font-size: 22px; font-weight: 700; color: var(--primary); margin-bottom: 12px;
+    }
+    .feature-text p {
+      font-size: 15px; color: var(--text-muted); margin-bottom: 12px; line-height: 1.7;
+    }
+    .feature-text ul {
+      list-style: none; margin: 16px 0;
+    }
+    .feature-text ul li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14.5px; color: var(--text-muted); margin-bottom: 8px;
+    }
+    .feature-text ul li::before {
+      content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0;
+    }
+    .feature-vs {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 12.5px; font-weight: 600;
+      background: var(--orange-bg); color: var(--orange);
+      padding: 4px 12px; border-radius: 20px; margin-top: 8px;
+    }
+
+    .feature-img {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,.12);
+      border: 1px solid var(--border);
+    }
+    .feature-img a { display: block; }
+    .feature-img a img { cursor: zoom-in; }
+    .feature-img img { width: 100%; display: block; }
+    .feature-img figcaption {
+      font-size: 12px; color: var(--text-muted);
+      padding: 8px 14px; background: var(--surface-card);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── Comparison table ────────────────────────────────────────────── */
+    .compare-table-wrap {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .compare-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .compare-table th {
+      background: var(--code-bg); color: var(--primary); font-weight: 700;
+      text-align: left; padding: 12px 20px; border-bottom: 1px solid var(--border);
+    }
+    .compare-table th:not(:first-child) { text-align: center; }
+    .compare-table td {
+      padding: 12px 20px; border-bottom: 1px solid var(--border);
+      color: var(--text); background: var(--surface-card);
+    }
+    .compare-table td:not(:first-child) { text-align: center; }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .compare-table tr:nth-child(even) td { background: var(--surface); }
+    .yes { color: var(--green); font-weight: 700; }
+    .no  { color: var(--text-muted); }
+
+    /* ── Footer ──────────────────────────────────────────────────────── */
+    footer {
+      text-align: center; padding: 40px clamp(12px, 3vw, 24px);
+      border-top: 1px solid var(--border);
+      font-size: 13px; color: var(--text-muted);
+    }
+    footer a { color: var(--primary); }
+
+    /* ── Responsive ──────────────────────────────────────────────────── */
+    @media (max-width: 720px) {
+      .feature { grid-template-columns: 1fr; }
+      .feature.flip { direction: ltr; }
+      .compare-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+    }
+    @media (max-width: 480px) {
+      .topnav-links a { display: none; }
+    }
+    @media (max-width: 600px) {
+      .compare-table-wrap { border-left: none; border-right: none; border-radius: 0; }
+      .compare-table thead { display: none; }
+      .compare-table tr { display: block; border-bottom: 2px solid var(--border); }
+      .compare-table tr:last-child { border-bottom: none; }
+      .compare-table td {
+        display: flex; align-items: baseline; justify-content: space-between;
+        gap: 10px; padding: 8px 16px; border-bottom: 1px solid var(--border);
+        text-align: right;
+      }
+      .compare-table td:first-child {
+        background: var(--code-bg); font-weight: 700; color: var(--primary);
+        font-size: 13px; text-align: left; justify-content: flex-start;
+        border-bottom: 1px solid var(--border);
+      }
+      .compare-table td:last-child { border-bottom: none; }
+      .compare-table tr:nth-child(even) td { background: var(--surface-card); }
+      .compare-table tr:nth-child(even) td:first-child { background: var(--code-bg); }
+      .compare-table td:nth-child(2)::before {
+        content: "POC Launcher";
+        font-size: 11px; font-weight: 700; color: var(--primary);
+        flex-shrink: 0; opacity: .75;
+      }
+      .compare-table td:nth-child(3)::before {
+        content: "WalkieFleet";
+        font-size: 11px; font-weight: 700; color: var(--text-muted);
+        flex-shrink: 0;
+      }
+
+    }
+  </style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="icon-moon" viewBox="0 -960 960 960"><path fill="currentColor" d="M480-120q-151 0-255.5-104.5T120-480q0-138 90-239.5T440-838q13-2 23 3.5t16 14.5q6 9 6.5 21t-7.5 23q-17 26-25.5 55t-8.5 61q0 90 63 153t153 63q31 0 61.5-9t54.5-25q11-7 22.5-6.5T819-479q10 5 15.5 15t3.5 24q-14 138-117.5 229T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Zm-10-270Z"/></symbol>
+  <symbol id="icon-sun" viewBox="0 -960 960 960"><path fill="currentColor" d="M565-395q35-35 35-85t-35-85q-35-35-85-35t-85 35q-35 35-35 85t35 85q35 35 85 35t85-35Zm-226.5 56.5Q280-397 280-480t58.5-141.5Q397-680 480-680t141.5 58.5Q680-563 680-480t-58.5 141.5Q563-280 480-280t-141.5-58.5ZM80-440q-17 0-28.5-11.5T40-480q0-17 11.5-28.5T80-520h80q17 0 28.5 11.5T200-480q0 17-11.5 28.5T160-440H80Zm720 0q-17 0-28.5-11.5T760-480q0-17 11.5-28.5T800-520h80q17 0 28.5 11.5T920-480q0 17-11.5 28.5T880-440h-80ZM451.5-771.5Q440-783 440-800v-80q0-17 11.5-28.5T480-920q17 0 28.5 11.5T520-880v80q0 17-11.5 28.5T480-760q-17 0-28.5-11.5Zm0 720Q440-63 440-80v-80q0-17 11.5-28.5T480-200q17 0 28.5 11.5T520-160v80q0 17-11.5 28.5T480-40q-17 0-28.5-11.5ZM226-678l-43-42q-12-11-11.5-28t11.5-29q12-12 29-12t28 12l42 43q11 12 11 28t-11 28q-11 12-27.5 11.5T226-678Zm494 495-42-43q-11-12-11-28.5t11-27.5q11-12 27.5-11.5T734-282l43 42q12 11 11.5 28T777-183q-12 12-29 12t-28-12Zm-42-495q-12-11-11.5-27.5T678-734l42-43q11-12 28-11.5t29 11.5q12 12 12 29t-12 28l-43 42q-12 11-28 11t-28-11ZM183-183q-12-12-12-29t12-28l43-42q12-11 28.5-11t27.5 11q12 11 11.5 27.5T282-226l-42 43q-11 12-28 11.5T183-183Zm297-297Z"/></symbol>
+  <symbol id="icon-docs" viewBox="0 -960 960 960"><path fill="currentColor" d="M560-564v-68q33-14 67.5-21t72.5-7q26 0 51 4t49 10v64q-24-9-48.5-13.5T700-600q-38 0-73 9.5T560-564Zm0 220v-68q33-14 67.5-21t72.5-7q26 0 51 4t49 10v64q-24-9-48.5-13.5T700-380q-38 0-73 9t-67 27Zm0-110v-68q33-14 67.5-21t72.5-7q26 0 51 4t49 10v64q-24-9-48.5-13.5T700-490q-38 0-73 9.5T560-454ZM260-320q47 0 91.5 10.5T440-278v-394q-41-24-87-36t-93-12q-36 0-71.5 7T120-692v396q35-12 69.5-18t70.5-6Zm260 42q44-21 88.5-31.5T700-320q36 0 70.5 6t69.5 18v-396q-33-14-68.5-21t-71.5-7q-47 0-93 12t-87 36v394Zm-40 118q-48-38-104-59t-116-21q-42 0-82.5 11T100-198q-21 11-40.5-1T40-234v-482q0-11 5.5-21T62-752q46-24 96-36t102-12q58 0 113.5 15T480-740q51-30 106.5-45T700-800q52 0 102 12t96 36q11 5 16.5 15t5.5 21v482q0 23-19.5 35T860-198q-38-17-78.5-28T700-237q-60 0-116 21t-104 59ZM280-494Z"/></symbol>
+</svg>
+
+<!-- ════ TOP NAV ══════════════════════════════════════════════════════════ -->
+<header class="topnav">
+  <a href="../wiki/index.html" class="topnav-brand"><svg xmlns="http://www.w3.org/2000/svg" height="22" width="22" viewBox="0 -960 960 960" style="fill:currentColor;flex-shrink:0;vertical-align:middle"><path d="M280-160v40h400v-40H280Zm394-210q-8-3-14-6.5t-12-9.5l-30 13q-7 3-14 .5t-11-9.5l-22-39q-4-7-2.5-14t7.5-12l26-19q-2-8-2-15t2-15l-25-19q-6-5-7.5-12.5T572-542l23-38q4-6 11-8.5t14 .5l28 12q6-5 12-8t14-6l4-32q1-8 6.5-13t13.5-5h44q8 0 13.5 5t6.5 13l4 32q8 3 14 6t12 8l28-12q7-3 14-.5t11 8.5l23 38q4 7 2.5 14.5T863-515l-25 19q2 8 2 15t-2 15l26 19q6 5 7.5 12t-2.5 14l-22 39q-4 7-11 9.5t-14-.5l-30-13q-6 6-12 9.5t-14 6.5l-4 32q-1 8-6.5 13t-13.5 5h-44q-8 0-13.5-5t-6.5-13l-4-32Zm46-50q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17ZM280-800h400v-40H280v40Zm0 0v-40 40Zm0 640v40-40Zm0 120q-33 0-56.5-23.5T200-120v-720q0-33 23.5-56.5T280-920h400q33 0 56.5 23.5T760-840v120q0 17-11.5 28.5T720-680q-17 0-28.5-11.5T680-720H280v480h400q0-17 11.5-28.5T720-280q17 0 28.5 11.5T760-240v120q0 33-23.5 56.5T680-40H280Z"/></svg> POC Launcher</a>
+  <nav class="topnav-links">
+    <a href="../wiki/index.html">Документация</a>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="Тёмная тема"><svg aria-hidden="true" width="20" height="20"><use href="#icon-moon"/></svg></button>
+  </nav>
+</header>
+
+<!-- ════ HERO ══════════════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-badge">Windows · Linux · macOS</div>
+  <h1>Настройте парк устройств<br><span>в 5 раз быстрее</span></h1>
+  <p>
+    POC Launcher заменяет ручной запуск скриптов при установке ru.amettel.poc
+    на Android-устройства — без терминала, без ошибок, с поддержкой нескольких устройств одновременно.
+  </p>
+  <div class="hero-cta">
+    <a href="../wiki/index.html" class="btn-primary"><svg aria-hidden="true" width="18" height="18" style="fill:currentColor;flex-shrink:0"><use href="#icon-docs"/></svg> Документация</a>
+    <a href="../guides/install.html" class="btn-outline">Инструкция по установке →</a>
+  </div>
+</section>
+
+<!-- ════ COMPARE STRIP ══════════════════════════════════════════════════════ -->
+<div class="compare-strip">
+  <div class="compare-inner">
+    <span class="compare-label">Преимущества перед <a href="https://walkiefleet.ru/devicelauncher" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">WalkieFleet Launcher</a>:</span>
+    <div class="compare-chips">
+      <span class="chip chip-green">✓ Linux и macOS</span>
+      <span class="chip chip-green">✓ Несколько устройств сразу</span>
+      <span class="chip chip-green">✓ Редактор конфига</span>
+      <span class="chip chip-green">✓ GPS-диагностика</span>
+      <span class="chip chip-green">✓ Маппинг кнопок</span>
+    </div>
+  </div>
+</div>
+
+<!-- ════ FEATURES ══════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">Возможности</div>
+  <h2>Всё необходимое — в одном приложении</h2>
+
+  <!-- 1. Install -->
+  <div class="feature">
+    <div class="feature-text">
+      <div class="feature-num">1</div>
+      <h3>Установка и настройка за один клик</h3>
+      <p>
+        Выберите APK, введите учётные данные один раз — для всех устройств или индивидуально для каждого.
+        Нажмите «Установить»: приложение само установит APK, выдаст все необходимые разрешения,
+        исключит из оптимизации батареи и запустит сервис.
+      </p>
+      <ul>
+        <li>15 шагов сценария выполняются автоматически</li>
+        <li>Прогресс каждого шага виден в реальном времени</li>
+        <li>Разные учётные данные для разных устройств в одном сеансе</li>
+        <li>Групповая установка на несколько устройств параллельно</li>
+      </ul>
+      <div class="feature-vs">
+        WalkieFleet Launcher: только 1 устройство, ручная выдача разрешений
+      </div>
+    </div>
+    <figure class="feature-img">
+      <a href="../guides/screenshots/install/light/07_install_running.png" target="_blank" rel="noopener">
+      <img
+        src="../guides/screenshots/install/light/07_install_running.png"
+        data-light="../guides/screenshots/install/light/07_install_running.png"
+        data-dark="../guides/screenshots/install/dark/07_install_running.png"
+        alt="Установка идёт параллельно на двух устройствах">
+      </a>
+      <figcaption>Параллельная установка на двух устройствах — прогресс обновляется в реальном времени</figcaption>
+    </figure>
+  </div>
+
+  <!-- 2. WiFi -->
+  <div class="feature flip">
+    <div class="feature-text">
+      <div class="feature-num">2</div>
+      <h3>Настройка Wi-Fi через ADB</h3>
+      <p>
+        Для безэкранных устройств подключение к корпоративной сети Wi-Fi занимает секунды.
+        Введите SSID и пароль — приложение настроит сеть на всех выбранных устройствах через ADB.
+        Поддерживается и беспроводное сопряжение через QR-код (Android 11+).
+      </p>
+      <ul>
+        <li>Настройка Wi-Fi без тачскрина на радиостанциях</li>
+        <li>Общие или индивидуальные учётные данные</li>
+        <li>Беспроводное сопряжение (ADB Wireless Pairing)</li>
+      </ul>
+      <div class="feature-vs">
+        WalkieFleet Launcher: только через вкладку настроек, одно устройство
+      </div>
+    </div>
+    <figure class="feature-img">
+      <a href="../guides/screenshots/wifi/light/03_devices_selected.png" target="_blank" rel="noopener">
+      <img
+        src="../guides/screenshots/wifi/light/03_devices_selected.png"
+        data-light="../guides/screenshots/wifi/light/03_devices_selected.png"
+        data-dark="../guides/screenshots/wifi/dark/03_devices_selected.png"
+        alt="Настройка Wi-Fi — общие учётные данные">
+      </a>
+      <figcaption>Общие учётные данные для всех устройств — одна точка ввода</figcaption>
+    </figure>
+  </div>
+
+  <!-- 3. Config -->
+  <div class="feature">
+    <div class="feature-text">
+      <div class="feature-num">3</div>
+      <h3>Визуальный редактор конфигурации</h3>
+      <p>
+        35+ параметров приложения — автозапуск, PTT-кнопки, геолокация, звук, уровни громкости —
+        настраиваются через удобную форму. Конфиг сохраняется в файл и применяется без переустановки.
+      </p>
+      <ul>
+        <li>Профили конфига для разных типов устройств</li>
+        <li>Применение одной кнопкой без переустановки APK</li>
+        <li>JSON-превью для продвинутых пользователей</li>
+        <li>Режим «на каждое устройство» для индивидуальных настроек</li>
+      </ul>
+      <div class="feature-vs">
+        WalkieFleet Launcher: только ручное редактирование wfinit.cfg файла
+      </div>
+    </div>
+    <figure class="feature-img">
+      <a href="../guides/screenshots/config/light/03_section_expanded.png" target="_blank" rel="noopener">
+      <img
+        src="../guides/screenshots/config/light/03_section_expanded.png"
+        data-light="../guides/screenshots/config/light/03_section_expanded.png"
+        data-dark="../guides/screenshots/config/dark/03_section_expanded.png"
+        alt="Редактор конфигурации — развёрнутый раздел">
+      </a>
+      <figcaption>Визуальный редактор OTAP-конфига с группировкой по разделам</figcaption>
+    </figure>
+  </div>
+
+  <!-- 4. Buttons -->
+  <div class="feature flip">
+    <div class="feature-text">
+      <div class="feature-num">4</div>
+      <h3>Маппинг физических кнопок</h3>
+      <p>
+        Настройте привязку аппаратных кнопок (PTT, SOS, боковые клавиши) к действиям приложения
+        прямо из интерфейса. Встроенные пресеты для 10+ популярных моделей.
+        Отправьте команду и сразу проверьте реакцию — без перепрошивки.
+      </p>
+      <ul>
+        <li>Пресеты для IRC590, M6, TE620, TE800, TE900 и других</li>
+        <li>Создание кастомных маппингов с keycode</li>
+        <li>Применение и тест без выхода из приложения</li>
+      </ul>
+      <div class="feature-vs">
+        WalkieFleet Launcher: настройка кнопок не предусмотрена
+      </div>
+    </div>
+    <figure class="feature-img">
+      <a href="../guides/screenshots/buttons/light/03_both_selected.png" target="_blank" rel="noopener">
+      <img
+        src="../guides/screenshots/buttons/light/03_both_selected.png"
+        data-light="../guides/screenshots/buttons/light/03_both_selected.png"
+        data-dark="../guides/screenshots/buttons/dark/03_both_selected.png"
+        alt="Маппинг кнопок — выбраны радио и модель">
+      </a>
+      <figcaption>Выбор пресета по модели устройства и типу ПТТ-кнопки</figcaption>
+    </figure>
+  </div>
+
+  <!-- 5. GPS -->
+  <div class="feature">
+    <div class="feature-text">
+      <div class="feature-num">5</div>
+      <h3>GPS-диагностика без команд ADB</h3>
+      <p>
+        Мгновенная проверка геолокации на выбранных устройствах: провайдеры, последний GPS-фикс,
+        разрешения, Google Play Services, режим экономии батареи. Отчёт — в один клик,
+        готов к отправке в поддержку.
+      </p>
+      <ul>
+        <li>Одновременная диагностика нескольких устройств</li>
+        <li>Понятный статус без знания ADB-команд</li>
+        <li>Копирование отчёта в буфер или сохранение в файл</li>
+        <li>Live-трекинг координат для полевой проверки</li>
+      </ul>
+      <div class="feature-vs">
+        WalkieFleet Launcher: диагностика GPS не предусмотрена
+      </div>
+    </div>
+    <figure class="feature-img">
+      <a href="../guides/screenshots/gps/light/04_report_ok.png" target="_blank" rel="noopener">
+      <img
+        src="../guides/screenshots/gps/light/04_report_ok.png"
+        data-light="../guides/screenshots/gps/light/04_report_ok.png"
+        data-dark="../guides/screenshots/gps/dark/04_report_ok.png"
+        alt="GPS-отчёт — всё в порядке">
+      </a>
+      <figcaption>Результат диагностики GPS — все проверки пройдены, координаты актуальны</figcaption>
+    </figure>
+  </div>
+
+  <!-- 6. Report -->
+  <div class="feature flip">
+    <div class="feature-text">
+      <div class="feature-num">6</div>
+      <h3>Отчёт и лог для каждого устройства</h3>
+      <p>
+        После завершения — сводная таблица: успешные и проблемные устройства,
+        детали по каждому шагу. Лог каждой сессии автоматически сохраняется в TXT
+        с именем вида <code>install_2026-08-28_Device123.txt</code>.
+      </p>
+      <ul>
+        <li>Раскрываемые карточки с деталями по устройству</li>
+        <li>Копирование отчёта одной кнопкой</li>
+        <li>Автосохранение в папку загрузок</li>
+        <li>Быстрый переход к папке с логами</li>
+      </ul>
+      <div class="feature-vs">
+        WalkieFleet Launcher: результат виден только на экране, логи не сохраняются
+      </div>
+    </div>
+    <figure class="feature-img">
+      <a href="../guides/screenshots/report/light/04_card_expanded.png" target="_blank" rel="noopener">
+      <img
+        src="../guides/screenshots/report/light/04_card_expanded.png"
+        data-light="../guides/screenshots/report/light/04_card_expanded.png"
+        data-dark="../guides/screenshots/report/dark/04_card_expanded.png"
+        alt="Вкладка «Отчёт» — карточка развёрнута">
+      </a>
+      <figcaption>Детальный отчёт по каждому устройству — шаги, время, причины ошибок</figcaption>
+    </figure>
+  </div>
+
+
+  <!-- 7. General / Header -->
+  <div class="feature">
+    <div class="feature-text">
+      <div class="feature-num">7</div>
+      <h3>Управление и настройки</h3>
+      <p>
+        В правом углу шапки — центр управления: индикатор ADB отображает статус в реальном времени.
+        При ошибке достаточно кликнуть на него и скачать ADB прямо из приложения (~10 МБ с серверов Google)
+        без выхода в терминал. Рядом — меню логов и переключатель темы.
+      </p>
+      <ul>
+        <li>Индикатор ADB: готов, инициализация, устарел, ошибка</li>
+        <li>Автозагрузка ADB одной кнопкой — не нужно устанавливать вручную</li>
+        <li>Лог сессии: сохранение в TXT и полноэкранный просмотрщик</li>
+        <li>Тёмная и светлая тема — выбор сохраняется между запусками</li>
+      </ul>
+      <div class="feature-vs">
+        WalkieFleet Launcher: нет статуса ADB, нет встроенного лога сессии
+      </div>
+    </div>
+    <figure class="feature-img">
+      <a href="../guides/screenshots/general/light/04_log_menu.png" target="_blank" rel="noopener">
+      <img
+        src="../guides/screenshots/general/light/04_log_menu.png"
+        data-light="../guides/screenshots/general/light/04_log_menu.png"
+        data-dark="../guides/screenshots/general/dark/04_log_menu.png"
+        alt="Шапка приложения — меню логов открыто">
+      </a>
+      <figcaption>Меню логов — сохранение и просмотр лога сессии без выхода из приложения</figcaption>
+    </figure>
+  </div>
+
+</div>
+
+<!-- ════ COMPARISON TABLE ══════════════════════════════════════════════════ -->
+<div style="background: var(--surface-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="section" style="padding-top: 64px; padding-bottom: 64px;">
+    <div class="section-label">Сравнение</div>
+    <h2>POC Launcher vs WalkieFleet Device Launcher</h2>
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Возможность</th>
+            <th>POC Launcher</th>
+            <th>WalkieFleet Launcher</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Поддерживаемые ОС</td><td class="yes">Windows, Linux, macOS</td><td class="no">Только Windows</td></tr>
+          <tr><td>Несколько устройств</td><td class="yes">Несколько одновременно</td><td class="no">1 устройство</td></tr>
+          <tr><td>Установка APK + разрешения</td><td class="yes">Автоматически (15 шагов)</td><td class="no">Только APK, разрешения вручную</td></tr>
+          <tr><td>Разные учётные данные на устройство</td><td class="yes">Поддерживается</td><td class="no">Нет</td></tr>
+          <tr><td>Редактор конфигурации OTAP</td><td class="yes">Визуальный (35+ параметров)</td><td class="no">Только ручной файл wfinit.cfg</td></tr>
+          <tr><td>Настройка Wi-Fi</td><td class="yes">Через ADB, групповая</td><td class="no">По одному устройству</td></tr>
+          <tr><td>Маппинг физических кнопок</td><td class="yes">Встроен, пресеты по моделям</td><td class="no">Отсутствует</td></tr>
+          <tr><td>GPS-диагностика</td><td class="yes">Встроена</td><td class="no">Отсутствует</td></tr>
+          <tr><td>Лог установки</td><td class="yes">TXT-файл, автосохранение</td><td class="no">Нет</td></tr>
+          <tr><td>Беспроводное сопряжение ADB</td><td class="yes">Поддерживается</td><td class="no">Нет</td></tr>
+          <tr><td>mDNS / TCP-устройства</td><td class="yes">Поддерживается</td><td class="no">Нет</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ════ FOOTER ════════════════════════════════════════════════════════════ -->
+<footer>
+  <p>
+    <a href="../wiki/index.html">Документация</a> ·
+    <a href="../guides/install.html">Инструкция по установке</a> ·
+    <a href="../guides/gps.html">GPS-диагностика</a>
+  </p>
+  <p style="margin-top:8px; font-size:12px;">POC Launcher — кросс-платформенное решение для настройки Android-устройств</p>
+</footer>
+
+<script>
+(function () {
+  const root = document.documentElement;
+  const btn  = document.getElementById('themeBtn');
+  function setTheme(dark) {
+    root.setAttribute('data-theme', dark ? 'dark' : 'light');
+    try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch(e) {}
+    document.querySelectorAll('img[data-light]').forEach(img => {
+      const url = dark ? img.dataset.dark : img.dataset.light;
+      img.src = url;
+      const a = img.parentElement;
+      if (a && a.tagName === 'A') a.href = url;
+    });
+    if (btn) { const u = btn.querySelector('use'); if (u) u.setAttribute('href', dark ? '#icon-sun' : '#icon-moon'); btn.title = dark ? 'Светлая тема' : 'Тёмная тема'; }
+  }
+  window.toggleTheme = function () { setTheme(root.getAttribute('data-theme') !== 'dark'); };
+  let saved; try { saved = localStorage.getItem('theme'); } catch(e) {}
+  setTheme(saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches);
+})();
+</script>
+</body>
+</html>
