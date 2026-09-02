@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POC Launcher — Коммерческое предложение</title>
+  <style>
+    /* ── Tokens ──────────────────────────────────────────────────────── */
+    :root {
+      --primary:       #006874;
+      --primary-light: #82D3E1;
+      --accent:        #00BCD4;
+      --surface:       #f6fafb;
+      --surface-card:  #ffffff;
+      --border:        #d0e8ec;
+      --text:          #1a1c1e;
+      --text-muted:    #5a6068;
+      --green:         #1b7c3e;
+      --green-bg:      #e6f4ec;
+      --orange:        #b45309;
+      --orange-bg:     #fef3c7;
+      --red:           #b91c1c;
+      --red-bg:        #fee2e2;
+      --grey:          #4b5563;
+      --grey-bg:       #f3f4f6;
+      --code-bg:       #eef6f8;
+      --radius:        12px;
+      --radius-sm:     6px;
+      --shadow:        0 2px 8px rgba(0,0,0,.06);
+    }
+    [data-theme="dark"] {
+      --primary:       #4DD8E8;
+      --primary-light: #2a8a96;
+      --surface:       #111416;
+      --surface-card:  #1c1f22;
+      --border:        #2a3840;
+      --text:          #e2e8ea;
+      --text-muted:    #8a9ba0;
+      --green:         #4ade80;
+      --green-bg:      #14291e;
+      --orange:        #fbbf24;
+      --orange-bg:     #2a1f05;
+      --red:           #f87171;
+      --red-bg:        #2a0f0f;
+      --grey:          #9ca3af;
+      --grey-bg:       #1f2328;
+      --code-bg:       #151c20;
+      --shadow:        0 2px 12px rgba(0,0,0,.4);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px; line-height: 1.7;
+      color: var(--text); background: var(--surface);
+      transition: background .2s, color .2s;
+    }
+    a { color: var(--primary); }
+
+    /* ── Top nav ─────────────────────────────────────────────────────── */
+    .topnav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--surface-card);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 clamp(16px, 4vw, 40px); height: 56px;
+      box-shadow: var(--shadow);
+    }
+    .topnav-brand {
+      font-size: 17px; font-weight: 800;
+      color: var(--primary); text-decoration: none;
+      display: flex; align-items: center; gap: 8px; white-space: nowrap;
+    }
+    .doc-chip {
+      display: inline-block;
+      background: var(--code-bg); color: var(--primary);
+      font-size: 13px; font-weight: 600;
+      margin-bottom: 32px;
+      padding: 4px 14px; border-radius: 20px;
+      border: 1px solid var(--primary-light);
+      white-space: nowrap;
+    }
+    @media (max-width: 500px) { .doc-chip { display: none; } }
+    .topnav-right { display: flex; align-items: center; gap: 16px; }
+    .theme-btn {
+      width: 32px; height: 32px;
+      display: flex; align-items: center; justify-content: center;
+      background: transparent; border: none; border-radius: 50%;
+      cursor: pointer; font-size: 16px; color: var(--text); transition: background .15s;
+    }
+    .theme-btn:hover { background: var(--code-bg); }
+
+    /* ── Layout ──────────────────────────────────────────────────────── */
+    .section {
+      max-width: 960px; margin: 0 auto;
+      padding: 64px clamp(16px, 4vw, 40px);
+    }
+    .section-sm { padding-top: 48px; padding-bottom: 48px; }
+    .section-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .1em; color: var(--text-muted); margin-bottom: 10px;
+    }
+    .section > h2 {
+      font-size: clamp(22px, 3vw, 30px); font-weight: 800;
+      color: var(--text); margin-bottom: 36px; line-height: 1.25;
+    }
+    .divider-section {
+      background: var(--surface-card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── Hero ────────────────────────────────────────────────────────── */
+    .hero {
+      text-align: center;
+      padding: clamp(48px, 10vw, 80px) clamp(16px, 4vw, 40px) clamp(40px, 7vw, 64px);
+      max-width: 760px; margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--code-bg); color: var(--primary);
+      font-size: 13px; font-weight: 600;
+      padding: 4px 14px; border-radius: 20px; margin-bottom: 20px;
+      border: 1px solid var(--primary-light);
+    }
+    .hero h1 {
+      font-size: clamp(28px, 4.5vw, 46px);
+      font-weight: 800; line-height: 1.15; color: var(--text); margin-bottom: 16px;
+    }
+    .hero h1 span { color: var(--primary); }
+    .hero-sub {
+      font-size: 17px; color: var(--text-muted); margin-bottom: 28px;
+      max-width: 560px; margin-left: auto; margin-right: auto;
+    }
+    .hero-meta {
+      display: flex; flex-direction: column; gap: 4px; align-items: center;
+      font-size: 13px; color: var(--text-muted);
+    }
+    .hero-meta span { display: flex; align-items: center; gap: 6px; }
+
+    /* ── Pain list ───────────────────────────────────────────────────── */
+    .pain-list {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .pain-list li {
+      display: flex; align-items: flex-start; gap: 14px;
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      font-size: 15px; color: var(--text);
+    }
+    .pain-icon {
+      color: var(--text-muted); flex-shrink: 0;
+      width: 24px; height: 24px; min-width: 24px;
+    }
+    .pain-list li strong { color: var(--text); }
+    .pain-result {
+      margin-top: 20px;
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      font-size: 15px; color: var(--text-muted);
+    }
+
+    /* ── Solution ────────────────────────────────────────────────────── */
+    .solution-box {
+      background: #004a55;
+      border-radius: var(--radius);
+      padding: 40px clamp(20px, 5vw, 56px);
+      color: #fff; text-align: center;
+      margin-bottom: 0;
+    }
+    [data-theme="dark"] .solution-box { background: #1a3238; }
+    .solution-box h2 { font-size: clamp(20px, 3vw, 26px); margin-bottom: 10px; color: #fff; }
+    .solution-box p { opacity: .75; font-size: 15px; margin-bottom: 28px; }
+    .solution-stats {
+      display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;
+    }
+    .stat {
+      background: rgba(255,255,255,.10);
+      border-radius: var(--radius-sm);
+      padding: 16px 28px; min-width: 140px;
+    }
+    .stat-value { font-size: 28px; font-weight: 800; line-height: 1; }
+    .stat-label { font-size: 12px; opacity: .8; margin-top: 4px; }
+
+    /* ── Social proof callout ────────────────────────────────────────── */
+    .social-proof {
+      background: var(--code-bg);
+      border: 1px solid var(--primary-light);
+      border-radius: var(--radius-sm);
+      padding: 14px 20px;
+      font-size: 14px; color: var(--text-muted);
+      margin-bottom: 24px;
+      display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    }
+    .social-proof strong { color: var(--primary); }
+    .social-proof a { font-weight: 600; }
+
+    /* ── Feature cards ───────────────────────────────────────────────── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .feat-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+    .feat-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--primary); color: var(--surface);
+      font-size: 15px; font-weight: 700; margin-bottom: 14px;
+    }
+    .feat-card h3 { font-size: 16px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+    .feat-card p { font-size: 14px; color: var(--text-muted); margin-bottom: 12px; line-height: 1.6; }
+    .feat-card ul { list-style: none; }
+    .feat-card ul li {
+      font-size: 13.5px; color: var(--text-muted);
+      padding: 3px 0; display: flex; align-items: flex-start; gap: 8px;
+    }
+    .feat-card ul li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
+    .feat-note {
+      margin-top: 10px;
+      font-size: 12.5px; color: var(--text-muted);
+      background: var(--code-bg);
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+      border-left: 3px solid var(--primary-light);
+    }
+
+    /* ── ROI ─────────────────────────────────────────────────────────── */
+    .intangibles {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 14px; margin-top: 28px;
+    }
+    .intangible-card {
+      background: var(--green-bg);
+      border: 1px solid #bbf7d0;
+      border-radius: var(--radius-sm);
+      padding: 16px 18px;
+    }
+    [data-theme="dark"] .intangible-card { border-color: #166534; }
+    .intangible-card strong { display: block; font-size: 14px; color: var(--green); margin-bottom: 4px; }
+    .intangible-card span { font-size: 13px; color: var(--text-muted); }
+
+    /* ── Tables (shared) ─────────────────────────────────────────────── */
+    .table-wrap {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius); overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      box-shadow: var(--shadow); margin-bottom: 24px;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 480px; }
+    th {
+      background: var(--code-bg); color: var(--text-muted);
+      font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .09em;
+      text-align: left; padding: 10px 18px;
+      border-bottom: 1px solid var(--border);
+    }
+    th:not(:first-child) { text-align: right; }
+    td { padding: 11px 18px; border-bottom: 1px solid var(--border); color: var(--text); }
+    td:not(:first-child) { text-align: right; }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background: var(--surface); }
+    .td-c { text-align: center !important; }
+    .yes { color: var(--green); font-weight: 700; }
+    .no  { color: var(--text-muted); }
+    .highlight-row td { background: var(--code-bg) !important; font-weight: 700; color: var(--primary); }
+    .roi-callout {
+      background: var(--green-bg);
+      border: 1px solid #bbf7d0;
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      font-size: 15px; color: var(--green); font-weight: 600;
+      margin-top: 12px;
+    }
+    [data-theme="dark"] .roi-callout { border-color: #166534; }
+
+    /* ── Compare table ───────────────────────────────────────────────── */
+    .compare-table { min-width: unset; }
+    .compare-table th:not(:first-child) { text-align: center; }
+    .compare-table td:not(:first-child) { text-align: center; }
+
+    /* ── Pricing ─────────────────────────────────────────────────────── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px; margin-bottom: 36px;
+    }
+    .price-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      box-shadow: var(--shadow);
+      display: flex; flex-direction: column;
+    }
+    .price-card.featured {
+      border-color: var(--primary);
+      border-width: 2px;
+      position: relative;
+    }
+    .price-badge {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--primary); color: var(--surface);
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      padding: 3px 14px; border-radius: 20px; white-space: nowrap;
+    }
+    .price-tier {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .08em; color: var(--text-muted); margin-bottom: 6px;
+    }
+    .price-card h3 { font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .price-amount {
+      font-size: 30px; font-weight: 800; color: var(--primary);
+      margin: 14px 0 4px;
+    }
+    .price-duration {
+      font-size: 13px; color: var(--text-muted); margin-bottom: 18px;
+    }
+    .price-card hr { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+    .price-card ul { list-style: none; flex: 1; }
+    .price-card ul li {
+      font-size: 13.5px; color: var(--text-muted);
+      padding: 4px 0; display: flex; align-items: flex-start; gap: 8px;
+    }
+    .price-card ul li .li-check { color: var(--green); font-weight: 700; flex-shrink: 0; }
+    .price-card ul li .li-dash  { color: var(--border); flex-shrink: 0; }
+    /* ── Design savings ─────────────────────────────────────────────── */
+    .design-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px; margin-top: 28px;
+    }
+    .design-card {
+      border-radius: var(--radius);
+      padding: 24px;
+      border: 1px solid var(--border);
+    }
+    .design-card.old { background: var(--surface-card); }
+    .design-card.new { background: var(--green-bg); border-color: #bbf7d0; }
+    [data-theme="dark"] .design-card.new { border-color: #166534; }
+    .design-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 12px; }
+    .design-card.old h4 { color: var(--text-muted); }
+    .design-card.new h4 { color: var(--green); }
+    .design-card .amount { font-size: 22px; font-weight: 800; margin: 8px 0 4px; }
+    .design-card.old .amount { color: var(--red); }
+    .design-card.new .amount { color: var(--green); }
+    .design-card p { font-size: 13px; color: var(--text-muted); }
+
+    /* ── Terms ───────────────────────────────────────────────────────── */
+    .terms-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .term-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+    }
+    .term-card h4 {
+      font-size: 11px; font-weight: 700; color: var(--primary);
+      margin-bottom: 12px; text-transform: uppercase; letter-spacing: .08em;
+    }
+    .term-card ul { list-style: none; }
+    .term-card ul li {
+      font-size: 14px; color: var(--text-muted);
+      padding: 6px 0; border-bottom: 1px solid var(--border);
+    }
+    .term-card ul li:last-child { border-bottom: none; }
+    .term-card ul li strong { color: var(--text); }
+    .payment-steps {
+      display: flex; gap: 0; margin-top: 8px;
+    }
+    .pay-step {
+      flex: 1; text-align: center;
+      padding: 10px 8px;
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+    }
+    .pay-step:first-child { border-radius: var(--radius-sm) 0 0 var(--radius-sm); }
+    .pay-step:last-child  { border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+    .pay-step + .pay-step { border-left: none; }
+    .pay-pct { font-size: 22px; font-weight: 800; color: var(--primary); }
+    .pay-when { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+    /* ── CTA section ─────────────────────────────────────────────────── */
+    .cta-section {
+      background: #004a55;
+      color: #fff; text-align: center;
+      padding: clamp(48px, 8vw, 80px) clamp(16px, 4vw, 40px);
+    }
+    [data-theme="dark"] .cta-section { background: #1a3238; }
+    .cta-section h2 { color: #fff; font-size: clamp(22px, 3vw, 30px); font-weight: 800; margin-bottom: 12px; }
+    .cta-section p { opacity: .8; font-size: 16px; max-width: 520px; margin: 0 auto 28px; }
+    .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+    .cta-btn-primary {
+      display: inline-block;
+      background: #fff; color: #006874;
+      font-weight: 700; padding: 14px 32px;
+      border-radius: var(--radius-sm);
+      text-decoration: none; font-size: 15px;
+    }
+    .cta-btn-secondary {
+      display: inline-block;
+      background: rgba(255,255,255,.12); color: #fff;
+      font-weight: 600; padding: 14px 32px;
+      border-radius: var(--radius-sm);
+      text-decoration: none; font-size: 15px;
+      border: 1px solid rgba(255,255,255,.35);
+    }
+    .cta-note { font-size: 13px; opacity: .55; }
+
+    /* ── Footer ──────────────────────────────────────────────────────── */
+    footer {
+      text-align: center; padding: 32px clamp(16px, 3vw, 24px);
+      border-top: 1px solid var(--border);
+      font-size: 13px; color: var(--text-muted);
+    }
+
+    /* ── Responsive ──────────────────────────────────────────────────── */
+    /* ≤720px ─────────────────────────────────────────────────────────── */
+    @media (max-width: 720px) {
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .intangibles   { grid-template-columns: 1fr 1fr; }
+      /* payment steps → вертикальный стек */
+      .payment-steps { flex-direction: column; }
+      .pay-step:first-child { border-radius: var(--radius-sm) var(--radius-sm) 0 0; }
+      .pay-step:last-child  { border-radius: 0 0 var(--radius-sm) var(--radius-sm); }
+      .pay-step + .pay-step { border-left: 1px solid var(--border); border-top: none; }
+    }
+
+    /* ≤640px ─────────────────────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .terms-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .price-card.featured { margin-top: 16px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .intangibles   { grid-template-columns: 1fr 1fr; }
+      .design-split  { grid-template-columns: 1fr; }
+    }
+
+    /* ≤600px — все таблицы → карточки ──────────────────────────────── */
+    @media (max-width: 600px) {
+      /* Все table-wrap — край в край */
+      .table-wrap {
+        border-left: none; border-right: none; border-radius: 0;
+        margin-left: calc(-1 * clamp(16px, 4vw, 40px));
+        margin-right: calc(-1 * clamp(16px, 4vw, 40px));
+      }
+
+      /* ── Общие правила card-collapse (все таблицы) ── */
+      .table-time-wrap table,
+      .table-roi-wrap table,
+      .table-pricing-wrap table,
+      .compare-table { min-width: unset; }
+
+      .table-time-wrap thead,
+      .table-roi-wrap thead,
+      .table-pricing-wrap thead,
+      .compare-table thead { display: none; }
+
+      .table-time-wrap tr,
+      .table-roi-wrap tr,
+      .table-pricing-wrap tr,
+      .compare-table tr { display: block; border-bottom: 2px solid var(--border); }
+
+      .table-time-wrap tr:last-child,
+      .table-roi-wrap tr:last-child,
+      .table-pricing-wrap tr:last-child,
+      .compare-table tr:last-child { border-bottom: none; }
+
+      .table-time-wrap td,
+      .table-roi-wrap td,
+      .table-pricing-wrap td,
+      .compare-table td {
+        display: flex; align-items: baseline; justify-content: space-between;
+        gap: 10px; padding: 8px 16px; border-bottom: 1px solid var(--border);
+        text-align: right !important;
+      }
+
+      .table-time-wrap td:first-child,
+      .table-roi-wrap td:first-child,
+      .table-pricing-wrap td:first-child,
+      .compare-table td:first-child {
+        background: var(--code-bg); font-weight: 700; color: var(--primary);
+        font-size: 13px; text-align: left !important; justify-content: flex-start;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .table-time-wrap td:last-child,
+      .table-roi-wrap td:last-child,
+      .table-pricing-wrap td:last-child,
+      .compare-table td:last-child { border-bottom: none; }
+
+      .table-time-wrap tr:nth-child(even) td,
+      .table-roi-wrap tr:nth-child(even) td,
+      .table-pricing-wrap tr:nth-child(even) td,
+      .compare-table tr:nth-child(even) td { background: var(--surface-card); }
+
+      .table-time-wrap tr:nth-child(even) td:first-child,
+      .table-roi-wrap tr:nth-child(even) td:first-child,
+      .table-pricing-wrap tr:nth-child(even) td:first-child,
+      .compare-table tr:nth-child(even) td:first-child { background: var(--code-bg); }
+
+      /* ── Общий стиль ::before меток ── */
+      .table-time-wrap td:nth-child(n+2)::before,
+      .table-roi-wrap td:nth-child(n+2)::before,
+      .table-pricing-wrap td:nth-child(n+2)::before,
+      .compare-table td:nth-child(n+2)::before {
+        font-size: 11px; font-weight: 700; color: var(--text-muted);
+        flex-shrink: 0; white-space: nowrap;
+      }
+
+      /* ── Таблица: Прямая экономия времени ── */
+      .table-time-wrap td:nth-child(2)::before { content: "Вручную"; }
+      .table-time-wrap td:nth-child(3)::before { content: "С Launcher"; color: var(--primary); }
+      .table-time-wrap td:nth-child(4)::before { content: "Экономия"; }
+
+      /* ── Таблица: Расчёт в рублях ── */
+      .table-roi-wrap td:nth-child(2)::before { content: "Без Launcher"; }
+      .table-roi-wrap td:nth-child(3)::before { content: "С Launcher"; color: var(--primary); }
+      .table-roi-wrap td:nth-child(4)::before { content: "Экономия/мес"; }
+      .table-roi-wrap .highlight-row td:empty { display: none; }
+
+      /* ── Таблица: Варианты стоимости ── */
+      .table-pricing-wrap td:nth-child(2)::before { content: "Базовая"; }
+      .table-pricing-wrap td:nth-child(3)::before { content: "Стандарт"; }
+      .table-pricing-wrap td:nth-child(4)::before { content: "Полный"; color: var(--primary); }
+
+      /* ── Таблица: Сравнение с WalkieFleet ── */
+      .compare-table td:nth-child(2)::before { content: "POC Launcher"; color: var(--primary); opacity: .9; }
+      .compare-table td:nth-child(3)::before { content: "WalkieFleet"; }
+    }
+
+    /* ≤480px ─────────────────────────────────────────────────────────── */
+    @media (max-width: 480px) {
+      .solution-stats { gap: 10px; }
+      .stat { min-width: 0; flex: 1; padding: 12px 14px; }
+      .intangibles { grid-template-columns: 1fr; }
+      .cta-btns { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="icon-moon" viewBox="0 -960 960 960"><path fill="currentColor" d="M480-120q-151 0-255.5-104.5T120-480q0-138 90-239.5T440-838q13-2 23 3.5t16 14.5q6 9 6.5 21t-7.5 23q-17 26-25.5 55t-8.5 61q0 90 63 153t153 63q31 0 61.5-9t54.5-25q11-7 22.5-6.5T819-479q10 5 15.5 15t3.5 24q-14 138-117.5 229T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Zm-10-270Z"/></symbol>
+  <symbol id="icon-sun" viewBox="0 -960 960 960"><path fill="currentColor" d="M565-395q35-35 35-85t-35-85q-35-35-85-35t-85 35q-35 35-35 85t35 85q35 35 85 35t85-35Zm-226.5 56.5Q280-397 280-480t58.5-141.5Q397-680 480-680t141.5 58.5Q680-563 680-480t-58.5 141.5Q563-280 480-280t-141.5-58.5ZM80-440q-17 0-28.5-11.5T40-480q0-17 11.5-28.5T80-520h80q17 0 28.5 11.5T200-480q0 17-11.5 28.5T160-440H80Zm720 0q-17 0-28.5-11.5T760-480q0-17 11.5-28.5T800-520h80q17 0 28.5 11.5T920-480q0 17-11.5 28.5T880-440h-80ZM451.5-771.5Q440-783 440-800v-80q0-17 11.5-28.5T480-920q17 0 28.5 11.5T520-880v80q0 17-11.5 28.5T480-760q-17 0-28.5-11.5Zm0 720Q440-63 440-80v-80q0-17 11.5-28.5T480-200q17 0 28.5 11.5T520-160v80q0 17-11.5 28.5T480-40q-17 0-28.5-11.5ZM226-678l-43-42q-12-11-11.5-28t11.5-29q12-12 29-12t28 12l42 43q11 12 11 28t-11 28q-11 12-27.5 11.5T226-678Zm494 495-42-43q-11-12-11-28.5t11-27.5q11-12 27.5-11.5T734-282l43 42q12 11 11.5 28T777-183q-12 12-29 12t-28-12Zm-42-495q-12-11-11.5-27.5T678-734l42-43q11-12 28-11.5t29 11.5q12 12 12 29t-12 28l-43 42q-12 11-28 11t-28-11ZM183-183q-12-12-12-29t12-28l43-42q12-11 28.5-11t27.5 11q12 11 11.5 27.5T282-226l-42 43q-11 12-28 11.5T183-183Zm297-297Z"/></symbol>
+  <symbol id="icon-install" viewBox="0 -960 960 960"><path fill="currentColor" d="M200-80q-33 0-56.5-23.5T120-160v-451q-18-11-29-28.5T80-680v-120q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v120q0 23-11 40.5T840-611v451q0 33-23.5 56.5T760-80H200Zm0-520v440h560v-440H200Zm-40-80h640v-120H160v120Zm240 280h160q17 0 28.5-11.5T600-440q0-17-11.5-28.5T560-480H400q-17 0-28.5 11.5T360-440q0 17 11.5 28.5T400-400Zm80 20Z"/></symbol>
+  <symbol id="icon-key" viewBox="0 -960 960 960"><path fill="currentColor" d="M223.5-423.5Q200-447 200-480t23.5-56.5Q247-560 280-560t56.5 23.5Q360-513 360-480t-23.5 56.5Q313-400 280-400t-56.5-23.5ZM280-240q-100 0-170-70T40-480q0-100 70-170t170-70q67 0 121.5 33t86.5 87h335q8 0 15.5 3t13.5 9l80 80q6 6 8.5 13t2.5 15q0 8-2.5 15t-8.5 13L805-325q-5 5-12 8t-14 4q-7 1-14-1t-13-7l-52-39-57 43q-5 4-11 6t-12 2q-6 0-12.5-2t-11.5-6l-61-43h-47q-32 54-86.5 87T280-240Zm0-80q56 0 98.5-34t56.5-86h125l58 41v.5-.5l82-61 71 55 75-75h-.5.5l-40-40v-.5.5H435q-14-52-56.5-86T280-640q-66 0-113 47t-47 113q0 66 47 113t113 47Z"/></symbol>
+  <symbol id="icon-wifi" viewBox="0 -960 960 960"><path fill="currentColor" d="M409-149q-29-29-29-71t29-71q29-29 71-29t71 29q29 29 29 71t-29 71q-29 29-71 29t-71-29Zm213.5-387Q690-512 745-470q20 15 20.5 39.5T748-388q-17 17-42 17.5T661-384q-38-26-84-41t-97-15q-51 0-97 15t-84 41q-20 14-45 13t-42-18q-17-18-17-42.5t20-39.5q55-42 122.5-65.5T480-560q75 0 142.5 24Zm93-223Q826-718 914-643q20 17 21 42t-17 43q-17 17-42 17.5T831-556q-72-59-161.5-91.5T480-680q-100 0-189.5 32.5T129-556q-20 16-45 15.5T42-558q-18-18-17-43t21-42q88-75 198.5-116T480-800q125 0 235.5 41Z"/></symbol>
+  <symbol id="icon-config" viewBox="0 -960 960 960"><path fill="currentColor" d="M480-120q-17 0-28.5-11.5T440-160v-160q0-17 11.5-28.5T480-360q17 0 28.5 11.5T520-320v40h280q17 0 28.5 11.5T840-240q0 17-11.5 28.5T800-200H520v40q0 17-11.5 28.5T480-120Zm-320-80q-17 0-28.5-11.5T120-240q0-17 11.5-28.5T160-280h160q17 0 28.5 11.5T360-240q0 17-11.5 28.5T320-200H160Zm160-160q-17 0-28.5-11.5T280-400v-40H160q-17 0-28.5-11.5T120-480q0-17 11.5-28.5T160-520h120v-40q0-17 11.5-28.5T320-600q17 0 28.5 11.5T360-560v160q0 17-11.5 28.5T320-360Zm160-80q-17 0-28.5-11.5T440-480q0-17 11.5-28.5T480-520h320q17 0 28.5 11.5T840-480q0 17-11.5 28.5T800-440H480Zm160-160q-17 0-28.5-11.5T600-640v-160q0-17 11.5-28.5T640-840q17 0 28.5 11.5T680-800v40h120q17 0 28.5 11.5T840-720q0 17-11.5 28.5T800-680H680v40q0 17-11.5 28.5T640-600Zm-480-80q-17 0-28.5-11.5T120-720q0-17 11.5-28.5T160-760h320q17 0 28.5 11.5T520-720q0 17-11.5 28.5T480-680H160Z"/></symbol>
+  <symbol id="icon-gps" viewBox="0 -960 960 960"><path fill="currentColor" d="M561-32q-17 0-29-11.5T520-72q0-17 11.5-28.5T560-112q117 0 198.5-81.5T840-392q0-17 11.5-28.5T880-432q17 0 28.5 11.5T920-392q0 74-28.5 139.5t-77 114.5q-48.5 49-114 77.5T561-32Zm0-160q-17 0-29-11.5T520-232q0-17 11.5-28.5T560-272q50 0 85-35t35-85q0-17 11.5-28.5T720-432q17 0 28.5 11.5T760-392q-1 83-58.5 141T561-192ZM222-57q-15 0-30-6t-27-17L23-222q-11-12-17-27t-6-30q0-16 6-30.5T23-335l127-127q23-23 57-23.5t57 22.5l50 50 28-28-50-50q-23-23-23-56t23-56l57-57q23-23 56.5-23t56.5 23l50 50 28-28-50-50q-23-23-23-56.5t23-56.5l127-127q12-12 27-18t30-6q15 0 29.5 6t26.5 18l142 142q12 11 17.5 25.5T895-730q0 15-5.5 30T872-673L745-546q-23 23-56.5 23T632-546l-50-50-28 28 50 50q23 23 22.5 56.5T603-405l-56 56q-23 23-56.5 23T434-349l-50-50-28 28 50 50q23 23 22.5 57T405-207L278-80q-11 11-25.5 17T222-57Zm0-79 42-42-142-142-42 42 142 142Zm85-85 42-42-142-142-42 42 142 142Zm184-184 56-56-142-142-56 56 142 142Zm198-198 42-42-142-142-42 42 142 142Zm85-85 42-42-142-142-42 42 142 142ZM448-504Z"/></symbol>
+  <symbol id="icon-buttons" viewBox="0 -960 960 960"><path fill="currentColor" d="M120-120q-33 0-56.5-23.5T40-200v-520q0-33 23.5-56.5T120-800h720q33 0 56.5 23.5T920-720v520q0 33-23.5 56.5T840-120H120Zm0-80h720v-520H120v520Zm220-80h280q8 0 14-6t6-14q0-8-6-14t-14-6H340q-8 0-14 6t-6 14q0 8 6 14t14 6Zm-220 80v-520 520Zm120-360q17 0 28.5-11.5T280-600q0-17-11.5-28.5T240-640q-17 0-28.5 11.5T200-600q0 17 11.5 28.5T240-560Zm160 0q17 0 28.5-11.5T440-600q0-17-11.5-28.5T400-640q-17 0-28.5 11.5T360-600q0 17 11.5 28.5T400-560Zm160 0q17 0 28.5-11.5T600-600q0-17-11.5-28.5T560-640q-17 0-28.5 11.5T520-600q0 17 11.5 28.5T560-560Zm160 0q17 0 28.5-11.5T760-600q0-17-11.5-28.5T720-640q-17 0-28.5 11.5T680-600q0 17 11.5 28.5T720-560ZM240-400q17 0 28.5-11.5T280-440q0-17-11.5-28.5T240-480q-17 0-28.5 11.5T200-440q0 17 11.5 28.5T240-400Zm160 0q17 0 28.5-11.5T440-440q0-17-11.5-28.5T400-480q-17 0-28.5 11.5T360-440q0 17 11.5 28.5T400-400Zm160 0q17 0 28.5-11.5T600-440q0-17-11.5-28.5T560-480q-17 0-28.5 11.5T520-440q0 17 11.5 28.5T560-400Zm160 0q17 0 28.5-11.5T760-440q0-17-11.5-28.5T720-480q-17 0-28.5 11.5T680-440q0 17 11.5 28.5T720-400Z"/></symbol>
+</svg>
+
+<!-- ════ NAV ═══════════════════════════════════════════════════════════════ -->
+<header class="topnav">
+  <a href="presentation/index.html" class="topnav-brand">
+    <svg xmlns="http://www.w3.org/2000/svg" height="22" width="22" viewBox="0 -960 960 960" style="fill:currentColor;flex-shrink:0"><path d="M280-160v40h400v-40H280Zm394-210q-8-3-14-6.5t-12-9.5l-30 13q-7 3-14 .5t-11-9.5l-22-39q-4-7-2.5-14t7.5-12l26-19q-2-8-2-15t2-15l-25-19q-6-5-7.5-12.5T572-542l23-38q4-6 11-8.5t14 .5l28 12q6-5 12-8t14-6l4-32q1-8 6.5-13t13.5-5h44q8 0 13.5 5t6.5 13l4 32q8 3 14 6t12 8l28-12q7-3 14-.5t11 8.5l23 38q4 7 2.5 14.5T863-515l-25 19q2 8 2 15t-2 15l26 19q6 5 7.5 12t-2.5 14l-22 39q-4 7-11 9.5t-14-.5l-30-13q-6 6-12 9.5t-14 6.5l-4 32q-1 8-6.5 13t-13.5 5h-44q-8 0-13.5-5t-6.5-13l-4-32Zm46-50q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17ZM280-800h400v-40H280v40Zm0 640v40-40Zm0-680v-40 40ZM280-40q-33 0-56.5-23.5T200-120v-720q0-33 23.5-56.5T280-920h400q33 0 56.5 23.5T760-840v120q0 17-11.5 28.5T720-680q-17 0-28.5-11.5T680-720H280v480h400q0-17 11.5-28.5T720-280q17 0 28.5 11.5T760-240v120q0 33-23.5 56.5T680-40H280Z"/></svg>
+    POC Launcher
+  </a>
+  <div class="topnav-right">
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="Тёмная тема">
+      <svg width="20" height="20"><use href="#icon-moon"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- ════ HERO ══════════════════════════════════════════════════════════════ -->
+<div class="hero">
+  <span class="doc-chip">Коммерческое предложение · сентябрь 2026</span>
+  <br>
+  <h1>Развёртывание устройств<br><span>в 10 раз быстрее</span></h1>
+  <div class="hero-badge">Windows · Linux · macOS</div>
+  <p class="hero-sub">
+    Десктопный инструмент для массовой установки, настройки и диагностики Android-устройств
+    с клиентом <strong>ru.amettel.poc</strong> — без терминала и без ошибок.
+  </p>
+  <div class="hero-meta">
+    <span>Кому: IT-руководитель / инженер парка устройств</span>
+    <span>Действительно: 30 дней</span>
+    <span>Цены без НДС</span>
+  </div>
+</div>
+
+<!-- ════ ПРОБЛЕМА ══════════════════════════════════════════════════════════ -->
+<div class="divider-section">
+  <div class="section section-sm">
+    <div class="section-label">Проблемы которые решаем</div>
+    <h2>Сейчас каждое устройство — это ручная работа</h2>
+    <ul class="pain-list">
+      <li>
+        <svg class="pain-icon"><use href="#icon-install"/></svg>
+        <span><strong>Установка</strong> — вручную на устройстве либо скриптом из терминала, запускается отдельно для каждого устройства вручную.</span>
+      </li>
+      <li>
+        <svg class="pain-icon"><use href="#icon-key"/></svg>
+        <span><strong>Разрешения</strong> — при установке из скачанного APK выдаются вручную: микрофон, геолокация, уведомления, фоновый режим — на каждом устройстве отдельно. Долго, рутина, утомляет, возможны ошибки.</span>
+      </li>
+      <li>
+        <svg class="pain-icon"><use href="#icon-wifi"/></svg>
+        <span><strong>WiFi на устройствах без экрана</strong> — подключение к сети невозможно без отдельных ADB-команд для каждого устройства в консоли.</span>
+      </li>
+      <li>
+        <svg class="pain-icon"><use href="#icon-config"/></svg>
+        <span><strong>Конфигурация</strong> — нет возможности загрузить пресет настроек сразу после установки и получить индивидуально сконфигурированное приложение без ручного изменения настроек или обращения к диспетчерскому приложению.</span>
+      </li>
+      <li>
+        <svg class="pain-icon"><use href="#icon-gps"/></svg>
+        <span><strong>GPS-диагностика</strong> — без ручного ввода команд невозможно получить результат диагностики геолокации на устройстве.</span>
+      </li>
+      <li>
+        <svg class="pain-icon"><use href="#icon-buttons"/></svg>
+        <span><strong>Физические кнопки</strong> — проверить реакцию на нажатие кнопок на любом устройстве невозможно, не имея целевого устройства под рукой.</span>
+      </li>
+    </ul>
+    <div class="pain-result">
+      В итоге: 5–10 минут на одно устройство, большая вероятность ошибок — при ручной работе с терминалом легко пропустить шаг или опечататься. Делегировать задачу нельзя: без знания ADB-команд и специфики версий Android человек не сможет выполнить её корректно.
+    </div>
+  </div>
+</div>
+
+<!-- ════ РЕШЕНИЕ ═══════════════════════════════════════════════════════════ -->
+<div class="section section-sm">
+  <div class="solution-box">
+    <h2>POC Launcher делает всё это за вас</h2>
+    <p>Десктопное приложение для Windows, Linux и macOS. Не нужен терминал. Не нужен опыт с ADB.</p>
+    <div class="solution-stats">
+      <div class="stat">
+        <div class="stat-value">&lt; 60 с</div>
+        <div class="stat-label">одно устройство</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">×10</div>
+        <div class="stat-label">устройств параллельно</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">0</div>
+        <div class="stat-label">ручных разрешений</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ СРАВНЕНИЕ (социальное доказательство) ══════════════════════════════════════════════ -->
+<div class="divider-section">
+  <div class="section section-sm">
+    <div class="section-label">Почему выбирают нас</div>
+    <h2>POC Launcher vs WalkieFleet Device Launcher</h2>
+    <div class="table-wrap compare-table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Возможность</th>
+            <th class="td-c">POC Launcher</th>
+            <th class="td-c">WalkieFleet</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Поддерживаемые ОС</td><td class="yes td-c">Windows, Linux, macOS</td><td class="no td-c">Только Windows</td></tr>
+          <tr><td>Несколько устройств одновременно</td><td class="yes td-c">✓</td><td class="no td-c">Только 1</td></tr>
+          <tr><td>Автовыдача разрешений</td><td class="yes td-c">✓ Автоматически</td><td class="no td-c">Вручную</td></tr>
+          <tr><td>Редактор конфигурации</td><td class="yes td-c">✓ Визуальный</td><td class="no td-c">Ручной файл</td></tr>
+          <tr><td>Настройка WiFi через UI</td><td class="yes td-c">✓</td><td class="no td-c">—</td></tr>
+          <tr><td>GPS-диагностика</td><td class="yes td-c">✓</td><td class="no td-c">—</td></tr>
+          <tr><td>Маппинг физических кнопок</td><td class="yes td-c">✓ 11 пресетов</td><td class="no td-c">—</td></tr>
+          <tr><td>Встроенный ADB</td><td class="yes td-c">✓ Не нужно устанавливать</td><td class="no td-c">—</td></tr>
+          <tr><td>Автосохранение логов</td><td class="yes td-c">✓</td><td class="no td-c">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ════ ВОЗМОЖНОСТИ ═══════════════════════════════════════════════════════ -->
+<div class="section section-sm">
+  <div class="section-label">Возможности</div>
+  <h2>Что умеет приложение</h2>
+  <div class="features-grid">
+
+    <div class="feat-card">
+      <div class="feat-num">1</div>
+      <h3>Установка и разрешения — автоматически</h3>
+      <p>Выберите APK и нажмите «Установить» — все 15 шагов выполняются сами: установка, разрешения с учётом версии Android, оптимизация батареи, запуск сервиса.</p>
+      <ul>
+        <li>Прогресс каждого шага в реальном времени</li>
+        <li>Разные учётные данные для каждого устройства</li>
+        <li>Параллельная работа с несколькими устройствами</li>
+        <li>Понятные объяснения ошибок на русском</li>
+      </ul>
+    </div>
+
+    <div class="feat-card">
+      <div class="feat-num">2</div>
+      <h3>Настройка WiFi без экрана</h3>
+      <p>Введите название сети и пароль — Launcher настроит WiFi через кабель. После этого кабель можно убрать и работать по воздуху.</p>
+      <ul>
+        <li>Android 8 и выше</li>
+        <li>Беспроводное сопряжение — ввод кода с экрана устройства (Android 11+)</li>
+        <li>Подключения сохраняются между запусками</li>
+      </ul>
+      <div class="feat-note"><strong>ADB</strong> — стандартный протокол Google для управления Android-устройствами с компьютера.</div>
+    </div>
+
+    <div class="feat-card">
+      <div class="feat-num">3</div>
+      <h3>Редактор конфигурации</h3>
+      <p>35+ параметров — автозапуск, PTT¹, геолокация, звук — настраиваются через форму без знания JSON.</p>
+      <ul>
+        <li>Профили: сохранить, загрузить, передать коллеге</li>
+        <li>Разные профили для разных серийных номеров</li>
+        <li>Применение одной кнопкой без переустановки</li>
+      </ul>
+      <div class="feat-note">¹ <strong>PTT</strong> (Push-To-Talk) — кнопка на рации, переключающая режим передачи голоса.</div>
+    </div>
+
+    <div class="feat-card">
+      <div class="feat-num">4</div>
+      <h3>Маппинг физических кнопок</h3>
+      <p>Настройте и проверьте реакцию мобильного приложения на физические кнопки — без необходимости держать целевое устройство под рукой.</p>
+      <ul>
+        <li>IRC590, M6, TE620, TE800, TE900 — из коробки (11 пресетов)</li>
+        <li>Отправка команды и мгновенная проверка реакции</li>
+        <li>Создание собственных маппингов</li>
+      </ul>
+    </div>
+
+    <div class="feat-card">
+      <div class="feat-num">5</div>
+      <h3>GPS-диагностика</h3>
+      <p>Запустите проверку — Launcher выдаст понятный отчёт: включена ли геолокация, выданы ли права, сколько спутников, последний GPS-фикс.</p>
+      <ul>
+        <li>Одновременная проверка нескольких устройств</li>
+        <li>Live-панель с координатами для полевой проверки</li>
+        <li>Отчёт копируется одной кнопкой</li>
+      </ul>
+    </div>
+
+    <div class="feat-card">
+      <div class="feat-num">6</div>
+      <h3>Отчёт и логи</h3>
+      <p>После каждой установки — сводная таблица: что готово, что нет и почему. Лог сохраняется автоматически с датой и именем устройства.</p>
+      <ul>
+        <li>Копирование отчёта одной кнопкой</li>
+        <li>Канал подключения (USB / WiFi) в отчёте</li>
+        <li>Быстрый переход к папке с логами</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════ ROI ════════════════════════════════════════════════════════════════ -->
+<div class="divider-section">
+  <div class="section section-sm">
+    <div class="section-label">Экономика</div>
+    <h2>Сколько это экономит</h2>
+
+    <h3 style="font-size:16px;color:var(--text-muted);font-weight:600;margin-bottom:14px;">Прямая экономия времени</h3>
+    <div class="table-wrap table-time-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Задача</th>
+            <th>Вручную</th>
+            <th>С Launcher</th>
+            <th>Экономия</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Настройка 1 устройства</td><td>10 мин</td><td>&lt; 1 мин</td><td><strong>9 мин</strong></td></tr>
+          <tr><td>Настройка 10 устройств</td><td>100 мин</td><td>~2 мин (параллельно)</td><td><strong>98 мин</strong></td></tr>
+          <tr><td>Выдача разрешений (10 устройств)</td><td>30 мин</td><td>0 — автоматически</td><td><strong>30 мин</strong></td></tr>
+          <tr><td>GPS-диагностика 1 устройства</td><td>20–40 мин</td><td>3–5 мин</td><td><strong>~30 мин</strong></td></tr>
+          <tr><td>Обновление конфига (10 устройств)</td><td>60 мин</td><td>5 мин</td><td><strong>55 мин</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="font-size:16px;color:var(--text-muted);font-weight:600;margin-bottom:14px;margin-top:32px;">Расчёт в рублях</h3>
+    <p style="font-size:14px;color:var(--text-muted);margin-bottom:14px;">При стоимости часа инженера <strong>3 000 ₽/ч</strong> и <strong>50 устройствах в месяц</strong>:</p>
+    <div class="table-wrap table-roi-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Задача</th>
+            <th>Без Launcher</th>
+            <th>С Launcher</th>
+            <th>Экономия/мес</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Установка + разрешения (50 уст. × 10 мин = 8,3 ч)</td><td>~25 000 ₽</td><td>~500 ₽</td><td><strong>~24 500 ₽</strong></td></tr>
+          <tr><td>Обновление конфигов (50 уст. × 4 мин = 3,3 ч)</td><td>~10 000 ₽</td><td>~250 ₽</td><td><strong>~9 750 ₽</strong></td></tr>
+          <tr class="highlight-row"><td>Итого экономия</td><td></td><td></td><td>~34 000 ₽/мес</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="roi-callout">При 200 устройствах в месяц ежемесячная экономия — ~135 000 ₽</div>
+
+    <div class="intangibles">
+      <div class="intangible-card">
+        <strong>Делегирование</strong>
+        <span>Задачу выполнит любой сотрудник без опыта работы с терминалом</span>
+      </div>
+      <div class="intangible-card">
+        <strong>Снижение ошибок</strong>
+        <span>Ни один шаг не пропущен, ни одно разрешение не забыто</span>
+      </div>
+      <div class="intangible-card">
+        <strong>Удалённая диагностика</strong>
+        <span>GPS-отчёт без выезда к клиенту</span>
+      </div>
+      <div class="intangible-card">
+        <strong>Масштаб</strong>
+        <span>При росте парка затраты на настройку не растут</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ СТОИМОСТЬ ══════════════════════════════════════════════════════════ -->
+<div class="section section-sm">
+  <div class="section-label">Стоимость</div>
+  <h2>Варианты разработки</h2>
+  <p style="font-size:14px;color:var(--text-muted);margin-bottom:28px;">
+    Рыночный диапазон для Flutter Desktop с аппаратными интеграциями — <strong>4 000–7 000 ₽/ч</strong> (Senior-уровень, август 2026).
+  </p>
+
+  <div class="pricing-grid">
+
+    <div class="price-card">
+      <div class="price-tier">Вариант 1</div>
+      <h3>Базовая</h3>
+      <p style="font-size:13px;color:var(--text-muted);">Установка + WiFi + Отчёт</p>
+      <div class="price-amount">819 000 ₽</div>
+      <div class="price-duration">срок 7–9 недель</div>
+      <hr>
+      <ul>
+        <li><span class="li-check">✓</span> Обнаружение устройств по USB</li>
+        <li><span class="li-check">✓</span> Параллельная установка APK</li>
+        <li><span class="li-check">✓</span> Автовыдача разрешений по версии Android</li>
+        <li><span class="li-check">✓</span> Настройка WiFi на безэкранных устройствах</li>
+        <li><span class="li-check">✓</span> Беспроводное сопряжение (Android 11+)</li>
+        <li><span class="li-check">✓</span> Отчёт с автосохранением лога</li>
+        <li><span class="li-check">✓</span> Встроенный ADB — не нужно устанавливать</li>
+        <li><span class="li-dash">–</span> <span style="color:var(--text-muted)">Редактор конфигурации</span></li>
+        <li><span class="li-dash">–</span> <span style="color:var(--text-muted)">GPS-диагностика</span></li>
+        <li><span class="li-dash">–</span> <span style="color:var(--text-muted)">Маппинг кнопок</span></li>
+      </ul>
+    </div>
+
+    <div class="price-card featured">
+      <div class="price-badge">Рекомендуем</div>
+      <div class="price-tier">Вариант 2</div>
+      <h3>Стандарт</h3>
+      <p style="font-size:13px;color:var(--text-muted);">Полный функционал</p>
+      <div class="price-amount">1 590 000 ₽</div>
+      <div class="price-duration">срок 12–14 недель</div>
+      <hr>
+      <ul>
+        <li><span class="li-check">✓</span> Всё из Базовой</li>
+        <li><span class="li-check">✓</span> Визуальный редактор конфигурации</li>
+        <li><span class="li-check">✓</span> Профили настроек (импорт/экспорт)</li>
+        <li><span class="li-check">✓</span> Режим «на каждое устройство»</li>
+        <li><span class="li-check">✓</span> GPS-диагностика с отчётом</li>
+        <li><span class="li-check">✓</span> Маппинг кнопок, 11 пресетов раций</li>
+        <li><span class="li-check">✓</span> Финальное тестирование на реальных устройствах</li>
+        <li><span class="li-dash">–</span> <span style="color:var(--text-muted)">Документация и wiki</span></li>
+      </ul>
+    </div>
+
+    <div class="price-card">
+      <div class="price-tier">Вариант 3</div>
+      <h3>Полный</h3>
+      <p style="font-size:13px;color:var(--text-muted);">С документацией</p>
+      <div class="price-amount">1 850 000 ₽</div>
+      <div class="price-duration">срок 15–17 недель</div>
+      <hr>
+      <ul>
+        <li><span class="li-check">✓</span> Всё из Стандарта</li>
+        <li><span class="li-check">✓</span> Офлайн-wiki внутри приложения</li>
+        <li><span class="li-check">✓</span> 5 HTML-руководств пользователя</li>
+        <li><span class="li-check">✓</span> Скриншоты для каждого экрана</li>
+        <li><span class="li-check">✓</span> Доработки по обратной связи после приёмки</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="table-wrap table-pricing-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Возможность</th>
+          <th class="td-c">Базовая</th>
+          <th class="td-c">Стандарт</th>
+          <th class="td-c">Полный</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Стоимость</td><td class="td-c"><strong>819 000 ₽</strong></td><td class="td-c"><strong>1 590 000 ₽</strong></td><td class="td-c"><strong>1 850 000 ₽</strong></td></tr>
+        <tr><td>Срок</td><td class="td-c">7–9 нед.</td><td class="td-c">12–14 нед.</td><td class="td-c">15–17 нед.</td></tr>
+        <tr><td>Установка + автовыдача разрешений</td><td class="yes td-c">✓</td><td class="yes td-c">✓</td><td class="yes td-c">✓</td></tr>
+        <tr><td>WiFi + беспроводное сопряжение</td><td class="yes td-c">✓</td><td class="yes td-c">✓</td><td class="yes td-c">✓</td></tr>
+        <tr><td>Редактор конфигурации</td><td class="no td-c">—</td><td class="yes td-c">✓</td><td class="yes td-c">✓</td></tr>
+        <tr><td>GPS-диагностика</td><td class="no td-c">—</td><td class="yes td-c">✓</td><td class="yes td-c">✓</td></tr>
+        <tr><td>Маппинг кнопок</td><td class="no td-c">—</td><td class="yes td-c">✓</td><td class="yes td-c">✓</td></tr>
+        <tr><td>Документация и wiki</td><td class="no td-c">—</td><td class="no td-c">—</td><td class="yes td-c">✓</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<!-- ════ ДИЗАЙН ════════════════════════════════════════════════════════════ -->
+<div class="divider-section">
+  <div class="section section-sm">
+    <div class="section-label">Экономия на дизайне</div>
+    <h2>Material Design 3 — готовая дизайн-система</h2>
+    <p style="font-size:15px;color:var(--text-muted);">
+      Все компоненты интерфейса — кнопки, формы, карточки, навигация — уже реализованы и протестированы Google.
+      Для брендирования достаточно одного корпоративного цвета: система сама сгенерирует полную палитру
+      (светлая и тёмная тема). Смена цветовой схемы под другого заказчика занимает менее часа.
+    </p>
+    <div class="design-split">
+      <div class="design-card old">
+        <h4>Кастомный дизайн с нуля</h4>
+        <p>UI/UX-проектирование → согласование → вёрстка компонентов</p>
+        <div class="amount">360 000 – 540 000 ₽</div>
+        <p>120–180 часов дизайна и разработки компонентов</p>
+      </div>
+      <div class="design-card new">
+        <h4>Material 3 + цвет заказчика</h4>
+        <p>Готовая система компонентов, адаптирована под фирменный цвет</p>
+        <div class="amount">~112 000 ₽</div>
+        <p>25 часов — настройка темы, адаптация под требования</p>
+      </div>
+    </div>
+    <div class="roi-callout" style="margin-top:20px;">
+      Экономия на дизайне: <strong>250 000 – 430 000 ₽</strong> — уже заложена в наши цены выше
+    </div>
+  </div>
+</div>
+
+<!-- ════ УСЛОВИЯ ═══════════════════════════════════════════════════════════ -->
+<div class="section section-sm">
+    <div class="section-label">Условия</div>
+    <h2>Как мы работаем</h2>
+
+    <div class="terms-grid">
+      <div class="term-card">
+        <h4>График оплаты</h4>
+        <div class="payment-steps">
+          <div class="pay-step">
+            <div class="pay-pct">30%</div>
+            <div class="pay-when">при подписании</div>
+          </div>
+          <div class="pay-step">
+            <div class="pay-pct">40%</div>
+            <div class="pay-when">сдача MVP</div>
+          </div>
+          <div class="pay-step">
+            <div class="pay-pct">30%</div>
+            <div class="pay-when">финальная приёмка</div>
+          </div>
+        </div>
+        <ul style="margin-top:14px;">
+          <li>Также доступна модель <strong>Time & Material</strong> — по факту часов</li>
+        </ul>
+      </div>
+
+      <div class="term-card">
+        <h4>Что включено</h4>
+        <ul>
+          <li><strong>Исходный код</strong> в Git-репозитории, все права передаются</li>
+          <li><strong>Сборки</strong> для Windows и Linux</li>
+          <li><strong>Гарантия 30 дней</strong> — критические ошибки бесплатно</li>
+        </ul>
+      </div>
+
+      <div class="term-card">
+        <h4>Не входит в цену</h4>
+        <ul>
+          <li>Разработка серверной части (backend)</li>
+          <li>Изменение APK <code>ru.amettel.poc</code></li>
+          <li>Сборка для <code>macOS</code></li>
+          <li>Поддержка после гарантии (по отдельному SLA)</li>
+        </ul>
+      </div>
+
+      <div class="term-card">
+        <h4>Модели оплаты</h4>
+        <ul>
+          <li><strong>Фиксированная цена</strong> — по выбранному варианту</li>
+          <li><strong>Time & Material</strong> — оплата фактических часов</li>
+          <li>Финальная стоимость уточняется на бриефинге</li>
+        </ul>
+      </div>
+    </div>
+</div>
+
+<!-- ════ СЛЕДУЮЩИЙ ШАГ ══════════════════════════════════════════════════════ -->
+<div class="cta-section">
+  <h2>Следующий шаг</h2>
+  <p>Свяжитесь с нами для уточнения объёма, обсуждения требований или подписания договора. Технический бриефинг занимает 30–60 минут.</p>
+  <div class="cta-btns">
+    <a href="mailto:" class="cta-btn-primary">Написать на email</a>
+    <a href="https://t.me/" class="cta-btn-secondary">Написать в Telegram</a>
+  </div>
+</div>
+
+<!-- ════ FOOTER ════════════════════════════════════════════════════════════ -->
+<footer>
+  <p>POC Launcher — кросс-платформенный инструмент для настройки Android-устройств</p>
+  <p style="margin-top:6px;">
+    <a href="presentation/index.html">Обзор продукта</a> ·
+    <a href="../docs/guides/install.html">Инструкция</a>
+  </p>
+  <p style="margin-top:8px; font-size:12px; color:var(--text-muted);">Действительно 30 дней · Цены без НДС · Сентябрь 2026</p>
+</footer>
+
+<script>
+(function () {
+  const root = document.documentElement;
+  const btn  = document.getElementById('themeBtn');
+  function setTheme(dark) {
+    root.setAttribute('data-theme', dark ? 'dark' : 'light');
+    try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch(e) {}
+    if (btn) {
+      const u = btn.querySelector('use');
+      if (u) u.setAttribute('href', dark ? '#icon-sun' : '#icon-moon');
+      btn.title = dark ? 'Светлая тема' : 'Тёмная тема';
+    }
+  }
+  window.toggleTheme = function () { setTheme(root.getAttribute('data-theme') !== 'dark'); };
+  let saved; try { saved = localStorage.getItem('theme'); } catch(e) {}
+  setTheme(saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches);
+})();
+</script>
+</body>
+</html>
